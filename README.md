@@ -2,6 +2,14 @@
 
 Design review + complete MVP 1 UI/UX design pack for Magnus HMS (radiology-first, privacy-first HMS · Java/Spring backend · React frontend · India: DPDP / PC-PNDT / AERB / GST).
 
+## Start here
+
+1. **docs/VISION.md** — what Magnus HMS is and what this repo is for
+2. **docs/DECISIONS.md** — every decision agreed in working sessions (D-01…D-20)
+3. **docs/FUTURE_PLAN.md** — next steps, quarterly roadmap, open items
+4. **docs/HANDOFF.md** — how to pick this up cold: repo map, screen IDs, how to edit/rebuild
+5. **00-project-log/PROJECT_LOG.md** — chronological engagement record
+
 ## Contents
 | Folder | What's inside |
 |---|---|
