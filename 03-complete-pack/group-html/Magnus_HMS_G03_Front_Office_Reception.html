@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Magnus HMS — G3 · Front Office & Reception</title><style>/* Magnus HMS — NS design pack shared design system */
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>MagnusPRO — G3 · Front Office & Reception</title><style>/* Magnus HMS — NS design pack shared design system */
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
 .mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
@@ -119,7 +119,7 @@ tr.dim td{color:#94A3B8}
 
 @page{size:A4;margin:0}@media print{body{background:#fff}}</style></head><body><section class="screen" id="cover">
 <div style="padding-top:120px"><div style="border-left:6px solid #0F766E;padding-left:22px">
-<div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">Magnus HMS · MVP 1 Complete Design Pack</div>
+<div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">MagnusPRO · MVP 1 Complete Design Pack</div>
 <h1 style="font-size:36px;font-weight:800">G3 · Front Office & Reception</h1>
 <p style="font-size:14px;color:#64748B;margin-top:10px">22 screens · every screen with alternate states · shared design system · synthetic data only (no PHI)</p></div>
 <div class="card" style="max-width:700px;margin-top:26px"><div class="card-title">Screens in this group</div>
@@ -128,7 +128,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">FO-01</span> Reception dashboard &amp; token board</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S1 Reception dashboard</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The front-office executive (D. Nair) keeps this board open all day to watch the live token queue, appointment arrivals and per-modality load, and to call the next patient to a service point. It must guarantee the queue is authoritative even when the network drops — actions queue locally and sync when reconnected. Key rules: tokens are branch-scoped (U = ultrasound, C = CT/consult desk, X = X-ray), no clinical data is shown here, and every "call next" / "mark no-show" action is written to the access log.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Reception</div>
@@ -219,7 +219,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE B — OFFLINE · ACTIONS QUEUED, 3 PENDING SYNC</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Reception</div>
@@ -257,7 +257,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE C — QUIET MORNING · EMPTY QUEUE</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Reception</div>
@@ -291,7 +291,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">FO-02</span> Patient search</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S2 Patient search</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front-office staff search before every booking or registration so duplicates are never created. Exact identifiers (MRN, phone, ABHA, insurance ID) return authoritative hits; name + DOB runs a fuzzy match with confidence chips. The screen must guarantee that every search is recorded with a purpose, results are masked to the minimum needed to disambiguate, and a failed search never shows a partial list that could be mistaken for "no match".</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Reception</div>
@@ -429,7 +429,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">FO-03</span> Patient registration — demographics &amp; identity</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S3 Registration — demographics step</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office registers a new patient after search returned no match (FO-02). Captures name in any language plus structured given/family names, DOB with auto-computed age, contact, address and optional identifiers. Must guarantee: Aadhaar stored as last-4 only, children (&lt;18) automatically require a guardian block with proof-seen attestation, and nothing is saved until the duplicate-review step (FO-04) passes.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Reception</div>
@@ -558,7 +558,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">FO-04</span> Registration — duplicate review step</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S3 Registration — duplicate review step</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> After demographics entry (FO-03) the MPI compares the draft against all Meridian branches and shows candidate matches with per-field chips and a composite score. Front office chooses "Use existing" or "Create distinct"; creating distinct over a strong match is allowed but automatically opens an MPI review task (FO-08) with a mandatory reason. Candidates are privacy-masked — only the fields needed to disambiguate are shown.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Reception</div>
@@ -671,7 +671,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">FO-05</span> Registration — consent capture</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S3 Registration — consent step</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Final registration step: the patient (or guardian for minors) reviews the clinic privacy notice in their preferred language and grants purpose-level consent. Care and billing purposes are required to receive services; notifications and analytics are optional — analytics is unavailable for children. If a patient declines a required purpose, registration is <b>not blocked</b>: the refusal is recorded and flagged to the privacy team for follow-up. Staff-assisted (read-aloud) consent requires an attestation.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Reception</div>
@@ -798,7 +798,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">FO-06</span> Patient record — front-office view</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S7 Patient record</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front-office staff open this record when a patient calls, walks in, or a delivery/billing issue must be resolved. It must guarantee purpose-limited visibility: clinical content is never shown here — only identity, consent, visit/appointment/invoice history and delivery status. Aadhaar is always last-4 only; every open of this record is written to the access log with the operator's stated purpose.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Reception</div>
     <div class="nav-item">Front desk home</div>
@@ -949,7 +949,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">FO-07</span> Edit patient &amp; contact verification</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · closes review §5 delivery-hijack guard (relates FO-S7)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office edits demographics when a patient reports a change or an error is found. Every change requires a reason and is versioned with before/after values. A mobile-number change must be proven by OTP to the <b>new</b> number (or supervisor override with recorded reason) — this is the primary defence against report-hijack via contact takeover; on success all outstanding secure report links are voided and re-issued.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Reception</div>
     <div class="nav-item">Front desk home</div>
@@ -1062,7 +1062,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">FO-08</span> Patient merge queue — MPI</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · closes S-6 / N-2 patient merge (no vendor screen)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Data-quality reviewers (senior front office / MPI stewards) work this queue daily to resolve suspected duplicate patient records before they cause report mis-delivery or split history. Each candidate pair carries a match score, a source, and an SLA; items lock while a reviewer has them open so two staff never resolve the same pair. Resolution always happens in the compare screen (FO-09) — never from the list.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Reception</div>
     <div class="nav-item">Front desk home</div>
@@ -1148,7 +1148,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">FO-09</span> Merge compare &amp; resolve</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · closes S-6 / N-2 merge resolve (no vendor screen)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The reviewer builds the survivor record field-by-field from a locked duplicate pair, sees exactly what moves (appointments, reports, invoices, consents), and cannot complete without a second approver (four-eyes) plus typed confirmation. The losing MRN becomes a permanent alias — it is never reused and always resolves to the survivor. Merges are reversible for 30 days by an administrator.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Reception</div>
     <div class="nav-item">Front desk home</div>
@@ -1265,7 +1265,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">FO-10</span> Appointment scheduling</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S4 Appointment scheduling</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office books modality appointments against per-room day grids. The system must guarantee no double-booking (server-side slot hold with instant conflict rejection), correct prep instructions per study, and consent-gated sending of prep messages. Tokens are never issued at booking — only at physical check-in. Booking works offline: actions queue locally and sync when reconnected.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Reception</div>
     <div class="nav-item">Front desk home</div>
@@ -1373,7 +1373,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">FO-11</span> Reschedule / cancel appointment</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S6 Reschedule / cancel</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office staff (D. Nair) use this screen when a patient calls or walks in to move or cancel a booked appointment. Rescheduling must keep the same appointment reference (APPT-2026-5xxxx), re-notify the patient on their consented channels, and never lose the linked imaging order — a cancellation returns the order to <b>awaiting scheduling</b> so it stays visible on the modality worklist backlog. Cancellations are never deleted: a mandatory reason and note are kept on file permanently.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Front desk</div>
@@ -1521,7 +1521,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">FO-12</span> Appointments day list</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S10 Appointments</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The front desk's home view for a branch day: every appointment across service points with live status, tokens and wait times. D. Nair works it continuously — searching by name/MRN/token, checking patients in from the right rail, and reconciling no-shows at end of day. It must guarantee that status tabs match the queue in real time and that every check-in/manage action is attributable and audited.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Front desk</div>
@@ -1639,7 +1639,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">FO-13</span> Check-in &amp; token issuance</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S5 Check-in & token issuance</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> When a patient presents at reception, D. Nair matches them to the appointment, reviews the gate summary (safety screening, consent, Form F for obstetric US, payment) <b>before</b> a token can be issued, then issues the token with queue position and estimated wait. It must guarantee no token is issued while a blocking gate is open, and that late arrivals are offered requeue or reschedule rather than silently jumping the queue.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Front desk</div>
@@ -1779,7 +1779,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">FO-14</span> Queue control &amp; public display</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S5 queue control + FO-S9 display rules</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office and technologists run the live queues per service point: call the next token, recall, skip, requeue, transfer between service points, or confirm a no-show after two missed calls. Every queue action is individually audited with operator identity. The waiting-area public display defaults to token-only privacy — no names, no MRNs — and any change to display settings is admin-gated.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Front desk</div>
@@ -1911,7 +1911,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">FO-15</span> Walk-in fast-track</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · walk-in fast-track (scope item #51)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office (D. Nair) uses this compressed single-stepper flow — Register → Consent → Order → Pay → Token — when a walk-in patient arrives without an appointment and the queue must keep moving. Only fields legally required for billing and safety are mandatory; everything else carries a "complete later" flag that surfaces in FO-17 end-of-day reconciliation. It must guarantee an inline duplicate check before a new MRN is minted, and it ends by printing token, invoice and prep instructions together in one action.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Reception</div>
     <div class="nav-item">Today's schedule</div>
@@ -2065,7 +2065,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">FO-16</span> Visit / encounter summary</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · N-7 visit/encounter spine (checklist #15/#16)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office and branch admins open this screen to see the full life of one visit — from registration to report delivery — as a single linked timeline, so any question ("did the report go out?", "is there a balance?") is answered from one place. Each timeline node deep-links to its source record, and the right rail shows balance, open items and related visits. It must guarantee that nothing on the visit is editable here; it is a read-and-navigate view, and it is the foundation for the future IPD encounter spine.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Reception</div>
     <div class="nav-item">Today's schedule</div>
@@ -2194,7 +2194,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">FO-17</span> End-of-day front-office reconciliation</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S1 no-show reconcile → full EOD close</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> At branch close (~20:00 IST) the front-office lead reconciles the day: every booked appointment must end as fulfilled, no-show (with an outcome), or cancelled; every token must be served or explained; every fast-track "complete later" flag must be resolved or carried with reason. Sign-off requires step-up identity confirmation and produces an immutable day record — nothing about the day can be edited afterwards, only annotated.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Reception</div>
     <div class="nav-item">Today's schedule</div>
@@ -2299,7 +2299,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">FO-18</span> Document &amp; referral intake</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · referred/paper intake (scope item #51)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office scans or uploads paper referrals, prior reports and ID-adjacent documents (PDF/JPG/PNG) and attaches each to the correct patient + visit + order so nothing lives loose on a counter. Doc type comes from a fixed taxonomy which auto-assigns the retention class; referrer details are captured from the letterhead and matched against the referrer directory. OCR runs later — every scan carries an "OCR pending" placeholder flag until then, and files containing Aadhaar numbers are auto-flagged for redaction to last-4.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Reception</div>
     <div class="nav-item">Today's schedule</div>
@@ -2409,7 +2409,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">FO-19</span> Appointment waitlist &amp; slot release</h1><div class="meta"><span class="chip amber">CONDITIONAL</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · waitlist (Conditional)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office staff manage a per-modality waitlist for fully booked slots. When a booked appointment is cancelled, the system auto-offers the released slot to the highest-priority waitlisted patient whose time-window preference matches, via SMS with a hold expiry; staff can also make a manual offer. Patients see their queue position transparently; the system must guarantee first-match-first-offer ordering and that an expired offer automatically cascades to the next candidate.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Reception</div>
     <div class="nav-item">Front desk queue <span class="nav-badge">14</span></div>
@@ -2511,7 +2511,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">FO-20</span> Family &amp; linked contacts</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S7 representatives section</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office staff link representatives to a patient record — guardian, DPDP nominee, emergency contact, bill-payer — each with an explicit, chip-visible scope of authority and validity period. The system must guarantee that authority is never implied by relationship alone: every capability (consent, records access, billing, collection of reports) is granted per checkbox with proof-of-relation noted, and guardianship of minors auto-expires at age 18 with an advance amber warning.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Reception</div>
     <div class="nav-item">Front desk queue <span class="nav-badge">14</span></div>
@@ -2610,7 +2610,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">FO-21</span> Shift handover</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · shift handover (ops continuity)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> At shift end, the outgoing front-office staffer compiles a handover — open queues, cash session reference, pending approvals, unresolved incidents and deliveries — adds notes, and hands to the incoming staffer, who must acknowledge with an identity confirmation. The system must guarantee an immutable handover record (HND-2026-xxxx) that neither party can edit after acknowledgement, and flag unacknowledged handovers past 30 minutes.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Reception</div>
     <div class="nav-item">Front desk queue <span class="nav-badge">6</span></div>
@@ -2713,7 +2713,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">FO-22</span> Kiosk self check-in</h1><div class="meta"><span class="chip amber">CONDITIONAL</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · kiosk self check-in (Conditional)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Patients with an appointment check themselves in at a lobby kiosk using phone last-4 + OTP or their appointment reference, and receive a printed queue token. The screen must guarantee zero PHI beyond the patient's first name, large-touch accessible controls with a language toggle, and a hard gate: if any form, consent or payment is pending, the kiosk never states why on screen — it prints a desk slip and routes the patient to reception.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>KIOSK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch · Kiosk-1 (lobby)</span></div><div class="userchip"><span class="av">K1</span>Kiosk mode · staff exit locked ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>KIOSK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch · Kiosk-1 (lobby)</span></div><div class="userchip"><span class="av">K1</span>Kiosk mode · staff exit locked ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Language / भाषा</div>
     <div class="nav-item active">English</div>

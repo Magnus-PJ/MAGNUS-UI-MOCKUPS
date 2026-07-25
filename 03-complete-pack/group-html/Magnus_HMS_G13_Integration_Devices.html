@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Magnus HMS — G13 · Integration & Devices</title><style>/* Magnus HMS — NS design pack shared design system */
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>MagnusPRO — G13 · Integration & Devices</title><style>/* Magnus HMS — NS design pack shared design system */
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
 .mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
@@ -119,7 +119,7 @@ tr.dim td{color:#94A3B8}
 
 @page{size:A4;margin:0}@media print{body{background:#fff}}</style></head><body><section class="screen" id="cover">
 <div style="padding-top:120px"><div style="border-left:6px solid #0F766E;padding-left:22px">
-<div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">Magnus HMS · MVP 1 Complete Design Pack</div>
+<div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">MagnusPRO · MVP 1 Complete Design Pack</div>
 <h1 style="font-size:36px;font-weight:800">G13 · Integration & Devices</h1>
 <p style="font-size:14px;color:#64748B;margin-top:10px">10 screens · every screen with alternate states · shared design system · synthetic data only (no PHI)</p></div>
 <div class="card" style="max-width:700px;margin-top:26px"><div class="card-title">Screens in this group</div>
@@ -128,7 +128,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">IN-01</span> Integration overview &amp; health</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IN-S1 → connector health board</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single status board for every external connector the branch depends on — PACS/archive, modality worklist (MWL/MPPS), messaging providers (DLT SMS, WhatsApp BSP, email), payment gateway (UPI) and edge-sync. Org admins and platform ops triage from here: each tile links to the connector detail, the incident queue and the 24-hour error-rate table. Auto-alert rules escalate to the on-call channel when a connector breaches its threshold; no patient data appears on this screen.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Integration</div>
@@ -197,7 +197,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE B — CONNECTOR DOWN · SMS (DLT) WITH IMPACT PANEL</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Integration</div>
@@ -251,7 +251,7 @@ tr.dim td{color:#94A3B8}
 <div class="divider-label">prototype: alternate states below</div>
 <div class="state-tag">STATE C — DEGRADED · PACS LATENCY ELEVATED</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Integration</div>
@@ -287,7 +287,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">IN-02</span> Imaging devices &amp; AE registry</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IN-S1 + AD-S11 single-write-surface fix</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Read-only registry of imaging equipment and their DICOM Application Entities for the branch. Technologists and admins verify connectivity (C-ECHO), MWL/MPPS state and review echo history when a modality misbehaves. All edits happen on the single write surface in Admin (AD-08) — this screen only links there, keeping device identity changes under approval workflow.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Integration</div>
@@ -393,7 +393,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">IN-03</span> Unknown AE &amp; quarantine</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · RT-S4 unknown-AE → quarantine queue</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Studies pushed from AE titles not in the registry are quarantined instead of entering the archive — a privacy and integrity guard. Admins triage each quarantined study: register the sending AE (routes to Admin AD-08 with approval), associate it with a known device that was renamed, or reject with a reason. Study metadata stays masked until a decision is made; quarantined data auto-purges after 30 days.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Integration</div>
@@ -509,7 +509,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">IN-04</span> PACS / archive connections</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · PACS/archive config (scope item #66)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Configuration and health of the branch's imaging archive: DIMSE endpoint, DICOMweb services (QIDO/WADO/STOW), TLS posture and storage-commitment status. Admins can run a masked query test from the console to verify end-to-end query paths. Any connection change requires an approval (four-eyes) plus a passing connectivity test before it activates; a secondary/failover archive slot is reserved for the roadmap.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Integration</div>
@@ -628,7 +628,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">IN-05</span> Message browser — HL7 / DICOM events</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · message browser (scope item #103 baseline)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Integration engineers and org admins search the full HL7 (ORM/ORU) and DICOM (MWL/MPPS/C-STORE) event log to trace an order or study end-to-end. Every message is correlated to an accession; raw payloads are PHI-minimised by default and require a reveal reason. Errors carry a taxonomy chip so triage can route failures to IN-06 Retry &amp; replay.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Connectors</div>
@@ -791,7 +791,7 @@ OBX|1|TX|IMP^Impression||No evidence of acute pulmonary embolism …||||||P
 <div class="screen-head"><h1><span class="sid">IN-06</span> Retry &amp; replay console</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · retry/replay console (scope item #103)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Failed HL7/DICOM/comms messages land in per-connector queues where staff can replay a single message or a filtered batch. Replays are idempotency-safe: every message carries a stable key, so a duplicate replay is acknowledged but suppressed downstream. Messages that fail repeatedly move to the POISON queue, which auto-raises an engineer task and suppresses further automatic retries.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Connectors</div>
@@ -929,7 +929,7 @@ OBX|1|TX|IMP^Impression||No evidence of acute pulmonary embolism …||||||P
 <div class="screen-head"><h1><span class="sid">IN-07</span> Comms provider connections</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IN-S3 comms providers + expiry alerting</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Org admins manage patient-communication channels: DLT-registered SMS (Jio route), WhatsApp BSP, and transactional email. The screen surfaces credential expiry countdowns, DLT template sync, email domain auth (SPF/DKIM/DMARC), and a drag-order failover chain. Test sends use sandbox numbers with synthetic data only — never real patient contacts.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Connectors</div>
@@ -1094,7 +1094,7 @@ OBX|1|TX|IMP^Impression||No evidence of acute pulmonary embolism …||||||P
 <div class="screen-head"><h1><span class="sid">IN-08</span> Printers &amp; peripherals</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IN-S2 printers & peripherals</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Registry of every service-point peripheral — token slip and label printers, wristband printers, public queue displays and signature pads — with live status pings and driver/queue diagnostics. Test prints use synthetic data only. When a device is down, the screen surfaces the front-office fallback (reprint at another desk) so patient flow never stalls.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Connectors</div>
@@ -1229,7 +1229,7 @@ OBX|1|TX|IMP^Impression||No evidence of acute pulmonary embolism …||||||P
 <div class="screen-head"><h1><span class="sid">IN-09</span> Webhooks &amp; API clients</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 + G16 — workspaces 'Integration' / operator</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · webhooks & API clients (Conditional, foundation)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Registry of API clients (future patient portal, partner integrations) with scoped credentials and per-client rate limits, plus webhook subscriptions onto the domain event backbone (OrderPlaced, ReportSigned…). Org admin creates clients in <b>sandbox</b> first; promotion to <b>live</b> and signing-secret rotation are step-up + dual-control actions. Delivery log shows retries with exponential backoff and dead-letter after 8 attempts.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org admin) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org admin) ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Integration</div>
     <div class="nav-item">Overview</div>
@@ -1329,7 +1329,7 @@ OBX|1|TX|IMP^Impression||No evidence of acute pulmonary embolism …||||||P
 <div class="screen-head"><h1><span class="sid">IN-10</span> Edge &amp; offline sync monitor</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 + G16 — workspaces 'Integration' / operator</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · edge/offline sync monitor (checklist #12–14)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Each branch runs an edge node that keeps front office and modality worklist working when the cloud link drops. This monitor shows per-branch sync freshness, outbound/inbound queues, and a CONFLICTS queue for same-record edits made offline and in cloud — resolved field-by-field (keep-cloud / keep-branch / merge), with four-eyes required when a clinical field is involved. Sync SLA: full catch-up ≤ 15 min after reconnect.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org admin) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org admin) ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Integration</div>
     <div class="nav-item">Overview</div>

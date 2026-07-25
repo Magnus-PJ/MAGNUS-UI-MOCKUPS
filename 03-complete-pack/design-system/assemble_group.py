@@ -44,13 +44,13 @@ def build(key):
         toc.append(f'<tr><td class="mono bold" style="color:#0F766E">{i}</td><td>{t}</td></tr>')
     cover = f'''<section class="screen" id="cover">
 <div style="padding-top:120px"><div style="border-left:6px solid #0F766E;padding-left:22px">
-<div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">Magnus HMS · MVP 1 Complete Design Pack</div>
+<div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">MagnusPRO · MVP 1 Complete Design Pack</div>
 <h1 style="font-size:36px;font-weight:800">{title}</h1>
 <p style="font-size:14px;color:#64748B;margin-top:10px">{len(frags)} screens · every screen with alternate states · shared design system · synthetic data only (no PHI)</p></div>
 <div class="card" style="max-width:700px;margin-top:26px"><div class="card-title">Screens in this group</div>
 <table><tr><th style="width:70px">ID</th><th>Screen</th></tr>{"".join(toc)}</table></div>
 <p class="muted small" style="margin-top:14px">Magnus Diagnostics → NUMINACORE · July 2026 · Prototype/reference — not committed product scope.</p></div></section>'''
-    html = f'<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Magnus HMS — {title}</title><style>{CSS}\n@page{{size:A4;margin:0}}@media print{{body{{background:#fff}}}}</style></head><body>{cover}{"".join(frags)}</body></html>'
+    html = f'<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>MagnusPRO — {title}</title><style>{CSS}\n@page{{size:A4;margin:0}}@media print{{body{{background:#fff}}}}</style></head><body>{cover}{"".join(frags)}</body></html>'
     hf = outdir/f"Magnus_HMS_{key}.html"; hf.write_text(html)
     print(f"{key}: {len(frags)} screens, missing={missing}, html={hf.stat().st_size//1024}KB")
     import os

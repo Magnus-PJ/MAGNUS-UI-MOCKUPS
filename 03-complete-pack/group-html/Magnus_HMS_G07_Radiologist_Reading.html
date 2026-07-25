@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Magnus HMS — G7 · Radiologist — Reading & Reporting</title><style>/* Magnus HMS — NS design pack shared design system */
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>MagnusPRO — G7 · Radiologist — Reading & Reporting</title><style>/* Magnus HMS — NS design pack shared design system */
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
 .mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
@@ -119,7 +119,7 @@ tr.dim td{color:#94A3B8}
 
 @page{size:A4;margin:0}@media print{body{background:#fff}}</style></head><body><section class="screen" id="cover">
 <div style="padding-top:120px"><div style="border-left:6px solid #0F766E;padding-left:22px">
-<div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">Magnus HMS · MVP 1 Complete Design Pack</div>
+<div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">MagnusPRO · MVP 1 Complete Design Pack</div>
 <h1 style="font-size:36px;font-weight:800">G7 · Radiologist — Reading & Reporting</h1>
 <p style="font-size:14px;color:#64748B;margin-top:10px">18 screens · every screen with alternate states · shared design system · synthetic data only (no PHI)</p></div>
 <div class="card" style="max-width:700px;margin-top:26px"><div class="card-title">Screens in this group</div>
@@ -128,7 +128,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">RD-01</span> Reading worklist</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · RR-S1 reading worklist</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The radiologist's home queue. Dr. V. Shetty opens it at shift start and works "open-next-unread" until the pool is clear. It must guarantee a single, unambiguous ownership state per study (Pending → Assigned → Accepted → Reading → Reported), enforce accept/steal rules (stealing an accepted study requires a typed reason and is logged), and surface SLA breaches with owner + escalation line. Image completeness comes live from TK-02 so a read never starts on a partial study unknowingly.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · Reading</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty · RMC MH-44721 ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · Reading</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty · RMC MH-44721 ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Reading</div>
     <div class="nav-item active">Worklist <span class="nav-badge">14</span></div>
@@ -290,7 +290,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">RD-02</span> Assignment &amp; teleradiology routing</h1><div class="meta"><span class="chip amber">CONDITIONAL</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · RR-S1 teleradiology action (Conditional)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Radiology lead (Dr. V. Shetty, acting lead) and admin K. Verma configure how incoming studies route: modality + branch + priority → internal pool or a teleradiology partner. It must guarantee that no study leaves the organisation without a live data-sharing agreement (DSA), that partner SLAs are visible at routing time, and that the cross-border residency guard blocks any route whose reading location violates the region data-residency policy. Manual reassignment always requires a typed reason.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · Reading</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty · Acting Radiology Lead ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · Reading</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty · Acting Radiology Lead ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Reading</div>
     <div class="nav-item">Worklist <span class="nav-badge">14</span></div>
@@ -369,7 +369,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">RD-03</span> DICOM viewer — core read</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · RR-S2 viewer + S-4 same-org priors fix</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Dr. V. Shetty opens a study from the worklist and reads it here: W/L presets, measure, zoom/cine, series rail, and a patient header that never scrolls away (wrong-patient safety). Same-org priors load automatically under the Treatment purpose — no deny wall, just a visible purpose chip and an access-log record. A true cross-org prior is listed but not fetched; it shows a request-access chip instead. If TK-02 reports the study incomplete, a partial-study banner blocks final signing until series arrive or the reader explicitly overrides.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · Reading</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty · RMC MH-44721 ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · Reading</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty · RMC MH-44721 ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Reading</div>
     <div class="nav-item">Worklist <span class="nav-badge">13</span></div>
@@ -483,7 +483,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">RD-04</span> Viewer degraded states</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · RR-S2 degraded/edge states</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Defines exactly how the viewer behaves when things go wrong mid-read: image-load timeouts (retry, then archive re-query), low-bandwidth progressive rendering, lossy-compression guards ("not for final read below quality Q90"), crash recovery that restores the session with annotations intact, and a concurrent-open warning when two readers hold the same study. It must guarantee that no final report is ever signed against lossy or incomplete pixels, and that degraded conditions are visible, actionable and logged — never silent.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · Reading</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty · RMC MH-44721 ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · Reading</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty · RMC MH-44721 ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Reading</div>
     <div class="nav-item">Worklist <span class="nav-badge">13</span></div>
@@ -567,7 +567,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">RD-05</span> Prior comparison layout</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · RR-S2 prior-comparison layout</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Invoked from RD-03 when a relevant prior exists: Dr. V. Shetty reads current vs prior side-by-side with synced scroll, peeks at the prior report's impression without leaving the viewer, and captures a structured delta note that feeds the report macro ("Compared with the 12 Feb 2026 study…"). It must guarantee that the prior actually loaded is the one cited in the report (accession-linked), that multiple priors are offered sorted by clinical relevance, and that same-org prior access carries the visible Treatment purpose chip.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · Reading</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty · RMC MH-44721 ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · Reading</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty · RMC MH-44721 ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Reading</div>
     <div class="nav-item">Worklist <span class="nav-badge">13</span></div>
@@ -667,7 +667,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">RD-06</span> Hanging protocols &amp; preferences</h1><div class="meta"><span class="chip grey">CONDITIONAL</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · hanging protocols (Conditional)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Radiologists (Dr. V. Shetty, Dr. A. Rao) configure per-modality default viewport layouts, window/level presets and keyboard shortcuts so every study opens ready-to-read. Preferences are stored per user against their RIS identity and sync to any Meridian workstation they log into — no local-machine state. Changes apply to the next study opened; the currently open study is never re-hung mid-read.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Reading</div>
@@ -779,7 +779,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE C — APPLIED PREVIEW (NEXT STUDY OPENS WITH PROTOCOL)</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
   <div class="body">
     <div class="main">
       <div class="crumb">Reading &rsaquo; ACC-2026-91247 &rsaquo; Viewer preview</div>
@@ -806,7 +806,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">RD-07</span> Structured report authoring</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · RR-S3 authoring + R-03 uncoded escape</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The radiologist authors the structured report against a modality/body-part template with macros, SNOMED CT / LOINC coding and a live prior-report side panel. The editor guarantees single-editor draft-lock (takeover requires a reason), autosave every 20 s, and a soft coding escape hatch — an uncoded term never hard-blocks, but a reason is required. Critical keywords typed into the text trigger an inline critical-flag suggestion.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Reading</div>
@@ -937,7 +937,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE D — REGULATED TEMPLATE (OBSTETRIC US · PC-PNDT FORM F LINKED)</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
   <div class="body">
     <div class="main">
       <div class="crumb">Drafts &rsaquo; ACC-2026-91302 &rsaquo; Report editor (regulated)</div>
@@ -966,7 +966,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">RD-08</span> Pre-sign quality checklist</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · pre-sign quality checklist</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Runs automatically when the radiologist presses "Proceed to sign" and can be run on demand from the editor. Auto-checks compare findings vs impression, laterality vs order, template completeness, comparison-vs-linked-prior consistency and uncoded terms. Warnings never hard-block: the radiologist may acknowledge each and continue to sign, and every acknowledgement is attributed and logged. It also advises when an addendum to an existing signed report is more appropriate than a new report.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Reading</div>
@@ -1021,7 +1021,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE B — WARNINGS PRESENT (SIGN STILL ALLOWED WITH EXPLICIT ACKNOWLEDGE)</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
   <div class="body">
     <div class="main">
       <div class="crumb">Drafts &rsaquo; ACC-2026-91233 &rsaquo; Pre-sign checks</div>
@@ -1068,7 +1068,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">RD-09</span> Report sign-off</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · RR-S4 sign-off + C-3 explicit declaration</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Final legal act of the reading workflow: the radiologist reviews summary rows, explicitly ticks the declaration (never pre-ticked), and confirms identity via the org-policy mechanism (Meridian policy: <b>passkey</b>, password fallback). Signing renders the immutable final PDF; any later change must be an addendum. Critical keywords force a communication decision before signing. A network drop mid-sign is handled idempotently — the system states plainly whether the report is signed or not.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Reading</div>
@@ -1150,7 +1150,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE D — SIGN FAILED (NETWORK DROP) · IDEMPOTENT RETRY · "NOT SIGNED" EXPLICIT</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
   <div class="body">
     <div class="main">
       <div class="crumb">Sign queue &rsaquo; ACC-2026-91302 &rsaquo; Sign-off</div>
@@ -1184,7 +1184,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">RD-10</span> Critical result — flag, tier &amp; send</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · RR-S4 critical toggle → full flag/tier/send (NS-01, S-1)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Used by the signing radiologist at the moment of report sign (or addendum sign) when a finding meets critical-communication criteria. It must guarantee a tiered acknowledgement clock starts (RED = 15 min, ORANGE = 4 h), that the outbound summary is SMS-safe with minimum PHI, and that a recipient is always resolved — verified referrer phone first, duty doctor fallback, or patient-directed script for self-referred patients. Send-now creates a tracked queue item in RD-11; the loop is only closed by a recorded acknowledgement.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Reading</div>
@@ -1339,7 +1339,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">RD-11</span> Critical results queue &amp; escalation</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · RR-S6 critical queue + S-1 send/owner/escalation</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The branch-level live queue of all critical-result communications, owned at role level by the duty coordinator (not an individual) so shift changes never orphan an alert. It must guarantee that every unacknowledged alert has an explicit Send/Resend action, severity-tiered windows (RED 15 min / ORANGE 4 h), an audible alert on lapse, and an automatic three-tier escalation ladder — Tier 1 referrer → Tier 2 branch medical lead → Tier 3 org clinical lead — with timestamps. The loop closes only via the record-acknowledgement modal (who, method, read-back).</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Reading</div>
@@ -1507,7 +1507,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">RD-12</span> Addendum authoring &amp; re-notify</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · RR-S5 addendum + S-1c critical flag & re-notify</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Used by a radiologist to append a correction or supplementary finding to an already-signed report — the original is never edited, a versioned addendum chains onto it (v1-final → v2-draft). It must guarantee a reason from the taxonomy, optional critical flagging with the RD-10 flow, and that on sign all prior recipients are automatically re-notified on their original channels. Wrong-patient / wrong-study errors are explicitly NOT fixable here — they route to the four-eyes retract-and-rebind admin workflow.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Reading</div>
@@ -1632,7 +1632,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">RD-13</span> Signed report &amp; distribution</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · RR-S7 signed report + R-04 distribution status</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The canonical view of a signed report and everywhere it has gone. Radiologists, front office and coordinators use it to verify delivery per recipient and to resend. It must guarantee that addenda surface at the top as the current truth (never buried below v1), that every export/print captures a purpose and is logged, and that reprints are watermarked "DUPLICATE COPY". Failed deliveries link to the notification-failure workflow (NS-07 pattern).</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Reading</div>
@@ -1736,7 +1736,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">RD-14</span> Report search &amp; registry</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · report registry & governed search</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The all-reports registry for radiologists, coordinators and QA — searchable by patient, accession, modality, date, signer and status (including addended and retracted). It must guarantee that opening a report outside your care team captures an access reason first, that row-level previews stay masked until a report is legitimately opened, and that bulk export is governance-blocked pending approval. Every search hit shown and every open is itself logged.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Reading</div>
@@ -1828,7 +1828,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">RD-15</span> Report version diff</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · RR-S5 chain → version diff view</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Radiologists, peer reviewers and medico-legal staff open this view whenever a signed report has one or more addenda, to see exactly what changed between versions before citing or releasing. It must guarantee that every version is immutable, every change is attributable (who / when / why), and that a clinically material change is flagged by the author and pushed to the referrer with a plain-language "what changed" summary. Signed versions can never be edited in place — only appended to.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Worklist</div>
     <div class="nav-item">My worklist <span class="nav-badge">12</span></div>
@@ -1926,7 +1926,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">RD-16</span> Second opinion / internal consult</h1><div class="meta"><span class="chip grey">CONDITIONAL</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · second opinion (Conditional)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> A reading radiologist who is unsure about a finding requests a quick internal opinion from a named colleague before signing, attaching a focused question and a region-of-interest note. The system must guarantee the opinion is appended as a <b>consult note that never becomes part of the signed report</b> (the author may cite it), that the consultee sees only the minimum patient context needed, and that a declined consult is rerouted rather than silently lost. A TAT expectation chip keeps the primary read's SLA visible throughout.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Worklist</div>
     <div class="nav-item">My worklist <span class="nav-badge">12</span></div>
@@ -2026,7 +2026,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">RD-17</span> Radiologist dashboard</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · AD-S6 KPIs → radiologist personal dashboard</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Dr. V. Shetty opens this at shift start and between reads to see personal turnaround performance versus target, everything pending by state, and anything overdue or awaiting critical-loop action — each with one-click open into the editor. It must guarantee the numbers are personal (own reads only), timestamped as-of, and rendered as accessible tables/KPIs rather than chart-only widgets so they work for screen readers and printouts.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Worklist</div>
     <div class="nav-item">My worklist <span class="nav-badge">12</span></div>
@@ -2144,7 +2144,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">RD-18</span> Templates &amp; macros admin</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · RR-S8 templates + C-3 locked statutory sections</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The lead radiologist (template owner) and admin K. Verma maintain the report templates and text macros radiologists dictate into — creating drafts, publishing versions, and retiring stale ones. The system must guarantee that REGULATED sections (e.g. the PCPNDT foetal-sex non-disclosure declaration on obstetric ultrasound) are locked and system-enforced — editable only via a governance change request — that every published version has a named approver, and that a template with open report drafts cannot be retired out from under them. Org-scoped templates override branch copies unless a branch variance is approved.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Worklist</div>
     <div class="nav-item">My worklist <span class="nav-badge">12</span></div>

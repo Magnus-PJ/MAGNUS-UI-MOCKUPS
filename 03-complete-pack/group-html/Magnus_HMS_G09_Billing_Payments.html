@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Magnus HMS — G9 · Billing & Payments</title><style>/* Magnus HMS — NS design pack shared design system */
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>MagnusPRO — G9 · Billing & Payments</title><style>/* Magnus HMS — NS design pack shared design system */
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
 .mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
@@ -119,7 +119,7 @@ tr.dim td{color:#94A3B8}
 
 @page{size:A4;margin:0}@media print{body{background:#fff}}</style></head><body><section class="screen" id="cover">
 <div style="padding-top:120px"><div style="border-left:6px solid #0F766E;padding-left:22px">
-<div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">Magnus HMS · MVP 1 Complete Design Pack</div>
+<div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">MagnusPRO · MVP 1 Complete Design Pack</div>
 <h1 style="font-size:36px;font-weight:800">G9 · Billing & Payments</h1>
 <p style="font-size:14px;color:#64748B;margin-top:10px">20 screens · every screen with alternate states · shared design system · synthetic data only (no PHI)</p></div>
 <div class="card" style="max-width:700px;margin-top:26px"><div class="card-title">Screens in this group</div>
@@ -128,7 +128,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">BL-01</span> Billing worklist &amp; outstanding dues</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S1 worklist (single MRN identity, D-11)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single queue for the cash desk: every invoice in the branch grouped by financial state, with an awaiting-confirmation tab for payments stuck between the patient and the payment provider. Cashier selects a row, sees the invoice summary in the right rail and jumps straight to Collect, Open or Dispute. Station lock protects the drawer session when the cashier steps away.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -225,7 +225,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE B — AWAITING-CONFIRMATION TAB FOCUSED</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -252,7 +252,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE C — EMPTY (ALL DUES CLEARED)</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -279,7 +279,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">BL-02</span> Invoice creation &amp; detail</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S2 invoice + C-5 GST fixes</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Cashier builds the invoice from the ordered services (rates and SAC codes pulled from the service catalog — no free-typed amounts), applies any discount which carries its own approval state, then issues the document. Issue is a legal, money-moving act: it pulls the next number from the central series registry and requires a step-up identity confirmation. Diagnostic services carry "Exempt (healthcare service)" labeling — never a 0% CGST/SGST row.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -372,7 +372,7 @@ tr.dim td{color:#94A3B8}
   </div>
 </div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -405,7 +405,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE C — CREDIT-INVOICE VARIANT (CORPORATE PAYER)</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni (Billing supervisor) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni (Billing supervisor) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -440,7 +440,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">BL-03</span> Payment collection</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S3 payment collection + cash UI</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Cashier collects against an issued invoice using CASH (tender/change with drawer session ref), CARD (terminal handshake) or UPI (dynamic QR with live status poll and a 3-minute countdown). Part-payments require a reason. On success Magnus issues a receipt from the RCP series and sends an SMS only if the patient's messaging consent allows it.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -533,7 +533,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE B — UPI AWAITING CONFIRMATION WITH COUNTDOWN</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -576,7 +576,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE C — SUCCESS · RECEIPT ISSUED</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -620,7 +620,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">BL-04</span> Payment pending &amp; reconciliation</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S3 pending → NS-09 UPI recovery</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Home for payments that did not confirm in the window: initiated → awaiting → 3-min timeout → UNCONFIRMED. Cashier can re-query the provider, mark received with evidence (UTR mandatory, supervisor approves asynchronously, with an explicit double-collection warning), or cancel-and-collect-cash under a duplicate-auto-refund guard. Late provider webhooks auto-resolve rows without cashier action.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -703,7 +703,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE C — AUTO-RESOLVED BY LATE WEBHOOK</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -728,7 +728,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE D — DUPLICATE DETECTED → AUTO-REFUND INITIATED</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni (Billing supervisor) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni (Billing supervisor) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -760,7 +760,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">BL-05</span> Receipts &amp; reprints</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S4 receipts + duplicate watermark</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Search and render any receipt on clinic letterhead with exempt labeling, payment mode + reference/UTR and collected-by details. Reprints always carry a DUPLICATE COPY watermark and append to the reprint log (who/when/why). Voiding a receipt is rare: it needs supervisor approval, a reason, and a cross-reference to the replacement document.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -839,7 +839,7 @@ tr.dim td{color:#94A3B8}
   </div>
 </div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -885,7 +885,7 @@ tr.dim td{color:#94A3B8}
   </div>
 </div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni (Billing supervisor) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni (Billing supervisor) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -916,7 +916,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">BL-06</span> Refunds</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S5 refunds + failure state</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Cashier raises a refund against a paid invoice/receipt — amount can never exceed the collected balance and a reason from the taxonomy is mandatory. Refunds route through the async approvals queue (BL-08); once approved they process on the original payment mode by preference, with a justified cash fallback. Failed bank/UPI refunds bounce into a recovery state with retry or alternate-method options, and every refund lands in the immutable refund register.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -1062,7 +1062,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">BL-07</span> Cancel invoice &amp; credit note</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S6 cancel + R-05 credit notes</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Cancelling an invoice always requires a reason and never hard-deletes anything. Same-day, pre-GST-filing invoices can be voided in place; anything already in the filed/locked period auto-drafts a credit note (CRN/AND/26-27/ series) that carries the original lines forward. The reissue-corrected flow links old invoice → credit note → new invoice into one auditable chain.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -1193,7 +1193,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">BL-08</span> Billing approvals queue</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S2/S5 approvals → NS-06 async queue</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> All money-sensitive requests — discounts over limit, refunds, invoice cancellations and write-offs — land in one async queue for the billing supervisor. The approver confirms identity before acting; rejections require a reason and bounce back to the requester with a notification. Requests untouched for 30 minutes past their hold window auto-void so counters are never blocked, and cashiers track everything in a my-requests view.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni (Billing supervisor) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni (Billing supervisor) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -1255,7 +1255,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE C — REQUESTER VIEW (CASHIER "MY REQUESTS")</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body"><div class="main">
   <div class="page-title">My requests — P. D'Souza</div>
   <div class="page-sub">Counter 2 · today 25 Jul 2026 · requests you raised and their live status</div>
@@ -1280,7 +1280,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">BL-09</span> Cash session &amp; end-of-day close</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · NS-08 cash session & EOD close</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Each cashier opens a cash session with a counted float and closes it end-of-day through a fixed stepper: count → reconcile → resolve → sign. System totals by mode are compared against counted cash and gateway-settled digital amounts; any non-zero variance demands a reason and a supervisor countersign. The close produces an immutable CSH-AND-2026-xxxx record, and gateway mismatches link straight into the BL-04 reconciliation ledger.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -1437,7 +1437,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">BL-10</span> Service catalog &amp; price lists</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S7 catalog & price lists</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The catalog is the single source of truth for billable services — code, SAC, modality, duration and base price — feeding the billing counter, appointment slots and GST documents. Prices change only through versioned price lists with effective dates (future-dated publish supported), branch overrides and payer/scheme columns. Every price change requires approval and lands in the change audit; nothing is edited in place on a live list.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Branch admin) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Branch admin) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -1547,7 +1547,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">BL-11</span> Payer &amp; scheme master</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S9 payers (re-scoped minimal into MVP1)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Central registry of corporate accounts, TPAs and government/CSR schemes that Meridian bills on credit. MVP-1 scope is deliberately minimal: credit-billing terms and per-payer rate lists only — claim submission, pre-authorisation and EDI integrations are deferred to a later wave. Billing supervisors maintain payer records; cashiers only consume them at invoice time.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -1606,7 +1606,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE B — PAYER DETAIL (TECHNOVA SOLUTIONS, CORPORATE)</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Masters &amp; setup</div>
@@ -1697,7 +1697,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">BL-12</span> Discount &amp; concession rules</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S2 discounts → rules & limits</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Defines who may discount how much, and which named concession schemes exist (staff, senior citizen, camps). Cashiers apply discounts within their role cap at invoice time; anything above the cap auto-routes to the approvals queue (BL-08) with a mandatory reason. Every applied discount is attributable to a rule or scheme — no free-text "adjustments".</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -1777,7 +1777,7 @@ tr.dim td{color:#94A3B8}
 <div class="divider-label">prototype: alternate states below</div>
 <div class="state-tag">STATE C — PER-SCHEME USAGE REPORT (JULY 2026 MTD)</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Masters &amp; setup</div>
@@ -1819,7 +1819,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">BL-13</span> Tax &amp; document numbering setup</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S8 setup + C-5c/d numbering & tax</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Org-admin-only setup for the branch GST profile and the central document number-series registry. Healthcare diagnostic services default to GST-exempt; only a curated taxable-exceptions list (e.g. cosmetic procedures) attracts GST. Number series are gapless, FY-scoped and can never be changed retroactively — the edit guard enforces this.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -1896,7 +1896,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE B — CENTRAL NUMBER-SERIES REGISTRY</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Masters &amp; setup</div>
@@ -1958,7 +1958,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">BL-14</span> Advances &amp; deposits</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · advances & deposits</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Cashiers collect advances (e.g. for high-value MRI packages or multi-visit protocols) against a purpose, issuing a receipt from the central series. The advance sits in the patient's advance ledger until applied to an invoice at billing or refunded. Refund of unused advance is a money-moving action: supervisor approval + step-up, paid preferentially back to the original instrument.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -2063,7 +2063,7 @@ tr.dim td{color:#94A3B8}
 <div class="divider-label">prototype: alternate states below</div>
 <div class="state-tag">STATE C — REFUND UNUSED ADVANCE (APPROVAL + STEP-UP) &amp; AGING REPORT</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -2115,7 +2115,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">BL-15</span> Patient statement &amp; ledger</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S7 history → full patient ledger</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single financial view per patient: every invoice, receipt, advance, refund and credit note with a running balance and aging buckets. Cashiers and supervisors resolve "what do I owe?" questions here, flag disputed rows, and share a statement only over a consent-checked channel. Clinical content never appears — line descriptions are service names only.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -2168,7 +2168,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE B — AGED BALANCE (AMBER) WITH FOLLOW-UP OWNER</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -2243,7 +2243,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">BL-16</span> Price estimate / quote</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · estimates/quotes</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office and billing staff build a pre-booking price estimate (EST/AND/26-27 series) from the active rate card, or from the payer's contracted rates if the visit is on credit. The estimate is valid 14 days, can be shared with the patient only per recorded consent, and converts to an invoice at visit time — with an automatic diff highlight if any price changed since the estimate was issued.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Billing</div>
     <div class="nav-item">Invoices</div>
@@ -2379,7 +2379,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">BL-17</span> Write-off &amp; bad debt</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · write-off & bad debt</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Billing staff raise a write-off request against an aged outstanding balance; the request requires a documented collection-attempts log and a reason code. Only the org admin can approve, with step-up identity confirmation, since a write-off moves money off the books. Approved write-offs land in the branch write-off register with a monthly summary, and are automatically reversed if the patient later pays.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Billing</div>
     <div class="nav-item">Invoices</div>
@@ -2526,7 +2526,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">BL-18</span> Day book &amp; collections report</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · day book & collections</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The day book is the branch's reconciliation view: collections for a date range broken down by payment mode, by user (cashier) and by service group, alongside refunds, voids and cash-drawer variance incidents. Every export (CSV/PDF) is logged with who exported and why, and every figure drills down to the underlying receipts.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Billing</div>
     <div class="nav-item">Invoices</div>
@@ -2699,7 +2699,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">BL-19</span> GST summary export</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · C-5e GST summary export</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The billing supervisor selects a GST period and reviews the exempt-supplies summary (value by SAC), the small set of taxable exceptions with tax computed, and credit-note adjustments, before exporting a GSTR-1-ready CSV for the CA. Export locks the period against back-dated changes; re-opening a locked period requires org-admin approval with identity confirmation.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Billing</div>
     <div class="nav-item">Invoices</div>
@@ -2852,7 +2852,7 @@ tr.dim td{color:#94A3B8}
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Implements the expert-panel decision <b>Option C — organisation-configurable report release policy with authorised clinical override and full audit</b>. The screen separates two statuses that the legacy system conflated: <b>SIGNED</b> (the clinical act is complete and the report is immutable — RD-09) and <b>RELEASED</b> (delivery of the report to patient/referrer is permitted — feeds NT-01 delivery). Policy is set once at organisation level (admin view, top); day-to-day the billing/front-office desk works the release queue (second frame). Reports flagged critical (RD-10) are never held for payment.</div>
 
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org admin) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org admin) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -2909,7 +2909,7 @@ tr.dim td{color:#94A3B8}
 </div>
 
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front office) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front office) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -2964,7 +2964,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE C — RELEASED RECORD VIEW (AFTER OVERRIDE)</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front office) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front office) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>

@@ -40,3 +40,5 @@ Chronological record of every decision taken during the review-and-design engage
 | D-29 | SLA engine = `sla_deadline`/`sla_status` fields + scheduled sweep with auto-escalation; 99.5% uptime allows planned Sunday-night window. | DOC-09 §11. |
 | D-30 | Viewer = integrate (OHIF embedded / external launch), never build; prior-selection contract: accession + prior UIDs (same patient/modality/24 months) in launch URL. | RD-05 updated; DOC-09 §7. |
 | D-31 | Branding: synthetic tenant names to be replaced with final product name **before UAT** (name TBD by Magnus). | Pending client. |
+| D-32 | **Working product name = MagnusPRO** (applied across all 226 screens and pack covers; final legal name confirmed at UAT per D-31). | Synthetic tenant names (Meridian etc.) remain as demo tenants. |
+| D-33 | **Enterprise bars adopted:** zero-trust, air-gap capable, GDPR + HIPAA ready (in addition to DPDP). Gap audit published as DOC-11: 4 hard gaps (AU-19 device trust/JIT, IN-11 air-gap transfer, PL-13 offline updates, GV-17 disclosures + GV-18 training), 12 state-level partials, 0 foundation-breaking defects. | Backfill placement per DOC-11 §6. |

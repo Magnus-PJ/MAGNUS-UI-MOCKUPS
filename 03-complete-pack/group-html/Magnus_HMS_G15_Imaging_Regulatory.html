@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Magnus HMS — G15 · Imaging Regulatory (PC-PNDT / AERB)</title><style>/* Magnus HMS — NS design pack shared design system */
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>MagnusPRO — G15 · Imaging Regulatory (PC-PNDT / AERB)</title><style>/* Magnus HMS — NS design pack shared design system */
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
 .mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
@@ -119,7 +119,7 @@ tr.dim td{color:#94A3B8}
 
 @page{size:A4;margin:0}@media print{body{background:#fff}}</style></head><body><section class="screen" id="cover">
 <div style="padding-top:120px"><div style="border-left:6px solid #0F766E;padding-left:22px">
-<div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">Magnus HMS · MVP 1 Complete Design Pack</div>
+<div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">MagnusPRO · MVP 1 Complete Design Pack</div>
 <h1 style="font-size:36px;font-weight:800">G15 · Imaging Regulatory (PC-PNDT / AERB)</h1>
 <p style="font-size:14px;color:#64748B;margin-top:10px">6 screens · every screen with alternate states · shared design system · synthetic data only (no PHI)</p></div>
 <div class="card" style="max-width:700px;margin-top:26px"><div class="card-title">Screens in this group</div>
@@ -128,7 +128,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">IR-01</span> Form F register</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IR-S1 → Form F register</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The Form F register is the single source of truth for every PC-PNDT Form F generated at a centre — one record per prenatal ultrasound procedure, tamper-evident from the moment of capture. Compliance staff filter by month, resolve needs-attention items inline (missing signature, missing indication) before the monthly filing cutoff, and bulk-open records for review. Records feed IR-02 monthly submission prep; the filing month is determined by <b>scan date</b>, not entry date.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West (PNDT Regn MH/AND/PNDT/0142)</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West (PNDT Regn MH/AND/PNDT/0142)</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">PC-PNDT</div>
     <div class="nav-item active">Form F register <span class="nav-badge red">3</span></div>
@@ -247,7 +247,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">IR-02</span> Monthly submission prep</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IR-S2 + C-2 validation & cutoff</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Prepares the centre's PC-PNDT Form F monthly filing: counts records by readiness, runs the full validation suite (patient signature, doctor PNDT validity, machine registration), and turns every failure into an owned fix-list item. The month cutoff is <b>scan date</b> — anything scanned in July files in the July batch regardless of when it was entered. A due-by-5th countdown drives escalation to the org admin and Privacy Officer if the batch risks going overdue.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West (PNDT Regn MH/AND/PNDT/0142)</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West (PNDT Regn MH/AND/PNDT/0142)</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">PC-PNDT</div>
     <div class="nav-item">Form F register <span class="nav-badge red">3</span></div>
@@ -395,7 +395,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">IR-03</span> Submission &amp; acknowledgement</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IR-S2 + C-2 receipts & immutability</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Generates the monthly Form F submission file in the format required by the Appropriate Authority, records the act of submission (portal or physical, submitted-by with step-up identity confirmation, date), then captures the authority's receipt/acknowledgement (upload, reference number, date). Once the ack is captured, the month's submission record and its register become immutable — later fixes flow only through corrections (IR-04).</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West (PNDT Regn MH/AND/PNDT/0142)</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West (PNDT Regn MH/AND/PNDT/0142)</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">PC-PNDT</div>
     <div class="nav-item">Form F register</div>
@@ -528,7 +528,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">IR-04</span> Corrections &amp; resubmission</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · C-2 corrections/resubmission</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Once a month is acknowledged its Form F records are immutable, so any error is remedied through a correction record: it links the original FF, classifies the error against a reason taxonomy, and queues the correction for inclusion in the next monthly submission. The system generates a correction letter for the Appropriate Authority and maintains a register of corrections with authority responses. Creating a correction requires step-up identity confirmation plus a second approver (four-eyes: Dr. A. Rao, Privacy Officer).</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West (PNDT Regn MH/AND/PNDT/0142)</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West (PNDT Regn MH/AND/PNDT/0142)</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">PC-PNDT</div>
     <div class="nav-item">Form F register</div>
@@ -668,7 +668,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">IR-05</span> AERB Compliance Register</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · AD-S11 → AERB compliance register</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single register for every radiation-generating unit across Meridian branches: AERB/eLORA licences and validity, RSO designation, dose-event (DRL exceedance) log with physicist review, and inspection findings with corrective actions. Renewal reminders auto-create obligations in the Regulatory Calendar (IR-06) at T-90/T-60/T-30. Licence records are legal evidence — edits require step-up identity confirmation and are never hard-deleted.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Imaging Regulatory</div>
     <div class="nav-item">PC-PNDT register</div>
@@ -804,7 +804,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid">IR-06</span> Regulatory Calendar &amp; Obligations</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · regulatory calendar</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> One unified list of every recurring statutory obligation — PC-PNDT Form F monthly filing (by the 5th), AERB licence renewals and RSO reviews, DPDP attestations and rights-SLA checks — each with an owner, due date, evidence links and status. The system auto-creates tasks at configurable lead times and escalates overdue items up the ownership chain. A year heat-strip (rendered as an accessible table) shows load and misses per month.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Imaging Regulatory</div>
     <div class="nav-item">PC-PNDT register</div>

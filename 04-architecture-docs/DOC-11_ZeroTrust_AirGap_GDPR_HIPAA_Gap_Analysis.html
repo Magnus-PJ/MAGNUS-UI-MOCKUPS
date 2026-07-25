@@ -1,0 +1,131 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DOC-11 Gap Analysis — MagnusPRO</title><style>/* Magnus HMS — NS design pack shared design system */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
+.mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
+.muted{color:#64748B}.small{font-size:12px}.bold{font-weight:700}
+/* ---------- page / screen frame ---------- */
+.screen{page-break-after:always;padding:28px 34px;background:#fff;min-height:1000px}
+.screen-head{display:flex;justify-content:space-between;align-items:flex-start;border-left:5px solid #0F766E;padding:6px 0 6px 14px;margin-bottom:6px}
+.screen-head h1{font-size:22px;font-weight:800}
+.screen-head .sid{color:#0F766E;margin-right:10px}
+.screen-head .meta{text-align:right}
+.screen-head .meta .cluster{color:#64748B;font-size:12px;margin-top:3px}
+.gap-note{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:8px 12px;margin:10px 0 16px;font-size:12.5px;color:#7C2D12}
+.gap-note b{color:#9A3412}
+/* ---------- app chrome ---------- */
+.frame{border:1px solid #CBD5E1;border-radius:10px;overflow:hidden;background:#F4F6F8;box-shadow:0 1px 4px rgba(15,23,42,.08);margin-bottom:22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:2px solid #0F766E;padding:9px 16px}
+.brand{font-weight:800;color:#0F766E}.brand span{color:#1E293B}
+.org{font-size:12.5px;color:#334155;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px}
+.userchip{font-size:12.5px;color:#334155}
+.userchip .av{display:inline-block;background:#CCFBF1;color:#0F766E;font-weight:700;border-radius:5px;padding:2px 6px;margin-right:6px;font-size:11px}
+.body{display:flex;min-height:520px}
+.sidebar{width:196px;background:#fff;border-right:1px solid #E2E8F0;padding:12px 0;flex-shrink:0}
+.sec-label{font-size:10.5px;letter-spacing:.08em;color:#94A3B8;font-weight:700;padding:8px 16px 4px;text-transform:uppercase}
+.nav-item{padding:7px 16px;font-size:13px;color:#334155;display:flex;justify-content:space-between;align-items:center}
+.nav-item.active{background:#F0FDFA;color:#0F766E;font-weight:700;border-left:3px solid #0F766E;padding-left:13px}
+.nav-badge{background:#0F766E;color:#fff;border-radius:9px;font-size:10.5px;padding:1px 7px;font-weight:700}
+.nav-badge.red{background:#B91C1C}
+.main{flex:1;padding:16px 18px;min-width:0}
+.crumb{font-size:12px;color:#64748B;margin-bottom:8px}
+.page-title{font-size:19px;font-weight:800;margin-bottom:2px}
+.page-sub{font-size:12.5px;color:#64748B;margin-bottom:14px}
+.actions-right{float:right}
+/* ---------- components ---------- */
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card-title{font-weight:800;font-size:14.5px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.card-title .right{font-size:10.5px;letter-spacing:.07em;color:#94A3B8;font-weight:700;text-transform:uppercase}
+.row{display:flex;gap:14px}.row>*{min-width:0}.grow{flex:1}
+.btn{display:inline-block;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:700;border:1px solid #CBD5E1;background:#fff;color:#334155;text-align:center;white-space:nowrap}
+.btn.primary{background:#0F766E;border-color:#0F766E;color:#fff}
+.btn.danger{background:#B91C1C;border-color:#B91C1C;color:#fff}
+.btn.warn-outline{border-color:#F59E0B;color:#92400E;background:#FFFBEB}
+.btn.ghost{border:none;background:none;color:#0F766E;padding:7px 6px}
+.btn.small{padding:4px 10px;font-size:12px}
+.btn.disabled{opacity:.45}
+.chip{display:inline-block;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip.teal{background:#CCFBF1;color:#0F766E}
+.chip.green{background:#DCFCE7;color:#15803D}
+.chip.amber{background:#FEF3C7;color:#92400E}
+.chip.red{background:#FEE2E2;color:#B91C1C}
+.chip.grey{background:#F1F5F9;color:#475569}
+.chip.blue{background:#E0F2FE;color:#0369A1}
+.chip.violet{background:#EDE9FE;color:#6D28D9}
+.chip.outline-red{background:#fff;border:1.5px solid #B91C1C;color:#B91C1C}
+.banner{border-radius:8px;padding:10px 13px;font-size:12.5px;margin-bottom:12px;border:1px solid}
+.banner b{display:block;margin-bottom:2px;font-size:13px}
+.banner.info{background:#E0F2FE;border-color:#7DD3FC;color:#075985}
+.banner.warn{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+.banner.danger{background:#FEE2E2;border-color:#FCA5A5;color:#991B1B}
+.banner.success{background:#DCFCE7;border-color:#86EFAC;color:#166534}
+.banner.reg{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding:7px 9px;border-bottom:2px solid #E2E8F0;background:#F8FAFC}
+td{padding:8px 9px;border-bottom:1px solid #EEF2F6;vertical-align:top}
+tr.hl td{background:#F0FDFA}
+tr.dim td{color:#94A3B8}
+.kv{display:grid;grid-template-columns:150px 1fr;row-gap:6px;column-gap:12px;font-size:12.5px}
+.kv dt{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding-top:2px}
+.kv dd{margin:0}
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+.field label .req{color:#B91C1C}
+.field .hint{font-size:11px;color:#64748B;margin-top:3px}
+.input,.select,.textarea{width:100%;border:1px solid #CBD5E1;border-radius:7px;padding:7px 10px;font-size:13px;background:#fff;color:#1E293B}
+.input.err{border-color:#B91C1C;background:#FEF2F2}
+.textarea{min-height:64px}
+.check{font-size:12.5px;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.box{display:inline-block;width:14px;height:14px;border:1.6px solid #64748B;border-radius:3px;flex-shrink:0;margin-top:1px;text-align:center;line-height:12px;font-size:11px;font-weight:800}
+.box.on{background:#0F766E;border-color:#0F766E;color:#fff}
+.radio{border-radius:50%}
+.radio.on{background:#fff;border-color:#0F766E;box-shadow:inset 0 0 0 3.5px #0F766E;color:transparent}
+/* modal */
+.modal-wrap{background:#64748B22;border:1px dashed #94A3B8;border-radius:12px;padding:26px 40px;margin:14px 0}
+.modal{background:#fff;border-radius:12px;border-top:5px solid #0F766E;box-shadow:0 8px 30px rgba(15,23,42,.25);max-width:560px;margin:0 auto;padding:18px 20px}
+.modal.danger{border-top-color:#B91C1C}
+.modal h3{font-size:16px;margin-bottom:8px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+/* misc */
+.divider-label{text-align:center;color:#94A3B8;font-size:11.5px;margin:20px 0 14px;position:relative}
+.divider-label:before,.divider-label:after{content:"";display:inline-block;width:24%;border-top:1px dashed #CBD5E1;vertical-align:middle;margin:0 10px}
+.audit{font-size:11px;color:#8A6D1D;margin-top:10px}
+.audit:before{content:"🔒 "}
+.state-tag{font-size:10px;letter-spacing:.08em;font-weight:800;text-transform:uppercase;color:#94A3B8;text-align:right;margin-bottom:4px}
+.kpi-row{display:flex;gap:12px;margin-bottom:14px}
+.kpi{flex:1;background:#fff;border:1px solid #E2E8F0;border-left:4px solid #0F766E;border-radius:9px;padding:10px 13px}
+.kpi.amber{border-left-color:#F59E0B}.kpi.red{border-left-color:#B91C1C}
+.kpi .n{font-size:23px;font-weight:800}.kpi .l{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700}
+.kpi .s{font-size:11px;color:#64748B;margin-top:2px}
+.stepper{display:flex;gap:6px;align-items:center;font-size:12px;color:#64748B;margin-bottom:14px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:6px}
+.step .dot{width:20px;height:20px;border-radius:50%;background:#E2E8F0;color:#475569;font-size:11px;font-weight:800;text-align:center;line-height:20px}
+.step.done .dot{background:#15803D;color:#fff}.step.cur .dot{background:#0F766E;color:#fff}
+.step.cur{color:#0F766E;font-weight:700}
+.step-line{width:26px;border-top:2px solid #CBD5E1}
+.sig-box{border:1.5px dashed #94A3B8;border-radius:8px;min-height:64px;background:#F8FAFC;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:12px;font-style:italic}
+.sig-box.signed{border-style:solid;border-color:#15803D;color:#166534;background:#F0FDF4;font-family:'Segoe Script','Comic Sans MS',cursive;font-size:17px;font-style:normal}
+.ladder{border-left:3px solid #E2E8F0;margin-left:8px;padding-left:16px}
+.ladder .tier{margin-bottom:12px;position:relative}
+.ladder .tier:before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:#CBD5E1}
+.ladder .tier.done:before{background:#15803D}.ladder .tier.cur:before{background:#0F766E;box-shadow:0 0 0 3px #CCFBF1}
+.ladder .tier.fail:before{background:#B91C1C}
+.progress{height:7px;border-radius:4px;background:#E2E8F0;overflow:hidden;margin-top:4px}
+.progress i{display:block;height:100%;background:#0F766E}
+.progress.amber i{background:#F59E0B}.progress.red i{background:#B91C1C}
+.split{display:grid;grid-template-columns:1fr 300px;gap:14px}
+.timeline{font-size:12.5px}
+.timeline .ev{display:flex;gap:10px;margin-bottom:9px}
+.timeline .t{color:#64748B;white-space:nowrap;font-family:Consolas,monospace;font-size:11.5px;padding-top:1px}
+ body{background:#F4F6F8;padding:30px} .doc{max-width:1150px;margin:0 auto}</style></head><body><div class="doc"><div style="background:#fff;border-left:6px solid #0F766E;border-radius:0 10px 10px 0;padding:16px 18px;margin-bottom:18px">
+<div style="font-size:11px;letter-spacing:.12em;font-weight:800;color:#0F766E;text-transform:uppercase">MagnusPRO · MVP 1 · Architecture &amp; Workflow Documentation</div>
+<h1 style="font-size:26px;margin:6px 0">DOC-11 — Zero-Trust · Air-Gap · GDPR · HIPAA — Gap Analysis</h1>
+<p class="muted" style="font-size:13px">The 226-screen pack audited against five enterprise bars: zero-trust, air-gapped operation, GDPR, HIPAA, and a foundation strong enough to carry every future healthcare module (IPD, OT, ICU, ER, IVF, nuclear medicine, LIS, pharmacy, CRM, telehealth, AI). Working product name: <b>MagnusPRO</b> (final name at UAT). Version 1.0 · July 2026.</p></div>
+<div class="banner success"><b>Headline</b>The foundation holds: identity, consent, audit, encounter spine, order model, event backbone, rulebooks and ops surfaces are enterprise-ready. The audit found <b>4 hard gaps</b> (device trust, true air-gap transfer, offline updates, disclosures register + training tracker), <b>12 partial items</b> closable as state-level additions, and <b>0 foundation-breaking defects</b> — nothing requires re-architecting what is already designed.</div>
+<div class="card"><div class="card-title">1 · Zero-trust</div><table><tr><th>Zero-trust principle</th><th>Status</th><th>Evidence in pack</th><th>Gap & required addition</th></tr><tr><td>Identity-centric access, MFA everywhere</td><td><span class='chip green'>COVERED</span></td><td>AU-01…18, Keycloak realms, MFA mandatory roles (AU-15)</td><td>—</td></tr><tr><td>Least privilege + JIT, time-boxed grants</td><td><span class='chip amber'>PARTIAL</span></td><td>Time-boxed access (DD-06/NS-14), scoped service accounts (AU-18)</td><td><b>ZT-1:</b> No JIT privileged elevation (PIM-style: request admin rights for N hours, auto-revoke, approval + audit). Add as states on AD-05 or new AU-19.</td></tr><tr><td>Device trust & posture</td><td><span class='chip red'>GAP</span></td><td>Kiosk/display binding only (AU-17)</td><td><b>ZT-2:</b> No device registry/attestation or conditional access (managed vs unmanaged device, geo/network rules, block-or-limit policy). New screen AU-19 'Conditional access & device trust'.</td></tr><tr><td>Continuous verification / adaptive risk</td><td><span class='chip amber'>PARTIAL</span></td><td>Anomaly chips (AU-17), step-up matrix (AU-09), session timeouts</td><td><b>ZT-3:</b> No adaptive policy engine UI (risk score → force re-auth / restrict). Roadmap; document policy hooks in DOC-09 now.</td></tr><tr><td>Micro-segmentation & service identity (mTLS)</td><td><span class='chip amber'>PARTIAL</span></td><td>DOC-09: mTLS on edge sync; adapters isolated</td><td><b>ZT-4:</b> Architecture doc must mandate mTLS service-to-service + per-service identity org-wide (backend; no UI). Extend DOC-09 §2.</td></tr><tr><td>Assume breach: egress control & DLP</td><td><span class='chip amber'>PARTIAL</span></td><td>Export governance + watermarking (GV-15), bulk-open anomaly flags (AD-20)</td><td><b>ZT-5:</b> No DLP policy surface (bulk-download thresholds, auto-block + alert). Add policy card to GV-15.</td></tr><tr><td>No standing operator access</td><td><span class='chip green'>COVERED</span></td><td>PL-06/PL-12 (tenant-approved, time-boxed, dual control)</td><td>—</td></tr></table></div>
+<div class="card"><div class="card-title">2 · Air-gapped &amp; highly secure operation</div><table><tr><th>Air-gap requirement</th><th>Status</th><th>Evidence</th><th>Gap & required addition</th></tr><tr><td>Offline-outage operation (hours)</td><td><span class='chip green'>COVERED</span></td><td>DS-04 matrix, IN-10 sync monitor, FO offline queues, DOC-09 §8</td><td>—</td></tr><tr><td>True air-gapped branch (no internet, sustained)</td><td><span class='chip red'>GAP</span></td><td>Checklist #8 promised the model; pack designs outage-mode only</td><td><b>AG-1:</b> New screen IN-11 'Air-gap transfer console' — export signed+encrypted sync bundles to removable media, import with integrity/chain-of-custody verification, transfer register.</td></tr><tr><td>Local identity when cloud IdP unreachable forever</td><td><span class='chip amber'>PARTIAL</span></td><td>AU-13 degraded mode (temporary)</td><td><b>AG-2:</b> Air-gapped mode needs a local Keycloak replica policy (local accounts, local MFA, periodic offline reconciliation). Extend AU-16 + DOC-09.</td></tr><tr><td>Offline software updates</td><td><span class='chip red'>GAP</span></td><td>PL-08 edge waves assume connectivity</td><td><b>AG-3:</b> PL-13 'Offline update bundles' — signed release bundles, out-of-band delivery, edge verification before apply, version attestation back via transfer console.</td></tr><tr><td>Local backup & audit retention in air-gap</td><td><span class='chip amber'>PARTIAL</span></td><td>PL-09 backups are cloud-framed; audit hash-chain exists</td><td><b>AG-4:</b> Define local backup rotation + tamper-evident local audit export in IN-11/DOC-09.</td></tr></table></div>
+<div class="card"><div class="card-title">3 · GDPR (international deployments)</div><table><tr><th>GDPR article / duty</th><th>Status</th><th>Evidence</th><th>Gap & required addition</th></tr><tr><td>Art 6 — lawful basis beyond consent</td><td><span class='chip amber'>PARTIAL</span></td><td>Consent purposes (AD-10), purpose-of-use chips</td><td><b>GD-1:</b> Add lawful-basis field (consent / contract / legal obligation / vital interest / legitimate interest) to processing-activity register GV-12 and audit schema.</td></tr><tr><td>Art 15 — right of access</td><td><span class='chip green'>COVERED</span></td><td>GV-05 copy compile, PT-09 submission</td><td>—</td></tr><tr><td>Art 16/17 — rectification & erasure</td><td><span class='chip green'>COVERED</span></td><td>GV-04/GV-05, retention-aware refusals</td><td>—</td></tr><tr><td>Art 18/21 — restriction & objection</td><td><span class='chip red'>GAP</span></td><td>No processing-restriction state exists</td><td><b>GD-2:</b> 'Processing restricted' flag on patient record (freeze use, retain data), visible banner + suppression of non-essential processing. States on FO-06 + GV-05.</td></tr><tr><td>Art 20 — portability (machine-readable)</td><td><span class='chip amber'>PARTIAL</span></td><td>GV-05 copy is document-oriented</td><td><b>GD-3:</b> Add FHIR-JSON bundle export option to GV-05 ('portability format').</td></tr><tr><td>Art 33 — 72h authority notification</td><td><span class='chip amber'>PARTIAL</span></td><td>GV-09 clocks are CERT-In/DPB (India)</td><td><b>GD-4:</b> Regional rulebook (PL-05) must swap statutory clocks per region: GDPR 72h supervisory authority + Art 34 data-subject notice. Add GDPR policy pack row.</td></tr><tr><td>Art 35 — DPIA</td><td><span class='chip green'>COVERED</span></td><td>GV-12 DPIA-lite with full-DPIA triggers</td><td>—</td></tr><tr><td>Art 44+ — transfer mechanisms (SCCs)</td><td><span class='chip amber'>PARTIAL</span></td><td>GV-14 'no transfers' posture</td><td><b>GD-5:</b> For international tenants add transfer-mechanism register (SCC/adequacy) columns to GV-13/14.</td></tr><tr><td>EU representative / DPO publication</td><td><span class='chip green'>COVERED</span></td><td>GV-16 office, contacts published</td><td>—</td></tr></table></div>
+<div class="card"><div class="card-title">4 · HIPAA (US-market readiness)</div><table><tr><th>HIPAA safeguard</th><th>Status</th><th>Evidence</th><th>Gap & required addition</th></tr><tr><td>Access control, unique user ID, auto-logoff, encryption</td><td><span class='chip green'>COVERED</span></td><td>AU cluster, AU-08 timeouts, DOC-04 layers</td><td>—</td></tr><tr><td>Audit controls & integrity</td><td><span class='chip green'>COVERED</span></td><td>Hash-chained audit (AD-20/PL-07), DOC-05</td><td>—</td></tr><tr><td>Emergency access procedure</td><td><span class='chip green'>COVERED</span></td><td>Break-glass DD-05/PL-12 + review GV-03</td><td>—</td></tr><tr><td>Minimum necessary</td><td><span class='chip green'>COVERED</span></td><td>Masking DS-07, purpose-of-use, care-team scoping</td><td>—</td></tr><tr><td>Accounting of disclosures (§164.528)</td><td><span class='chip red'>GAP</span></td><td>Deliveries logged (NT-01) but no patient-facing disclosure register</td><td><b>HP-1:</b> New GV-17 'Disclosures register' — per patient: every PHI disclosure outside the org (recipient, date, purpose, legal basis), compileable on request; feeds GV-05 access requests.</td></tr><tr><td>Business Associate Agreements</td><td><span class='chip amber'>PARTIAL</span></td><td>GV-13 processor register with DPAs</td><td><b>HP-2:</b> Add agreement-type column (DPA / BAA / SCC) + BAA-required flag per processor.</td></tr><tr><td>Workforce training & sanctions (§164.308)</td><td><span class='chip red'>GAP</span></td><td>AD-19 announcements ≠ training</td><td><b>HP-3:</b> New GV-18 'Training & attestation tracker' — mandatory module assignments (privacy, security, PC-PNDT), completion %, annual re-attestation, sanction log. Also satisfies NABH.</td></tr><tr><td>Security risk assessment (annual)</td><td><span class='chip amber'>PARTIAL</span></td><td>GV-01 compliance calendar exists</td><td><b>HP-4:</b> Add SRA as a recurring calendar obligation with evidence upload.</td></tr><tr><td>Contingency/DR plan & testing</td><td><span class='chip green'>COVERED</span></td><td>PL-09 restore-test register, RPO/RTO</td><td>—</td></tr></table></div>
+<div class="card"><div class="card-title">5 · Enterprise foundation for all future modules</div><table><tr><th>Enterprise-foundation dimension (all future modules)</th><th>Status</th><th>Evidence</th><th>Gap / directive</th></tr><tr><td>Encounter spine carries IPD/OT/ICU/ER/IVF</td><td><span class='chip green'>COVERED</span></td><td>FO-16 + DOC-09 §4 (FHIR Encounter classes)</td><td>Admission = long-running encounter; no rebuild.</td></tr><tr><td>Generic order/result model (any specialty)</td><td><span class='chip green'>COVERED</span></td><td>ServiceRequest/Observation/DiagnosticReport model</td><td>LIS/pharmacy/procedures plug into same spine.</td></tr><tr><td>Resource-based scheduling beyond modalities</td><td><span class='chip amber'>PARTIAL</span></td><td>SC screens are modality-centric</td><td><b>EN-1:</b> DOC-09 directive: scheduling engine models generic resources (room/staff/equipment/bed) — modality is one resource type. No UI change for MVP; prevents OT/IVF rebuild.</td></tr><tr><td>Clinical forms engine (ICU flowsheets, IVF cycles)</td><td><span class='chip amber'>PARTIAL</span></td><td>Report templates (RD-18) + doc templates (AD-15)</td><td><b>EN-2:</b> Roadmap: generalise template engine into a versioned clinical-forms service; MVP templates must store as structured schemas, not HTML blobs.</td></tr><tr><td>Inventory hooks</td><td><span class='chip amber'>PARTIAL</span></td><td>Contrast lot/batch (TK-06) as seed</td><td>Pharmacy/inventory quarterly release; keep lot/batch model generic (item, lot, expiry, movement).</td></tr><tr><td>Multi-country: language, currency, rulebooks</td><td><span class='chip green'>COVERED</span></td><td>PL-05 rulebook, DS-10 i18n, per-txn currency</td><td>GDPR/HIPAA policy packs = new rulebook rows (GD-4).</td></tr><tr><td>Extensibility (APIs, webhooks, marketplace)</td><td><span class='chip green'>COVERED</span></td><td>IN-09, OpenAPI contracts, event backbone</td><td>—</td></tr><tr><td>Production-grade ops</td><td><span class='chip green'>COVERED</span></td><td>Envs, CI/CD+ArchUnit, observability, DR, status page, release rings</td><td>—</td></tr></table></div>
+<div class="card"><div class="card-title">6 · Consolidated backfill list</div><table><tr><th>ID</th><th>Proposed screen / change</th><th>Closes</th><th>Placement</th></tr><tr><td>AU-19</td><td>Conditional access & device trust (device registry, posture, geo/network policy, JIT privileged elevation)</td><td>ZT-1, ZT-2</td><td>Design now · build Conditional in MVP 1</td></tr><tr><td>IN-11</td><td>Air-gap transfer console (signed bundle export/import, chain of custody, transfer register)</td><td>AG-1, AG-4</td><td>Design now · build when an air-gapped site is contracted (checklist #8)</td></tr><tr><td>PL-13</td><td>Offline update bundles (signed releases for air-gapped edges, apply verification)</td><td>AG-3</td><td>Same as IN-11</td></tr><tr><td>GV-17</td><td>Disclosures register (HIPAA accounting of disclosures; useful under DPDP too)</td><td>HP-1</td><td>MVP1-CORE addition (small)</td></tr><tr><td>GV-18</td><td>Training & attestation tracker (workforce compliance, sanctions log)</td><td>HP-3</td><td>First quarterly release</td></tr><tr><td>—</td><td>States: processing-restriction flag (FO-06/GV-05); FHIR-JSON portability export (GV-05); lawful-basis field (GV-12); BAA/SCC columns (GV-13/14); DLP thresholds (GV-15); GDPR clock pack (PL-05); SRA calendar item (GV-01)</td><td>GD-1…5, ZT-5, HP-2, HP-4</td><td>MVP1 state-level additions</td></tr></table></div>
+<div class="banner info"><b>Compliance positioning note</b>GDPR/HIPAA readiness here means the product implements the required controls and evidence surfaces; formal certification/attestation (and BAA execution for US customers) is a commercial/legal step per tenant (checklist #44). The regional rulebook (PL-05) is the mechanism that swaps statutory clocks, notices and policy packs per jurisdiction — DPDP (live), GDPR and HIPAA packs become rulebook content, not code forks.</div>
+<p class="audit">Synthetic data only. Companion docs: DOC-04 (security layers), DOC-05 (audit), DOC-09 (build blueprint).</p></div></body></html>
