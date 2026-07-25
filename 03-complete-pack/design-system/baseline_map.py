@@ -93,6 +93,8 @@ M = {
  "gv-11":("NET-NEW","consent registry & analytics"), "gv-12":("NET-NEW","DPIA-lite register (Conditional)"),
  "gv-13":("NET-NEW","processor/vendor register (DPAs)"), "gv-14":("EXTENDS","PL-S4 residency → evidence page"),
  "gv-15":("NET-NEW","audit export governance"), "gv-16":("EXTENDS","GV cluster PO/DPO roles (fixes title inconsistency finding)"),
+ "gv-17":("NET-NEW","DOC-11 HP-1: HIPAA accounting of disclosures / DPDP sharing summary"),
+ "gv-18":("NET-NEW","DOC-11 HP-3: workforce training & attestation (HIPAA 164.308, NABH)"),
  # G11 Grievance
  "gr-01":("EXTENDS","GR-S1 queue + care-safety dual escalation"), "gr-02":("EXTENDS","GR-S2 wizard + anonymous channel"),
  "gr-03":("EXTENDS","GR-S3 resolution + reopen state"), "gr-04":("NET-NEW","privacy handoff queue (GR↔GV bridge)"),
@@ -111,6 +113,7 @@ M = {
  "au-13":("NET-NEW","P2 IdP-unreachable degraded mode"), "au-14":("NET-NEW","P2 admin unlock & recovery approvals"),
  "au-15":("NET-NEW","password & MFA policy admin"), "au-16":("EXTENDS","AU-S13 realms → SSO settings"),
  "au-17":("NET-NEW","org-wide sessions & devices"), "au-18":("NET-NEW","service accounts & API keys (foundation)"),
+ "au-19":("NET-NEW","DOC-11 ZT-1/ZT-2: device trust, conditional access, JIT elevation"),
  # G4 Scheduling setup
  "sc-01":("EXTENDS","FO-S8 working hours"), "sc-02":("EXTENDS","FO-S8 holidays & closures"),
  "sc-03":("EXTENDS","FO-S8 slot templates"), "sc-04":("EXTENDS","FO-S8 doctor availability"),
@@ -123,6 +126,7 @@ M = {
  "in-05":("NET-NEW","message browser (scope item #103 baseline)"), "in-06":("NET-NEW","retry/replay console (scope item #103)"),
  "in-07":("EXTENDS","IN-S3 comms providers + expiry alerting"), "in-08":("EXTENDS","IN-S2 printers & peripherals"),
  "in-09":("NET-NEW","webhooks & API clients (Conditional, foundation)"), "in-10":("NET-NEW","edge/offline sync monitor (checklist #12–14)"),
+ "in-11":("NET-NEW","DOC-11 AG-1/AG-4: air-gap transfer console (checklist #8)"),
  # G16 Platform
  "pl-01":("EXTENDS","PL cluster → operator home & tenant health"), "pl-02":("EXTENDS","PL-S1 orgs & onboarding"),
  "pl-03":("EXTENDS","PL-S2 + C-4 retention-safe close"), "pl-04":("EXTENDS","PL-S3 plans + impact preview"),
@@ -130,6 +134,7 @@ M = {
  "pl-07":("NET-NEW","platform audit log (tenant-visible mirror)"), "pl-08":("NET-NEW","release & ring management (scope item #143)"),
  "pl-09":("EXTENDS","PL-S6 → backup/DR evidence (RPO/RTO)"), "pl-10":("EXTENDS","PL-S6 → incidents & status page"),
  "pl-11":("NET-NEW","usage metering (scope item #123 minimal)"), "pl-12":("EXTENDS","PL-S5 → operator break-glass dual control"),
+ "pl-13":("NET-NEW","DOC-11 AG-3: offline signed update bundles"),
  # G17 Design system
  "ds-01":("NET-NEW","codifies the vendor deck's implicit design system — tokens"), "ds-02":("NET-NEW","component gallery & rules"),
  "ds-03":("NET-NEW","NS-16 SLA/escalation pattern (product-wide)"), "ds-04":("NET-NEW","offline/degraded/sync pattern (checklist #13/#14)"),

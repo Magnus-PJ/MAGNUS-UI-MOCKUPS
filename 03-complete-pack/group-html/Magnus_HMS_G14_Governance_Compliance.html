@@ -121,9 +121,9 @@ tr.dim td{color:#94A3B8}
 <div style="padding-top:120px"><div style="border-left:6px solid #0F766E;padding-left:22px">
 <div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">MagnusPRO · MVP 1 Complete Design Pack</div>
 <h1 style="font-size:36px;font-weight:800">G14 · Governance & Compliance</h1>
-<p style="font-size:14px;color:#64748B;margin-top:10px">16 screens · every screen with alternate states · shared design system · synthetic data only (no PHI)</p></div>
+<p style="font-size:14px;color:#64748B;margin-top:10px">18 screens · every screen with alternate states · shared design system · synthetic data only (no PHI)</p></div>
 <div class="card" style="max-width:700px;margin-top:26px"><div class="card-title">Screens in this group</div>
-<table><tr><th style="width:70px">ID</th><th>Screen</th></tr><tr><td class="mono bold" style="color:#0F766E">GV-01</td><td>Governance home &amp; compliance calendar</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-02</td><td>Access log review</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-03</td><td>Emergency access review</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-04</td><td>Deletion requests pipeline</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-05</td><td>Rights requests — copy / correction / nominee</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-06</td><td>Retention schedules</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-07</td><td>Legal holds register</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-08</td><td>Incident intake &amp; triage</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-09</td><td>Breach runbook</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-10</td><td>Privacy notices &amp; versions</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-11</td><td>Consent registry &amp; analytics</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-12</td><td>DPIA-lite register</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-13</td><td>Processor &amp; vendor register</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-14</td><td>Data residency evidence</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-15</td><td>Audit Export Governance</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-16</td><td>DPO / Privacy Office</td></tr></table></div>
+<table><tr><th style="width:70px">ID</th><th>Screen</th></tr><tr><td class="mono bold" style="color:#0F766E">GV-01</td><td>Governance home &amp; compliance calendar</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-02</td><td>Access log review</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-03</td><td>Emergency access review</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-04</td><td>Deletion requests pipeline</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-05</td><td>Rights requests — copy / correction / nominee</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-06</td><td>Retention schedules</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-07</td><td>Legal holds register</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-08</td><td>Incident intake &amp; triage</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-09</td><td>Breach runbook</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-10</td><td>Privacy notices &amp; versions</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-11</td><td>Consent registry &amp; analytics</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-12</td><td>DPIA-lite register</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-13</td><td>Processor &amp; vendor register</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-14</td><td>Data residency evidence</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-15</td><td>Audit Export Governance</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-16</td><td>DPO / Privacy Office</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-17</td><td>Disclosures register</td></tr><tr><td class="mono bold" style="color:#0F766E">GV-18</td><td>Training & attestation tracker</td></tr></table></div>
 <p class="muted small" style="margin-top:14px">Magnus Diagnostics → NUMINACORE · July 2026 · Prototype/reference — not committed product scope.</p></div></section><section class="screen" id="gv-01">
 <div class="screen-head"><h1><span class="sid">GV-01</span> Governance home &amp; compliance calendar</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G14 Governance &amp; Compliance — workspace 'Governance'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · compliance calendar (statutory obligations)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single home for all recurring regulatory obligations — PC-PNDT Form F filing by the 5th, quarterly access reviews, monthly DR restore-tests, privacy-notice re-acknowledgement and licence renewals. Each obligation carries an owner, a due date, a status chip and an evidence link; anything unresolved past due date auto-escalates to the Privacy Officer (Dr. A. Rao). Month and list views toggle over the same data.</div>
@@ -249,6 +249,9 @@ tr.dim td{color:#94A3B8}
     <div class="modal-actions"><span class="btn">Cancel</span><span class="btn">Save draft</span><span class="btn primary">Submit evidence &amp; mark complete</span></div>
   </div>
 </div>
+<div class="divider-label">gap-closure additions (DOC-11)</div><div class="state-tag">ADDITION — ANNUAL SECURITY RISK ASSESSMENT</div>
+<div class="card"><div class="card-title">New recurring obligation</div><table><tr><th>Obligation</th><th>Cycle</th><th>Owner</th><th>Evidence</th></tr>
+<tr><td>Security risk assessment (HIPAA §164.308 / ISO-style)</td><td>Annual + on major change</td><td>DPO + platform security</td><td>SRA report upload · findings → incident/backlog links</td></tr></table></div>
 <p class="audit">Calendar views, evidence uploads (with file hash), escalations and obligation closures — including owner and countersigner identity — are recorded in the access log.</p>
 </section>
 <section class="screen" id="gv-02">
@@ -836,6 +839,11 @@ tr.dim td{color:#94A3B8}
 </div>
 <div class="banner success" style="max-width:860px"><b>On save</b> Request DPDP-CR-20249 closes as fulfilled (day 8 of 30); confirmation SMS via approved DLT template MERI-NOM-01 to the principal; patient tracker shows "Nominee updated". Previous nominee (if any) is retained in history, never overwritten silently.</div>
 
+<div class="divider-label">gap-closure additions (DOC-11)</div><div class="state-tag">ADDITION — GDPR ART 18/21 &amp; ART 20</div>
+<div class="card"><div class="card-title">Processing restriction &amp; objection (GDPR Art 18/21)</div>
+<div class="banner warn"><b>PROCESSING RESTRICTED — MRN-••••30</b>Patient has exercised restriction pending a correction dispute. Data is retained but frozen for all non-essential use: notifications suppressed, analytics excluded, exports blocked. Care-critical access remains (vital interest), each open requires a reason. Banner shows on FO-06 and DD-01.</div>
+<table><tr><th>Request</th><th>Effect</th><th>Lifted by</th></tr><tr><td>Restrict processing</td><td>Freeze non-essential use, retain data</td><td>Dispute resolved + Privacy Officer sign-off</td></tr><tr><td>Object to processing</td><td>Assessment vs legitimate grounds; suppression while pending</td><td>Documented balancing decision</td></tr></table></div>
+<div class="card"><div class="card-title">Portability export (GDPR Art 20)</div><div class="kv"><dt>Format</dt><dd class="mono">FHIR R4 JSON bundle (Patient, Encounters, ServiceRequests, DiagnosticReports, Consents) + PDF cover letter</dd><dt>Delivery</dt><dd>Secure link (PT-02 pattern) · watermark + expiry · recorded in GV-17 disclosures register</dd></div></div>
 <p class="audit">Every rights-request view, scope selection, export compile, approval, correction application, addendum routing and nominee change is written to the immutable rights register with actor, request ID, before/after values (masked in log view) and timestamps — recorded in the access log.</p>
 </section>
 <section class="screen" id="gv-06">
@@ -1746,6 +1754,14 @@ tr.dim td{color:#94A3B8}
     <p class="small muted" style="margin-top:8px">Review outcome options: re-affirm · update mitigations · escalate risk rating (requires fresh PO + DPO sign-off) · retire activity (data-disposition checklist enforced).</p>
   </div>
 </div></div></div>
+<div class="divider-label">gap-closure additions (DOC-11)</div><div class="state-tag">ADDITION — LAWFUL BASIS (GDPR ART 6)</div>
+<div class="card"><div class="card-title">Lawful basis per processing activity</div><table><tr><th>Activity</th><th>DPDP basis</th><th>GDPR basis (intl. tenants)</th></tr>
+<tr><td>Care delivery &amp; diagnosis</td><td>Consent (required purpose)</td><td>Art 9(2)(h) health care + Art 6(1)(b)</td></tr>
+<tr><td>Billing &amp; statutory records</td><td>Legal obligation</td><td>Art 6(1)(c)</td></tr>
+<tr><td>Appointment notifications</td><td>Consent (optional)</td><td>Art 6(1)(a)</td></tr>
+<tr><td>Critical-result emergency contact</td><td>Legitimate use — safety</td><td>Art 6(1)(d) vital interest</td></tr>
+<tr><td>De-identified analytics</td><td>Consent (optional)</td><td>Art 6(1)(f) + anonymisation</td></tr></table>
+<p class="muted small">Basis is stamped into the audit schema per event (DOC-05) and selected per activity here; the regional rulebook (PL-05) decides which column applies.</p></div>
 <p class="audit">Assessment answers, trigger outcomes, dual sign-offs, review completions and escalations are versioned; who viewed each assessment is recorded in the access log.</p>
 </section>
 <section class="screen" id="gv-13">
@@ -1872,6 +1888,12 @@ tr.dim td{color:#94A3B8}
     <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary disabled">Record renewal (awaiting 2nd approver)</span></div>
   </div></div>
 </div></div></div>
+<div class="divider-label">gap-closure additions (DOC-11)</div><div class="state-tag">ADDITION — AGREEMENT TYPES (BAA / SCC)</div>
+<div class="card"><div class="card-title">Agreement coverage per processor</div><table><tr><th>Processor</th><th>DPA (DPDP)</th><th>BAA (HIPAA — US tenants)</th><th>SCC / transfer mechanism (GDPR)</th></tr>
+<tr><td>SMS DLT provider</td><td><span class="chip green">Signed 2026-04</span></td><td><span class="chip grey">n/a — no US tenant</span></td><td><span class="chip grey">n/a — in-country</span></td></tr>
+<tr><td>WhatsApp BSP</td><td><span class="chip green">Signed</span></td><td><span class="chip amber">Required before US onboarding</span></td><td><span class="chip amber">SCC required if EU tenant</span></td></tr>
+<tr><td>Cloud host (in-region)</td><td><span class="chip green">Signed</span></td><td><span class="chip amber">BAA-capable — execute per tenant</span></td><td><span class="chip green">Regional pinning — no transfer</span></td></tr></table>
+<p class="muted small">Onboarding a tenant in a new jurisdiction is blocked until the required agreement column is green (PL-02 go-live gate).</p></div>
 <p class="audit">Processor onboarding, DPA uploads, renewals (with dual approver step-up), suspensions and offboarding certificates are versioned; every view of a processor's contract file is recorded in the access log.</p>
 </section>
 <section class="screen" id="gv-14">
@@ -2115,6 +2137,12 @@ tr.dim td{color:#94A3B8}
     <div class="modal-actions"><span class="btn">Cancel</span><span class="btn danger">Step-up &amp; revoke link</span></div>
   </div>
 </div>
+<div class="divider-label">gap-closure additions (DOC-11)</div><div class="state-tag">ADDITION — DLP THRESHOLDS (ZT-5)</div>
+<div class="card"><div class="card-title">Data-loss-prevention thresholds</div><table><tr><th>Signal</th><th>Threshold</th><th>Action</th></tr>
+<tr><td>Record opens by one user</td><td>&gt; 30/hour outside worklist context</td><td>Soft alert → reviewer queue (GV-02)</td></tr>
+<tr><td>Report downloads/prints</td><td>&gt; 20/day per user</td><td>Step-up + manager notify</td></tr>
+<tr><td>Bulk export attempt outside this governed flow</td><td>any</td><td><span class="chip red">Hard block</span> + incident option</td></tr>
+<tr><td>Unmanaged device (AU-19)</td><td>any export</td><td>Blocked by conditional access</td></tr></table></div>
 <p class="audit">Every issue, download, expiry and revocation in the export register — including watermark IDs, recipient binding and approver identity — is recorded in the access log. Register rows are append-only and retained 10 years.</p>
 </section>
 <section class="screen" id="gv-16">
@@ -2226,4 +2254,51 @@ tr.dim td{color:#94A3B8}
 </div>
 <p class="audit">Role-holder changes, delegation windows, publication-check results and every DPB liaison entry are recorded in the access log and retained 10 years.</p>
 </section>
-</body></html>
+<section class="screen" id="gv-17">
+<div class="screen-head"><h1><span class="sid">GV-17</span> Disclosures register</h1><div class="meta"><span class="chip teal">MVP1-CORE · ADDITION</span><div class="cluster">G14 Governance & Compliance — closes DOC-11 HP-1</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · DOC-11 HP-1: HIPAA accounting of disclosures / DPDP sharing summary</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single source of truth for every disclosure of patient information outside the organisation — auto-captured, patient-compileable (HIPAA §164.528 accounting of disclosures; DPDP summary-of-sharing).</div>
+<div class="frame">
+<div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>Governance</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">AR</span>Dr. A. Rao ▾</div></div>
+<div class="body"><div class="sidebar"><div class="sec-label">Privacy</div><div class="nav-item">Deletion requests</div><div class="nav-item">Rights requests</div><div class="nav-item active">Disclosures register</div><div class="nav-item">Legal holds</div></div><div class="main"><div class="crumb">Governance / Disclosures</div><div class="page-title">Disclosures register</div><div class="page-sub">Every disclosure of patient information outside the organisation — auto-captured from deliveries, exports and portal shares. Satisfies HIPAA §164.528 accounting of disclosures and DPDP sharing-summary requests.</div>
+<div class="card"><div class="card-title">Register <span class="right">auto-populated · read-only · exceptions flagged</span></div>
+<table><tr><th>When</th><th>Patient</th><th>What</th><th>Recipient</th><th>Purpose</th><th>Legal basis</th><th>Source ref</th></tr>
+<tr><td class="mono">2026-07-24 12:05</td><td class="mono">MRN-••••22 <span class="chip grey">reveal w/ reason</span></td><td>Radiology report (final)</td><td>Patient (SMS secure link)</td><td>Care delivery</td><td>Consent v3</td><td class="mono">NT-2026-88214</td></tr>
+<tr><td class="mono">2026-07-24 12:41</td><td class="mono">MRN-••••22</td><td>Radiology report (final)</td><td>Dr. Meera Nair (referrer inbox)</td><td>Treatment — referring physician</td><td>Consent v3 · care team</td><td class="mono">DD-ACK-2026-1180</td></tr>
+<tr><td class="mono">2026-07-21 16:20</td><td class="mono">MRN-••••90</td><td>Records copy (14 documents)</td><td>Patient — rights request</td><td>DPDP access right</td><td>Statutory</td><td class="mono">DPDP-CR-00311</td></tr>
+<tr class="hl"><td class="mono">2026-07-18 11:02</td><td class="mono">MRN-••••95</td><td>Report + invoices</td><td>Counsel (legal hold LH-2026-004)</td><td>Legal proceedings</td><td>Legal obligation</td><td class="mono">GV15-EXP-0027</td></tr></table></div>
+<div class="card"><div class="card-title">Not disclosures (excluded by rule)</div>
+<p style="font-size:12.5px" class="muted">Internal care-team access, billing within the organisation, and de-identified analytics are use, not disclosure — they appear in the access log (AD-20), not here. Processor transmission under contract (SMS gateway, storage) is recorded as channel metadata, not as an independent disclosure.</p></div></div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div><div class="state-tag">STATE B — PATIENT-REQUESTED ACCOUNTING</div><div class="card"><div class="card-title">Compile accounting of disclosures — MRN-••••22</div>
+<div class="kv"><dt>Period</dt><dd>Last 6 years (HIPAA) / full history (DPDP)</dd><dt>Entries</dt><dd>7 disclosures</dd><dt>Output</dt><dd>Plain-language letter + table · delivered via secure link (PT-02) or print</dd><dt>Approval</dt><dd>Privacy Officer · identity-verified request DPDP-CR-00318</dd></div>
+<div style="margin-top:8px"><span class="btn primary">Generate &amp; deliver</span></div>
+<div class="banner info"><b>Also served from here</b>GV-05 “copy &amp; summary of use” requests reuse this register — one source of truth for who received what.</div></div><div class="state-tag">STATE C — EMPTY / FIRST-RUN</div><div class="card" style="text-align:center;padding:34px"><b>No external disclosures recorded for this patient</b><p class="muted" style="font-size:12.5px;margin-top:6px">Internal access appears in the access log (AD-20). This register fills automatically the first time a report, document or export leaves the organisation.</p></div>
+<p class="audit">Compiling or opening a patient's disclosure accounting is itself recorded; register entries are append-only and derived from source events (NT, GV-15, DD).</p>
+</section><section class="screen" id="gv-18">
+<div class="screen-head"><h1><span class="sid">GV-18</span> Training & attestation tracker</h1><div class="meta"><span class="chip amber">Conditional · ADDITION</span><div class="cluster">G14 Governance & Compliance — closes DOC-11 HP-3</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · DOC-11 HP-3: workforce training & attestation (HIPAA 164.308, NABH)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Workforce compliance training: role-mapped mandatory modules, annual re-attestation with signed acknowledgements, overdue escalation, and a restricted sanctions log (HIPAA §164.308, NABH, DPDP diligence).</div>
+<div class="frame">
+<div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>Governance</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">AR</span>Dr. A. Rao ▾</div></div>
+<div class="body"><div class="sidebar"><div class="sec-label">Compliance</div><div class="nav-item">Compliance calendar</div><div class="nav-item active">Training & attestation</div><div class="nav-item">DPIA register</div></div><div class="main"><div class="crumb">Governance / Training</div><div class="page-title">Training &amp; attestation tracker</div><div class="page-sub">Workforce compliance: mandatory modules by role, annual re-attestation, evidence for HIPAA §164.308, DPDP diligence and NABH. Sanctions log kept confidential to Privacy Office + HR.</div>
+<div class="kpi-row"><div class="kpi"><div class="n">92%</div><div class="l">Workforce current</div><div class="s">as of 2026-07-25</div></div><div class="kpi amber"><div class="n">6</div><div class="l">Overdue</div><div class="s">escalated to managers</div></div><div class="kpi"><div class="n">4</div><div class="l">Modules</div><div class="s">role-mapped</div></div></div>
+<div class="card"><div class="card-title">Modules &amp; assignment</div>
+<table><tr><th>Module</th><th>Audience</th><th>Cycle</th><th>Completion</th></tr>
+<tr><td>Privacy &amp; DPDP essentials</td><td>All staff</td><td>Annual</td><td><div class="progress"><i style="width:94%"></i></div> 94%</td></tr>
+<tr><td>Security &amp; phishing</td><td>All staff</td><td>Annual</td><td><div class="progress"><i style="width:91%"></i></div> 91%</td></tr>
+<tr><td>PC-PNDT obligations</td><td>US-facing roles + radiologists</td><td>Annual + on joining</td><td><div class="progress"><i style="width:100%"></i></div> 100% <span class="chip green">statutory</span></td></tr>
+<tr><td>HIPAA awareness (US-tenant staff)</td><td>Per tenant flag</td><td>Annual</td><td class="muted">enabled per rulebook (PL-05)</td></tr></table></div>
+<div class="card"><div class="card-title">Overdue &amp; escalation</div>
+<table><tr><th>Staff</th><th>Module</th><th>Due</th><th>Status</th></tr>
+<tr class="hl"><td>P. D'Souza (cashier)</td><td>Security &amp; phishing</td><td class="mono">2026-07-10</td><td><span class="chip red">OVERDUE 15d — manager notified · access review flag at 30d</span></td></tr>
+<tr><td>T. Okafor (technologist)</td><td>Privacy refresh</td><td class="mono">2026-08-02</td><td><span class="chip teal">due in 8d</span></td></tr></table></div></div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div><div class="state-tag">STATE B — MY TRAINING (STAFF VIEW)</div><div class="card" style="max-width:640px"><div class="card-title">My training — D. Nair</div>
+<table><tr><th>Module</th><th>Status</th><th></th></tr>
+<tr><td>Privacy &amp; DPDP essentials</td><td><span class="chip green">Current · attested 2026-03-11</span></td><td></td></tr>
+<tr><td>Security &amp; phishing</td><td><span class="chip amber">Re-attestation due in 12 days</span></td><td><span class="btn small primary">Start</span></td></tr></table>
+<div class="banner info"><b>Attestation is recorded</b>Completion + a short knowledge check + a signed attestation ("I have read and will follow…") are stored with timestamp and version of the material.</div></div><div class="state-tag">STATE C — SANCTIONS LOG (RESTRICTED)</div><div class="card"><div class="card-title">Sanctions log <span class="right">Privacy Officer + HR only · access recorded</span></div>
+<table><tr><th>Ref</th><th>Linked finding</th><th>Action</th><th>Status</th></tr>
+<tr><td class="mono">SAN-2026-003</td><td>GV-02 violation — after-hours bulk record opens</td><td>Written warning + retraining assigned</td><td><span class="chip green">Closed</span></td></tr></table>
+<div class="banner warn"><b>Separation of records</b>Sanction details never appear in the general audit viewer; only the existence of a review outcome is cross-referenced (GV-02 → “violation actioned”).</div></div>
+<p class="audit">Assignments, completions, attestations (with material version) and escalations are recorded; sanctions entries are restricted-access and their opens are logged.</p>
+</section></body></html>

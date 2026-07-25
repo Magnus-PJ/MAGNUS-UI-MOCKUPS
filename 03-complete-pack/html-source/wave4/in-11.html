@@ -1,0 +1,26 @@
+<section class="screen" id="in-11">
+<div class="screen-head"><h1><span class="sid">IN-11</span> Air-gap transfer console</h1><div class="meta"><span class="chip amber">Conditional · ADDITION</span><div class="cluster">G13 Integration & Devices — closes DOC-11 AG-1/AG-4 (checklist #8)</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · DOC-11 AG-1/AG-4: air-gap transfer console (checklist #8)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> True air-gapped branches exchange data by signed, encrypted bundles on sealed physical media with chain of custody, dry-run verification and idempotent apply. Activates when an air-gapped site is contracted.</div>
+<div class="frame">
+<div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>Integration</span></span><span class="org">🏥 NUMINACORE / Meridian — cloud side</span></div><div class="userchip"><span class="av">RI</span>R. Iyer (Platform Ops) ▾</div></div>
+<div class="body"><div class="sidebar"><div class="sec-label">Integration</div><div class="nav-item">Overview & health</div><div class="nav-item">Edge sync monitor</div><div class="nav-item active">Air-gap transfers</div><div class="nav-item">Message browser</div></div><div class="main"><div class="crumb">Integration / Air-gap transfer</div><div class="page-title">Air-gap transfer console</div><div class="page-sub">For branches operating without network connectivity (checklist #8): signed, encrypted sync bundles moved by physical media with full chain of custody.</div>
+<div class="card"><div class="card-title">Export bundle — branch → cloud</div>
+<div class="kv"><dt>Scope</dt><dd>Outbox events since last transfer (2026-07-22 18:00) · 1,412 events · 84 studies · 231 documents</dd>
+<dt>Bundle</dt><dd class="mono">AGX-AW-2026-0031.mpx · 3.9 GB · AES-256-GCM · manifest SHA-256 9f1c…77aa</dd>
+<dt>Signed by</dt><dd>Edge key AW-EDGE-01 (rotated 2026-07-01) + operator identity confirm</dd>
+<dt>Media</dt><dd>Encrypted USB MED-0107 · seal no. S-88213</dd></div>
+<div style="margin-top:8px"><span class="btn primary">Create &amp; write bundle</span> <span class="btn">Verify media</span></div>
+<div class="banner info"><b>Chain of custody</b>Courier name, seal number and handover timestamps are recorded at both ends; a bundle opened with a broken seal is quarantined automatically.</div></div>
+<div class="card"><div class="card-title">Transfer register</div>
+<table><tr><th>Bundle</th><th>Direction</th><th>Created</th><th>Seal</th><th>Received</th><th>Status</th></tr>
+<tr><td class="mono">AGX-AW-2026-0030</td><td>Branch → cloud</td><td class="mono">2026-07-22 18:04</td><td class="mono">S-88190 ✓</td><td class="mono">2026-07-23 09:12</td><td><span class="chip green">Applied · idempotent · 0 conflicts</span></td></tr>
+<tr><td class="mono">AGC-2026-0114</td><td>Cloud → branch</td><td class="mono">2026-07-22 17:00</td><td class="mono">S-88191 ✓</td><td class="mono">2026-07-23 10:02</td><td><span class="chip green">Applied · masters + 3 signed reports</span></td></tr>
+<tr class="hl"><td class="mono">AGX-AW-2026-0029</td><td>Branch → cloud</td><td class="mono">2026-07-19 18:10</td><td class="mono">S-88144 ✗ broken</td><td class="mono">2026-07-20 09:40</td><td><span class="chip red">QUARANTINED — integrity review (INC-2026-0044)</span></td></tr></table></div></div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div><div class="state-tag">STATE B — IMPORT VERIFICATION (CLOUD SIDE)</div><div class="card"><div class="card-title">Import AGX-AW-2026-0031</div>
+<div class="stepper"><div class="step done"><div class="dot">✓</div>Signature valid</div><div class="step-line"></div><div class="step done"><div class="dot">✓</div>Manifest hash match</div><div class="step-line"></div><div class="step done"><div class="dot">✓</div>Seal &amp; custody confirmed</div><div class="step-line"></div><div class="step cur"><div class="dot">4</div>Dry-run diff</div><div class="step-line"></div><div class="step"><div class="dot">5</div>Apply</div></div>
+<table><tr><th>Entity</th><th>New</th><th>Updates</th><th>Conflicts</th></tr>
+<tr><td>Patients</td><td>38</td><td>112</td><td>0</td></tr><tr><td>Orders / studies</td><td>84</td><td>84</td><td>0</td></tr><tr><td>Invoices / receipts</td><td>91</td><td>12</td><td class="mono">2 → IN-10 conflict queue (clinical four-eyes n/a — billing fields)</td></tr></table>
+<div style="margin-top:8px"><span class="btn primary">Apply bundle (idempotent — correlation IDs)</span></div></div><div class="state-tag">STATE C — INTEGRITY FAILURE</div><div class="banner danger"><b>Bundle quarantined — do not apply</b>AGX-AW-2026-0029: media seal broken and manifest hash mismatch on 3 files. Bundle isolated, incident INC-2026-0044 opened (GV-08), branch asked to re-export from outbox (events are never deleted until cloud acknowledgement).</div>
+<p class="audit">Bundle creation, custody handovers, verification results, applies and quarantines are recorded; media serial numbers are part of the immutable transfer record.</p>
+</section>

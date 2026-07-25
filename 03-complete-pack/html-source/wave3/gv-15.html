@@ -108,5 +108,11 @@
     <div class="modal-actions"><span class="btn">Cancel</span><span class="btn danger">Step-up &amp; revoke link</span></div>
   </div>
 </div>
+<div class="divider-label">gap-closure additions (DOC-11)</div><div class="state-tag">ADDITION — DLP THRESHOLDS (ZT-5)</div>
+<div class="card"><div class="card-title">Data-loss-prevention thresholds</div><table><tr><th>Signal</th><th>Threshold</th><th>Action</th></tr>
+<tr><td>Record opens by one user</td><td>&gt; 30/hour outside worklist context</td><td>Soft alert → reviewer queue (GV-02)</td></tr>
+<tr><td>Report downloads/prints</td><td>&gt; 20/day per user</td><td>Step-up + manager notify</td></tr>
+<tr><td>Bulk export attempt outside this governed flow</td><td>any</td><td><span class="chip red">Hard block</span> + incident option</td></tr>
+<tr><td>Unmanaged device (AU-19)</td><td>any export</td><td>Blocked by conditional access</td></tr></table></div>
 <p class="audit">Every issue, download, expiry and revocation in the export register — including watermark IDs, recipient binding and approver identity — is recorded in the access log. Register rows are append-only and retained 10 years.</p>
 </section>

@@ -29,5 +29,6 @@
 
 - GitHub token is fine-grained and repo-scoped; rotate before expiry.
 - Vendor deck data errors (review §10) must be fixed before UAT script generation.
-- Q1 policy question still unanswered by Magnus: **is a signed report withheld until payment?** Needs an explicit org-level policy either way (affects BL/NT/PT screens' release logic).
+- ~~Q1 report-release policy~~ RESOLVED: Option C org-configurable (BL-20, D-21).
+- Pilot = all 4 Magnus branches together (D-34): plan staged go-live inside the window; UAT planning deferred by client.
 - Decide OHIF vs commercial viewer before build start (RD-03/04 assume OHIF-class capability).

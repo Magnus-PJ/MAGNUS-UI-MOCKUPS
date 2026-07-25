@@ -167,5 +167,10 @@
 </div>
 <div class="banner success" style="max-width:860px"><b>On save</b> Request DPDP-CR-20249 closes as fulfilled (day 8 of 30); confirmation SMS via approved DLT template MERI-NOM-01 to the principal; patient tracker shows "Nominee updated". Previous nominee (if any) is retained in history, never overwritten silently.</div>
 
+<div class="divider-label">gap-closure additions (DOC-11)</div><div class="state-tag">ADDITION — GDPR ART 18/21 &amp; ART 20</div>
+<div class="card"><div class="card-title">Processing restriction &amp; objection (GDPR Art 18/21)</div>
+<div class="banner warn"><b>PROCESSING RESTRICTED — MRN-••••30</b>Patient has exercised restriction pending a correction dispute. Data is retained but frozen for all non-essential use: notifications suppressed, analytics excluded, exports blocked. Care-critical access remains (vital interest), each open requires a reason. Banner shows on FO-06 and DD-01.</div>
+<table><tr><th>Request</th><th>Effect</th><th>Lifted by</th></tr><tr><td>Restrict processing</td><td>Freeze non-essential use, retain data</td><td>Dispute resolved + Privacy Officer sign-off</td></tr><tr><td>Object to processing</td><td>Assessment vs legitimate grounds; suppression while pending</td><td>Documented balancing decision</td></tr></table></div>
+<div class="card"><div class="card-title">Portability export (GDPR Art 20)</div><div class="kv"><dt>Format</dt><dd class="mono">FHIR R4 JSON bundle (Patient, Encounters, ServiceRequests, DiagnosticReports, Consents) + PDF cover letter</dd><dt>Delivery</dt><dd>Secure link (PT-02 pattern) · watermark + expiry · recorded in GV-17 disclosures register</dd></div></div>
 <p class="audit">Every rights-request view, scope selection, export compile, approval, correction application, addendum routing and nominee change is written to the immutable rights register with actor, request ID, before/after values (masked in log view) and timestamps — recorded in the access log.</p>
 </section>

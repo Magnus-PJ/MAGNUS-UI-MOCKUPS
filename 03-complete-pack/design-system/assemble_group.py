@@ -15,14 +15,14 @@ GROUPS = {
  "G08_Doctor_Desk":            ("G8 · Doctor Desk (Referrers)", "wave2", ["dd-%02d"%i for i in range(1,12)]),
  # wave3
  "G12_Admin_Master_Data":      ("G12 · Admin — Org, People & Master Data", "wave3", ["ad-%02d"%i for i in range(1,21)]),
- "G14_Governance_Compliance":  ("G14 · Governance & Compliance", "wave3", ["gv-%02d"%i for i in range(1,17)]),
+ "G14_Governance_Compliance":  ("G14 · Governance & Compliance", "wave3", ["gv-%02d"%i for i in range(1,19)]),
  "G15_Imaging_Regulatory":     ("G15 · Imaging Regulatory (PC-PNDT / AERB)", "wave3", ["ir-%02d"%i for i in range(1,7)]),
  "G11_Grievance_Support":      ("G11 · Grievance & Support", "wave3", ["gr-%02d"%i for i in range(1,7)]),
  # wave4
- "G01_Identity_Access":        ("G1 · Identity & Access", "wave4", ["au-%02d"%i for i in range(1,19)]),
+ "G01_Identity_Access":        ("G1 · Identity & Access", "wave4", ["au-%02d"%i for i in range(1,20)]),
  "G04_Scheduling_Setup":       ("G4 · Scheduling & Resource Setup", "wave4", ["sc-%02d"%i for i in range(1,11)]),
- "G13_Integration_Devices":    ("G13 · Integration & Devices", "wave4", ["in-%02d"%i for i in range(1,11)]),
- "G16_Platform_Operator":      ("G16 · Platform Operator", "wave4", ["pl-%02d"%i for i in range(1,13)]),
+ "G13_Integration_Devices":    ("G13 · Integration & Devices", "wave4", ["in-%02d"%i for i in range(1,12)]),
+ "G16_Platform_Operator":      ("G16 · Platform Operator", "wave4", ["pl-%02d"%i for i in range(1,14)]),
  "G17_Design_System_Patterns": ("G17 · Design System & Patterns", "wave4", ["ds-%02d"%i for i in range(1,12)]),
 }
 

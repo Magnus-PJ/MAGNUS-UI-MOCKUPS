@@ -122,5 +122,11 @@
     <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary disabled">Record renewal (awaiting 2nd approver)</span></div>
   </div></div>
 </div></div></div>
+<div class="divider-label">gap-closure additions (DOC-11)</div><div class="state-tag">ADDITION — AGREEMENT TYPES (BAA / SCC)</div>
+<div class="card"><div class="card-title">Agreement coverage per processor</div><table><tr><th>Processor</th><th>DPA (DPDP)</th><th>BAA (HIPAA — US tenants)</th><th>SCC / transfer mechanism (GDPR)</th></tr>
+<tr><td>SMS DLT provider</td><td><span class="chip green">Signed 2026-04</span></td><td><span class="chip grey">n/a — no US tenant</span></td><td><span class="chip grey">n/a — in-country</span></td></tr>
+<tr><td>WhatsApp BSP</td><td><span class="chip green">Signed</span></td><td><span class="chip amber">Required before US onboarding</span></td><td><span class="chip amber">SCC required if EU tenant</span></td></tr>
+<tr><td>Cloud host (in-region)</td><td><span class="chip green">Signed</span></td><td><span class="chip amber">BAA-capable — execute per tenant</span></td><td><span class="chip green">Regional pinning — no transfer</span></td></tr></table>
+<p class="muted small">Onboarding a tenant in a new jurisdiction is blocked until the required agreement column is green (PL-02 go-live gate).</p></div>
 <p class="audit">Processor onboarding, DPA uploads, renewals (with dual approver step-up), suspensions and offboarding certificates are versioned; every view of a processor's contract file is recorded in the access log.</p>
 </section>
