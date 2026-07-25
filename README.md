@@ -14,7 +14,7 @@ Design review + complete MVP 1 UI/UX design pack for Magnus HMS (radiology-first
 
 ## Wave status
 - [x] Wave 1 — Clinical core: G3 Front Office (FO-01…22) · G5 Orders & Clinical Safety (OR-01…08, CS-01…06) · G6 Technician (TK-01…12) · G7 Radiologist (RD-01…18) — 66 screens
-- [ ] Wave 2 — Revenue & outreach: G9 Billing (19) · G10 Notifications (8) · G2 Patient-facing (12) · G8 Doctor Desk (11) — 50 screens
+- [~] Wave 2 (IN PROGRESS) — Revenue & outreach: G9 Billing (19) · G10 Notifications (8) · G2 Patient-facing (12) · G8 Doctor Desk (11) — 50 screens
 - [ ] Wave 3 — Admin & governance: G12 Admin (20) · G14 Governance (16) · G15 Regulatory (6) · G11 Grievance (6) — 48 screens
 - [ ] Wave 4 — Identity & platform: G1 Identity (18) · G4 Scheduling setup (10) · G13 Integration (10) · G16 Platform (12) · G17 Design system (11) — 61 screens
 - [ ] Final: master index + combined volume (pending client review inputs)
