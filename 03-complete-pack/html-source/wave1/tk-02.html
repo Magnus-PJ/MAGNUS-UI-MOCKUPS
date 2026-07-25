@@ -1,0 +1,126 @@
+<section class="screen" id="tk-02">
+<div class="screen-head"><h1><span class="sid">TK-02</span> Acquisition detail</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G6 Radiology Technician — workspace 'RIS · Technician'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The technologist opens this screen when performing a single study: verify identity by name+DOB read-back, run the protocol, watch per-series receipt from the modality, and record dose. It must guarantee that release-to-reading is HARD-blocked while any series is partial or failed (a recorded, reasoned override is the only exit), that dose values pass range sanity checks with DRL-exceed flagging, and that any hold carries a mandatory reason.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · TECHNICIAN</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor · CT/MR Technologist ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Acquisition</div>
+    <div class="nav-item">My worklist <span class="nav-badge">14</span></div>
+    <div class="nav-item active">Acquisition detail</div>
+    <div class="nav-item">Exception queues <span class="nav-badge red">3</span></div>
+    <div class="nav-item">Holds &amp; cancellations</div>
+    <div class="sec-label">Room</div>
+    <div class="nav-item">CT-1 (Somatom go.Up)</div>
+    <div class="nav-item">MR-1 (1.5T Altea)</div>
+    <div class="nav-item">QC &amp; daily checks</div>
+  </div>
+  <div class="main">
+    <div class="crumb">RIS · Technician / My worklist / <span class="mono">ACC-2026-91186</span></div>
+    <div class="page-title">CT Abdomen with contrast — Aarav Sharma <span class="actions-right"><span class="chip blue">IN PROGRESS</span></span></div>
+    <div class="page-sub">MRN-004821 · M/46 · VIS-2026-31207 · Referrer Dr. S. Iyer · Room CT-1 · started 10:51 IST</div>
+    <div class="banner info"><b>Working offline is supported</b> — actions queue and sync when reconnected. Series receipt resumes automatically.</div>
+    <div class="stepper">
+      <div class="step done"><span class="dot">✓</span> Scheduled</div><span class="step-line"></span>
+      <div class="step done"><span class="dot">✓</span> Arrived 09:48</div><span class="step-line"></span>
+      <div class="step cur"><span class="dot">3</span> In-progress</div><span class="step-line"></span>
+      <div class="step"><span class="dot">4</span> Acquired</div>
+    </div>
+    <div class="row">
+      <div class="card" style="width:300px">
+        <div class="card-title">Identity verification <span class="right">gate</span></div>
+        <div class="kv">
+          <dt>Read-back name</dt><dd>Aarav Sharma ✓</dd>
+          <dt>Read-back DOB</dt><dd>14 Mar 1980 ✓ <span class="small muted">(matches record)</span></dd>
+          <dt>Wristband / token</dt><dd>C-042 scanned ✓</dd>
+          <dt>Verified by</dt><dd>T. Okafor · 10:50:12 IST</dd>
+          <dt>Aadhaar (masked)</dt><dd class="mono">xxxx xxxx 4417 <span class="small muted">last-4 only</span></dd>
+        </div>
+        <div class="banner success" style="margin-top:10px;margin-bottom:0"><b>Identity confirmed</b> Two-point verbal read-back recorded before positioning. Cannot be edited after acquisition starts.</div>
+      </div>
+      <div class="card grow">
+        <div class="card-title">Series receipt from modality <span class="right">live · MPPS + storage commit</span></div>
+        <table>
+          <tr><th>#</th><th>Series</th><th>Images sent / recd</th><th>Status</th><th>Action</th></tr>
+          <tr><td>1</td><td>Scout AP+LAT</td><td class="mono">2 / 2</td><td><span class="chip green">Complete</span></td><td>—</td></tr>
+          <tr><td>2</td><td>Plain abdomen 5mm</td><td class="mono">64 / 64</td><td><span class="chip green">Complete</span></td><td>—</td></tr>
+          <tr><td>3</td><td>Arterial phase 1.5mm</td><td class="mono">212 / 148</td><td><span class="chip blue">Receiving…</span><div class="progress" style="width:110px"><i style="width:70%"></i></div></td><td>—</td></tr>
+          <tr><td>4</td><td>Portal venous 1.5mm</td><td class="mono">— / —</td><td><span class="chip grey">Pending</span></td><td>—</td></tr>
+          <tr><td>5</td><td>Delayed 5-min</td><td class="mono">— / —</td><td><span class="chip grey">Pending</span></td><td>—</td></tr>
+        </table>
+        <p class="small muted" style="margin-top:6px">A series stuck &gt;5 min or with a count mismatch is auto-flagged and appears in the <a>exception queue (TK-03)</a> with a re-request action.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Radiation dose <span class="right">auto-captured from RDSR · sanity-validated</span></div>
+      <div class="row">
+        <div class="grow"><div class="kv">
+          <dt>CTDIvol (body 32cm)</dt><dd class="mono">11.8 mGy <span class="chip green">within range 5–25</span></dd>
+          <dt>DLP (running)</dt><dd class="mono">486 mGy·cm <span class="chip green">below adult abdomen DRL 700</span></dd>
+          <dt>kVp / mAs (ref)</dt><dd class="mono">120 / auto (CARE Dose)</dd>
+          <dt>Contrast</dt><dd>Iohexol 350 · 85 mL IV · lot <span class="mono">JH-2604-B</span> · no reaction</dd>
+        </div></div>
+        <div style="width:280px"><div class="banner reg" style="margin-bottom:0"><b>DRL watch</b> If final DLP exceeds the NDRL for this protocol, an amber flag is applied and the medical physicist queue is notified. Manual dose edits require a reason and keep the original value visible.</div></div>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:flex-end">
+      <span class="btn warn-outline">Place on hold…</span>
+      <span class="btn">Mark acquired</span>
+      <span class="btn disabled">Release to reading — blocked until all series complete</span>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PARTIAL SERIES · RELEASE HARD-BLOCKED · RECORDED OVERRIDE PATH</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title" style="font-size:15px"><span class="mono">ACC-2026-91186</span> — acquisition ended with a partial series</div>
+  <div class="banner danger"><b>Release to reading is blocked</b> Series 3 (Arterial 1.5mm) received 148 of 212 images; storage commit failed for 64 images. Re-request from the modality, or record a physician-authorised override. A partial study must never reach the reading worklist silently.</div>
+  <table>
+    <tr><th>#</th><th>Series</th><th>Images sent / recd</th><th>Status</th><th>Action</th></tr>
+    <tr><td>1</td><td>Scout AP+LAT</td><td class="mono">2 / 2</td><td><span class="chip green">Complete</span></td><td>—</td></tr>
+    <tr><td>2</td><td>Plain abdomen 5mm</td><td class="mono">64 / 64</td><td><span class="chip green">Complete</span></td><td>—</td></tr>
+    <tr class="hl"><td>3</td><td>Arterial phase 1.5mm</td><td class="mono">212 / 148</td><td><span class="chip red">Partial — commit failed</span></td><td><span class="btn primary small">Re-request</span> <span class="btn ghost small">Open in exception queue</span></td></tr>
+    <tr><td>4</td><td>Portal venous 1.5mm</td><td class="mono">208 / 208</td><td><span class="chip green">Complete</span></td><td>—</td></tr>
+    <tr><td>5</td><td>Delayed 5-min</td><td class="mono">96 / 96</td><td><span class="chip green">Complete</span></td><td>—</td></tr>
+  </table>
+  <div class="modal-wrap"><div class="modal danger">
+    <h3>Override: release partial study to reading</h3>
+    <div class="banner warn" style="margin-bottom:10px"><b>This is a recorded override</b> The reading radiologist will see a permanent "PARTIAL — released under override" banner on this study.</div>
+    <div class="field"><label>Authorising physician <span class="req">*</span></label><div class="select">Dr. V. Shetty (RMC MH-44721) ▾</div></div>
+    <div class="field"><label>Physician credential step-up <span class="req">*</span></label><div class="input mono">•••••••• (Dr. Shetty enters own PIN — technologist cannot proceed alone)</div></div>
+    <div class="field"><label>Clinical justification <span class="req">*</span></label><div class="textarea">Arterial phase diagnostically adequate on 148 images; repeat exposure not justified for this indication per Dr. Shetty.</div></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn danger">Record override &amp; release</span></div>
+  </div></div>
+</div></div></div>
+
+<div class="state-tag">STATE C — RELEASED TO READING · SUCCESS</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner success"><b>Released to reading — 11:22:04 IST</b> All 5 series complete (582 images, storage-committed). Study now visible on Dr. V. Shetty's reading worklist with SLA <span class="chip teal">report due in 4h</span>. Dose record locked: CTDIvol 11.8 mGy · total DLP 662 mGy·cm <span class="chip green">below DRL</span>.</div>
+  <div class="stepper">
+    <div class="step done"><span class="dot">✓</span> Scheduled</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Arrived</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> In-progress</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Acquired &amp; released 11:22</div>
+  </div>
+  <div class="kv">
+    <dt>Released by</dt><dd>T. Okafor · console CT-1</dd>
+    <dt>Series / images</dt><dd>5 / 582 · all committed</dd>
+    <dt>Contrast event</dt><dd>None reported · 30-min observation advised</dd>
+    <dt>Next step</dt><dd>Reading worklist (Dr. V. Shetty) · patient may leave after observation</dd>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE D — PLACED ON HOLD · REQUIRED REASON</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner warn"><b>Study on hold since 10:58 IST</b> Reason: patient vasovagal episode after IV cannulation; nursing observation in progress. Auto-review timer: <span class="chip amber">re-assess in 0h 30m</span> · owner T. Okafor. Holds without a reason cannot be saved; holds &gt;2h escalate to Dr. V. Shetty and appear in TK-04.</div>
+  <div class="kv">
+    <dt>Hold reason (taxonomy)</dt><dd>Patient condition — transient, expected to resume</dd>
+    <dt>Placed by</dt><dd>T. Okafor · 10:58:41 IST</dd>
+    <dt>Slot impact</dt><dd>CT-1 11:00 slot released to next arrived patient (Sofia Rossi queued)</dd>
+    <dt>Resume action</dt><dd><span class="btn primary small">Resume acquisition</span> <span class="btn small">Convert to cancel… (TK-04)</span></dd>
+  </div>
+</div></div></div>
+
+<p class="audit">Identity read-back, every series receipt event, dose values (including any manual edit with before/after), the partial-release override with physician credential, hold reasons and timer escalations are all recorded in the access log.</p>
+</section>

@@ -1,0 +1,129 @@
+<section class="screen" id="or-07">
+<div class="screen-head"><h1><span class="sid">OR-07</span> STAT &amp; priority governance</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The chief radiologist and admin review STAT usage weekly to keep the priority lane meaningful: who orders STAT, how often, and whether urgency was clinically justified. Flagged over-users get a documented review; the policy card defines who may mark STAT and the auto-downgrade rule, which always requires a radiologist's explicit confirmation before any priority is lowered.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Orders</div>
+    <div class="nav-item">Order worklist <span class="nav-badge">37</span></div>
+    <div class="nav-item active">STAT governance</div>
+    <div class="nav-item">Referral intake</div>
+    <div class="nav-item">Prep protocols</div>
+    <div class="sec-label">Clinical safety</div>
+    <div class="nav-item">Contrast screening</div>
+    <div class="nav-item">MR safety</div>
+    <div class="sec-label">Reporting</div>
+    <div class="nav-item">My reporting queue <span class="nav-badge red">4</span></div>
+  </div>
+  <div class="main">
+    <div class="crumb">Orders › STAT &amp; priority governance</div>
+    <div class="page-title">STAT usage report <span class="actions-right"><span class="btn small">Export CSV</span> <span class="btn small">Policy card</span></span></div>
+    <div class="page-sub">Period 01–24 Jul 2026 · Andheri West · all modalities · reviewed weekly by chief radiologist</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">118</div><div class="l">STAT orders</div><div class="s">of 2,340 total (5.0%)</div></div>
+      <div class="kpi"><div class="n">76%</div><div class="l">True-urgency on review</div><div class="s">target ≥ 80%</div></div>
+      <div class="kpi amber"><div class="n">3</div><div class="l">Orderers flagged</div><div class="s">&gt;12% STAT rate or &lt;60% true-urgency</div></div>
+      <div class="kpi red"><div class="n">2</div><div class="l">Reviews overdue</div><div class="s">owner: Dr. V. Shetty</div></div>
+    </div>
+    <div class="banner warn"><b>SLA — weekly governance review</b><span class="chip amber">due in 6h</span> Owner: Dr. V. Shetty · If not completed by Fri 18:00 IST, <b>Escalated to</b> Chief of Radiology (chain) per governance SOP.</div>
+    <div class="card">
+      <div class="card-title">STAT usage by orderer <span class="right">median true-urgency = reviewer agreement that STAT was warranted</span></div>
+      <table>
+        <tr><th>Orderer</th><th>Role / source</th><th>STAT vol</th><th>% of their orders</th><th>Median review verdict</th><th>Trend vs Jun</th><th>Status</th><th></th></tr>
+        <tr class="hl"><td><b>Dr. S. Iyer</b></td><td>External referrer · Iyer Clinic, Versova</td><td>31</td><td><b>18.2%</b><div class="progress red" style="width:90px"><i style="width:91%"></i></div></td><td>42% true-urgency</td><td>▲ +6.1 pts</td><td><span class="chip red">Flagged — overuse</span></td><td><span class="btn warn-outline small">Review</span></td></tr>
+        <tr class="hl"><td><b>Dr. Farida Khan</b></td><td>External referrer · Khan Polyclinic</td><td>19</td><td><b>13.5%</b><div class="progress amber" style="width:90px"><i style="width:67%"></i></div></td><td>58% true-urgency</td><td>▲ +2.3 pts</td><td><span class="chip amber">Flagged — watch</span></td><td><span class="btn warn-outline small">Review</span></td></tr>
+        <tr><td><b>Casualty desk (walk-in)</b></td><td>Internal · front office D. Nair (on physician instruction)</td><td>27</td><td>9.8%</td><td>88% true-urgency</td><td>▬ stable</td><td><span class="chip green">Within policy</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+        <tr><td><b>Dr. Meera Nair</b></td><td>External referrer · Nair Ortho Centre</td><td>14</td><td>6.9%</td><td>86% true-urgency</td><td>▼ −1.4 pts</td><td><span class="chip green">Within policy</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+        <tr><td><b>Dr. A. Rao</b></td><td>Internal radiologist (add-on sequences)</td><td>11</td><td>4.1%</td><td>95% true-urgency</td><td>▬ stable</td><td><span class="chip green">Within policy</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+        <tr class="hl"><td><b>Suvarna Nursing Home</b></td><td>Institutional referrer · bulk account</td><td>16</td><td><b>12.7%</b><div class="progress amber" style="width:90px"><i style="width:63%"></i></div></td><td>51% true-urgency</td><td>▲ +4.0 pts</td><td><span class="chip amber">Flagged — watch</span></td><td><span class="btn warn-outline small">Review</span></td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="card-title">Sample justification texts — Dr. S. Iyer (last 5 STAT orders) <span class="right">patient identifiers masked — no clinical purpose declared for this report view</span></div>
+      <table>
+        <tr><th>Accession</th><th>Procedure</th><th>Patient</th><th>Justification entered</th><th>Reviewer verdict</th></tr>
+        <tr><td class="mono">ACC-2026-91247</td><td>CT Brain plain</td><td class="mono">MRN-••4821 · A•••v S.</td><td>"Sudden severe headache, ?bleed"</td><td><span class="chip green">Warranted</span></td></tr>
+        <tr><td class="mono">ACC-2026-91302</td><td>US Abdomen</td><td class="mono">MRN-••4795 · R•••h G.</td><td>"Patient travelling tomorrow"</td><td><span class="chip red">Not warranted — convenience</span></td></tr>
+        <tr><td class="mono">ACC-2026-91318</td><td>X-ray Chest PA</td><td class="mono">MRN-••4823 · K•••e O.</td><td>"Pre-employment, urgent joining"</td><td><span class="chip red">Not warranted — administrative</span></td></tr>
+        <tr><td class="mono">ACC-2026-91334</td><td>CT KUB</td><td class="mono">MRN-••4828 · P•••a M.</td><td>"Acute flank pain, ?ureteric calculus"</td><td><span class="chip green">Warranted</span></td></tr>
+        <tr><td class="mono">ACC-2026-91351</td><td>MRI L-S Spine</td><td class="mono">MRN-••4790 · M•••d A.</td><td>"" (blank — flagged at entry)</td><td><span class="chip red">Not warranted — no justification</span></td></tr>
+      </table>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — REVIEW MODAL (FLAGGED ORDERER: DR. S. IYER)</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:620px">
+    <h3>Governance review — Dr. S. Iyer (referrer ID REF-0142)</h3>
+    <div class="banner danger" style="margin-top:8px"><b>Flag: STAT overuse</b>18.2% of orders marked STAT in Jul (policy threshold 12%); true-urgency agreement 42% (threshold 60%). Second consecutive flagged month.</div>
+    <dl class="kv">
+      <dt>Period</dt><dd>01–24 Jul 2026 · 31 STAT of 170 orders</dd>
+      <dt>Common patterns</dt><dd>Travel/administrative reasons (7), blank justification (4), duplicate-day STAT (2)</dd>
+      <dt>Prior action</dt><dd>Advisory note sent 30-Jun-2026 by K. Verma (acknowledged 02-Jul)</dd>
+    </dl>
+    <div class="field" style="margin-top:10px"><label>Review outcome <span class="req">*</span></label><select class="select"><option>Counsel referrer — send governance letter + relationship manager call</option><option>Enable per-order radiologist confirmation for this referrer (30 days)</option><option>No action — verdicts re-adjudicated as warranted</option></select></div>
+    <div class="field"><label>Reviewer note <span class="req">*</span></label><textarea class="textarea">Pattern of administrative-convenience STATs persists after June advisory. Enable mandatory radiologist confirmation on all STAT orders from REF-0142 for 30 days; relationship manager to brief clinic staff on priority criteria.</textarea></div>
+    <div class="banner reg"><b>Step-up identity confirmation</b>This action changes ordering privileges for a referrer and is signed as: Dr. V. Shetty, Chief Radiologist (RMC MH-44721). Re-enter Magnus PIN to record the decision.</div>
+    <div class="field"><label>Magnus PIN <span class="req">*</span></label><input class="input" style="width:180px" value="••••••"></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Sign &amp; record decision</span></div>
+  </div>
+</div>
+<div class="small muted" style="margin:0 4px 8px">Decision letters are generated from templates; the referrer's copy never includes patient-identifying rows — only aggregate counts.</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — POLICY CARD (WHO MAY STAT · AUTO-DOWNGRADE RULE)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="crumb">Orders › STAT &amp; priority governance › Policy</div>
+    <div class="page-title">Priority policy — chain level <span class="chip green">v3 · effective 01-Jun-2026</span></div>
+    <div class="page-sub">Maintained by chain medical board; branch admins cannot edit. Displayed read-only at every order-entry point.</div>
+    <div class="row">
+      <div class="grow">
+        <div class="card">
+          <div class="card-title">Who may mark STAT</div>
+          <table>
+            <tr><th>Actor</th><th>May mark STAT?</th><th>Conditions</th></tr>
+            <tr><td>Internal radiologist</td><td><span class="chip green">Yes</span></td><td>Justification text mandatory (free text ≥ 15 chars)</td></tr>
+            <tr><td>Verified external referrer</td><td><span class="chip green">Yes</span></td><td>Justification mandatory; subject to monthly governance thresholds (≤12% rate, ≥60% true-urgency)</td></tr>
+            <tr><td>Front office (D. Nair et al.)</td><td><span class="chip amber">Only on physician instruction</span></td><td>Must capture instructing physician's name + callback number in the order</td></tr>
+            <tr><td>Unverified / pending referrer (OR-08)</td><td><span class="chip red">No</span></td><td>Priority capped at Urgent until directory verification completes</td></tr>
+            <tr><td>Patient self-request</td><td><span class="chip red">No</span></td><td>Never — convenience is not urgency</td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-title">Auto-downgrade rule <span class="right">radiologist confirm always required</span></div>
+          <div class="ladder">
+            <div class="tier done"><b>1 · Detect</b><div class="small muted">System flags a STAT order when justification is blank, matches an administrative-reason lexicon, or the orderer is under a governance restriction.</div></div>
+            <div class="tier cur"><b>2 · Radiologist confirm</b><div class="small muted">The flagged order is queued to the duty radiologist with the justification text and clinical context. <b>No priority is ever lowered automatically.</b> The radiologist either confirms STAT or downgrades to Urgent/Routine with a reason code, signed under their own identity.</div></div>
+            <div class="tier"><b>3 · Notify</b><div class="small muted">Orderer is notified of the downgrade with the reason; the event feeds the monthly governance report. Downgrade never delays an already-checked-in patient's safety screening.</div></div>
+          </div>
+        </div>
+      </div>
+      <div style="width:300px;flex-shrink:0">
+        <div class="card">
+          <div class="card-title">Priority ladder &amp; SLAs</div>
+          <dl class="kv" style="grid-template-columns:90px 1fr">
+            <dt>STAT</dt><dd>Acquire ≤ 60 min · report ≤ 2h · <span class="chip red">OVERDUE 00:42</span> example: ACC-2026-91366, owner Dr. A. Rao · Escalated to Dr. V. Shetty</dd>
+            <dt>Urgent</dt><dd>Acquire same day · report ≤ 6h · <span class="chip amber">due in 3h</span></dd>
+            <dt>Routine</dt><dd>Report ≤ 24h · <span class="chip teal">due in 18h</span></dd>
+          </dl>
+        </div>
+        <div class="banner info"><b>Why governance matters</b>When 1 in 5 orders is STAT, none are. Thresholds are reviewed quarterly by the medical board.</div>
+        <div class="card">
+          <div class="card-title">Policy version history</div>
+          <div class="timeline">
+            <div class="ev"><span class="t">01-Jun-26</span><span><b>v3</b> — added referrer restriction mechanism (30-day radiologist confirm)</span></div>
+            <div class="ev"><span class="t">10-Feb-26</span><span><b>v2</b> — administrative-reason lexicon introduced</span></div>
+            <div class="ev"><span class="t">01-Nov-25</span><span><b>v1</b> — initial policy, thresholds 12% / 60%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+<p class="audit">Every STAT flag, review verdict, privilege restriction and priority downgrade is signed with the acting clinician's identity and reason code; report views with masked patient identifiers, and any unmasking (which requires a declared clinical purpose), are recorded in the access log.</p>
+</section>

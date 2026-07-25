@@ -1,0 +1,155 @@
+<section class="screen" id="rd-10">
+<div class="screen-head"><h1><span class="sid">RD-10</span> Critical result — flag, tier &amp; send</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Used by the signing radiologist at the moment of report sign (or addendum sign) when a finding meets critical-communication criteria. It must guarantee a tiered acknowledgement clock starts (RED = 15 min, ORANGE = 4 h), that the outbound summary is SMS-safe with minimum PHI, and that a recipient is always resolved — verified referrer phone first, duty doctor fallback, or patient-directed script for self-referred patients. Send-now creates a tracked queue item in RD-11; the loop is only closed by a recorded acknowledgement.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Reading</div>
+      <div class="nav-item">Reading worklist <span class="nav-badge">14</span></div>
+      <div class="nav-item active">Current study</div>
+      <div class="nav-item">Prior comparisons</div>
+      <div class="sec-label">Results</div>
+      <div class="nav-item">Critical results <span class="nav-badge red">3</span></div>
+      <div class="nav-item">Addenda</div>
+      <div class="nav-item">My signed reports</div>
+      <div class="sec-label">Registry</div>
+      <div class="nav-item">Report search</div>
+      <div class="nav-item">Peer review</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Reading worklist › ACC-2026-91247 › Sign report › Critical result</div>
+      <div class="page-title">Sign &amp; flag critical result — CT Head (Plain)</div>
+      <div class="page-sub">Sofia Rossi · F 58y · MRN-004822 · ACC-2026-91247 · Referrer: Dr. Meera Nair · Performed 25 Jul 2026, 10:42 IST by T. Okafor</div>
+      <div class="stepper">
+        <div class="step done"><span class="dot">✓</span> Draft report</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Proofread</div><span class="step-line"></span>
+        <div class="step cur"><span class="dot">3</span> Critical flag</div><span class="step-line"></span>
+        <div class="step"><span class="dot">4</span> Sign &amp; send</div>
+      </div>
+      <div class="banner danger"><b>Critical finding detected at sign</b>You marked "acute subdural haematoma with 6&nbsp;mm midline shift" as a critical finding. Complete the tier, summary and recipient sections below before the report can be signed. The acknowledgement clock starts at send, not at sign.</div>
+      <div class="row">
+        <div class="grow">
+          <div class="card">
+            <div class="card-title">1 · Severity tier <span class="right">Determines ack window</span></div>
+            <div class="check"><span class="box radio on"></span><span><b>RED — life-threatening / immediate action</b> · acknowledgement required within <span class="chip red">15 min</span> · voice call attempted first, SMS in parallel · lapse escalates automatically (RD-11 ladder)</span></div>
+            <div class="check"><span class="box radio"></span><span><b>ORANGE — urgent, same-session action</b> · acknowledgement required within <span class="chip amber">4 h</span> · SMS + referrer inbox, voice on lapse</span></div>
+            <div class="field" style="margin-top:10px"><label>Finding category <span class="req">*</span></label>
+              <div class="select">Intracranial haemorrhage — new / expanding ▾</div>
+              <div class="hint">Taxonomy per Meridian critical-results policy CR-POL-04 (rev 3, Jun 2026).</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">2 · Outbound summary <span class="right">SMS-safe · minimum PHI</span></div>
+            <div class="field"><label>Message preview (auto-composed, editable) <span class="req">*</span></label>
+              <div class="textarea">CRITICAL result (RED): CT Head for your patient ref MRN-••4822 / ACC-2026-91247 shows an acute intracranial finding requiring immediate attention. Please call Meridian Andheri West reading room on 022-4098-1100 and quote ACC-2026-91247 to acknowledge. — Dr. V. Shetty, Radiologist</div>
+              <div class="hint">142 / 300 chars · PHI filter active: patient name, full MRN, DOB and diagnosis detail are blocked from SMS/voice channels. Full report is available only after authenticated portal login.</div>
+            </div>
+            <div class="check"><span class="box on">✓</span><span>PHI-minimisation check passed — no patient name, no full identifiers, no clinical detail beyond category.</span></div>
+          </div>
+          <div class="card">
+            <div class="card-title">3 · Recipient resolution <span class="right">Resolved automatically</span></div>
+            <table>
+              <tr><th>Priority</th><th>Recipient</th><th>Contact</th><th>Status</th></tr>
+              <tr class="hl"><td>1 · Referrer</td><td>Dr. Meera Nair · MBBS, MD (Med)</td><td class="mono">+91 98••• ••312 (verified 14 Jul 2026)</td><td><span class="chip green">SELECTED</span></td></tr>
+              <tr><td>2 · Fallback</td><td>Duty doctor — Andheri West roster</td><td class="mono">Dr. on-call · roster slot 08:00–20:00</td><td><span class="chip grey">STANDBY</span></td></tr>
+              <tr><td>3 · Patient-directed</td><td>Only for self-referred (scripted)</td><td class="mono">not applicable — referred study</td><td><span class="chip grey">N/A</span></td></tr>
+            </table>
+            <div class="field" style="margin-top:10px"><label>Channels</label>
+              <div class="check"><span class="box on">✓</span><span>Voice call (auto-dial with read-back prompt) — RED tier default, cannot be removed</span></div>
+              <div class="check"><span class="box on">✓</span><span>SMS to verified number</span></div>
+              <div class="check"><span class="box on">✓</span><span>Referrer secure inbox (full report link, login required)</span></div>
+              <div class="check"><span class="box"></span><span>WhatsApp Business (only if referrer opted in — Dr. Nair: not opted in)</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">4 · Addendum re-notify <span class="right">Default ON</span></div>
+            <div class="check"><span class="box on">✓</span><span>If this report is later addended, automatically re-notify all recipients of this critical alert on the same channels. Turning this off requires a documented reason and is recorded in the access log.</span></div>
+          </div>
+        </div>
+        <div style="width:300px;flex-shrink:0">
+          <div class="card">
+            <div class="card-title">Ack clock preview</div>
+            <div class="kv">
+              <dt>Tier</dt><dd><span class="chip red">RED · ack 15 min</span></dd>
+              <dt>Starts</dt><dd>At send (not at sign)</dd>
+              <dt>Owner on lapse</dt><dd>Duty coordinator, Andheri West</dd>
+              <dt>Escalation</dt><dd>T1 referrer → T2 branch medical lead → T3 org clinical lead</dd>
+            </div>
+            <div class="progress red" style="margin-top:10px"><i style="width:0%"></i></div>
+            <div class="small muted" style="margin-top:4px">Clock not started — queue item created on send.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Sign &amp; send</div>
+            <div class="sig-box">Sign to attach RMC MH-44721 credential</div>
+            <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px">
+              <span class="btn danger">Sign report &amp; send critical alert now</span>
+              <span class="btn">Sign report, hold alert (needs reason)</span>
+            </div>
+            <div class="small muted" style="margin-top:8px">Holding a RED alert requires a documented clinical reason and notifies the branch medical lead.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — RECIPIENT FALLBACK: REFERRER UNREACHABLE, DUTY DOCTOR SELECTED</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="page-title">Recipient fallback — verified phone failed verification refresh</div>
+      <div class="banner warn"><b>Referrer contact could not be confirmed</b>Dr. Meera Nair's verified number failed the carrier liveness check (last verified 14 Jul 2026; number reported inactive today). Per policy CR-POL-04 the alert is redirected to the duty doctor. The referrer's inbox copy is still queued.</div>
+      <div class="card">
+        <div class="card-title">Recipient resolution — fallback engaged</div>
+        <table>
+          <tr><th>Priority</th><th>Recipient</th><th>Contact</th><th>Status</th></tr>
+          <tr class="dim"><td>1 · Referrer</td><td>Dr. Meera Nair</td><td class="mono">+91 98••• ••312</td><td><span class="chip red">UNREACHABLE</span></td></tr>
+          <tr class="hl"><td>2 · Fallback</td><td>Dr. S. Iyer — duty doctor (roster 08:00–20:00)</td><td class="mono">+91 99••• ••871 (verified 22 Jul 2026)</td><td><span class="chip green">SELECTED</span></td></tr>
+          <tr><td>3 · Patient-directed</td><td>Not applicable — referred study</td><td class="mono">—</td><td><span class="chip grey">N/A</span></td></tr>
+        </table>
+        <div class="field" style="margin-top:10px"><label>Fallback reason (auto-captured, editable) <span class="req">*</span></label>
+          <div class="input">Referrer verified number failed liveness check — carrier reports inactive</div>
+        </div>
+        <div class="check"><span class="box on">✓</span><span>Also queue secure-inbox copy to Dr. Meera Nair and flag her contact record for front-office re-verification (task to D. Nair).</span></div>
+        <div class="modal-actions"><span class="btn">Back</span><span class="btn danger">Confirm fallback &amp; send to duty doctor</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">If study were self-referred <span class="right">Patient-directed script</span></div>
+        <div class="banner info"><b>Patient-directed critical call script (self-referred only)</b>"This is Meridian Diagnostics calling about your recent scan. Your results need urgent medical attention today. Please go to the nearest emergency department and show them this reference: ACC-2026-91247. We have also sent this by SMS." — No diagnosis is disclosed by phone; foetal-sex information is never disclosed on any obstetric study under the PC-PNDT Act.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — SENT CONFIRMATION: QUEUE ITEM CREATED, ACK CLOCK RUNNING</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="page-title">Critical alert sent — CRIT-2026-0611</div>
+      <div class="banner success"><b>Report signed and critical alert dispatched · 25 Jul 2026, 11:58 IST</b>Report ACC-2026-91247 signed by Dr. V. Shetty (RMC MH-44721). Queue item CRIT-2026-0611 created and now owned by the duty coordinator until acknowledged. You can continue reading; lapses escalate without further action from you.</div>
+      <div class="kpi-row">
+        <div class="kpi red"><div class="n">12:44</div><div class="l">Ack window remaining</div><div class="s">RED · due 12:13 IST</div></div>
+        <div class="kpi"><div class="n">3 / 3</div><div class="l">Channels dispatched</div><div class="s">Voice · SMS · inbox</div></div>
+        <div class="kpi"><div class="n">T1</div><div class="l">Escalation tier</div><div class="s">Referrer — no lapse yet</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Dispatch log — CRIT-2026-0611</div>
+        <div class="timeline">
+          <div class="ev"><span class="t">11:58:02</span><span>Queue item created · tier RED · owner: duty coordinator (role-level), Andheri West</span></div>
+          <div class="ev"><span class="t">11:58:04</span><span>Voice call placed to Dr. Meera Nair +91 98••• ••312 — ringing, auto-retry ×3 at 90 s intervals</span></div>
+          <div class="ev"><span class="t">11:58:05</span><span>SMS delivered to +91 98••• ••312 · delivery receipt confirmed</span></div>
+          <div class="ev"><span class="t">11:58:06</span><span>Secure inbox message posted — full report behind referrer login; read receipt pending</span></div>
+          <div class="ev"><span class="t">11:58:07</span><span>Addendum re-notify: ON · recipients snapshot stored for future addenda</span></div>
+        </div>
+        <div class="modal-actions"><span class="btn ghost">Open in critical queue (RD-11)</span><span class="btn primary">Return to reading worklist</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Critical flag, tier selection, PHI-filter result, recipient resolution (including fallback reason), every channel dispatch and any hold of a RED alert are recorded in the access log with user, RMC number, timestamp and device.</p>
+</section>

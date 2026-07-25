@@ -1,0 +1,147 @@
+<section class="screen" id="tk-05">
+<div class="screen-head"><h1><span class="sid">TK-05</span> Retake / Repeat Exposure</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G6 Radiology Technician — workspace 'RIS · Technician'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The technologist raises a retake when acquired images are non-diagnostic (motion, artefact, positioning, equipment). For ionising modalities (X-ray/CT) the system must capture a radiation justification with an additional dose estimate and route it to an authorising radiologist before re-exposure. Once authorised, the expected new series is registered so the image-receipt table (TK-04) knows to expect it, and every retake feeds the branch QA dashboard with reason taxonomy for repeat-rate analysis.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · TECHNICIAN</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Worklist</div>
+      <div class="nav-item">My worklist <span class="nav-badge">7</span></div>
+      <div class="nav-item">Patient prep &amp; screening</div>
+      <div class="nav-item">Image receipt &amp; QC</div>
+      <div class="nav-item active">Retakes <span class="nav-badge red">2</span></div>
+      <div class="sec-label">Safety</div>
+      <div class="nav-item">Contrast log</div>
+      <div class="nav-item">Reaction / incident</div>
+      <div class="sec-label">Equipment</div>
+      <div class="nav-item">Device status</div>
+      <div class="nav-item">MWL sync</div>
+    </div>
+    <div class="main">
+      <div class="crumb">RIS · Technician › Worklist › ACC-2026-91247 › Retake request</div>
+      <div class="page-title">Retake request — CT Brain Plain <span class="chip amber">AWAITING AUTHORISATION</span></div>
+      <div class="page-sub">Sofia Rossi · MRN-004822 · F/34 · ACC-2026-91247 · CT-01 (Siemens go.Up) · Original series acquired 25-Jul-2026 10:42 IST</div>
+      <div class="stepper">
+        <div class="step done"><span class="dot">✓</span> Reason &amp; series</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Dose justification</div><span class="step-line"></span>
+        <div class="step cur"><span class="dot">3</span> Radiologist authorisation</div><span class="step-line"></span>
+        <div class="step"><span class="dot">4</span> Re-acquire &amp; receipt</div>
+      </div>
+      <div class="row">
+        <div class="grow">
+          <div class="card">
+            <div class="card-title">Retake reason (taxonomy) <span class="right">feeds QA repeat-rate</span></div>
+            <div class="field"><label>Primary reason <span class="req">*</span></label>
+              <div class="check"><span class="box radio on"></span> <span><b>Motion artefact</b> — patient movement during helical acquisition</span></div>
+              <div class="check"><span class="box radio"></span> <span>Image artefact (metal / beam-hardening / ring)</span></div>
+              <div class="check"><span class="box radio"></span> <span>Positioning error (off-centre / incomplete anatomy)</span></div>
+              <div class="check"><span class="box radio"></span> <span>Equipment fault (tube arc / detector / reconstruction failure)</span></div>
+            </div>
+            <div class="field"><label>Affected series <span class="req">*</span></label>
+              <table>
+                <tr><th></th><th>Series</th><th>Description</th><th>Images</th><th>QC verdict</th></tr>
+                <tr class="hl"><td><span class="box on">✓</span></td><td class="mono">SE-2</td><td>Axial 5 mm helical</td><td>62</td><td><span class="chip red">NON-DIAGNOSTIC</span></td></tr>
+                <tr><td><span class="box"></span></td><td class="mono">SE-1</td><td>Topogram (scout)</td><td>1</td><td><span class="chip green">OK</span></td></tr>
+                <tr><td><span class="box"></span></td><td class="mono">SE-3</td><td>Coronal MPR recon</td><td>48</td><td><span class="chip grey">DERIVED — RE-BUILDS</span></td></tr>
+              </table>
+            </div>
+            <div class="field"><label>Technologist note <span class="req">*</span></label><div class="textarea">Patient moved at ~table position 110 mm; step artefact through posterior fossa. Head immobilisation strap re-applied, patient coached on breath-hold. Ready for immediate repeat of SE-2 only.</div></div>
+          </div>
+          <div class="card">
+            <div class="card-title">Radiation justification (mandatory — ionising modality) <span class="right">CT · additional exposure</span></div>
+            <div class="banner reg"><b>ALARA check</b> Repeat exposure on an ionising modality requires a documented justification and named authorisation by a radiologist before the MWL entry is re-issued. This record is retained with the dose report.</div>
+            <dl class="kv">
+              <dt>Original dose (SE-2)</dt><dd class="mono">CTDIvol 42.1 mGy · DLP 748 mGy·cm</dd>
+              <dt>Estimated additional</dt><dd class="mono">CTDIvol ~42 mGy · DLP ~750 mGy·cm <span class="chip amber">≈ +100% study dose</span></dd>
+              <dt>Cumulative today</dt><dd class="mono">DLP 748 → est. 1,498 mGy·cm (below adult head DRL alert of 1,600)</dd>
+              <dt>Pregnancy screen</dt><dd>Not pregnant — declared &amp; countersigned at TK-02 screening, 25-Jul 10:15 IST</dd>
+              <dt>Authoriser required</dt><dd>Dr. V. Shetty (RMC MH-44721) — on-duty radiologist, CT list</dd>
+            </dl>
+          </div>
+        </div>
+        <div style="width:300px;flex-shrink:0">
+          <div class="card">
+            <div class="card-title">Request status</div>
+            <dl class="kv" style="grid-template-columns:110px 1fr">
+              <dt>Retake ref</dt><dd class="mono">RTK-2026-0342</dd>
+              <dt>Raised by</dt><dd>T. Okafor (Technologist)</dd>
+              <dt>Raised at</dt><dd class="mono">25-Jul-2026 10:51 IST</dd>
+              <dt>SLA</dt><dd><span class="chip amber">auth due in 0h 20m</span><div class="small muted">Owner: Dr. V. Shetty · Escalated to Branch Admin K. Verma if unactioned</div></dd>
+            </dl>
+            <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px">
+              <span class="btn primary">Send for authorisation</span>
+              <span class="btn">Save draft</span>
+              <span class="btn ghost">Cancel retake request</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Receipt table impact</div>
+            <p class="small">On authorisation, expected series <b class="mono">SE-2R (Axial 5 mm repeat)</b> is registered against ACC-2026-91247. The image-receipt table will show it as <span class="chip grey">EXPECTED</span> and flag the study incomplete until received.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">QA feed</div>
+            <p class="small">This retake posts to the branch QA dashboard under <b>Motion — CT — CT-01</b>. Repeat rate this month on CT-01: <b>2.1%</b> (target &lt; 4%). No patient identifiers appear on the QA aggregate view.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE B — AUTHORISED · RE-EXPOSURE PERMITTED</div>
+<div class="frame">
+  <div class="body" style="min-height:0">
+    <div class="main">
+      <div class="page-title">Retake RTK-2026-0342 <span class="chip green">AUTHORISED</span></div>
+      <div class="page-sub">Sofia Rossi · MRN-004822 · ACC-2026-91247 · CT Brain Plain</div>
+      <div class="banner success"><b>Authorised by Dr. V. Shetty (RMC MH-44721) at 11:04 IST</b> Justification accepted: "Non-diagnostic posterior fossa due to motion; repeat of SE-2 clinically necessary, benefit outweighs additional dose." Authorisation captured with step-up identity confirmation (radiologist PIN re-entry).</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Re-issued to modality</div>
+          <dl class="kv">
+            <dt>MWL entry</dt><dd class="mono">ACC-2026-91247 / step 2 — re-sent to CT-01 at 11:05 IST <span class="chip teal">MWL SENT</span></dd>
+            <dt>Expected series</dt><dd class="mono">SE-2R — Axial 5 mm helical (repeat) · status <span class="chip grey">EXPECTED</span></dd>
+            <dt>Dose ceiling note</dt><dd>Console operator advised: use existing topogram; do not repeat scout. Target CTDIvol ≤ 42 mGy.</dd>
+            <dt>Perform window</dt><dd><span class="chip teal">due in 1h</span> owner T. Okafor · Escalated to shift lead if patient leaves department</dd>
+          </dl>
+        </div>
+        <div class="card" style="width:300px;flex-shrink:0">
+          <div class="card-title">Timeline</div>
+          <div class="timeline">
+            <div class="ev"><span class="t">10:51</span><span>Retake raised — motion, SE-2 · T. Okafor</span></div>
+            <div class="ev"><span class="t">10:52</span><span>Dose estimate attached (+750 mGy·cm DLP)</span></div>
+            <div class="ev"><span class="t">11:04</span><span>Authorised — Dr. V. Shetty (PIN verified)</span></div>
+            <div class="ev"><span class="t">11:05</span><span>SE-2R registered in receipt table; MWL re-sent</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="state-tag">STATE C — COMPLETED · DOSE DELTA RECORDED</div>
+<div class="frame">
+  <div class="body" style="min-height:0">
+    <div class="main">
+      <div class="page-title">Retake RTK-2026-0342 <span class="chip green">COMPLETED</span></div>
+      <div class="page-sub">Repeat series received and QC-passed · study released to reading worklist at 11:31 IST</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">62</div><div class="l">Images in SE-2R</div><div class="s">received 11:24–11:26 IST</div></div>
+        <div class="kpi amber"><div class="n">+744</div><div class="l">Dose delta (DLP mGy·cm)</div><div class="s">study total 1,492 · below DRL alert 1,600</div></div>
+        <div class="kpi"><div class="n">33 min</div><div class="l">Raise → complete</div><div class="s">within 60-min retake SLA</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Final receipt reconciliation</div>
+        <table>
+          <tr><th>Series</th><th>Description</th><th>Images</th><th>Status</th><th>QC</th><th>CTDIvol</th><th>DLP</th></tr>
+          <tr><td class="mono">SE-1</td><td>Topogram</td><td>1</td><td><span class="chip green">RECEIVED</span></td><td>OK</td><td class="mono">—</td><td class="mono">4</td></tr>
+          <tr class="dim"><td class="mono">SE-2</td><td>Axial 5 mm (rejected — motion)</td><td>62</td><td><span class="chip grey">SUPERSEDED</span></td><td>Non-diagnostic</td><td class="mono">42.1</td><td class="mono">748</td></tr>
+          <tr class="hl"><td class="mono">SE-2R</td><td>Axial 5 mm repeat</td><td>62</td><td><span class="chip green">RECEIVED</span></td><td>OK — passed T. Okafor 11:28</td><td class="mono">41.8</td><td class="mono">740</td></tr>
+          <tr><td class="mono">SE-3</td><td>Coronal MPR (rebuilt from SE-2R)</td><td>48</td><td><span class="chip green">RECEIVED</span></td><td>OK</td><td class="mono">—</td><td class="mono">—</td></tr>
+        </table>
+        <p class="small muted" style="margin-top:8px">Rejected series SE-2 is retained (not deleted) per retention policy and excluded from the reading default layout. Dose report updated with cumulative DLP 1,492 mGy·cm and retake attribution. QA feed entry closed: Motion / CT / CT-01 / RTK-2026-0342.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Retake request, dose justification text, authorising radiologist identity (step-up PIN verification), re-issued MWL event and final dose delta are all recorded in the access log. QA aggregates are de-identified; viewing the underlying accession from QA requires a stated purpose and is recorded in the access log.</p>
+</section>

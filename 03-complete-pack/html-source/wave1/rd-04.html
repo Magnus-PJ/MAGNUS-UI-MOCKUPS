@@ -1,0 +1,84 @@
+<section class="screen" id="rd-04">
+<div class="screen-head"><h1><span class="sid">RD-04</span> Viewer degraded states</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Defines exactly how the viewer behaves when things go wrong mid-read: image-load timeouts (retry, then archive re-query), low-bandwidth progressive rendering, lossy-compression guards ("not for final read below quality Q90"), crash recovery that restores the session with annotations intact, and a concurrent-open warning when two readers hold the same study. It must guarantee that no final report is ever signed against lossy or incomplete pixels, and that degraded conditions are visible, actionable and logged — never silent.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · Reading</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty · RMC MH-44721 ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Reading</div>
+    <div class="nav-item">Worklist <span class="nav-badge">13</span></div>
+    <div class="nav-item active">Viewer — ACC-…91093</div>
+    <div class="nav-item">Report editor</div>
+    <div class="sec-label">This study</div>
+    <div class="nav-item">Priors (1)</div>
+    <div class="nav-item">Transfer status</div>
+    <div class="sec-label">System</div>
+    <div class="nav-item">Connection health</div>
+  </div>
+  <div class="main">
+    <div class="crumb">RIS · Reading &rsaquo; ACC-2026-91093 &rsaquo; Viewer</div>
+    <div class="banner info" style="margin-bottom:10px"><b>Working offline is supported — actions queue and sync when reconnected.</b>Annotations, W/L state and draft report text persist locally (encrypted) and replay to the server on reconnect.</div>
+    <div class="card" style="padding:8px 12px;background:#F8FAFC"><b>Kwame Osei</b> · M/47 · <span class="mono">MRN-004823</span> · <span class="mono">ACC-2026-91093</span> · MRI Lumbar spine · Ref: Dr. S. Iyer · <span class="chip teal">Reading — locked to Dr. V. Shetty</span> · <span class="chip teal">SLA due in 5h 44m</span></div>
+    <div class="card" style="background:#020617;border-color:#1E293B;padding:10px;color:#E2E8F0">
+      <div class="small mono" style="color:#7DD3FC">S3 Sagittal T2 · img 0/28 · requesting…</div>
+      <div style="min-height:220px;border:1px solid #7F1D1D;border-radius:8px;background:#0B1220;display:flex;align-items:center;justify-content:center">
+        <div style="max-width:440px;text-align:center">
+          <div style="font-size:15px;font-weight:800;color:#FCA5A5;margin-bottom:6px">Image load timed out (20s) — S3 Sagittal T2</div>
+          <div class="small" style="color:#94A3B8;margin-bottom:10px">Primary image cache (AND-PACS-01) did not respond after 2 automatic retries at 11:04:12 and 11:04:32 IST. Series S1–S2 already loaded remain fully readable.</div>
+          <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap"><span class="btn primary">Retry now (attempt 3)</span><span class="btn warn-outline">Re-query long-term archive (VNA) — est. 60–90s</span><span class="btn ghost" style="color:#7DD3FC">Report transfer issue to T. Okafor</span></div>
+          <div class="small" style="color:#64748B;margin-top:8px">If VNA re-query also fails, the study reverts to Assigned and the incident auto-opens a PACS ticket — the SLA clock keeps running and shows the outage annotation to the lead.</div>
+        </div>
+      </div>
+      <div class="small" style="color:#94A3B8;margin-top:6px">Loaded: S1 Sag T1 <span class="chip green">28/28</span> · S2 Axial T2 <span class="chip green">32/32</span> · S3 Sag T2 <span class="chip red">timeout</span> · S4 STIR <span class="chip grey">queued</span></div>
+    </div>
+  </div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE B — LOW-BANDWIDTH PROGRESSIVE MODE + LOSSY-COMPRESSION GUARD</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">RIS · Reading &rsaquo; ACC-2026-91112 &rsaquo; Viewer</div>
+  <div class="card" style="padding:8px 12px;background:#F8FAFC"><b>Sofia Rossi</b> · F/34 · <span class="mono">MRN-004822</span> · <span class="mono">ACC-2026-91112</span> · MRI Brain + contrast · <span class="chip red">STAT</span> · <span class="chip amber">due in 0h 15m</span></div>
+  <div class="banner warn"><b>Low-bandwidth progressive mode active (measured 1.8 Mbps to AND-PACS-01).</b>Images render progressively: lossy JPEG-2000 preview first (Q75), lossless refinement streams in the background. Preview is fine for orientation and triage — <b>not for final read below quality Q90</b>.</div>
+  <div class="card" style="background:#020617;border-color:#1E293B;padding:10px;color:#E2E8F0">
+    <div class="small mono" style="color:#7DD3FC">S4 Ax T1 post-gad · img 12/40 · 168%</div>
+    <div style="min-height:170px;border:1px solid #78350F;border-radius:8px;background:#0B1220;padding:12px">
+      <div style="display:flex;justify-content:space-between"><span class="chip amber">LOSSY Q75 — refining…</span><span class="small mono" style="color:#FCD34D">lossless 9/40 images · ETA 2m 10s</span></div>
+      <div style="text-align:center;color:#334155;font-size:30px;padding:34px 0">[ PROGRESSIVE RENDER — PREVIEW QUALITY ]</div>
+      <div class="progress amber" style="max-width:300px"><i style="width:23%"></i></div>
+    </div>
+    <div class="small" style="color:#94A3B8;margin-top:6px">Each viewport shows its own quality chip; the chip turns <span class="chip green">LOSSLESS</span> per-image as refinement completes. The report editor's "Sign final" button stays disabled while any referenced image is below Q90, with the blocking series listed.</div>
+  </div>
+  <div class="card"><div class="card-title">Quality guard</div>
+    <table><tr><th>Series</th><th>Current quality</th><th>Final-read eligible?</th></tr>
+    <tr><td>S1 Ax T2</td><td><span class="chip green">Lossless</span></td><td><span class="chip green">Yes</span></td></tr>
+    <tr><td>S2 Ax FLAIR</td><td><span class="chip green">Lossless</span></td><td><span class="chip green">Yes</span></td></tr>
+    <tr class="hl"><td>S4 Ax T1 post-gad</td><td><span class="chip amber">Lossy Q75 · refining</span></td><td><span class="chip red">Blocked — below Q90</span></td></tr></table>
+  </div>
+</div></div></div>
+<div class="state-tag">STATE C — VIEWER-CRASH RECOVERY: SESSION RESTORED, ANNOTATIONS PRESERVED</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">RIS · Reading &rsaquo; ACC-2026-91101 &rsaquo; Viewer</div>
+  <div class="banner success"><b>Session restored after unexpected viewer exit at 11:12:44 IST.</b>Your reading session for ACC-2026-91101 (Mohammed Al-Rashid, HRCT Chest) was recovered from the local encrypted checkpoint (last save 11:12:41). Restored: 2 measurements (M1, M2), W/L Lung 1500/−600, position S1 img 203, and 412 characters of unsent report draft. Nothing was lost; the study lock remained yours throughout — the SLA clock was not reset.</div>
+  <div class="card"><div class="card-title">Recovered items <span class="right">Checkpoint every 5s while reading</span></div>
+    <table><tr><th>Item</th><th>State at crash</th><th>Restored</th></tr>
+    <tr><td>Measurement M1 — linear 8.4 mm, RLL nodule</td><td>Saved 10:52</td><td><span class="chip green">✓</span></td></tr>
+    <tr><td>Measurement M2 — ROI −742 HU</td><td>Saved 10:53</td><td><span class="chip green">✓</span></td></tr>
+    <tr><td>Report draft (412 chars, unsent)</td><td>Local checkpoint 11:12:41</td><td><span class="chip green">✓</span></td></tr>
+    <tr><td>Viewport layout, W/L, scroll position</td><td>Local checkpoint 11:12:41</td><td><span class="chip green">✓</span></td></tr>
+    <tr class="dim"><td>Cine playback state</td><td>Transient</td><td><span class="chip grey">not restored (by design)</span></td></tr></table>
+    <div style="margin-top:10px;display:flex;gap:10px"><span class="btn primary">Resume read at img 203</span><span class="btn ghost">View crash diagnostic (sent to IT automatically)</span></div>
+  </div>
+</div></div></div>
+<div class="state-tag">STATE D — CONCURRENT-OPEN WARNING: SAME STUDY, TWO READERS</div>
+<div class="modal-wrap"><div class="modal">
+  <h3>Study already open — ACC-2026-91104 (Rajesh Gupta, CT Brain STAT)</h3>
+  <div class="banner warn"><b>Dr. A. Rao has this study open in Reading state since 11:02 IST (workstation AND-WS-07, active 40s ago).</b>Two simultaneous primary reads risk duplicate or conflicting reports. Choose how to proceed:</div>
+  <div class="kv" style="margin-bottom:8px">
+    <dt>View-only</dt><dd>Open read-only alongside Dr. A. Rao — no lock change, no report editor; typical for consult/second opinion.</dd>
+    <dt>Take over</dt><dd>Invokes the Steal rule (RD-01): typed reason required, Dr. A. Rao notified, draft transfers to you.</dd>
+    <dt>Wait</dt><dd>Get a notification the moment the study is Reported or released.</dd>
+  </div>
+  <div class="modal-actions"><span class="btn">Wait &amp; notify me</span><span class="btn">Open view-only</span><span class="btn danger">Take over (reason required)…</span></div>
+  <div class="small muted" style="margin-top:8px">View-only sessions are watermarked "CONSULT VIEW — not the reading session" in every viewport and are separately logged.</div>
+</div></div>
+<p class="audit">Timeouts, archive re-queries, lossy-quality states at time of any sign attempt, crash-recovery restorations, and concurrent-open choices (view-only vs takeover, with reason) are recorded in the access log.</p>
+</section>

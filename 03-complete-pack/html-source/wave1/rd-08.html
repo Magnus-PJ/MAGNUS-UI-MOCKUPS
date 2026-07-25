@@ -1,0 +1,102 @@
+<section class="screen" id="rd-08">
+<div class="screen-head"><h1><span class="sid">RD-08</span> Pre-sign quality checklist</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Runs automatically when the radiologist presses "Proceed to sign" and can be run on demand from the editor. Auto-checks compare findings vs impression, laterality vs order, template completeness, comparison-vs-linked-prior consistency and uncoded terms. Warnings never hard-block: the radiologist may acknowledge each and continue to sign, and every acknowledgement is attributed and logged. It also advises when an addendum to an existing signed report is more appropriate than a new report.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Reading</div>
+      <div class="nav-item">Reading worklist <span class="nav-badge">14</span></div>
+      <div class="nav-item">My assignments <span class="nav-badge">6</span></div>
+      <div class="nav-item active">Drafts <span class="nav-badge">3</span></div>
+      <div class="nav-item">Sign queue <span class="nav-badge red">2</span></div>
+      <div class="sec-label">Quality</div>
+      <div class="nav-item">Addenda</div>
+      <div class="nav-item">Critical results</div>
+      <div class="nav-item">Peer review</div>
+      <div class="sec-label">Personal</div>
+      <div class="nav-item">Hanging protocols</div>
+      <div class="nav-item">Report macros</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Drafts &rsaquo; ACC-2026-91240 &rsaquo; Pre-sign checks</div>
+      <div class="page-title">Pre-sign quality checklist <span class="chip green">ALL CHECKS PASSED</span> <span class="actions-right"><span class="btn small">← Back to editor</span> <span class="btn primary small">Continue to sign-off →</span></span></div>
+      <div class="page-sub">Aarav Sharma · M 34y · MRN-004821 · CR Chest PA · ACC-2026-91240 · Dr. S. Iyer (referrer) · <span class="chip teal">due in 1h 40m</span> owner Dr. V. Shetty</div>
+      <div class="stepper">
+        <div class="step done"><span class="dot">✓</span> Acquired</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Assigned</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Authoring</div><span class="step-line"></span>
+        <div class="step cur"><span class="dot">4</span> Pre-sign checks</div><span class="step-line"></span>
+        <div class="step"><span class="dot">5</span> Signed</div>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">7 / 7</div><div class="l">Checks passed</div><div class="s">run 12:10:05 IST · v14</div></div>
+        <div class="kpi"><div class="n">0</div><div class="l">Warnings</div><div class="s">nothing to acknowledge</div></div>
+        <div class="kpi"><div class="n">0</div><div class="l">Uncoded terms</div><div class="s">all findings coded</div></div>
+        <div class="kpi"><div class="n">1</div><div class="l">Prior linked</div><div class="s">CXR 03 Jan 2026 · ACC-2026-84102</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Auto-checks <span class="right">deterministic + language hints · advisory only</span></div>
+        <table>
+          <tr><th style="width:34%">Check</th><th>Result</th><th>Detail</th></tr>
+          <tr><td class="bold">Findings ↔ Impression consistency</td><td><span class="chip green">PASS</span></td><td>All 2 impression items trace to findings sentences; no orphan impression statements.</td></tr>
+          <tr><td class="bold">Laterality: text vs order</td><td><span class="chip green">PASS</span></td><td>Order has no laterality (chest); no unilateral phrases requiring match.</td></tr>
+          <tr><td class="bold">Template completeness</td><td><span class="chip green">PASS</span></td><td>All required sections present: Technique, Comparison, Findings, Impression.</td></tr>
+          <tr><td class="bold">Comparison referenced ↔ prior linked</td><td><span class="chip green">PASS</span></td><td>"Compared with 03 Jan 2026" ↔ linked ACC-2026-84102 ✓ dates agree.</td></tr>
+          <tr><td class="bold">Uncoded terms</td><td><span class="chip green">PASS</span></td><td>0 uncoded terms; 4 SNOMED CT, 1 LOINC codes attached.</td></tr>
+          <tr><td class="bold">Critical-keyword scan</td><td><span class="chip green">PASS</span></td><td>No critical keywords detected; no flag suggested.</td></tr>
+          <tr><td class="bold">Addendum-vs-new-report guidance</td><td><span class="chip green">N/A</span></td><td>No signed report exists on this accession — new report is correct.</td></tr>
+        </table>
+      </div>
+      <div class="banner success" style="margin-bottom:0"><b>Ready to sign.</b> Checks are advisory; results are snapshotted to draft v14 and attached to the sign-off record.</div>
+      <p class="audit">Each checklist run (inputs, results, draft version) is recorded in the access log and bound to the eventual signature.</p>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — WARNINGS PRESENT (SIGN STILL ALLOWED WITH EXPLICIT ACKNOWLEDGE)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Drafts &rsaquo; ACC-2026-91233 &rsaquo; Pre-sign checks</div>
+      <div class="page-title">Pre-sign quality checklist <span class="chip amber">3 WARNINGS · 1 UNCODED</span> <span class="actions-right"><span class="btn small">← Back to editor</span> <span class="btn warn-outline small">Acknowledge all &amp; continue →</span></span></div>
+      <div class="page-sub">Sofia Rossi · F 41y · MRN-004822 · CT Head NCCT · ACC-2026-91233 · Dr. Meera Nair · <span class="chip red">OVERDUE 00:36</span> owner Dr. V. Shetty · Escalated to Dr. A. Rao (duty senior)</div>
+      <div class="banner warn"><b>Warnings do not block signing.</b> Acknowledge each item (or fix in the editor) to proceed. Acknowledgements are attributed to you and shown to peer review.</div>
+      <div class="card">
+        <div class="card-title">Auto-checks <span class="right">run 12:14:52 IST · draft v29</span></div>
+        <table>
+          <tr><th style="width:30%">Check</th><th>Result</th><th>Detail</th><th style="width:170px">Action</th></tr>
+          <tr class="hl"><td class="bold">Findings ↔ Impression consistency</td><td><span class="chip amber">WARN</span></td><td>Findings mention "no skull vault fracture" but Impression item 2 says only "No fracture" — facial skeleton not covered in findings. Consider aligning.</td><td><div class="check" style="margin:0"><span class="box on">✓</span> Acknowledge</div></td></tr>
+          <tr class="hl"><td class="bold">Laterality: text vs order</td><td><span class="chip amber">WARN</span></td><td>Report says <b>right</b> frontal subdural; order clinical note free-text mentions "left-sided scalp swelling". Contra-coup is plausible — please verify side.</td><td><div class="check" style="margin:0"><span class="box"></span> Acknowledge</div></td></tr>
+          <tr><td class="bold">Template completeness</td><td><span class="chip green">PASS</span></td><td>All required sections present.</td><td>—</td></tr>
+          <tr class="hl"><td class="bold">Comparison referenced ↔ prior linked</td><td><span class="chip amber">WARN</span></td><td>Findings text references "compared with 14 Feb 2026" — linked prior is ACC-2026-87310 dated <b>14 Feb 2026</b> ✓, but a second phrase "stable since March" has no linked March study.</td><td><span class="btn small">Link prior…</span></td></tr>
+          <tr class="hl"><td class="bold">Uncoded terms</td><td><span class="chip amber">1 UNCODED</span></td><td>"grey–white differentiation preserved" — reason on file: <i>Descriptive phrase — no single concept applies</i> (Dr. V. Shetty, 11:58 IST).</td><td><span class="chip grey">reason recorded ✓</span></td></tr>
+          <tr><td class="bold">Critical-keyword scan</td><td><span class="chip red">FLAG SET</span></td><td>"haemorrhage" → critical suspicion flag is ON; critical-result prompt will appear at sign-off.</td><td><span class="chip red">carries to sign</span></td></tr>
+          <tr><td class="bold">Addendum-vs-new-report guidance</td><td><span class="chip amber">REVIEW</span></td><td>A signed report already exists on sibling accession ACC-2026-91232 (same visit VIS-2026-31188). If this adds to that study's conclusions, prefer an <b>addendum</b> there instead of a second standalone report.</td><td><span class="btn small">Open guidance</span></td></tr>
+        </table>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Acknowledgement summary</div>
+          <div class="check"><span class="box on">✓</span> 1 of 3 warnings acknowledged (Findings ↔ Impression) — 12:15:10 IST</div>
+          <div class="check"><span class="box"></span> Laterality warning — pending</div>
+          <div class="check"><span class="box"></span> Unlinked March comparison — pending (or link prior)</div>
+          <div class="hint small muted" style="margin-top:6px">"Acknowledge all &amp; continue" ticks the remainder in one step and records a single grouped acknowledgement event.</div>
+        </div>
+        <div class="card" style="width:280px">
+          <div class="card-title">What blocks vs what doesn't</div>
+          <table>
+            <tr><td>Warnings</td><td><span class="chip amber">acknowledge to pass</span></td></tr>
+            <tr><td>Uncoded + reason</td><td><span class="chip green">never blocks</span></td></tr>
+            <tr><td>Missing required section</td><td><span class="chip red">blocks — fix in editor</span></td></tr>
+            <tr><td>Regulated compliance scan fail</td><td><span class="chip red">blocks save &amp; sign</span></td></tr>
+          </table>
+        </div>
+      </div>
+      <p class="audit">Warning acknowledgements record the exact check text shown, the draft version and your identity; they are visible in peer review and recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+</section>

@@ -1,0 +1,98 @@
+<section class="screen" id="rd-15">
+<div class="screen-head"><h1><span class="sid">RD-15</span> Report version diff</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Radiologists, peer reviewers and medico-legal staff open this view whenever a signed report has one or more addenda, to see exactly what changed between versions before citing or releasing. It must guarantee that every version is immutable, every change is attributable (who / when / why), and that a clinically material change is flagged by the author and pushed to the referrer with a plain-language "what changed" summary. Signed versions can never be edited in place — only appended to.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Worklist</div>
+    <div class="nav-item">My worklist <span class="nav-badge">12</span></div>
+    <div class="nav-item">STAT queue <span class="nav-badge red">2</span></div>
+    <div class="nav-item">Unassigned pool</div>
+    <div class="sec-label">Reading</div>
+    <div class="nav-item">Report editor</div>
+    <div class="nav-item">Prior comparisons</div>
+    <div class="nav-item active">Addenda &amp; versions</div>
+    <div class="sec-label">Quality</div>
+    <div class="nav-item">Critical results <span class="nav-badge red">1</span></div>
+    <div class="nav-item">Consults</div>
+    <div class="nav-item">My dashboard</div>
+    <div class="nav-item">Templates &amp; macros</div>
+  </div>
+  <div class="main">
+    <div class="crumb">RIS · Reading › Addenda &amp; versions › ACC-2026-91247 › Compare</div>
+    <div class="page-title">Version diff — CT Chest with contrast <span class="chip violet">v1 → v2</span></div>
+    <div class="page-sub">Sofia Rossi · MRN-004822 · F 41 · ACC-2026-91247 · Referrer: Dr. Meera Nair · Visit VIS-2026-31182 · Both versions immutable; viewing recorded in the access log.</div>
+    <div class="card">
+      <div class="card-title">Chain metadata <span class="right">Who / when / why per version</span></div>
+      <table>
+        <tr><th>Version</th><th>Status</th><th>Author</th><th>Signed (IST)</th><th>Reason for new version</th><th>Material change</th><th>Referrer notified</th></tr>
+        <tr class="dim"><td class="mono">v1</td><td><span class="chip grey">SUPERSEDED</span></td><td>Dr. V. Shetty (RMC MH-44721)</td><td class="mono">14-Jul-2026 11:42</td><td>Initial signed report</td><td>—</td><td>Portal · 14-Jul 11:44</td></tr>
+        <tr class="hl"><td class="mono">v2</td><td><span class="chip green">CURRENT · ADDENDUM</span></td><td>Dr. V. Shetty (RMC MH-44721)</td><td class="mono">15-Jul-2026 09:18</td><td>Prior CT (Mar-2024, outside film) reviewed after signing — measurement and follow-up interval revised</td><td><span class="chip red">CLINICALLY MATERIAL</span></td><td>Portal + call logged · 15-Jul 09:31 (D. Nair)</td></tr>
+      </table>
+    </div>
+    <div class="banner info"><b>Referrer-facing "what changed" summary (authored by Dr. V. Shetty, sent with v2)</b>Right lower-lobe nodule size corrected from 6 mm to 9 mm after comparison with outside prior; follow-up interval changed from 12 months to 3 months per Fleischner criteria. No other findings changed.</div>
+    <div class="split" style="grid-template-columns:1fr 1fr">
+      <div class="card">
+        <div class="card-title">v1 — signed 14-Jul 11:42 <span class="right">Removed text in red</span></div>
+        <p class="small bold" style="margin-bottom:6px">FINDINGS</p>
+        <p class="small" style="margin-bottom:8px">Lungs: No consolidation. <span style="background:#FEE2E2;color:#991B1B;text-decoration:line-through">A 6 mm solid nodule in the right lower lobe (series 3, image 142)</span>. No pleural effusion. Mediastinum: no significant lymphadenopathy. <span style="background:#FEE2E2;color:#991B1B;text-decoration:line-through">No prior imaging available for comparison.</span></p>
+        <p class="small bold" style="margin-bottom:6px">IMPRESSION</p>
+        <p class="small">1. <span style="background:#FEE2E2;color:#991B1B;text-decoration:line-through">6 mm solid RLL nodule — recommend CT follow-up in 12 months (Fleischner, low-risk).</span><br>2. No acute cardiopulmonary abnormality otherwise.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">v2 — signed 15-Jul 09:18 <span class="right">Added text in green</span></div>
+        <p class="small bold" style="margin-bottom:6px">FINDINGS</p>
+        <p class="small" style="margin-bottom:8px">Lungs: No consolidation. <span style="background:#DCFCE7;color:#166534">A 9 mm solid nodule in the right lower lobe (series 3, image 142), previously 7 mm on outside CT dated 02-Mar-2024 — interval growth</span>. No pleural effusion. Mediastinum: no significant lymphadenopathy. <span style="background:#DCFCE7;color:#166534">Comparison: outside CT chest 02-Mar-2024 (uploaded 15-Jul-2026).</span></p>
+        <p class="small bold" style="margin-bottom:6px">IMPRESSION</p>
+        <p class="small">1. <span style="background:#DCFCE7;color:#166534">Growing 9 mm solid RLL nodule — recommend CT follow-up in 3 months; PET-CT if further growth (Fleischner, low-risk with growth).</span><br>2. No acute cardiopulmonary abnormality otherwise.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Unchanged sections <span class="right">Collapsed — 4 sections identical</span></div>
+      <p class="small muted">CLINICAL HISTORY · TECHNIQUE · COMPARISON DOSE RECORD · SIGNATURE BLOCK — no differences between v1 and v2. <span class="btn ghost small">Expand all</span></p>
+    </div>
+    <div class="row">
+      <span class="btn primary">Open current version (v2)</span>
+      <span class="btn">Export diff as PDF (watermarked "VERSION COMPARISON — NOT A REPORT")</span>
+      <span class="btn ghost">Copy referrer summary</span>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — AUTHOR FLAGS CLINICALLY MATERIAL CHANGE AT ADDENDUM SIGN-OFF</div>
+<div class="modal-wrap"><div class="modal">
+  <h3>Sign addendum v2 — is this change clinically material?</h3>
+  <p class="small muted" style="margin-bottom:10px">ACC-2026-91247 · Sofia Rossi · MRN-004822. Your answer is stored on the version chain and controls referrer re-notification. It cannot be edited after signing — a wrong flag requires a further addendum.</p>
+  <div class="check"><span class="box radio on"></span><span><b>Yes — clinically material.</b> Findings, impression or recommendations changed in a way that could alter management. Referrer is re-notified on all active channels and the change is queued for closed-loop acknowledgement.</span></div>
+  <div class="check"><span class="box radio"></span><span><b>No — non-material.</b> Typographical / formatting / demographic correction only. Portal copy updates silently; no re-notification.</span></div>
+  <div class="field"><label>Referrer-facing "what changed" summary <span class="req">*</span> <span class="muted">(plain language, 1–2 lines, shown above the report)</span></label>
+  <div class="textarea small">Nodule size corrected from 6 mm to 9 mm after outside-prior comparison; follow-up interval shortened from 12 months to 3 months.</div>
+  <div class="hint">Required when material. Avoid abbreviations the referrer may not use.</div></div>
+  <div class="field"><label>Confirm identity to sign (step-up) <span class="req">*</span></label><div class="input mono">Smartcard PIN · Dr. V. Shetty · RMC MH-44721 · ••••</div></div>
+  <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Sign addendum &amp; notify</span></div>
+</div></div>
+<div class="banner danger" style="max-width:760px"><b>Material change flagged — closed-loop notification started</b>Dr. Meera Nair will be notified via portal and phone. If unacknowledged, the item escalates per the critical-communication ladder. SLA: <span class="chip amber">acknowledgement due in 4h</span> · Owner: front office D. Nair · Escalated to Branch Manager if breached.</div>
+
+<div class="divider-label">state</div>
+
+<div class="state-tag">STATE C — MULTI-ADDENDA CHAIN (v1 → v2 → v3) WITH PAIR SELECTOR</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Version chain — MRI Brain · ACC-2026-90418 <span class="chip violet">3 versions</span></div>
+  <div class="page-sub">Rajesh Gupta · MRN-004795 · M 58 · Referrer: Dr. S. Iyer · Comparing any pair renders the same diff engine; the chain itself is append-only.</div>
+  <div class="card">
+    <div class="card-title">Select versions to compare</div>
+    <div class="row" style="align-items:center;margin-bottom:10px"><span class="chip grey">v1 · 08-Jul 17:05</span><span class="muted">→</span><span class="chip teal">v2 · 10-Jul 10:22 · non-material (typo)</span><span class="muted">→</span><span class="chip red">v3 · 18-Jul 08:47 · MATERIAL · CURRENT</span><span class="btn small primary" style="margin-left:auto">Compare v1 ↔ v3</span><span class="btn small">Compare v2 ↔ v3</span></div>
+    <table>
+      <tr><th>Pair</th><th>Changed sections</th><th>Material?</th><th>Reason recorded</th><th>Author</th></tr>
+      <tr><td class="mono">v1 → v2</td><td>Findings (1 sentence)</td><td><span class="chip grey">Non-material</span></td><td>"lef" → "left" typographical fix</td><td>Dr. V. Shetty</td></tr>
+      <tr class="hl"><td class="mono">v2 → v3</td><td>Findings, Impression, Recommendations</td><td><span class="chip red">Material</span></td><td>Restricted diffusion on re-review with Dr. A. Rao consult (CON-2026-0141) — acute infarct added</td><td>Dr. V. Shetty</td></tr>
+      <tr><td class="mono">v1 → v3</td><td>Cumulative (3 sections)</td><td><span class="chip red">Material</span></td><td>Cumulative view — flags inherit the strictest label in the span</td><td>—</td></tr>
+    </table>
+  </div>
+  <div class="banner warn" style="max-width:760px"><b>Referrer sees only the current version by default</b>Dr. S. Iyer's portal shows v3 with the "what changed" banner. Earlier versions are available to the referrer on request via records release (RL workflow) — never silently substituted.</div>
+</div></div></div>
+
+<p class="audit">Every version open, pair comparison, diff export and material-change flag is recorded in the access log with user, role, purpose-of-use and timestamp (IST). Diff exports carry a "VERSION COMPARISON — NOT A REPORT" watermark. Patient identifiers are masked for viewers without a treatment or QA purpose. Signed versions are immutable; corrections occur only by appending a new version, and this rule is enforced by the system, not policy alone.</p>
+</section>

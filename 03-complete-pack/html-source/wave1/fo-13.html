@@ -1,0 +1,140 @@
+<section class="screen" id="fo-13">
+<div class="screen-head"><h1><span class="sid">FO-13</span> Check-in &amp; token issuance</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> When a patient presents at reception, D. Nair matches them to the appointment, reviews the gate summary (safety screening, consent, Form F for obstetric US, payment) <b>before</b> a token can be issued, then issues the token with queue position and estimated wait. It must guarantee no token is issued while a blocking gate is open, and that late arrivals are offered requeue or reschedule rather than silently jumping the queue.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Front desk</div>
+      <div class="nav-item">Today overview</div>
+      <div class="nav-item">Appointments <span class="nav-badge">42</span></div>
+      <div class="nav-item active">Check-in &amp; tokens</div>
+      <div class="nav-item">Queue control <span class="nav-badge">14</span></div>
+      <div class="sec-label">Patients</div>
+      <div class="nav-item">Search / register</div>
+      <div class="nav-item">Consents &amp; forms</div>
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Estimates &amp; invoices</div>
+      <div class="nav-item">Refunds <span class="nav-badge red">2</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Front Office › Check-in &amp; tokens › APPT-2026-50322</div>
+      <div class="page-title">Check-in — Kwame Osei</div>
+      <div class="page-sub">Identity verified at desk (Aadhaar last-4 ••7218 matched) · Sat 25 Jul 2026, 10:52 IST</div>
+
+      <div class="stepper">
+        <div class="step done"><span class="dot">✓</span> Match appointment</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Verify identity</div><span class="step-line"></span>
+        <div class="step cur"><span class="dot">3</span> Review gates</div><span class="step-line"></span>
+        <div class="step"><span class="dot">4</span> Issue token</div>
+      </div>
+
+      <div class="split">
+        <div>
+          <div class="card">
+            <div class="card-title">Appointment match <span class="chip green">MATCHED</span></div>
+            <dl class="kv">
+              <dt>Patient</dt><dd><b>Kwame Osei</b> · <span class="mono">MRN-004823</span> · M, 41 · ID: Aadhaar ••••-••••-7218</dd>
+              <dt>Appointment</dt><dd><span class="mono">APPT-2026-50322</span> · CT Brain plain · slot <b>11:00 IST</b> (arrived 10:52 — on time)</dd>
+              <dt>Linked order</dt><dd><span class="mono">ACC-2026-91217</span> · Dr. S. Iyer · clinical note: “post-fall headache, r/o bleed”</dd>
+              <dt>Visit</dt><dd><span class="mono">VIS-2026-30519</span> created on check-in</dd>
+              <dt>Payment</dt><dd><span class="mono">INV/AND/26-27/0418</span> · ₹3,200 <span class="chip green">Paid in full</span></dd>
+            </dl>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Gate summary — must be green or waived before token <span class="right">Checked at 10:52</span></div>
+            <table>
+              <tr><th>Gate</th><th>Status</th><th>Owner / where to fix</th></tr>
+              <tr><td>CT contrast screening</td><td><span class="chip grey">Not required</span> <span class="muted small">plain study</span></td><td class="small muted">—</td></tr>
+              <tr><td>Procedure consent</td><td><span class="chip green">On file ✓</span> <span class="muted small">signed 25 Jul 10:49</span></td><td class="small">Consents &amp; forms (FO-08)</td></tr>
+              <tr><td>Form F (PCPNDT)</td><td><span class="chip grey">Not applicable</span> <span class="muted small">non-obstetric</span></td><td class="small muted">—</td></tr>
+              <tr><td>Payment / credit</td><td><span class="chip green">Cleared ✓</span></td><td class="small">Billing (FO-05)</td></tr>
+              <tr><td>Pregnancy check (CT)</td><td><span class="chip grey">Not required</span> <span class="muted small">male patient</span></td><td class="small muted">—</td></tr>
+            </table>
+            <div class="banner success" style="margin-top:12px;margin-bottom:0"><b>All gates clear</b>Token can be issued. Technologist T. Okafor will see gate results on the CT worklist.</div>
+          </div>
+
+          <div style="display:flex;justify-content:flex-end;gap:10px"><span class="btn">Back to day list</span><span class="btn primary">Issue token → CT queue</span></div>
+        </div>
+
+        <div>
+          <div class="card" style="border-left:4px solid #0F766E">
+            <div class="card-title">Token confirmed</div>
+            <div style="text-align:center;padding:8px 0 12px">
+              <div class="mono" style="font-size:34px;font-weight:800;color:#0F766E">C-042</div>
+              <div class="small muted">CT service point · issued 10:53 IST</div>
+            </div>
+            <dl class="kv" style="grid-template-columns:120px 1fr">
+              <dt>Queue position</dt><dd><b>2</b> of 5 waiting</dd>
+              <dt>Est. wait</dt><dd><span class="chip teal">~ 18 min</span> · called via display + SMS</dd>
+              <dt>Now serving</dt><dd class="mono">C-040</dd>
+            </dl>
+            <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap"><span class="btn small primary">🖨 Print token slip</span><span class="btn small">Send SMS slip</span><span class="btn small ghost">View queue (FO-14)</span></div>
+            <p class="small muted" style="margin-top:8px">Slip and public display show the token only — never the patient's name or MRN.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Also today for this patient</div>
+            <div class="check"><span class="box">&nbsp;</span><span>No other services booked today.</span></div>
+            <div class="check"><span class="box on">✓</span><span>Prior CT (2024, external) noted — technologist can request comparison upload.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — GATES PENDING: TOKEN BLOCKED (PRIYA MENON, OBSTETRIC US)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Check-in — Priya Menon <span class="chip amber">GATES PENDING</span></div>
+  <div class="page-sub"><span class="mono">APPT-2026-50327</span> · US Obstetric (anomaly scan) · slot 10:45 IST · arrived 10:41</div>
+  <div class="banner warn"><b>Token cannot be issued yet — 2 gates open</b>Resolve or route to the owning screen. Token issue stays disabled until every blocking gate is green.</div>
+  <div class="card">
+    <div class="card-title">Gate summary</div>
+    <table>
+      <tr><th>Gate</th><th>Status</th><th>Action</th></tr>
+      <tr><td><b>Form F (PCPNDT)</b> — mandatory for obstetric US</td><td><span class="chip red">Missing</span></td><td><span class="btn small warn-outline">Complete Form F (FO-09)</span></td></tr>
+      <tr><td>Procedure consent (obstetric US)</td><td><span class="chip amber">Sent to patient tablet — unsigned</span></td><td><span class="btn small">Re-open consent (FO-08)</span></td></tr>
+      <tr><td>Payment</td><td><span class="chip green">Cleared ✓</span> <span class="muted small mono">INV/AND/26-27/0421</span></td><td class="muted small">—</td></tr>
+      <tr><td>Referral on file</td><td><span class="chip green">Dr. Farida Khan ✓</span></td><td class="muted small">—</td></tr>
+    </table>
+    <div class="banner reg" style="margin-top:12px;margin-bottom:0"><b>PCPNDT notice</b>Foetal sex is never determined or disclosed. Form F must be completed and signed before the scan; the record is retained per statutory schedule and cannot be waived by front office.</div>
+  </div>
+  <div style="display:flex;justify-content:flex-end;gap:10px"><span class="btn">Hold check-in</span><span class="btn disabled primary">Issue token (blocked — 2 gates open)</span></div>
+  <p class="audit">Gate outcomes and any waiver attempts are attributed to the signed-in operator and recorded in the access log.</p>
+</div></div></div>
+
+<div class="state-tag">STATE C — LATE ARRIVAL: SLOT PASSED → REQUEUE OR RESCHEDULE</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Check-in — Mohammed Al-Rashid <span class="chip red">LATE ARRIVAL</span></div>
+  <div class="page-sub"><span class="mono">APPT-2026-50314</span> · X-ray Chest PA · slot was 10:00 IST · presented 11:47 (1 h 47 m late)</div>
+  <div class="banner danger"><b>Slot has passed — appointment was auto-marked no-show at 10:30</b>Do not issue a normal token. Offer requeue (end of current X-ray queue) or reschedule; either choice reverses the no-show mark with a reason.</div>
+  <div class="row">
+    <div class="card grow">
+      <div class="card-title">Option A — Requeue today</div>
+      <dl class="kv" style="grid-template-columns:130px 1fr">
+        <dt>Queue</dt><dd>X-ray · 6 waiting · now serving <span class="mono">X-006</span></dd>
+        <dt>New token</dt><dd class="mono">X-008 (end of queue)</dd>
+        <dt>Est. wait</dt><dd><span class="chip amber">~ 55 min</span> — confirm patient accepts</dd>
+        <dt>Effect</dt><dd>No-show reversed → <span class="chip blue">Checked-in (late)</span>; original reference kept</dd>
+      </dl>
+      <div style="margin-top:8px"><span class="btn primary small">Requeue as X-008</span></div>
+    </div>
+    <div class="card grow">
+      <div class="card-title">Option B — Reschedule</div>
+      <dl class="kv" style="grid-template-columns:130px 1fr">
+        <dt>Next slots</dt><dd>Today 16:15 · Mon 27 Jul 09:20 · Mon 27 Jul 12:40</dd>
+        <dt>Reference</dt><dd><span class="mono">APPT-2026-50314</span> kept; patient re-notified per consent</dd>
+        <dt>Effect</dt><dd>No-show reversed with reason “late arrival — rescheduled”</dd>
+      </dl>
+      <div style="margin-top:8px"><span class="btn small">Open reschedule (FO-11)</span></div>
+    </div>
+  </div>
+  <div class="field" style="max-width:520px"><label>Late-arrival reason (kept on file) <span class="req">*</span></label><div class="select">Traffic / transport delay ▾</div></div>
+  <p class="audit">Requeue or reschedule of a late arrival reverses the no-show flag with reason and operator identity — recorded in the access log.</p>
+</div></div></div>
+
+<p class="audit">Identity verification stores only Aadhaar last-4 and match result. Token slips, SMS and the public display never carry patient names — recorded in the access log.</p>
+</section>

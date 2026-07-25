@@ -1,0 +1,110 @@
+<section class="screen" id="fo-18">
+<div class="screen-head"><h1><span class="sid">FO-18</span> Document &amp; referral intake</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office scans or uploads paper referrals, prior reports and ID-adjacent documents (PDF/JPG/PNG) and attaches each to the correct patient + visit + order so nothing lives loose on a counter. Doc type comes from a fixed taxonomy which auto-assigns the retention class; referrer details are captured from the letterhead and matched against the referrer directory. OCR runs later — every scan carries an "OCR pending" placeholder flag until then, and files containing Aadhaar numbers are auto-flagged for redaction to last-4.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Reception</div>
+    <div class="nav-item">Today's schedule</div>
+    <div class="nav-item">Registration</div>
+    <div class="nav-item">Walk-in fast-track</div>
+    <div class="nav-item">Token queue <span class="nav-badge">14</span></div>
+    <div class="sec-label">Billing</div>
+    <div class="nav-item">Collect payment</div>
+    <div class="nav-item">Invoices</div>
+    <div class="sec-label">Records</div>
+    <div class="nav-item active">Document intake <span class="nav-badge">3</span></div>
+    <div class="nav-item">Visit summaries</div>
+    <div class="nav-item">End-of-day close</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Front Office › Document intake › New upload</div>
+    <div class="page-title">Attach document to record</div>
+    <div class="page-sub">Counter 2 flatbed scanner connected · accepted: PDF, JPG, PNG · max 20 MB per file</div>
+    <div class="banner info"><b>Working offline is supported</b> — actions queue and sync when reconnected. Scans are stored locally encrypted until sync completes.</div>
+    <div class="row">
+      <div class="grow">
+        <div class="card">
+          <div class="card-title">1 · File</div>
+          <div class="sig-box" style="min-height:88px">Drop file here, or <b>&nbsp;Scan from flatbed&nbsp;</b> / <b>&nbsp;Browse…&nbsp;</b></div>
+          <div class="small muted" style="margin-top:6px">Selected: <span class="mono">referral_dr_meera_nair_20260725.pdf</span> · 1.2 MB · 2 pages · virus scan passed</div>
+        </div>
+        <div class="card">
+          <div class="card-title">2 · Classify &amp; attach</div>
+          <div class="row">
+            <div class="grow"><div class="field"><label>Document type <span class="req">*</span></label><input class="select" value="Referral letter (external) ▾"/><div class="hint">Taxonomy: Referral letter · Prior report (external) · Prior images CD note · Consent (paper) · Prescription · ID document · Insurance/TPA letter · Other correspondence</div></div></div>
+            <div style="width:190px"><div class="field"><label>Retention class</label><input class="input" value="R-CLIN-8Y (auto)" style="background:#F8FAFC"/><div class="hint">Auto-assigned from type; only admin K. Verma can override.</div></div></div>
+          </div>
+          <div class="row">
+            <div class="grow"><div class="field"><label>Patient <span class="req">*</span></label><input class="input" value="Kwame Osei — MRN-004823"/></div></div>
+            <div class="grow"><div class="field"><label>Visit</label><input class="select" value="VIS-2026-30902 · 25 Jul · walk-in ▾"/></div></div>
+            <div class="grow"><div class="field"><label>Order / accession</label><input class="select" value="ACC-2026-90361 · XR Chest PA ▾"/></div></div>
+          </div>
+          <div class="check"><span class="box on">✓</span> This clears the fast-track "referral scan" complete-later flag on VIS-2026-30902.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">3 · Referrer from letterhead <span class="right">Directory match</span></div>
+          <div class="row">
+            <div class="grow"><div class="field"><label>Name on letterhead</label><input class="input" value="Dr. Meera Nair, MBBS MD"/></div></div>
+            <div class="grow"><div class="field"><label>Clinic</label><input class="input" value="MedPlus Clinic, Andheri West"/></div></div>
+            <div style="width:160px"><div class="field"><label>Phone (if printed)</label><input class="input" value="022-2673 ····"/></div></div>
+          </div>
+          <div class="banner success" style="margin-bottom:8px"><b>Matched: Dr. Meera Nair (REF-0142)</b> — MedPlus Clinic, Andheri West · 96% match on name + clinic. Visits by this referrer this month: 23.</div>
+          <div class="check"><span class="box on radio">•</span> Link to matched directory entry REF-0142 (recommended)</div>
+          <div class="check"><span class="box radio">&nbsp;</span> Create new referrer entry (goes to admin verification queue)</div>
+        </div>
+        <div class="modal-actions" style="justify-content:space-between"><span class="check" style="margin:0"><span class="box on">✓</span> Flag for OCR — text extraction &amp; auto-indexing run in the nightly batch <span class="chip grey">OCR PENDING placeholder</span></span><span><span class="btn">Save &amp; add another</span> <span class="btn primary">Attach to record</span></span></div>
+      </div>
+      <div style="width:280px;flex-shrink:0">
+        <div class="card">
+          <div class="card-title">Preview · page 1/2</div>
+          <div class="sig-box" style="min-height:180px;font-style:normal">MedPlus Clinic letterhead<br/>"Kindly do X-Ray Chest PA…"<br/><span class="small">(rendered preview)</span></div>
+          <div class="small muted" style="margin-top:6px">Preview is watermarked with your user ID. Aadhaar-pattern detector: none found on page 1–2.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Rules that apply</div>
+          <div class="small">· ID documents: Aadhaar auto-redacted to last-4 before storage; full-number pages are rejected.<br/>· Obstetric USG referrals: any handwritten foetal-sex query is flagged; sex is never disclosed (PCPNDT).<br/>· Prior reports remain "external — unverified" until a radiologist acknowledges them.</div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ATTACHED DOCUMENTS ON THE PATIENT RECORD</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="crumb">Front Office › Document intake › Kwame Osei (MRN-004823) › Documents</div>
+    <div class="page-title">Documents — Kwame Osei <span class="chip grey">MRN-004823</span></div>
+    <div class="page-sub">6 documents · viewing purpose: front-office service · clinical PDFs open read-only</div>
+    <div class="card">
+      <table>
+        <tr><th>Doc</th><th>Type / retention</th><th>Attached to</th><th>Referrer</th><th>OCR</th><th>Added</th><th></th></tr>
+        <tr class="hl"><td class="mono">DOC-26-08871<div class="small">referral_dr_meera_nair…pdf</div></td><td>Referral letter<div class="small muted">R-CLIN-8Y</div></td><td class="mono">VIS-2026-30902<div class="small">ACC-2026-90361</div></td><td>Dr. Meera Nair (REF-0142)</td><td><span class="chip grey">OCR pending</span></td><td>25 Jul 10:58<div class="small">D. Nair</div></td><td><span class="btn ghost small">Open</span></td></tr>
+        <tr><td class="mono">DOC-26-08702<div class="small">prior_ct_report_lilavati.pdf</div></td><td>Prior report (external)<div class="small muted">R-CLIN-8Y</div></td><td class="mono">VIS-2026-30902</td><td>—</td><td><span class="chip green">Indexed</span></td><td>25 Jul 10:44<div class="small">D. Nair</div></td><td><span class="btn ghost small">Open</span></td></tr>
+        <tr><td class="mono">DOC-26-08554<div class="small">consent_general_20260725.pdf</div></td><td>Consent (paper)<div class="small muted">R-LEGAL-10Y</div></td><td class="mono">VIS-2026-30902</td><td>—</td><td><span class="chip grey">OCR pending</span></td><td>25 Jul 10:39<div class="small">system (pad)</div></td><td><span class="btn ghost small">Open</span></td></tr>
+        <tr><td class="mono">DOC-26-07911<div class="small">id_aadhaar_masked.png</div></td><td>ID document<div class="small muted">R-ID-5Y · redacted to last-4 (····6621)</div></td><td class="mono">patient-level</td><td>—</td><td><span class="chip grey">exempt</span></td><td>25 Jul 10:37<div class="small">D. Nair</div></td><td><span class="btn ghost small">Open</span></td></tr>
+        <tr><td class="mono">DOC-26-06120<div class="small">tpa_authorisation_star.pdf</div></td><td>Insurance/TPA letter<div class="small muted">R-FIN-8Y</div></td><td class="mono">VIS-2026-30655</td><td>—</td><td><span class="chip green">Indexed</span></td><td>02 Jul 09:12<div class="small">D. Nair</div></td><td><span class="btn ghost small">Open</span></td></tr>
+        <tr class="dim"><td class="mono">DOC-26-05988<div class="small">rx_dr_s_iyer.jpg</div></td><td>Prescription<div class="small muted">R-CLIN-8Y</div></td><td class="mono">VIS-2026-30655</td><td>Dr. S. Iyer (REF-0077)</td><td><span class="chip amber">OCR failed — retry queued</span></td><td>02 Jul 09:10<div class="small">D. Nair</div></td><td><span class="btn ghost small">Open</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:6px">Deleting a document is not possible; superseding requires branch-admin approval with step-up identity confirmation and keeps the original under legal hold rules.</div>
+    </div>
+  </div></div>
+</div>
+
+<div class="state-tag">STATE C — UNREADABLE FILE ERROR</div>
+<div class="modal-wrap">
+  <div class="modal danger">
+    <h3>File cannot be attached — unreadable</h3>
+    <div class="banner danger"><b>scan_counter2_0093.pdf failed validation.</b> The file is corrupt or password-protected and no preview could be generated. Nothing was stored; the intake was not created.</div>
+    <dl class="kv" style="grid-template-columns:130px 1fr">
+      <dt>File</dt><dd class="mono">scan_counter2_0093.pdf · 0.4 MB</dd>
+      <dt>Check failed</dt><dd>PDF structure invalid (truncated stream at page 1) · virus scan: clean</dd>
+      <dt>Intended target</dt><dd>Sofia Rossi · MRN-004822 · VIS-2026-30875</dd>
+    </dl>
+    <div class="small muted" style="margin-top:8px">Try: re-scan at 300 dpi from the flatbed, or export the source as a fresh PDF. If it is password-protected, remove the password before upload — encrypted uploads are rejected by policy.</div>
+    <div class="modal-actions"><span class="btn">Discard file</span><span class="btn primary">Re-scan from flatbed</span></div>
+  </div>
+</div>
+<p class="audit">Each intake stores who scanned, source device, taxonomy choice, retention class, referrer-match decision and OCR status; every open of an attached document is recorded in the access log with viewer and purpose.</p>
+</section>

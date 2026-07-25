@@ -1,0 +1,103 @@
+<section class="screen" id="fo-21">
+<div class="screen-head"><h1><span class="sid">FO-21</span> Shift handover</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> At shift end, the outgoing front-office staffer compiles a handover — open queues, cash session reference, pending approvals, unresolved incidents and deliveries — adds notes, and hands to the incoming staffer, who must acknowledge with an identity confirmation. The system must guarantee an immutable handover record (HND-2026-xxxx) that neither party can edit after acknowledgement, and flag unacknowledged handovers past 30 minutes.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Reception</div>
+    <div class="nav-item">Front desk queue <span class="nav-badge">6</span></div>
+    <div class="nav-item">Appointments</div>
+    <div class="nav-item">Check-in</div>
+    <div class="sec-label">Cash &amp; billing</div>
+    <div class="nav-item">Billing desk</div>
+    <div class="nav-item">Cash session</div>
+    <div class="sec-label">Shift</div>
+    <div class="nav-item active">Shift handover <span class="nav-badge red">1</span></div>
+    <div class="nav-item">My roster</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Front Office › Shift › Handover — compose</div>
+    <div class="page-title">Shift handover — Morning → Evening, Sat 25 Jul 2026</div>
+    <div class="page-sub">Outgoing: D. Nair (Front office) · shift 07:00–14:00 IST · Incoming: R. Pillai (Front office) · shift 14:00–21:00 IST</div>
+    <div class="banner info"><b>Working offline is supported — actions queue and sync when reconnected.</b>If the network drops, the handover saves locally and the acknowledgement request is sent on reconnect.</div>
+    <div class="stepper">
+      <div class="step done"><span class="dot">1</span> Auto-summary compiled</div><span class="step-line"></span>
+      <div class="step cur"><span class="dot">2</span> Notes &amp; review</div><span class="step-line"></span>
+      <div class="step"><span class="dot">3</span> Incoming acknowledges</div><span class="step-line"></span>
+      <div class="step"><span class="dot">4</span> Sealed record HND-2026-xxxx</div>
+    </div>
+    <div class="row">
+      <div class="grow">
+        <div class="card"><div class="card-title">Open queues at 13:52 IST <span class="right">Auto-compiled · read-only</span></div>
+          <table>
+            <tr><th>Queue</th><th>Open</th><th>Oldest item</th><th>SLA</th></tr>
+            <tr><td>Walk-in registration</td><td>3</td><td>Token U-018 · waiting 22 min</td><td><span class="chip teal">due in 1h</span> · Owner: incoming shift</td></tr>
+            <tr><td>Contrast consent pending</td><td>1</td><td>Priya Menon (MRN-004828) · MRI 14:30</td><td><span class="chip amber">warning · due 14:15</span> · Owner: R. Pillai</td></tr>
+            <tr><td>Report delivery desk</td><td>4</td><td>ACC-2026-91108 · print collected? No</td><td><span class="chip red">OVERDUE 00:41</span> · Owner: D. Nair<br><span class="muted small">Escalated to K. Verma (branch admin) at 13:30</span></td></tr>
+            <tr><td>Refund approvals pending</td><td>2</td><td>INV/AND/26-27/0412 · ₹1,800 refund</td><td><span class="chip teal">due in 3h</span> · Owner: billing</td></tr>
+          </table>
+        </div>
+        <div class="card"><div class="card-title">Unresolved incidents &amp; deliveries</div>
+          <table>
+            <tr><th>Ref</th><th>Item</th><th>Status</th></tr>
+            <tr><td class="mono">INC-2026-0187</td><td>Kiosk-2 printer jam (token slips) — engineer ETA 15:30</td><td><span class="chip amber">Open</span></td></tr>
+            <tr><td class="mono">DLV-2026-0442</td><td>Courier pickup: 6 film envelopes for Dr. Farida Khan's clinic</td><td><span class="chip grey">Awaiting courier</span></td></tr>
+            <tr><td class="mono">INC-2026-0184</td><td>Patient grievance (waiting-time) — MRN masked; callback promised by 17:00</td><td><span class="chip amber">Open</span></td></tr>
+          </table>
+        </div>
+      </div>
+      <div style="width:300px">
+        <div class="card"><div class="card-title">Cash session</div>
+          <dl class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Session ref</dt><dd class="mono">CSH-2026-0725-AND-01</dd>
+            <dt>Status</dt><dd><span class="chip green">Counted &amp; closed 13:48</span></dd>
+            <dt>Declared</dt><dd>₹48,250 cash · ₹1,12,940 digital</dd>
+            <dt>Variance</dt><dd>₹0</dd>
+            <dt>Float left</dt><dd>₹5,000 for evening session</dd>
+          </dl>
+        </div>
+        <div class="card"><div class="card-title">Handover notes</div>
+          <div class="textarea" style="min-height:96px">1) MRI 14:30 slot filled from waitlist — patient may arrive early, contrast consent still to be signed at desk.
+2) Dr. S. Iyer's clinic will call about ACC-2026-91134 addendum — route to radiology coordinator.
+3) Kiosk-2 out of order; direct patients to Kiosk-1.</div>
+          <div class="hint muted small" style="margin-top:6px">Notes must not contain full IDs or clinical detail — use MRN/ACC refs only.</div>
+        </div>
+        <div class="modal-actions" style="margin-top:0"><span class="btn">Save draft</span><span class="btn primary">Send for acknowledgement</span></div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ACKNOWLEDGED · IMMUTABLE RECORD SEALED</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner success"><b>Handover acknowledged — record sealed</b><span class="mono">HND-2026-0491</span> · Outgoing D. Nair 13:58 IST → Incoming R. Pillai acknowledged 14:04 IST after identity confirmation (workstation PIN re-entry). The record is now immutable; corrections go in a follow-up note linked to this record, never as edits.</div>
+  <div class="card"><div class="card-title">HND-2026-0491 <span class="right">Immutable · SHA-256 sealed</span></div>
+    <dl class="kv">
+      <dt>Shift</dt><dd>Morning 07:00–14:00 → Evening 14:00–21:00 · Sat 25 Jul 2026</dd>
+      <dt>Cash session</dt><dd><span class="mono">CSH-2026-0725-AND-01</span> · closed, variance ₹0 · float ₹5,000 passed on</dd>
+      <dt>Open items passed</dt><dd>10 queue items · 3 incidents/deliveries · 2 refund approvals</dd>
+      <dt>Acknowledgement</dt><dd><span class="chip green">R. Pillai · 14:04 IST · identity confirmed</span></dd>
+      <dt>Ack statement</dt><dd>“I have read the summary and notes and take responsibility for the listed open items.”</dd>
+      <dt>Record hash</dt><dd class="mono">a41c…9f27 (anchored in daily audit chain)</dd>
+    </dl>
+    <div class="sig-box signed" style="max-width:280px;margin-top:8px">R. Pillai — acknowledged 14:04</div>
+  </div>
+  <p class="audit">Seal, acknowledgement and identity confirmation are recorded in the access log; the sealed record cannot be altered by either party or by admins.</p>
+</div></div></div>
+
+<div class="state-tag">STATE C — UNACKNOWLEDGED · OVERDUE (AMBER)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner warn"><b>Handover HND-2026-0491 not yet acknowledged — 34 minutes since send</b>Sent 13:58 IST by D. Nair; R. Pillai has not confirmed. Unacknowledged handovers past 30 min are flagged and the branch admin is notified. Open-item ownership legally remains with the outgoing staffer until acknowledgement.</div>
+  <div class="card"><div class="card-title">Pending acknowledgement</div>
+    <table>
+      <tr><th>Record</th><th>Outgoing</th><th>Incoming</th><th>Sent</th><th>SLA</th><th></th></tr>
+      <tr><td class="mono">HND-2026-0491</td><td>D. Nair</td><td>R. Pillai</td><td class="mono">13:58 IST</td><td><span class="chip amber">warning · 34 min unacknowledged</span><br><span class="muted small">Owner: R. Pillai · Escalated to K. Verma (branch admin) at 14:28</span></td><td><span class="btn small">Send reminder</span> <span class="btn small warn-outline">Reassign incoming</span></td></tr>
+    </table>
+    <div class="muted small" style="margin-top:8px">If the incoming staffer is absent, a supervisor may reassign the handover to another staffer; the reassignment (with reason) becomes part of the sealed record.</div>
+  </div>
+</div></div></div>
+
+<p class="audit">Handover creation, edits before sealing, send, reminders, reassignment, acknowledgement and the identity-confirmation event are all recorded in the access log with staff IDs and timestamps.</p>
+</section>

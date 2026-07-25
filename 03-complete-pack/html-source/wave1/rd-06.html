@@ -1,0 +1,139 @@
+<section class="screen" id="rd-06">
+<div class="screen-head"><h1><span class="sid">RD-06</span> Hanging protocols &amp; preferences</h1><div class="meta"><span class="chip grey">CONDITIONAL</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Radiologists (Dr. V. Shetty, Dr. A. Rao) configure per-modality default viewport layouts, window/level presets and keyboard shortcuts so every study opens ready-to-read. Preferences are stored per user against their RIS identity and sync to any Meridian workstation they log into — no local-machine state. Changes apply to the next study opened; the currently open study is never re-hung mid-read.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Reading</div>
+      <div class="nav-item">Reading worklist <span class="nav-badge">14</span></div>
+      <div class="nav-item">My assignments <span class="nav-badge">6</span></div>
+      <div class="nav-item">Drafts <span class="nav-badge">3</span></div>
+      <div class="nav-item">Sign queue <span class="nav-badge red">2</span></div>
+      <div class="sec-label">Quality</div>
+      <div class="nav-item">Addenda</div>
+      <div class="nav-item">Critical results</div>
+      <div class="nav-item">Peer review</div>
+      <div class="sec-label">Personal</div>
+      <div class="nav-item active">Hanging protocols</div>
+      <div class="nav-item">Report macros</div>
+      <div class="nav-item">Shortcut map</div>
+    </div>
+    <div class="main">
+      <div class="crumb">RIS · Reading &rsaquo; Personal &rsaquo; Hanging protocols &amp; preferences</div>
+      <div class="page-title">Hanging protocols &amp; preferences <span class="actions-right"><span class="btn small">Import from Dr. A. Rao (with consent)</span> <span class="btn primary small">+ New protocol</span></span></div>
+      <div class="page-sub">Personal to <b>Dr. V. Shetty (RMC MH-44721)</b> · synced across all Meridian workstations · last sync 25 Jul 2026, 09:41 IST from WS-AND-READ-03</div>
+      <div class="banner info"><b>Per-user sync is on.</b> These protocols follow your RIS login — Andheri, Bandra or teleradiology VPN. Local viewer overrides made mid-study are session-only and are not saved unless you press "Save as protocol".</div>
+      <div class="card">
+        <div class="card-title">My hanging protocols <span class="right">9 active · sorted by modality</span></div>
+        <table>
+          <tr><th>Protocol</th><th>Modality / study match</th><th>Default layout</th><th>W/L preset on open</th><th>Prior auto-load</th><th>Status</th><th></th></tr>
+          <tr class="hl"><td class="bold">CT Head — routine</td><td>CT · body part HEAD · non-contrast</td><td class="mono">2×2 (axial / axial bone / sag / cor)</td><td>Brain 80/40 → key 1</td><td>Most recent CT head, compare pane</td><td><span class="chip green">DEFAULT</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr><td class="bold">CT Head — stroke fast</td><td>CT · HEAD · priority STAT</td><td class="mono">1×2 (thin axial / prior)</td><td>Stroke 40/40 → key 2</td><td>Prior within 30 days only</td><td><span class="chip teal">ACTIVE</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr><td class="bold">CR Chest — single view</td><td>CR/DX · CHEST · 1 series</td><td class="mono">1×1 full-fit</td><td>Auto (DICOM VOI LUT)</td><td>Most recent CXR side-by-side toggle <span class="mono">C</span></td><td><span class="chip green">DEFAULT</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr><td class="bold">CR Chest — compare</td><td>CR/DX · CHEST · prior exists</td><td class="mono">1×2 (current / prior)</td><td>Auto</td><td>Always, matched projection</td><td><span class="chip teal">ACTIVE</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr><td class="bold">MR Brain — multi-sequence</td><td>MR · BRAIN · ≥4 sequences</td><td class="mono">2×3 (T1 / T2 / FLAIR / DWI / ADC / T1+C)</td><td>Per-sequence saved W/L</td><td>Prior FLAIR + DWI in linked scroll</td><td><span class="chip green">DEFAULT</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr><td class="bold">MR Spine — lumbar</td><td>MR · LSPINE</td><td class="mono">1×3 (sag T2 / sag T1 / ax T2)</td><td>Per-sequence saved W/L</td><td>Off</td><td><span class="chip teal">ACTIVE</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr><td class="bold">US Obstetric</td><td>US · OB (all trimesters)</td><td class="mono">1×1 cine-first</td><td>n/a (US)</td><td>Prior growth-scan report panel</td><td><span class="chip teal">ACTIVE</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr><td class="bold">MG Screening</td><td>MG · 4-view screening</td><td class="mono">2×2 (RCC/LCC/RMLO/LMLO), mirrored</td><td>MG auto + inverted toggle <span class="mono">I</span></td><td>Prior 4-view hung beneath, key <span class="mono">P</span></td><td><span class="chip teal">ACTIVE</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr class="dim"><td class="bold">CT Abdomen — triphasic (draft)</td><td>CT · ABDOMEN · multiphase</td><td class="mono">2×2 phase-linked</td><td>Liver 150/60 → key 4</td><td>—</td><td><span class="chip grey">DRAFT</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+        </table>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Window/level presets <span class="right">Keys 1–8</span></div>
+          <table>
+            <tr><th>Key</th><th>Preset</th><th>WW / WL</th><th>Scope</th></tr>
+            <tr><td class="mono">1</td><td>Brain</td><td class="mono">80 / 40</td><td>CT head</td></tr>
+            <tr><td class="mono">2</td><td>Stroke</td><td class="mono">40 / 40</td><td>CT head STAT</td></tr>
+            <tr><td class="mono">3</td><td>Bone</td><td class="mono">2500 / 480</td><td>All CT</td></tr>
+            <tr><td class="mono">4</td><td>Liver</td><td class="mono">150 / 60</td><td>CT abdomen</td></tr>
+            <tr><td class="mono">5</td><td>Lung</td><td class="mono">1500 / −600</td><td>CT chest</td></tr>
+            <tr><td class="mono">6</td><td>Soft tissue</td><td class="mono">400 / 40</td><td>All CT</td></tr>
+          </table>
+        </div>
+        <div class="card grow">
+          <div class="card-title">Keyboard shortcut map <span class="right">Conflicts checked live</span></div>
+          <table>
+            <tr><th>Action</th><th>Key</th><th>State</th></tr>
+            <tr><td>Next unread study</td><td class="mono">Space</td><td><span class="chip green">OK</span></td></tr>
+            <tr><td>Toggle prior compare</td><td class="mono">C</td><td><span class="chip green">OK</span></td></tr>
+            <tr><td>Start dictation macro</td><td class="mono">F2</td><td><span class="chip green">OK</span></td></tr>
+            <tr><td>Mark critical suspicion</td><td class="mono">Ctrl+Shift+K</td><td><span class="chip green">OK</span></td></tr>
+            <tr><td>Invert (MG)</td><td class="mono">I</td><td><span class="chip amber">CLASH: viewer default "Info overlay"</span></td></tr>
+            <tr><td>Linked scroll on/off</td><td class="mono">L</td><td><span class="chip green">OK</span></td></tr>
+          </table>
+          <div class="hint small muted" style="margin-top:6px">Amber clash: your binding wins inside the viewer; hold <span class="mono">Shift+I</span> for overlay.</div>
+        </div>
+      </div>
+      <p class="audit">Preference reads/writes are personal-scope only; viewing another radiologist's protocols requires their consent and is recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — EDIT PROTOCOL "MR BRAIN — MULTI-SEQUENCE"</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:640px">
+    <h3>Edit hanging protocol — MR Brain — multi-sequence</h3>
+    <div class="row">
+      <div class="grow">
+        <div class="field"><label>Match rule</label><input class="input" value="Modality = MR AND BodyPart = BRAIN AND sequences ≥ 4"><div class="hint">Evaluated top-down against your protocol list; first match wins.</div></div>
+        <div class="field"><label>Layout <span class="req">*</span></label>
+          <select class="select"><option>2×3 grid — T1 / T2 / FLAIR / DWI / ADC / T1+C</option><option>1×1 single</option><option>1×2 compare (current / prior)</option><option>2×2 grid</option></select></div>
+        <div class="field"><label>Sequence slotting</label>
+          <table>
+            <tr><th>Slot</th><th>Sequence match</th><th>Fallback</th></tr>
+            <tr><td class="mono">A1</td><td class="mono">T1 SAG</td><td>first T1</td></tr>
+            <tr><td class="mono">A2</td><td class="mono">T2 AX</td><td>first T2</td></tr>
+            <tr><td class="mono">A3</td><td class="mono">FLAIR AX</td><td>empty</td></tr>
+            <tr><td class="mono">B1</td><td class="mono">DWI b1000</td><td>empty</td></tr>
+            <tr><td class="mono">B2</td><td class="mono">ADC map</td><td>empty</td></tr>
+            <tr><td class="mono">B3</td><td class="mono">T1 +C</td><td>empty</td></tr>
+          </table>
+        </div>
+      </div>
+      <div style="width:230px">
+        <div class="field"><label>Prior auto-load</label>
+          <div class="check"><span class="box on">✓</span> Load most recent prior MR brain</div>
+          <div class="check"><span class="box on">✓</span> Link scroll to current FLAIR/DWI</div>
+          <div class="check"><span class="box"></span> Load two priors (tri-compare)</div>
+        </div>
+        <div class="field"><label>On-open W/L</label>
+          <select class="select"><option>Per-sequence saved W/L</option><option>DICOM VOI LUT</option></select></div>
+        <div class="field"><label>Set as</label>
+          <div class="check"><span class="box radio on"></span> Default for match rule</div>
+          <div class="check"><span class="box radio"></span> Active (manual pick)</div>
+        </div>
+      </div>
+    </div>
+    <div class="banner info" style="margin-bottom:0"><b>Sync note.</b> Saving pushes to your profile immediately; other logged-in sessions pick it up on their next study open.</div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn warn-outline">Save as draft</span><span class="btn primary">Save &amp; sync</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — APPLIED PREVIEW (NEXT STUDY OPENS WITH PROTOCOL)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Reading &rsaquo; ACC-2026-91247 &rsaquo; Viewer preview</div>
+      <div class="page-title">Preview — MR Brain — multi-sequence <span class="chip teal">PROTOCOL APPLIED</span></div>
+      <div class="page-sub">Aarav Sharma · MRN-004821 · MR Brain with contrast · ACC-2026-91247 · prior of 02 Mar 2026 linked</div>
+      <div class="banner success"><b>Protocol matched and applied.</b> Rule "MR + BRAIN + ≥4 sequences" hung 6 of 7 series; SWI left unslotted (thumbnail tray). Per-sequence W/L restored from your profile.</div>
+      <div class="row" style="margin-bottom:10px">
+        <div class="card grow" style="background:#0B1220;color:#94A3B8;text-align:center;padding:26px 10px"><div class="small">A1 · T1 SAG</div><div class="mono small">W/L saved · 512×512</div></div>
+        <div class="card grow" style="background:#0B1220;color:#94A3B8;text-align:center;padding:26px 10px"><div class="small">A2 · T2 AX</div><div class="mono small">linked scroll ⇅</div></div>
+        <div class="card grow" style="background:#0B1220;color:#94A3B8;text-align:center;padding:26px 10px"><div class="small">A3 · FLAIR AX</div><div class="mono small">prior-linked ⇅</div></div>
+      </div>
+      <div class="row">
+        <div class="card grow" style="background:#0B1220;color:#94A3B8;text-align:center;padding:26px 10px"><div class="small">B1 · DWI b1000</div><div class="mono small">prior-linked ⇅</div></div>
+        <div class="card grow" style="background:#0B1220;color:#94A3B8;text-align:center;padding:26px 10px"><div class="small">B2 · ADC map</div><div class="mono small">auto-paired</div></div>
+        <div class="card grow" style="background:#0B1220;color:#94A3B8;text-align:center;padding:26px 10px"><div class="small">B3 · T1 +C AX</div><div class="mono small">contrast phase tag ✓</div></div>
+      </div>
+      <div style="margin-top:10px"><span class="btn primary small">Looks right — open study</span> <span class="btn small">Re-hang with CT/MR generic</span> <span class="btn ghost small">Save session tweaks as protocol…</span></div>
+    </div>
+  </div>
+</div>
+<p class="audit">Protocol edits, imports from colleagues and workstation sync events are versioned under your user profile and recorded in the access log.</p>
+</section>

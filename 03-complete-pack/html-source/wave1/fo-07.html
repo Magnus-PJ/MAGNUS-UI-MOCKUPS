@@ -1,0 +1,113 @@
+<section class="screen" id="fo-07">
+<div class="screen-head"><h1><span class="sid">FO-07</span> Edit patient &amp; contact verification</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office edits demographics when a patient reports a change or an error is found. Every change requires a reason and is versioned with before/after values. A mobile-number change must be proven by OTP to the <b>new</b> number (or supervisor override with recorded reason) — this is the primary defence against report-hijack via contact takeover; on success all outstanding secure report links are voided and re-issued.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Reception</div>
+    <div class="nav-item">Front desk home</div>
+    <div class="nav-item">Register patient</div>
+    <div class="nav-item active">Patients</div>
+    <div class="nav-item">Appointments <span class="nav-badge">14</span></div>
+    <div class="nav-item">Check-in &amp; tokens</div>
+    <div class="sec-label">Money &amp; delivery</div>
+    <div class="nav-item">Billing &amp; invoices</div>
+    <div class="nav-item">Report delivery <span class="nav-badge red">2</span></div>
+    <div class="sec-label">Data quality</div>
+    <div class="nav-item">Merge queue (MPI)</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Front Office › Patients › MRN-004822 › Edit</div>
+    <div class="page-title">Edit patient — Sofia Rossi <span class="chip grey mono">MRN-004822</span></div>
+    <div class="page-sub">Changes are versioned. Contact-channel changes require verification before they take effect.</div>
+    <div class="banner info"><b>Contact changes are protected</b>A new mobile number becomes active only after OTP verification to that number, or a supervisor override with recorded reason. Email changes require the patient to click a verify link. Until verified, deliveries continue to the old, verified channel.</div>
+    <div class="row">
+      <div class="grow" style="flex:1.3">
+        <div class="card"><div class="card-title">Demographics</div>
+          <div class="row">
+            <div class="grow"><div class="field"><label>Full name <span class="req">*</span></label><input class="input" value="Sofia Rossi"></div></div>
+            <div style="width:150px"><div class="field"><label>DOB <span class="req">*</span></label><input class="input" value="12 Mar 1992"></div></div>
+            <div style="width:110px"><div class="field"><label>Sex</label><select class="select"><option>Female</option></select></div></div>
+          </div>
+          <div class="field"><label>Address</label><textarea class="textarea">B-1104, Lokhandwala Residency, Andheri West, Mumbai 400053</textarea></div>
+          <div class="row">
+            <div class="grow"><div class="field"><label>Preferred language</label><select class="select"><option>English · Hindi</option></select></div></div>
+            <div class="grow"><div class="field"><label>Govt ID (Aadhaar, last-4 only)</label><input class="input" value="•••• •••• 7031" disabled style="background:#F8FAFC"><div class="hint">Full Aadhaar is never stored. Replace via re-verification at counter only.</div></div></div>
+          </div>
+        </div>
+        <div class="card"><div class="card-title">Contact channels <span class="right">Verification enforced</span></div>
+          <div class="row">
+            <div class="grow"><div class="field"><label>Mobile (current, verified)</label><input class="input" value="+91 98••• ••402" disabled style="background:#F8FAFC"></div></div>
+            <div class="grow"><div class="field"><label>New mobile</label><input class="input" value="+91 98220 14476" placeholder="+91 …"><div class="hint">Entering a new number starts OTP verification to the <b>new</b> number.</div></div></div>
+          </div>
+          <div class="row">
+            <div class="grow"><div class="field"><label>Email (current, verified)</label><input class="input" value="s.r•••@gmail.com" disabled style="background:#F8FAFC"></div></div>
+            <div class="grow"><div class="field"><label>New email</label><input class="input" placeholder="name@example.com"><div class="hint">A verify link is emailed; change activates only after the patient clicks it (valid 24h).</div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="grow">
+        <div class="card"><div class="card-title">Change reason <span class="right">Required</span></div>
+          <div class="field"><label>Reason for change <span class="req">*</span></label>
+            <select class="select"><option>Patient requested — new SIM / number changed</option><option>Data-entry error correction</option><option>Legal name change (document sighted)</option><option>Address change</option><option>Grievance / DPO instruction</option></select></div>
+          <div class="field"><label>Note (optional)</label><textarea class="textarea">Patient at counter with old SIM lost; showed Aadhaar last-4 matching record.</textarea></div>
+          <div class="check"><span class="box on">✓</span><span>Identity confirmed at counter (photo ID sighted, last-4 matched)</span></div>
+        </div>
+        <div class="card"><div class="card-title">Pending after save</div>
+          <table>
+            <tr><th>Field</th><th>Before → After</th><th>Gate</th></tr>
+            <tr><td>Mobile</td><td class="small">••402 → ••476</td><td><span class="chip amber">OTP to new no.</span></td></tr>
+            <tr><td>Address</td><td class="small">unchanged</td><td><span class="chip grey">—</span></td></tr>
+          </table>
+        </div>
+        <div style="display:flex;gap:8px"><span class="btn primary">Save &amp; start verification</span><span class="btn">Cancel</span></div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — OTP SENT TO NEW NUMBER / VERIFY</div>
+<div class="modal-wrap"><div class="modal">
+  <h3>Verify new mobile — OTP sent</h3>
+  <p class="small muted" style="margin-bottom:10px">6-digit OTP sent to <b>+91 98220 14476</b> at 11:42 IST · valid 10 minutes · attempt 1 of 3. The old number stays active for all deliveries until this succeeds.</p>
+  <div class="field"><label>Enter OTP read out by the patient <span class="req">*</span></label><input class="input mono" value="4 8 2 ▁ ▁ ▁" style="letter-spacing:6px;max-width:220px"></div>
+  <div class="banner warn" style="margin-bottom:0"><b>Anti-hijack rule</b>OTP goes only to the new number — never to staff. If the patient cannot receive it (lost SIM), use supervisor override with reason.</div>
+  <div class="modal-actions"><span class="btn ghost">Resend OTP (00:47)</span><span class="btn">Use supervisor override…</span><span class="btn primary">Verify &amp; activate number</span></div>
+</div></div>
+
+<div class="state-tag">STATE C — SUPERVISOR OVERRIDE (OTP not possible)</div>
+<div class="modal-wrap"><div class="modal danger">
+  <h3>Supervisor override — activate unverified number</h3>
+  <div class="banner danger"><b>High-risk action</b>Overriding OTP can enable report-hijack. Use only when the patient is physically present and identity is proven. This action is flagged in the daily security review.</div>
+  <dl class="kv" style="margin-bottom:10px">
+    <dt>Patient</dt><dd>Sofia Rossi · MRN-004822</dd>
+    <dt>Change</dt><dd>Mobile ••402 → +91 98220 14476 (no OTP)</dd>
+    <dt>Requested by</dt><dd>D. Nair (front office)</dd>
+  </dl>
+  <div class="field"><label>Override reason <span class="req">*</span></label><select class="select"><option>Patient present, new SIM not yet active — photo ID + Aadhaar last-4 verified</option><option>Accessibility — patient cannot operate phone</option></select></div>
+  <div class="field"><label>Supervisor identity confirmation <span class="req">*</span></label><input class="input" placeholder="Supervisor username"> <div class="hint">Step-up: supervisor enters their own password + app OTP now.</div></div>
+  <div class="field"><input class="input" placeholder="Supervisor password" type="password"></div>
+  <div class="check"><span class="box on">✓</span><span>I confirm the patient is present and identity documents were sighted. All outstanding secure report links will be voided and re-issued to the new number.</span></div>
+  <div class="modal-actions"><span class="btn">Cancel</span><span class="btn danger">Approve override (K. Verma)</span></div>
+</div></div>
+
+<div class="state-tag">STATE D — SUCCESS · LINKS RE-ISSUED</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Front Office › Patients › MRN-004822 › Edit</div>
+  <div class="banner success"><b>Contact updated — version v7 saved 25 Jul 2026, 11:46 IST</b>Mobile +91 98••• ••476 verified by OTP and is now the active delivery channel. Reason: "Patient requested — new SIM". Before/after values stored in the change log.</div>
+  <div class="banner info"><b>Secure links re-issued</b>2 outstanding report links (ACC-2026-91188, ACC-2026-90412) were voided and fresh expiring links sent to the newly verified number. The old number will no longer receive anything for this patient.</div>
+  <div class="card"><div class="card-title">Change history (versioned) <span class="right">Latest 4 of 7</span></div>
+    <table>
+      <tr><th>Ver</th><th>When (IST)</th><th>Field</th><th>Before</th><th>After</th><th>Reason</th><th>By / Gate</th></tr>
+      <tr class="hl"><td>v7</td><td>25 Jul 11:46</td><td>Mobile</td><td class="mono">••402</td><td class="mono">••476</td><td>New SIM</td><td>D. Nair · <span class="chip green">OTP verified</span></td></tr>
+      <tr><td>v6</td><td>22 Jul 09:15</td><td>Address</td><td class="small">A-902 …</td><td class="small">B-1104 …</td><td>Address change</td><td>D. Nair</td></tr>
+      <tr><td>v5</td><td>18 Jul 09:10</td><td>Consent: share w/ referrer</td><td>—</td><td>Given</td><td>Per-visit consent</td><td>Patient · kiosk</td></tr>
+      <tr><td>v4</td><td>02 May 11:35</td><td>Email</td><td class="small">(none)</td><td class="small">s.r•••@gmail.com</td><td>Patient requested</td><td>D. Nair · <span class="chip green">Link verified</span></td></tr>
+    </table>
+  </div>
+</div></div></div>
+
+<p class="audit">Every field change is versioned with before/after values, operator, reason and verification gate, and recorded in the access log. Supervisor overrides additionally capture the supervisor's step-up identity confirmation and appear in the daily security review. OTPs are sent only to the patient's new number and are never visible to staff.</p>
+</section>

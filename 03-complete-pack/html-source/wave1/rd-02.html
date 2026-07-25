@@ -1,0 +1,79 @@
+<section class="screen" id="rd-02">
+<div class="screen-head"><h1><span class="sid">RD-02</span> Assignment &amp; teleradiology routing</h1><div class="meta"><span class="chip amber">CONDITIONAL</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Radiology lead (Dr. V. Shetty, acting lead) and admin K. Verma configure how incoming studies route: modality + branch + priority → internal pool or a teleradiology partner. It must guarantee that no study leaves the organisation without a live data-sharing agreement (DSA), that partner SLAs are visible at routing time, and that the cross-border residency guard blocks any route whose reading location violates the region data-residency policy. Manual reassignment always requires a typed reason.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · Reading</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty · Acting Radiology Lead ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Reading</div>
+    <div class="nav-item">Worklist <span class="nav-badge">14</span></div>
+    <div class="nav-item">Assigned to me <span class="nav-badge">5</span></div>
+    <div class="sec-label">Lead tools</div>
+    <div class="nav-item active">Assignment &amp; routing</div>
+    <div class="nav-item">Partner agreements</div>
+    <div class="nav-item">Capacity &amp; rosters</div>
+    <div class="sec-label">Quality &amp; safety</div>
+    <div class="nav-item">Critical results <span class="nav-badge red">1</span></div>
+    <div class="nav-item">Discrepancy log</div>
+  </div>
+  <div class="main">
+    <div class="crumb">RIS · Reading &rsaquo; Lead tools &rsaquo; Assignment &amp; routing</div>
+    <div class="page-title">Routing rules <span class="actions-right"><span class="btn primary">+ New rule</span> <span class="btn">Simulate routing…</span></span></div>
+    <div class="page-sub">Evaluated top-down; first match wins. Changes take effect on next study arrival and require lead role + step-up confirmation.</div>
+    <div class="banner info"><b>Residency policy in force: IN-DPDP / Meridian policy DR-IN-01.</b>Studies containing patient identifiers may only be read from India-resident endpoints. Routes to endpoints outside the region are blocked automatically (see State C).</div>
+    <div class="card">
+      <div class="card-title">Active rules — Andheri West <span class="right">Last changed 22 Jul 2026 by K. Verma (admin)</span></div>
+      <table>
+        <tr><th>#</th><th>Match (modality · branch · priority)</th><th>Route to</th><th>Partner SLA</th><th>Agreement</th><th>Residency</th><th>Status</th><th></th></tr>
+        <tr><td class="mono">R-01</td><td>CT/MRI · Andheri West · <span class="chip red">STAT</span></td><td>Internal pool — on-shift consultants</td><td>45 min report</td><td><span class="chip grey">n/a (internal)</span></td><td><span class="chip green">In-region</span></td><td><span class="chip green">Active</span></td><td><span class="btn small">Edit</span></td></tr>
+        <tr><td class="mono">R-02</td><td>US Obstetric · all branches · any</td><td>Internal pool — PCPNDT-certified readers only</td><td>4 h report</td><td><span class="chip grey">n/a (internal)</span></td><td><span class="chip green">In-region</span></td><td><span class="chip green">Active</span></td><td><span class="btn small">Edit</span></td></tr>
+        <tr class="hl"><td class="mono">R-03</td><td>XR · Andheri West · <span class="chip grey">Routine</span> · 20:00–08:00 IST</td><td>Teleradiology — <b>NightHawk Imaging LLP, Pune</b></td><td>2 h report · 98.2% met (30d)</td><td><span class="chip teal">DSA-2026-014 · valid to 31 Mar 2027</span></td><td><span class="chip green">In-region (Pune, IN)</span></td><td><span class="chip green">Active</span></td><td><span class="btn small">Edit</span></td></tr>
+        <tr><td class="mono">R-04</td><td>CT KUB/Abdomen · Andheri West · <span class="chip red">STAT</span> when pool &gt; 6</td><td>Auto-assign — Dr. V. Shetty, else Dr. A. Rao</td><td>45 min report</td><td><span class="chip grey">n/a (internal)</span></td><td><span class="chip green">In-region</span></td><td><span class="chip green">Active</span></td><td><span class="btn small">Edit</span></td></tr>
+        <tr><td class="mono">R-05</td><td>MRI · Vashi overflow · <span class="chip amber">Urgent</span></td><td>Cross-branch pool — Andheri West readers</td><td>3 h report</td><td><span class="chip grey">n/a (same org)</span></td><td><span class="chip green">In-region</span></td><td><span class="chip green">Active</span></td><td><span class="btn small">Edit</span></td></tr>
+        <tr class="dim"><td class="mono">R-06</td><td>HRCT · all branches · <span class="chip grey">Routine</span> weekend</td><td>Teleradiology — <b>GlobalRead Pte Ltd, Singapore</b></td><td>6 h report · 99.1% met</td><td><span class="chip red">DSA expired 30 Jun 2026</span></td><td><span class="chip red">Out-of-region (SG)</span></td><td><span class="chip red">Blocked by policy</span></td><td><span class="btn small ghost">Review</span></td></tr>
+        <tr><td class="mono">R-07</td><td>Fallback · any unmatched</td><td>Internal pool — Andheri West</td><td>Per priority default</td><td><span class="chip grey">n/a</span></td><td><span class="chip green">In-region</span></td><td><span class="chip green">Active</span></td><td><span class="btn small disabled">Locked</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Partner rows always show live SLA attainment and DSA validity. A rule cannot be activated while its DSA is expired or its endpoint fails the residency check — the toggle is disabled server-side, not just in the UI.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Today's routed volume <span class="right">25 Jul 2026 · 00:00–10:45 IST</span></div>
+      <div class="kpi-row" style="margin-bottom:0">
+        <div class="kpi"><div class="n">62</div><div class="l">Internal pool</div><div class="s">median TAT 31 min</div></div>
+        <div class="kpi"><div class="n">11</div><div class="l">NightHawk Pune</div><div class="s">SLA met 11/11</div></div>
+        <div class="kpi amber"><div class="n">4</div><div class="l">Manual reassigns</div><div class="s">all reasons logged</div></div>
+        <div class="kpi red"><div class="n">1</div><div class="l">Residency blocks</div><div class="s">R-06 attempt · held in pool</div></div>
+      </div>
+    </div>
+  </div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE B — MANUAL REASSIGN MODAL (REASON MANDATORY, BOTH READERS NOTIFIED)</div>
+<div class="modal-wrap"><div class="modal">
+  <h3>Reassign study — ACC-2026-91093 (Kwame Osei, MRI Lumbar spine, Routine)</h3>
+  <div class="kv" style="margin-bottom:10px">
+    <dt>Current owner</dt><dd>Dr. A. Rao — <span class="chip violet">Accepted</span> 10:12 IST, not yet opened</dd>
+    <dt>Reassign to</dt><dd><select class="select" style="max-width:320px"><option>Dr. V. Shetty (RMC MH-44721) — load 5, MRI-credentialed</option></select></dd>
+    <dt>SLA impact</dt><dd><span class="chip teal">due in 6h 02m</span> — unchanged; clock does not reset on reassignment</dd>
+  </div>
+  <div class="field"><label>Reason for reassignment <span class="req">*</span></label><textarea class="textarea">Dr. A. Rao leaving shift at 11:00 IST; balancing MRI backlog to on-shift reader per roster change RS-0725.</textarea><div class="hint">Required. Written to the study state ledger; both readers and the referrer-facing TAT tracker are updated.</div></div>
+  <div class="check"><span class="box on">✓</span> Notify Dr. A. Rao and Dr. V. Shetty on RIS chat and email</div>
+  <div class="check"><span class="box">&nbsp;</span> Also move remaining 2 studies owned by Dr. A. Rao (bulk reassign — separate confirmation)</div>
+  <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Reassign study</span></div>
+</div></div>
+<div class="state-tag">STATE C — CROSS-BORDER RESIDENCY GUARD: ROUTE BLOCKED</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">RIS · Reading &rsaquo; Lead tools &rsaquo; Assignment &amp; routing &rsaquo; Rule R-06</div>
+  <div class="page-title">Rule R-06 — GlobalRead Pte Ltd (Singapore)</div>
+  <div class="banner danger"><b>Route blocked — endpoint outside permitted data-residency region.</b>Policy DR-IN-01 permits reading of identifiable studies only from India-resident endpoints. GlobalRead's reading workstations resolve to SG-Central. 1 HRCT study (ACC-2026-91120, Mohammed Al-Rashid, MRN-004790) matched this rule at 10:22 IST and was <b>held in the internal pool instead</b> — it was never transmitted.</div>
+  <div class="card"><div class="card-title">Why this rule cannot be activated</div>
+    <div class="kv">
+      <dt>Residency check</dt><dd><span class="chip red">FAIL</span> — partner endpoint region SG ≠ allowed region IN</dd>
+      <dt>Data-sharing agreement</dt><dd><span class="chip red">DSA-2025-031 expired 30 Jun 2026</span> — renewal in legal review</dd>
+      <dt>Blocked attempts (7d)</dt><dd>3 — each held in-pool and flagged to the lead; no image or identifier left the org</dd>
+      <dt>Permitted alternatives</dt><dd>Route to NightHawk Imaging LLP (Pune, IN — DSA-2026-014 valid) or internal weekend roster</dd>
+    </div>
+    <div style="margin-top:12px;display:flex;gap:10px"><span class="btn primary">Re-route R-06 → NightHawk (Pune)</span><span class="btn">Request de-identified-only exception (compliance review)</span><span class="btn ghost">Disable rule</span></div>
+    <div class="small muted" style="margin-top:8px">A de-identified exception, if granted by compliance, strips all direct identifiers before transmission and is itself time-boxed and logged. It is never automatic.</div>
+  </div>
+</div></div></div>
+<p class="audit">Rule creation, edits, activations, every manual reassignment with its typed reason, and each residency-guard block (including the held accession and the policy that fired) are recorded in the access log.</p>
+</section>

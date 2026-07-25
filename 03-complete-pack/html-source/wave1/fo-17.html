@@ -1,0 +1,105 @@
+<section class="screen" id="fo-17">
+<div class="screen-head"><h1><span class="sid">FO-17</span> End-of-day front-office reconciliation</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> At branch close (~20:00 IST) the front-office lead reconciles the day: every booked appointment must end as fulfilled, no-show (with an outcome), or cancelled; every token must be served or explained; every fast-track "complete later" flag must be resolved or carried with reason. Sign-off requires step-up identity confirmation and produces an immutable day record — nothing about the day can be edited afterwards, only annotated.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Reception</div>
+    <div class="nav-item">Today's schedule</div>
+    <div class="nav-item">Registration</div>
+    <div class="nav-item">Walk-in fast-track</div>
+    <div class="nav-item">Token queue</div>
+    <div class="sec-label">Billing</div>
+    <div class="nav-item">Collect payment</div>
+    <div class="nav-item">Invoices</div>
+    <div class="sec-label">Records</div>
+    <div class="nav-item">Document intake</div>
+    <div class="nav-item">Visit summaries</div>
+    <div class="nav-item active">End-of-day close <span class="nav-badge red">9</span></div>
+  </div>
+  <div class="main">
+    <div class="crumb">Front Office › End-of-day close › Sat 25 Jul 2026</div>
+    <div class="page-title">Day reconciliation — Sat 25 Jul 2026 <span class="chip amber">OPEN — 9 ITEMS TO RESOLVE</span></div>
+    <div class="page-sub">Branch: Andheri West · shift lead: D. Nair · cash drawer reconciles separately in Billing EOD</div>
+    <div class="banner info"><b>Working offline is supported</b> — actions queue and sync when reconnected. Sign-off itself requires a live connection.</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">86</div><div class="l">Booked</div><div class="s">appointments + walk-ins</div></div>
+      <div class="kpi"><div class="n">74</div><div class="l">Fulfilled</div><div class="s">visit created &amp; served</div></div>
+      <div class="kpi amber"><div class="n">7</div><div class="l">No-show</div><div class="s">4 unreconciled</div></div>
+      <div class="kpi"><div class="n">5</div><div class="l">Cancelled</div><div class="s">all with reason codes</div></div>
+      <div class="kpi red"><div class="n">9</div><div class="l">Open items</div><div class="s">must be 0 to sign off</div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Unreconciled no-shows <span class="chip amber">4</span> <span class="right">Choose an outcome per row</span></div>
+      <table>
+        <tr><th>Appt</th><th>Patient</th><th>Service / slot</th><th>Referrer</th><th>Outcome</th><th></th></tr>
+        <tr><td class="mono">APPT-2026-51230</td><td class="bold">Sofia Rossi<div class="small mono muted">MRN-004822</div></td><td>MRI Brain · 08:30</td><td>Dr. S. Iyer</td><td><span class="chip blue">Rebook</span> offered 27 Jul 09:00 — awaiting patient confirmation</td><td><span class="btn small">Log call</span> <span class="btn primary small">Confirm rebook</span></td></tr>
+        <tr><td class="mono">APPT-2026-51236</td><td class="bold">Aarav Sharma<div class="small mono muted">MRN-004821</div></td><td>USG Abdomen · 10:15</td><td>Dr. Meera Nair</td><td><span class="chip grey">Contact attempted</span> ×2 (11:40, 16:05) — no answer, SMS sent</td><td><span class="btn small">Attempt again</span> <span class="btn small">Close: unreachable</span></td></tr>
+        <tr><td class="mono">APPT-2026-51241</td><td class="bold">Elena Novak<div class="small mono muted">MRN-004830</div></td><td>XR Chest PA · 12:00</td><td>Self</td><td><span class="select" style="width:200px;display:inline-block;padding:4px 8px;font-size:12px">Select close reason ▾</span><div class="small muted">patient called: recovered, no longer needed</div></td><td><span class="btn small">Close with reason</span></td></tr>
+        <tr><td class="mono">APPT-2026-51248</td><td class="bold">Ananya Rao<div class="small mono muted">MRN-004819</div></td><td>Mammography · 15:30</td><td>Dr. Farida Khan</td><td><span class="chip red">No action yet</span></td><td><span class="btn small">Log call</span> <span class="btn small">Rebook</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:6px">Closed no-shows notify the referrer automatically where a referral is on file. Mobile numbers stay masked in this list; calling from the row reveals the number and records the reveal.</div>
+    </div>
+    <div class="row">
+      <div class="grow"><div class="card">
+        <div class="card-title">Tokens issued but never served <span class="chip amber">2</span></div>
+        <table>
+          <tr><th>Token</th><th>Patient</th><th>Queue</th><th>Issued</th><th>Resolution</th></tr>
+          <tr><td class="mono bold">C-047</td><td>Mohammed Al-Rashid<div class="small mono muted">MRN-004790</div></td><td>US Room 3</td><td class="mono">17:42</td><td>Left before call (waited 38 min) — <span class="btn small">Rebook</span> <span class="btn small">Refund path</span></td></tr>
+          <tr><td class="mono bold">U-027</td><td>Walk-in (registration abandoned)</td><td>XR Room 1</td><td class="mono">18:10</td><td>No visit exists — <span class="btn small">Void token (reason)</span></td></tr>
+        </table>
+      </div></div>
+      <div class="grow"><div class="card">
+        <div class="card-title">Unfinished registrations <span class="chip amber">3</span></div>
+        <table>
+          <tr><th>Patient</th><th>Missing</th><th>Action</th></tr>
+          <tr><td>Kwame Osei <span class="small mono muted">MRN-004823</span></td><td><span class="chip amber">address</span> <span class="chip amber">email</span> <span class="chip amber">referral scan</span></td><td><span class="btn small">Complete now</span> <span class="btn small">Carry 1 day</span></td></tr>
+          <tr><td>Rajesh Gupta <span class="small mono muted">MRN-004795</span></td><td><span class="chip amber">email</span></td><td><span class="btn small">Complete now</span> <span class="btn small">Carry 1 day</span></td></tr>
+          <tr><td>Draft (no MRN) — 14:22 counter 3</td><td>Abandoned at step 1, no MRN minted</td><td><span class="btn small">Discard draft</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:6px">Items may be carried a maximum of 2 days, then they escalate to branch admin K. Verma.</div>
+      </div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Sign off the day <span class="right">Step-up identity required</span></div>
+      <div class="banner warn"><b>9 open items remain.</b> Sign-off is disabled until every item is resolved or explicitly carried with a reason. Carried items appear at the top of tomorrow's list.</div>
+      <div class="row" style="align-items:flex-end">
+        <div class="grow"><div class="field"><label>Declaration</label><div class="check"><span class="box">&nbsp;</span> I confirm the counts above reflect the day's front-office activity at Andheri West and all exceptions carry a recorded outcome.</div></div></div>
+        <div style="width:220px"><div class="field"><label>Re-enter password / OTP <span class="req">*</span></label><input class="input" placeholder="Step-up identity confirm"/></div></div>
+        <span class="btn disabled">Sign off day (locked)</span>
+      </div>
+    </div>
+  </div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SIGNED-OFF SUMMARY · IMMUTABLE DAY RECORD</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="crumb">Front Office › End-of-day close › Fri 24 Jul 2026</div>
+    <div class="page-title">Day record — Fri 24 Jul 2026 <span class="chip green">SIGNED OFF · IMMUTABLE</span></div>
+    <div class="page-sub">Signed by D. Nair at 20:18 IST · step-up identity confirmed (OTP to registered mobile) · record hash <span class="mono">EOD-AND-20260724-7f3a</span></div>
+    <div class="banner success"><b>Day closed.</b> This record can no longer be edited. Corrections must be filed as annotations, which append to — never replace — the signed record.</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">91</div><div class="l">Booked</div></div>
+      <div class="kpi"><div class="n">81</div><div class="l">Fulfilled</div></div>
+      <div class="kpi"><div class="n">6</div><div class="l">No-show</div><div class="s">6 reconciled</div></div>
+      <div class="kpi"><div class="n">4</div><div class="l">Cancelled</div></div>
+      <div class="kpi"><div class="n">0</div><div class="l">Open items</div><div class="s">2 carried w/ reason</div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Exception outcomes recorded at close</div>
+      <table>
+        <tr><th>Item</th><th>Type</th><th>Outcome</th><th>By</th></tr>
+        <tr><td class="mono">APPT-2026-51198 · Priya Menon</td><td>No-show</td><td>Rebooked → APPT-2026-51389 (29 Jul)</td><td>D. Nair 19:44</td></tr>
+        <tr><td class="mono">APPT-2026-51205 · Mohammed Al-Rashid</td><td>No-show</td><td>Closed: patient hospitalised elsewhere (per family call)</td><td>D. Nair 19:51</td></tr>
+        <tr><td class="mono">Token X-011</td><td>Never served</td><td>Voided: duplicate token printed in error</td><td>D. Nair 19:58</td></tr>
+        <tr><td>Rajesh Gupta · email missing</td><td>Unfinished reg</td><td>Carried 1 day (patient returning to collect report)</td><td>D. Nair 20:02</td></tr>
+        <tr><td>Referral scan · Kwame Osei</td><td>Unfinished reg</td><td>Carried 1 day (slip locked in counter drawer overnight)</td><td>D. Nair 20:03</td></tr>
+      </table>
+    </div>
+    <div class="modal-actions" style="justify-content:flex-start"><span class="btn">Download signed PDF</span><span class="btn">Add annotation</span><span class="btn ghost">View access log for this day</span></div>
+  </div></div>
+</div>
+<p class="audit">Sign-off writes an immutable day record (counts, per-item outcomes, signer identity, step-up method, timestamp); all later views and annotations of the record are recorded in the access log.</p>
+</section>

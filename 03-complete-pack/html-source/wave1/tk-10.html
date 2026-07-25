@@ -1,0 +1,111 @@
+<section class="screen" id="tk-10">
+<div class="screen-head"><h1><span class="sid">TK-10</span> Radiation dose registry</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G6 Radiology Technician — workspace 'RIS · Technician'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Technologists and the visiting medical physicist use this registry to review per-patient cumulative ionising dose (CTDIvol / DLP / DAP per study, 12-month rolling total) and per-unit dose trends against national DRLs. Studies exceeding DRL are auto-flagged as outliers and must carry a physicist note before the monthly close; the registry exports in AERB audit format. Dose values are captured from the modality at study completion and are never editable — only annotated.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · TECHNICIAN</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Today</div>
+    <div class="nav-item">Modality worklist <span class="nav-badge">14</span></div>
+    <div class="nav-item">My queue — CT-01 <span class="nav-badge">5</span></div>
+    <div class="nav-item">Room &amp; patient prep</div>
+    <div class="sec-label">Safety &amp; quality</div>
+    <div class="nav-item active">Dose registry <span class="nav-badge red">2</span></div>
+    <div class="nav-item">QC &amp; calibration</div>
+    <div class="nav-item">Contrast reactions</div>
+    <div class="sec-label">Shift</div>
+    <div class="nav-item">Daily summary</div>
+  </div>
+  <div class="main">
+    <div class="crumb">RIS · Technician › Dose registry › Patient view</div>
+    <div class="page-title">Dose registry — patient view <span class="actions-right"><span class="btn small">Unit view</span> <span class="btn small primary">Export AERB audit pack ▾</span></span></div>
+    <div class="page-sub">Cumulative ionising dose for one patient · DRL reference: AERB/NDRL-2023 adult set · values captured from modality RDSR, read-only</div>
+    <div class="card"><div class="card-title">Patient <span class="right">purpose of access: dose safety review</span></div>
+      <div class="kv" style="grid-template-columns:150px 1fr 150px 1fr">
+        <dt>Patient</dt><dd><b>Mohammed Al-Rashid</b> · M · 58y · <span class="mono">MRN-004790</span></dd>
+        <dt>Phone</dt><dd>+91 ••••• ••284 <span class="chip grey">MASKED — no billing purpose</span></dd>
+        <dt>12-mo studies</dt><dd>6 ionising (4 CT, 2 XR) · 1 US (no dose)</dd>
+        <dt>Aadhaar</dt><dd>····9917 (last-4 only)</dd>
+      </div>
+    </div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">1,912 <span class="small muted">mGy·cm</span></div><div class="l">12-mo cumulative DLP (CT)</div><div class="s">Aug 2025 – Jul 2026</div></div>
+      <div class="kpi"><div class="n">4.1 <span class="small muted">Gy·cm²</span></div><div class="l">12-mo cumulative DAP (XR)</div><div class="s">2 radiographs</div></div>
+      <div class="kpi amber"><div class="n">1 / 6</div><div class="l">Studies above DRL</div><div class="s">flagged for physicist review</div></div>
+      <div class="kpi"><div class="n">~11.6 <span class="small muted">mSv</span></div><div class="l">Indicative effective dose</div><div class="s">k-factor estimate, not for clinical use</div></div>
+    </div>
+    <div class="card"><div class="card-title">Study dose history — MRN-004790 <span class="right">RDSR-captured · read-only</span></div>
+      <table>
+        <tr><th>Date</th><th>Accession</th><th>Study / unit</th><th>CTDIvol (mGy)</th><th>DLP (mGy·cm)</th><th>DAP (Gy·cm²)</th><th>DRL comparison</th></tr>
+        <tr class="hl"><td class="mono">24 Jul 26</td><td class="mono">ACC-2026-90287</td><td>CT Abdomen-Pelvis C+ · CT-01</td><td>21.4</td><td><b>1,088</b></td><td>—</td><td><span class="chip red">142% of DRL (766)</span> outlier</td></tr>
+        <tr><td class="mono">18 Jun 26</td><td class="mono">ACC-2026-90114</td><td>CT KUB plain · CT-01</td><td>9.8</td><td>412</td><td>—</td><td><span class="chip green">54% of DRL</span></td></tr>
+        <tr><td class="mono">02 May 26</td><td class="mono">ACC-2026-89732</td><td>XR Chest PA · XR-02</td><td>—</td><td>—</td><td>0.14</td><td><span class="chip green">below DRL</span></td></tr>
+        <tr><td class="mono">20 Feb 26</td><td class="mono">ACC-2026-88410</td><td>CT Chest HRCT · CT-01</td><td>7.2</td><td>238</td><td>—</td><td><span class="chip green">41% of DRL</span></td></tr>
+        <tr><td class="mono">09 Nov 25</td><td class="mono">ACC-2025-86119</td><td>XR Lumbar spine AP/LAT · XR-02</td><td>—</td><td>—</td><td>3.96</td><td><span class="chip amber">92% of DRL</span> watch</td></tr>
+        <tr><td class="mono">14 Aug 25</td><td class="mono">ACC-2025-84902</td><td>CT Brain plain · CT-01</td><td>48.9</td><td>174 <span class="small muted">(head DLP scale)</span></td><td>—</td><td><span class="chip green">within DRL</span></td></tr>
+      </table>
+      <p class="small muted" style="margin-top:8px">US and MR studies are listed in the imaging history but carry no ionising dose entry. Foetal-dose worksheets (if any exposure occurred during pregnancy) appear as a separate physicist-only annex.</p>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — UNIT VIEW (PER-UNIT DOSE TREND)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">RIS · Technician › Dose registry › Unit view › CT-01</div>
+  <div class="page-title">Unit dose trend — CT-01 (GE Revolution EVO) <span class="actions-right"><span class="btn small primary">Patient view</span></span></div>
+  <div class="page-sub">Median per-protocol dose vs AERB NDRL, last 6 months · monthly close locks the row</div>
+  <div class="card">
+    <table>
+      <tr><th>Month</th><th>CT studies</th><th>Median CTDIvol — Abd-Pel (mGy)</th><th>Median DLP — Abd-Pel (mGy·cm)</th><th>% of NDRL</th><th>Outliers</th><th>Month status</th></tr>
+      <tr><td>Feb 2026</td><td>418</td><td>13.9</td><td>662</td><td>86%</td><td>2</td><td><span class="chip grey">CLOSED</span></td></tr>
+      <tr><td>Mar 2026</td><td>441</td><td>14.1</td><td>671</td><td>88%</td><td>1</td><td><span class="chip grey">CLOSED</span></td></tr>
+      <tr><td>Apr 2026</td><td>402</td><td>14.4</td><td>688</td><td>90%</td><td>3</td><td><span class="chip grey">CLOSED</span></td></tr>
+      <tr><td>May 2026</td><td>455</td><td>14.2</td><td>679</td><td>89%</td><td>1</td><td><span class="chip grey">CLOSED</span></td></tr>
+      <tr class="hl"><td>Jun 2026</td><td>437</td><td><b>15.8</b></td><td><b>741</b></td><td><span class="chip amber">97% — drifting up</span></td><td>4</td><td><span class="chip amber">PHYSICIST REVIEW</span></td></tr>
+      <tr><td>Jul 2026 (to date)</td><td>361</td><td>15.1</td><td>724</td><td>95%</td><td>2 open</td><td><span class="chip teal">OPEN</span></td></tr>
+    </table>
+    <div class="banner warn" style="margin-top:12px"><b>Trend note — CT-01</b>Median Abd-Pel DLP has risen 3 consecutive months. Suggested check: auto-mA reference protocol after the 14 Jun service visit. Linked QC record: TK-11 · service ticket TK-07/EQ-0231.</div>
+  </div>
+  <div class="row">
+    <div class="card grow"><div class="card-title">Other units — Jul 2026 snapshot</div>
+      <table>
+        <tr><th>Unit</th><th>Ionising studies</th><th>Key metric</th><th>% of DRL</th><th>Open outliers</th></tr>
+        <tr><td>XR-02 · Siemens Multix</td><td>612</td><td>Median chest PA DAP 0.12 Gy·cm²</td><td><span class="chip green">61%</span></td><td>0</td></tr>
+        <tr><td>XR-03 · mobile</td><td>88</td><td>Median AP abdomen DAP 2.1 Gy·cm²</td><td><span class="chip green">74%</span></td><td>0</td></tr>
+        <tr><td>MG-01 · mammo</td><td>141</td><td>Median MGD 1.4 mGy/view</td><td><span class="chip green">70%</span></td><td>0</td></tr>
+      </table>
+    </div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — OUTLIER FLAGGED · PHYSICIST REVIEW &amp; AERB EXPORT</div>
+<div class="modal-wrap"><div class="modal">
+  <h3>Outlier review — ACC-2026-90287 · 142% of DRL</h3>
+  <div class="kv" style="grid-template-columns:130px 1fr;margin-bottom:10px">
+    <dt>Study</dt><dd>CT Abdomen-Pelvis C+ · 24 Jul 2026 · CT-01 · performed by T. Okafor</dd>
+    <dt>Patient</dt><dd>M. Al-Rashid · <span class="mono">MRN-004790</span> · habitus: BMI 34, arms-down positioning noted</dd>
+    <dt>Values</dt><dd>CTDIvol 21.4 mGy · DLP 1,088 mGy·cm vs NDRL 766</dd>
+  </div>
+  <div class="field"><label>Physicist note <span class="req">*</span> <span class="muted small">(required before monthly close)</span></label>
+    <div class="textarea">Reviewed RDSR and scout. Elevated dose consistent with patient habitus plus repeated delayed phase requested by referrer. Auto-mA behaved correctly; no equipment fault. Recommend habitus-adjusted protocol note; no repeat exposure indicated. — Medical physicist S. Kulkarni (RSO), 25 Jul 2026</div>
+  </div>
+  <div class="field"><label>Classification</label><div class="select">Justified — patient factors + clinical request ▾</div></div>
+  <div class="check"><span class="box on">✓</span>Step-up identity confirmed for physicist sign-off (OTP to registered RSO device at 12:04 IST).</div>
+  <div class="modal-actions"><span class="btn">Return to queue</span><span class="btn primary">Sign &amp; close outlier</span></div>
+</div></div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner success"><b>Outlier ACC-2026-90287 closed as "justified"</b>Physicist note attached; the study row now shows the note icon in patient and unit views. 1 outlier remains open for July.</div>
+  <div class="card"><div class="card-title">AERB audit export <span class="right">quarterly pack</span></div>
+    <div class="kv" style="max-width:620px">
+      <dt>Scope</dt><dd>01 Apr 2026 – 30 Jun 2026 · all ionising units, Andheri West</dd>
+      <dt>Contents</dt><dd>Per-unit dose summaries, outlier register with physicist notes, QC pass rates (TK-11), licence &amp; RSO details</dd>
+      <dt>Identifiers</dt><dd>Patient names replaced with MRN-only per AERB submission format; full identity retained in the internal registry</dd>
+      <dt>Prepared by</dt><dd>T. Okafor · countersign required: RSO S. Kulkarni</dd>
+    </div>
+    <div style="margin-top:10px"><span class="btn primary">Generate export (PDF + CSV)</span> <span class="btn ghost">Preview submission format</span></div>
+  </div>
+</div></div></div>
+
+<p class="audit">Dose values are written once from the modality RDSR and are immutable; annotations, outlier classifications, physicist sign-offs and every AERB export (who, when, scope) are recorded in the access log. Viewing another patient's dose history requires a stated purpose which is also recorded in the access log.</p>
+</section>

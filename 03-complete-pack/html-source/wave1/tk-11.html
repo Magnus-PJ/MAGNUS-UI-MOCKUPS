@@ -1,0 +1,94 @@
+<section class="screen" id="tk-11">
+<div class="screen-head"><h1><span class="sid">TK-11</span> QC &amp; calibration log</h1><div class="meta"><span class="chip violet">CONDITIONAL</span><div class="cluster">G6 Radiology Technician — workspace 'RIS · Technician'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The opening-shift technologist runs the daily QA checklist per unit (phantom checks, values must fall in range) before the first patient; the medical physicist countersigns. A failed QA automatically degrades the unit — new bookings divert and open studies are held via the equipment downtime flow (TK-07). Calibration certificates are tracked with validity windows; expiring certificates raise alerts 30 days out so scanning is never performed on an out-of-calibration unit.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · TECHNICIAN</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Today</div>
+    <div class="nav-item">Modality worklist <span class="nav-badge">14</span></div>
+    <div class="nav-item">My queue — CT-01 <span class="nav-badge">5</span></div>
+    <div class="nav-item">Room &amp; patient prep</div>
+    <div class="sec-label">Safety &amp; quality</div>
+    <div class="nav-item">Dose registry <span class="nav-badge red">2</span></div>
+    <div class="nav-item active">QC &amp; calibration <span class="nav-badge red">1</span></div>
+    <div class="nav-item">Contrast reactions</div>
+    <div class="sec-label">Shift</div>
+    <div class="nav-item">Daily summary</div>
+  </div>
+  <div class="main">
+    <div class="crumb">RIS · Technician › QC &amp; calibration › Daily QA · 25 Jul 2026</div>
+    <div class="page-title">Daily QA — CT-01 <span class="chip green">PASS · 07:58 IST</span></div>
+    <div class="page-sub">Phantom: GE QA phantom S/N QP-4471 · protocol AERB daily set · unit released for clinical use at 08:01</div>
+    <div class="banner info"><b>Working offline is supported</b> — actions queue and sync when reconnected.</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">4 / 5</div><div class="l">Units QA-passed today</div><div class="s">CT-01, XR-02, XR-03, MG-01</div></div>
+      <div class="kpi red"><div class="n">1</div><div class="l">Unit degraded</div><div class="s">US-02 · failed QA (State B)</div></div>
+      <div class="kpi amber"><div class="n">1</div><div class="l">Certificate expiring ≤ 30d</div><div class="s">XR-02 · 18 Aug 2026</div></div>
+      <div class="kpi"><div class="n">100%</div><div class="l">QA compliance — Jul</div><div class="s">no clinical day started unchecked</div></div>
+    </div>
+    <div class="card"><div class="card-title">Daily QA checklist — CT-01 · 25 Jul 2026 <span class="right">values from console, entered once</span></div>
+      <table>
+        <tr><th>Check</th><th>Measured</th><th>Acceptable range</th><th>Result</th><th>By</th></tr>
+        <tr><td>Warm-up &amp; tube conditioning complete</td><td>OK</td><td>console green</td><td><span class="chip green">PASS</span></td><td class="mono small">TO 07:41</td></tr>
+        <tr><td>CT number — water phantom (HU)</td><td>+1.6</td><td>0 ± 4 HU</td><td><span class="chip green">PASS</span></td><td class="mono small">TO 07:47</td></tr>
+        <tr><td>Noise (SD, centre ROI)</td><td>4.9</td><td>≤ 5.5</td><td><span class="chip green">PASS</span></td><td class="mono small">TO 07:48</td></tr>
+        <tr><td>Uniformity (centre vs edge)</td><td>2.3 HU</td><td>≤ 4 HU</td><td><span class="chip green">PASS</span></td><td class="mono small">TO 07:50</td></tr>
+        <tr><td>Artefact scan — visual review</td><td>None seen</td><td>no rings/streaks</td><td><span class="chip green">PASS</span></td><td class="mono small">TO 07:52</td></tr>
+        <tr><td>Laser alignment vs phantom notch</td><td>±0.5 mm</td><td>≤ 2 mm</td><td><span class="chip green">PASS</span></td><td class="mono small">TO 07:55</td></tr>
+        <tr><td>Dose display sanity (CTDIvol, ref protocol)</td><td>14.3 mGy</td><td>13.1–15.9 (baseline ±10%)</td><td><span class="chip green">PASS</span></td><td class="mono small">TO 07:58</td></tr>
+      </table>
+      <div class="row" style="margin-top:12px">
+        <div class="grow"><div class="small bold" style="margin-bottom:4px">Technologist sign-off</div><div class="sig-box signed">T. Okafor · 07:58 IST</div></div>
+        <div class="grow"><div class="small bold" style="margin-bottom:4px">Physicist countersign</div><div class="sig-box signed">S. Kulkarni, RSO · 08:01 IST</div></div>
+      </div>
+    </div>
+    <div class="card"><div class="card-title">Calibration certificates — all units <span class="right">alerts at T-30 days</span></div>
+      <table>
+        <tr><th>Unit</th><th>Certificate</th><th>Calibrated by</th><th>Valid from</th><th>Expires</th><th>Status</th></tr>
+        <tr><td>CT-01 · GE Revolution EVO</td><td class="mono">CAL/CT01/26-0142</td><td>GE Healthcare svc + RSO witness</td><td>02 Feb 2026</td><td>01 Feb 2027</td><td><span class="chip green">VALID</span></td></tr>
+        <tr class="hl"><td>XR-02 · Siemens Multix</td><td class="mono">CAL/XR02/25-0561</td><td>Siemens svc</td><td>19 Aug 2025</td><td><b>18 Aug 2026</b></td><td><span class="chip amber">EXPIRES IN 24 DAYS</span></td></tr>
+        <tr><td>XR-03 · mobile</td><td class="mono">CAL/XR03/26-0088</td><td>Siemens svc</td><td>10 Mar 2026</td><td>09 Mar 2027</td><td><span class="chip green">VALID</span></td></tr>
+        <tr><td>MG-01 · mammo</td><td class="mono">CAL/MG01/26-0121</td><td>Hologic svc + RSO witness</td><td>05 Apr 2026</td><td>04 Apr 2027</td><td><span class="chip green">VALID</span></td></tr>
+        <tr><td>US-02 · portable US</td><td class="mono">CAL/US02/26-0019</td><td>Mindray svc</td><td>12 Jan 2026</td><td>11 Jan 2027</td><td><span class="chip green">VALID</span> <span class="chip red">UNIT DEGRADED — QA FAIL</span></td></tr>
+      </table>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — QA FAILED → UNIT AUTO-DEGRADED (LINKS TO TK-07)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner danger"><b>US-02 failed daily QA at 08:12 — unit auto-degraded</b>Image uniformity check failed (dropout band, left third of array on linear probe L12-4). US-02 is blocked for new studies; 3 booked patients auto-diverted to US-01. Downtime record <span class="mono">TK-07/EQ-0234</span> opened automatically.</div>
+  <table>
+    <tr><th>Check</th><th>Measured</th><th>Acceptable</th><th>Result</th></tr>
+    <tr><td>Probe surface &amp; cable inspection</td><td>OK</td><td>no cracks/kinks</td><td><span class="chip green">PASS</span></td></tr>
+    <tr class="hl"><td>Uniformity — L12-4 linear probe</td><td><b>Dropout band, elements ~64–96</b></td><td>no dropout</td><td><span class="chip red">FAIL</span></td></tr>
+    <tr><td>Penetration depth — phantom</td><td>not run</td><td>—</td><td><span class="chip grey">SKIPPED AFTER FAIL</span></td></tr>
+  </table>
+  <div class="card" style="margin-top:12px"><div class="card-title">Auto-degrade actions <span class="right">system-executed 08:12</span></div>
+    <div class="timeline">
+      <div class="ev"><span class="t">08:12</span><span>US-02 status → <span class="chip red">DEGRADED — QA FAIL</span>; scheduling pool removes unit; Perform blocked at room level.</span></div>
+      <div class="ev"><span class="t">08:12</span><span>Downtime ticket <span class="mono">TK-07/EQ-0234</span> created · owner K. Verma (admin) · <span class="chip teal">vendor response due in 4h</span></span></div>
+      <div class="ev"><span class="t">08:14</span><span>3 appointments (APPT-2026-51121, -51124, -51129) diverted to US-01; patients notified by SMS, no rebooking needed.</span></div>
+      <div class="ev"><span class="t">08:19</span><span>Physicist S. Kulkarni acknowledged failure; probe quarantined with tamper tag QT-0071.</span></div>
+    </div>
+    <div style="margin-top:8px"><span class="btn small primary">Open TK-07/EQ-0234</span> <span class="btn small">Re-run QA after repair</span> <span class="btn small ghost">View diverted patients</span></div>
+    <div class="hint muted small" style="margin-top:6px">Un-degrading a unit requires a passing re-run countersigned by the physicist — the technologist alone cannot restore clinical use.</div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — CERTIFICATE EXPIRING (T-24 DAYS ALERT)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner warn"><b>XR-02 calibration certificate expires 18 Aug 2026 (24 days)</b>Book vendor calibration now. If not renewed by expiry, XR-02 will auto-degrade at 00:00 IST on 19 Aug and disappear from scheduling. <span class="chip amber">warning · owner: K. Verma</span> Escalated to Branch Ops if unbooked by 04 Aug.</div>
+  <div class="kv" style="max-width:640px">
+    <dt>Certificate</dt><dd><span class="mono">CAL/XR02/25-0561</span> · Siemens Multix Impact · annual calibration</dd>
+    <dt>Vendor slot</dt><dd>Requested 11 Aug 2026, 07:00–10:00 IST (before clinic) · PO pending</dd>
+    <dt>Fallback</dt><dd>XR-03 (mobile) certified until Mar 2027 — capacity plan attached to TK-07 draft</dd>
+    <dt>Reminders</dt><dd>T-30 sent 19 Jul · T-14 and T-7 scheduled · RSO copied on all</dd>
+  </div>
+  <div style="margin-top:10px"><span class="btn primary">Confirm vendor booking</span> <span class="btn">Upload new certificate…</span> <span class="btn ghost">Snooze 7 days (RSO approval required)</span></div>
+</div></div></div>
+
+<p class="audit">QA measurements are single-entry and immutable once countersigned; failed checks, auto-degrade events, certificate uploads and any snooze approvals are recorded in the access log with technologist and physicist identities. Restoring a degraded unit requires physicist step-up confirmation, which is also recorded in the access log.</p>
+</section>

@@ -1,0 +1,154 @@
+<section class="screen" id="or-01">
+<div class="screen-head"><h1><span class="sid">OR-01</span> Order entry — shared path</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety — workspace 'Orders'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office and clinical staff create imaging/diagnostic orders against a registered patient from the procedure catalog. The form must guarantee a complete, safe order: clinical indication is mandatory, laterality is forced for paired-organ procedures, STAT priority requires justification, and the referrer is resolved from the directory (with registration number) or explicitly marked self-referred. Place-order is idempotent — a retry after a network/service failure reuses the same idempotency reference and can never create a duplicate accession.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Orders</div>
+      <div class="nav-item active">New order</div>
+      <div class="nav-item">Orders worklist <span class="nav-badge">38</span></div>
+      <div class="nav-item">Awaiting scheduling <span class="nav-badge red">6</span></div>
+      <div class="nav-item">Safety flags</div>
+      <div class="sec-label">Reference</div>
+      <div class="nav-item">Procedure catalog</div>
+      <div class="nav-item">Referrer directory</div>
+      <div class="nav-item">Prep instruction library</div>
+      <div class="sec-label">Today</div>
+      <div class="nav-item">My drafts <span class="nav-badge">2</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Orders › New order › MRN-004822</div>
+      <div class="page-title">New order — CT Brain (Plain) <span class="actions-right"><span class="chip grey">DRAFT · autosaved 14:32 IST</span></span></div>
+      <div class="page-sub">Order entry · shared path for front office, referrer portal &amp; ward requests · all fields validated before placement</div>
+
+      <div class="card" style="border-left:4px solid #0F766E">
+        <div class="card-title">Patient <span class="right">verified via visit VIS-2026-30412</span></div>
+        <div class="row">
+          <div class="grow"><div class="kv">
+            <dt>Patient</dt><dd><b>Sofia Rossi</b> · F · 34y · <span class="mono">MRN-004822</span></dd>
+            <dt>Contact</dt><dd>+91 98•••• ••42 <span class="muted small">(masked — no billing purpose on this role)</span></dd>
+            <dt>ID on file</dt><dd>Aadhaar ····-····-8213 (last-4 only) · verified 12-Jul-2026</dd>
+          </div></div>
+          <div style="width:280px"><div class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Allergies</dt><dd><span class="chip red">Iodinated contrast — prior reaction</span></dd>
+            <dt>Alerts</dt><dd><span class="chip amber">eGFR pending</span> <span class="chip grey">No implants recorded</span></dd>
+            <dt>Open orders</dt><dd>1 active (checked at place-order)</dd>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="grow">
+          <div class="card">
+            <div class="card-title">Procedure &amp; priority</div>
+            <div class="row">
+              <div class="grow"><div class="field"><label>Procedure (from catalog) <span class="req">*</span></label>
+                <div class="input">CT Brain (Plain) — <span class="mono">CT-BRN-P</span></div>
+                <div class="hint">Modality auto-set: <b>CT</b> · est. duration 15 min · price ₹3,200 <span class="muted">(price visible: front-office role, billing purpose)</span></div>
+              </div></div>
+              <div style="width:170px"><div class="field"><label>Laterality</label><div class="select" style="color:#94A3B8">Not applicable</div><div class="hint">Forced only for paired-organ procedures</div></div></div>
+            </div>
+            <div class="row">
+              <div style="width:200px"><div class="field"><label>Priority <span class="req">*</span></label><div class="select">Routine ▾</div></div></div>
+              <div class="grow"><div class="field"><label>STAT justification</label><div class="input" style="color:#94A3B8;background:#F8FAFC">Required only when priority = STAT</div></div></div>
+            </div>
+            <div class="field"><label>Clinical indication <span class="req">*</span></label>
+              <div class="textarea">Persistent right-sided headache × 3 weeks, worse in mornings; rule out space-occupying lesion. No trauma. Neuro exam normal per referrer note.</div>
+              <div class="hint">Minimum 20 characters · shown to radiologist verbatim · never included on printed invoice</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Referring doctor &amp; performing branch</div>
+            <div class="row">
+              <div class="grow"><div class="field"><label>Referring doctor <span class="req">*</span></label>
+                <div class="input">Dr. Meera Nair — MBBS, MD (Med) · Reg no. <span class="mono">MMC-2009-18455</span> ▾</div>
+                <div class="hint">From referrer directory · or select <b>“Self-referred walk-in”</b> (recorded as such on the report)</div>
+              </div></div>
+              <div style="width:230px"><div class="field"><label>Performing branch <span class="req">*</span></label><div class="select">Andheri West — CT available ▾</div><div class="hint">Only branches with modality CT listed</div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="width:300px">
+          <div class="card" style="background:#F8FAFC">
+            <div class="card-title">Prep instructions preview</div>
+            <div class="small" style="line-height:1.6">
+              <b>CT Brain (Plain) — patient prep</b><br>
+              • No fasting required.<br>
+              • Remove hairpins, earrings, dentures before scan.<br>
+              • Inform technologist of any prior head surgery.<br>
+              • Carry previous imaging (CD/films) if available.<br>
+              <span class="muted">Language: English ▾ · also available in हिन्दी, मराठी</span>
+            </div>
+            <div style="margin-top:8px"><span class="btn small">Print with order</span></div>
+          </div>
+          <div class="card">
+            <div class="card-title">Order summary</div>
+            <div class="kv" style="grid-template-columns:110px 1fr">
+              <dt>Procedure</dt><dd>CT Brain (Plain)</dd>
+              <dt>Modality</dt><dd>CT (auto)</dd>
+              <dt>Priority</dt><dd>Routine</dd>
+              <dt>Est. price</dt><dd>₹3,200 (excl. GST-exempt)</dd>
+              <dt>Idempotency</dt><dd class="mono small">ord-idem-7f3a91c4</dd>
+            </div>
+            <div class="hint" style="margin-top:6px">Idempotency ref generated at draft creation — retries reuse it; a duplicate accession is impossible.</div>
+            <div style="margin-top:10px;display:flex;gap:8px"><span class="btn primary grow">Place order</span><span class="btn">Save draft</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — VALIDATION ERRORS ON PLACE-ORDER</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner danger"><b>3 issues block placement — nothing was submitted</b>Fix the highlighted fields. The draft and idempotency reference <span class="mono">ord-idem-7f3a91c4</span> are preserved.</div>
+  <div class="card">
+    <div class="field"><label>Clinical indication <span class="req">*</span></label><div class="input err">—</div><div class="hint" style="color:#B91C1C">Required. A radiologist cannot protocol or justify this study without an indication (AERB justification rule).</div></div>
+    <div class="row">
+      <div style="width:200px"><div class="field"><label>Priority <span class="req">*</span></label><div class="select" style="border-color:#B91C1C;background:#FEF2F2">STAT ▾</div></div></div>
+      <div class="grow"><div class="field"><label>STAT justification <span class="req">*</span></label><div class="input err">—</div><div class="hint" style="color:#B91C1C">Required for STAT — state the clinical urgency (e.g. “suspected acute bleed, GCS dropping”). Logged with orderer identity.</div></div></div>
+    </div>
+    <div class="field"><label>Referring doctor <span class="req">*</span></label><div class="input err">—</div><div class="hint" style="color:#B91C1C">Select from directory or choose “Self-referred walk-in”. Free-text referrer names are not accepted.</div></div>
+    <div style="display:flex;gap:8px;justify-content:flex-end"><span class="btn">Save draft</span><span class="btn primary">Re-validate &amp; place order</span></div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — SUCCESS: ACCESSION ISSUED</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner success"><b>Order placed — accession ACC-2026-91847</b>CT Brain (Plain) for Sofia Rossi (MRN-004822) · Routine · idempotency ref <span class="mono">ord-idem-7f3a91c4</span> consumed. Next gate: <b>Scheduling</b> — slot must be booked <span class="chip teal">due in 4h</span> (owner: front office · Andheri West).</div>
+  <div class="card">
+    <div class="card-title">What happens next</div>
+    <div class="stepper">
+      <div class="step done"><span class="dot">✓</span> Ordered</div><span class="step-line"></span>
+      <div class="step cur"><span class="dot">2</span> Scheduled</div><span class="step-line"></span>
+      <div class="step"><span class="dot">3</span> Arrived</div><span class="step-line"></span>
+      <div class="step"><span class="dot">4</span> Acquired</div><span class="step-line"></span>
+      <div class="step"><span class="dot">5</span> Reported</div><span class="step-line"></span>
+      <div class="step"><span class="dot">6</span> Delivered</div>
+    </div>
+    <div style="display:flex;gap:8px"><span class="btn primary">Book slot now</span><span class="btn">Print prep instructions</span><span class="btn">Open order ACC-2026-91847</span><span class="btn ghost">New order for same patient</span></div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE D — SERVICE DOWN · RETRY-SAFE</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner warn"><b>Order service did not respond (timeout after 8s)</b>Your order was <b>not lost</b>. Retrying will resend with the <u>same idempotency key</u> <span class="mono">ord-idem-7f3a91c4</span> — if the first attempt actually succeeded on the server, you will receive the existing accession instead of a duplicate.</div>
+  <div class="banner info"><b>Working offline is supported</b> — actions queue and sync when reconnected. This order is held in the local outbox (position 1 of 1).</div>
+  <div class="card">
+    <div class="kv">
+      <dt>Attempt</dt><dd>2 of 5 · next auto-retry in 00:12</dd>
+      <dt>Idempotency key</dt><dd class="mono">ord-idem-7f3a91c4 (unchanged across retries)</dd>
+      <dt>Draft integrity</dt><dd>All field values checksummed locally · <span class="chip green">intact</span></dd>
+    </div>
+    <div style="margin-top:10px;display:flex;gap:8px"><span class="btn primary">Retry now</span><span class="btn">Keep in outbox</span><span class="btn ghost">Copy incident ref INC-0725-114</span></div>
+  </div>
+</div></div></div>
+
+<p class="audit">Order placement, every validation failure, each retry attempt (with idempotency key), and the price-visibility check for role Front Office (D. Nair) are recorded in the access log.</p>
+</section>

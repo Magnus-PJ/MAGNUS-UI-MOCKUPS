@@ -1,0 +1,114 @@
+<section class="screen" id="rd-03">
+<div class="screen-head"><h1><span class="sid">RD-03</span> DICOM viewer — core read</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Dr. V. Shetty opens a study from the worklist and reads it here: W/L presets, measure, zoom/cine, series rail, and a patient header that never scrolls away (wrong-patient safety). Same-org priors load automatically under the Treatment purpose — no deny wall, just a visible purpose chip and an access-log record. A true cross-org prior is listed but not fetched; it shows a request-access chip instead. If TK-02 reports the study incomplete, a partial-study banner blocks final signing until series arrive or the reader explicitly overrides.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · Reading</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty · RMC MH-44721 ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Reading</div>
+    <div class="nav-item">Worklist <span class="nav-badge">13</span></div>
+    <div class="nav-item active">Viewer — ACC-…91101</div>
+    <div class="nav-item">Report editor</div>
+    <div class="sec-label">This study</div>
+    <div class="nav-item">Priors (2)</div>
+    <div class="nav-item">Order &amp; clinical notes</div>
+    <div class="nav-item">Dose record</div>
+    <div class="sec-label">Quality &amp; safety</div>
+    <div class="nav-item">Critical results <span class="nav-badge red">1</span></div>
+  </div>
+  <div class="main">
+    <div class="crumb">RIS · Reading &rsaquo; Worklist &rsaquo; ACC-2026-91101 &rsaquo; Viewer</div>
+    <div class="card" style="padding:8px 12px;background:#F8FAFC">
+      <div class="row" style="align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+        <div><b>Mohammed Al-Rashid</b> · M/62 · <span class="mono">MRN-004790</span> · <span class="mono">ACC-2026-91101</span> · HRCT Chest · acquired 25 Jul 2026 09:56 IST · Ref: Dr. S. Iyer</div>
+        <div><span class="chip red">Prior critical: PE (Feb 2026)</span> <span class="chip teal">Reading — locked to Dr. V. Shetty</span> <span class="chip teal">SLA due in 2h 05m</span></div>
+      </div>
+      <div class="small muted">Patient header is pinned — it remains visible in full-screen and multi-monitor layouts. Aadhaar on file: ****-6031 (last 4 only, never shown in full).</div>
+    </div>
+    <div class="row">
+      <div style="width:120px;flex-shrink:0">
+        <div class="card" style="padding:8px;background:#0F172A;border-color:#1E293B;color:#CBD5E1">
+          <div class="small" style="color:#94A3B8;font-weight:700;margin-bottom:6px">SERIES (2/2)</div>
+          <div style="border:2px solid #2DD4BF;border-radius:6px;padding:6px;margin-bottom:6px;background:#1E293B"><div class="small bold">S1 · Axial lung</div><div class="small" style="color:#94A3B8">312 img · 1.0mm</div><span class="chip green">loaded</span></div>
+          <div style="border:1px solid #334155;border-radius:6px;padding:6px;margin-bottom:6px;background:#1E293B"><div class="small bold">S2 · Coronal MPR</div><div class="small" style="color:#94A3B8">96 img</div><span class="chip green">loaded</span></div>
+          <div class="small" style="color:#94A3B8;font-weight:700;margin:6px 0">PRIOR 12 FEB 2026</div>
+          <div style="border:1px dashed #334155;border-radius:6px;padding:6px;background:#1E293B"><div class="small bold">CTPA · S1 Axial</div><span class="chip teal">prior · ready</span></div>
+        </div>
+      </div>
+      <div class="grow">
+        <div class="card" style="background:#020617;border-color:#1E293B;padding:10px;color:#E2E8F0">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
+            <span class="btn small">W/L ▾</span><span class="btn small primary">Lung 1500/-600</span><span class="btn small">Mediastinum 350/50</span><span class="btn small">Bone 2000/300</span>
+            <span class="btn small">📏 Measure</span><span class="btn small">🔍 Zoom 142%</span><span class="btn small">▶ Cine 12 fps</span><span class="btn small">⇄ MPR</span><span class="btn small">⌖ Localizer</span><span class="btn small">Reset</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr;min-height:250px;border:1px solid #1E293B;border-radius:8px;background:#0B1220;padding:12px;position:relative">
+            <div class="small mono" style="color:#7DD3FC">S1 Axial lung · img 187/312 · slice −142.5mm · W1500 L−600 · 142%</div>
+            <div style="text-align:center;color:#334155;font-size:40px;padding:58px 0">[ AXIAL LUNG WINDOW — VIEWPORT ]</div>
+            <div class="small mono" style="color:#64748B;display:flex;justify-content:space-between"><span>MRN-004790 · AL-RASHID, MOHAMMED · M/62</span><span>kVp 120 · CTDIvol 6.2 mGy · Meridian AND-CT02</span></div>
+          </div>
+          <div class="small" style="color:#94A3B8;margin-top:6px">Scroll: wheel · Cine: space · Next series: Tab · W/L presets: 1–4 · Hanging protocol "HRCT default" applied.</div>
+        </div>
+      </div>
+      <div style="width:270px;flex-shrink:0">
+        <div class="card">
+          <div class="card-title">Priors <span class="right">Relevance-sorted</span></div>
+          <div class="banner info" style="padding:7px 10px;margin-bottom:10px"><b>Same-org priors loaded automatically.</b><span class="chip teal">Purpose: Treatment · care team · recorded</span></div>
+          <table>
+            <tr><th>Study</th><th>Source</th><th></th></tr>
+            <tr class="hl"><td><b>CTPA Chest</b><div class="small muted">12 Feb 2026 · Andheri West</div><div class="small" style="color:#B91C1C">Impression: segmental PE, RLL</div></td><td><span class="chip green">Same org</span></td><td><span class="btn small primary">Compare</span></td></tr>
+            <tr><td><b>XR Chest PA</b><div class="small muted">03 Jan 2026 · Vashi branch</div></td><td><span class="chip green">Same org</span></td><td><span class="btn small">Open</span></td></tr>
+            <tr><td><b>CT Chest</b><div class="small muted">2024 · Lilavati Hospital (external)</div><div class="small muted">Listed via patient-shared record locator</div></td><td><span class="chip amber">Cross-org</span></td><td><span class="btn small warn-outline">Request access</span></td></tr>
+          </table>
+          <div class="small muted" style="margin-top:6px">Cross-org priors are never fetched silently — requesting access opens a consent-backed exchange request; the patient and source org are notified.</div>
+        </div>
+        <div class="card"><div class="card-title">Clinical context</div>
+          <div class="kv" style="grid-template-columns:90px 1fr">
+            <dt>Indication</dt><dd>Progressive dyspnoea, on anticoagulation, r/o ILD vs recurrent PE</dd>
+            <dt>Allergy</dt><dd><span class="chip amber">Iodinated contrast — premedicated</span></dd>
+            <dt>eGFR</dt><dd>74 mL/min (22 Jul 2026)</dd>
+          </div>
+        </div>
+        <span class="btn primary" style="width:100%">Open report editor →</span>
+      </div>
+    </div>
+  </div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE B — PARTIAL-STUDY WARNING (TK-02: SERIES INCOMPLETE)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">RIS · Reading &rsaquo; ACC-2026-91118 &rsaquo; Viewer</div>
+  <div class="card" style="padding:8px 12px;background:#F8FAFC"><b>Aarav Sharma</b> · M/41 · <span class="mono">MRN-004821</span> · <span class="mono">ACC-2026-91118</span> · CT KUB · <span class="chip red">STAT</span> · <span class="chip amber">due in 0h 38m</span></div>
+  <div class="banner warn"><b>Partial study — 1 of 2 expected series received.</b>Missing: S2 delayed phase (technologist T. Okafor reports acquisition complete, transfer in progress from AND-CT02, ETA ~3 min). You may pre-read S1 now; <b>final signing is blocked</b> until all series arrive or you record a documented override ("read as partial — reason required, co-noted in report header").</div>
+  <div class="row">
+    <div class="grow"><div class="card" style="background:#020617;border-color:#1E293B;padding:10px;color:#E2E8F0">
+      <div class="small mono" style="color:#7DD3FC">S1 Axial plain · img 44/168 · W400 L40</div>
+      <div style="text-align:center;color:#334155;font-size:34px;padding:44px 0;border:1px solid #1E293B;border-radius:8px;background:#0B1220">[ S1 AVAILABLE — PRE-READ ]</div>
+    </div></div>
+    <div style="width:250px;flex-shrink:0"><div class="card">
+      <div class="card-title">Series status (TK-02)</div>
+      <table><tr><th>Series</th><th>Status</th></tr>
+      <tr><td>S1 Axial plain</td><td><span class="chip green">Received 168/168</span></td></tr>
+      <tr><td>S2 Delayed phase</td><td><span class="chip amber">In transfer · 61%</span><div class="progress amber"><i style="width:61%"></i></div></td></tr></table>
+      <div style="margin-top:10px;display:grid;gap:8px"><span class="btn">Notify me when complete</span><span class="btn warn-outline">Read as partial (reason required)</span><span class="btn disabled">Sign final report</span></div>
+    </div></div>
+  </div>
+</div></div></div>
+<div class="state-tag">STATE C — MEASUREMENT ACTIVE (ANNOTATIONS AUTOSAVED TO STUDY)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">RIS · Reading &rsaquo; ACC-2026-91101 &rsaquo; Viewer &rsaquo; Measure</div>
+  <div class="card" style="background:#020617;border-color:#1E293B;padding:10px;color:#E2E8F0">
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px"><span class="btn small primary">📏 Linear</span><span class="btn small">◯ Ellipse ROI</span><span class="btn small">∠ Angle</span><span class="btn small">HU probe</span><span class="btn small ghost" style="color:#FCA5A5">Delete annotation</span></div>
+    <div style="min-height:190px;border:1px solid #1E293B;border-radius:8px;background:#0B1220;padding:12px">
+      <div class="small mono" style="color:#7DD3FC">S1 Axial lung · img 203/312 · measure mode</div>
+      <div style="text-align:center;color:#334155;font-size:30px;padding:34px 0">[ VIEWPORT — CALLIPER OVERLAY ]</div>
+      <div class="small mono" style="color:#5EEAD4">M1 · linear · 8.4 mm — RLL subpleural nodule · M2 · ellipse ROI 1.2 cm² mean −742 HU</div>
+    </div>
+  </div>
+  <div class="card"><div class="card-title">Measurements on this study <span class="right">Autosaved · flow into report macro</span></div>
+    <table><tr><th>ID</th><th>Type</th><th>Value</th><th>Location</th><th>By · at</th><th></th></tr>
+    <tr><td class="mono">M1</td><td>Linear</td><td class="bold">8.4 mm</td><td>RLL subpleural, img 203</td><td>Dr. V. Shetty · 10:52 IST</td><td><span class="btn small ghost">Insert into report</span></td></tr>
+    <tr><td class="mono">M2</td><td>Ellipse ROI</td><td class="bold">−742 HU mean</td><td>RLL, img 203</td><td>Dr. V. Shetty · 10:53 IST</td><td><span class="btn small ghost">Insert into report</span></td></tr>
+    <tr class="dim"><td class="mono">M0</td><td>Linear (prior)</td><td>6.1 mm</td><td>Same nodule · CTPA 12 Feb 2026</td><td>Dr. A. Rao · Feb 2026</td><td><span class="chip teal">Δ +2.3 mm</span></td></tr></table>
+  </div>
+</div></div></div>
+<p class="audit">Study open/close, every prior loaded (with the Treatment purpose chip shown to the reader), each cross-org access request, partial-read overrides with reason, and all measurement create/edit/delete events are recorded in the access log.</p>
+</section>

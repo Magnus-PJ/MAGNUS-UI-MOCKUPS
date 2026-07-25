@@ -1,0 +1,138 @@
+<section class="screen" id="fo-02">
+<div class="screen-head"><h1><span class="sid">FO-02</span> Patient search</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front-office staff search before every booking or registration so duplicates are never created. Exact identifiers (MRN, phone, ABHA, insurance ID) return authoritative hits; name + DOB runs a fuzzy match with confidence chips. The screen must guarantee that every search is recorded with a purpose, results are masked to the minimum needed to disambiguate, and a failed search never shows a partial list that could be mistaken for "no match".</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Reception</div>
+      <div class="nav-item">Dashboard &amp; tokens</div>
+      <div class="nav-item active">Patient search</div>
+      <div class="nav-item">Register patient</div>
+      <div class="nav-item">Appointments <span class="nav-badge">18</span></div>
+      <div class="nav-item">Walk-in booking</div>
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Collect payment</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Front Office / Patients / Search</div>
+      <div class="page-title">Patient search</div>
+      <div class="page-sub">Search before registering — duplicate records create billing and safety risk. Searches are recorded with your ID and stated purpose.</div>
+      <div class="card">
+        <div class="row">
+          <div class="grow">
+            <div class="field"><label>Exact identifier</label><input class="input mono" value="98200 41775" placeholder="MRN / mobile / ABHA / insurance ID"><div class="hint">MRN-00xxxx · 10-digit mobile · 14-digit ABHA · insurer member ID. Aadhaar is never searchable in full — last 4 digits only, combined with name.</div></div>
+          </div>
+          <div class="grow">
+            <div class="row">
+              <div class="grow"><div class="field"><label>Name (any language)</label><input class="input" value="" placeholder="e.g. Priya Menon / प्रिया मेनन"></div></div>
+              <div style="width:150px"><div class="field"><label>Date of birth</label><input class="input mono" value="" placeholder="DD/MM/YYYY"></div></div>
+            </div>
+          </div>
+          <div style="width:160px"><div class="field"><label>Purpose <span class="req">*</span></label><select class="select"><option>Booking / arrival</option><option>Billing follow-up</option><option>Records request</option></select></div></div>
+          <div style="width:110px;padding-top:21px"><a class="btn primary" href="#" style="width:100%">Search</a></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Results — exact match on mobile 98200 41775 <span class="right">2 records · 0.14 s</span></div>
+        <table>
+          <tr><th>Match</th><th>Patient</th><th>MRN</th><th>DOB / Sex</th><th>Contact</th><th>Last visit</th><th>Actions</th></tr>
+          <tr class="hl">
+            <td><span class="chip green">EXACT · phone</span></td>
+            <td><b>Priya Menon</b><br><span class="small muted">F · Andheri West home branch</span></td>
+            <td class="mono">MRN-004828</td>
+            <td class="mono">14/03/1991 · F</td>
+            <td class="mono">98200 41775<br><span class="muted">pr•••@gm•••.com</span></td>
+            <td class="mono">VIS-2026-31288 · 18 Jul 2026</td>
+            <td><a class="btn primary small" href="#">Open record</a> <a class="btn small" href="#">Book</a></td>
+          </tr>
+          <tr>
+            <td><span class="chip blue">SAME PHONE · family?</span></td>
+            <td><b>M••••• Menon</b> <span class="chip grey">MASKED</span><br><span class="small muted">M · registered at Powai branch</span></td>
+            <td class="mono">MRN-••••31</td>
+            <td class="mono">••/••/2018 · M</td>
+            <td class="mono">98200 41775<br><span class="muted">shared household number</span></td>
+            <td class="mono muted">other branch</td>
+            <td><a class="btn ghost small" href="#">Request access</a></td>
+          </tr>
+        </table>
+        <p class="small muted" style="margin-top:8px">The second record is masked because it belongs to another branch and you have no active booking purpose for it. Opening it requires a stated reason and is logged.</p>
+      </div>
+      <div class="banner reg" style="margin-top:2px"><b>Searches are recorded.</b> Query terms, purpose, results shown and any record you open are written to the access log under your ID (D. Nair, terminal FO-03).</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — FUZZY NAME + DOB RESULTS WITH CONFIDENCE CHIPS</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="page-title" style="font-size:16px">Fuzzy results — "Anaya Rao", DOB 02/11/1994</div>
+      <div class="page-sub">3 candidates ranked by match confidence. Identifiers partially masked until a record is opened with purpose.</div>
+      <table>
+        <tr><th>Confidence</th><th>Patient</th><th>MRN</th><th>DOB</th><th>Phone</th><th>Actions</th></tr>
+        <tr class="hl"><td><span class="chip green">0.94 STRONG</span></td><td><b>Ananya Rao</b> <span class="small muted">name ~0.91 · DOB exact</span></td><td class="mono">MRN-004819</td><td class="mono">02/11/1994</td><td class="mono">98••• ••312</td><td><a class="btn primary small" href="#">Open record</a> <a class="btn small" href="#">Book</a></td></tr>
+        <tr><td><span class="chip amber">0.71 POSSIBLE</span></td><td><b>Ananya R. Naidu</b> <span class="small muted">name ~0.78 · DOB ±1 yr</span></td><td class="mono">MRN-••••02</td><td class="mono">02/11/1993</td><td class="mono">99••• ••871</td><td><a class="btn ghost small" href="#">Compare</a></td></tr>
+        <tr class="dim"><td><span class="chip grey">0.43 WEAK</span></td><td>A•••• Rao <span class="small muted">name ~0.66 · DOB mismatch</span></td><td class="mono">MRN-••••57</td><td class="mono">••/••/1988</td><td class="mono">masked</td><td><a class="btn ghost small" href="#">Compare</a></td></tr>
+      </table>
+      <div style="margin-top:10px"><a class="btn" href="#">None of these — register new patient</a></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — NO MATCH · REGISTER CTA</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="page-title" style="font-size:16px">No matching patient found</div>
+      <div class="page-sub">Searched: name "Kwame Osei" + DOB 09/05/1987 · exact identifiers checked: mobile, ABHA — 0 hits across Meridian MPI (all branches).</div>
+      <div class="card" style="text-align:center;padding:30px 16px">
+        <div class="bold" style="font-size:15px;margin-bottom:4px">No record matches this search</div>
+        <div class="muted small" style="margin-bottom:12px">Double-check spelling and try a phone number or ABHA before registering — the MPI was searched fully and returned zero candidates.</div>
+        <a class="btn primary" href="#">Register new patient (pre-fills name &amp; DOB)</a> <a class="btn" href="#">Amend search</a>
+      </div>
+      <p class="small muted">This "no match" is authoritative: the search completed against the full master patient index at 09:51:12 IST.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE D — SERVICE ERROR · NO PARTIAL LIST SHOWN</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="page-title" style="font-size:16px">Search unavailable</div>
+      <div class="banner danger"><b>Patient index did not respond (error MPI-504, 09:58 IST).</b> No results are shown — a partial list could be mistaken for "patient not found" and cause a duplicate registration. Do <u>not</u> register a new patient from this state.</div>
+      <div class="card" style="text-align:center;padding:26px 16px">
+        <div class="bold" style="margin-bottom:6px">We can't confirm whether this patient exists right now</div>
+        <div class="muted small" style="margin-bottom:12px">Retry in a few seconds. If it keeps failing, use the offline arrival flow — the booking links to the record after sync.</div>
+        <a class="btn primary" href="#">Retry search</a> <a class="btn" href="#">Offline arrival flow</a> <a class="btn ghost" href="#">Report to IT (ref MPI-504)</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE E — LOADING SKELETON</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="page-title" style="font-size:16px">Searching… <span class="chip grey">querying MPI</span></div>
+      <table>
+        <tr><th>Confidence</th><th>Patient</th><th>MRN</th><th>DOB</th><th>Phone</th><th>Actions</th></tr>
+        <tr><td><div class="progress" style="width:70px"><i style="width:0"></i></div></td><td><div class="progress" style="width:160px"><i style="width:0"></i></div></td><td><div class="progress" style="width:90px"><i style="width:0"></i></div></td><td><div class="progress" style="width:80px"><i style="width:0"></i></div></td><td><div class="progress" style="width:80px"><i style="width:0"></i></div></td><td></td></tr>
+        <tr><td><div class="progress" style="width:70px"><i style="width:0"></i></div></td><td><div class="progress" style="width:130px"><i style="width:0"></i></div></td><td><div class="progress" style="width:90px"><i style="width:0"></i></div></td><td><div class="progress" style="width:80px"><i style="width:0"></i></div></td><td><div class="progress" style="width:80px"><i style="width:0"></i></div></td><td></td></tr>
+        <tr><td><div class="progress" style="width:70px"><i style="width:0"></i></div></td><td><div class="progress" style="width:145px"><i style="width:0"></i></div></td><td><div class="progress" style="width:90px"><i style="width:0"></i></div></td><td><div class="progress" style="width:80px"><i style="width:0"></i></div></td><td><div class="progress" style="width:80px"><i style="width:0"></i></div></td><td></td></tr>
+      </table>
+      <p class="small muted" style="margin-top:8px">Results appear only when the full index query completes — no incremental partial lists.</p>
+    </div>
+  </div>
+</div>
+<p class="audit">Every search (terms, purpose, result count) and every record opened from results is recorded in the access log; masked fields remain masked in the log entry itself — recorded in the access log.</p>
+</section>

@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Magnus HMS — MVP 1 Gap-Closure Design Pack (NS-01–NS-16)</title>
+<style>/* Magnus HMS — NS design pack shared design system */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
+.mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
+.muted{color:#64748B}.small{font-size:12px}.bold{font-weight:700}
+/* ---------- page / screen frame ---------- */
+.screen{page-break-after:always;padding:28px 34px;background:#fff;min-height:1000px}
+.screen-head{display:flex;justify-content:space-between;align-items:flex-start;border-left:5px solid #0F766E;padding:6px 0 6px 14px;margin-bottom:6px}
+.screen-head h1{font-size:22px;font-weight:800}
+.screen-head .sid{color:#0F766E;margin-right:10px}
+.screen-head .meta{text-align:right}
+.screen-head .meta .cluster{color:#64748B;font-size:12px;margin-top:3px}
+.gap-note{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:8px 12px;margin:10px 0 16px;font-size:12.5px;color:#7C2D12}
+.gap-note b{color:#9A3412}
+/* ---------- app chrome ---------- */
+.frame{border:1px solid #CBD5E1;border-radius:10px;overflow:hidden;background:#F4F6F8;box-shadow:0 1px 4px rgba(15,23,42,.08);margin-bottom:22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:2px solid #0F766E;padding:9px 16px}
+.brand{font-weight:800;color:#0F766E}.brand span{color:#1E293B}
+.org{font-size:12.5px;color:#334155;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px}
+.userchip{font-size:12.5px;color:#334155}
+.userchip .av{display:inline-block;background:#CCFBF1;color:#0F766E;font-weight:700;border-radius:5px;padding:2px 6px;margin-right:6px;font-size:11px}
+.body{display:flex;min-height:520px}
+.sidebar{width:196px;background:#fff;border-right:1px solid #E2E8F0;padding:12px 0;flex-shrink:0}
+.sec-label{font-size:10.5px;letter-spacing:.08em;color:#94A3B8;font-weight:700;padding:8px 16px 4px;text-transform:uppercase}
+.nav-item{padding:7px 16px;font-size:13px;color:#334155;display:flex;justify-content:space-between;align-items:center}
+.nav-item.active{background:#F0FDFA;color:#0F766E;font-weight:700;border-left:3px solid #0F766E;padding-left:13px}
+.nav-badge{background:#0F766E;color:#fff;border-radius:9px;font-size:10.5px;padding:1px 7px;font-weight:700}
+.nav-badge.red{background:#B91C1C}
+.main{flex:1;padding:16px 18px;min-width:0}
+.crumb{font-size:12px;color:#64748B;margin-bottom:8px}
+.page-title{font-size:19px;font-weight:800;margin-bottom:2px}
+.page-sub{font-size:12.5px;color:#64748B;margin-bottom:14px}
+.actions-right{float:right}
+/* ---------- components ---------- */
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card-title{font-weight:800;font-size:14.5px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.card-title .right{font-size:10.5px;letter-spacing:.07em;color:#94A3B8;font-weight:700;text-transform:uppercase}
+.row{display:flex;gap:14px}.row>*{min-width:0}.grow{flex:1}
+.btn{display:inline-block;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:700;border:1px solid #CBD5E1;background:#fff;color:#334155;text-align:center;white-space:nowrap}
+.btn.primary{background:#0F766E;border-color:#0F766E;color:#fff}
+.btn.danger{background:#B91C1C;border-color:#B91C1C;color:#fff}
+.btn.warn-outline{border-color:#F59E0B;color:#92400E;background:#FFFBEB}
+.btn.ghost{border:none;background:none;color:#0F766E;padding:7px 6px}
+.btn.small{padding:4px 10px;font-size:12px}
+.btn.disabled{opacity:.45}
+.chip{display:inline-block;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip.teal{background:#CCFBF1;color:#0F766E}
+.chip.green{background:#DCFCE7;color:#15803D}
+.chip.amber{background:#FEF3C7;color:#92400E}
+.chip.red{background:#FEE2E2;color:#B91C1C}
+.chip.grey{background:#F1F5F9;color:#475569}
+.chip.blue{background:#E0F2FE;color:#0369A1}
+.chip.violet{background:#EDE9FE;color:#6D28D9}
+.chip.outline-red{background:#fff;border:1.5px solid #B91C1C;color:#B91C1C}
+.banner{border-radius:8px;padding:10px 13px;font-size:12.5px;margin-bottom:12px;border:1px solid}
+.banner b{display:block;margin-bottom:2px;font-size:13px}
+.banner.info{background:#E0F2FE;border-color:#7DD3FC;color:#075985}
+.banner.warn{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+.banner.danger{background:#FEE2E2;border-color:#FCA5A5;color:#991B1B}
+.banner.success{background:#DCFCE7;border-color:#86EFAC;color:#166534}
+.banner.reg{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding:7px 9px;border-bottom:2px solid #E2E8F0;background:#F8FAFC}
+td{padding:8px 9px;border-bottom:1px solid #EEF2F6;vertical-align:top}
+tr.hl td{background:#F0FDFA}
+tr.dim td{color:#94A3B8}
+.kv{display:grid;grid-template-columns:150px 1fr;row-gap:6px;column-gap:12px;font-size:12.5px}
+.kv dt{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding-top:2px}
+.kv dd{margin:0}
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+.field label .req{color:#B91C1C}
+.field .hint{font-size:11px;color:#64748B;margin-top:3px}
+.input,.select,.textarea{width:100%;border:1px solid #CBD5E1;border-radius:7px;padding:7px 10px;font-size:13px;background:#fff;color:#1E293B}
+.input.err{border-color:#B91C1C;background:#FEF2F2}
+.textarea{min-height:64px}
+.check{font-size:12.5px;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.box{display:inline-block;width:14px;height:14px;border:1.6px solid #64748B;border-radius:3px;flex-shrink:0;margin-top:1px;text-align:center;line-height:12px;font-size:11px;font-weight:800}
+.box.on{background:#0F766E;border-color:#0F766E;color:#fff}
+.radio{border-radius:50%}
+.radio.on{background:#fff;border-color:#0F766E;box-shadow:inset 0 0 0 3.5px #0F766E;color:transparent}
+/* modal */
+.modal-wrap{background:#64748B22;border:1px dashed #94A3B8;border-radius:12px;padding:26px 40px;margin:14px 0}
+.modal{background:#fff;border-radius:12px;border-top:5px solid #0F766E;box-shadow:0 8px 30px rgba(15,23,42,.25);max-width:560px;margin:0 auto;padding:18px 20px}
+.modal.danger{border-top-color:#B91C1C}
+.modal h3{font-size:16px;margin-bottom:8px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+/* misc */
+.divider-label{text-align:center;color:#94A3B8;font-size:11.5px;margin:20px 0 14px;position:relative}
+.divider-label:before,.divider-label:after{content:"";display:inline-block;width:24%;border-top:1px dashed #CBD5E1;vertical-align:middle;margin:0 10px}
+.audit{font-size:11px;color:#8A6D1D;margin-top:10px}
+.audit:before{content:"🔒 "}
+.state-tag{font-size:10px;letter-spacing:.08em;font-weight:800;text-transform:uppercase;color:#94A3B8;text-align:right;margin-bottom:4px}
+.kpi-row{display:flex;gap:12px;margin-bottom:14px}
+.kpi{flex:1;background:#fff;border:1px solid #E2E8F0;border-left:4px solid #0F766E;border-radius:9px;padding:10px 13px}
+.kpi.amber{border-left-color:#F59E0B}.kpi.red{border-left-color:#B91C1C}
+.kpi .n{font-size:23px;font-weight:800}.kpi .l{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700}
+.kpi .s{font-size:11px;color:#64748B;margin-top:2px}
+.stepper{display:flex;gap:6px;align-items:center;font-size:12px;color:#64748B;margin-bottom:14px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:6px}
+.step .dot{width:20px;height:20px;border-radius:50%;background:#E2E8F0;color:#475569;font-size:11px;font-weight:800;text-align:center;line-height:20px}
+.step.done .dot{background:#15803D;color:#fff}.step.cur .dot{background:#0F766E;color:#fff}
+.step.cur{color:#0F766E;font-weight:700}
+.step-line{width:26px;border-top:2px solid #CBD5E1}
+.sig-box{border:1.5px dashed #94A3B8;border-radius:8px;min-height:64px;background:#F8FAFC;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:12px;font-style:italic}
+.sig-box.signed{border-style:solid;border-color:#15803D;color:#166534;background:#F0FDF4;font-family:'Segoe Script','Comic Sans MS',cursive;font-size:17px;font-style:normal}
+.ladder{border-left:3px solid #E2E8F0;margin-left:8px;padding-left:16px}
+.ladder .tier{margin-bottom:12px;position:relative}
+.ladder .tier:before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:#CBD5E1}
+.ladder .tier.done:before{background:#15803D}.ladder .tier.cur:before{background:#0F766E;box-shadow:0 0 0 3px #CCFBF1}
+.ladder .tier.fail:before{background:#B91C1C}
+.progress{height:7px;border-radius:4px;background:#E2E8F0;overflow:hidden;margin-top:4px}
+.progress i{display:block;height:100%;background:#0F766E}
+.progress.amber i{background:#F59E0B}.progress.red i{background:#B91C1C}
+.split{display:grid;grid-template-columns:1fr 300px;gap:14px}
+.timeline{font-size:12.5px}
+.timeline .ev{display:flex;gap:10px;margin-bottom:9px}
+.timeline .t{color:#64748B;white-space:nowrap;font-family:Consolas,monospace;font-size:11.5px;padding-top:1px}
+
+@page { size: A4; margin: 0; }
+@media print { body { background:#fff } .screen { min-height: 1120px } }
+</style></head><body>
+<section class="screen" id="cover">
+<div style="padding-top:110px">
+<div style="border-left:6px solid #0F766E;padding-left:22px;margin-bottom:30px">
+<div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">Magnus HMS · MVP 1 · Gap-Closure Design Pack</div>
+<h1 style="font-size:40px;font-weight:800;line-height:1.15">Additional UI/UX Screens<br>to Complete MVP&nbsp;1</h1>
+<p style="font-size:15px;color:#64748B;margin-top:14px;max-width:640px">16 net-new / revised screens closing every P1 gap found in the review of the 106-screen MVP&nbsp;1 walkthrough — plus the catalogue of 10 state-level revisions to existing screens. Same design system · synthetic data only (no PHI) · WCAG 2.1 AA intent.</p>
+</div>
+<div class="kpi-row" style="max-width:760px">
+<div class="kpi"><div class="n">16</div><div class="l">New screens designed</div></div>
+<div class="kpi"><div class="n">10</div><div class="l">Revisions to existing screens</div></div>
+<div class="kpi"><div class="n">20/20</div><div class="l">Review scenarios now covered</div></div>
+</div>
+<div class="card" style="max-width:760px;margin-top:12px">
+<div class="card-title">Companion to</div>
+<p style="font-size:13px;margin-bottom:6px">• <b>Magnus_HMS_MVP1_UIUX_Design_Review_Feedback.docx</b> — findings referenced as C-x (compliance), S-x (safety), N-x, and Section 5 (P2).</p>
+<p style="font-size:13px;margin-bottom:6px">• Vendor deck “MVP 1 UI/UX Design Walkthrough” (2026-07-17) — existing screen IDs (RR-S6, BL-S3, …) referenced throughout.</p>
+<p style="font-size:13px">Prepared for Magnus Diagnostics → NUMINACORE · 25 July 2026 · Prototype/reference, not committed product scope.</p>
+</div>
+</div>
+</section>
+
+<section class="screen" id="catalogue">
+<div class="screen-head"><h1><span class="sid">INDEX</span> Complete gap-closure catalogue</h1><div class="meta"><span class="chip teal">26 ITEMS</span><div class="cluster">16 designed in this pack · 10 revisions specified for existing screens</div></div></div>
+<div class="card"><div class="card-title">A · Net-new / revised screens designed in this pack <span class="right">NS-01 — NS-16</span></div>
+<table><tr><th style="width:52px">ID</th><th style="width:250px">Screen</th><th style="width:150px">Cluster</th><th>Gap closed (review reference)</th></tr><tr><td class="mono bold" style="color:#0F766E">NS-01</td><td><b>Critical result: flag, tier & send</b></td><td>Radiologist</td><td>Closes S-1(a,b,d): no send action, no tiers, no capture of finding/recipient at flag time; adds escalation ladder + addendum re-notify (RR-S5/RR-S6).</td></tr><tr><td class="mono bold" style="color:#0F766E">NS-02</td><td><b>Referrer results inbox & critical acknowledgement</b></td><td>Doctor Desk</td><td>Closes S-1(g): DD-S1 inbox was “SOON” while the critical loop assumed referrer acknowledgement; in-product ack now recorded.</td></tr><tr><td class="mono bold" style="color:#0F766E">NS-03</td><td><b>Patient merge / MPI reconciliation</b></td><td>Front Office & Setup</td><td>Closes S-6: duplicates had no post-registration resolution (GRV-8824 dead-end, AD-S5 unresolved matches). Four-eyes + reversible 30 days.</td></tr><tr><td class="mono bold" style="color:#0F766E">NS-04</td><td><b>Duplicate order & order-time safety interception</b></td><td>Shared order path</td><td>Closes S-5: the deck demoed an undetected duplicate order (DD-S2); laterality now forced; MR-safety mini-check at ordering.</td></tr><tr><td class="mono bold" style="color:#0F766E">NS-05</td><td><b>Technician worklist: safety gates & blocked Perform</b></td><td>Radiology Technician</td><td>Closes S-2/S-3 visibility: screening/consent/Form F/MR-safety gates now visible and enforced at the point of acquisition; physician-only override; STAT auto-refresh; cancelled = visible terminal state.</td></tr><tr><td class="mono bold" style="color:#0F766E">NS-06</td><td><b>Billing approvals queue (asynchronous)</b></td><td>Billing / Cashier</td><td>Closes P2-1: discount/refund/cancel approvals no longer require the approver at the same terminal; pending/approved/rejected/expired states.</td></tr><tr><td class="mono bold" style="color:#0F766E">NS-07</td><td><b>Delivery failures & counter-pickup worklist</b></td><td>Notifications & Delivery</td><td>Closes P2-4: owns NT-S1 failures — fix-contact-and-resend, channel switch, print/counter-pickup queue with ID-verified handover, suppression reasons cross-linked to consent.</td></tr><tr><td class="mono bold" style="color:#0F766E">NS-08</td><td><b>Cash session & end-of-day close</b></td><td>Billing / Cashier</td><td>Closes P2-3: cash drawer sessions, denomination count, gateway settlement reconciliation, variance with supervisor countersign, immutable signed close.</td></tr><tr><td class="mono bold" style="color:#0F766E">NS-09</td><td><b>Payment pending & reconciliation (UPI/card)</b></td><td>Billing (revises BL-S3)</td><td>Closes P2-3: stuck-UPI recovery — provider re-query, evidence-based manual confirm (UTR), duplicate auto-detection with auto-refund.</td></tr><tr><td class="mono bold" style="color:#0F766E">NS-10</td><td><b>Form F: patient declaration & signature capture</b></td><td>Imaging regulatory (revises IR-S1)</td><td>Closes C-1: pregnant woman’s signed statutory declaration (signature/thumb pad), address + ID particulars, vernacular declaration text, centre-specific PNDT checks for doctor and machine.</td></tr><tr><td class="mono bold" style="color:#0F766E">NS-11</td><td><b>Legal hold register</b></td><td>Governance & compliance</td><td>Closes GV gap: suspends retention auto-deletion during medico-legal cases; refusals in GV-S3 now cite the hold; four-eyes release.</td></tr><tr><td class="mono bold" style="color:#0F766E">NS-12</td><td><b>Visit / encounter summary</b></td><td>Front Office (shared)</td><td>Closes N-7 + foundation ask: one thread linking registration → order → invoice → study → report → delivery; becomes the IPD encounter spine (checklist #15/#16).</td></tr><tr><td class="mono bold" style="color:#0F766E">NS-13</td><td><b>Compliance registrations & expiry enforcement</b></td><td>Tenant / Branch Admin</td><td>Closes C-6: AERB / PNDT (doctor & machine) / medical registrations now block scheduling, acquisition and sign-off on expiry, with 60/30/7-day alerts.</td></tr><tr><td class="mono bold" style="color:#0F766E">NS-14</td><td><b>Access requests: masked denial & lifecycle</b></td><td>Authorization (revises AZ-S2/RR-S2)</td><td>Closes C-7 + S-4: denial screens no longer leak demographics; request lifecycle (pending/approved/denied/expired); same-org priors allowed-and-audited for treatment.</td></tr><tr><td class="mono bold" style="color:#0F766E">NS-15</td><td><b>Incident intake & triage</b></td><td>Governance & compliance</td><td>Closes P2 + PL-S6 finding: front door that creates incidents, auto-classifies personal-data breaches (PII-in-logs reclassified to breach path), starts GV-S4 clocks.</td></tr><tr><td class="mono bold" style="color:#0F766E">NS-16</td><td><b>SLA breach & escalation — standard pattern</b></td><td>Design system</td><td>Closes the systemic gap: every countdown (RR-S1, RR-S6, RT-S4, GR-S1, GV-S3/S4, NS-06) gets one defined zero-hour behaviour — owner, escalation, no silent breaches.</td></tr></table></div>
+<div class="card"><div class="card-title">B · State-level revisions to existing vendor screens <span class="right">R-01 — R-10 · to be applied by NUMINACORE in the source designs</span></div>
+<table><tr><th style="width:52px">ID</th><th style="width:250px">Screen</th><th colspan="2">Required revision</th></tr><tr><td class="mono bold" style="color:#B45309">R-01</td><td><b>CS-S1 Contrast screening</b></td><td colspan="2">Add “eGFR not available” pathway (point-of-care creatinine / documented physician risk acceptance) — removes the walk-in dead-end.</td></tr><tr><td class="mono bold" style="color:#B45309">R-02</td><td><b>CS-S2 Consent</b></td><td colspan="2">Add refusal & withdrawal terminal states that stop the study; render consent text in the recorded language of explanation; enforce witness rule.</td></tr><tr><td class="mono bold" style="color:#B45309">R-03</td><td><b>RR-S3 Report authoring</b></td><td colspan="2">Statutory declaration never pre-ticked; add “uncoded term — reason required” escape hatch so coding cannot hard-block an emergency sign-off.</td></tr><tr><td class="mono bold" style="color:#B45309">R-04</td><td><b>RR-S7 Signed report</b></td><td colspan="2">Embed delivery/distribution status per recipient (cross-link NT-S1); surface addenda at top as current truth.</td></tr><tr><td class="mono bold" style="color:#B45309">R-05</td><td><b>BL-S6 Cancel invoice</b></td><td colspan="2">Credit-note issuance path for post-filing cancellations (uses the BL-S8 CRN series); carry-forward lines on cancel-and-reissue.</td></tr><tr><td class="mono bold" style="color:#B45309">R-06</td><td><b>AU cluster</b></td><td colspan="2">Design the missing set: 2FA verify step, lost-authenticator re-enrolment, backup-code generation at setup, admin unlock, badge/PIN re-lock with fast user switching; consolidate AU-S7–S13 into one templated entry.</td></tr><tr><td class="mono bold" style="color:#B45309">R-07</td><td><b>IN-S1 Devices</b></td><td colspan="2">Push alert to branch admin when a modality goes unreachable; quarantine state for images from unknown AE titles.</td></tr><tr><td class="mono bold" style="color:#B45309">R-08</td><td><b>DD-S1 Break-glass</b></td><td colspan="2">Auto-expiry (24 h) with re-justification; explicit purpose picker on normal access.</td></tr><tr><td class="mono bold" style="color:#B45309">R-09</td><td><b>Offline states</b></td><td colspan="2">Publish the offline capability matrix (which CORE screens work offline) and add degraded/queued/sync-conflict states to billing & RIS (checklist #13/#14).</td></tr><tr><td class="mono bold" style="color:#B45309">R-10</td><td><b>AD-S2 Users</b></td><td colspan="2">Multi-branch / multi-role assignment for floating staff (radiologist covering two sites); deactivation dependency warnings (unsigned reports, sole admin).</td></tr></table></div>
+<div class="banner info"><b>Coverage claim</b>With sections A + B applied, all 20 review scenarios reach “Covered”: every P1 compliance (C-1…C-7) and safety (S-1…S-6) finding has an owning surface, and every countdown has a defined breach behaviour (NS-16). Items C-4 (org-close retention) and C-5 (GST config) are policy/config fixes on existing platform screens and need no new UI beyond R-05.</div>
+<p class="audit">This pack uses synthetic data only. All screens follow the existing Magnus design system: token-masked references, audit notices, step-up identity confirmation, and append-only records.</p>
+</section>
+<section class="screen" id="ns-01">
+<div class="screen-head"><h1><span class="sid">NS-01</span> Critical result: flag, tier &amp; send</h1><div class="meta"><span class="chip teal">MVP1-CORE · ADDITION</span><div class="cluster">Radiologist — reading, reporting &amp; templates</div></div></div>
+<div class="gap-note"><b>Why this screen exists:</b> Review finding S-1 — RR-S6 showed "Unnotified" critical rows with no send action, no severity tiers and no way to flag an addendum as critical. This screen adds the flag-at-signing modal, an explicit send/owner column on the RR-S6 queue, and critical re-notification on addenda (closes the RR-S5 gap).</div>
+
+<div class="state-tag">STATE A — FLAG MODAL, SHOWN IMMEDIATELY AFTER "SIGN &amp; FINALIZE" ON RR-S4</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Reading</div>
+      <div class="nav-item">Worklist <span class="nav-badge">7</span></div>
+      <div class="nav-item active">Reporting</div>
+      <div class="nav-item">Critical results <span class="nav-badge red">2</span></div>
+      <div class="nav-item">Addenda</div>
+      <div class="sec-label">Reference</div>
+      <div class="nav-item">Templates</div>
+      <div class="nav-item">Prior studies</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Home / Reporting / ACC-2026-90233 / Sign &amp; finalize</div>
+      <div class="page-title">Report signed — CT Head (plain) · Priya Menon · MRN-004828</div>
+      <div class="page-sub">Signed 2026-07-24 · 21:14 IST by Dr. Vikram Shetty · report v1 · referrer Dr. Meera Nair</div>
+      <div class="banner success"><b>✓ Signed &amp; finalized at 21:14 IST</b>You marked "contains a critical finding" during proofread — complete the critical notification below before leaving this study.</div>
+      <div class="modal-wrap"><div class="modal danger" style="max-width:620px">
+        <h3>⚑ Flag as a critical result</h3>
+        <p class="small muted" style="margin-bottom:12px">ACC-2026-90233 · CT Head (plain) · Priya Menon · MRN-004828 · signed 21:14 IST</p>
+        <div class="field">
+          <label>Severity tier <span class="req">*</span></label>
+          <div class="check"><span class="box radio on"></span><span><b>Tier RED — life-threatening.</b> Notify referrer within <b>≤ 15 min</b> · acknowledgement required within <b>≤ 15 min</b>. Phone call with read-back is mandatory.</span></div>
+          <div class="check"><span class="box radio"></span><span><b>Tier ORANGE — urgent actionable.</b> Notify within <b>≤ 60 min</b> · acknowledgement within <b>≤ 4 h</b>. SMS/WhatsApp acceptable; call on no-response.</span></div>
+        </div>
+        <div class="field">
+          <label>Finding summary (sent to recipient) <span class="req">*</span></label>
+          <div class="textarea">Acute right MCA-territory intracranial haemorrhage, approx. 18 mm, with 4 mm midline shift. Recommend immediate emergency referral.</div>
+          <div class="hint">Keep it short — this text is sent to the recipient. Never the full report in an SMS; the signed report travels only via the secure results inbox (NS-02).</div>
+        </div>
+        <div class="card" style="margin-bottom:11px">
+          <div class="card-title">Recipient <span class="right">Primary</span></div>
+          <div class="kv">
+            <dt>Referring doctor</dt><dd><b>Dr. Meera Nair</b> · referring physician · Nair Clinic, Andheri West</dd>
+            <dt>Phone</dt><dd class="mono">+91 98••• ••417 <span class="chip green">verified ✓</span></dd>
+            <dt>Fallback</dt><dd><span class="select" style="display:inline-block;width:auto;padding:4px 10px">Branch duty doctor — Dr. K. Rao ▾</span></dd>
+          </div>
+          <div class="check" style="margin-top:9px"><span class="box radio"></span><span>Patient-directed (self-referred walk-in) — <b>requires reason</b> and coordinator co-sign; used only when there is no referrer of record.</span></div>
+        </div>
+        <div class="field">
+          <label>Channels</label>
+          <div class="check"><span class="box on">✓</span><span>SMS (summary + acknowledgement link) <b>and phone call with read-back script</b> — mandatory for Tier RED</span></div>
+          <div class="check"><span class="box on">✓</span><span>WhatsApp (summary card, no attachments)</span></div>
+        </div>
+        <div class="modal-actions"><span class="btn ghost">Downgrade — not critical (reason required)</span><span class="btn danger">Create notification task &amp; send now</span></div>
+        <p class="small muted" style="margin-top:8px">Creating the task starts the Tier RED clock and assigns the radiology duty coordinator as owner. Every send, retry and acknowledgement is recorded in the access log.</p>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — REVISED RR-S6 QUEUE: SEND ACTION, OWNER COLUMN, BREACH ESCALATION</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">RS</span>R. Shah (coordinator) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Reading</div>
+      <div class="nav-item">Worklist <span class="nav-badge">7</span></div>
+      <div class="nav-item">Reporting</div>
+      <div class="nav-item active">Critical results <span class="nav-badge red">2</span></div>
+      <div class="nav-item">Addenda</div>
+      <div class="sec-label">Reference</div>
+      <div class="nav-item">Templates</div>
+      <div class="nav-item">Prior studies</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Home / Critical results / Notification queue</div>
+      <div class="page-title">Critical result notification queue <span class="actions-right"><span class="btn small">Escalation policy</span></span></div>
+      <div class="page-sub">Owner of record for all open tasks: <b>Radiology duty coordinator — R. Shah</b> · shift 14:00–22:00 IST</div>
+      <div class="banner danger"><b>⚠ 1 RED-tier result unacknowledged — 06:12 past window.</b> Escalated to Tier 2 (Dr. A. Rao, branch medical lead) · audible alert active at coordinator desk. Do not silence without logging a reason.</div>
+      <div class="kpi-row">
+        <div class="kpi red"><div class="n">1</div><div class="l">Red breached</div><div class="s">ack window exceeded</div></div>
+        <div class="kpi amber"><div class="n">1</div><div class="l">Awaiting ack</div><div class="s">within window</div></div>
+        <div class="kpi"><div class="n">1</div><div class="l">Unnotified</div><div class="s">send pending</div></div>
+        <div class="kpi"><div class="n">4</div><div class="l">Closed today</div><div class="s">median ack 07 min</div></div>
+      </div>
+      <table>
+        <tr><th>Patient / study</th><th>Tier</th><th>Signed</th><th>Recipient</th><th>Status</th><th>Owner</th><th style="width:110px">Action</th></tr>
+        <tr class="hl"><td><b>Priya Menon</b> · MRN-004828<br><span class="small muted">CT Head · ACC-2026-90233</span></td><td><span class="chip red">RED</span></td><td class="mono">21:14</td><td>Dr. Meera Nair<br><span class="small muted">SMS ✓ 21:19 · call ✓ 21:21 (no answer ×2)</span></td><td><span class="chip outline-red">UNACKNOWLEDGED 21:12</span><br><span class="small muted">breach +06:12</span></td><td>Radiology duty coordinator — R. Shah</td><td><span class="btn danger small">Call again</span><br><span class="btn ghost small">Reassign</span></td></tr>
+        <tr><td><b>Mohammed Al-Rashid</b> · MRN-004790<br><span class="small muted">CXR PA · ACC-2026-90241</span></td><td><span class="chip amber">ORANGE</span></td><td class="mono">20:48</td><td>Dr. S. Iyer<br><span class="small muted">SMS ✓ 20:52 · WhatsApp ✓ 20:52</span></td><td><span class="chip amber">AWAITING ACK</span><br><span class="small muted">02:41 of 4 h used</span></td><td>Radiology duty coordinator — R. Shah</td><td><span class="btn small">Nudge</span></td></tr>
+        <tr><td><b>Rajesh Gupta</b> · MRN-004795<br><span class="small muted">USG Abdomen · ACC-2026-90236</span></td><td><span class="chip amber">ORANGE</span></td><td class="mono">21:38</td><td>Dr. Meera Nair<br><span class="small muted">no channel attempted yet</span></td><td><span class="chip grey">UNNOTIFIED</span></td><td>Radiology duty coordinator — R. Shah</td><td><span class="btn primary small">Send now</span></td></tr>
+        <tr class="dim"><td>Ananya Rao · MRN-004819<br><span class="small">MRI Brain · ACC-2026-90198</span></td><td><span class="chip amber">ORANGE</span></td><td class="mono">17:05</td><td>Dr. S. Iyer</td><td><span class="chip green">ACK 17:41 ✓</span></td><td>R. Shah</td><td><span class="btn ghost small">View log</span></td></tr>
+        <tr class="dim"><td>Aarav Sharma · MRN-004821<br><span class="small">CT KUB · ACC-2026-90187</span></td><td><span class="chip red">RED</span></td><td class="mono">15:22</td><td>Dr. Meera Nair</td><td><span class="chip green">ACK 15:29 ✓</span></td><td>R. Shah</td><td><span class="btn ghost small">View log</span></td></tr>
+      </table>
+      <div class="card" style="margin-top:14px">
+        <div class="card-title">Escalation ladder — ACC-2026-90233 (Tier RED) <span class="right">policy CR-POL-3</span></div>
+        <div class="ladder">
+          <div class="tier done"><b>Tier 1 — referrer direct.</b> SMS 21:19, WhatsApp 21:19, calls 21:21 &amp; 21:26 (no answer). <span class="chip grey">completed</span></div>
+          <div class="tier cur"><b>Tier 2 — branch medical lead.</b> Dr. A. Rao notified 21:30; attempting Dr. Nair's clinic landline; audible alert at coordinator desk. <span class="chip red">active now</span></div>
+          <div class="tier"><b>Tier 3 — branch director + incident log.</b> Auto-triggers at 21:44 if still unacknowledged; opens patient-safety incident record.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — ADDENDUM SIGN-OFF WITH CRITICAL RE-FLAG (CLOSES RR-S5 GAP)</div>
+<div class="card" style="max-width:680px">
+  <div class="card-title">Addendum sign-off — CT Chest (contrast) · Sofia Rossi · MRN-004822 <span class="right">ACC-2026-90102 · v1 → v2</span></div>
+  <div class="kv" style="margin-bottom:11px">
+    <dt>Addendum by</dt><dd>Dr. Vikram Shetty · 2026-07-25 · 10:05 IST</dd>
+    <dt>What changed</dt><dd>Segmental pulmonary embolism in the right lower lobe, not described in v1. Impression revised.</dd>
+    <dt>Previous recipients</dt><dd>Dr. Meera Nair (results inbox, 2026-07-21) · patient portal copy</dd>
+  </div>
+  <div class="field">
+    <label>Critical flag</label>
+    <div class="check"><span class="box on">✓</span><span><b>This addendum contains a critical finding</b> — opens the same tier &amp; send flow as State A after sign-off (Tier RED / ORANGE, recipient, channels).</span></div>
+    <div class="check"><span class="box on">✓</span><span><b>Notify all previous recipients that v2 replaces v1</b> <span class="chip teal">default on</span> — each prior recipient gets a "report updated — v2 replaces v1" notice with a what-changed summary; their inbox copy of v1 is watermarked SUPERSEDED.</span></div>
+  </div>
+  <div class="sig-box signed">Signed — Dr. Vikram Shetty · 10:05 IST</div>
+  <div class="modal-actions"><span class="btn">Save draft</span><span class="btn danger">Sign addendum &amp; open critical send</span></div>
+  <p class="small muted">Version history is immutable: v1 remains readable with a superseded banner. Re-notification and every recipient's open of v2 are recorded in the access log.</p>
+</div>
+
+<p class="audit">Every action on this screen is recorded in the access log.</p>
+</section>
+<section class="screen" id="ns-02">
+<div class="screen-head"><h1><span class="sid">NS-02</span> Referrer results inbox &amp; critical acknowledgement</h1><div class="meta"><span class="chip teal">MVP1-CORE · ADDITION</span><div class="cluster">Doctor Desk</div></div></div>
+<div class="gap-note"><b>Why this screen exists:</b> DD-S1 marked "Results inbox — SOON", yet RR-S6 (and new NS-01) assume referrers can receive and acknowledge critical results. Without this screen the RED-tier acknowledgement loop has no receiving end. Promoted to MVP1-CORE.</div>
+
+<div class="state-tag">STATE A — DEFAULT INBOX FOR DR. MEERA NAIR (PINNED CRITICAL + ADDENDUM ROWS)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS</span></span><span class="org">🏥 Meridian Diagnostics · Doctor Desk (referrer portal)</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item active">Results inbox <span class="nav-badge red">4</span></div>
+      <div class="nav-item">My orders</div>
+      <div class="nav-item">My patients</div>
+      <div class="sec-label">Account</div>
+      <div class="nav-item">Notification settings</div>
+      <div class="nav-item">Access log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk / Results inbox</div>
+      <div class="page-title">Results inbox <span class="actions-right"><span class="btn small">Mark all read</span></span></div>
+      <div class="page-sub">Signed reports addressed to you at Meridian Diagnostics · every open is recorded in the access log visible to you and the patient</div>
+      <div style="margin-bottom:12px"><span class="chip teal">All 12</span> <span class="chip grey">Unread 4</span> <span class="chip red">Critical 1</span> <span class="chip violet">Addenda 2</span></div>
+      <div class="banner danger"><b>⚠ 1 critical result requires your acknowledgement</b>Tier RED · acknowledgement window 15 minutes from send (21:19 IST). The radiology coordinator will phone you if this stays unacknowledged.</div>
+      <table>
+        <tr><th>Patient</th><th>Study</th><th>Finding / note</th><th>Signed</th><th>Status</th><th style="width:130px">Action</th></tr>
+        <tr class="hl"><td><b>Priya Menon</b><br><span class="small muted mono">MRN-004828</span></td><td>CT Head (plain)<br><span class="small muted mono">ACC-2026-90233</span></td><td><span class="chip red">CRITICAL · RED</span><br>Acute intracranial haemorrhage, midline shift</td><td class="mono">2026-07-24 21:14</td><td><span class="chip outline-red">UNACKNOWLEDGED</span></td><td><span class="btn danger small">Acknowledge now</span></td></tr>
+        <tr><td><b>Sofia Rossi</b><br><span class="small muted mono">MRN-004822</span></td><td>CT Chest (contrast)<br><span class="small muted mono">ACC-2026-90102</span></td><td><span class="chip violet">UPDATED v2 · replaces v1</span><br><span class="small">What changed: segmental PE right lower lobe added to impression</span></td><td class="mono">2026-07-25 10:05</td><td><span class="chip amber">UNREAD</span></td><td><span class="btn small">Open v2</span></td></tr>
+        <tr><td><b>Rajesh Gupta</b><br><span class="small muted mono">MRN-004795</span></td><td>USG Abdomen<br><span class="small muted mono">ACC-2026-90236</span></td><td>Gallbladder calculi, no cholecystitis</td><td class="mono">2026-07-24 21:38</td><td><span class="chip amber">UNREAD</span></td><td><span class="btn small">Open</span></td></tr>
+        <tr><td><b>Aarav Sharma</b><br><span class="small muted mono">MRN-004821</span></td><td>CT KUB<br><span class="small muted mono">ACC-2026-90187</span></td><td>6 mm left VUJ calculus <span class="small muted">· critical, acknowledged by you 15:29</span></td><td class="mono">2026-07-24 15:22</td><td><span class="chip green">ACKNOWLEDGED ✓</span></td><td><span class="btn ghost small">Re-open</span></td></tr>
+        <tr><td><b>Ananya Rao</b><br><span class="small muted mono">MRN-004819</span></td><td>MRI Brain (screening)<br><span class="small muted mono">ACC-2026-90198</span></td><td><span class="chip violet">ADDENDUM v2</span> <span class="small">typo correction, impression unchanged</span></td><td class="mono">2026-07-23 17:05</td><td><span class="chip amber">UNREAD</span></td><td><span class="btn small">Open v2</span></td></tr>
+        <tr class="dim"><td>Mohammed Al-Rashid<br><span class="small mono">MRN-004790</span></td><td>X-Ray Chest PA<br><span class="small mono">ACC-2026-90241</span></td><td>Right lower zone consolidation</td><td class="mono">2026-07-24 20:48</td><td><span class="chip green">READ 21:05 ✓</span></td><td><span class="btn ghost small">Re-open</span></td></tr>
+        <tr class="dim"><td><span class="mono">PT-•••-7311</span> <span class="small">(token-masked — order not placed by you; ask patient to grant access)</span></td><td>MRI Lumbar Spine</td><td>—</td><td class="mono">2026-07-22 18:40</td><td><span class="chip grey">NO ACCESS</span></td><td><span class="btn ghost small">Request access</span></td></tr>
+      </table>
+      <p class="small muted" style="margin-top:10px">Reports are shared with you for care of your referred patients only. Forwarding outside Magnus is discouraged; downloads are watermarked with your name and time.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — MODAL: ACKNOWLEDGE CRITICAL RESULT</div>
+<div class="modal-wrap"><div class="modal danger" style="max-width:600px">
+  <h3>Acknowledge critical result</h3>
+  <p class="small muted" style="margin-bottom:12px">Priya Menon · MRN-004828 · CT Head (plain) · ACC-2026-90233 · signed 2026-07-24 21:14 IST by Dr. Vikram Shetty</p>
+  <div class="banner danger"><b>Tier RED finding</b>Acute right MCA-territory intracranial haemorrhage, approx. 18 mm, with 4 mm midline shift. Recommend immediate emergency referral.</div>
+  <div class="check"><span class="box on">✓</span><span><b>I have read and understood this critical finding.</b> I confirm the patient identity (Priya Menon, MRN-004828) matches my referred patient.</span></div>
+  <div class="field" style="margin-top:10px">
+    <label>Planned action <span class="muted">(optional)</span></label>
+    <div class="select">Referring patient to emergency department ▾</div>
+    <div class="hint">Options: contacting patient · referring to emergency · repeat imaging · other. Shared with the radiology coordinator to close the loop.</div>
+  </div>
+  <div class="kv" style="margin:10px 0">
+    <dt>Acknowledged as</dt><dd>Dr. Meera Nair · verified referrer login · OTP session</dd>
+    <dt>Timestamp</dt><dd class="mono">2026-07-24 · 21:24 IST (05:10 after send)</dd>
+  </div>
+  <div class="modal-actions"><span class="btn">Cancel</span><span class="btn danger">Acknowledge — recorded</span></div>
+  <p class="small muted" style="margin-top:8px">If not acknowledged within 15 minutes the radiology coordinator phones you — this inbox never replaces the phone for RED tier. Acknowledgement is written to the access log on the report, visible to the radiologist, coordinator and patient.</p>
+</div></div>
+
+<div class="state-tag">STATE C — EMPTY STATE: NOTHING UNREAD</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS</span></span><span class="org">🏥 Meridian Diagnostics · Doctor Desk (referrer portal)</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item active">Results inbox</div>
+      <div class="nav-item">My orders</div>
+      <div class="nav-item">My patients</div>
+      <div class="sec-label">Account</div>
+      <div class="nav-item">Notification settings</div>
+      <div class="nav-item">Access log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk / Results inbox</div>
+      <div class="page-title">Results inbox</div>
+      <div class="page-sub">Filter: Unread</div>
+      <div style="margin-bottom:12px"><span class="chip grey">All 12</span> <span class="chip teal">Unread 0</span> <span class="chip grey">Critical 0</span> <span class="chip grey">Addenda 0</span></div>
+      <div class="card" style="text-align:center;padding:38px 20px">
+        <div style="font-size:26px;margin-bottom:8px">✓</div>
+        <div class="bold" style="margin-bottom:4px">No unread results</div>
+        <div class="small muted">You are fully caught up. New signed reports for your referrals appear here immediately; RED-tier criticals also trigger SMS and a phone call.</div>
+        <div style="margin-top:14px"><span class="btn ghost">View all 12 results</span></div>
+      </div>
+      <p class="small muted">Every report you open here is access-logged with your identity, time and IP — patients can see who viewed their reports.</p>
+    </div>
+  </div>
+</div>
+
+<p class="audit">Every action on this screen is recorded in the access log.</p>
+</section>
+<section class="screen" id="ns-03">
+<div class="screen-head"><h1><span class="sid">NS-03</span> Patient merge / MPI reconciliation</h1><div class="meta"><span class="chip teal">MVP1-CORE · ADDITION</span><div class="cluster">Front Office &amp; Setup</div></div></div>
+<div class="gap-note"><b>Why this screen exists:</b> Duplicate patient records had no post-registration resolution path — grievance GRV-8824 ("my reports are split across two MRNs") dead-ended, and data import AD-S5 leaves "possible match" rows unresolved forever. This screen gives Front Office a supervised, four-eyes merge workflow.</div>
+
+<div class="state-tag">STATE A — DUPLICATE RESOLUTION QUEUE</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front Office) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Front Office</div>
+      <div class="nav-item">Registration</div>
+      <div class="nav-item">Appointments</div>
+      <div class="nav-item">Billing</div>
+      <div class="sec-label">Data quality</div>
+      <div class="nav-item active">Duplicate patients <span class="nav-badge">4</span></div>
+      <div class="nav-item">Merge history</div>
+      <div class="nav-item">Import review</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Home / Data quality / Duplicate patients</div>
+      <div class="page-title">Possible duplicate patients <span class="actions-right"><span class="btn small">Matching rules</span></span></div>
+      <div class="page-sub">Candidates from registration checks, data imports and grievances · resolve oldest first · merges need a second approver</div>
+      <table>
+        <tr><th>Candidate pair</th><th>Source</th><th>Match score</th><th>Flagged</th><th>Status</th><th style="width:140px">Action</th></tr>
+        <tr class="hl">
+          <td><b>Sofia Rossi</b> · MRN-004822<br><span class="small muted">vs "Sofia R." · MRN-003317</span></td>
+          <td><span class="chip red">Grievance</span><br><span class="small muted mono">GRV-8824</span></td>
+          <td><b>0.94</b> — name, DOB, phone match<div class="progress" style="width:120px"><i style="width:94%"></i></div></td>
+          <td class="mono">2026-07-22</td>
+          <td><span class="chip amber">OPEN</span></td>
+          <td><span class="btn primary small">Compare &amp; resolve</span></td>
+        </tr>
+        <tr>
+          <td><b>Aarav Sharma</b> · MRN-004821<br><span class="small muted">vs "A. Sharma" · MRN-002906</span></td>
+          <td><span class="chip blue">Data import</span><br><span class="small muted mono">AD-S5 batch #12</span></td>
+          <td><b>0.88</b> — name, phone match; DOB missing on B<div class="progress amber" style="width:120px"><i style="width:88%"></i></div></td>
+          <td class="mono">2026-07-19</td>
+          <td><span class="chip amber">OPEN</span></td>
+          <td><span class="btn small">Compare &amp; resolve</span></td>
+        </tr>
+        <tr>
+          <td><b>Rajesh Gupta</b> · MRN-004795<br><span class="small muted">vs "Rajesh K Gupta" · MRN-004102</span></td>
+          <td><span class="chip grey">Registration</span><br><span class="small muted">flagged at check-in</span></td>
+          <td><b>0.71</b> — name only; different phone<div class="progress amber" style="width:120px"><i style="width:71%"></i></div></td>
+          <td class="mono">2026-07-24</td>
+          <td><span class="chip grey">NEEDS INFO</span></td>
+          <td><span class="btn small">Compare &amp; resolve</span></td>
+        </tr>
+        <tr class="dim">
+          <td>Ananya Rao · MRN-004819<br><span class="small">vs MRN-003988</span></td>
+          <td><span class="chip grey">Registration</span></td>
+          <td>0.58 — reviewed, distinct people<div class="progress" style="width:120px"><i style="width:58%"></i></div></td>
+          <td class="mono">2026-07-15</td>
+          <td><span class="chip green">NOT A DUPLICATE ✓</span></td>
+          <td><span class="btn ghost small">View decision</span></td>
+        </tr>
+      </table>
+      <p class="small muted" style="margin-top:10px">"Not a duplicate" decisions are remembered — the pair will not be re-flagged unless identifiers change. All decisions are recorded in the access log with the reviewer's identity.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SIDE-BY-SIDE COMPARE &amp; FIELD-LEVEL SURVIVORSHIP</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front Office) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Front Office</div>
+      <div class="nav-item">Registration</div>
+      <div class="nav-item">Appointments</div>
+      <div class="nav-item">Billing</div>
+      <div class="sec-label">Data quality</div>
+      <div class="nav-item active">Duplicate patients <span class="nav-badge">4</span></div>
+      <div class="nav-item">Merge history</div>
+      <div class="nav-item">Import review</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Home / Data quality / Duplicate patients / GRV-8824 pair</div>
+      <div class="page-title">Compare &amp; resolve — MRN-004822 vs MRN-003317</div>
+      <div class="page-sub">Match score 0.94 · flagged via grievance GRV-8824 · pick the surviving value per field, then request approval</div>
+      <div class="split">
+        <div>
+          <div class="card">
+            <div class="card-title">Field-by-field comparison <span class="right">● = surviving value</span></div>
+            <table>
+              <tr><th>Field</th><th>Record A — <span class="mono">MRN-004822</span> <span class="chip teal">SURVIVOR</span></th><th>Record B — <span class="mono">MRN-003317</span></th></tr>
+              <tr><td class="bold">Full name</td><td><span class="box radio on"></span> Sofia Rossi</td><td><span class="box radio"></span> Sofia R.</td></tr>
+              <tr><td class="bold">Date of birth</td><td><span class="box radio on"></span> <span class="mono">1989-03-14</span></td><td><span class="box radio"></span> <span class="mono">1989-03-14</span> <span class="small muted">(identical)</span></td></tr>
+              <tr><td class="bold">Phone</td><td><span class="box radio"></span> <span class="mono">+91 98220 11xxx</span> <span class="small muted">last used 2024</span></td><td><span class="box radio on"></span> <span class="mono">+91 99870 44xxx</span> <span class="chip green">verified 2026-07-13</span></td></tr>
+              <tr><td class="bold">Address</td><td><span class="box radio on"></span> 12B, Palm Court, Andheri West, Mumbai 400058</td><td><span class="box radio"></span> Palm Court, Andheri (incomplete)</td></tr>
+              <tr><td class="bold">ABHA number</td><td><span class="box radio on"></span> <span class="mono">91-5522-8814-7743</span></td><td><span class="box radio"></span> <span class="muted">— not linked —</span></td></tr>
+            </table>
+          </div>
+          <div class="field" style="max-width:340px">
+            <label>Type to confirm <span class="req">*</span></label>
+            <div class="input muted mono">MERGE 004822</div>
+            <div class="hint">Type <b>MERGE 004822</b> (the surviving MRN) exactly to enable the request button.</div>
+          </div>
+          <div style="display:flex;gap:10px"><span class="btn">Not a duplicate — keep separate</span><span class="btn primary">Request merge approval</span></div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Consequences</div>
+            <p class="small" style="margin-bottom:8px"><b>2 appointments, 3 reports, 2 invoices, 1 consent record</b> move from MRN-003317 to the surviving record MRN-004822.</p>
+            <p class="small" style="margin-bottom:8px"><span class="mono">MRN-003317</span> becomes a <b>permanent alias</b> — searches, old invoices (e.g. <span class="mono">INV/AND/26-27/0417</span>) and barcode scans still find the patient. The number is <b>never reused</b>.</p>
+            <p class="small muted">Report headers keep the MRN they were signed under; the merged chart shows both.</p>
+          </div>
+          <div class="banner reg"><b>Four-eyes control</b>Merge needs a second approver — this request goes to the async approval queue (NS-06 pattern). Branch admin M. Kulkarni is next in rotation. You cannot approve your own request.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — BLOCKED (ACTIVE ORDERS) AND SUCCESS (MERGE COMPLETED)</div>
+<div class="card" style="max-width:720px">
+  <div class="banner danger"><b>✕ Cannot merge — both records have active orders today.</b> MRN-004822 and MRN-003317 each have an in-progress visit. Complete or cancel <span class="mono">ACC-2026-88214</span> first, then retry. Blocking prevents a mid-scan chart switch; this attempt is recorded in the access log.</div>
+  <div class="banner success"><b>✓ Merged — reference <span class="mono">MRG-2026-0042</span></b>MRN-003317 is now an alias of MRN-004822. Requested by D. Nair 2026-07-25 11:32 IST · approved by M. Kulkarni 11:47 IST. Reversible for <b>30 days</b> by an org admin (unmerge restores both records exactly, fully audited). Patient and referrer notices sent.</div>
+  <div class="kv">
+    <dt>Moved</dt><dd>2 appointments · 3 reports · 2 invoices · 1 consent record</dd>
+    <dt>Alias</dt><dd><span class="mono">MRN-003317</span> → resolves to <span class="mono">MRN-004822</span> · never reused</dd>
+    <dt>Unmerge window</dt><dd>until 2026-08-24 · org admin only · reason required</dd>
+  </div>
+</div>
+
+<p class="audit">Every action on this screen is recorded in the access log.</p>
+</section>
+<section class="screen" id="ns-04">
+<div class="screen-head"><h1><span class="sid">NS-04</span> Duplicate order &amp; order-time safety interception</h1><div class="meta"><span class="chip teal">MVP1-CORE · ADDITION</span><div class="cluster">Shared order path (RT-S3 / DD-S2)</div></div></div>
+<div class="gap-note"><b>Why this screen exists:</b> The deck itself demoed placing a duplicate MRI on RT-S3 with no warning; laterality was never forced on sided studies; and MR-safety was deferred entirely to check-in (CS-S1). These interceptions run on the shared order path used by both RT-S3 and DD-S2.</div>
+
+<div class="state-tag">STATE A — MODAL: POSSIBLE DUPLICATE ORDER (OVER THE ORDER FORM)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front Office) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Front Office</div>
+      <div class="nav-item">Registration</div>
+      <div class="nav-item active">New order</div>
+      <div class="nav-item">Appointments</div>
+      <div class="nav-item">Billing</div>
+      <div class="sec-label">Data quality</div>
+      <div class="nav-item">Duplicate patients <span class="nav-badge">4</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Home / New order / Sofia Rossi · MRN-004822</div>
+      <div class="page-title">New order — MRI Lumbar Spine (plain)</div>
+      <div class="page-sub">Sofia Rossi · MRN-004822 · referrer Dr. Meera Nair · draft not yet placed</div>
+      <div class="modal-wrap"><div class="modal" style="max-width:640px;border-top-color:#F59E0B">
+        <h3>⚠ Possible duplicate order</h3>
+        <p class="small muted" style="margin-bottom:10px">An active order for the <b>same procedure on the same patient</b> already exists within the 14-day duplicate window.</p>
+        <table style="margin-bottom:12px">
+          <tr><th>Existing order</th><th>Accession</th><th>Status</th><th>Ordered by</th><th>Placed</th></tr>
+          <tr class="hl"><td><b>MRI Lumbar Spine (plain)</b><br><span class="small muted">Sofia Rossi · MRN-004822</span></td><td class="mono">ACC-2026-90114</td><td><span class="chip blue">Scheduled</span><br><span class="small muted mono">2026-07-16 09:30 IST</span></td><td>Dr. Meera Nair</td><td><span class="small">2 days ago<br><span class="muted mono">2026-07-14</span></span></td></tr>
+        </table>
+        <div class="field">
+          <label>To continue anyway, a reason is required <span class="req">*</span></label>
+          <div class="select">Select reason — repeat post-intervention / different laterality / referrer instructed repeat / other (add note) ▾</div>
+          <div class="hint">Your reason is recorded on <b>both orders</b> and shown to the reading radiologist and in billing review.</div>
+        </div>
+        <div class="modal-actions"><span class="btn primary">Open existing order</span><span class="btn ghost">Link to existing</span><span class="btn warn-outline disabled">Continue — create distinct order</span></div>
+        <p class="small muted" style="margin-top:8px">"Continue" stays disabled until a reason is chosen. Dismissing this warning is itself recorded in the access log.</p>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — LATERALITY ENFORCEMENT ON SIDED PROCEDURES</div>
+<div class="card" style="max-width:640px">
+  <div class="card-title">New order — MRI Shoulder (plain) · Aarav Sharma · MRN-004821 <span class="right">Draft · shared order path</span></div>
+  <div class="row">
+    <div class="grow">
+      <div class="field">
+        <label>Procedure</label>
+        <div class="input">MRI Shoulder (plain)</div>
+      </div>
+      <div class="field">
+        <label>Laterality <span class="req">*</span></label>
+        <div class="input err">— not selected —</div>
+        <div class="hint" style="color:#B91C1C">Required for MRI Shoulder — choose Left / Right / Bilateral before placing the order. Laterality prints on the schedule, modality worklist and report header.</div>
+      </div>
+    </div>
+    <div style="width:220px">
+      <div class="field">
+        <label>Referrer</label>
+        <div class="input">Dr. S. Iyer</div>
+      </div>
+      <div class="field">
+        <label>Priority</label>
+        <div class="select">Routine ▾</div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;gap:8px;margin:4px 0 10px"><span class="btn small">Left</span><span class="btn small">Right</span><span class="btn small">Bilateral</span></div>
+  <div class="modal-actions" style="justify-content:flex-start"><span class="btn primary disabled">Place order</span><span class="btn ghost">Save draft</span></div>
+  <p class="small muted">The place-order button stays disabled while any required safety field is empty. Applies to all sided procedures (shoulder, knee, wrist, hip, breast).</p>
+</div>
+
+<div class="state-tag">STATE C — ORDER-TIME MINI SAFETY CHECK (DOES NOT REPLACE CS-S1)</div>
+<div class="card" style="max-width:640px">
+  <div class="card-title">Order-time safety check — MRI Lumbar Spine · Sofia Rossi · MRN-004822 <span class="right">3 questions · 30 seconds</span></div>
+  <p class="small muted" style="margin-bottom:10px">Asked while the patient is on the phone or at the desk, so unsafe bookings are caught before scheduling — not at the scanner door.</p>
+  <table>
+    <tr><th>Question</th><th style="width:80px">Yes</th><th style="width:80px">No</th></tr>
+    <tr><td>Pacemaker or any implanted device (clips, stimulator, cochlear implant)?</td><td><span class="box radio on"></span> Yes</td><td><span class="box radio"></span> No</td></tr>
+    <tr><td>Possibly pregnant?</td><td><span class="box radio"></span> Yes</td><td><span class="box radio on"></span> No</td></tr>
+    <tr><td>Previous reaction to contrast (any imaging)?</td><td><span class="box radio"></span> Yes</td><td><span class="box radio on"></span> No</td></tr>
+  </table>
+  <div style="margin:12px 0 8px"><span class="chip amber">MR conditional — full screening will be required at check-in (CS-S1). Scheduling flagged.</span></div>
+  <div class="kv" style="margin-bottom:10px">
+    <dt>Detail captured</dt><dd>Cardiac pacemaker (2023, brand unknown) — patient to bring device card</dd>
+    <dt>Effect</dt><dd>Slot auto-extended +15 min · technologist and duty radiologist notified · order badge "MR conditional" on RT worklist</dd>
+  </div>
+  <div class="banner info"><b>This does NOT replace CS-S1 screening.</b>The full MR-safety questionnaire, device verification and technologist sign-off still happen at check-in. This check only prevents obviously unsafe or under-prepared bookings.</div>
+  <div class="modal-actions" style="justify-content:flex-start"><span class="btn primary">Place order with MR-conditional flag</span><span class="btn ghost">Cancel order</span></div>
+</div>
+
+<p class="audit">Every action on this screen is recorded in the access log.</p>
+</section>
+<section class="screen" id="ns-05">
+<div class="screen-head"><h1><span class="sid">NS-05</span> Technician Worklist — Safety Gates &amp; Blocked Perform</h1><div class="meta"><span class="chip teal">MVP1-CORE · REVISION</span><div class="cluster">Radiology Technician — revises RT-S1 / RT-S2</div></div></div>
+<div class="gap-note"><b>Why this screen exists:</b> The review found that safety gates (contrast screening CS-S1, consent CS-S2, statutory Form F IR-S1, MR safety) were enforced on their own screens but invisible at the point of acquisition, and a technologist could self-override a Blocked contrast decision on RT-S1. This revision surfaces every gate on the worklist row, disables Perform until gates clear, routes overrides through a physician's own identity, adds 15-second STAT auto-refresh (RT-S2 was manual-refresh only), and keeps cancelled studies visible in a terminal state instead of vanishing.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Acquisition</div>
+      <div class="nav-item active">My worklist <span class="nav-badge">6</span></div>
+      <div class="nav-item">In progress <span class="nav-badge">1</span></div>
+      <div class="nav-item">Completed today</div>
+      <div class="sec-label">Safety</div>
+      <div class="nav-item">Contrast screening <span class="nav-badge red">1</span></div>
+      <div class="nav-item">Consent queue</div>
+      <div class="nav-item">Form F (PC-PNDT) <span class="nav-badge red">1</span></div>
+      <div class="sec-label">Equipment</div>
+      <div class="nav-item">Modality status</div>
+      <div class="nav-item">QC checklist</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Acquisition › My worklist › CT-1 / US-2 / MR-1 · Sat 25 Jul 2026</div>
+      <div class="page-title">My worklist — all modalities <span class="actions-right"><span class="chip teal">● Live · auto-refresh 15 s</span> <span class="btn small">Filter ▾</span></span></div>
+      <div class="page-sub">Perform unlocks only when the patient has arrived and every safety gate for the study is green. Gate decisions are read-only here — they are owned by CS-S1 / CS-S2 / IR-S1. Last refreshed 10:02:14 IST.</div>
+
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">6</div><div class="l">On my list</div><div class="s">2 arrived &amp; ready</div></div>
+        <div class="kpi amber"><div class="n">2</div><div class="l">Gates pending</div><div class="s">Form F · MR safety</div></div>
+        <div class="kpi red"><div class="n">1</div><div class="l">Blocked</div><div class="s">contrast screening — physician override only</div></div>
+        <div class="kpi"><div class="n">1</div><div class="l">STAT</div><div class="s">received 09:52</div></div>
+      </div>
+
+      <table>
+        <tr><th>Time</th><th>Patient</th><th>Accession · Study</th><th>Arrived</th><th>Gates</th><th>Priority</th><th>Action</th></tr>
+        <tr class="hl">
+          <td class="mono">10:15</td>
+          <td><span class="bold">Priya Menon</span><br><span class="muted small">MRN-004828 · 41y F</span></td>
+          <td><span class="mono">ACC-2026-04471</span><br>CT Brain plain · CT-1</td>
+          <td><span class="chip green">✓ checked-in 09:41</span></td>
+          <td><span class="chip green">Screening ✓</span> <span class="chip green">Consent ✓</span> <span class="chip grey">Form F n/a</span></td>
+          <td><span class="chip blue">Routine</span></td>
+          <td><span class="btn primary small">Perform</span></td>
+        </tr>
+        <tr>
+          <td class="mono">10:30</td>
+          <td><span class="bold">Ananya Rao</span><br><span class="muted small">MRN-004819 · 34y F</span></td>
+          <td><span class="mono">ACC-2026-04473</span><br>US Obstetric (anomaly) · US-2</td>
+          <td><span class="chip green">✓ checked-in 09:58</span></td>
+          <td><span class="chip green">Consent ✓</span> <span class="chip amber">Form F pending</span></td>
+          <td><span class="chip blue">Routine</span></td>
+          <td><span class="btn small disabled">Perform</span></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="6">
+            <div class="banner warn" style="margin-bottom:0">⚠ <b>Blocked: statutory Form F not completed</b> Prenatal ultrasound cannot begin until the patient's signed Form F declaration is captured (PC-PNDT Act). Performing doctor Dr. S. Iyer must be recorded on the form. <span class="btn small warn-outline">Open Form F (NS-10)</span> <span class="muted small">This block and its resolution are recorded in the access log.</span></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="mono">10:45</td>
+          <td><span class="bold">Hiroshi Tanaka</span><br><span class="muted small">MRN-004777 · 58y M</span></td>
+          <td><span class="mono">ACC-2026-04468</span><br>CT Abdomen with contrast · CT-1</td>
+          <td><span class="chip green">✓ checked-in 10:01</span></td>
+          <td><span class="chip red">Screening: BLOCKED</span> <span class="chip green">Consent ✓</span><br><span class="muted small">eGFR 28 · flagged by Dr. V. Shetty 09:47 (CS-S1)</span></td>
+          <td><span class="chip blue">Routine</span></td>
+          <td><span class="btn small disabled">Perform</span><br><span class="btn ghost small">Request physician override</span><br><span class="muted small">override requires a doctor's identity — CS-S1. You cannot clear this block yourself.</span></td>
+        </tr>
+        <tr>
+          <td class="mono">11:00</td>
+          <td><span class="bold">Fatima Zahra</span><br><span class="muted small">MRN-004833 · 47y F</span></td>
+          <td><span class="mono">ACC-2026-04475</span><br>MRI Lumbar spine · MR-1</td>
+          <td>— <span class="muted small">not arrived</span></td>
+          <td><span class="chip amber">MR safety: implant flagged at ordering</span> <span class="chip green">Consent ✓</span><br><span class="muted small">cardiac stent (2019) — MR safety officer review required before zone III</span></td>
+          <td><span class="chip blue">Routine</span></td>
+          <td><span class="btn small disabled">Perform</span></td>
+        </tr>
+        <tr>
+          <td class="mono">11:15</td>
+          <td><span class="bold">Rajesh Pillai</span><br><span class="muted small">MRN-004802 · 63y M</span></td>
+          <td><span class="mono">ACC-2026-04476</span><br>X-ray Chest PA · XR-1</td>
+          <td>— <span class="muted small">not arrived</span></td>
+          <td><span class="chip green">Screening ✓</span> <span class="chip grey">Consent n/a</span></td>
+          <td><span class="chip blue">Routine</span></td>
+          <td><span class="btn small disabled">Perform</span><br><span class="muted small">awaiting check-in</span></td>
+        </tr>
+        <tr class="dim">
+          <td class="mono" style="text-decoration:line-through">09:45</td>
+          <td style="text-decoration:line-through"><span class="bold">Sunita Deshmukh</span><br><span class="small">MRN-004790 · 52y F</span></td>
+          <td style="text-decoration:line-through"><span class="mono">ACC-2026-04465</span><br>US Abdomen · US-2</td>
+          <td>—</td>
+          <td><span class="chip grey">Cancelled — patient unwell · by D. Nair 09:58</span></td>
+          <td><span class="chip grey">—</span></td>
+          <td><span class="muted small">terminal state · stays visible today, archived at midnight</span></td>
+        </tr>
+      </table>
+      <p class="muted small" style="margin-top:8px">Gate chips are computed live from CS-S1 (contrast screening), CS-S2 (consent), IR-S1/NS-10 (Form F) and the MR safety register. Opening any patient row is recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — STAT auto-refresh (replaces manual-refresh-only RT-S2)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor ▾</div></div>
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="banner info" style="background:#CCFBF1;border-color:#5EEAD4;color:#0F766E">● <b>New STAT order received 09:52 — list refreshed automatically · audible alert played at console</b> The worklist polls every 15 seconds; STAT arrivals push instantly and re-sort to the top. No manual refresh needed (review finding: RT-S2 relied on the technologist noticing and refreshing). Alert acknowledgement is recorded in the access log.</div>
+      <table>
+        <tr><th>Time</th><th>Patient</th><th>Accession · Study</th><th>Arrived</th><th>Gates</th><th>Priority</th><th>Action</th></tr>
+        <tr class="hl">
+          <td class="mono">NOW</td>
+          <td><span class="bold">Fatima Zahra</span><br><span class="muted small">MRN-004833 · 47y F</span></td>
+          <td><span class="mono">ACC-2026-04479</span><br>CT Head plain (trauma) · CT-1</td>
+          <td><span class="chip green">✓ ED arrival 09:51</span></td>
+          <td><span class="chip green">Screening ✓</span> <span class="chip amber">Consent: emergency pathway</span></td>
+          <td><span class="chip red">STAT · Dr. Meera Nair 09:52</span></td>
+          <td><span class="btn danger small">Perform STAT</span> <span class="btn ghost small">Acknowledge</span></td>
+        </tr>
+        <tr>
+          <td class="mono">10:15</td>
+          <td><span class="bold">Priya Menon</span><br><span class="muted small">MRN-004828 · 41y F</span></td>
+          <td><span class="mono">ACC-2026-04471</span><br>CT Brain plain · CT-1</td>
+          <td><span class="chip green">✓ checked-in 09:41</span></td>
+          <td><span class="chip green">Screening ✓</span> <span class="chip green">Consent ✓</span></td>
+          <td><span class="chip blue">Routine</span></td>
+          <td><span class="btn primary small">Perform</span></td>
+        </tr>
+      </table>
+      <p class="muted small" style="margin-top:8px">If the STAT alert is not acknowledged within 3 minutes it escalates to the duty radiologist Dr. V. Shetty and the console repeats the audible alert.</p>
+    </div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — physician override of a blocked contrast decision (never self-override)</div>
+<div class="modal-wrap">
+  <div class="modal danger">
+    <h3>Physician override — contrast screening block</h3>
+    <div class="banner danger"><b>Hiroshi Tanaka · MRN-004777 · ACC-2026-04468 · CT Abdomen with contrast</b>Blocked at screening (CS-S1): eGFR 28 mL/min — contrast contraindicated per protocol. Flagged by Dr. V. Shetty, 25 Jul 2026 09:47 IST.</div>
+    <div class="banner warn" style="margin-bottom:12px">T. Okafor (technologist) initiated this request but <b>cannot proceed alone</b>. A physician must authenticate below with their <b>own</b> identity and credentials at this console. The override is recorded against the physician, not the technologist.</div>
+    <div class="field"><label>Overriding physician <span class="req">*</span></label><span class="select">Dr. A. Rao — Consultant Radiologist (MMC/2011/40972) ▾</span><div class="hint">Physician selects their own name. Only physicians privileged for contrast decisions at this branch appear here.</div></div>
+    <div class="field"><label>Physician credentials <span class="req">*</span></label><span class="input muted">Username: a.rao &nbsp;·&nbsp; Password: ••••••••••</span><div class="hint">Re-authentication is required even if Dr. A. Rao is already signed in elsewhere.</div></div>
+    <div class="field"><label>Clinical reason for override <span class="req">*</span></label><span class="textarea" style="display:block">Suspected mesenteric ischaemia — benefit outweighs contrast risk. Pre- and post-hydration protocol ordered; nephrology informed (Dr. Meera Nair, referrer, agrees).</span></div>
+    <div class="banner danger" style="margin-bottom:0">⚠ <b>Override is recorded against the physician, tier RED audit.</b> The screening block, this justification, and Dr. A. Rao's authentication are written to the tamper-evident access log and flagged for the monthly radiation-safety review.</div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn danger">Authenticate &amp; override</span></div>
+  </div>
+</div>
+
+<p class="audit">Access log: 25 Jul 2026 10:02:14 IST · t.okafor viewed worklist (6 studies) · 09:52:03 STAT ACC-2026-04479 auto-pushed, audible alert played · 10:04:21 t.okafor initiated override request on ACC-2026-04468 — pending physician authentication (tier RED) · all row opens recorded in the access log.</p>
+</section>
+<section class="screen" id="ns-06">
+<div class="screen-head"><h1><span class="sid">NS-06</span> Billing approvals queue (asynchronous)</h1><div class="meta"><span class="chip teal">MVP1-CORE · ADDITION</span><div class="cluster">Billing / Cashier &amp; Setup</div></div></div>
+<div class="gap-note"><b>Why this screen exists:</b> Review found that every second-approver flow — discount above limit (BL-S2), refund (BL-S5) and invoice cancellation (BL-S6) — required the approver to physically walk to the cashier's terminal and enter credentials there. Single-staff evening shifts dead-ended. NS-06 makes approval a queue the approver works from their own session, on their own device.</div>
+
+<div class="state-tag">STATE A — CASHIER SIDE, IMMEDIATELY AFTER REQUESTING A DISCOUNT ABOVE LIMIT (FROM BL-S2)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>Billing</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Finance</div>
+      <div class="nav-item">Worklist &amp; dues</div>
+      <div class="nav-item active">New invoice <span class="nav-badge">1</span></div>
+      <div class="nav-item">Payments pending <span class="nav-badge red">3</span></div>
+      <div class="nav-item">Cash session</div>
+      <div class="sec-label">Requests</div>
+      <div class="nav-item">My approval requests <span class="nav-badge">2</span></div>
+      <div class="sec-label">Setup</div>
+      <div class="nav-item">Tariffs &amp; series</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Invoice INV/AND/26-27/0417 › Discount request</div>
+      <div class="page-title">Sent for approval</div>
+      <div class="page-sub">Requested 2026-07-13 · 19:38 IST · request DSC-2026-0688 · counter 2, Andheri West</div>
+      <div class="card" style="max-width:620px">
+        <div class="card-title">Discount request — INV/AND/26-27/0417 <span class="chip amber">PENDING</span></div>
+        <dl class="kv">
+          <dt>Patient</dt><dd>Rahul Nair · <span class="mono">MRN-004829</span></dd>
+          <dt>Invoice total</dt><dd>₹12,650.00 (incl. CGST 9% + SGST 9% on taxable lines)</dd>
+          <dt>Discount requested</dt><dd><b>₹1,500.00 (11.9%)</b> on pre-tax amount · reason: <b>Staff concession</b></dd>
+          <dt>Your limit</dt><dd>₹1,000.00 per invoice (role: Cashier, Andheri West)</dd>
+          <dt>Sent to</dt><dd>2 eligible approvers — A. Deshpande (Branch supervisor), R. Kulkarni (Duty manager) · first response wins</dd>
+          <dt>Approval SLA</dt><dd>Due within 4 business hours · request expires in <b>29:12</b> if unanswered</dd>
+        </dl>
+        <div class="banner info" style="margin-top:12px"><b>Invoice is parked — you can serve the next patient.</b>You'll be notified here and by push the moment an approver acts. The invoice stays locked at the requested amount; taxes recompute automatically on approval.</div>
+        <div style="display:flex;gap:10px;margin-top:4px"><span class="btn primary">Park invoice &amp; continue</span><span class="btn">View invoice</span><span class="btn ghost">Withdraw request</span></div>
+      </div>
+      <div class="card" style="max-width:620px">
+        <div class="card-title">My other open requests <span class="right">Cashier: D. Nair</span></div>
+        <table>
+          <tr><th>Request</th><th>Type</th><th>Ref</th><th>Amount</th><th>Sent</th><th>Status</th></tr>
+          <tr><td class="mono">RFD-2026-0231</td><td>Refund</td><td class="mono">PAY-2026-3988</td><td>₹9,000.00</td><td>18:51</td><td><span class="chip amber">PENDING</span></td></tr>
+          <tr class="dim"><td class="mono">DSC-2026-0679</td><td>Discount</td><td class="mono">INV/AND/26-27/0402</td><td>₹800.00</td><td>14:07</td><td><span class="chip green">APPROVED</span></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — APPROVER SIDE (A. DESHPANDE'S OWN SESSION — NEVER AT THE CASHIER'S TERMINAL)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>Billing</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">AD</span>A. Deshpande ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Finance</div>
+      <div class="nav-item">Worklist &amp; dues</div>
+      <div class="nav-item active">Approvals <span class="nav-badge red">3</span></div>
+      <div class="nav-item">Cash sessions</div>
+      <div class="nav-item">Payments pending</div>
+      <div class="sec-label">Reports</div>
+      <div class="nav-item">Day book</div>
+      <div class="nav-item">Discount register</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Finance › Approvals queue</div>
+      <div class="page-title">Approvals queue <span class="actions-right"><span class="btn small">History</span></span></div>
+      <div class="page-sub">Items awaiting a second approver · SLA: 4 business hours · overdue items escalate to org admin (NS-16 pattern)</div>
+      <div class="split">
+        <div>
+          <table>
+            <tr><th>Type</th><th>Ref</th><th>Patient</th><th>Amount</th><th>Requested by</th><th>Waiting</th><th>Action</th></tr>
+            <tr class="hl"><td><span class="chip amber">DISCOUNT</span></td><td class="mono">INV/AND/26-27/0417</td><td>Rahul Nair · <span class="mono small">MRN-004829</span></td><td>₹1,500.00 <span class="muted small">(11.9%)</span></td><td>D. Nair · counter 2</td><td>4 min</td><td><span class="btn small primary">Review</span></td></tr>
+            <tr><td><span class="chip red">REFUND</span></td><td class="mono">PAY-2026-3988</td><td>David Fernandes · <span class="mono small">MRN-004815</span></td><td>₹9,000.00</td><td>D. Nair · counter 2</td><td>51 min</td><td><span class="btn small">Review</span></td></tr>
+            <tr><td><span class="chip violet">CANCELLATION</span></td><td class="mono">INV/AND/26-27/0409</td><td>Sofia Rossi · <span class="mono small">MRN-004822</span></td><td>₹4,720.00</td><td>K. Shah · counter 1</td><td>2.6 h <span class="chip amber">DUE SOON</span></td><td><span class="btn small">Review</span></td></tr>
+          </table>
+          <p class="small muted" style="margin-top:8px">Refunds always reverse to the original instrument of PAY-2026-3988 (BL-S5 rule). Cancellations void the invoice number in-series — the series does not renumber.</p>
+        </div>
+        <div class="card" style="margin-bottom:0">
+          <div class="card-title">Discount · DSC-2026-0688 <span class="chip amber">PENDING</span></div>
+          <dl class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Invoice</dt><dd class="mono">INV/AND/26-27/0417</dd>
+            <dt>Lines</dt><dd>MRI Brain (plain) ₹8,500.00 · X-Ray Chest PA ₹450.00 · Consult — Radiologist ₹1,750.00 · CGST 9% ₹963.00 · SGST 9% ₹963.00 · rounding +₹0.00 = <b>₹12,650.00</b></dd>
+            <dt>Requested</dt><dd><b>₹1,500.00</b> · Staff concession</dd>
+            <dt>Cashier limit</dt><dd>₹1,000.00 — exceeded by ₹500.00</dd>
+            <dt>Dues history</dt><dd>Patient has ₹0 outstanding · 2 invoices in 12 months, both settled same day</dd>
+          </dl>
+          <div class="banner info small" style="margin:10px 0"><b>Identity step-up.</b>Approving requires your own authenticator, in your own session — never at the cashier's terminal. Your approval is signed with your identity, not the counter's.</div>
+          <div style="display:flex;flex-direction:column;gap:8px"><span class="btn primary">Approve — confirm identity</span><span class="btn warn-outline">Reject with reason</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — OUTCOMES BACK ON THE CASHIER'S SCREEN</div>
+<div class="card" style="max-width:640px">
+  <div class="card-title">Outcome notifications (toast-style, also delivered by push)</div>
+  <div class="banner success"><b>Discount approved</b>Approved by A. Deshpande · 2026-07-13 19:42 IST · DSC-2026-0688 · invoice unlocked at ₹11,150.00 (taxes recomputed). &nbsp;<span class="btn small primary">Resume invoice</span></div>
+  <div class="banner danger"><b>Refund rejected</b>Rejected by A. Deshpande · reason: "Concession not applicable to MRI" · request RFD-2026-0231 closed — invoice returned unmodified. You may re-request with a corrected reason.</div>
+  <div class="banner" style="background:#F1F5F9;border-color:#CBD5E1;color:#475569"><b>Request expired</b>DSC-2026-0679-B expired after 30 min with no approver response — the parked invoice reverted to its pre-request amount. Request again if still needed.</div>
+  <p class="small muted">SLA: approval requests are due within 4 business hours. Anything overdue escalates automatically to the org admin's queue (same escalation pattern as NS-16) and is flagged in the branch day-book.</p>
+</div>
+
+<p class="audit">Every request, approval, rejection, expiry and identity step-up above is written to the immutable audit trail with requester, approver, terminal, timestamps (IST) and before/after invoice amounts, and recorded in the access log.</p>
+</section>
+<section class="screen" id="ns-07">
+<div class="screen-head"><h1><span class="sid">NS-07</span> Delivery failures &amp; counter-pickup worklist</h1><div class="meta"><span class="chip teal">MVP1-CORE · ADDITION</span><div class="cluster">Notifications &amp; Delivery</div></div></div>
+<div class="gap-note"><b>Why this screen exists:</b> NT-S1 detected delivery failures but no screen owned recovery, and NT-S3's "falls back to print at counter" queue never existed as a worklist. Suppression reasons (consent, opt-out) were invisible to front-desk staff, breaking the AD-S4 ↔ NT-S1 joint. NS-07 gives failures, counter pickups and suppressions a single owned queue with a daily review SLA.</div>
+
+<div class="state-tag">STATE A — FAILED DELIVERIES TAB (DAILY REVIEW QUEUE)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>Delivery</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Delivery</div>
+      <div class="nav-item">Outbound log</div>
+      <div class="nav-item active">Failures &amp; pickup <span class="nav-badge red">6</span></div>
+      <div class="nav-item">Templates</div>
+      <div class="sec-label">Consent</div>
+      <div class="nav-item">Channel preferences</div>
+      <div class="nav-item">DPDP requests</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Notifications › Failures &amp; counter pickup</div>
+      <div class="page-title">Delivery failures &amp; counter pickup <span class="actions-right"><span class="btn small">Export day log</span></span></div>
+      <div class="page-sub">2026-07-13 IST · patients shown pseudonymously in list views; full identity opens on the patient record with access logged</div>
+      <div style="display:flex;gap:8px;margin-bottom:12px">
+        <span class="btn small primary">Failed · 6</span><span class="btn small">Counter pickup · 4</span><span class="btn small">Suppressed · 3</span><span class="btn small">Resolved · 41</span>
+      </div>
+      <div class="banner warn"><b>2 failed deliveries past the daily review SLA</b>Escalated to branch manager at 09:00 IST — resolve or move to counter pickup to clear the escalation.</div>
+      <table>
+        <tr><th>Patient</th><th>Item</th><th>Channel</th><th>Error</th><th>Attempts</th><th>Age</th><th>Actions</th></tr>
+        <tr class="hl"><td class="mono">patient·a4e1</td><td>Report link — MRI Brain</td><td>SMS</td><td class="mono small">undeliverable_number</td><td>3 of 3</td><td>26 h <span class="chip red">OVERDUE</span></td><td><span class="btn small primary">Fix contact &amp; resend</span> <span class="btn small">Switch to WhatsApp</span> <span class="btn small">Move to counter pickup</span></td></tr>
+        <tr><td class="mono">patient·9c07</td><td>Invoice INV/AND/26-27/0417 + receipt</td><td>Email</td><td class="mono small">mailbox_full</td><td>3 of 3</td><td>25 h <span class="chip red">OVERDUE</span></td><td><span class="btn small primary">Fix contact &amp; resend</span> <span class="btn small">Move to counter pickup</span></td></tr>
+        <tr><td class="mono">patient·b382</td><td>Report link — X-Ray Chest PA</td><td>WhatsApp</td><td class="mono small">not_on_whatsapp</td><td>2 of 3</td><td>6.4 h</td><td><span class="btn small">Switch to SMS</span> <span class="btn small">Move to counter pickup</span></td></tr>
+        <tr><td class="mono">patient·5f19</td><td>Payment link ₹2,400.00</td><td>SMS</td><td class="mono small">carrier_rejected (DND)</td><td>3 of 3</td><td>3.1 h</td><td><span class="btn small">Switch to WhatsApp</span> <span class="btn small">Move to counter pickup</span></td></tr>
+        <tr><td class="mono">patient·e630</td><td>Report link — USG Abdomen</td><td>Email</td><td class="mono small">hard_bounce</td><td>1 of 3</td><td>52 min</td><td><span class="btn small">Retrying at 12:10</span></td></tr>
+        <tr><td class="mono">patient·77ad</td><td>Appointment reminder</td><td>SMS</td><td class="mono small">gateway_timeout</td><td>2 of 3</td><td>18 min</td><td><span class="btn small">Retrying at 11:44</span></td></tr>
+      </table>
+      <p class="small muted" style="margin-top:8px">Failures older than 24 h breach the daily review SLA and escalate automatically. Moving to counter pickup issues a pickup code and prints a slip at the front desk (NT-S3 fallback).</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — MODAL: FIX CONTACT &amp; RESEND (FROM ROW patient·a4e1)</div>
+<div class="modal-wrap"><div class="modal">
+  <h3>Fix contact &amp; resend — report link, MRI Brain</h3>
+  <p class="small muted" style="margin-bottom:10px">Patient: Rahul Nair · <span class="mono">MRN-004829</span> — identity revealed inside this modal only; this view is access-logged.</p>
+  <div class="field"><label>Current mobile</label><div class="input err mono" style="display:flex;justify-content:space-between">+91 98••• ••210 <span class="chip red">UNDELIVERABLE · 3 failed attempts</span></div><div class="hint">Marked undeliverable by the SMS gateway on 2026-07-12 09:47 IST.</div></div>
+  <div class="field"><label>New mobile <span class="req">*</span></label><input class="input mono" value="+91 99870 44___" /><div class="hint">Enter exactly as the patient states it; country code required.</div></div>
+  <div class="check"><span class="box on">✓</span><span>I verified this number with the patient (in person or on a call) before saving. <span class="req">*</span></span></div>
+  <div class="banner info small" style="margin-top:10px"><b>What happens on save.</b>Editing a contact is recorded on the patient record with your identity and reason. The secure report link is re-issued to the new number and the old link is revoked immediately.</div>
+  <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Save contact &amp; resend link</span></div>
+</div></div>
+
+<div class="state-tag">STATE C — COUNTER-PICKUP QUEUE + SUPPRESSED TAB</div>
+<div class="row">
+  <div class="grow">
+    <div class="card">
+      <div class="card-title">Counter pickup · 4 waiting <span class="right">Front desk · Andheri West</span></div>
+      <div class="card" style="background:#F8FAFC;margin-bottom:10px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><b>Report ready — MRI Brain (plain)</b><span class="chip teal">PICKUP CODE MRD-7241</span></div>
+        <p class="small muted" style="margin:4px 0 0">Rahul Nair · <span class="mono">MRN-004829</span> — patient name shown to staff only, never on the public slip. Waiting since 2026-07-13 10:05 IST.</p>
+      </div>
+      <div class="card" style="margin-bottom:0">
+        <div class="card-title">Handover checklist — MRD-7241</div>
+        <div class="check"><span class="box on">✓</span><span>Verified patient name and date of birth against the record</span></div>
+        <div class="check"><span class="box on">✓</span><span>Collector: <b>Representative</b> — relationship: <b>Spouse</b> · ID type: <b>Aadhaar</b> · last 4: <span class="mono">4417</span></span></div>
+        <div class="check"><span class="box">&nbsp;</span><span>Collector: Patient (self) — <span class="muted">not applicable</span></span></div>
+        <div class="field" style="margin-top:8px"><label>Collector signature</label><div class="sig-box">Collector signs here on the counter tablet</div></div>
+        <span class="btn primary">Mark collected — recorded</span>
+        <p class="small muted" style="margin-top:6px">Marking collected stamps date, time, staff identity, collector details and signature onto the delivery record. Slips uncollected after 30 days are flagged for MRD review.</p>
+      </div>
+    </div>
+  </div>
+  <div style="width:46%">
+    <div class="card">
+      <div class="card-title">Suppressed · 3 <span class="right">Not sent — by design</span></div>
+      <table>
+        <tr><th>Patient</th><th>Item</th><th>Suppression reason</th></tr>
+        <tr><td class="mono">patient·2d94</td><td>Report link — CT KUB</td><td><span class="chip violet">Consent withdrawn · DPDP-CR-004821</span></td></tr>
+        <tr><td class="mono">patient·c518</td><td>Payment reminder ₹1,180.00</td><td><span class="chip grey">Opted out of SMS</span></td></tr>
+        <tr><td class="mono">patient·8b60</td><td>Report link — USG Abdomen</td><td><span class="chip amber">No destination on file → counter pickup</span></td></tr>
+      </table>
+      <div class="banner reg small" style="margin-top:10px"><b>Cross-link to consent.</b>Each suppression row links to the governing consent or preference record (AD-S4), so staff can see <i>why</i> nothing was sent and never override it from this screen. Withdrawn-consent items can only move to counter pickup.</div>
+    </div>
+  </div>
+</div>
+
+<p class="audit">Failure triage actions, contact edits, link re-issues and revocations, pickup-code handovers (with collector identity and signature) and every reveal of a pseudonymised patient's name are recorded in the access log.</p>
+</section>
+<section class="screen" id="ns-08">
+<div class="screen-head"><h1><span class="sid">NS-08</span> Cash session &amp; end-of-day close</h1><div class="meta"><span class="chip teal">MVP1-CORE · ADDITION</span><div class="cluster">Billing / Cashier &amp; Setup</div></div></div>
+<div class="gap-note"><b>Why this screen exists:</b> Review found no cash-drawer session concept anywhere in the billing cluster (BL-S1…BL-S6): no float, no tender or denomination handling, and no end-of-day reconciliation against gateway settlements. NS-08 adds a per-cashier session with a controlled close that cannot finish with unexplained variance.</div>
+
+<div class="state-tag">STATE A — OPEN SESSION, MID-SHIFT VIEW</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>Billing</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Finance</div>
+      <div class="nav-item">Worklist &amp; dues</div>
+      <div class="nav-item">New invoice</div>
+      <div class="nav-item">Payments pending <span class="nav-badge red">3</span></div>
+      <div class="nav-item active">Cash session</div>
+      <div class="sec-label">Requests</div>
+      <div class="nav-item">My approval requests <span class="nav-badge">1</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Finance › Cash session › CSH-AND-2026-0713-01</div>
+      <div class="page-title">Cash session — counter 2 <span class="actions-right"><span class="btn small warn-outline">Close day…</span></span></div>
+      <div class="page-sub">All figures live as of 18:47 IST · one open session per cashier per drawer</div>
+      <div class="card">
+        <div class="card-title">Session <span class="mono">CSH-AND-2026-0713-01</span> <span class="chip green">OPEN</span></div>
+        <dl class="kv" style="grid-template-columns:170px 1fr">
+          <dt>Opened</dt><dd>2026-07-13 · 08:02 IST by D. Nair · drawer 2, Andheri West</dd>
+          <dt>Opening float</dt><dd>₹3,000.00 · counted and countersigned at open by A. Deshpande</dd>
+          <dt>Receipts issued</dt><dd class="mono">RCPT/AND/26-27/0791 → RCPT/AND/26-27/0857 (series contiguous, no gaps)</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <div class="card-title">Collections by mode — today <span class="right">GST-inclusive gross</span></div>
+        <table>
+          <tr><th>Mode</th><th>Payments</th><th>Collected</th><th>Gateway settled</th><th>Status</th></tr>
+          <tr><td>Cash</td><td>14</td><td>₹18,450.00</td><td class="muted">n/a — drawer</td><td><span class="chip grey">COUNT AT CLOSE</span></td></tr>
+          <tr><td>Card</td><td>22</td><td>₹86,300.00</td><td>₹86,300.00 ✓</td><td><span class="chip green">MATCHED</span></td></tr>
+          <tr class="hl"><td>UPI</td><td>31</td><td>₹42,300.00</td><td>₹41,800.00</td><td><span class="chip amber">VARIANCE −₹500.00 · 1 awaiting confirmation → NS-09</span></td></tr>
+          <tr><td>Refunds paid out (cash)</td><td>1</td><td>−₹0.00 <span class="muted small">(₹9,000.00 refund pending NS-06 approval — not yet paid)</span></td><td class="muted">—</td><td><span class="chip amber">PENDING</span></td></tr>
+        </table>
+        <div class="kv" style="grid-template-columns:260px 1fr;margin-top:10px">
+          <dt>Expected cash in drawer</dt><dd><b>₹21,450.00</b> <span class="muted small">= ₹3,000.00 float + ₹18,450.00 cash collections − ₹0.00 cash refunds</span></dd>
+        </div>
+      </div>
+      <div class="banner info"><b>Card/UPI settlement reconciliation uses the payment provider's T+1 file.</b>Today's gateway figures are provisional; mismatches surface as items in Pending payments (NS-09) rather than blocking your drawer count.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — CLOSE-DAY STEPPER, STEP 3 OF 4 (VARIANCE FOUND)</div>
+<div class="card">
+  <div class="stepper">
+    <div class="step done"><span class="dot">✓</span> Count cash</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Reconcile gateway</div><span class="step-line"></span>
+    <div class="step cur"><span class="dot">3</span> Resolve variances</div><span class="step-line"></span>
+    <div class="step"><span class="dot">4</span> Sign &amp; close</div>
+  </div>
+  <div class="row">
+    <div class="grow">
+      <div class="card" style="margin-bottom:0">
+        <div class="card-title">Denomination count <span class="right">Entered by D. Nair · 20:11 IST</span></div>
+        <table>
+          <tr><th>Denomination</th><th>Count</th><th>Value</th></tr>
+          <tr><td>₹500</td><td>× 34</td><td>₹17,000.00</td></tr>
+          <tr><td>₹200</td><td>× 12</td><td>₹2,400.00</td></tr>
+          <tr><td>₹100</td><td>× 18</td><td>₹1,800.00</td></tr>
+          <tr><td>₹50 / ₹20 / ₹10 notes</td><td>× 0</td><td>₹0.00</td></tr>
+          <tr><td>Coins</td><td>—</td><td>₹0.00</td></tr>
+          <tr><td class="bold">Counted total</td><td></td><td class="bold">₹21,200.00</td></tr>
+        </table>
+      </div>
+    </div>
+    <div style="width:46%">
+      <div class="card" style="margin-bottom:0">
+        <div class="card-title">Variance</div>
+        <dl class="kv" style="grid-template-columns:130px 1fr">
+          <dt>System expected</dt><dd>₹21,450.00</dd>
+          <dt>Counted</dt><dd>₹21,200.00</dd>
+          <dt>Variance</dt><dd><span class="chip red">−₹250.00 SHORT</span></dd>
+        </dl>
+        <div class="field" style="margin-top:10px"><label>Variance reason <span class="req">*</span></label><select class="select"><option>Change given in error</option><option>Counterfeit note withdrawn</option><option>Counting error at open</option><option>Other (explain)</option></select></div>
+        <div class="field"><label>Supervisor countersign <span class="req">*</span></label><span class="btn warn-outline">Request countersign — goes to NS-06 approvals queue</span><div class="hint">A. Deshpande or R. Kulkarni must countersign from their own session before step 4 unlocks.</div></div>
+        <div class="banner danger small" style="margin:6px 0 0"><b>Sessions cannot close with unexplained variance.</b>The close button stays disabled until every variance has a reason and a countersign.</div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:12px"><span class="btn">Back to gateway recon</span><span class="btn primary disabled">Continue to Sign &amp; close</span></div>
+</div>
+
+<div class="state-tag">STATE C — CLOSED SESSION, IMMUTABLE SUMMARY</div>
+<div class="card" style="max-width:680px">
+  <div class="card-title">Session <span class="mono">CSH-AND-2026-0713-01</span> — end-of-day summary <span class="chip green">CLOSED &amp; SIGNED</span></div>
+  <dl class="kv" style="grid-template-columns:190px 1fr">
+    <dt>Closed</dt><dd>2026-07-13 · 20:26 IST by D. Nair · drawer 2</dd>
+    <dt>Counted cash</dt><dd>₹21,200.00</dd>
+    <dt>System expected</dt><dd>₹21,450.00</dd>
+    <dt>Variance</dt><dd>−₹250.00 · reason: Change given in error</dd>
+    <dt>Approved by</dt><dd>A. Deshpande (Branch supervisor) · countersigned 20:24 IST via approvals queue <span class="mono small">APR-2026-0692</span></dd>
+    <dt>Card / UPI recon</dt><dd>Card matched ₹86,300.00 · UPI provisional −₹500.00 → 1 item open in Pending payments <span class="mono small">(PAY-2026-4031, see NS-09)</span></dd>
+    <dt>Receipt series</dt><dd class="mono">RCPT/AND/26-27/0791 → 0863 · no gaps</dd>
+    <dt>Refs</dt><dd class="mono small">EOD-AND-2026-0713 · deposit slip DEP-2026-0713-02</dd>
+  </dl>
+  <div style="display:flex;gap:10px;margin-top:12px"><span class="btn primary">Export for accounts (CSV)</span><span class="btn">Print summary</span></div>
+  <p class="small muted" style="margin-top:8px">Summary is tamper-evident (hash-chained with the receipt series); reopening a closed session requires org admin and is recorded.</p>
+  <div class="banner info small" style="margin-top:10px"><b>Settlement note.</b>Card/UPI settlement recon uses the payment provider's T+1 file — mismatches open in Pending payments (NS-09), not against this drawer.</div>
+</div>
+
+<p class="audit">Session open/close, float countersign, every denomination entry, variance reasons, supervisor countersigns and any admin reopen are written to the immutable audit trail and recorded in the access log.</p>
+</section>
+<section class="screen" id="ns-09">
+<div class="screen-head"><h1><span class="sid">NS-09</span> Payment pending &amp; reconciliation (UPI/card recovery)</h1><div class="meta"><span class="chip teal">MVP1-CORE · REVISION</span><div class="cluster">Billing — revises BL-S3</div></div></div>
+<div class="gap-note"><b>Why this screen exists:</b> BL-S3 left UPI payments in "awaiting confirmation" with no timeout, no evidence-based manual confirm and no duplicate protection — pressing Cancel and re-collecting risked a double charge. NS-09 gives stuck payments a timeout, three recorded recovery paths, and automatic duplicate detection against the T+1 settlement file.</div>
+
+<div class="state-tag">STATE A — STUCK UPI PAYMENT DETAIL (TIMED OUT AT 3 MIN)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>Billing</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Finance</div>
+      <div class="nav-item">Worklist &amp; dues</div>
+      <div class="nav-item">New invoice</div>
+      <div class="nav-item active">Payments pending <span class="nav-badge red">3</span></div>
+      <div class="nav-item">Cash session</div>
+      <div class="sec-label">Requests</div>
+      <div class="nav-item">My approval requests <span class="nav-badge">1</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Finance › Payments pending › PAY-2026-4031</div>
+      <div class="page-title">Payment PAY-2026-4031 — UPI collect <span class="chip amber">UNCONFIRMED — money may or may not have left the patient's bank</span></div>
+      <div class="page-sub">Invoice <span class="mono">INV/AND/26-27/0417</span> · Rahul Nair · <span class="mono">MRN-004829</span> · ₹12,650.00 · counter 2 · 2026-07-13 IST</div>
+      <div class="banner warn"><b>Do not blindly retry.</b>Retrying now can charge the patient twice. Choose one path below — every path is recorded with your identity and shown on the invoice history.</div>
+      <div class="row">
+        <div class="grow">
+          <div class="card" style="margin-bottom:0">
+            <div class="card-title">Payment timeline <span class="right">Provider: RazorFin UPI</span></div>
+            <div class="timeline">
+              <div class="ev"><span class="t">10:41:02</span><span>Payment initiated — ₹12,650.00 · UPI collect · VPA <span class="mono">rahul.n••@okhdfc</span></span></div>
+              <div class="ev"><span class="t">10:41:05</span><span>Collect request sent to patient's UPI app · provider ref <span class="mono">RZF-COL-88214063</span></span></div>
+              <div class="ev"><span class="t">10:44:05</span><span><b>No confirmation received — timeout at 3 minutes.</b> Status moved to UNCONFIRMED; invoice remains unpaid in the ledger.</span></div>
+              <div class="ev"><span class="t">10:44:05</span><span>Item added to Payments pending queue · cash session CSH-AND-2026-0713-01 flagged (see NS-08)</span></div>
+            </div>
+          </div>
+        </div>
+        <div style="width:46%">
+          <div class="card" style="margin-bottom:0">
+            <div class="card-title">Choose one recovery path</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <span class="btn primary">Check with provider now</span>
+              <p class="small muted" style="margin:-2px 0 4px">Re-queries RazorFin for the live status of <span class="mono">RZF-COL-88214063</span>. Safe — read-only.</p>
+              <span class="btn">Mark received — with evidence</span>
+              <p class="small muted" style="margin:-2px 0 4px">Patient shows proof of debit. Requires UTR and async supervisor approval (NS-06). → State B.</p>
+              <span class="btn warn-outline">Cancel &amp; collect another way</span>
+              <p class="small muted" style="margin:-2px 0 0">Voids this attempt so you can take cash/card. <b>Guard:</b> if the bank later confirms this payment, the system auto-flags a duplicate and opens a refund (BL-S5) automatically — the patient is never silently double-charged.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — MODAL: MARK RECEIVED — WITH EVIDENCE</div>
+<div class="modal-wrap"><div class="modal">
+  <h3>Mark received — with evidence · PAY-2026-4031</h3>
+  <p class="small muted" style="margin-bottom:10px">Use only when the patient can show a bank-side debit for exactly this payment.</p>
+  <div class="field"><label>UTR / provider reference <span class="req">*</span></label><input class="input mono" value="617234889012" /><div class="hint">12-digit UPI UTR from the patient's bank app. Record the UTR only — never store screenshots or photos of the patient's banking app.</div></div>
+  <div class="field"><label>Amount confirmed <span class="req">*</span></label><input class="input mono" value="₹12,650.00" /><div class="hint">Must equal the initiated amount exactly; partial confirmations are not allowed here.</div></div>
+  <div class="field"><label>Evidence note <span class="req">*</span></label><textarea class="textarea">Patient showed HDFC app debit of ₹12,650.00 at 10:41 to Meridian Diagnostics; UTR matches collect request.</textarea></div>
+  <div class="check"><span class="box on">✓</span><span>Supervisor approval required — this request goes to the asynchronous approvals queue (NS-06); the receipt is issued only after approval.</span></div>
+  <div class="banner danger small" style="margin-top:8px"><b>Wrongly confirming creates an unreconciled ₹12,650.00.</b>Every manual confirmation is checked against the provider's T+1 settlement file; unmatched entries reopen here and are reported to the branch supervisor.</div>
+  <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Send for approval</span></div>
+</div></div>
+
+<div class="state-tag">STATE C — PENDING-CONFIRMATIONS QUEUE + RESOLVED EXAMPLES</div>
+<div class="card">
+  <div class="card-title">Payments pending confirmation · 3 open <span class="right">Aging SLA: review within 4 h · escalate at 24 h</span></div>
+  <table>
+    <tr><th>Payment</th><th>Invoice</th><th>Patient</th><th>Mode</th><th>Amount</th><th>Aging</th><th>Status</th></tr>
+    <tr class="hl"><td class="mono">PAY-2026-4031</td><td class="mono">INV/AND/26-27/0417</td><td>Rahul Nair · <span class="mono small">MRN-004829</span></td><td>UPI</td><td>₹12,650.00</td><td>3 min</td><td><span class="chip amber">UNCONFIRMED</span></td></tr>
+    <tr><td class="mono">PAY-2026-4018</td><td class="mono">INV/AND/26-27/0411</td><td>Sana Qureshi · <span class="mono small">MRN-004826</span></td><td>Card</td><td>₹5,310.00</td><td>2.1 h</td><td><span class="chip amber">GATEWAY SLOW — RE-QUERY QUEUED</span></td></tr>
+    <tr><td class="mono">PAY-2026-3990</td><td class="mono">INV/AND/26-27/0398</td><td>Sofia Rossi · <span class="mono small">MRN-004822</span></td><td>UPI</td><td>₹1,180.00</td><td>26 h <span class="chip red">OVERDUE</span></td><td><span class="chip amber">AWAITING T+1 FILE</span></td></tr>
+  </table>
+  <p class="small muted" style="margin:8px 0 12px">Recently resolved — how each path ends:</p>
+  <table>
+    <tr><th>Payment</th><th>Amount</th><th>Resolution</th></tr>
+    <tr class="dim"><td class="mono">PAY-2026-4009</td><td>₹3,540.00</td><td><span class="chip green">Auto-confirmed by provider webhook 10:52</span> — receipt <span class="mono">RCPT/AND/26-27/0863</span> issued, invoice settled, SMS sent.</td></tr>
+    <tr class="dim"><td class="mono">PAY-2026-3971</td><td>₹8,260.00</td><td><span class="chip violet">Duplicate detected in T+1 file</span> — cashier had cancelled &amp; re-collected in cash; refund <span class="mono">PAY-R-2026-0114</span> auto-initiated to source UPI, patient notified.</td></tr>
+  </table>
+</div>
+
+<p class="audit">Provider re-queries, evidence-based confirmations (with UTR), cancellations, duplicate flags and auto-refund initiations are written to the payment's immutable history and recorded in the access log.</p>
+</section>
+<section class="screen" id="ns-10">
+<div class="screen-head"><h1><span class="sid">NS-10</span> Form F — Patient Declaration &amp; Signature Capture</h1><div class="meta"><span class="chip teal">MVP1-CORE · REVISION</span><div class="cluster">Imaging regulatory (PC-PNDT) — revises IR-S1</div></div></div>
+<div class="gap-note"><b>Why this screen exists:</b> Compliance blocker C-1: IR-S1 reduced Form F to a staff-tickable checkbox — there was no signed statutory declaration by the pregnant woman, no address/ID particulars, and no check that the performing doctor and machine are PNDT-registered <i>at this centre</i>. This revision captures the woman's own declaration and signature (in her language), her particulars, witness attestation, and verifies centre-specific doctor and machine registrations before the form can complete.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Regulatory</div>
+      <div class="nav-item active">Form F — new <span class="nav-badge red">1</span></div>
+      <div class="nav-item">Form F register</div>
+      <div class="nav-item">Monthly submission (IR-S2)</div>
+      <div class="sec-label">Safety</div>
+      <div class="nav-item">Consent queue</div>
+      <div class="nav-item">Contrast screening</div>
+      <div class="sec-label">Acquisition</div>
+      <div class="nav-item">My worklist <span class="nav-badge">6</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Regulatory › Form F › ACC-2026-04473 · Sat 25 Jul 2026</div>
+      <div class="page-title">Form F — statutory declaration before prenatal ultrasound</div>
+      <div class="page-sub">PC-PNDT Act, 1994 (as amended) · Form F must be completed and signed by the pregnant woman before US Obstetric ACC-2026-04473 can begin. The blocked Perform on NS-05 unlocks automatically on completion.</div>
+
+      <div class="banner reg"><b>Patient — Ananya Rao · MRN-004819 · 34y F</b>G2 P1 L1 · LMP 2026-03-02 (GA 20w+4 by LMP) · Referrer: Dr. Meera Nair, Obstetrics · Study: US Obstetric (anomaly scan) · US-UNIT-2 · Performing doctor: Dr. S. Iyer</div>
+
+      <div class="stepper">
+        <span class="step done"><span class="dot">✓</span> Particulars</span><span class="step-line"></span>
+        <span class="step cur"><span class="dot">2</span> Declaration &amp; signature</span><span class="step-line"></span>
+        <span class="step"><span class="dot">3</span> Witness attestation</span><span class="step-line"></span>
+        <span class="step"><span class="dot">4</span> Registration verification</span><span class="step-line"></span>
+        <span class="step"><span class="dot">5</span> Complete</span>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Statutory declaration by the pregnant woman <span class="right">read aloud &amp; signed by patient</span>
+        </div>
+        <div class="field" style="max-width:340px"><label>Declaration language</label><span class="select">English ▾ &nbsp;<span class="muted">(हिंदी, मराठी available)</span></span><div class="hint">The declaration text below renders in the selected language; the signed language is stored on the record.</div></div>
+        <div class="card" style="background:#F8FAFC;margin-bottom:10px">
+          <p style="font-size:12.5px">I, <b>Ananya Rao</b>, declare that I am undergoing this ultrasound examination for medical reasons explained to me by my doctor. <b>I am not seeking to know, and I understand no one will disclose to me, the sex of my foetus.</b> I understand that determination or disclosure of the sex of the foetus is prohibited by law and is a punishable offence under the PC-PNDT Act, 1994. The purpose and nature of this scan have been explained to me in a language I understand, and the particulars I have given below are true to the best of my knowledge.</p>
+        </div>
+        <div class="row">
+          <div class="grow"><div class="field"><label>Full residential address <span class="req">*</span></label><span class="input">B-1104, Lakeview Residency, JP Road, Andheri West, Mumbai 400058, Maharashtra</span></div></div>
+          <div style="width:200px"><div class="field"><label>ID type <span class="req">*</span></label><span class="select">Aadhaar (last 4) ▾</span><div class="hint">Voter ID / Passport also accepted</div></div></div>
+          <div style="width:130px"><div class="field"><label>ID — last 4 <span class="req">*</span></label><span class="input mono">•••• 7215</span><div class="hint">only last 4 stored</div></div></div>
+        </div>
+        <div class="field"><label>Patient signature <span class="req">*</span></label>
+          <div class="sig-box">Patient signature / thumb impression — captured on pad</div>
+          <div class="hint">Signature is captured on the counter signing pad and bound to this form. Thumb impression accepted where the patient cannot sign; interpreter attestation then becomes mandatory.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Witness / interpreter attestation <span class="right">required if declaration explained</span></div>
+        <div class="row">
+          <div class="grow"><div class="field"><label>Name</label><span class="input">Sunila Kadam</span></div></div>
+          <div class="grow"><div class="field"><label>Role</label><span class="select">Staff nurse — witness &amp; interpreter ▾</span></div></div>
+        </div>
+        <div class="check"><span class="box on">✓</span><span>Declaration explained in <b>Marathi</b> to the patient before signing; the patient confirmed she understood.</span></div>
+        <div class="check"><span class="box"></span><span>Patient signed by thumb impression (interpreter attestation mandatory).</span></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Registration verification — this centre <span class="right">checked live · NS-13 registry</span></div>
+        <table>
+          <tr><th>Entity</th><th>PNDT registration</th><th>Scope</th><th>Status</th></tr>
+          <tr><td><b>Performing doctor — Dr. S. Iyer</b><br><span class="muted small">PNDT-qualified sonologist</span></td><td class="mono">MH/PNDT/2019/4471</td><td>Registered at <b>THIS centre</b> (Andheri West) ✓</td><td><span class="chip green">valid to 2027-03-31</span></td></tr>
+          <tr><td><b>Machine — US-UNIT-2</b><br><span class="muted small">GE Voluson · US room 2</span></td><td class="mono">MH/PNDT/M/2021/0332</td><td>Registered at this centre ✓</td><td><span class="chip green">valid ✓</span></td></tr>
+        </table>
+        <p class="muted small" style="margin-top:6px">Registration under the PC-PNDT Act is centre-specific. If either check fails, the form cannot complete (see blocked state below).</p>
+      </div>
+
+      <div style="display:flex;justify-content:flex-end;gap:10px"><span class="btn">Save draft</span><span class="btn primary">Complete Form F</span></div>
+      <p class="muted small" style="margin-top:8px">Completing the form creates a tamper-evident record, unlocks Perform on NS-05, and queues this Form F for the monthly submission register (IR-S2). Every view and edit of this form is recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — blocked: doctor not PNDT-registered at this centre</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="crumb">Regulatory › Form F › ACC-2026-04473 · Registration verification</div>
+      <div class="banner danger"><b>Cannot complete: Dr. R. Kulkarni is PNDT-registered at Bandra West, not at this centre.</b>Registration under the PC-PNDT Act is centre-specific. Choose a doctor registered at Andheri West, or contact your administrator (K. Verma) to update centre registrations on NS-13. This failed verification attempt is recorded in the access log.</div>
+      <table>
+        <tr><th>Entity</th><th>PNDT registration</th><th>Scope</th><th>Status</th></tr>
+        <tr><td><b>Performing doctor — Dr. R. Kulkarni</b></td><td class="mono">MH/PNDT/2020/5108</td><td><span class="chip red">Registered at Bandra West — NOT this centre</span></td><td><span class="chip red">centre mismatch</span></td></tr>
+        <tr><td><b>Machine — US-UNIT-2</b></td><td class="mono">MH/PNDT/M/2021/0332</td><td>Registered at this centre ✓</td><td><span class="chip green">valid ✓</span></td></tr>
+      </table>
+      <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:12px"><span class="btn">Choose different doctor ▾</span><span class="btn primary disabled">Complete Form F</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — completed form (feeds monthly submission IR-S2, now MVP1-CORE)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="crumb">Regulatory › Form F › FF-2026-00341 · completed 25 Jul 2026 10:26 IST</div>
+      <div class="banner success"><b>Form F complete</b><span class="chip green">Form F complete — FF-2026-00341 · tamper-evident record</span> &nbsp;Signed declaration (English, explained in Marathi), particulars, witness attestation and centre-specific registration checks stored. Perform is now unlocked on NS-05 for ACC-2026-04473.</div>
+      <div class="row">
+        <div class="grow">
+          <div class="card" style="margin-bottom:0">
+            <div class="card-title">Signed declaration</div>
+            <div class="sig-box signed">Ananya Rao</div>
+            <p class="muted small" style="margin-top:6px">Signed on pad 25 Jul 2026 10:24 IST · witness Sunila Kadam · language: English, explained in Marathi.</p>
+          </div>
+        </div>
+        <div style="width:300px">
+          <div class="card" style="margin-bottom:0">
+            <div class="card-title">Record</div>
+            <dl class="kv">
+              <dt>Form no.</dt><dd class="mono">FF-2026-00341</dd>
+              <dt>Doctor</dt><dd>Dr. S. Iyer · MH/PNDT/2019/4471</dd>
+              <dt>Machine</dt><dd class="mono">US-UNIT-2 · MH/PNDT/M/2021/0332</dd>
+              <dt>Submission</dt><dd>Queued for July 2026 monthly submission to the Appropriate Authority — <b>IR-S2 (now MVP1-CORE)</b></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <p class="muted small" style="margin-top:10px">The completed record is tamper-evident: any later amendment creates a new version and is recorded in the access log with the amending user's identity.</p>
+    </div>
+  </div>
+</div>
+
+<p class="audit">Access log: 25 Jul 2026 10:12–10:26 IST · t.okafor opened Form F for MRN-004819 (purpose: statutory pre-scan declaration) · registration checks run against NS-13 registry (1 pass, 1 centre-mismatch attempt recorded) · patient signature captured on pad · form FF-2026-00341 sealed — all steps recorded in the access log.</p>
+</section>
+<section class="screen" id="ns-11">
+<div class="screen-head"><h1><span class="sid">NS-11</span> Legal hold register</h1><div class="meta"><span class="chip teal">MVP1-CORE · ADDITION</span><div class="cluster">Governance &amp; compliance</div></div></div>
+<div class="gap-note"><b>Why this screen exists:</b> Review found that retention auto-deletion (GV-S5) had no mechanism to suspend it, and GV-S3's own refusal example cited an open medico-legal case with no supporting tool. This register is the single place a hold is placed, reviewed and released — GV-S5 and GV-S3 both consult it before acting.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>Governance</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">AR</span>Dr. A. Rao ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Privacy</div>
+      <div class="nav-item">Deletion requests <span class="nav-badge">3</span></div>
+      <div class="nav-item">Consent registry</div>
+      <div class="nav-item active">Legal holds <span class="nav-badge red">1</span></div>
+      <div class="nav-item">Retention policies</div>
+      <div class="sec-label">Oversight</div>
+      <div class="nav-item">Incidents</div>
+      <div class="nav-item">Access log</div>
+      <div class="nav-item">Audit exports</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Governance › Privacy › Legal holds</div>
+      <div class="page-title">Legal hold register <span class="actions-right"><span class="btn primary">+ Place legal hold</span></span></div>
+      <div class="page-sub">Holds suspend retention deletion and block erasure requests for the records in scope. Every action here is auditor-visible (GV-S8).</div>
+
+      <div class="state-tag">STATE — A · REGISTER</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">2</div><div class="l">Active holds</div><div class="s">across 2 patients</div></div>
+        <div class="kpi amber"><div class="n">1</div><div class="l">Review overdue</div><div class="s">oldest by 12 days</div></div>
+        <div class="kpi"><div class="n">1</div><div class="l">Released (12 mo)</div><div class="s">records back in retention</div></div>
+        <div class="kpi"><div class="n">0</div><div class="l">Deletion conflicts</div><div class="s">GV-S5 runs check this register</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Holds <span class="right">Filter: All statuses · All branches</span></div>
+        <table>
+          <tr><th>Hold</th><th>Patient / scope</th><th>Legal ref</th><th>Placed by</th><th>Placed</th><th>Next review</th><th>Status</th></tr>
+          <tr class="hl">
+            <td class="mono bold">LH-2026-004</td>
+            <td><b>Mohammed Al-Rashid</b> <span class="mono">MRN-004790</span><div class="small muted">All radiology records + invoices, 2024–2026</div></td>
+            <td>Consumer case CC/118/2026<div class="small muted">Bombay District Commission</div></td>
+            <td>Privacy Officer<div class="small muted">Dr. A. Rao</div></td>
+            <td class="mono">2026-05-12</td>
+            <td class="mono">2026-08-10</td>
+            <td><span class="chip green">ACTIVE</span></td>
+          </tr>
+          <tr>
+            <td class="mono bold">LH-2026-002</td>
+            <td><b>Rajesh Gupta</b> <span class="mono">MRN-004795</span><div class="small muted">Accessions ACC-2026-81002, ACC-2026-81339 + report versions</div></td>
+            <td>MLC / police requisition<div class="small muted">FIR 0341/2026, Andheri PS</div></td>
+            <td>Privacy Officer<div class="small muted">Dr. A. Rao</div></td>
+            <td class="mono">2026-03-30</td>
+            <td class="mono">2026-07-13</td>
+            <td><span class="chip green">ACTIVE</span> <span class="chip amber">review overdue 12 days</span></td>
+          </tr>
+          <tr class="dim">
+            <td class="mono">LH-2025-011</td>
+            <td>Sofia Rossi <span class="mono">MRN-004822</span><div class="small">Date range 2025-01-01 → 2025-06-30, all record types</div></td>
+            <td>Insurance dispute<div class="small">Claim ref MAG-CLM-5521</div></td>
+            <td>Privacy Officer</td>
+            <td class="mono">2025-11-02</td>
+            <td class="mono">—</td>
+            <td><span class="chip grey">RELEASED 2026-06-19</span></td>
+          </tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Overdue reviews escalate to the DPO (Priya Sharma) per the standard SLA pattern (NS-16). A hold never lapses silently — it stays active until explicitly released.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Effects of an active hold <span class="right">Enforced system-wide</span></div>
+        <div class="row">
+          <div class="grow"><span class="chip teal">RETENTION</span><div class="small" style="margin-top:6px">Automatic retention deletion is <b>suspended</b> for all records in scope. The GV-S5 scheduler checks this register before every run and skips held records, logging the skip.</div></div>
+          <div class="grow"><span class="chip teal">ERASURE</span><div class="small" style="margin-top:6px">Deletion requests are <b>refused citing the hold</b> — GV-S3 links here so the Privacy Officer can show the requester the legal basis for refusal (DPDP §12 exemption grounds).</div></div>
+          <div class="grow"><span class="chip teal">DISCLOSURE</span><div class="small" style="margin-top:6px"><b>Export-for-counsel</b> is available for records in scope and is fully recorded — recipient, purpose, and file manifest are written to the access log.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE — B · PLACE HOLD (MODAL)</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:600px">
+    <h3>Place legal hold</h3>
+    <div class="small muted" style="margin-bottom:12px">Patient: <b>Mohammed Al-Rashid</b> · <span class="mono">MRN-004790</span> · Andheri West</div>
+    <div class="field">
+      <label>Scope of hold <span class="req">*</span></label>
+      <div class="check"><span class="box radio on"></span><span><b>Entire patient record</b> — all record types, all dates</span></div>
+      <div class="check"><span class="box radio"></span><span><b>Date range</b> — records created within a period <span class="muted">(from / to pickers appear on select)</span></span></div>
+      <div class="check"><span class="box radio"></span><span><b>Specific accessions</b> — <span class="mono muted">e.g. ACC-2026-88214, ACC-2026-81339</span> (multi-input; report versions and linked invoices are included automatically)</span></div>
+    </div>
+    <div class="field">
+      <label>Legal reference <span class="req">*</span></label>
+      <input class="input mono" value="Consumer case CC/118/2026 — Bombay District Commission" readonly>
+      <div class="hint">Case, FIR, requisition or claim number. Required — a hold cannot be placed without a citable legal basis.</div>
+    </div>
+    <div class="row">
+      <div class="grow field">
+        <label>Expected review cadence</label>
+        <select class="select"><option>Every 90 days (default)</option></select>
+        <div class="hint">You will be reminded to confirm the hold is still needed.</div>
+      </div>
+      <div class="grow field">
+        <label>Counsel / requesting authority</label>
+        <input class="input" value="M/s Deshpande &amp; Associates">
+      </div>
+    </div>
+    <div class="field">
+      <label>Confirm your identity <span class="req">*</span></label>
+      <input class="input" placeholder="Re-enter your Magnus password to sign this action">
+      <div class="hint">Placing a hold is recorded and visible to auditors (GV-S8). It suspends retention deletion immediately.</div>
+    </div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Place hold LH-2026-005</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE — C · RELEASE (FOUR-EYES)</div>
+<div class="modal-wrap">
+  <div class="modal danger" style="max-width:600px">
+    <h3>Release legal hold LH-2025-011</h3>
+    <div class="banner warn"><b>Releasing re-exposes these records to retention deletion.</b> A second approver must confirm — the placer alone cannot release a hold.</div>
+    <div class="kv" style="margin-bottom:12px">
+      <dt>Hold</dt><dd class="mono">LH-2025-011 · Sofia Rossi · MRN-004822</dd>
+      <dt>Requested by</dt><dd>Privacy Officer (Dr. A. Rao) · 2026-06-19 14:05 IST</dd>
+      <dt>Second approver</dt><dd>Priya Sharma, DPO — <span class="chip green">APPROVED 2026-06-19 15:40 IST</span></dd>
+    </div>
+    <div class="field">
+      <label>Reason for release <span class="req">*</span></label>
+      <textarea class="textarea">Insurance claim MAG-CLM-5521 settled; counsel confirmed in writing (letter dated 2026-06-17) that preservation is no longer required.</textarea>
+    </div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn danger">Release hold (both approvals recorded)</span></div>
+  </div>
+</div>
+<div class="banner success" style="max-width:760px"><b>Hold LH-2025-011 released.</b> Records re-enter normal retention; nothing is deleted immediately — the next scheduled retention run (GV-S5) evaluates them against policy, and any resulting deletions appear in the retention run report.</div>
+
+<p class="audit">Every hold placement, review confirmation, scope change, export-for-counsel and release — including both approver identities and the stated reason — is recorded in the access log.</p>
+</section>
+<section class="screen" id="ns-12">
+<div class="screen-head"><h1><span class="sid">NS-12</span> Visit / encounter summary</h1><div class="meta"><span class="chip teal">MVP1-CORE · ADDITION</span><div class="cluster">Front Office &amp; Setup — shared</div></div></div>
+<div class="gap-note"><b>Why this screen exists:</b> Review found registration, order, study, report, invoice and delivery were designed as separate worklists but never linked in one thread — no screen answered "what happened on this visit, and what is still open?". This summary is that thread, and it is deliberately built as the encounter spine the IPD phase will extend (foundation checklist #15/#16).</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>Front Office</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Front office</div>
+      <div class="nav-item">Registration</div>
+      <div class="nav-item">Today's queue <span class="nav-badge">14</span></div>
+      <div class="nav-item active">Visits</div>
+      <div class="nav-item">Billing desk</div>
+      <div class="sec-label">Follow-up</div>
+      <div class="nav-item">Delivery failures <span class="nav-badge red">2</span></div>
+      <div class="nav-item">Pending balances</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Front office › Visits › VIS-2026-30412</div>
+      <div class="page-title">Visit VIS-2026-30412 <span class="chip green" style="vertical-align:middle">COMPLETE</span> <span class="actions-right"><span class="btn small">Print visit summary</span> <span class="btn small">Open patient record</span></span></div>
+      <div class="page-sub">Sofia Rossi · <span class="mono">MRN-004822</span> · F 34 · 2026-07-13 · Andheri West · Walk-in · Referrer: Dr. Meera Nair (external)</div>
+
+      <div class="state-tag">STATE — A · COMPLETED VISIT</div>
+      <div class="split">
+        <div class="card">
+          <div class="card-title">Visit thread <span class="right">All times IST · every event links to its source screen</span></div>
+          <div class="timeline">
+            <div class="ev"><span class="t">09:12</span><span><b>Registered</b> — walk-in, demographics verified against Aadhaar last-4 · by D. Nair <span class="chip grey">FO-S1</span></span></div>
+            <div class="ev"><span class="t">09:15</span><span><b>Token U-018 issued</b> — Ultrasound queue, est. wait 40 min <span class="chip grey">FO-S3</span></span></div>
+            <div class="ev"><span class="t">09:22</span><span><b>Consent signed</b> — DPDP notice v3 (English), purposes: diagnosis, report delivery via SMS <span class="chip grey">GV-S1</span></span></div>
+            <div class="ev"><span class="t">09:31</span><span><b>Order placed</b> — US Abdomen · <span class="mono">ACC-2026-88214</span> · ordering: Dr. Meera Nair <span class="chip grey">OR-S2</span></span></div>
+            <div class="ev"><span class="t">09:58</span><span><b>Invoice raised</b> — <span class="mono">INV/AND/26-27/0421</span> · ₹2,800 · UPI · <span class="chip green">Paid ✓</span> <span class="chip grey">BL-S2</span></span></div>
+            <div class="ev"><span class="t">10:31</span><span><b>Study acquired</b> — US Abdomen, 24 images · technologist T. Okafor <span class="chip grey">RT-S2</span></span></div>
+            <div class="ev"><span class="t">12:02</span><span><b>Report signed</b> — final v1 · Dr. V. Shetty · TAT 2 h 31 m (target 4 h) <span class="chip grey">RR-S3</span></span></div>
+            <div class="ev"><span class="t">12:05</span><span><b>Delivered</b> — SMS link to +91 ······ 4471 · <span class="chip green">SMS ✓ delivered 12:06</span> <span class="chip grey">DL-S1</span></span></div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Financials</div>
+            <div class="kv">
+              <dt>Billed</dt><dd class="mono">₹2,800.00</dd>
+              <dt>Paid</dt><dd class="mono">₹2,800.00 (UPI, 09:58)</dd>
+              <dt>Balance</dt><dd class="mono bold">₹0.00</dd>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Open items</div>
+            <span class="chip green">None — visit complete</span>
+            <div class="small muted" style="margin-top:6px">All 8 events closed. Nothing pending on any worklist.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Related visits</div>
+            <table>
+              <tr><td class="mono">VIS-2026-18854</td><td>2026-03-02<div class="small muted">US Pelvis · complete</div></td></tr>
+              <tr><td class="mono">VIS-2025-90311</td><td>2025-11-18<div class="small muted">X-Ray Chest · complete</div></td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE — B · VISIT WITH OPEN ITEMS</div>
+<div class="split">
+  <div class="card">
+    <div class="card-title">Visit thread — VIS-2026-30567 · Rajesh Gupta · <span class="mono">MRN-004795</span> · 2026-07-25 <span class="right">Live · refreshes on event</span></div>
+    <div class="timeline">
+      <div class="ev"><span class="t">08:41</span><span><b>Registered</b> — by D. Nair <span class="chip grey">FO-S1</span></span></div>
+      <div class="ev"><span class="t">08:44</span><span><b>Token C-007 issued</b> — CT queue <span class="chip grey">FO-S3</span></span></div>
+      <div class="ev"><span class="t">08:52</span><span><b>Consent signed</b> — DPDP notice v3 (Hindi) <span class="chip grey">GV-S1</span></span></div>
+      <div class="ev"><span class="t">09:04</span><span><b>Order placed</b> — CT Brain plain · <span class="mono">ACC-2026-89330</span> <span class="chip grey">OR-S2</span></span></div>
+      <div class="ev"><span class="t">09:15</span><span><b>Invoice raised</b> — <span class="mono">INV/AND/26-27/0468</span> · ₹4,350 · part-paid ₹2,500 <span class="chip amber">Balance ₹1,850</span> <span class="chip grey">BL-S2</span></span></div>
+      <div class="ev"><span class="t">09:47</span><span><b>Study acquired</b> — CT Brain, 186 images · T. Okafor <span class="chip grey">RT-S2</span></span></div>
+      <div class="ev"><span class="t muted">—</span><span class="muted">Report — <i>awaiting sign-off (assigned Dr. V. Shetty)</i></span></div>
+      <div class="ev"><span class="t muted">—</span><span class="muted">Delivery — <i>blocked until report signed</i></span></div>
+    </div>
+  </div>
+  <div>
+    <div class="card">
+      <div class="card-title">Open items <span class="right">3 open</span></div>
+      <div style="margin-bottom:8px"><span class="chip amber">Report unsigned — 3.1 h (TAT target 4 h)</span><div class="small muted">Owner: Dr. V. Shetty → <b>Reading worklist RR-S1</b>. Escalates at breach per NS-16.</div></div>
+      <div style="margin-bottom:8px"><span class="chip red">Balance due ₹1,850</span><div class="small muted">Owner: front office → <b>Billing desk BL-S2</b></div></div>
+      <div><span class="chip red">Delivery failed — prior report resend</span><div class="small muted">SMS to old number bounced → <b>Failures worklist NS-07</b></div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Financials</div>
+      <div class="kv">
+        <dt>Billed</dt><dd class="mono">₹4,350.00</dd>
+        <dt>Paid</dt><dd class="mono">₹2,500.00</dd>
+        <dt>Balance</dt><dd class="mono bold" style="color:#B91C1C">₹1,850.00</dd>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="state-tag">STATE — C · FOUNDATION NOTE (VISIBLE TO ADMINS ONLY)</div>
+<div class="banner info" style="max-width:860px"><b>Foundation note: this visit object is the encounter spine.</b> An IPD admission is a long-running encounter with the same linked-artifact model (checklist #15/#16) — orders, billing and reports attach identically; only the encounter class and period differ. No rebuild required when inpatient goes live.</div>
+<div class="card" style="max-width:860px">
+  <div class="card-title">Encounter data model — VIS-2026-30412 <span class="right">Read-only · org admin view</span></div>
+  <div class="kv">
+    <dt>encounter_id</dt><dd class="mono">VIS-2026-30412</dd>
+    <dt>class</dt><dd class="mono">ambulatory <span class="muted">(future: inpatient, emergency, daycare — same object)</span></dd>
+    <dt>period</dt><dd class="mono">2026-07-13 09:12 → 2026-07-13 12:05 IST <span class="muted">(IPD: open-ended until discharge)</span></dd>
+    <dt>service_events[]</dt><dd class="mono">registration, token, order ACC-2026-88214, acquisition, report v1, delivery <span class="muted">(append-only)</span></dd>
+    <dt>billing_account</dt><dd class="mono">INV/AND/26-27/0421 <span class="muted">(IPD: running account, interim bills attach to the same encounter)</span></dd>
+    <dt>consent_refs</dt><dd class="mono">CNS-2026-30412-01 (DPDP notice v3, purposes: diagnosis, SMS delivery)</dd>
+  </div>
+</div>
+
+<p class="audit">Opening a visit summary, and every artifact viewed from it, is attributed to the signed-in user and recorded in the access log.</p>
+</section>
+<section class="screen" id="ns-13">
+<div class="screen-head"><h1><span class="sid">NS-13</span> Compliance Registrations &amp; Expiry Enforcement</h1><div class="meta"><span class="chip teal">MVP1-CORE · ADDITION</span><div class="cluster">Tenant / Branch Admin &amp; Setup</div></div></div>
+<div class="gap-note"><b>Why this screen exists:</b> Finding C-6: branch setup (TA-S3) captured AERB / PNDT / medical-council validity dates but nothing ever <i>blocked</i> anything when they lapsed — an expired AERB room licence or PNDT registration had no operational effect. This screen makes each registration an enforcement object: expiry warnings escalate, and on expiry the linked action (scheduling, acquisition, prenatal sign-off) is automatically blocked until renewal.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Branch setup</div>
+      <div class="nav-item">Rooms &amp; modalities</div>
+      <div class="nav-item">Staff &amp; privileges</div>
+      <div class="nav-item active">Compliance registrations <span class="nav-badge red">2</span></div>
+      <div class="sec-label">Regulatory</div>
+      <div class="nav-item">Form F register</div>
+      <div class="nav-item">Monthly submission (IR-S2)</div>
+      <div class="sec-label">Admin</div>
+      <div class="nav-item">Audit &amp; access log</div>
+      <div class="nav-item">Notification settings</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Branch setup › Compliance registrations · Andheri West · Sat 25 Jul 2026</div>
+      <div class="page-title">Compliance registrations <span class="actions-right"><span class="btn small">Export register</span> <span class="btn primary small">+ Add registration</span></span></div>
+      <div class="page-sub">Every registration carries an enforcement rule. When it expires, the linked capability is blocked automatically — warnings begin 60 days out. All edits require four-eyes confirmation and are recorded in the access log.</div>
+
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">9</div><div class="l">Registrations tracked</div><div class="s">5 valid, no action</div></div>
+        <div class="kpi amber"><div class="n">1</div><div class="l">Expiring ≤ 60 days</div><div class="s">AERB — CT Room 1</div></div>
+        <div class="kpi red"><div class="n">2</div><div class="l">Critical</div><div class="s">1 auto-block armed · 1 blocking active</div></div>
+      </div>
+
+      <table>
+        <tr><th>Type</th><th>Holder</th><th>Number</th><th>Valid to</th><th>Status</th><th>On expiry</th><th></th></tr>
+        <tr>
+          <td><b>AERB radiation licence</b><br><span class="muted small">eLORA · Type approval + room</span></td>
+          <td>CT Room 1 · CT-1 (128-slice)</td>
+          <td class="mono">AERB/MH/2023/8812</td>
+          <td class="mono">2026-09-05</td>
+          <td><span class="chip amber">42 days</span></td>
+          <td>Blocks scheduling &amp; acquisition on CT-1</td>
+          <td><span class="btn ghost small">Renew</span></td>
+        </tr>
+        <tr>
+          <td><b>PNDT machine registration</b></td>
+          <td>US-UNIT-2 · US room 2</td>
+          <td class="mono">MH/PNDT/M/2021/0332</td>
+          <td class="mono">2027-01-15</td>
+          <td><span class="chip green">valid ✓</span></td>
+          <td>Blocks all prenatal scans on this unit</td>
+          <td><span class="btn ghost small">Renew</span></td>
+        </tr>
+        <tr class="hl">
+          <td><b>PNDT doctor registration</b></td>
+          <td>Dr. S. Iyer · sonologist (this centre)</td>
+          <td class="mono">MH/PNDT/2019/4471*</td>
+          <td class="mono">2026-08-01</td>
+          <td><span class="chip red">7 days — auto-block armed</span></td>
+          <td>Blocks prenatal scan sign-off by Dr. S. Iyer</td>
+          <td><span class="btn warn-outline small">Renew now</span></td>
+        </tr>
+        <tr>
+          <td><b>Medical council registration</b></td>
+          <td>Dr. V. Shetty · radiologist</td>
+          <td class="mono">MMC/2008/31446</td>
+          <td class="mono">2028-04-30</td>
+          <td><span class="chip green">valid ✓</span></td>
+          <td>Blocks all report sign-off by Dr. V. Shetty</td>
+          <td><span class="btn ghost small">Renew</span></td>
+        </tr>
+        <tr>
+          <td><b>AERB radiation licence</b></td>
+          <td>X-ray Room 1 · XR-1</td>
+          <td class="mono">AERB/MH/2021/5540</td>
+          <td class="mono">2026-07-10</td>
+          <td><span class="chip red">EXPIRED — blocking active</span></td>
+          <td>Scheduling &amp; acquisition on XR-1 blocked since 11 Jul 2026</td>
+          <td><span class="btn danger small">Renew — urgent</span></td>
+        </tr>
+        <tr>
+          <td><b>PNDT centre registration</b></td>
+          <td>Meridian Diagnostics · Andheri West</td>
+          <td class="mono">MH/PNDT/C/2018/1207</td>
+          <td class="mono">2027-06-30</td>
+          <td><span class="chip green">valid ✓</span></td>
+          <td>Blocks all prenatal ultrasound at this branch</td>
+          <td><span class="btn ghost small">Renew</span></td>
+        </tr>
+      </table>
+      <p class="muted small" style="margin-top:6px">* This renewal window overlaps Dr. S. Iyer's Form F duties — an amber notice already appears on NS-10 registration verification. Renewal note under review by admin K. Verma.</p>
+
+      <div class="card" style="margin-top:14px">
+        <div class="card-title">Alert &amp; escalation settings <span class="right">branch policy · editable by org admin</span></div>
+        <div class="row">
+          <div class="grow">
+            <dl class="kv">
+              <dt>Reminders</dt><dd>60 / 30 / 7 days before expiry → <b>org admin (K. Verma) + branch manager</b>, by email and in-app</dd>
+              <dt>Escalation</dt><dd>If unrenewed at <b>7 days</b>: daily reminders, banner on branch admin home, and the "auto-block armed" flag shown to affected staff</dd>
+              <dt>On expiry</dt><dd>Linked capability blocked at 00:00 IST on the day after "valid to". Blocking cannot be muted — only a completed renewal (State C) lifts it</dd>
+            </dl>
+          </div>
+          <div style="width:290px">
+            <div class="banner warn" style="margin-bottom:0"><b>Next automatic action</b>01 Aug 2026 00:00 IST — prenatal sign-off block engages for Dr. S. Iyer unless renewal is recorded. Notified: K. Verma, branch manager, Dr. S. Iyer.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — what blocking looks like to end users</div>
+<div class="row">
+  <div class="grow">
+    <div class="card">
+      <div class="card-title">Scheduling grid — CT Room 1 after AERB expiry <span class="right">as seen by front desk</span></div>
+      <table>
+        <tr><th>Slot</th><th>CT Room 1</th><th>US Room 2</th></tr>
+        <tr><td class="mono">10:00</td><td style="background:#F1F5F9;color:#94A3B8">— unavailable · AERB registration expired (CT Room 1)</td><td>Ananya Rao · US Obstetric</td></tr>
+        <tr><td class="mono">10:30</td><td style="background:#F1F5F9;color:#94A3B8">— unavailable · AERB registration expired (CT Room 1)</td><td><span class="muted">open</span></td></tr>
+        <tr><td class="mono">11:00</td><td style="background:#F1F5F9;color:#94A3B8">— unavailable · AERB registration expired (CT Room 1)</td><td>Fatima Zahra · US Abdomen</td></tr>
+      </table>
+      <p class="muted small" style="margin-top:6px">Slots grey out automatically; existing bookings are flagged to the front desk for rebooking to a licensed room. Attempted bookings are recorded in the access log.</p>
+    </div>
+  </div>
+  <div class="grow">
+    <div class="modal-wrap" style="margin:0">
+      <div class="modal danger" style="max-width:420px">
+        <h3>Signing blocked</h3>
+        <div class="banner danger" style="margin-bottom:0"><b>Your PNDT registration expired on 01 Aug 2026.</b>Prenatal ultrasound reports cannot be signed. Contact your administrator (K. Verma) to record the renewal. This attempt is recorded in the access log.</div>
+        <div class="modal-actions"><span class="btn">Close</span><span class="btn primary">Notify administrator</span></div>
+      </div>
+    </div>
+    <p class="muted small">Seen by Dr. S. Iyer at report sign-off if renewal is not recorded before 01 Aug 2026. Non-prenatal signing remains unaffected.</p>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — renewal update (four-eyes) &amp; history</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="crumb">Compliance registrations › Renew › PNDT doctor — Dr. S. Iyer</div>
+      <div class="page-title">Record renewal — PNDT doctor registration</div>
+      <div class="row">
+        <div class="grow">
+          <div class="card">
+            <div class="field"><label>New registration number <span class="req">*</span></label><span class="input mono">MH/PNDT/2026/6019</span></div>
+            <div class="row">
+              <div class="grow"><div class="field"><label>Valid from <span class="req">*</span></label><span class="input mono">2026-08-01</span></div></div>
+              <div class="grow"><div class="field"><label>Valid to <span class="req">*</span></label><span class="input mono">2031-07-31</span></div></div>
+            </div>
+            <div class="field"><label>Certificate upload <span class="req">*</span></label><div class="sig-box" style="min-height:44px">PNDT_renewal_SIyer_2026.pdf — attach scanned Appropriate Authority certificate</div><div class="hint">The certificate is stored with the registration record and shown in inspections/export.</div></div>
+            <div class="banner warn"><b>Four-eyes confirmation required</b>Entered by K. Verma (org admin). A second privileged user — branch manager R. Bhat — must confirm the number and dates against the certificate before enforcement lifts. Both identities are recorded in the access log.</div>
+            <div style="display:flex;justify-content:flex-end;gap:10px"><span class="btn">Cancel</span><span class="btn primary">Submit for confirmation</span></div>
+          </div>
+        </div>
+        <div style="width:330px">
+          <div class="card">
+            <div class="card-title">Renewal history — Dr. S. Iyer</div>
+            <table>
+              <tr><th>Number</th><th>Valid</th><th>Recorded by</th></tr>
+              <tr><td class="mono">MH/PNDT/2019/4471</td><td class="mono">2019-04-01 → 2026-08-01</td><td>K. Verma · conf. R. Bhat · 03 Apr 2019</td></tr>
+              <tr><td class="mono">MH/PNDT/2014/2210</td><td class="mono">2014-05-12 → 2019-05-11</td><td>legacy import · 12 Jan 2024</td></tr>
+            </table>
+            <p class="muted small" style="margin-top:6px">History is append-only. Prior numbers stay attached to Form F records signed under them (NS-10).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="audit">Access log: 25 Jul 2026 11:05 IST · k.verma viewed compliance register (9 entries) · 11:09 opened renewal form for MH/PNDT/2019/4471 · blocking events (XR-1 since 11 Jul) and every sign-off attempt against an expired registration are recorded in the access log, tier RED.</p>
+</section>
+<section class="screen" id="ns-14">
+<div class="screen-head"><h1><span class="sid">NS-14</span> Access Requests — Masked Denial &amp; Lifecycle</h1><div class="meta"><span class="chip teal">MVP1-CORE · REVISION</span><div class="cluster">Authorization — revises AZ-S2 / RR-S2</div></div></div>
+<div class="gap-note"><b>Why this screen exists:</b> Finding C-7: the AZ-S2 denial screen leaked the patient's name, MRN, age and sex to the very user being denied — itself a disclosure. Finding S-4: RR-S2 denied reading radiologists same-organisation priors for the patient on their own worklist, and access requests had no pending / approved / denied lifecycle. This revision masks the denial completely, adds a time-boxed request workflow with SLA, and lets same-org, same-patient, treatment-purpose priors load with recording instead of a request.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Reading</div>
+      <div class="nav-item">Reading worklist <span class="nav-badge">4</span></div>
+      <div class="nav-item">My reports</div>
+      <div class="sec-label">Access</div>
+      <div class="nav-item active">My access requests <span class="nav-badge">3</span></div>
+      <div class="nav-item">Shared with me</div>
+      <div class="sec-label">Account</div>
+      <div class="nav-item">Privacy &amp; audit</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Patient search › record open attempt · Sat 25 Jul 2026 12:10 IST</div>
+      <div class="page-title">Access denied — record outside your care team</div>
+      <div class="page-sub">Fixed denial (C-7): the card below shows only a masked token. It no longer shows the patient's name, age or sex — a denial must not itself disclose identity.</div>
+
+      <div class="card" style="max-width:560px;border-left:4px solid #B91C1C">
+        <div class="card-title">Patient record <span class="mono">MRN-••••30</span> <span class="right">masked</span></div>
+        <div class="banner danger" style="margin-bottom:10px"><b>You do not have access to this record.</b>Reason: You are not on this patient's care team at this location.</div>
+        <p class="muted small" style="margin-bottom:10px">No identifying details (name, age, sex, studies) are shown on denial. If you believe you need this record for care, request access below — a privacy lead reviews it within the SLA.</p>
+        <div style="display:flex;gap:10px"><span class="btn primary">Request access</span><span class="btn">Go back</span></div>
+        <p class="muted small" style="margin-top:10px">This attempt was recorded. Denied attempts appear in the branch privacy review (tier AMBER).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — request modal + lifecycle list (fixes "no pending/approved/denied lifecycle", S-4)</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Request access — record <span class="mono">MRN-••••30</span></h3>
+    <p class="muted small" style="margin-bottom:10px">Your request goes to the branch privacy lead. Approved access is time-boxed and every open under it is recorded in the access log.</p>
+    <div class="field"><label>Reason category <span class="req">*</span></label><span class="select">Covering clinician ▾</span><div class="hint">Options: covering clinician · follow-up call · billing correction · other</div></div>
+    <div class="field"><label>Justification <span class="req">*</span></label><span class="textarea" style="display:block">Covering Dr. Meera Nair's inpatients this weekend; need imaging history before today's ward round. Reference: duty roster 25–27 Jul.</span></div>
+    <div class="field"><label>Access duration <span class="req">*</span></label>
+      <div class="check"><span class="box radio on"></span><span><b>4 hours</b> — single task (default)</span></div>
+      <div class="check"><span class="box radio"></span><span><b>24 hours</b> — covering shift</span></div>
+      <div class="check"><span class="box radio"></span><span><b>Care-team addition</b> — ongoing; requires the treating clinician's confirmation</span></div>
+    </div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Submit request</span></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">My access requests <span class="right">lifecycle · SLA 4 business hours</span></div>
+  <table>
+    <tr><th>Requested</th><th>Record</th><th>Reason</th><th>Duration</th><th>Status</th><th>Detail</th></tr>
+    <tr class="hl">
+      <td class="mono">25 Jul 12:12</td><td class="mono">MRN-••••30</td><td>Covering clinician</td><td>4 h</td>
+      <td><span class="chip amber">Pending</span></td>
+      <td>SLA 4 business hours · due 14:30 · <span class="mono">⏱ 2h 08m remaining</span> — escalates to org privacy officer on breach</td>
+    </tr>
+    <tr>
+      <td class="mono">25 Jul 09:20</td><td class="mono">MRN-••••77</td><td>Follow-up call</td><td>24 h</td>
+      <td><span class="chip green">Approved</span></td>
+      <td><span class="chip green">time-boxed · expires in 22:40 · auto-expires</span> approved by privacy lead A. D'Souza 09:44 · every open recorded</td>
+    </tr>
+    <tr>
+      <td class="mono">24 Jul 17:05</td><td class="mono">MRN-••••02</td><td>Billing correction</td><td>4 h</td>
+      <td><span class="chip red">Denied</span></td>
+      <td>Approver reason: "Billing corrections are handled by the billing desk role — raise ticket, clinical access not required." (A. D'Souza, 24 Jul 17:38)</td>
+    </tr>
+    <tr>
+      <td class="mono">22 Jul 08:15</td><td class="mono">MRN-••••19</td><td>Covering clinician</td><td>24 h</td>
+      <td><span class="chip grey">Expired</span></td>
+      <td>Auto-expired 23 Jul 08:15 after 3 record opens · all recorded in the access log</td>
+    </tr>
+  </table>
+</div>
+
+<div class="state-tag">STATE C — the RR-S2 fix: same-org priors load for treatment, recorded not requested</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="crumb">Reading worklist › Priya Menon · MRN-004828 · ACC-2026-04471 › Prior studies</div>
+      <div class="card" style="border-left:4px solid #0F766E">
+        <div class="card-title">Same organisation · same patient · treatment purpose <span class="right">policy AZ-P4</span></div>
+        <p class="muted small" style="margin-bottom:10px">Dr. V. Shetty is reading today's CT Brain for Priya Menon. Priors held anywhere in Meridian Diagnostics for this patient now load directly — the review found RR-S2 wrongly forced a request here, delaying reads.</p>
+        <table>
+          <tr><th>Prior</th><th>Branch</th><th>Date</th><th>Report</th><th>Access</th></tr>
+          <tr class="hl"><td>CT Brain plain <span class="mono">ACC-2025-11208</span></td><td>Bandra West</td><td class="mono">2025-11-30</td><td>Dr. S. Iyer — final</td><td><span class="chip teal">Access allowed &amp; recorded — care-team verified · purpose: Treatment</span> <span class="btn primary small">Open prior</span></td></tr>
+          <tr><td>MRI Brain <span class="mono">ACC-2024-07731</span></td><td>Andheri West</td><td class="mono">2024-06-14</td><td>Dr. V. Shetty — final</td><td><span class="chip teal">Access allowed &amp; recorded</span> <span class="btn small">Open prior</span></td></tr>
+          <tr><td>X-ray Sinuses <span class="mono">ACC-2023-02114</span></td><td>Powai</td><td class="mono">2023-02-02</td><td>Dr. A. Rao — final</td><td><span class="chip teal">Access allowed &amp; recorded</span> <span class="btn small">Open prior</span></td></tr>
+        </table>
+        <p class="audit" style="margin-top:8px">Opening this prior was recorded (DPDP purpose-limited processing — no request needed within your organisation for active treatment).</p>
+      </div>
+
+      <div class="card" style="max-width:640px">
+        <div class="card-title">Approver queue — branch privacy lead <span class="right">A. D'Souza · approver view</span></div>
+        <table>
+          <tr><th>Requester</th><th>Record</th><th>Reason · duration</th><th>Decision</th></tr>
+          <tr><td>Dr. V. Shetty<br><span class="muted small">Radiologist · identity confirmed ✓ (SSO 12:12)</span></td><td class="mono">Fatima Zahra · MRN-004833</td><td>Covering clinician · 4 h<br><span class="muted small">"Covering Dr. Meera Nair's inpatients this weekend…"</span></td><td><span class="btn primary small">Approve 4 h</span> <span class="btn small">Deny with reason</span></td></tr>
+          <tr><td>K. Verma<br><span class="muted small">Admin · identity confirmed ✓</span></td><td class="mono">Hiroshi Tanaka · MRN-004777</td><td>Billing correction · 4 h</td><td><span class="btn primary small">Approve 4 h</span> <span class="btn small">Deny with reason</span></td></tr>
+        </table>
+        <p class="muted small" style="margin-top:6px">Approvers see the full patient identity; requesters do not until approval. Decisions, identities and reasons are recorded in the access log (tier AMBER).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="audit">Access log: 25 Jul 2026 12:10 IST · v.shetty denied open on MRN-••••30 (masked, no identity disclosed) · 12:12 access request AR-2026-0912 submitted (pending, SLA due 14:30) · 12:31 prior ACC-2025-11208 opened under AZ-P4 treatment purpose — recorded, no request required · approver decisions recorded against A. D'Souza.</p>
+</section>
+<section class="screen" id="ns-15">
+<div class="screen-head"><h1><span class="sid">NS-15</span> Incident intake &amp; triage</h1><div class="meta"><span class="chip teal">MVP1-CORE · ADDITION</span><div class="cluster">Governance &amp; compliance</div></div></div>
+<div class="gap-note"><b>Why this screen exists:</b> Review found GV-S4's breach runbook "started mid-story" — there was no front door where staff actually create incidents, and PL-S6 misclassified PII-in-application-logs as a SEV3 minor. This screen is the single intake for all incidents, with auto-classification that routes personal-data exposure to the breach path.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>Governance</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">AR</span>Dr. A. Rao ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Oversight</div>
+      <div class="nav-item active">Incidents <span class="nav-badge red">2</span></div>
+      <div class="nav-item">Breach runbook</div>
+      <div class="nav-item">Access log</div>
+      <div class="sec-label">Privacy</div>
+      <div class="nav-item">Deletion requests</div>
+      <div class="nav-item">Legal holds</div>
+      <div class="nav-item">Retention policies</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Governance › Incidents › Report an incident</div>
+      <div class="page-title">Report an incident</div>
+      <div class="page-sub">Anyone with a Magnus login can report. Classification and clocks are handled after submission — when unsure, report anyway.</div>
+
+      <div class="state-tag">STATE — A · INTAKE FORM</div>
+      <div class="card" style="max-width:820px">
+        <div class="field">
+          <label>What kind of incident? <span class="req">*</span></label>
+          <div class="row">
+            <div class="grow card" style="border:2px solid #0F766E;background:#F0FDFA;margin-bottom:0"><b>Suspected data breach</b><div class="small muted">Patient data exposed, sent to the wrong person, or accessible where it shouldn't be</div></div>
+            <div class="grow card" style="margin-bottom:0"><b>Security event</b><div class="small muted">Phishing, malware, lost device, suspicious login</div></div>
+            <div class="grow card" style="margin-bottom:0"><b>Privacy complaint escalation</b><div class="small muted">A GR-S1 complaint that alleges data misuse</div></div>
+            <div class="grow card" style="margin-bottom:0"><b>System outage with clinical impact</b><div class="small muted">PACS, RIS or reporting down while patients wait</div></div>
+          </div>
+        </div>
+        <div class="field">
+          <label>What happened? <span class="req">*</span></label>
+          <textarea class="textarea">Report share links for signed reports appear to be accessible without OTP when the link is opened from a forwarded WhatsApp message. Noticed on ACC-2026-88214; sampled 4 more accessions with the same behaviour.</textarea>
+          <div class="hint">Do not put patient identifiers here — reference numbers only (MRN, ACC, VIS). This description is visible to responders across teams.</div>
+        </div>
+        <div class="row">
+          <div class="grow field">
+            <label>Estimated patients affected</label>
+            <input class="input mono" value="~1,240 (all SMS-link deliveries since 2026-07-01)">
+          </div>
+          <div class="grow field">
+            <label>Data types possibly exposed</label>
+            <div class="check"><span class="box on">✓</span>Contact details</div>
+            <div class="check"><span class="box on">✓</span>Reports</div>
+            <div class="check"><span class="box"></span>Images</div>
+            <div class="check"><span class="box"></span>Payment refs</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="grow field">
+            <label>How was it detected? <span class="req">*</span></label>
+            <select class="select"><option>Staff noticed</option><option>Patient reported</option><option>Monitoring alert</option><option>Vendor notified</option></select>
+          </div>
+          <div class="grow field">
+            <label>When first noticed <span class="req">*</span></label>
+            <input class="input mono" value="2026-07-25 · 18:47 IST">
+          </div>
+          <div class="grow field">
+            <label>Reporter</label>
+            <input class="input" value="Dr. A. Rao — Privacy Officer (signed in)" disabled>
+            <div class="hint">Auto-filled; anonymous reporting is not supported — reports are attributed.</div>
+          </div>
+        </div>
+        <div class="modal-actions" style="justify-content:flex-start"><span class="btn primary">Submit incident</span><span class="btn ghost">Save draft</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE — B · AUTO-CLASSIFICATION AFTER SUBMIT</div>
+<div class="card" style="max-width:820px;border-left:4px solid #B91C1C">
+  <div class="card-title">INC-2026-0042 · Classification result <span class="right">Rules v4 · Privacy Officer may override with reason</span></div>
+  <div style="margin-bottom:8px"><span class="chip red">BREACH PATH</span> <span class="chip amber">confirmation due in 2 h</span> <span class="chip grey">SEV1 candidate</span></div>
+  <p style="font-size:13px;margin-bottom:10px"><b>Classification: PERSONAL DATA BREACH (likely)</b> — exposed report links affect ~1,240 patients. This starts the breach runbook (GV-S4): the CERT-In 6 h clock and DP Board notification clocks begin at <b>CONFIRMATION</b>, not intake. Assigned: <b>Privacy Officer (owner)</b> + on-call platform SEV1.</p>
+  <div class="kv" style="margin-bottom:10px">
+    <dt>Why this class</dt><dd>Data types include reports + contact details; scope &gt; 100 data principals; external accessibility asserted → breach-likely per rule B-03.</dd>
+    <dt>Next step</dt><dd>Owner confirms or rules out within 2 h. Confirmation opens GV-S4 with clocks running; ruling out requires a recorded reason.</dd>
+  </div>
+  <table>
+    <tr><th>Precedent applied</th><th>Routing</th></tr>
+    <tr><td>"Patient names found in application logs" (PL-S6 finding)</td><td>Routed to <span class="chip red">BREACH PATH</span> <span class="small muted">— was: SEV3 "minor"; reclassified per review finding. Any personal data outside its intended store is breach-path by default.</span></td></tr>
+  </table>
+  <div class="modal-actions" style="justify-content:flex-start"><span class="btn danger">Confirm breach — open runbook GV-S4</span><span class="btn">Rule out (reason required)</span></div>
+</div>
+
+<div class="state-tag">STATE — C · TRIAGE QUEUE</div>
+<div class="card">
+  <div class="card-title">Incident triage queue <span class="right">Owner: Privacy Officer · SLA pattern per NS-16</span></div>
+  <table>
+    <tr><th>Inc ref</th><th>Category</th><th>Est. scope</th><th>Status</th><th>Clocks</th><th></th></tr>
+    <tr class="hl">
+      <td class="mono bold">INC-2026-0042</td>
+      <td>Suspected data breach<div class="small muted">Report links open without OTP</div></td>
+      <td>~1,240 patients<div class="small muted">reports + contact details</div></td>
+      <td><span class="chip red">CONFIRMED BREACH</span></td>
+      <td><span class="chip red">CERT-In 6 h: 04:12 left</span> <span class="chip amber">DP Board notice: draft due 72 h</span></td>
+      <td><span class="btn small primary">Open runbook GV-S4</span></td>
+    </tr>
+    <tr>
+      <td class="mono bold">INC-2026-0039</td>
+      <td>Security event<div class="small muted">Suspicious login, billing account</div></td>
+      <td>1 staff account<div class="small muted">no patient data confirmed</div></td>
+      <td><span class="chip amber">INVESTIGATING</span></td>
+      <td><span class="chip green">triage SLA met</span></td>
+      <td><span class="btn small">Open</span></td>
+    </tr>
+    <tr class="dim">
+      <td class="mono">INC-2026-0037</td>
+      <td>Suspected data breach<div class="small">Patient reported "wrong report" — was own prior study</div></td>
+      <td>0 patients</td>
+      <td><span class="chip grey">FALSE POSITIVE — closed with reason (recorded)</span></td>
+      <td>—</td>
+      <td><span class="btn small">View</span></td>
+    </tr>
+    <tr>
+      <td class="mono bold">INC-2026-0041</td>
+      <td>System outage with clinical impact<div class="small muted">PACS viewer down, Andheri West</div></td>
+      <td>Branch<div class="small muted">2 STAT reads waiting</div></td>
+      <td><span class="chip amber">MITIGATING</span><div class="small muted">also paged branch ops</div></td>
+      <td><span class="chip amber">restore target: 38 m left</span></td>
+      <td><span class="btn small">Open</span></td>
+    </tr>
+  </table>
+</div>
+
+<p class="audit">Incident submission, every classification decision (including overrides and rule-outs with reasons), clock starts and runbook openings are recorded in the access log.</p>
+</section>
+<section class="screen" id="ns-16">
+<div class="screen-head"><h1><span class="sid">NS-16</span> SLA breach &amp; escalation — the standard pattern</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM · PATTERN</span><div class="cluster">Applies to every countdown in Magnus</div></div></div>
+<div class="gap-note"><b>Why this screen exists:</b> Review found countdowns on RR-S1, RR-S6, GR-S1, GV-S1, GV-S3 and GV-S4 — but not one of them defined its zero-hour behaviour. This pattern specifies exactly what a countdown does at warning, at breach, and after late resolution, so no timer anywhere in Magnus can expire silently.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>Design System</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">AR</span>Dr. A. Rao ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Patterns</div>
+      <div class="nav-item">Identity confirmation</div>
+      <div class="nav-item active">SLA &amp; escalation</div>
+      <div class="nav-item">Audit microcopy</div>
+      <div class="nav-item">Empty &amp; error states</div>
+      <div class="sec-label">Configuration</div>
+      <div class="nav-item">SLA definitions</div>
+      <div class="nav-item">Escalation routing</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Design system › Patterns › SLA breach &amp; escalation</div>
+      <div class="page-title">The countdown component — four states, one behaviour</div>
+      <div class="page-sub">Every SLA timer in Magnus renders this component. States are driven by elapsed % of the SLA window; breach behaviour is never left to the host screen.</div>
+
+      <div class="state-tag">STATE — A · THE FOUR COMPONENT STATES</div>
+      <div class="row">
+        <div class="grow card" style="margin-bottom:0">
+          <div class="card-title">1 · ON TRACK <span class="right">&lt; 75% elapsed</span></div>
+          <span class="chip teal">due in 3 h 20 m</span>
+          <div class="progress" style="margin-top:10px"><i style="width:42%"></i></div>
+          <div class="small muted" style="margin-top:8px">Neutral presentation. No row highlight, no notifications. Timer visible wherever the item appears.</div>
+        </div>
+        <div class="grow card" style="margin-bottom:0;background:#FFFBEB">
+          <div class="card-title">2 · WARNING <span class="right">≥ 75% elapsed</span></div>
+          <span class="chip amber">due in 48 m</span>
+          <div class="progress amber" style="margin-top:10px"><i style="width:80%"></i></div>
+          <div class="small muted" style="margin-top:8px">Row gains amber highlight and sorts toward top of its worklist. Owner sees an in-app nudge. Still owner's to clear — no escalation yet.</div>
+        </div>
+        <div class="grow card" style="margin-bottom:0;border-color:#FCA5A5;background:#FEF2F2">
+          <div class="card-title">3 · BREACHED <span class="right">100% — zero hour</span></div>
+          <span class="chip red">OVERDUE 00:42</span>
+          <div class="progress red" style="margin-top:10px"><i style="width:100%"></i></div>
+          <div class="small" style="margin-top:8px">Row gains:</div>
+          <div class="small" style="margin-top:4px"><span class="chip grey">Owner: Radiology duty coordinator</span></div>
+          <div class="small" style="margin-top:4px">Escalated to: <b>Branch medical lead</b> · 21:29 · push + audible</div>
+          <div style="margin-top:8px"><span class="btn small primary">Acknowledge &amp; act</span> <span class="btn small">Reassign</span> <span class="btn small">Record reason</span></div>
+        </div>
+        <div class="grow card" style="margin-bottom:0">
+          <div class="card-title">4 · RESOLVED-LATE <span class="right">closed after breach</span></div>
+          <span class="chip grey">closed 1 h 12 m late — reason recorded, feeds monthly SLA report</span>
+          <div class="small muted" style="margin-top:8px">A breached item cannot be closed without a reason. Late closures aggregate into the monthly SLA report by branch, SLA type and owner role.</div>
+        </div>
+      </div>
+      <div class="banner reg" style="margin-top:14px"><b>Zero-hour rule.</b> At breach the item always (1) names an accountable owner, (2) notifies a second, more senior tier, and (3) demands an acknowledgement or a recorded reason. A countdown that reaches zero and merely turns red is a design defect.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE — B · ESCALATION CONFIG (PER SLA TYPE)</div>
+<div class="card" style="max-width:760px">
+  <div class="card-title">Escalation settings — "Report sign-off (routine)" <span class="right">Org admin · identity-confirmed changes</span></div>
+  <div class="row">
+    <div class="grow field">
+      <label>Warn threshold</label>
+      <select class="select"><option>75% of SLA window (default)</option></select>
+    </div>
+    <div class="grow field">
+      <label>Breach owner role</label>
+      <select class="select"><option>Radiology duty coordinator</option></select>
+      <div class="hint">Resolved to the rostered person at breach time.</div>
+    </div>
+    <div class="grow field">
+      <label>Tier-2 escalation delay</label>
+      <select class="select"><option>30 min after unacknowledged breach</option></select>
+      <div class="hint">Tier-2: Branch medical lead.</div>
+    </div>
+  </div>
+  <div class="field">
+    <label>Channels</label>
+    <div class="check"><span class="box on">✓</span>In-app (always on, cannot be disabled)</div>
+    <div class="check"><span class="box on">✓</span>Push notification</div>
+    <div class="check"><span class="box on">✓</span>Audible alert on breach (workstation)</div>
+    <div class="check"><span class="box"></span>SMS to owner (tier-2 only)</div>
+  </div>
+  <div class="banner warn"><b>Quiet hours NEVER apply to clinical alerts</b> — RED-tier critical results and STAT reads escalate with push + audible at any hour. Quiet hours may only suppress non-clinical SLA channels (e.g. billing approvals).</div>
+  <div class="modal-actions" style="justify-content:flex-start"><span class="btn primary">Save (confirm identity)</span><span class="btn ghost">View change history</span></div>
+</div>
+
+<div class="state-tag">STATE — C · THE PATTERN APPLIED — WORKED EXAMPLES</div>
+<div class="card">
+  <div class="card-title">Where the component runs today <span class="right">One config row per SLA type</span></div>
+  <table>
+    <tr><th>SLA</th><th>Screen</th><th>On breach</th></tr>
+    <tr><td><b>STAT read overdue</b> <span class="small muted">(60 min)</span></td><td class="mono">RR-S1</td><td>Escalate to lead radiologist · push + audible · worklist shows rebalance prompt ("2 unassigned STAT — redistribute?")</td></tr>
+    <tr class="hl"><td><b>Critical result ack lapsed</b> <span class="small muted">(RED tier, 30 min)</span></td><td class="mono">NS-01 / RR-S6</td><td>Tier-2 phone call task + audible at referrer-contact desk · quiet hours never apply</td></tr>
+    <tr><td><b>Unmatched STAT study</b> <span class="small muted">(15 min)</span></td><td class="mono">RT-S4</td><td>Page branch admin · study pinned atop reconciliation queue until claimed</td></tr>
+    <tr><td><b>Complaint response overdue</b> <span class="small muted">(72 h)</span></td><td class="mono">GR-S1</td><td>Escalate to branch manager · + clinical lead if complaint is care-safety category</td></tr>
+    <tr><td><b>Deletion request at day 28</b> <span class="small muted">(30-day DPDP window)</span></td><td class="mono">GV-S3</td><td>Escalate to Privacy Officer + DPO (Priya Sharma) · daily digest until closed or lawfully refused (e.g. legal hold, NS-11)</td></tr>
+    <tr><td><b>Billing approval pending 4 h</b></td><td class="mono">NS-06</td><td>Escalate to org admin · approval card surfaces on admin home</td></tr>
+  </table>
+</div>
+<div class="card" style="max-width:760px;border-left:4px solid #6D28D9">
+  <div class="card-title">One component, one behaviour</div>
+  <p style="font-size:13px">Every countdown in Magnus — clinical, privacy, billing or operational — uses this pattern. Owners are named, escalation is automatic, and late closures carry reasons into the monthly SLA report. <b>No silent breaches.</b></p>
+</div>
+
+<p class="audit">Breach events, escalation notifications, acknowledgements, reassignments, recorded reasons and every escalation-config change are recorded in the access log.</p>
+</section>
+</body></html>

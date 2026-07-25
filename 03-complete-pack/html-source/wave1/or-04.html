@@ -1,0 +1,90 @@
+<section class="screen" id="or-04">
+<div class="screen-head"><h1><span class="sid">OR-04</span> Orders worklist</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety — workspace 'Orders'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Department-level operational queue used by front office and the branch coordinator through the day to keep every order moving. It must guarantee visibility of gate status (scheduling, screening, consent, payment) per order, honest aging on anything awaiting scheduling, and bulk printing of prep instructions for tomorrow's booked patients. Filters by status, modality, priority and date drive all triage.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Orders</div>
+      <div class="nav-item">New order</div>
+      <div class="nav-item active">Orders worklist <span class="nav-badge">38</span></div>
+      <div class="nav-item">Awaiting scheduling <span class="nav-badge red">6</span></div>
+      <div class="nav-item">Safety flags <span class="nav-badge">3</span></div>
+      <div class="sec-label">Reference</div>
+      <div class="nav-item">Procedure catalog</div>
+      <div class="nav-item">Referrer directory</div>
+      <div class="nav-item">Prep instruction library</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Orders › Worklist › Today + open</div>
+      <div class="page-title">Orders worklist — Imaging, Andheri West <span class="actions-right"><span class="btn small primary">Bulk print prep (4 selected)</span> <span class="btn small">Export CSV</span></span></div>
+      <div class="page-sub">Fri 25-Jul-2026 · refreshed 15:02 IST · showing open orders, all modalities</div>
+
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">38</div><div class="l">Open orders</div><div class="s">across CT · MRI · US · XR</div></div>
+        <div class="kpi amber"><div class="n">6</div><div class="l">Awaiting scheduling</div><div class="s">2 aging &gt; 4h target</div></div>
+        <div class="kpi red"><div class="n">1</div><div class="l">STAT in queue</div><div class="s">CT — must acquire ≤ 60 min</div></div>
+        <div class="kpi"><div class="n">11</div><div class="l">Scheduled tomorrow</div><div class="s">prep print pending: 4</div></div>
+      </div>
+
+      <div class="card" style="padding:10px 12px">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+          <div class="select" style="width:150px">Status: Open ▾</div>
+          <div class="select" style="width:140px">Modality: All ▾</div>
+          <div class="select" style="width:140px">Priority: All ▾</div>
+          <div class="select" style="width:170px">Date: 25–26 Jul 2026 ▾</div>
+          <div class="input" style="width:220px;color:#94A3B8">Search MRN / accession / name…</div>
+          <span class="btn small ghost">Clear filters</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <table>
+          <tr><th><span class="box on" style="margin:0">✓</span></th><th>Accession</th><th>Patient</th><th>Procedure · Mod</th><th>Priority</th><th>Status</th><th>Gates: Sch·Scr·Con·Pay</th><th>Aging / SLA</th></tr>
+          <tr style="background:#FEF2F2"><td><span class="box" style="margin:0"></span></td><td class="mono">ACC-2026-91861</td><td>Kwame Osei · <span class="mono">MRN-004823</span></td><td>CT Head (Plain) · CT</td><td><span class="chip red">STAT</span></td><td><span class="chip blue">Scheduled 15:20</span></td><td><span class="chip green">✓</span> <span class="chip amber">●</span> <span class="chip grey">n/a</span> <span class="chip green">✓</span></td><td><span class="chip red">acquire in 00:18</span><br><span class="small muted">owner: T. Okafor</span></td></tr>
+          <tr><td><span class="box on" style="margin:0">✓</span></td><td class="mono">ACC-2026-91847</td><td>Sofia Rossi · <span class="mono">MRN-004822</span></td><td>CT Brain (Plain) · CT</td><td><span class="chip grey">Routine</span></td><td><span class="chip violet">Acquired</span></td><td><span class="chip green">✓</span> <span class="chip green">✓</span> <span class="chip grey">n/a</span> <span class="chip green">✓</span></td><td><span class="chip teal">report due in 6h</span><br><span class="small muted">owner: Dr. V. Shetty</span></td></tr>
+          <tr><td><span class="box on" style="margin:0">✓</span></td><td class="mono">ACC-2026-91853</td><td>Mohammed Al-Rashid · <span class="mono">MRN-004790</span></td><td>MRI L-Spine (Contrast) · MRI</td><td><span class="chip grey">Routine</span></td><td><span class="chip blue">Scheduled 26-Jul 08:15</span></td><td><span class="chip green">✓</span> <span class="chip red">2 flags</span> <span class="chip amber">●</span> <span class="chip amber">●</span></td><td><span class="chip teal">due in 17h</span><br><span class="small muted">owner: front office</span></td></tr>
+          <tr><td><span class="box on" style="margin:0">✓</span></td><td class="mono">ACC-2026-91850</td><td>Ananya Rao · <span class="mono">MRN-004819</span></td><td>USG Obstetric (anomaly) · US</td><td><span class="chip grey">Routine</span></td><td><span class="chip blue">Scheduled 26-Jul 10:00</span></td><td><span class="chip green">✓</span> <span class="chip grey">—</span> <span class="chip amber">Form F ●</span> <span class="chip green">✓</span></td><td><span class="chip teal">due in 19h</span><br><span class="small muted">Form F before scan · foetal-sex non-disclosure applies</span></td></tr>
+          <tr><td><span class="box on" style="margin:0">✓</span></td><td class="mono">ACC-2026-91844</td><td>Elena Novak · <span class="mono">MRN-004830</span></td><td>X-Ray Chest PA · XR</td><td><span class="chip grey">Routine</span></td><td><span class="chip blue">Scheduled 26-Jul 09:10</span></td><td><span class="chip green">✓</span> <span class="chip grey">—</span> <span class="chip grey">n/a</span> <span class="chip green">✓</span></td><td><span class="chip teal">due in 18h</span></td></tr>
+          <tr><td><span class="box" style="margin:0"></span></td><td class="mono">ACC-2026-91838</td><td>Rajesh Gupta · <span class="mono">MRN-004795</span></td><td>USG Abdomen · US</td><td><span class="chip grey">Routine</span></td><td><span class="chip amber">Awaiting scheduling</span></td><td><span class="chip amber">●</span> <span class="chip grey">—</span> <span class="chip grey">n/a</span> <span class="chip amber">●</span></td><td>1h 40m open<br><span class="small muted">target ≤ 4h</span></td></tr>
+          <tr><td><span class="box" style="margin:0"></span></td><td class="mono">ACC-2026-91829</td><td>Priya Menon · <span class="mono">MRN-004828</span></td><td>X-Ray Knee (Right) · XR</td><td><span class="chip grey">Routine</span></td><td><span class="chip amber">Awaiting scheduling</span></td><td><span class="chip amber">●</span> <span class="chip grey">—</span> <span class="chip grey">n/a</span> <span class="chip green">✓</span></td><td>2h 55m open<br><span class="small muted">target ≤ 4h</span></td></tr>
+          <tr><td><span class="box" style="margin:0"></span></td><td class="mono">ACC-2026-91802</td><td>Aarav Sharma · <span class="mono">MRN-004821</span></td><td>X-Ray Chest PA · XR</td><td><span class="chip grey">Routine</span></td><td><span class="chip blue">Scheduled 26-Jul 09:40</span></td><td><span class="chip green">✓</span> <span class="chip grey">—</span> <span class="chip grey">n/a</span> <span class="chip green">✓</span></td><td><span class="chip teal">due in 18h</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Gate legend: <span class="chip green">✓</span> cleared · <span class="chip amber">●</span> pending · <span class="chip red">flags</span> needs action · <span class="chip grey">n/a / —</span> not applicable or not yet due. Clinical indications are not shown in the list view — open an order (logged) to read them.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — OVERDUE SCHEDULING · AMBER ROWS &amp; ESCALATION</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Awaiting scheduling — aging view</div>
+  <div class="banner warn"><b>2 orders have breached the 4h scheduling target</b>Patients may be waiting on calls that were never made. Overdue rows escalate automatically at +2h beyond target.</div>
+  <div class="card">
+    <table>
+      <tr><th>Accession</th><th>Patient</th><th>Procedure</th><th>Ordered</th><th>Aging</th><th>Owner / escalation</th><th></th></tr>
+      <tr style="background:#FFFBEB"><td class="mono">ACC-2026-91771</td><td>Kwame Osei · <span class="mono">MRN-004823</span></td><td>MRI Brain (Plain)</td><td>25-Jul 09:12</td><td><span class="chip red">OVERDUE 01:50</span></td><td>D. Nair<br><span class="small muted">Escalated to K. Verma (branch admin) at 15:12 IST</span></td><td><span class="btn small primary">Book slot</span></td></tr>
+      <tr style="background:#FFFBEB"><td class="mono">ACC-2026-91785</td><td>Ananya Rao · <span class="mono">MRN-004819</span></td><td>USG Pelvis</td><td>25-Jul 10:05</td><td><span class="chip red">OVERDUE 00:57</span></td><td>D. Nair<br><span class="small muted">Escalated to K. Verma (branch admin) at 15:02 IST</span></td><td><span class="btn small primary">Book slot</span></td></tr>
+      <tr><td class="mono">ACC-2026-91829</td><td>Priya Menon · <span class="mono">MRN-004828</span></td><td>X-Ray Knee (Right)</td><td>25-Jul 12:07</td><td><span class="chip amber">due in 1h 05m</span></td><td>D. Nair</td><td><span class="btn small">Book slot</span></td></tr>
+      <tr><td class="mono">ACC-2026-91838</td><td>Rajesh Gupta · <span class="mono">MRN-004795</span></td><td>USG Abdomen</td><td>25-Jul 13:22</td><td><span class="chip teal">due in 2h 20m</span></td><td>D. Nair</td><td><span class="btn small">Book slot</span></td></tr>
+    </table>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — EMPTY (FILTERS MATCH NOTHING)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Orders worklist — Imaging, Andheri West</div>
+  <div class="card" style="text-align:center;padding:38px 20px">
+    <div style="font-size:30px;margin-bottom:8px">🗂️</div>
+    <div class="bold" style="margin-bottom:4px">No orders match: Status = Cancelled · Modality = MRI · Date = 25-Jul-2026</div>
+    <div class="muted small" style="margin-bottom:12px">Nothing was hidden by permissions — this filter combination genuinely has zero results today.</div>
+    <span class="btn">Clear filters</span> <span class="btn ghost">Show all open orders</span>
+  </div>
+  <div class="banner info" style="margin-top:4px"><b>Working offline is supported</b> — actions queue and sync when reconnected. Worklist shows the last synced snapshot with its timestamp when offline.</div>
+</div></div></div>
+
+<p class="audit">Worklist filter usage, each order opened from this list, bulk prep-print jobs (accessions included, printed by, printer), and escalation notifications are recorded in the access log.</p>
+</section>

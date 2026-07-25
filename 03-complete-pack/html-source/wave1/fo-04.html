@@ -1,0 +1,113 @@
+<section class="screen" id="fo-04">
+<div class="screen-head"><h1><span class="sid">FO-04</span> Registration — duplicate review step</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> After demographics entry (FO-03) the MPI compares the draft against all Meridian branches and shows candidate matches with per-field chips and a composite score. Front office chooses "Use existing" or "Create distinct"; creating distinct over a strong match is allowed but automatically opens an MPI review task (FO-08) with a mandatory reason. Candidates are privacy-masked — only the fields needed to disambiguate are shown.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Reception</div>
+      <div class="nav-item">Dashboard &amp; tokens</div>
+      <div class="nav-item">Patient search</div>
+      <div class="nav-item active">Register patient</div>
+      <div class="nav-item">Appointments</div>
+      <div class="nav-item">Walk-in booking</div>
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Collect payment</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Front Office / Patients / Register new / Duplicate review</div>
+      <div class="page-title">Duplicate review — 1 strong candidate found</div>
+      <div class="page-sub">Draft: <b>Ananya Rao</b> · F · DOB 02/11/1994 · mobile 98444 20312 · Andheri West. MPI checked all 6 branches at 10:36:04 IST.</div>
+      <div class="stepper">
+        <div class="step done"><span class="dot">✓</span> Demographics &amp; identity</div><span class="step-line"></span>
+        <div class="step cur"><span class="dot">2</span> Duplicate review</div><span class="step-line"></span>
+        <div class="step"><span class="dot">3</span> Consent</div><span class="step-line"></span>
+        <div class="step"><span class="dot">4</span> Done</div>
+      </div>
+      <div class="banner warn"><b>Strong match (composite 0.93).</b> Using the existing record keeps history, billing and prior reports linked. Creating a distinct record anyway will open an MPI review task and requires a reason.</div>
+      <div class="card" style="border-left:4px solid #B91C1C">
+        <div class="card-title">Candidate 1 — <span>Ananya Rao · <span class="mono">MRN-004819</span></span> <span class="chip red">COMPOSITE 0.93 · STRONG</span></div>
+        <div class="row">
+          <div class="grow">
+            <table>
+              <tr><th>Field</th><th>Draft entry</th><th>Existing record (masked)</th><th>Match</th></tr>
+              <tr><td>Name</td><td>Ananya Rao</td><td>Ananya Rao</td><td><span class="chip amber">name ~0.91</span></td></tr>
+              <tr><td>DOB</td><td class="mono">02/11/1994</td><td class="mono">02/11/1994</td><td><span class="chip green">DOB exact</span></td></tr>
+              <tr><td>Phone</td><td class="mono">98444 20312</td><td class="mono">98••• ••312</td><td><span class="chip green">phone match</span></td></tr>
+              <tr><td>Address</td><td>4B Marol Co-op Society, Andheri E</td><td>••, Marol, Andheri E</td><td><span class="chip amber">address partial</span></td></tr>
+              <tr><td>Sex</td><td>F</td><td>F</td><td><span class="chip green">exact</span></td></tr>
+            </table>
+          </div>
+          <div style="width:250px">
+            <div class="kv">
+              <dt>Home branch</dt><dd>Andheri West</dd>
+              <dt>Registered</dt><dd class="mono">11 Feb 2025</dd>
+              <dt>Last visit</dt><dd class="mono">VIS-2026-31174 · 02 Jun 2026</dd>
+              <dt>Open balance</dt><dd class="mono">₹0.00</dd>
+              <dt>Aadhaar</dt><dd class="mono">•••• •••• 4417 (last-4)</dd>
+            </div>
+            <p class="hint small muted" style="margin-top:8px">Clinical history is not shown at this step — only identity fields needed to decide.</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:12px">
+          <a class="btn primary" href="#">Use existing MRN-004819</a>
+          <a class="btn warn-outline" href="#">Create distinct anyway…</a>
+          <a class="btn ghost" href="#">Ask patient to confirm phone last-3</a>
+        </div>
+      </div>
+      <div class="modal-wrap">
+        <div class="modal">
+          <h3>Create distinct record over a strong match?</h3>
+          <p class="small" style="margin-bottom:10px">Composite score 0.93 against <span class="mono">MRN-004819</span>. A distinct record will be created <b>and</b> an MPI review task will be opened for the data-quality team (screen FO-08) with SLA <span class="chip amber">due in 24h</span>, owner: K. Verma.</p>
+          <div class="field"><label>Reason (required, shown to MPI reviewer) <span class="req">*</span></label><select class="select"><option>Patient confirms they are a different person (e.g. twin/namesake)</option><option>Patient disputes ownership of matched phone number</option><option>Existing record belongs to relative sharing contact details</option></select></div>
+          <div class="field"><label>Note</label><textarea class="textarea">Patient states the matched number is her sister's; sisters share DOB year but this patient's DOB confirmed from PAN card (sighted, not retained).</textarea></div>
+          <div class="check"><span class="box on">✓</span><span class="small">I confirm the patient was asked the disambiguation questions. This decision is attributed to me (D. Nair) in the access log.</span></div>
+          <div class="modal-actions"><a class="btn" href="#">Cancel</a><a class="btn danger" href="#">Create distinct + open MPI review</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — WEAK MATCHES ONLY · CREATE DISTINCT IS DEFAULT</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="page-title" style="font-size:16px">Duplicate review — 2 weak candidates</div>
+      <div class="page-sub">Draft: Kwame Osei · M · DOB 09/05/1987 · mobile 98331 20456. No strong matches; review briefly and continue.</div>
+      <div class="card">
+        <div class="card-title">Candidate 1 — K••••• O. · <span class="mono">MRN-••••66</span> (Powai branch) <span class="chip amber">COMPOSITE 0.58 · WEAK</span></div>
+        <span class="chip amber">name ~0.74</span> <span class="chip red">DOB mismatch (1979)</span> <span class="chip grey">phone different</span> <span class="chip grey">address different city</span>
+        <div style="margin-top:10px"><a class="btn small" href="#">Compare details</a> <a class="btn ghost small" href="#">Use existing (needs confirmation)</a></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Candidate 2 — K. O•••• · <span class="mono">MRN-••••12</span> (Thane branch) <span class="chip grey">COMPOSITE 0.41 · WEAK</span></div>
+        <span class="chip grey">name ~0.62</span> <span class="chip red">DOB mismatch</span> <span class="chip grey">phone different</span> <span class="chip amber">address partial (Mumbai)</span>
+        <div style="margin-top:10px"><a class="btn small" href="#">Compare details</a></div>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:flex-end"><a class="btn" href="#">← Back to demographics</a><a class="btn primary" href="#">Create distinct record → consent</a></div>
+      <p class="small muted" style="margin-top:8px">Weak-match candidates stay masked; no MPI review task is opened for scores below 0.75.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — NO CANDIDATES FOUND</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="page-title" style="font-size:16px">Duplicate review — no candidates</div>
+      <div class="banner success"><b>No possible duplicates found.</b> MPI compared the draft against 214,882 records across 6 branches at 10:36 IST — composite scores were all below the 0.35 display floor.</div>
+      <div class="card" style="text-align:center;padding:28px 16px">
+        <div class="bold" style="margin-bottom:4px">Clear to create a new record</div>
+        <div class="muted small" style="margin-bottom:12px">A new MRN will be reserved when consent is completed at the next step.</div>
+        <a class="btn primary" href="#">Continue to consent →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Duplicate-review outcomes (use-existing, create-distinct with reason, candidate comparisons viewed) and any MPI review task raised are recorded in the access log with composite scores and operator ID.</p>
+</section>

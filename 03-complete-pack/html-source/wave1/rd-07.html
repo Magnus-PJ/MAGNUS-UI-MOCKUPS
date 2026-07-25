@@ -1,0 +1,160 @@
+<section class="screen" id="rd-07">
+<div class="screen-head"><h1><span class="sid">RD-07</span> Structured report authoring</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The radiologist authors the structured report against a modality/body-part template with macros, SNOMED CT / LOINC coding and a live prior-report side panel. The editor guarantees single-editor draft-lock (takeover requires a reason), autosave every 20 s, and a soft coding escape hatch — an uncoded term never hard-blocks, but a reason is required. Critical keywords typed into the text trigger an inline critical-flag suggestion.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Reading</div>
+      <div class="nav-item">Reading worklist <span class="nav-badge">14</span></div>
+      <div class="nav-item">My assignments <span class="nav-badge">6</span></div>
+      <div class="nav-item active">Drafts <span class="nav-badge">3</span></div>
+      <div class="nav-item">Sign queue <span class="nav-badge red">2</span></div>
+      <div class="sec-label">Quality</div>
+      <div class="nav-item">Addenda</div>
+      <div class="nav-item">Critical results</div>
+      <div class="nav-item">Peer review</div>
+      <div class="sec-label">Personal</div>
+      <div class="nav-item">Hanging protocols</div>
+      <div class="nav-item">Report macros</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Drafts &rsaquo; ACC-2026-91233 &rsaquo; Report editor</div>
+      <div class="page-title">CT Head — non-contrast <span class="chip amber">DRAFT</span> <span class="chip teal">🔒 draft-lock: you (WS-AND-READ-03)</span> <span class="actions-right"><span class="chip green">Autosaved 11:42:18 IST</span> <span class="btn small">Run pre-sign checks</span> <span class="btn primary small">Proceed to sign →</span></span></div>
+      <div class="page-sub">Sofia Rossi · F 41y · MRN-004822 · ACC-2026-91233 · ordered by Dr. Meera Nair · <span class="chip red">OVERDUE 00:24</span> owner Dr. V. Shetty · Escalated to Dr. A. Rao (duty senior)</div>
+      <div class="stepper">
+        <div class="step done"><span class="dot">✓</span> Acquired</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Assigned</div><span class="step-line"></span>
+        <div class="step cur"><span class="dot">3</span> Authoring</div><span class="step-line"></span>
+        <div class="step"><span class="dot">4</span> Pre-sign checks</div><span class="step-line"></span>
+        <div class="step"><span class="dot">5</span> Signed</div>
+      </div>
+      <div class="split">
+        <div>
+          <div class="card">
+            <div class="card-title">Template: CT Head NCCT (Meridian v3.2) <span class="right">Macros: F2 menu · /slash commands</span></div>
+            <div class="field"><label>Clinical information <span class="chip grey">from order</span></label>
+              <div class="input" style="background:#F8FAFC">Fall from stairs 2 h ago, LOC ~1 min, GCS 15 on arrival. Rule out bleed.</div></div>
+            <div class="field"><label>Technique</label>
+              <div class="textarea" style="min-height:40px">Axial helical NCCT of the brain, 1.25 mm reconstructions, bone and soft-tissue algorithms. No contrast administered. <span class="chip grey">macro: /ncct-head</span></div></div>
+            <div class="field"><label>Comparison</label>
+              <div class="input">CT head of 14 Feb 2026 (ACC-2026-87310) — linked ✓</div></div>
+            <div class="field"><label>Findings <span class="req">*</span></label>
+              <div class="textarea" style="min-height:110px">Thin right frontal extra-axial hyperdense collection measuring 6 mm maximal thickness, consistent with acute subdural <b style="background:#FEE2E2">haemorrhage</b>. No midline shift (&lt;1 mm). Grey–white differentiation preserved. No skull vault fracture on bone windows. Paranasal sinuses and mastoids clear. Compared with 14 Feb 2026: collection is new.</div>
+              <div class="banner danger" style="margin-top:8px;margin-bottom:0"><b>⚑ Critical-suspicion prompt — "haemorrhage" detected in Findings.</b> Consider flagging this study as a critical result; the flag opens the critical-communication task at sign-off. <span style="display:inline-block;margin-top:6px"><span class="btn danger small">Flag as critical suspicion</span> <span class="btn small">Not critical — dismiss (reason logged)</span></span></div>
+            </div>
+            <div class="field"><label>Impression <span class="req">*</span></label>
+              <div class="textarea" style="min-height:56px">1. Acute right frontal subdural haemorrhage, 6 mm, no midline shift.&#10;2. No fracture.</div></div>
+          </div>
+          <div class="card">
+            <div class="card-title">Coding (SNOMED CT / LOINC) <span class="right">auto-suggested from text</span></div>
+            <table>
+              <tr><th>Term in report</th><th>Code</th><th>System</th><th>Status</th><th></th></tr>
+              <tr><td>Acute subdural haemorrhage</td><td class="mono">95453001</td><td>SNOMED CT</td><td><span class="chip green">CODED</span></td><td><span class="btn ghost small">Change</span></td></tr>
+              <tr><td>CT head without contrast</td><td class="mono">30799-1</td><td>LOINC</td><td><span class="chip green">CODED</span></td><td><span class="btn ghost small">Change</span></td></tr>
+              <tr class="hl"><td>"grey–white differentiation preserved"</td><td class="mono">—</td><td>—</td><td><span class="chip amber">UNCODED — reason required</span></td><td><span class="btn small">Code / give reason</span></td></tr>
+            </table>
+            <div class="hint small muted" style="margin-top:6px">Uncoded terms never block signing — a reason is captured instead (see State B). Reasons feed the terminology-gap review queue.</div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Prior report <span class="right">side panel</span></div>
+            <div class="kv" style="grid-template-columns:90px 1fr">
+              <dt>Study</dt><dd>CT Head NCCT · 14 Feb 2026</dd>
+              <dt>Accession</dt><dd class="mono">ACC-2026-87310</dd>
+              <dt>Signed by</dt><dd>Dr. A. Rao</dd>
+            </div>
+            <div class="banner info" style="margin-top:8px;font-size:12px"><b>Impression (prior)</b> No acute intracranial abnormality. Age-appropriate involutional change.</div>
+            <span class="btn ghost small">Open full prior ↗</span> <span class="btn ghost small">Insert comparison sentence</span>
+          </div>
+          <div class="card">
+            <div class="card-title">Macros <span class="right">F2</span></div>
+            <table>
+              <tr><td class="mono">/ncct-head</td><td>Normal NCCT head</td></tr>
+              <tr><td class="mono">/sdh</td><td>Subdural template</td></tr>
+              <tr><td class="mono">/no-fract</td><td>No fracture line</td></tr>
+              <tr><td class="mono">/limits</td><td>Motion limitation note</td></tr>
+            </table>
+          </div>
+          <div class="card">
+            <div class="card-title">Draft &amp; lock</div>
+            <div class="kv" style="grid-template-columns:90px 1fr">
+              <dt>Lock held by</dt><dd>Dr. V. Shetty (you)</dd>
+              <dt>Since</dt><dd>11:18 IST · WS-AND-READ-03</dd>
+              <dt>Autosave</dt><dd>every 20 s · v27</dd>
+              <dt>Editors</dt><dd>single-editor enforced</dd>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="audit">Every open of this draft, each autosave version, coding change and critical-prompt dismissal is recorded in the access log with user, workstation and time.</p>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — UNCODED TERM ESCAPE HATCH (REASON REQUIRED, NO HARD BLOCK)</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Uncoded term — "grey–white differentiation preserved"</h3>
+    <p class="small muted" style="margin-bottom:10px">No confident SNOMED CT match (best candidate 61%). You may code it manually or record a reason and continue — signing is never blocked by coding.</p>
+    <div class="field"><label>Search terminology</label><input class="input" value="grey white differentiation"><div class="hint">3 candidates · none above the 80% auto-accept threshold</div></div>
+    <table style="margin-bottom:10px">
+      <tr><th>Candidate</th><th>Code</th><th>Match</th><th></th></tr>
+      <tr><td>Normal grey-white matter differentiation (finding)</td><td class="mono">449269003</td><td>61%</td><td><span class="btn small">Use</span></td></tr>
+      <tr><td>Cerebral cortex structure (body)</td><td class="mono">40146001</td><td>44%</td><td><span class="btn small">Use</span></td></tr>
+    </table>
+    <div class="field"><label>Leave uncoded — reason <span class="req">*</span></label>
+      <select class="select"><option>Descriptive phrase — no single concept applies</option><option>Terminology gap — request addition</option><option>Negation/normal statement — coding not required</option><option>Other (specify)</option></select>
+      <div class="hint">Reason is stored with the report and queued to the terminology-gap review list (K. Verma, admin).</div></div>
+    <div class="modal-actions"><span class="btn">Back to editor</span><span class="btn primary">Save reason &amp; continue uncoded</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — DRAFT-LOCK TAKEOVER (SECOND RADIOLOGIST, REASON REQUIRED)</div>
+<div class="modal-wrap">
+  <div class="modal danger">
+    <h3>Draft is locked by another editor</h3>
+    <div class="banner warn"><b>Single-editor lock held by Dr. V. Shetty</b> on WS-AND-READ-03 since 11:18 IST · last autosave 11:42:18 (v27). Taking over will transfer the lock and force their session to read-only.</div>
+    <div class="kv" style="grid-template-columns:130px 1fr;margin-bottom:10px">
+      <dt>You are</dt><dd>Dr. A. Rao · duty senior · WS-AND-READ-01</dd>
+      <dt>Draft</dt><dd>ACC-2026-91233 · Sofia Rossi · MRN-004822</dd>
+      <dt>Escalation</dt><dd><span class="chip red">OVERDUE 00:31</span> — escalated to you at 11:35 IST</dd>
+    </div>
+    <div class="field"><label>Takeover reason <span class="req">*</span></label>
+      <select class="select"><option>SLA escalation — original reader unavailable</option><option>Original reader requested handover</option><option>Emergency clinical need</option></select></div>
+    <div class="field"><label>Note to Dr. V. Shetty (sent with lock notice)</label><textarea class="textarea" style="min-height:44px">Taking this over per STAT escalation; call me if you're mid-dictation.</textarea></div>
+    <div class="check"><span class="box on">✓</span> I understand the current editor is notified immediately and all v1–v27 autosaves remain attributed to them.</div>
+    <div class="modal-actions"><span class="btn">Cancel — keep read-only</span><span class="btn danger">Take over draft lock</span></div>
+  </div>
+</div>
+<p class="audit">Lock takeover records both identities, workstations, reason and note; the displaced editor receives an in-app and mobile notice within 5 seconds.</p>
+
+<div class="state-tag">STATE D — REGULATED TEMPLATE (OBSTETRIC US · PC-PNDT FORM F LINKED)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Drafts &rsaquo; ACC-2026-91302 &rsaquo; Report editor (regulated)</div>
+      <div class="page-title">US Obstetric — anomaly scan <span class="chip violet">REGULATED · PC-PNDT</span> <span class="chip amber">DRAFT</span></div>
+      <div class="page-sub">Priya Menon · F 29y · MRN-004828 · ACC-2026-91302 · referred by Dr. Farida Khan · Form F <span class="mono">FF/AND/26-27/0114</span> completed ✓</div>
+      <div class="banner reg"><b>Statutory template in force.</b> Locked sections below are mandated by the PC-PNDT Act and cannot be edited or removed. Foetal sex is never determined, recorded or communicated — free-text is scanned and any sex-indicative phrase blocks save with a compliance alert.</div>
+      <div class="card">
+        <div class="card-title">Template: OB Anomaly Scan (Statutory v2.0)</div>
+        <div class="field"><label>🔒 Declaration (locked statutory section)</label>
+          <div class="input" style="background:#F5F3FF;border-color:#C4B5FD">This ultrasound has been conducted under the PC-PNDT Act, 1994. Foetal sex has not been determined or disclosed. Form F ref FF/AND/26-27/0114.</div>
+          <div class="hint">Locked — sourced from registration MH/PNDT/AND/2214; edits disabled for all roles.</div></div>
+        <div class="field"><label>🔒 Indication (locked to Form F entry)</label>
+          <div class="input" style="background:#F5F3FF;border-color:#C4B5FD">Anomaly scan at 19w3d — routine antenatal care.</div></div>
+        <div class="field"><label>Biometry &amp; anatomy survey <span class="req">*</span></label>
+          <div class="textarea" style="min-height:70px">Single live intrauterine gestation. BPD 45 mm, HC 168 mm, AC 141 mm, FL 30 mm — composite 19w4d. Anatomy survey: cranium, spine, four-chamber heart, stomach, kidneys, bladder and limbs unremarkable. Placenta posterior, clear of os. AFI 13 cm.</div></div>
+        <div class="field"><label>Impression <span class="req">*</span></label>
+          <div class="textarea" style="min-height:44px">Normal anomaly scan at 19w4d. Follow-up growth scan as per obstetrician.</div></div>
+        <div class="banner warn" style="margin-bottom:0"><b>Compliance scan: clean.</b> No sex-indicative terms found in free text (last scan 12:03:44 IST). This check re-runs at pre-sign and at sign.</div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Regulated drafts additionally log every compliance scan result; Form F linkage and the statutory declaration hash are recorded in the access log.</p>
+</section>

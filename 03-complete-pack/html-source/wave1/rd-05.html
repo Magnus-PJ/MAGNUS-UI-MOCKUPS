@@ -1,0 +1,99 @@
+<section class="screen" id="rd-05">
+<div class="screen-head"><h1><span class="sid">RD-05</span> Prior comparison layout</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Invoked from RD-03 when a relevant prior exists: Dr. V. Shetty reads current vs prior side-by-side with synced scroll, peeks at the prior report's impression without leaving the viewer, and captures a structured delta note that feeds the report macro ("Compared with the 12 Feb 2026 study…"). It must guarantee that the prior actually loaded is the one cited in the report (accession-linked), that multiple priors are offered sorted by clinical relevance, and that same-org prior access carries the visible Treatment purpose chip.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · Reading</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty · RMC MH-44721 ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Reading</div>
+    <div class="nav-item">Worklist <span class="nav-badge">13</span></div>
+    <div class="nav-item active">Viewer — compare</div>
+    <div class="nav-item">Report editor</div>
+    <div class="sec-label">This study</div>
+    <div class="nav-item">Priors (3)</div>
+    <div class="nav-item">Measurements (3)</div>
+    <div class="sec-label">Quality &amp; safety</div>
+    <div class="nav-item">Critical results <span class="nav-badge red">1</span></div>
+  </div>
+  <div class="main">
+    <div class="crumb">RIS · Reading &rsaquo; ACC-2026-91101 &rsaquo; Viewer &rsaquo; Compare with prior</div>
+    <div class="card" style="padding:8px 12px;background:#F8FAFC">
+      <div class="row" style="justify-content:space-between;flex-wrap:wrap;gap:8px">
+        <div><b>Mohammed Al-Rashid</b> · M/62 · <span class="mono">MRN-004790</span> · HRCT Chest <span class="mono">ACC-2026-91101</span> vs CTPA <span class="mono">ACC-2026-84412</span></div>
+        <div><span class="chip teal">Priors: Treatment · care team · recorded</span> <span class="chip teal">SLA due in 1h 48m</span></div>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap">
+      <span class="btn small primary">⇅ Synced scroll: ON</span><span class="btn small">Sync W/L</span><span class="btn small">Registration: auto (rigid)</span><span class="btn small">Swap panes</span><span class="btn small">Change prior ▾</span><span class="btn small ghost">Exit compare</span>
+    </div>
+    <div class="row">
+      <div class="grow"><div class="card" style="background:#020617;border-color:#1E293B;padding:10px;color:#E2E8F0">
+        <div style="display:flex;justify-content:space-between"><span class="chip teal">CURRENT · 25 Jul 2026</span><span class="small mono" style="color:#7DD3FC">HRCT S1 Axial · img 203/312</span></div>
+        <div style="text-align:center;color:#334155;font-size:26px;padding:44px 0;border:1px solid #1E293B;border-radius:8px;background:#0B1220;margin-top:6px">[ CURRENT — RLL NODULE 8.4 mm ]</div>
+        <div class="small mono" style="color:#5EEAD4;margin-top:4px">M1 linear 8.4 mm · W1500 L−600</div>
+      </div></div>
+      <div class="grow"><div class="card" style="background:#020617;border-color:#1E293B;padding:10px;color:#E2E8F0">
+        <div style="display:flex;justify-content:space-between"><span class="chip grey">PRIOR · 12 Feb 2026</span><span class="small mono" style="color:#7DD3FC">CTPA S1 Axial · img 198/305 (registered)</span></div>
+        <div style="text-align:center;color:#334155;font-size:26px;padding:44px 0;border:1px solid #1E293B;border-radius:8px;background:#0B1220;margin-top:6px">[ PRIOR — SAME NODULE 6.1 mm ]</div>
+        <div class="small mono" style="color:#94A3B8;margin-top:4px">M0 linear 6.1 mm (Dr. A. Rao, Feb 2026) · same W/L applied</div>
+      </div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Delta note → feeds report macro <span class="right">Accession-linked · autosaves</span></div>
+      <div class="row">
+        <div class="grow">
+          <div class="field"><label>Interval change summary</label><textarea class="textarea">RLL subpleural nodule increased from 6.1 mm to 8.4 mm (Δ +2.3 mm over 5.4 months). No new nodules. Previously noted RLL segmental PE not assessable on non-contrast technique; no sequela of infarct.</textarea><div class="hint">Inserted into the report as: "Compared with the CTPA of 12 Feb 2026 (ACC-2026-84412): …" — the prior's accession is cited automatically so the report always names the exact study compared.</div></div>
+          <div style="display:flex;gap:10px"><span class="btn primary">Insert into report editor</span><span class="btn">Save note only</span></div>
+        </div>
+        <div style="width:230px;flex-shrink:0">
+          <div class="kv" style="grid-template-columns:96px 1fr">
+            <dt>Interval</dt><dd>163 days</dd>
+            <dt>Linked meas.</dt><dd>M1 8.4 mm ↔ M0 6.1 mm <span class="chip teal">Δ +2.3 mm</span></dd>
+            <dt>Growth flag</dt><dd><span class="chip amber">&gt;2 mm — Fleischner review suggested</span></dd>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE B — PRIOR-REPORT PEEK PANEL + MULTIPLE-PRIORS PICKER (RELEVANCE-SORTED)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">RIS · Reading &rsaquo; ACC-2026-91101 &rsaquo; Compare &rsaquo; Prior report</div>
+  <div class="split">
+    <div class="card">
+      <div class="card-title">Prior report — CTPA Chest, 12 Feb 2026 <span class="right mono">ACC-2026-84412</span></div>
+      <div class="kv" style="margin-bottom:10px">
+        <dt>Reported by</dt><dd>Dr. A. Rao · signed 12 Feb 2026 18:41 IST · Andheri West</dd>
+        <dt>Status</dt><dd><span class="chip green">Final</span> · critical result communicated to Dr. S. Iyer 12 Feb 2026 18:55 (read-back confirmed)</dd>
+      </div>
+      <div class="banner reg" style="margin-bottom:10px"><b>Impression (verbatim):</b>1. Acute segmental pulmonary embolism, right lower lobe. 2. 6.1 mm subpleural nodule RLL — recommend follow-up CT in 6 months per Fleischner. 3. No pleural effusion.</div>
+      <div class="small muted">Peek shows Impression + Findings excerpt only; <span class="btn small ghost">Open full report ↗</span> opens the signed PDF in a new pane. Viewing the prior report is covered by the same Treatment purpose as the images.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Choose prior <span class="right">Sorted by relevance</span></div>
+      <table>
+        <tr><th>Prior</th><th>Relevance</th><th></th></tr>
+        <tr class="hl"><td><b>CTPA Chest</b><div class="small muted">12 Feb 2026 · same region + modality · has nodule measurement</div></td><td><span class="chip green">High 0.94</span></td><td><span class="btn small primary">Comparing</span></td></tr>
+        <tr><td><b>XR Chest PA</b><div class="small muted">03 Jan 2026 · same region, different modality</div></td><td><span class="chip amber">Medium 0.61</span></td><td><span class="btn small">Compare</span></td></tr>
+        <tr><td><b>US Abdomen</b><div class="small muted">14 Nov 2025 · adjacent region</div></td><td><span class="chip grey">Low 0.22</span></td><td><span class="btn small">Compare</span></td></tr>
+        <tr class="dim"><td><b>CT Chest — Lilavati Hospital (external)</b><div class="small muted">2024 · cross-org, not fetched</div></td><td><span class="chip amber">Unknown</span></td><td><span class="btn small warn-outline">Request access</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:6px">Relevance = body region + modality match + recency + presence of comparable measurements. The picker never auto-fetches cross-org studies.</div>
+    </div>
+  </div>
+</div></div></div>
+<div class="state-tag">STATE C — NO PRIORS AVAILABLE (EMPTY)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">RIS · Reading &rsaquo; ACC-2026-91089 &rsaquo; Viewer &rsaquo; Compare</div>
+  <div class="card" style="padding:8px 12px;background:#F8FAFC"><b>Ananya Rao</b> · F/8 · <span class="mono">MRN-004819</span> · XR Wrist AP/LAT <span class="mono">ACC-2026-91089</span> · Ref: Dr. Farida Khan</div>
+  <div class="banner info"><b>No priors found for this patient across Meridian branches.</b>Searched all 6 branches for MRN-004819 (any modality, any date) at 11:20 IST — 0 studies. If the family mentions imaging done elsewhere, you can log an external-prior request; nothing is fetched without a consent-backed exchange.</div>
+  <div class="card"><div class="card-title">Options</div>
+    <div class="row">
+      <div class="grow"><span class="btn">Re-check across branches</span><div class="small muted" style="margin-top:4px">Useful if registration just merged a duplicate MRN.</div></div>
+      <div class="grow"><span class="btn warn-outline">Request external prior (cross-org)</span><div class="small muted" style="margin-top:4px">Opens consent-backed request; guardian notified (patient is a minor).</div></div>
+      <div class="grow"><span class="btn primary">Continue read without prior</span><div class="small muted" style="margin-top:4px">Report macro inserts: "No prior studies available for comparison."</div></div>
+    </div>
+  </div>
+</div></div></div>
+<p class="audit">Prior selection, each prior-report peek, delta-note insertions (with the cited prior accession), and external-prior requests are recorded in the access log under the Treatment purpose of the current read.</p>
+</section>

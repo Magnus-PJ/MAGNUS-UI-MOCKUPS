@@ -1,0 +1,129 @@
+<section class="screen" id="fo-16">
+<div class="screen-head"><h1><span class="sid">FO-16</span> Visit / encounter summary</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office and branch admins open this screen to see the full life of one visit — from registration to report delivery — as a single linked timeline, so any question ("did the report go out?", "is there a balance?") is answered from one place. Each timeline node deep-links to its source record, and the right rail shows balance, open items and related visits. It must guarantee that nothing on the visit is editable here; it is a read-and-navigate view, and it is the foundation for the future IPD encounter spine.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Reception</div>
+    <div class="nav-item">Today's schedule</div>
+    <div class="nav-item">Registration</div>
+    <div class="nav-item">Walk-in fast-track</div>
+    <div class="nav-item">Token queue <span class="nav-badge">14</span></div>
+    <div class="sec-label">Billing</div>
+    <div class="nav-item">Collect payment</div>
+    <div class="nav-item">Invoices</div>
+    <div class="sec-label">Records</div>
+    <div class="nav-item">Document intake</div>
+    <div class="nav-item active">Visit summaries</div>
+    <div class="nav-item">End-of-day close</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Front Office › Visit summaries › VIS-2026-30871</div>
+    <div class="page-title">Visit VIS-2026-30871 — Priya Menon <span class="chip green">CLOSED · ALL DELIVERED</span></div>
+    <div class="page-sub">MRN-004828 · F · 35y · viewing purpose: front-office service — clinical notes remain masked for this role</div>
+    <div class="banner reg"><b>IPD-spine foundation.</b> This visit record is the encounter spine MVP-2 will extend for admissions (bed, ward rounds, discharge). Event nodes below are the same event types the IPD timeline will reuse — do not fork this model.</div>
+    <div class="split">
+      <div>
+        <div class="card">
+          <div class="card-title">Visit header <span class="right">Read-only</span></div>
+          <dl class="kv">
+            <dt>Visit ref</dt><dd class="mono bold">VIS-2026-30871</dd>
+            <dt>Date &amp; branch</dt><dd>Sat 18 Jul 2026 · Andheri West · Counter 1</dd>
+            <dt>Type</dt><dd>Scheduled outpatient (APPT-2026-51102) <span class="chip grey">OP-DIAGNOSTIC</span></dd>
+            <dt>Services</dt><dd>USG Abdomen (ACC-2026-90218) · CBC (ACC-2026-90219)</dd>
+            <dt>Referrer</dt><dd>Dr. Meera Nair — MedPlus Clinic, Andheri</dd>
+            <dt>Attended by</dt><dd>Reg: D. Nair · Tech: T. Okafor · Reporting: Dr. V. Shetty (RMC MH-44721)</dd>
+          </dl>
+        </div>
+        <div class="card">
+          <div class="card-title">Linked event timeline <span class="right">Each node opens its source record</span></div>
+          <div class="timeline">
+            <div class="ev"><span class="t">18 Jul 09:02</span><div><span class="chip green">REGISTERED</span> Check-in against APPT-2026-51102 · identity verified (Aadhaar ····9104, last-4 only) · <span class="btn ghost small">open registration</span></div></div>
+            <div class="ev"><span class="t">18 Jul 09:04</span><div><span class="chip green">TOKEN</span> C-042 issued · US Room 3 queue · called 09:26 · <span class="btn ghost small">open queue event</span></div></div>
+            <div class="ev"><span class="t">18 Jul 09:05</span><div><span class="chip green">CONSENT</span> USG procedure consent signed on pad · PCPNDT declaration on file (obstetric scans: foetal sex is never disclosed — Form F not applicable to this abdominal study) · <span class="btn ghost small">open consent</span></div></div>
+            <div class="ev"><span class="t">18 Jul 09:06</span><div><span class="chip green">ORDER</span> ACC-2026-90218 USG Abdomen + ACC-2026-90219 CBC placed · <span class="btn ghost small">open order</span></div></div>
+            <div class="ev"><span class="t">18 Jul 09:08</span><div><span class="chip green">INVOICE</span> INV/AND/26-27/0398 · ₹1,550.00 · paid in full (card ····3310) · <span class="btn ghost small">open invoice</span></div></div>
+            <div class="ev"><span class="t">18 Jul 09:41</span><div><span class="chip green">ACQUIRED</span> USG study completed by T. Okafor · 34 images · QC passed · <span class="btn ghost small">open study</span></div></div>
+            <div class="ev"><span class="t">18 Jul 13:12</span><div><span class="chip green">SIGNED</span> Report signed by Dr. V. Shetty (RMC MH-44721) · TAT 3h 31m (within 6h SLA) · <span class="btn ghost small">open report</span></div></div>
+            <div class="ev"><span class="t">18 Jul 13:15</span><div><span class="chip green">DELIVERED</span> Secure link sent to patient (+91 98··· ··177) and referrer Dr. Meera Nair · first opened 18 Jul 14:02 · <span class="btn ghost small">open delivery log</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">Balance</div>
+          <div style="font-size:26px;font-weight:800;color:#15803D">₹0.00</div>
+          <div class="small muted">Billed ₹1,550.00 · received ₹1,550.00 · no refunds</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Open items <span class="chip green">0</span></div>
+          <div class="small muted">Nothing pending. Visit closed automatically on delivery confirmation.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Related visits</div>
+          <table>
+            <tr><th>Ref</th><th>Date</th><th>Status</th></tr>
+            <tr><td class="mono">VIS-2026-30655</td><td>02 Jul 26 · XR Knee</td><td><span class="chip green">Closed</span></td></tr>
+            <tr><td class="mono">VIS-2026-30122</td><td>11 Jun 26 · LAB panel</td><td><span class="chip green">Closed</span></td></tr>
+            <tr><td class="mono">APPT-2026-51389</td><td>29 Jul 26 · follow-up USG</td><td><span class="chip blue">Upcoming</span></td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — VISIT WITH OPEN ITEMS (UNSIGNED REPORT · OUTSTANDING BALANCE · DELIVERY FAILED)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="crumb">Front Office › Visit summaries › VIS-2026-30894</div>
+    <div class="page-title">Visit VIS-2026-30894 — Rajesh Gupta <span class="chip red">3 OPEN ITEMS</span></div>
+    <div class="page-sub">MRN-004795 · M · 58y · Thu 24 Jul 2026 · Andheri West · walk-in</div>
+    <div class="banner danger"><b>This visit cannot close.</b> Report unsigned past SLA, ₹1,050.00 balance outstanding, and prior-report delivery to referrer failed twice. Owners are shown per item below.</div>
+    <div class="split">
+      <div>
+        <div class="card">
+          <div class="card-title">Linked event timeline</div>
+          <div class="timeline">
+            <div class="ev"><span class="t">24 Jul 16:12</span><div><span class="chip green">REGISTERED</span> Walk-in fast-track · <span class="chip amber">complete-later: email</span> · <span class="btn ghost small">open registration</span></div></div>
+            <div class="ev"><span class="t">24 Jul 16:14</span><div><span class="chip green">TOKEN</span> X-008 · CT queue · served 16:38</div></div>
+            <div class="ev"><span class="t">24 Jul 16:15</span><div><span class="chip green">CONSENT</span> CT contrast consent signed · creatinine checked</div></div>
+            <div class="ev"><span class="t">24 Jul 16:16</span><div><span class="chip green">ORDER</span> ACC-2026-90344 CT Brain plain+contrast</div></div>
+            <div class="ev"><span class="t">24 Jul 16:18</span><div><span class="chip amber">INVOICE</span> INV/AND/26-27/0409 · ₹3,850.00 · part-paid ₹2,800.00 · <b>balance ₹1,050.00</b> · promised "pay at report collection" · <span class="btn ghost small">open invoice</span></div></div>
+            <div class="ev"><span class="t">24 Jul 16:52</span><div><span class="chip green">ACQUIRED</span> Study completed by T. Okafor · 212 images</div></div>
+            <div class="ev"><span class="t">— pending</span><div><span class="chip red">SIGNED — OVERDUE 14:22</span> assigned Dr. A. Rao · SLA 6h breached · <span class="small">Escalated to Dr. V. Shetty (reporting lead) at 25 Jul 06:52</span> · <span class="btn ghost small">open worklist item</span></div></div>
+            <div class="ev"><span class="t">— blocked</span><div><span class="chip red">DELIVERY FAILED ×2</span> referrer fax/email bounce (Dr. Farida Khan — mailbox full) for prior-visit addendum · retry scheduled · <span class="btn ghost small">open delivery log</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">Balance</div>
+          <div style="font-size:26px;font-weight:800;color:#B91C1C">₹1,050.00</div>
+          <div class="small muted">Billed ₹3,850.00 · received ₹2,800.00 (UPI)</div>
+          <div style="margin-top:8px"><span class="btn primary small">Collect balance</span> <span class="btn small">Send payment link</span></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Open items <span class="chip red">3</span></div>
+          <table>
+            <tr><th>Item</th><th>Owner / SLA</th></tr>
+            <tr><td>Report unsigned</td><td><span class="chip red">OVERDUE 14:22</span><div class="small">Dr. A. Rao · escalated to Dr. V. Shetty</div></td></tr>
+            <tr><td>Balance ₹1,050</td><td><span class="chip amber">due at collection</span><div class="small">Front office · D. Nair</div></td></tr>
+            <tr><td>Delivery failed</td><td><span class="chip red">retry #3 at 18:00</span><div class="small">Auto-retry · then manual</div></td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-title">Related visits</div>
+          <table>
+            <tr><th>Ref</th><th>Date</th><th>Status</th></tr>
+            <tr><td class="mono">VIS-2026-30710</td><td>08 Jul 26 · MRI Spine</td><td><span class="chip amber">Addendum pending</span></td></tr>
+            <tr><td class="mono">VIS-2026-29984</td><td>21 May 26 · XR Chest</td><td><span class="chip green">Closed</span></td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+<p class="audit">Every open of a visit summary, and every deep-link followed from a timeline node, is recorded in the access log with viewer, role and stated purpose; clinical content stays masked for non-clinical roles.</p>
+</section>

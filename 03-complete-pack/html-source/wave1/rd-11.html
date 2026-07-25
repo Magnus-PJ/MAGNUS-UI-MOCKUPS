@@ -1,0 +1,168 @@
+<section class="screen" id="rd-11">
+<div class="screen-head"><h1><span class="sid">RD-11</span> Critical results queue &amp; escalation</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The branch-level live queue of all critical-result communications, owned at role level by the duty coordinator (not an individual) so shift changes never orphan an alert. It must guarantee that every unacknowledged alert has an explicit Send/Resend action, severity-tiered windows (RED 15 min / ORANGE 4 h), an audible alert on lapse, and an automatic three-tier escalation ladder — Tier 1 referrer → Tier 2 branch medical lead → Tier 3 org clinical lead — with timestamps. The loop closes only via the record-acknowledgement modal (who, method, read-back).</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Reading</div>
+      <div class="nav-item">Reading worklist <span class="nav-badge">14</span></div>
+      <div class="nav-item">Current study</div>
+      <div class="sec-label">Results</div>
+      <div class="nav-item active">Critical results <span class="nav-badge red">3</span></div>
+      <div class="nav-item">Addenda</div>
+      <div class="nav-item">My signed reports</div>
+      <div class="sec-label">Registry</div>
+      <div class="nav-item">Report search</div>
+      <div class="nav-item">Peer review</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Results › Critical results queue</div>
+      <div class="page-title">Critical results queue <span class="actions-right"><span class="btn small">Roster: duty coordinator ▾</span></span></div>
+      <div class="page-sub">Role-level owner: <b>Duty coordinator — Andheri West</b> (currently staffed by D. Nair, shift 08:00–20:00 IST) · 25 Jul 2026, 12:20 IST</div>
+      <div class="banner danger"><b>🔊 Audible alert active — 1 RED window lapsed</b>CRIT-2026-0611 (ACC-2026-91247) exceeded its 15-minute acknowledgement window at 12:13 IST. Escalated to Tier 2 — branch medical lead Dr. A. Rao at 12:14 IST. Audible alert repeats every 60 s at the coordinator desk until acknowledged or escalated to Tier 3.</div>
+      <div class="kpi-row">
+        <div class="kpi red"><div class="n">1</div><div class="l">Lapsed / escalated</div><div class="s">RED tier · Tier 2 active</div></div>
+        <div class="kpi amber"><div class="n">2</div><div class="l">Awaiting acknowledgement</div><div class="s">Within window</div></div>
+        <div class="kpi"><div class="n">1</div><div class="l">Failed sends</div><div class="s">Needs resend</div></div>
+        <div class="kpi"><div class="n">9</div><div class="l">Closed today</div><div class="s">Median loop 11 min</div></div>
+      </div>
+      <div style="display:flex;gap:8px;margin-bottom:10px">
+        <span class="chip grey">Unnotified · 1</span><span class="chip amber">Awaiting ack · 3</span><span class="chip red">Failed · 1</span><span class="chip teal" style="outline:2px solid #0F766E">All open · 5</span><span class="chip grey">Closed · 9</span>
+      </div>
+      <table>
+        <tr><th>Alert / accession</th><th>Patient</th><th>Finding category</th><th>Tier</th><th>Ack window</th><th>Ladder</th><th>Action</th></tr>
+        <tr class="hl" style="background:#FEF2F2">
+          <td class="mono">CRIT-2026-0611<br>ACC-2026-91247</td><td>Sofia Rossi<br><span class="small muted">MRN-004822</span></td><td>Intracranial haemorrhage — new</td><td><span class="chip red">RED · 15m</span></td>
+          <td><span class="chip red">OVERDUE 00:07</span><div class="small muted">Owner: duty coordinator<br>Escalated to Dr. A. Rao (T2) 12:14</div></td>
+          <td>T2 <span class="small muted">of 3</span></td>
+          <td><span class="btn small danger">Resend</span> <span class="btn small">Record ack</span></td>
+        </tr>
+        <tr>
+          <td class="mono">CRIT-2026-0609<br>ACC-2026-91232</td><td>Mohammed Al-Rashid<br><span class="small muted">MRN-004790</span></td><td>Pulmonary embolism — segmental</td><td><span class="chip red">RED · 15m</span></td>
+          <td><span class="chip teal">due in 9m</span><div class="small muted">Owner: duty coordinator</div></td>
+          <td>T1</td>
+          <td><span class="btn small">Resend</span> <span class="btn small">Record ack</span></td>
+        </tr>
+        <tr>
+          <td class="mono">CRIT-2026-0607<br>ACC-2026-91218</td><td>Rajesh Gupta<br><span class="small muted">MRN-004795</span></td><td>Aortic aneurysm ≥ 5.5 cm</td><td><span class="chip amber">ORANGE · 4h</span></td>
+          <td><span class="chip amber">due in 1h 12m</span><div class="small muted">Owner: duty coordinator</div></td>
+          <td>T1</td>
+          <td><span class="btn small">Resend</span> <span class="btn small">Record ack</span></td>
+        </tr>
+        <tr>
+          <td class="mono">CRIT-2026-0605<br>ACC-2026-91205</td><td>Ananya Rao<br><span class="small muted">MRN-004819</span></td><td>New mass — suspicious for malignancy</td><td><span class="chip amber">ORANGE · 4h</span></td>
+          <td><span class="chip teal">due in 3h 40m</span><div class="small muted">Owner: duty coordinator</div></td>
+          <td>T1</td>
+          <td><span class="btn small">Resend</span> <span class="btn small">Record ack</span></td>
+        </tr>
+        <tr>
+          <td class="mono">CRIT-2026-0603<br>ACC-2026-91198</td><td>Kwame Osei<br><span class="small muted">MRN-004823</span></td><td>Pneumothorax — moderate</td><td><span class="chip red">RED · 15m</span></td>
+          <td><span class="chip red">SEND FAILED</span><div class="small muted">SMS gateway rejected ×2 · voice no route</div></td>
+          <td>—</td>
+          <td><span class="btn small danger">Send now</span> <span class="btn small ghost">Diagnose</span></td>
+        </tr>
+        <tr class="dim">
+          <td class="mono">CRIT-2026-0601<br>ACC-2026-91190</td><td>Priya Menon<br><span class="small muted">MRN-004828</span></td><td>Acute appendicitis with perforation</td><td><span class="chip red">RED · 15m</span></td>
+          <td><span class="chip green">ACK 09:41</span><div class="small muted">Loop closed in 8 min</div></td>
+          <td>T1 ✓</td>
+          <td><span class="btn small ghost">View loop</span></td>
+        </tr>
+      </table>
+      <p class="small muted" style="margin-top:8px">Every row keeps an explicit Send/Resend action regardless of automation state — automation never removes the human path. Queue views auto-refresh every 30 s; offline the queue is read-only with a stale-data banner.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ESCALATION LADDER DETAIL FOR LAPSED ALERT CRIT-2026-0611</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="page-title">CRIT-2026-0611 — escalation ladder</div>
+      <div class="page-sub">Sofia Rossi · MRN-004822 · ACC-2026-91247 · RED (ack 15 min) · sent 11:58 IST by Dr. V. Shetty</div>
+      <div class="split">
+        <div class="card">
+          <div class="card-title">Ladder — timestamps recorded automatically</div>
+          <div class="ladder">
+            <div class="tier fail"><b>Tier 1 · Referrer — Dr. Meera Nair</b><div class="small">11:58:04 voice ×3 (no answer) · 11:58:05 SMS delivered · 12:06 inbox unread · <span class="chip red">window lapsed 12:13:02</span></div></div>
+            <div class="tier cur"><b>Tier 2 · Branch medical lead — Dr. A. Rao</b><div class="small">12:14:00 auto-escalated · voice call placed 12:14:05 — <span class="chip amber">line busy, retry 12:16</span> · SMS delivered 12:14:06 · Tier 2 window: 10 min (RED)</div></div>
+            <div class="tier"><b>Tier 3 · Org clinical lead — Dr. Farida Khan (Meridian Clinical Governance)</b><div class="small">Auto-fires at 12:24:00 if Tier 2 unacknowledged · includes branch context pack and coordinator phone bridge</div></div>
+          </div>
+          <div class="banner warn"><b>Manual override available</b>The duty coordinator may skip forward a tier with a documented reason (e.g. referrer confirmed on leave). Skipping a tier is a step-up action: re-enter your Magnus PIN to confirm identity.</div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Window &amp; ownership</div>
+            <div class="kv">
+              <dt>Tier</dt><dd><span class="chip red">RED · 15 min</span></dd>
+              <dt>Status</dt><dd><span class="chip red">OVERDUE 00:07</span></dd>
+              <dt>Owner</dt><dd>Duty coordinator (role) · staffed: D. Nair</dd>
+              <dt>Escalated</dt><dd>Escalated to Dr. A. Rao (Tier 2) · 12:14 IST</dd>
+              <dt>Audible alert</dt><dd>Active · repeats 60 s · coordinator desk + Tier 2 mobile push</dd>
+            </div>
+            <div class="progress red" style="margin-top:8px"><i style="width:100%"></i></div>
+          </div>
+          <div class="card">
+            <div class="card-title">Actions</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <span class="btn danger">Resend all channels now</span>
+              <span class="btn primary">Record acknowledgement</span>
+              <span class="btn warn-outline">Skip to Tier 3 (reason + PIN)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — RECORD-ACKNOWLEDGEMENT MODAL (WHO · METHOD · READ-BACK)</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Record acknowledgement — CRIT-2026-0611</h3>
+    <p class="small muted" style="margin-bottom:10px">Sofia Rossi · MRN-004822 · ACC-2026-91247 · RED tier. Recording an acknowledgement closes the loop and stops escalation. This entry is legally significant and cannot be deleted, only amended with reason.</p>
+    <div class="field"><label>Acknowledged by <span class="req">*</span></label><div class="select">Dr. A. Rao — branch medical lead (Tier 2) ▾</div><div class="hint">If a delegate acknowledged (e.g. clinic nurse on doctor's instruction), record the delegate's full name and role in the note.</div></div>
+    <div class="field"><label>Method <span class="req">*</span></label>
+      <div class="check"><span class="box radio on"></span><span>Voice call — outbound, answered 12:19 IST</span></div>
+      <div class="check"><span class="box radio"></span><span>Voice call — recipient called reading room</span></div>
+      <div class="check"><span class="box radio"></span><span>Secure inbox — explicit acknowledge click</span></div>
+      <div class="check"><span class="box radio"></span><span>In person</span></div>
+    </div>
+    <div class="field"><label>Read-back confirmed <span class="req">*</span></label>
+      <div class="check"><span class="box on">✓</span><span>Recipient read back the patient reference (MRN last-4 <b>4822</b>, ACC-2026-91247) and the finding category correctly.</span></div>
+    </div>
+    <div class="field"><label>Note</label><div class="textarea">Dr. A. Rao acknowledged 12:19 IST; will contact Dr. Meera Nair's clinic directly and arrange neurosurgical referral. Requested report copy to his secure inbox.</div></div>
+    <div class="banner reg" style="margin-bottom:0"><b>Step-up confirmation</b>Enter your Magnus PIN to sign this acknowledgement record as the duty coordinator. <span class="mono">PIN ••••</span></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Save acknowledgement &amp; close loop</span></div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE D — CLOSED ALERT WITH FULL COMMUNICATION-LOOP AUDIT</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="page-title">CRIT-2026-0611 — closed <span class="chip green" style="vertical-align:middle">LOOP CLOSED 12:19 IST</span></div>
+      <div class="page-sub">Total loop time 21 min (window 15 min — lapse recorded and reviewed) · closed by duty coordinator D. Nair</div>
+      <div class="card">
+        <div class="card-title">Full loop audit <span class="right">Immutable</span></div>
+        <div class="timeline">
+          <div class="ev"><span class="t">11:58:02</span><span>Flagged RED at sign by Dr. V. Shetty (RMC MH-44721) · category: intracranial haemorrhage — new · queue item created</span></div>
+          <div class="ev"><span class="t">11:58:04</span><span>Tier 1 dispatch — voice to Dr. Meera Nair +91 98••• ••312 (no answer ×3), SMS delivered, secure inbox posted</span></div>
+          <div class="ev"><span class="t">12:13:02</span><span>RED window lapsed · audible alert raised at coordinator desk · owner: duty coordinator (D. Nair)</span></div>
+          <div class="ev"><span class="t">12:14:00</span><span>Auto-escalated to Tier 2 — branch medical lead Dr. A. Rao · voice + SMS + mobile push</span></div>
+          <div class="ev"><span class="t">12:19:10</span><span>Acknowledged by Dr. A. Rao · method: voice (answered) · read-back confirmed (MRN last-4 + accession + category)</span></div>
+          <div class="ev"><span class="t">12:19:45</span><span>Loop closed by D. Nair (PIN step-up verified) · escalation to Tier 3 cancelled · lapse flagged for weekly critical-results review</span></div>
+        </div>
+      </div>
+      <div class="banner success" style="max-width:640px"><b>Closure summary</b>Acknowledged at Tier 2 after Tier 1 lapse. Referrer contact record for Dr. Meera Nair queued for re-verification (task assigned to front office D. Nair). No further action required from the reading room.</div>
+    </div>
+  </div>
+</div>
+<p class="audit">All queue views, resends, tier escalations (automatic and manual), audible-alert raises and acknowledgement records — including who, method and read-back status — are recorded in the access log.</p>
+</section>

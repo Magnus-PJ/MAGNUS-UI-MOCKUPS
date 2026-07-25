@@ -1,0 +1,121 @@
+<section class="screen" id="or-03">
+<div class="screen-head"><h1><span class="sid">OR-03</span> Order detail &amp; timeline</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety — workspace 'Orders'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The single source of truth for one order, used by front office, technologists and radiologists throughout the visit. It must guarantee a complete picture: order facts (kv), the six-stage status stepper, every linked artifact (appointment, screening, consent, Form F where applicable, study, report, invoice), and a tamper-evident event trail with actor + timestamp for each transition. Terminal states (completed, cancelled) are immutable except for annotations.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Orders</div>
+      <div class="nav-item">New order</div>
+      <div class="nav-item active">Orders worklist <span class="nav-badge">38</span></div>
+      <div class="nav-item">Awaiting scheduling <span class="nav-badge red">6</span></div>
+      <div class="nav-item">Safety flags</div>
+      <div class="sec-label">Reference</div>
+      <div class="nav-item">Procedure catalog</div>
+      <div class="nav-item">Referrer directory</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Orders › Worklist › ACC-2026-91847</div>
+      <div class="page-title">ACC-2026-91847 · CT Brain (Plain) <span class="actions-right"><span class="btn small">Modify</span> <span class="btn small warn-outline">Cancel order</span> <span class="btn small">Print prep</span></span></div>
+      <div class="page-sub">Sofia Rossi · <span class="mono">MRN-004822</span> · F · 34y · ordered 25-Jul-2026 14:41 IST · <span class="chip teal">SLA: report due in 6h</span> owner: Dr. V. Shetty</div>
+
+      <div class="stepper">
+        <div class="step done"><span class="dot">✓</span> Ordered</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Scheduled</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Arrived</div><span class="step-line"></span>
+        <div class="step cur"><span class="dot">4</span> Acquired</div><span class="step-line"></span>
+        <div class="step"><span class="dot">5</span> Reported</div><span class="step-line"></span>
+        <div class="step"><span class="dot">6</span> Delivered</div>
+      </div>
+
+      <div class="split">
+        <div>
+          <div class="card">
+            <div class="card-title">Order facts <span class="right">version 3 · view versions</span></div>
+            <div class="kv">
+              <dt>Accession</dt><dd class="mono">ACC-2026-91847</dd>
+              <dt>Procedure</dt><dd>CT Brain (Plain) — <span class="mono">CT-BRN-P</span> · modality CT · laterality n/a</dd>
+              <dt>Priority</dt><dd><span class="chip grey">Routine</span></dd>
+              <dt>Clinical indication</dt><dd>Persistent right-sided headache × 3 weeks; rule out space-occupying lesion. No trauma.</dd>
+              <dt>Ordered by</dt><dd>D. Nair (front office) on behalf of referrer</dd>
+              <dt>Referring doctor</dt><dd>Dr. Meera Nair · Reg no. <span class="mono">MMC-2009-18455</span></dd>
+              <dt>Performing branch</dt><dd>Andheri West · CT-01 (Siemens go.Up)</dd>
+              <dt>Safety flags</dt><dd><span class="chip amber">Prior iodinated-contrast reaction on file</span> (no contrast in this order)</dd>
+              <dt>Idempotency ref</dt><dd class="mono">ord-idem-7f3a91c4</dd>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Event trail <span class="right">append-only · exportable</span></div>
+            <div class="timeline">
+              <div class="ev"><span class="t">25-Jul 14:41</span><span><b>Ordered</b> — placed by D. Nair (front office) · safety mini-check completed, 0 flags raised at order time</span></div>
+              <div class="ev"><span class="t">25-Jul 14:48</span><span><b>Scheduled</b> — APPT-2026-51204, 25-Jul 17:30 IST, CT-01 · booked by D. Nair</span></div>
+              <div class="ev"><span class="t">25-Jul 17:12</span><span><b>Arrived</b> — check-in token <span class="mono">C-042</span> issued · identity re-verified (Aadhaar last-4 8213) by D. Nair</span></div>
+              <div class="ev"><span class="t">25-Jul 17:26</span><span><b>Screening cleared</b> — technologist checklist signed by T. Okafor · no contraindications</span></div>
+              <div class="ev"><span class="t">25-Jul 17:41</span><span><b>Acquired</b> — study STU-2026-88410, 128 images, DLP 812 mGy·cm · performed by T. Okafor</span></div>
+              <div class="ev"><span class="t">25-Jul 17:42</span><span><b>Assigned for reporting</b> — Dr. V. Shetty (RMC MH-44721) · auto-assignment rule CT-routine</span></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Linked artifacts</div>
+            <table>
+              <tr><th>Artifact</th><th>Ref / status</th></tr>
+              <tr><td>Appointment</td><td class="mono">APPT-2026-51204 <span class="chip green">honoured</span></td></tr>
+              <tr><td>Visit</td><td class="mono">VIS-2026-30412</td></tr>
+              <tr><td>Safety screening</td><td><span class="chip green">Cleared · T. Okafor</span></td></tr>
+              <tr><td>Consent</td><td><span class="chip grey">Not required (plain CT)</span></td></tr>
+              <tr><td>Form F (PC-PNDT)</td><td><span class="chip grey">n/a — not obstetric US</span></td></tr>
+              <tr><td>Study</td><td class="mono">STU-2026-88410 <span class="chip green">stored</span></td></tr>
+              <tr><td>Report</td><td><span class="chip amber">Drafting — Dr. V. Shetty</span></td></tr>
+              <tr><td>Invoice</td><td class="mono">INV/AND/26-27/0491 <span class="chip green">paid ₹3,200</span></td></tr>
+            </table>
+            <div class="hint" style="margin-top:6px">Artifact links open in their own workspaces subject to that workspace's role &amp; purpose checks.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — COMPLETED (DELIVERED, TERMINAL)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">ACC-2026-91710 · USG Abdomen — Rajesh Gupta <span class="mono">MRN-004795</span> <span class="chip green">COMPLETED</span></div>
+  <div class="stepper">
+    <div class="step done"><span class="dot">✓</span> Ordered</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Scheduled</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Arrived</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Acquired</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Reported</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Delivered</div>
+  </div>
+  <div class="banner success"><b>Order closed 23-Jul-2026 19:05 IST</b>Report signed by Dr. A. Rao and delivered via patient portal + printed copy. Order is now immutable — Modify and Cancel are disabled; annotations only. SLA met: reported 3h 12m after acquisition (target 6h).</div>
+  <div class="card"><div class="card-title">Closing entries</div>
+    <div class="timeline">
+      <div class="ev"><span class="t">23-Jul 18:47</span><span><b>Reported</b> — final report signed by Dr. A. Rao · addendum window open 72h</span></div>
+      <div class="ev"><span class="t">23-Jul 19:05</span><span><b>Delivered</b> — portal delivery acknowledged by patient OTP; hard copy collected, signature on file</span></div>
+    </div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — CANCELLED (TERMINAL, WITH REASON)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">ACC-2026-91695 · X-Ray Chest PA — Aarav Sharma <span class="mono">MRN-004821</span> <span class="chip red">CANCELLED</span></div>
+  <div class="banner danger"><b>Cancelled 25-Jul-2026 11:20 IST — before acquisition, no radiation delivered</b>Reason: <b>Duplicate of ACC-2026-91802</b> (taxonomy: duplicate-order) · cancelled by K. Verma (admin) after front-office request. Linked forward to the surviving order.</div>
+  <div class="card"><div class="card-title">Downstream effects applied</div>
+    <table>
+      <tr><th>Effect</th><th>Result</th></tr>
+      <tr><td>Scheduled slot</td><td>Not booked — nothing to release</td></tr>
+      <tr><td>Invoice</td><td class="mono">INV/AND/26-27/0463 — credit note CN/AND/26-27/0021 issued ₹450</td></tr>
+      <tr><td>Report</td><td>Not applicable — never reached reporting</td></tr>
+      <tr><td>Duplicate link</td><td>Cross-referenced to <span class="mono">ACC-2026-91802</span> on both timelines</td></tr>
+    </table>
+    <div class="hint" style="margin-top:6px">Cancellation was confirmed with step-up identity (K. Verma re-entered credentials). Record is retained for 8 years per policy; it never disappears from history.</div>
+  </div>
+</div></div></div>
+
+<p class="audit">Every view of this order detail (viewer, role, purpose), each status transition with actor and device, and all artifact link openings are recorded in the access log.</p>
+</section>

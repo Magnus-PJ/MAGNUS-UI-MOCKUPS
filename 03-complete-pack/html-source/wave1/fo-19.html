@@ -1,0 +1,102 @@
+<section class="screen" id="fo-19">
+<div class="screen-head"><h1><span class="sid">FO-19</span> Appointment waitlist &amp; slot release</h1><div class="meta"><span class="chip amber">CONDITIONAL</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office staff manage a per-modality waitlist for fully booked slots. When a booked appointment is cancelled, the system auto-offers the released slot to the highest-priority waitlisted patient whose time-window preference matches, via SMS with a hold expiry; staff can also make a manual offer. Patients see their queue position transparently; the system must guarantee first-match-first-offer ordering and that an expired offer automatically cascades to the next candidate.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Reception</div>
+    <div class="nav-item">Front desk queue <span class="nav-badge">14</span></div>
+    <div class="nav-item">Appointments</div>
+    <div class="nav-item active">Waitlist <span class="nav-badge">9</span></div>
+    <div class="nav-item">Check-in</div>
+    <div class="sec-label">Patients</div>
+    <div class="nav-item">Registration</div>
+    <div class="nav-item">Family &amp; contacts</div>
+    <div class="sec-label">Cash &amp; billing</div>
+    <div class="nav-item">Billing desk</div>
+    <div class="nav-item">Cash session</div>
+    <div class="sec-label">Shift</div>
+    <div class="nav-item">Shift handover</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Front Office › Appointments › Waitlist &amp; slot release</div>
+    <div class="page-title">Waitlist — Sat 25 Jul 2026 <span class="actions-right"><span class="btn small">Filter: MRI ▾</span> <span class="btn small primary">+ Add to waitlist</span></span></div>
+    <div class="page-sub">Auto-offer on cancellation is <b>ON</b> for MRI &amp; CT · offers hold the slot for 20 min · position shown to patient on SMS &amp; kiosk.</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">9</div><div class="l">Waiting (all modalities)</div><div class="s">MRI 4 · CT 3 · US 2</div></div>
+      <div class="kpi"><div class="n">1</div><div class="l">Offer in flight</div><div class="s">Hold expires 12:42 IST</div></div>
+      <div class="kpi amber"><div class="n">2</div><div class="l">Released slots unfilled</div><div class="s">Oldest released 42 min ago</div></div>
+      <div class="kpi"><div class="n">6</div><div class="l">Filled from waitlist today</div><div class="s">Median offer→confirm 9 min</div></div>
+    </div>
+    <div class="banner info"><b>Slot released — MRI 1.5T, today 14:30–15:00</b>APPT-2026-51240 (cancellation by referrer) released this slot at 12:18 IST. Auto-offer sent to position #1 below. If unaccepted by 12:42, offer cascades to position #2 automatically.</div>
+    <div class="card">
+      <div class="card-title">MRI waitlist — 1.5T Siemens, Andheri West <span class="right">Ordered: priority, then joined-at</span></div>
+      <table>
+        <tr><th>#</th><th>Patient</th><th>Study requested</th><th>Priority</th><th>Window preference</th><th>Joined</th><th>Offer status</th><th></th></tr>
+        <tr class="hl"><td class="bold">1</td><td>Priya Menon<br><span class="muted small mono">MRN-004828 · ●●●●●●-3417</span></td><td>MRI Brain w/ contrast<br><span class="muted small">Ref: Dr. Meera Nair</span></td><td><span class="chip red">Clinical-urgent</span></td><td>Today 12:00–17:00</td><td class="mono">24 Jul 09:12</td><td><span class="chip amber">Offer sent — hold expires 12:42</span><br><span class="muted small">SMS to +91 ••••• ••418 at 12:22</span></td><td><span class="btn small">Confirm by phone</span></td></tr>
+        <tr><td>2</td><td>Rajesh Gupta<br><span class="muted small mono">MRN-004795</span></td><td>MRI Lumbar spine<br><span class="muted small">Ref: Dr. S. Iyer</span></td><td><span class="chip amber">Priority</span></td><td>Today after 15:00</td><td class="mono">24 Jul 11:40</td><td><span class="chip grey">Next in cascade</span></td><td><span class="btn small">Offer manually</span></td></tr>
+        <tr><td>3</td><td>Ananya Rao<br><span class="muted small mono">MRN-004819</span></td><td>MRI Knee (Rt)</td><td><span class="chip grey">Routine</span></td><td>Any day, 09:00–12:00</td><td class="mono">24 Jul 16:05</td><td><span class="chip grey">Waiting</span></td><td><span class="btn small">Offer manually</span></td></tr>
+        <tr><td>4</td><td>Kwame Osei<br><span class="muted small mono">MRN-004823</span></td><td>MRI Shoulder (Lt)</td><td><span class="chip grey">Routine</span></td><td>Weekends only</td><td class="mono">25 Jul 08:31</td><td><span class="chip grey">Waiting</span></td><td><span class="btn small">Offer manually</span></td></tr>
+      </table>
+    </div>
+    <div class="row">
+      <div class="card grow">
+        <div class="card-title">CT waitlist — 128-slice</div>
+        <table>
+          <tr><th>#</th><th>Patient</th><th>Study</th><th>Priority</th><th>Window</th><th>Status</th></tr>
+          <tr><td>1</td><td>Mohammed Al-Rashid <span class="muted small mono">MRN-004790</span></td><td>CT Chest HRCT</td><td><span class="chip amber">Priority</span></td><td>Today, any time</td><td><span class="chip grey">Waiting</span></td></tr>
+          <tr><td>2</td><td>Elena Novak <span class="muted small mono">MRN-004830</span></td><td>CT KUB plain</td><td><span class="chip grey">Routine</span></td><td>Mon–Fri 10:00–14:00</td><td><span class="chip grey">Waiting</span></td></tr>
+          <tr><td>3</td><td>Aarav Sharma <span class="muted small mono">MRN-004821</span></td><td>CT Brain plain</td><td><span class="chip grey">Routine</span></td><td>Evenings after 18:00</td><td><span class="chip grey">Waiting</span></td></tr>
+        </table>
+      </div>
+      <div class="card" style="width:300px">
+        <div class="card-title">Released slots — unfilled</div>
+        <table>
+          <tr><th>Slot</th><th>SLA</th></tr>
+          <tr><td>US OB clinic<br><span class="muted small">Today 16:00 · APPT-2026-51218 cancelled</span></td><td><span class="chip amber">warning · 38 min to fill</span><br><span class="muted small">Owner: D. Nair</span></td></tr>
+          <tr><td>MRI 1.5T<br><span class="muted small">Today 14:30 · offer in flight</span></td><td><span class="chip teal">due in 2h</span><br><span class="muted small">Owner: D. Nair</span></td></tr>
+        </table>
+        <div class="muted small" style="margin-top:8px">Unfilled released slots older than 60 min escalate to branch admin K. Verma.</div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — AUTO-OFFER SENT · COUNTDOWN RUNNING</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Offer in flight — MRI 1.5T · today 14:30–15:00</div>
+  <div class="page-sub">Released from APPT-2026-51240 · cascade position 1 of 4</div>
+  <div class="banner warn"><b>Offer sent to Priya Menon (position #1) — hold expires in 14:37</b>SMS sent 12:22 IST to +91 ••••• ••418: “Meridian Diagnostics: an MRI slot today 14:30 is available. Reply YES to confirm or tap link. Hold expires 12:42. You were #1 on the waitlist.” Slot is locked against desk booking until the hold expires or the offer is declined.</div>
+  <div class="card"><div class="card-title">Offer detail <span class="right">Auto-offer engine</span></div>
+    <dl class="kv">
+      <dt>Slot</dt><dd>MRI Brain w/ contrast capable · 1.5T · today 14:30–15:00 IST</dd>
+      <dt>Offered to</dt><dd>Priya Menon · <span class="mono">MRN-004828</span> · phone masked <span class="mono">+91 ••••• ••418</span> (full number hidden — no booking-edit purpose on this view)</dd>
+      <dt>Hold expiry</dt><dd><span class="chip amber">expires 12:42 IST · 14:37 remaining</span></dd>
+      <dt>Match logic</dt><dd>Priority Clinical-urgent &gt; Priority &gt; Routine; window preference "Today 12:00–17:00" matched; contrast consent form flagged as pending at check-in.</dd>
+      <dt>If expired</dt><dd>Cascades to #2 Rajesh Gupta only if slot start ≥ his window (after 15:00) — otherwise skips to #3 Ananya Rao with a skip reason recorded.</dd>
+    </dl>
+    <div class="modal-actions"><span class="btn">Withdraw offer (reason required)</span><span class="btn primary">Patient confirmed by phone — book now</span></div>
+  </div>
+  <p class="audit">Offer creation, SMS dispatch ID, hold lock and any manual override are recorded in the access log with staff ID and timestamp.</p>
+</div></div></div>
+
+<div class="state-tag">STATE C — OFFER EXPIRED → CASCADED TO NEXT</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner danger"><b>Offer to position #1 expired unanswered at 12:42 IST</b>No reply from Priya Menon within the 20-minute hold. Her waitlist entry is retained at priority Clinical-urgent with an “offer missed ×1” marker (entries auto-drop after 2 missed offers, with SMS notice).</div>
+  <div class="banner info"><b>Cascade: skipped #2, offered to #3</b>Rajesh Gupta (#2) skipped — slot 14:30 is outside his stated window “after 15:00” (skip reason recorded, position unchanged). Offer sent 12:43 IST to Ananya Rao (#3), hold expires <span class="chip amber">13:03 IST</span>.</div>
+  <div class="card"><div class="card-title">Cascade history — released slot MRI 14:30</div>
+    <div class="timeline">
+      <div class="ev"><span class="t">12:18</span><div>Slot released by cancellation of APPT-2026-51240 (reason: referrer rescheduled).</div></div>
+      <div class="ev"><span class="t">12:22</span><div>Auto-offer #1 → Priya Menon (MRN-004828), SMS ref SMS-88231, hold 20 min.</div></div>
+      <div class="ev"><span class="t">12:42</span><div><span class="chip red">Expired</span> — no response. Missed-offer counter set to 1.</div></div>
+      <div class="ev"><span class="t">12:43</span><div><span class="chip grey">Skipped</span> #2 Rajesh Gupta — window mismatch (prefers after 15:00). Position retained.</div></div>
+      <div class="ev"><span class="t">12:43</span><div>Auto-offer #2 → Ananya Rao (MRN-004819), SMS ref SMS-88246, hold expires 13:03.</div></div>
+    </div>
+  </div>
+  <div class="banner warn"><b>SLA — fill released slot</b><span class="chip amber">warning · due 13:18 IST</span> · Owner: D. Nair · Escalated to K. Verma (branch admin) if still unfilled at 13:18.</div>
+</div></div></div>
+
+<p class="audit">All waitlist joins, position changes, offers, skips (with reasons), expiries and manual overrides are recorded in the access log. Patient phone numbers are masked on list views; unmasking requires a stated purpose and is itself logged.</p>
+</section>

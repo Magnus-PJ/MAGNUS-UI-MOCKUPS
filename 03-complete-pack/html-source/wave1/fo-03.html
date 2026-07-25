@@ -1,0 +1,129 @@
+<section class="screen" id="fo-03">
+<div class="screen-head"><h1><span class="sid">FO-03</span> Patient registration — demographics &amp; identity</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office registers a new patient after search returned no match (FO-02). Captures name in any language plus structured given/family names, DOB with auto-computed age, contact, address and optional identifiers. Must guarantee: Aadhaar stored as last-4 only, children (&lt;18) automatically require a guardian block with proof-seen attestation, and nothing is saved until the duplicate-review step (FO-04) passes.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Reception</div>
+      <div class="nav-item">Dashboard &amp; tokens</div>
+      <div class="nav-item">Patient search</div>
+      <div class="nav-item active">Register patient</div>
+      <div class="nav-item">Appointments</div>
+      <div class="nav-item">Walk-in booking</div>
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Collect payment</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Front Office / Patients / Register new</div>
+      <div class="page-title">New patient registration</div>
+      <div class="page-sub">Draft — nothing is saved to the MPI until duplicate review completes. Pre-filled from search: "Kwame Osei", DOB 09/05/1987.</div>
+      <div class="stepper">
+        <div class="step cur"><span class="dot">1</span> Demographics &amp; identity</div><span class="step-line"></span>
+        <div class="step"><span class="dot">2</span> Duplicate review</div><span class="step-line"></span>
+        <div class="step"><span class="dot">3</span> Consent</div><span class="step-line"></span>
+        <div class="step"><span class="dot">4</span> Done</div>
+      </div>
+      <div class="row">
+        <div class="grow" style="flex:1.4">
+          <div class="card">
+            <div class="card-title">Name &amp; birth</div>
+            <div class="field"><label>Full name — as spoken/written, any language <span class="req">*</span></label><input class="input" value="Kwame Osei"><div class="hint">Printed on receipts and reports exactly as entered. Devanagari, Arabic, Latin etc. all accepted.</div></div>
+            <div class="row">
+              <div class="grow"><div class="field"><label>Given name(s) <span class="req">*</span></label><input class="input" value="Kwame"></div></div>
+              <div class="grow"><div class="field"><label>Family name</label><input class="input" value="Osei"><div class="hint">Leave blank if single name; used for matching only.</div></div></div>
+            </div>
+            <div class="row">
+              <div style="width:170px"><div class="field"><label>Date of birth <span class="req">*</span></label><input class="input mono" value="09/05/1987"></div></div>
+              <div style="width:130px"><div class="field"><label>Age (auto)</label><input class="input mono" value="39 y 2 m" disabled style="background:#F1F5F9"></div></div>
+              <div style="width:150px"><div class="field"><label>Sex at registration <span class="req">*</span></label><select class="select"><option>Male</option><option>Female</option><option>Other / self-describe</option></select></div></div>
+              <div class="grow"><div class="field"><label>Preferred language</label><select class="select"><option>English</option><option>Hindi</option><option>Marathi</option><option>Malayalam</option><option>Tamil</option></select><div class="hint">Drives consent text, SMS and report cover language.</div></div></div>
+            </div>
+            <div class="banner info small" style="margin-bottom:0"><b>Adult detected (39 y).</b> Guardian block not required. If DOB makes the patient under 18, the guardian section becomes mandatory automatically.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Contact &amp; address</div>
+            <div class="row">
+              <div class="grow"><div class="field"><label>Mobile <span class="req">*</span></label><input class="input mono" value="98331 20456"><div class="hint">OTP-verifiable later; shared family numbers allowed.</div></div></div>
+              <div class="grow"><div class="field"><label>Email</label><input class="input" value="k.osei@outlook.com"></div></div>
+              <div style="width:170px"><div class="field"><label>Preferred contact</label><select class="select"><option>SMS</option><option>WhatsApp</option><option>Email</option><option>Phone call</option></select></div></div>
+            </div>
+            <div class="field"><label>Address line</label><input class="input" value="B-704, Lotus Residency, J.P. Road, Andheri West"></div>
+            <div class="row">
+              <div class="grow"><div class="field"><label>City</label><input class="input" value="Mumbai"></div></div>
+              <div class="grow"><div class="field"><label>State</label><select class="select"><option>Maharashtra</option></select></div></div>
+              <div style="width:130px"><div class="field"><label>PIN</label><input class="input mono" value="400058"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="grow">
+          <div class="card">
+            <div class="card-title">Identifiers (all optional) <span class="right">Minimum necessary</span></div>
+            <div class="field"><label>ABHA number</label><input class="input mono" value="" placeholder="14-digit ABHA (optional)"><div class="hint">Linking ABHA needs the patient's OTP consent — done at the consent step.</div></div>
+            <div class="field"><label>Aadhaar — last 4 digits only</label><input class="input mono" value="7 3 1 2" style="width:120px;letter-spacing:4px"><div class="hint">Full Aadhaar is never entered or stored. Staff attest they sighted the original; the number itself is not copied.</div></div>
+            <div class="check"><span class="box on">✓</span><span class="small">Original ID sighted by staff (not retained) — D. Nair, 24 Jul 2026 10:12 IST</span></div>
+            <div class="field" style="margin-top:8px"><label>Passport no. (international patients)</label><input class="input mono" value="G•••••••" placeholder="masked after entry"></div>
+            <div class="field"><label>Insurance / TPA member ID</label><input class="input mono" value="" placeholder="e.g. STAR-88/044213"></div>
+            <div class="field"><label>Referring doctor (if any)</label><select class="select"><option>— none / self —</option><option>Dr. Meera Nair</option><option>Dr. S. Iyer</option><option>Dr. Farida Khan</option></select></div>
+          </div>
+          <div class="card">
+            <div class="card-title">Privacy defaults</div>
+            <div class="check"><span class="box on">✓</span><span class="small">Mask identifiers on queue displays (always on)</span></div>
+            <div class="check"><span class="box on">✓</span><span class="small">Reports released only to patient / authorised proxy</span></div>
+            <div class="check"><span class="box">&nbsp;</span><span class="small">Patient requests extra confidentiality flag (VIP/sensitive)</span></div>
+            <p class="hint small muted" style="margin-top:6px">Data captured here is used for care and billing; purpose-level consent is taken at step 3.</p>
+          </div>
+          <div style="display:flex;gap:10px;justify-content:flex-end"><a class="btn" href="#">Save draft</a><a class="btn primary" href="#">Continue to duplicate review →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — CHILD DETECTED · GUARDIAN BLOCK MANDATORY</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="page-title" style="font-size:16px">New patient registration — child (7 y 4 m)</div>
+      <div class="page-sub">Patient: Meera Menon · DOB 12/03/2019 · age auto-computed 7 y 4 m</div>
+      <div class="banner warn"><b>Minor detected (under 18).</b> A guardian block is mandatory and analytics consent will be unavailable at the consent step. Registration cannot continue without guardian details and proof-seen attestation.</div>
+      <div class="card">
+        <div class="card-title">Guardian / parent details <span class="chip red">REQUIRED</span></div>
+        <div class="row">
+          <div class="grow"><div class="field"><label>Guardian full name <span class="req">*</span></label><input class="input" value="Priya Menon"></div></div>
+          <div style="width:180px"><div class="field"><label>Relation <span class="req">*</span></label><select class="select"><option>Mother</option><option>Father</option><option>Legal guardian</option><option>Grandparent</option></select></div></div>
+          <div class="grow"><div class="field"><label>Guardian mobile <span class="req">*</span></label><input class="input mono" value="98200 41775"></div></div>
+        </div>
+        <div class="row">
+          <div class="grow"><div class="field"><label>Proof of relationship seen <span class="req">*</span></label><select class="select"><option>Birth certificate</option><option>School ID + guardian ID</option><option>Court guardianship order</option><option>Hospital discharge summary (newborn)</option></select><div class="hint">Document is sighted, not scanned or retained.</div></div></div>
+          <div class="grow"><div class="field"><label>Guardian on file at Meridian?</label><input class="input mono" value="Yes — MRN-004828 (Priya Menon, linked)" disabled style="background:#F1F5F9"></div></div>
+        </div>
+        <div class="check"><span class="box on">✓</span><span class="small">I confirm the guardian's identity and relationship proof were sighted in person — D. Nair, 24 Jul 2026 10:31 IST. This attestation is recorded in the access log.</span></div>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:flex-end"><a class="btn" href="#">Save draft</a><a class="btn primary" href="#">Continue to duplicate review →</a></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — VALIDATION ERRORS ON CONTINUE</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="page-title" style="font-size:16px">New patient registration — fix 4 issues to continue</div>
+      <div class="banner danger"><b>4 fields need attention.</b> Nothing has been saved. Fields are listed in page order; keyboard users can jump with the links below.</div>
+      <div class="card">
+        <div class="field"><label>Date of birth <span class="req">*</span></label><input class="input err mono" value="31/02/1987"><div class="hint" style="color:#B91C1C">31 February is not a valid date. Age cannot be computed.</div></div>
+        <div class="field"><label>Mobile <span class="req">*</span></label><input class="input err mono" value="98331 2045"><div class="hint" style="color:#B91C1C">Mobile must be 10 digits — 9 entered.</div></div>
+        <div class="field"><label>Aadhaar — last 4 digits only</label><input class="input err mono" value="988812347312" style="width:220px"><div class="hint" style="color:#B91C1C">Full Aadhaar numbers are not accepted anywhere in Magnus. Enter the <b>last 4 digits only</b>; the rest was discarded and was not stored or logged.</div></div>
+        <div class="field"><label>Sex at registration <span class="req">*</span></label><select class="select" style="border-color:#B91C1C;background:#FEF2F2"><option>— select —</option></select><div class="hint" style="color:#B91C1C">Required for order safety checks (e.g. pregnancy screening prompts).</div></div>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:flex-end"><a class="btn disabled" href="#">Continue to duplicate review →</a></div>
+    </div>
+  </div>
+</div>
+<p class="audit">Draft creation, guardian proof-seen attestations, and the rejected full-Aadhaar entry (event only, digits discarded) are recorded in the access log with operator, terminal and timestamps.</p>
+</section>

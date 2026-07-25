@@ -1,0 +1,125 @@
+<section class="screen" id="rd-12">
+<div class="screen-head"><h1><span class="sid">RD-12</span> Addendum authoring &amp; re-notify</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Used by a radiologist to append a correction or supplementary finding to an already-signed report — the original is never edited, a versioned addendum chains onto it (v1-final → v2-draft). It must guarantee a reason from the taxonomy, optional critical flagging with the RD-10 flow, and that on sign all prior recipients are automatically re-notified on their original channels. Wrong-patient / wrong-study errors are explicitly NOT fixable here — they route to the four-eyes retract-and-rebind admin workflow.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Reading</div>
+      <div class="nav-item">Reading worklist <span class="nav-badge">14</span></div>
+      <div class="nav-item">Current study</div>
+      <div class="sec-label">Results</div>
+      <div class="nav-item">Critical results <span class="nav-badge red">3</span></div>
+      <div class="nav-item active">Addenda <span class="nav-badge">1</span></div>
+      <div class="nav-item">My signed reports</div>
+      <div class="sec-label">Registry</div>
+      <div class="nav-item">Report search</div>
+      <div class="nav-item">Peer review</div>
+    </div>
+    <div class="main">
+      <div class="crumb">My signed reports › ACC-2026-91190 › New addendum</div>
+      <div class="page-title">Addendum — USG Abdomen &amp; Pelvis</div>
+      <div class="page-sub">Priya Menon · F 34y · MRN-004828 · ACC-2026-91190 · Referrer: Dr. Farida Khan · Original signed 24 Jul 2026, 09:33 IST by Dr. V. Shetty</div>
+      <div class="card">
+        <div class="card-title">Version chain <span class="right">Original is immutable</span></div>
+        <div class="stepper" style="margin-bottom:6px">
+          <div class="step done"><span class="dot">v1</span> Final — signed 24 Jul 09:33 · Dr. V. Shetty (RMC MH-44721)</div><span class="step-line"></span>
+          <div class="step cur"><span class="dot">v2</span> Addendum — DRAFT (you, editing now)</div>
+        </div>
+        <p class="small muted">Recipients of v1: patient SMS, Dr. Farida Khan (secure inbox), printed counter copy. Signing v2 re-notifies all of them — see panel below.</p>
+      </div>
+      <div class="banner reg"><b>Wrong patient or wrong study? Stop here.</b>An addendum cannot fix a report attached to the wrong patient or wrong study. Use <u>Retract &amp; rebind (Admin › Report governance)</u> — a separate four-eyes workflow requiring a second approver (branch admin K. Verma). This screen will block signing if you select those reasons.</div>
+      <div class="row">
+        <div class="grow">
+          <div class="card">
+            <div class="card-title">Reason for addendum <span class="req">*</span></div>
+            <div class="check"><span class="box radio on"></span><span><b>Supplementary finding</b> — additional observation after review of images / priors</span></div>
+            <div class="check"><span class="box radio"></span><span><b>Clarification</b> — wording ambiguous, meaning unchanged</span></div>
+            <div class="check"><span class="box radio"></span><span><b>Measurement / laterality correction</b> — factual value corrected</span></div>
+            <div class="check"><span class="box radio"></span><span><b>Typographical correction</b> — no clinical impact</span></div>
+            <div class="check"><span class="box radio"></span><span style="color:#B91C1C"><b>Wrong patient / wrong study</b> — <u>not permitted here</u>; routes to retract &amp; rebind (four-eyes)</span></div>
+          </div>
+          <div class="card">
+            <div class="card-title">Addendum text <span class="right">Appended below v1, never replaces it</span></div>
+            <div class="field"><label>Addendum body <span class="req">*</span></label>
+              <div class="textarea" style="min-height:96px">ADDENDUM (25 Jul 2026): On re-review with the prior study of 12 Jan 2026, the previously described 2.1 cm right adnexal cyst has increased from 1.2 cm (interval growth). Recommend gynaecological correlation and follow-up ultrasound in 6 weeks. Impression of the original report otherwise unchanged.</div>
+              <div class="hint">The addendum renders at the top of the distributed report as current truth (see RD-13). Foetal-sex information must never appear in any obstetric ultrasound text — PC-PNDT filter is active on this field.</div>
+            </div>
+            <div class="field"><label>Codes (optional)</label><div class="input mono">R19.0 · follow-up code FU-USG-6W</div></div>
+            <div class="check"><span class="box"></span><span><b>Flag as critical result</b> — opens the RD-10 tier &amp; send flow at sign (RED / ORANGE window applies to the addendum)</span></div>
+          </div>
+        </div>
+        <div style="width:300px;flex-shrink:0">
+          <div class="card">
+            <div class="card-title">Re-notify on sign <span class="right">Default ON</span></div>
+            <div class="check"><span class="box on">✓</span><span>Automatically re-notify all v1 recipients when this addendum is signed.</span></div>
+            <p class="small muted">3 recipients on file. Turning this off requires a documented reason and is recorded in the access log; it is not available when the addendum is flagged critical.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Draft status</div>
+            <div class="kv">
+              <dt>Version</dt><dd>v2 · draft</dd>
+              <dt>Author</dt><dd>Dr. V. Shetty</dd>
+              <dt>Autosaved</dt><dd>12:31:44 IST</dd>
+            </div>
+            <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px">
+              <span class="btn primary">Proceed to sign</span>
+              <span class="btn">Save draft</span>
+              <span class="btn ghost">Discard draft (logged)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SIGN CONFIRMATION WITH PER-RECIPIENT RE-NOTIFY LIST</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Sign addendum v2 — recipients will be re-notified</h3>
+    <p class="small muted" style="margin-bottom:10px">Priya Menon · MRN-004828 · ACC-2026-91190 · reason: supplementary finding. On sign, v2 becomes the current truth and the following v1 recipients are re-notified automatically on their original channels.</p>
+    <table>
+      <tr><th>Recipient</th><th>Channel</th><th>What they receive</th><th>Include</th></tr>
+      <tr><td>Priya Menon (patient)</td><td class="mono">SMS +91 98••• ••441</td><td>"Your report has been updated" + portal link (login required; no clinical text in SMS)</td><td><span class="box on">✓</span></td></tr>
+      <tr><td>Dr. Farida Khan (referrer)</td><td class="mono">Secure inbox</td><td>Full updated report with addendum-at-top banner + read receipt</td><td><span class="box on">✓</span></td></tr>
+      <tr><td>Printed counter copy</td><td class="mono">Front office queue</td><td>Reprint task for D. Nair — new print carries "SUPERSEDED COPY EXISTS" note on v1 and addendum-first layout</td><td><span class="box on">✓</span></td></tr>
+    </table>
+    <div class="banner reg" style="margin:10px 0 0"><b>Step-up identity confirmation</b>Signing attaches your credential Dr. V. Shetty · RMC MH-44721. Re-enter your Magnus PIN to sign. <span class="mono">PIN ••••</span></div>
+    <div class="modal-actions"><span class="btn">Back to draft</span><span class="btn primary">Sign v2 &amp; re-notify 3 recipients</span></div>
+  </div>
+</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="banner success" style="margin-top:4px"><b>Addendum v2 signed · 25 Jul 2026, 12:36 IST</b>Re-notifications dispatched: patient SMS queued 12:36:05, referrer inbox posted 12:36:06, reprint task created for front office. Delivery status is tracked on RD-13 (Signed report &amp; distribution).</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — RETRACT-POINTER: WRONG-PATIENT REASON SELECTED, SIGNING BLOCKED</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="page-title">Addendum blocked — wrong-patient/wrong-study is not an addendum</div>
+      <div class="banner danger"><b>Signing disabled for this reason</b>You selected "Wrong patient / wrong study". An addendum would leave the incorrect report visible as a valid clinical document under the wrong record. Magnus requires a retraction and rebind instead, so both records carry a correct, auditable history.</div>
+      <div class="card" style="max-width:640px">
+        <div class="card-title">What happens in Retract &amp; rebind (Admin › Report governance)</div>
+        <div class="kv">
+          <dt>Step 1</dt><dd>You raise a retraction request with the affected accession(s) and a mandatory narrative.</dd>
+          <dt>Step 2</dt><dd>Four-eyes approval: a second approver (branch admin K. Verma or branch medical lead Dr. A. Rao) must independently confirm — the requester can never self-approve.</dd>
+          <dt>Step 3</dt><dd>The report is retracted on both patient records with a visible retraction notice; every prior recipient is notified the report is withdrawn.</dd>
+          <dt>Step 4</dt><dd>The study is rebound to the correct patient/accession and returns to your reading worklist for a fresh report.</dd>
+        </div>
+        <div class="modal-actions"><span class="btn">Change reason</span><span class="btn danger">Open retract &amp; rebind request</span></div>
+      </div>
+      <p class="small muted" style="max-width:640px">The blocked attempt itself (report, reason selected, timestamp) is recorded in the access log even if you go no further.</p>
+    </div>
+  </div>
+</div>
+<p class="audit">Addendum drafts, reason selection, sign events with RMC credential, per-recipient re-notification dispatches, any re-notify opt-out reasons and blocked wrong-patient attempts are recorded in the access log.</p>
+</section>

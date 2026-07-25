@@ -1,0 +1,138 @@
+<section class="screen" id="cs-05">
+<div class="screen-head"><h1><span class="sid">CS-05</span> Adverse reaction record</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Clinical Safety</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Technologists and radiologists record any adverse reaction during or after a procedure — onset, severity, the exact agent and lot (pulled from TK-06 stock issue), interventions, outcome and reporter. The system must auto-alert the covering radiologist and branch medical lead, write a permanent allergy flag to the patient record with a propagation preview, and queue a pharmacovigilance export. Severe reactions surface an emergency checklist first, documentation second.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>CLINICAL SAFETY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (Technologist) ▾</div></div>
+  <div class="body">
+  <div class="sidebar">
+    <div class="sec-label">Clinical Safety</div>
+    <div class="nav-item">Safety worklist <span class="nav-badge">6</span></div>
+    <div class="nav-item">Screening forms</div>
+    <div class="nav-item">Consents</div>
+    <div class="nav-item">Physician overrides</div>
+    <div class="nav-item active">Adverse reactions <span class="nav-badge red">1</span></div>
+    <div class="sec-label">Statutory</div>
+    <div class="nav-item">Form F register</div>
+    <div class="nav-item">PNDT compliance</div>
+    <div class="sec-label">Records</div>
+    <div class="nav-item">Pharmacovigilance</div>
+    <div class="nav-item">Audit trail</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Clinical Safety › Adverse reactions › New record</div>
+    <div class="page-title">Record adverse reaction <span class="chip amber" style="margin-left:8px">IN PROGRESS — mild</span></div>
+    <div class="page-sub">Ananya Rao · MRN-004819 · F 45y · ACC-2026-91271 · CT Chest w/ contrast · 24 Jul 2026 · performing: T. Okafor · reading: Dr. V. Shetty</div>
+    <div class="banner info"><b>Working offline is supported</b> — actions queue and sync when reconnected. Alerts fire over SMS fallback if the network is down.</div>
+    <div class="split">
+      <div>
+        <div class="card">
+          <div class="card-title">Reaction details</div>
+          <div class="row">
+            <div class="grow field"><label>Onset <span class="req">*</span></label><select class="select"><option>During injection</option><option selected>Within 20 min post-injection</option><option>20–60 min post</option><option>&gt; 1 h (delayed)</option></select></div>
+            <div class="grow field"><label>Time noted <span class="req">*</span></label><input class="input" value="24 Jul 2026 · 12:38 IST"></div>
+          </div>
+          <div class="field"><label>Severity <span class="req">*</span></label>
+            <div style="display:flex;gap:8px"><span class="btn small primary">Mild</span><span class="btn small">Moderate</span><span class="btn small">Severe</span></div>
+            <div class="hint">Selecting Severe opens the emergency checklist and pages the branch medical lead immediately.</div>
+          </div>
+          <div class="field"><label>Signs &amp; symptoms <span class="req">*</span></label>
+            <div class="check"><span class="box on">✓</span> Urticaria / hives (localised, forearms)</div>
+            <div class="check"><span class="box on">✓</span> Pruritus</div>
+            <div class="check"><span class="box">&nbsp;</span> Nausea / vomiting</div>
+            <div class="check"><span class="box">&nbsp;</span> Bronchospasm / wheeze</div>
+            <div class="check"><span class="box">&nbsp;</span> Hypotension</div>
+          </div>
+          <div class="field"><label>Interventions given</label><textarea class="textarea">Injection stopped at 60 mL. Observed; oral cetirizine 10 mg given per standing order at 12:44 IST. Vitals stable (BP 122/78, SpO₂ 98%).</textarea></div>
+          <div class="row">
+            <div class="grow field"><label>Outcome at record time <span class="req">*</span></label><select class="select"><option>Recovered, discharged after observation</option><option>Under observation</option><option>Transferred for higher care</option></select></div>
+            <div class="grow field"><label>Reporter <span class="req">*</span></label><input class="input" value="T. Okafor · Technologist · on-file ID verified"></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">Agent &amp; lot <span class="right">from TK-06 stock issue</span></div>
+          <dl class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Agent</dt><dd>Iohexol 350 mg I/mL (Omnipaque™)</dd>
+            <dt>Volume</dt><dd>60 mL of 90 mL issued</dd>
+            <dt>Lot / batch</dt><dd class="mono">LOT-OMN-26F-4471</dd>
+            <dt>Expiry</dt><dd>11/2027</dd>
+            <dt>Issued by</dt><dd>TK-06 issue #STK-8834 · 12:19 IST</dd>
+          </dl>
+          <div class="hint" style="font-size:11px;color:#64748B;margin-top:6px">Lot is linked automatically; remaining stock of this lot is flagged for watch, not quarantined, at mild severity.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Auto-alerts on save</div>
+          <table>
+            <tr><th>Recipient</th><th>Channel</th><th>Status</th></tr>
+            <tr><td>Dr. V. Shetty (reading radiologist)</td><td>In-app + SMS</td><td><span class="chip grey">queued</span></td></tr>
+            <tr><td>Branch medical lead</td><td>In-app</td><td><span class="chip grey">queued</span></td></tr>
+            <tr><td>Referrer Dr. Meera Nair</td><td>Report addendum</td><td><span class="chip grey">on sign-off</span></td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-title">On save, this record will also…</div>
+          <div class="check"><span class="box on">✓</span> Write a <b>permanent allergy flag</b> to MRN-004819 (preview before commit).</div>
+          <div class="check"><span class="box on">✓</span> Queue a pharmacovigilance export (PvPI/ADR schema) for K. Verma to review — patient identifiers pseudonymised in the export.</div>
+          <div style="margin-top:10px;display:flex;gap:10px"><span class="btn primary">Save reaction record</span><span class="btn ghost">Save draft</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SEVERE REACTION · emergency checklist takes over</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner danger"><b>🚨 SEVERE REACTION — emergency mode</b> Rajesh Gupta · MRN-004795 · ACC-2026-91274 · bronchospasm + hypotension at 13:02 IST during iohexol injection. Branch medical lead and Dr. A. Rao paged at 13:02:41. Documentation can be completed after the patient is stable — timestamps are captured automatically.</div>
+  <div class="split">
+    <div>
+      <div class="card"><div class="card-title">Emergency checklist (tap as done — times auto-stamped)</div>
+        <div class="check"><span class="box on">✓</span> Stop injection · 13:02 IST</div>
+        <div class="check"><span class="box on">✓</span> Call for help — crash trolley to CT-1 · 13:03 IST</div>
+        <div class="check"><span class="box on">✓</span> O₂ 10 L/min non-rebreather · 13:03 IST</div>
+        <div class="check"><span class="box on">✓</span> IV access maintained; NS bolus started · 13:04 IST</div>
+        <div class="check"><span class="box on">✓</span> Adrenaline 0.5 mg IM (1:1000) — physician order Dr. A. Rao · 13:05 IST</div>
+        <div class="check"><span class="box">&nbsp;</span> Repeat vitals q5min; document rhythm</div>
+        <div class="check"><span class="box">&nbsp;</span> Decide transfer: Kokilaben Hospital ambulance on standby (ETA 9 min)</div>
+      </div>
+    </div>
+    <div>
+      <div class="card"><div class="card-title">Live status</div>
+        <dl class="kv" style="grid-template-columns:120px 1fr">
+          <dt>Severity</dt><dd><span class="chip red">SEVERE</span></dd>
+          <dt>Lot</dt><dd class="mono">LOT-OMN-26F-4471</dd>
+          <dt>Lot action</dt><dd><span class="chip amber">AUTO-QUARANTINED</span> remaining 14 units held branch-wide pending review</dd>
+          <dt>Paged</dt><dd>Dr. A. Rao ✓ ack 13:03 · Medical lead ✓ ack 13:04</dd>
+          <dt>Reporter</dt><dd>T. Okafor</dd>
+        </dl>
+      </div>
+      <div class="banner warn"><b>Same-lot alert.</b> 2 other patients received LOT-OMN-26F-4471 today — worklist flag applied; both asymptomatic, observation extended to 60 min.</div>
+    </div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — SAVED · allergy flag propagated, pharmacovigilance queued</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner success"><b>Reaction record ADR-2026-0142 saved · allergy flag written to MRN-004819</b> Alerts delivered: Dr. V. Shetty (12:52 IST, ack), branch medical lead (12:52 IST, ack). Pharmacovigilance export queued for admin review.</div>
+  <div class="card"><div class="card-title">Allergy flag — propagation preview (as committed)</div>
+    <dl class="kv">
+      <dt>Flag</dt><dd><span class="chip outline-red">ALLERGY: Iodinated contrast (iohexol) — mild urticaria 24 Jul 2026</span> permanent; may be annotated, never deleted</dd>
+      <dt>Propagates to</dt><dd>Booking (warn on contrast orders) · CS-02 screening (hard prompt) · Modality worklist header · Radiologist reading view · Discharge summary</dd>
+      <dt>Does NOT appear in</dt><dd>Invoices, SMS/WhatsApp confirmations, referrer portal list views — clinical detail is disclosed on purpose-of-care access only</dd>
+      <dt>Future orders</dt><dd>Any iodinated-contrast order for MRN-004819 will require premedication review or physician override (CS-04)</dd>
+    </dl>
+  </div>
+  <div class="card"><div class="card-title">Pharmacovigilance export <span class="right">PvPI / ADR reporting form schema</span></div>
+    <table>
+      <tr><th>Export</th><th>Contents</th><th>Identifiers</th><th>Status</th></tr>
+      <tr><td class="mono">PV-2026-071</td><td>ADR-2026-0142 · agent, lot LOT-OMN-26F-4471, timeline, outcome</td><td>Pseudonymised (age/sex only; MRN withheld)</td><td><span class="chip amber">awaiting review — K. Verma</span> <span class="chip teal">due in 48h</span></td></tr>
+    </table>
+    <div class="hint" style="font-size:11px;color:#64748B;margin-top:6px">Submission to the ADR monitoring centre is a manual, admin-approved step; the queue entry cannot be deleted, only marked submitted or not-reportable with reason.</div>
+  </div>
+</div></div></div>
+
+<p class="audit">Reaction capture, severity changes, every emergency-checklist stamp, pages and acknowledgements, lot quarantine, the allergy-flag write to MRN-004819/MRN-004795 and the pharmacovigilance export queue entry are recorded in the access log with reporter identity.</p>
+</section>

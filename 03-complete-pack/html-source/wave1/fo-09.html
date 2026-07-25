@@ -1,0 +1,117 @@
+<section class="screen" id="fo-09">
+<div class="screen-head"><h1><span class="sid">FO-09</span> Merge compare &amp; resolve</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The reviewer builds the survivor record field-by-field from a locked duplicate pair, sees exactly what moves (appointments, reports, invoices, consents), and cannot complete without a second approver (four-eyes) plus typed confirmation. The losing MRN becomes a permanent alias — it is never reused and always resolves to the survivor. Merges are reversible for 30 days by an administrator.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Reception</div>
+    <div class="nav-item">Front desk home</div>
+    <div class="nav-item">Register patient</div>
+    <div class="nav-item">Patients</div>
+    <div class="nav-item">Appointments <span class="nav-badge">14</span></div>
+    <div class="nav-item">Check-in &amp; tokens</div>
+    <div class="sec-label">Money &amp; delivery</div>
+    <div class="nav-item">Billing &amp; invoices</div>
+    <div class="nav-item">Report delivery <span class="nav-badge red">2</span></div>
+    <div class="sec-label">Data quality</div>
+    <div class="nav-item active">Merge queue (MPI) <span class="nav-badge">6</span></div>
+  </div>
+  <div class="main">
+    <div class="crumb">Front Office › Data quality › Merge queue › DUP-1187 › Compare</div>
+    <div class="page-title">Compare &amp; resolve — DUP-1187 <span class="chip red">Score 96</span> <span class="chip teal">Locked to you · 24 min left</span></div>
+    <div class="page-sub">Elena Novak MRN-004830 vs MRN-004841 · pick the surviving value per field. <span class="chip red">OVERDUE 04:20</span> owner: D. Nair · Escalated to K. Verma.</div>
+    <div class="stepper">
+      <span class="step done"><span class="dot">1</span> Review pair</span><span class="step-line"></span>
+      <span class="step cur"><span class="dot">2</span> Build survivor</span><span class="step-line"></span>
+      <span class="step"><span class="dot">3</span> Second approver</span><span class="step-line"></span>
+      <span class="step"><span class="dot">4</span> Merge</span>
+    </div>
+    <div class="split">
+      <div>
+        <div class="card"><div class="card-title">Field-by-field survivor build <span class="right">Survivor MRN: MRN-004830</span></div>
+        <table>
+          <tr><th>Field</th><th style="width:34%">MRN-004830 · reg 06 Jul 2026</th><th style="width:34%">MRN-004841 · reg 21 Jul 2026</th><th>Note</th></tr>
+          <tr><td class="bold">MRN (survivor)</td><td><span class="box radio on">•</span> MRN-004830</td><td><span class="box radio">•</span> MRN-004841</td><td class="small">older record; more history</td></tr>
+          <tr><td>Full name</td><td><span class="box radio on">•</span> Elena Novak</td><td><span class="box radio">•</span> Elena Novak</td><td class="small">identical</td></tr>
+          <tr><td>DOB</td><td><span class="box radio on">•</span> 29 Sep 1988</td><td><span class="box radio">•</span> 29 Sep 1988</td><td class="small">identical</td></tr>
+          <tr><td>Mobile</td><td><span class="box radio">•</span> +91 97••• ••554 <span class="chip grey">unverified</span></td><td><span class="box radio on">•</span> +91 97••• ••554 <span class="chip green">OTP-verified 21 Jul</span></td><td class="small">keep verified copy</td></tr>
+          <tr><td>Email</td><td><span class="box radio on">•</span> e.novak•••@outlook.com <span class="chip green">Verified</span></td><td><span class="box radio">•</span> (none)</td><td class="small">only one present</td></tr>
+          <tr><td>Address</td><td><span class="box radio">•</span> 7B, Sea Breeze Apts, Versova</td><td><span class="box radio on">•</span> 1203, Palm Court, Andheri West <span class="small muted">(newer, 21 Jul)</span></td><td class="small">newer wins</td></tr>
+          <tr><td>Govt ID</td><td><span class="box radio on">•</span> Aadhaar •••• 2210</td><td><span class="box radio">•</span> (none)</td><td class="small">last-4 only</td></tr>
+          <tr><td>Consents</td><td colspan="2"><span class="chip grey">Union, most-restrictive wins</span> marketing: Declined (004830) overrides Given (004841)</td><td class="small">rule-based</td></tr>
+        </table>
+        <p class="small muted" style="margin-top:6px">Values not picked are retained read-only in the merge dossier for 30 days.</p>
+        </div>
+      </div>
+      <div>
+        <div class="card"><div class="card-title">Consequences</div>
+          <table>
+            <tr><th>Moves to survivor</th><th>Count</th></tr>
+            <tr><td>Appointments (incl. APPT-2026-51231)</td><td>2</td></tr>
+            <tr><td>Reports / accessions</td><td>3</td></tr>
+            <tr><td>Invoices (₹9,240.00 total)</td><td>2</td></tr>
+            <tr><td>Consent records</td><td>7</td></tr>
+          </table>
+          <div class="banner info" style="margin-top:10px;margin-bottom:0"><b>Loser MRN becomes a permanent alias</b>MRN-004841 will forever resolve to MRN-004830 at search, barcode scan and portal login. It is never reused for another patient. Merge is reversible by an administrator for 30 days.</div>
+        </div>
+        <div class="card"><div class="card-title">Blockers</div>
+          <div class="check"><span class="box on">✓</span><span class="small">No active order in progress on either record</span></div>
+          <div class="check"><span class="box on">✓</span><span class="small">No unsigned report on either record</span></div>
+          <div class="check"><span class="box on">✓</span><span class="small">No open grievance hold</span></div>
+        </div>
+        <div style="display:flex;gap:8px"><span class="btn primary">Continue to second approver</span><span class="btn">Mark not-a-duplicate</span></div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — MERGE BLOCKED (conflicting active orders)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Front Office › Data quality › Merge queue › DUP-1191 › Compare</div>
+  <div class="page-title">Compare &amp; resolve — DUP-1191 <span class="chip amber">Score 89</span></div>
+  <div class="banner danger"><b>Merge blocked — conflicting active orders</b>Both records have an in-progress study today: MRN-004790 has CT Chest ACC-2026-91240 (status: scanning, T. Okafor) and MRN-004845 has X-Ray Chest ACC-2026-91243 (status: awaiting report). Merging now could mis-route a report. Resolve or complete these orders first; the pair stays in the queue with its SLA paused.</div>
+  <div class="card"><div class="card-title">Blockers</div>
+    <div class="check"><span class="box" style="border-color:#B91C1C;color:#B91C1C">✕</span><span class="small"><b>Active order on MRN-004790:</b> ACC-2026-91240 CT Chest — scanning since 11:02 IST</span></div>
+    <div class="check"><span class="box" style="border-color:#B91C1C;color:#B91C1C">✕</span><span class="small"><b>Active order on MRN-004845:</b> ACC-2026-91243 X-Ray Chest — awaiting report (Dr. A. Rao worklist)</span></div>
+    <div class="check"><span class="box on">✓</span><span class="small">No open grievance hold</span></div>
+    <div style="margin-top:10px;display:flex;gap:8px"><span class="btn small disabled">Continue to second approver</span><span class="btn small">Pause SLA &amp; return to queue</span><span class="btn small ghost">Notify radiology coordinator</span></div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — FOUR-EYES CONFIRMATION MODAL</div>
+<div class="modal-wrap"><div class="modal danger">
+  <h3>Confirm merge — four-eyes approval required</h3>
+  <dl class="kv" style="margin-bottom:10px">
+    <dt>Survivor</dt><dd class="mono">MRN-004830 — Elena Novak</dd>
+    <dt>Becomes alias</dt><dd class="mono">MRN-004841 (permanent, never reused)</dd>
+    <dt>Moving</dt><dd>2 appointments · 3 reports · 2 invoices (₹9,240.00) · 7 consents</dd>
+    <dt>Initiated by</dt><dd>D. Nair · 25 Jul 2026, 12:02 IST</dd>
+  </dl>
+  <div class="field"><label>Second approver — step-up identity confirmation <span class="req">*</span></label><input class="input" value="k.verma (Branch Admin)"><div class="hint">Approver must differ from initiator; enters own password + app OTP now.</div></div>
+  <div class="field"><input class="input" type="password" placeholder="Approver password"></div>
+  <div class="field"><label>Type <span class="mono">MERGE 4822</span> to confirm <span class="req">*</span></label><input class="input mono" placeholder="MERGE 4822" style="max-width:220px"></div>
+  <div class="check"><span class="box on">✓</span><span class="small">We reviewed all field picks and consequences. Merge is reversible by an administrator for 30 days; after that it is permanent.</span></div>
+  <div class="modal-actions"><span class="btn">Cancel</span><span class="btn danger">Merge records</span></div>
+</div></div>
+
+<div class="state-tag">STATE D — MERGED SUCCESS</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Front Office › Data quality › Merge queue › DUP-1187</div>
+  <div class="banner success"><b>Merge complete — MRN-004830 is the surviving record</b>Executed 25 Jul 2026, 12:06 IST · initiated D. Nair · approved K. Verma. MRN-004841 is now a permanent alias; any scan, search or portal login against it resolves to MRN-004830. Reversal window open until 24 Aug 2026 (admin only).</div>
+  <div class="card"><div class="card-title">Post-merge summary — merge dossier MRG-2026-0342</div>
+    <table>
+      <tr><th>Item</th><th>Result</th></tr>
+      <tr><td>Appointments moved</td><td>2 · APPT-2026-51231 rebooked confirmation re-sent to verified mobile</td></tr>
+      <tr><td>Reports re-linked</td><td>3 · outstanding secure links voided and re-issued (1)</td></tr>
+      <tr><td>Invoices re-linked</td><td>2 · statements now show under MRN-004830</td></tr>
+      <tr><td>Consents unified</td><td>7 · most-restrictive kept (marketing: Declined)</td></tr>
+      <tr><td>Alias created</td><td class="mono">MRN-004841 → MRN-004830 (permanent)</td></tr>
+    </table>
+    <div style="margin-top:10px;display:flex;gap:8px"><span class="btn small primary">Open survivor record</span><span class="btn small ghost">View merge dossier</span><span class="btn small">Back to queue</span></div>
+  </div>
+</div></div></div>
+
+<p class="audit">The full merge dossier — field picks with rejected values, consequence counts, blocker checks, initiator, second approver's step-up confirmation and typed phrase — is recorded in the access log and retained for the legal retention period. Reversals within 30 days are admin-only and create a linked reversal dossier.</p>
+</section>

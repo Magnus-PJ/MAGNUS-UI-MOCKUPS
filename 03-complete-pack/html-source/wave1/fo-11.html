@@ -1,0 +1,148 @@
+<section class="screen" id="fo-11">
+<div class="screen-head"><h1><span class="sid">FO-11</span> Reschedule / cancel appointment</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office staff (D. Nair) use this screen when a patient calls or walks in to move or cancel a booked appointment. Rescheduling must keep the same appointment reference (APPT-2026-5xxxx), re-notify the patient on their consented channels, and never lose the linked imaging order — a cancellation returns the order to <b>awaiting scheduling</b> so it stays visible on the modality worklist backlog. Cancellations are never deleted: a mandatory reason and note are kept on file permanently.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Front desk</div>
+      <div class="nav-item">Today overview</div>
+      <div class="nav-item active">Appointments</div>
+      <div class="nav-item">Check-in &amp; tokens</div>
+      <div class="nav-item">Queue control <span class="nav-badge">14</span></div>
+      <div class="sec-label">Patients</div>
+      <div class="nav-item">Search / register</div>
+      <div class="nav-item">Consents &amp; forms</div>
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Estimates &amp; invoices</div>
+      <div class="nav-item">Refunds <span class="nav-badge red">2</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Front Office › Appointments › APPT-2026-50318 › Manage</div>
+      <div class="page-title">Manage appointment <span class="mono">APPT-2026-50318</span></div>
+      <div class="page-sub">Booked 21 Jul 2026 · reference is kept across reschedules · all changes recorded in the access log</div>
+
+      <div class="split">
+        <div>
+          <div class="card">
+            <div class="card-title">Appointment summary <span class="chip blue">BOOKED</span></div>
+            <dl class="kv">
+              <dt>Patient</dt><dd><b>Sofia Rossi</b> · <span class="mono">MRN-004822</span> · F, 34 · +91 98•••• ••42 (SMS consented)</dd>
+              <dt>Service</dt><dd>MRI Brain with contrast · MRI-1 (3T) · slot 45 min</dd>
+              <dt>Current slot</dt><dd><b>Mon 27 Jul 2026, 10:30–11:15 IST</b> · MRI Suite, Andheri West</dd>
+              <dt>Linked order</dt><dd><span class="mono">ACC-2026-91204</span> · ordered by Dr. Meera Nair (referrer) · status: <span class="chip teal">scheduled</span></dd>
+              <dt>Prep</dt><dd>Nil by mouth 4 h · MRI safety screening pending at check-in · creatinine on file (19 Jul)</dd>
+              <dt>Payment</dt><dd>Advance ₹2,000 collected · <span class="mono">INV/AND/26-27/0412</span> (part-paid)</dd>
+            </dl>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Reschedule — pick a new slot <span class="right">Same reference kept</span></div>
+            <div class="row">
+              <div class="field grow"><label>New date <span class="req">*</span></label><div class="input">Wed 29 Jul 2026 ▾</div></div>
+              <div class="field grow"><label>Resource</label><div class="select">MRI-1 (3T) — same as booked ▾</div></div>
+              <div class="field grow"><label>Reason for change <span class="req">*</span></label><div class="select">Patient requested ▾</div></div>
+            </div>
+            <table>
+              <tr><th>Slot (IST)</th><th>Resource</th><th>Availability</th><th></th></tr>
+              <tr><td class="mono">08:00–08:45</td><td>MRI-1 (3T)</td><td><span class="chip grey">Held — corporate block</span></td><td><span class="btn small disabled">Select</span></td></tr>
+              <tr class="hl"><td class="mono">09:30–10:15</td><td>MRI-1 (3T)</td><td><span class="chip green">Open</span></td><td><span class="btn small primary">Selected ✓</span></td></tr>
+              <tr><td class="mono">11:00–11:45</td><td>MRI-1 (3T)</td><td><span class="chip green">Open</span></td><td><span class="btn small">Select</span></td></tr>
+              <tr><td class="mono">12:30–13:15</td><td>MRI-1 (3T)</td><td><span class="chip amber">Waitlist (1)</span></td><td><span class="btn small">Join</span></td></tr>
+              <tr><td class="mono">15:00–15:45</td><td>MRI-2 (1.5T)</td><td><span class="chip green">Open</span></td><td><span class="btn small">Select</span></td></tr>
+            </table>
+            <div class="banner info" style="margin-top:12px"><b>Patient will be re-notified per consent</b>SMS to +91 98•••• ••42 and email (consented 12 Jul 2026). WhatsApp not consented — will not be used. Prep instructions re-sent automatically with the new slot.</div>
+            <div style="display:flex;justify-content:flex-end;gap:10px"><span class="btn">Back to day list</span><span class="btn warn-outline">Cancel appointment…</span><span class="btn primary">Confirm reschedule → Wed 29 Jul 09:30</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Change history</div>
+            <div class="timeline">
+              <div class="ev"><span class="t">21 Jul 14:02</span><span>Booked by D. Nair (phone) — slot 27 Jul 10:30</span></div>
+              <div class="ev"><span class="t">21 Jul 14:03</span><span>SMS confirmation delivered</span></div>
+              <div class="ev"><span class="t">24 Jul 09:41</span><span>Prep reminder sent (T-72h)</span></div>
+              <div class="ev"><span class="t">25 Jul 11:18</span><span class="muted">This session — manage opened by D. Nair</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Rules that apply</div>
+            <div class="check"><span class="box on">✓</span><span>Reference <span class="mono">APPT-2026-50318</span> is retained on reschedule.</span></div>
+            <div class="check"><span class="box on">✓</span><span>Cancellation keeps the record on file — never deleted.</span></div>
+            <div class="check"><span class="box on">✓</span><span>Linked order <span class="mono">ACC-2026-91204</span> returns to <b>awaiting scheduling</b> on cancel.</span></div>
+            <div class="check"><span class="box on">✓</span><span>Advance ₹2,000 routes to the refund queue on cancel (approval required).</span></div>
+            <div class="check"><span class="box">&nbsp;</span><span class="muted">Same-day cancellations (&lt;4 h) flag a late-cancel note for the branch manager.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — RESCHEDULE SUCCESS</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner success"><b>Appointment rescheduled — reference kept</b><span class="mono">APPT-2026-50318</span> moved from Mon 27 Jul 10:30 to <b>Wed 29 Jul 2026, 09:30–10:15 IST</b>, MRI-1 (3T). Linked order <span class="mono">ACC-2026-91204</span> remains <b>scheduled</b> and the modality worklist entry has been updated.</div>
+  <div class="row">
+    <div class="card grow">
+      <div class="card-title">Patient re-notified per consent</div>
+      <table>
+        <tr><th>Channel</th><th>Destination</th><th>Content</th><th>Status</th></tr>
+        <tr><td>SMS</td><td class="mono">+91 98•••• ••42</td><td>New slot + prep (NBM 4 h)</td><td><span class="chip green">Delivered 11:24</span></td></tr>
+        <tr><td>Email</td><td class="mono">s.r•••••@•••.com</td><td>Reschedule confirmation PDF</td><td><span class="chip teal">Queued</span></td></tr>
+        <tr><td>WhatsApp</td><td>—</td><td class="muted">Not consented — skipped</td><td><span class="chip grey">Skipped</span></td></tr>
+      </table>
+    </div>
+    <div class="card" style="width:300px">
+      <div class="card-title">Next steps</div>
+      <div class="check"><span class="box on">✓</span><span>Slot 27 Jul 10:30 released back to the grid.</span></div>
+      <div class="check"><span class="box on">✓</span><span>Advance ₹2,000 carried over — no re-collection.</span></div>
+      <div class="check"><span class="box">&nbsp;</span><span>MRI safety screening still due at check-in.</span></div>
+      <div style="margin-top:10px;display:flex;gap:8px"><span class="btn small">Print confirmation</span><span class="btn small primary">Back to day list</span></div>
+    </div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — CANCEL MODAL (REASON REQUIRED, KEPT ON FILE)</div>
+<div class="modal-wrap"><div class="modal danger">
+  <h3>Cancel appointment APPT-2026-50318?</h3>
+  <p class="small muted" style="margin-bottom:10px">Sofia Rossi · MRN-004822 · MRI Brain with contrast · Mon 27 Jul 10:30. The record is retained on file permanently — cancellation never deletes it.</p>
+  <div class="field"><label>Cancellation reason <span class="req">*</span></label><div class="select">— Select reason — ▾ &nbsp;<span class="muted small">(Patient request · Clinical hold by referrer · Payment not completed · Equipment downtime · Duplicate booking · Other)</span></div><div class="hint" style="color:#B91C1C">Required — you cannot cancel without a reason.</div></div>
+  <div class="field"><label>Note (visible to branch manager &amp; auditors)</label><div class="textarea">Patient travelling; will call back next week to rebook. Requested advance be held, not refunded.</div></div>
+  <div class="banner warn" style="margin-bottom:0"><b>Effect on linked order</b>Order <span class="mono">ACC-2026-91204</span> returns to <b>awaiting scheduling</b> and stays on Dr. Meera Nair's referral worklist. Advance ₹2,000 moves to the refund/hold queue for K. Verma's approval — front office cannot release funds.</div>
+  <div class="check" style="margin-top:10px"><span class="box on">✓</span><span>Notify patient of cancellation on consented channels (SMS + email)</span></div>
+  <div class="modal-actions"><span class="btn">Keep appointment</span><span class="btn danger">Confirm cancellation</span></div>
+</div></div>
+<p class="audit">Cancellation requires reason + your signed-in identity (D. Nair). Reason, note and timestamp are written to the immutable audit trail and recorded in the access log.</p>
+
+<div class="state-tag">STATE D — CANCELLED RECORD VIEW (READ-ONLY, KEPT ON FILE)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner danger"><b>This appointment was cancelled — record retained</b>Cancelled 25 Jul 2026 11:31 IST by D. Nair · Reason: <b>Patient request</b> · “Patient travelling; will call back next week to rebook.” Record is read-only and never deleted.</div>
+  <div class="row">
+    <div class="card grow">
+      <div class="card-title">Cancelled appointment <span class="chip outline-red">CANCELLED</span></div>
+      <dl class="kv">
+        <dt>Reference</dt><dd><span class="mono">APPT-2026-50318</span> (retained)</dd>
+        <dt>Patient</dt><dd>Sofia Rossi · <span class="mono">MRN-004822</span></dd>
+        <dt>Was scheduled</dt><dd>Mon 27 Jul 2026, 10:30–11:15 IST · MRI-1 (3T)</dd>
+        <dt>Linked order</dt><dd><span class="mono">ACC-2026-91204</span> → <span class="chip amber">awaiting scheduling</span> · visible on referral worklist</dd>
+        <dt>Advance</dt><dd>₹2,000 on hold · refund queue item <span class="mono">RFD-2026-0087</span> pending K. Verma</dd>
+        <dt>Notifications</dt><dd>SMS delivered 11:32 · email delivered 11:33</dd>
+      </dl>
+      <div style="margin-top:10px;display:flex;gap:8px"><span class="btn small primary">Rebook (new reference)</span><span class="btn small">Open linked order</span><span class="btn small ghost">View full audit trail</span></div>
+    </div>
+    <div class="card" style="width:300px">
+      <div class="card-title">Audit trail (extract)</div>
+      <div class="timeline">
+        <div class="ev"><span class="t">11:31:04</span><span>Cancel confirmed — D. Nair (reason: patient request)</span></div>
+        <div class="ev"><span class="t">11:31:05</span><span>Order ACC-2026-91204 → awaiting scheduling</span></div>
+        <div class="ev"><span class="t">11:31:06</span><span>Slot released · MRI-1 grid updated</span></div>
+        <div class="ev"><span class="t">11:31:07</span><span>Refund/hold item RFD-2026-0087 created</span></div>
+      </div>
+    </div>
+  </div>
+</div></div></div>
+
+<p class="audit">Every view of this appointment, each reschedule, and the cancellation reason/note are permanently retained and recorded in the access log.</p>
+</section>

@@ -1,0 +1,92 @@
+<section class="screen" id="rd-14">
+<div class="screen-head"><h1><span class="sid">RD-14</span> Report search &amp; registry</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The all-reports registry for radiologists, coordinators and QA — searchable by patient, accession, modality, date, signer and status (including addended and retracted). It must guarantee that opening a report outside your care team captures an access reason first, that row-level previews stay masked until a report is legitimately opened, and that bulk export is governance-blocked pending approval. Every search hit shown and every open is itself logged.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Reading</div>
+      <div class="nav-item">Reading worklist <span class="nav-badge">14</span></div>
+      <div class="nav-item">Current study</div>
+      <div class="sec-label">Results</div>
+      <div class="nav-item">Critical results <span class="nav-badge red">3</span></div>
+      <div class="nav-item">Addenda</div>
+      <div class="nav-item">My signed reports</div>
+      <div class="sec-label">Registry</div>
+      <div class="nav-item active">Report search</div>
+      <div class="nav-item">Peer review</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Registry › Report search</div>
+      <div class="page-title">Report search &amp; registry <span class="actions-right"><span class="btn small">Bulk export…</span> <span class="btn small ghost">Saved searches ▾</span></span></div>
+      <div class="page-sub">Searches run against signed reports across Meridian Diagnostics branches you are entitled to. Previews stay masked until a report is opened with a valid basis.</div>
+      <div class="card">
+        <div class="row" style="flex-wrap:wrap;row-gap:10px">
+          <div class="field" style="width:220px;margin-bottom:0"><label>Patient / MRN / accession</label><div class="input mono">MRN-0048*</div></div>
+          <div class="field" style="width:130px;margin-bottom:0"><label>Modality</label><div class="select">All ▾</div></div>
+          <div class="field" style="width:180px;margin-bottom:0"><label>Date range</label><div class="input">20–25 Jul 2026</div></div>
+          <div class="field" style="width:160px;margin-bottom:0"><label>Signer</label><div class="select">Any radiologist ▾</div></div>
+          <div class="field" style="width:160px;margin-bottom:0"><label>Status</label><div class="select">All incl. addended ▾</div></div>
+          <div style="align-self:flex-end"><span class="btn primary">Search</span></div>
+        </div>
+      </div>
+      <p class="small muted" style="margin-bottom:8px">6 results · 0.4 s · your care-team relationships are evaluated per row. Rows outside your care team show masked previews (name initials + MRN last-4) until opened with a reason.</p>
+      <table>
+        <tr><th>Accession</th><th>Patient</th><th>Study · date</th><th>Signer</th><th>Status</th><th>Preview</th><th></th></tr>
+        <tr class="hl"><td class="mono">ACC-2026-91190</td><td>Priya Menon<br><span class="small muted">MRN-004828 · F 34</span></td><td>USG Abd &amp; Pelvis<br><span class="small muted">24 Jul 2026</span></td><td>Dr. V. Shetty</td><td><span class="chip amber">ADDENDED v2</span></td><td class="small">Acute appendicitis; adnexal cyst — see addendum…</td><td><span class="btn small">Open</span></td></tr>
+        <tr class="hl"><td class="mono">ACC-2026-91247</td><td>Sofia Rossi<br><span class="small muted">MRN-004822 · F 58</span></td><td>CT Head Plain<br><span class="small muted">25 Jul 2026</span></td><td>Dr. V. Shetty</td><td><span class="chip red">FINAL · CRITICAL</span></td><td class="small">Acute subdural haematoma, 6 mm midline shift…</td><td><span class="btn small">Open</span></td></tr>
+        <tr><td class="mono">ACC-2026-91232</td><td>M••••••d A•-R••••d<br><span class="small muted">MRN-••4790 · M</span></td><td>CTPA<br><span class="small muted">25 Jul 2026</span></td><td>Dr. A. Rao</td><td><span class="chip green">FINAL</span></td><td class="small muted">🔒 Masked — outside your care team. Open with reason to view.</td><td><span class="btn small warn-outline">Open with reason</span></td></tr>
+        <tr><td class="mono">ACC-2026-91205</td><td>A••••a R•o<br><span class="small muted">MRN-••4819 · F</span></td><td>MRI Brain<br><span class="small muted">23 Jul 2026</span></td><td>Dr. A. Rao</td><td><span class="chip green">FINAL</span></td><td class="small muted">🔒 Masked — outside your care team. Open with reason to view.</td><td><span class="btn small warn-outline">Open with reason</span></td></tr>
+        <tr><td class="mono">ACC-2026-91176</td><td>Aarav Sharma<br><span class="small muted">MRN-004821 · M 41</span></td><td>X-Ray Chest PA<br><span class="small muted">22 Jul 2026</span></td><td>Dr. V. Shetty</td><td><span class="chip green">FINAL</span></td><td class="small">No active cardiopulmonary disease…</td><td><span class="btn small">Open</span></td></tr>
+        <tr class="dim"><td class="mono">ACC-2026-91142</td><td>E•••a N•••k<br><span class="small muted">MRN-••4830 · F</span></td><td>USG Obstetric<br><span class="small muted">21 Jul 2026</span></td><td>Dr. A. Rao</td><td><span class="chip grey">FINAL · PC-PNDT</span></td><td class="small muted">🔒 Masked — obstetric US; foetal-sex fields are non-disclosable to all roles. Open with reason.</td><td><span class="btn small warn-outline">Open with reason</span></td></tr>
+      </table>
+      <p class="small muted" style="margin-top:8px">Status filter also covers <span class="chip grey">RETRACTED</span> reports (visible with retraction notice only). Search executions and result sets are themselves logged — repeated broad searches trigger privacy-officer review.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ACCESS-REASON PROMPT: OPENING OUTSIDE CARE TEAM</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Access reason required — ACC-2026-91232</h3>
+    <p class="small muted" style="margin-bottom:10px">You are not on this patient's care team (patient M••••••d A•-R••••d, MRN-••4790; signer Dr. A. Rao). Provide the basis for access. Your reason is stored with the access event and is visible to the privacy officer and, on request, to the patient.</p>
+    <div class="field"><label>Basis for access <span class="req">*</span></label>
+      <div class="check"><span class="box radio on"></span><span><b>Second opinion / peer consult</b> — requested by the signing radiologist</span></div>
+      <div class="check"><span class="box radio"></span><span><b>Peer review / QA</b> — sampled case under QA programme</span></div>
+      <div class="check"><span class="box radio"></span><span><b>Duty cover</b> — acting for an absent colleague</span></div>
+      <div class="check"><span class="box radio"></span><span><b>Medico-legal / audit</b> — requires reference number below</span></div>
+    </div>
+    <div class="field"><label>Detail <span class="req">*</span></label><div class="input">Dr. A. Rao requested consult on segmental PE burden, call 13:05 IST</div></div>
+    <div class="banner reg" style="margin-bottom:0"><b>Step-up confirmation</b>Re-enter your Magnus PIN to confirm identity before the record is unmasked. <span class="mono">PIN ••••</span></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Confirm &amp; open report</span></div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — BULK EXPORT BLOCKED: GOVERNANCE APPROVAL REQUIRED</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="page-title">Bulk export — governance hold</div>
+      <div class="banner danger"><b>Bulk export blocked pending approval</b>Your request to export 6 reports (search: MRN-0048*, 20–25 Jul 2026) exceeds the self-service limit of 1 report per export and includes 3 patients outside your care team. Bulk exports require data-governance approval before any file is generated — nothing has left the system.</div>
+      <div class="card" style="max-width:680px">
+        <div class="card-title">Approval request EXP-2026-0087 <span class="right">Created 13:11 IST</span></div>
+        <div class="kv">
+          <dt>Requested by</dt><dd>Dr. V. Shetty (RMC MH-44721) · RIS Reading, Andheri West</dd>
+          <dt>Scope</dt><dd>6 reports · 6 patients · PDF, de-identification: <b>not requested</b></dd>
+          <dt>Stated purpose</dt><dd>"Monthly clinical audit — appendicitis pathway"</dd>
+          <dt>Approver</dt><dd>Branch admin K. Verma (data governance) · four-eyes; requester cannot self-approve</dd>
+          <dt>SLA</dt><dd><span class="chip teal">decision due in 8h</span> · owner: K. Verma · lapse escalates to org clinical lead</dd>
+          <dt>Conditions</dt><dd>If approved, export is watermarked, recipient-bound, expires in 72 h, and each file open is logged.</dd>
+        </div>
+        <div class="banner info" style="margin-top:10px;margin-bottom:0"><b>Tip</b>De-identified exports (names, MRNs and contact details stripped, Aadhaar never included) qualify for a faster approval lane for audit and teaching use.</div>
+        <div class="modal-actions"><span class="btn ghost">Withdraw request</span><span class="btn">Switch to de-identified export</span><span class="btn primary disabled">Download (locked until approved)</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Search queries, masked-row displays, out-of-care-team opens with their stated reason and PIN step-up, and every bulk-export request and decision are recorded in the access log; patients may request a disclosure report of who viewed their records.</p>
+</section>

@@ -1,0 +1,163 @@
+<section class="screen" id="fo-01">
+<div class="screen-head"><h1><span class="sid">FO-01</span> Reception dashboard &amp; token board</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The front-office executive (D. Nair) keeps this board open all day to watch the live token queue, appointment arrivals and per-modality load, and to call the next patient to a service point. It must guarantee the queue is authoritative even when the network drops — actions queue locally and sync when reconnected. Key rules: tokens are branch-scoped (U = ultrasound, C = CT/consult desk, X = X-ray), no clinical data is shown here, and every "call next" / "mark no-show" action is written to the access log.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Reception</div>
+      <div class="nav-item active">Dashboard &amp; tokens</div>
+      <div class="nav-item">Patient search</div>
+      <div class="nav-item">Register patient</div>
+      <div class="nav-item">Appointments <span class="nav-badge">18</span></div>
+      <div class="nav-item">Walk-in booking</div>
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Collect payment</div>
+      <div class="nav-item">Invoices</div>
+      <div class="sec-label">Queue</div>
+      <div class="nav-item">No-show reconcile <span class="nav-badge red">2</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Front Office / Andheri West / Dashboard</div>
+      <div class="page-title">Reception dashboard <span class="chip green" style="vertical-align:middle">LIVE · synced 09:42 IST</span></div>
+      <div class="page-sub">Fri 24 Jul 2026 · shift 08:00–16:00 · token board refreshes every 15 s</div>
+      <div class="banner info"><b>Working offline is supported</b> — actions queue and sync when reconnected. Token issue, arrival marking and no-show flags never block on network.</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n mono">U-018 · C-042 · X-008</div><div class="l">Now serving</div><div class="s">US room 2 · Desk 1 · X-ray 1</div></div>
+        <div class="kpi"><div class="n">14</div><div class="l">Queue depth</div><div class="s">avg wait 22 min · longest 48 min</div></div>
+        <div class="kpi amber"><div class="n">18 / 41</div><div class="l">Appointments arrived</div><div class="s">next slot 10:00 · 3 due in 15 min</div></div>
+        <div class="kpi"><div class="n">9</div><div class="l">Walk-ins today</div><div class="s">2 pending registration</div></div>
+      </div>
+      <div class="row">
+        <div class="grow" style="flex:1.7">
+          <div class="card">
+            <div class="card-title">Live queue — all service points <span class="right">Auto-refresh 15 s</span></div>
+            <table>
+              <tr><th>Token</th><th>Patient</th><th>MRN</th><th>Service point</th><th>Status</th><th>Waited</th><th></th></tr>
+              <tr class="hl"><td class="mono bold">U-019</td><td>Sofia Rossi</td><td class="mono">MRN-004822</td><td>Ultrasound room 2</td><td><span class="chip teal">CALLED</span></td><td>18 min</td><td><a class="btn ghost small" href="#">Re-announce</a></td></tr>
+              <tr><td class="mono bold">U-020</td><td>Priya Menon</td><td class="mono">MRN-004828</td><td>Ultrasound room 1</td><td><span class="chip blue">WAITING</span></td><td>26 min</td><td><a class="btn ghost small" href="#">Call next</a></td></tr>
+              <tr><td class="mono bold">C-043</td><td>Aarav Sharma</td><td class="mono">MRN-004821</td><td>CT prep bay</td><td><span class="chip blue">WAITING</span></td><td>12 min</td><td><a class="btn ghost small" href="#">Call next</a></td></tr>
+              <tr><td class="mono bold">C-044</td><td>Mohammed Al-Rashid</td><td class="mono">MRN-004790</td><td>CT prep bay</td><td><span class="chip amber">PREP · contrast consent</span></td><td>31 min</td><td><a class="btn ghost small" href="#">Details</a></td></tr>
+              <tr><td class="mono bold">X-009</td><td>Rajesh Gupta</td><td class="mono">MRN-004795</td><td>X-ray 1</td><td><span class="chip blue">WAITING</span></td><td>9 min</td><td><a class="btn ghost small" href="#">Call next</a></td></tr>
+              <tr><td class="mono bold">X-010</td><td>Ananya Rao</td><td class="mono">MRN-004819</td><td>X-ray 1</td><td><span class="chip blue">WAITING</span></td><td>7 min</td><td><a class="btn ghost small" href="#">Call next</a></td></tr>
+              <tr><td class="mono bold">U-021</td><td>Kwame Osei</td><td class="mono">MRN-004823</td><td>Ultrasound room 1</td><td><span class="chip red">WAIT 48 MIN</span></td><td class="bold" style="color:#B91C1C">48 min</td><td><a class="btn ghost small" href="#">Prioritise</a></td></tr>
+              <tr class="dim"><td class="mono bold">C-041</td><td>Elena Novak</td><td class="mono">MRN-004830</td><td>Consult desk 1</td><td><span class="chip grey">NO-SHOW?</span></td><td>62 min</td><td><a class="btn ghost small" href="#">Reconcile</a></td></tr>
+            </table>
+            <p class="small muted" style="margin-top:8px">Queue shows name + MRN only — orders and clinical context are not visible at reception. Each "Call next" is recorded in the access log with token, operator and service point.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Arrivals by hour (today) <span class="right">Accessible table view</span></div>
+            <table>
+              <tr><th>Hour (IST)</th><th>Appointments due</th><th>Arrived</th><th>Walk-ins</th><th>Load</th></tr>
+              <tr><td class="mono">08:00–09:00</td><td>7</td><td>7</td><td>2</td><td><div class="progress" style="width:120px"><i style="width:75%"></i></div></td></tr>
+              <tr><td class="mono">09:00–10:00</td><td>11</td><td>9</td><td>4</td><td><div class="progress amber" style="width:120px"><i style="width:95%"></i></div></td></tr>
+              <tr><td class="mono">10:00–11:00</td><td>9</td><td>2 so far</td><td>3</td><td><div class="progress" style="width:120px"><i style="width:60%"></i></div></td></tr>
+              <tr><td class="mono">11:00–12:00</td><td>8</td><td>—</td><td>—</td><td><div class="progress" style="width:120px"><i style="width:50%"></i></div></td></tr>
+              <tr><td class="mono">12:00–13:00</td><td>6</td><td>—</td><td>—</td><td><div class="progress" style="width:120px"><i style="width:38%"></i></div></td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="grow">
+          <div class="card">
+            <div class="card-title">Modality load — now</div>
+            <div class="small bold">Ultrasound (2 rooms) <span class="muted" style="float:right">6 waiting</span></div>
+            <div class="progress amber"><i style="width:82%"></i></div>
+            <div class="small bold" style="margin-top:10px">CT (1 gantry) <span class="muted" style="float:right">4 waiting</span></div>
+            <div class="progress"><i style="width:64%"></i></div>
+            <div class="small bold" style="margin-top:10px">X-ray (2 rooms) <span class="muted" style="float:right">3 waiting</span></div>
+            <div class="progress"><i style="width:41%"></i></div>
+            <div class="small bold" style="margin-top:10px">Sample collection <span class="muted" style="float:right">1 waiting</span></div>
+            <div class="progress"><i style="width:18%"></i></div>
+            <p class="hint small muted" style="margin-top:10px">Ultrasound room 2 blocked 10:30–11:00 for probe disinfection.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">No-show reconcile <span class="chip amber">2 pending</span></div>
+            <div class="small" style="margin-bottom:8px"><b>Elena Novak</b> <span class="mono">APPT-2026-51244</span> — 08:45 CT abdomen, not arrived by 09:47. <span class="chip amber">due in 0h 13m</span> owner: D. Nair</div>
+            <div class="small" style="margin-bottom:8px"><b>Masked patient ••••• R.</b> <span class="mono">APPT-2026-51239</span> — 08:30 X-ray chest. <span class="chip red">OVERDUE 00:32</span> owner: D. Nair<br><span class="muted">Escalated to K. Verma (branch admin) at 09:30 IST.</span></div>
+            <a class="btn small" href="#">Open reconcile list</a> <a class="btn ghost small" href="#">Snooze 15 min</a>
+            <p class="hint small muted" style="margin-top:8px">Names are masked where the appointment was booked at another branch and you lack a treatment purpose.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">SLA watch</div>
+            <div class="small" style="margin-bottom:6px">Front-desk registration TAT <span class="chip teal">due in 2h</span></div>
+            <div class="small" style="margin-bottom:6px">Payment reconciliation (cash drawer) <span class="chip amber">due in 0h 40m</span> owner: D. Nair</div>
+            <div class="small">Stat CT slot confirmation <span class="chip red">OVERDUE 00:12</span> owner: T. Okafor<br><span class="muted">Escalated to Dr. V. Shetty at 09:35 IST.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — OFFLINE · ACTIONS QUEUED, 3 PENDING SYNC</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Reception</div>
+      <div class="nav-item active">Dashboard &amp; tokens</div>
+      <div class="nav-item">Patient search</div>
+      <div class="nav-item">Register patient</div>
+      <div class="nav-item">Appointments</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Front Office / Andheri West / Dashboard</div>
+      <div class="page-title">Reception dashboard <span class="chip amber" style="vertical-align:middle">OFFLINE since 10:04 IST</span></div>
+      <div class="page-sub">Fri 24 Jul 2026 · last successful sync 10:03:41 IST</div>
+      <div class="banner warn"><b>Working offline is supported — actions queue and sync when reconnected.</b> 3 actions pending sync: token U-022 issued (10:06), arrival marked for Rajesh Gupta (10:08), no-show flag on APPT-2026-51239 (10:09). Cross-branch search and online payments are unavailable until reconnection.</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n mono">U-019 · C-043 · X-009</div><div class="l">Now serving (local)</div><div class="s">as of 10:03 sync</div></div>
+        <div class="kpi amber"><div class="n">3</div><div class="l">Pending sync</div><div class="s">oldest queued 10:06 IST</div></div>
+        <div class="kpi"><div class="n">15</div><div class="l">Queue depth (local)</div><div class="s">may lag other terminals</div></div>
+        <div class="kpi"><div class="n">18 / 41</div><div class="l">Appointments arrived</div><div class="s">as of last sync</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Offline action queue <span class="right">Will replay in order on reconnect</span></div>
+        <table>
+          <tr><th>#</th><th>Queued at</th><th>Action</th><th>Reference</th><th>Status</th></tr>
+          <tr><td>1</td><td class="mono">10:06:12</td><td>Issue token U-022 (walk-in, ultrasound)</td><td class="mono">MRN-004828</td><td><span class="chip amber">PENDING SYNC</span></td></tr>
+          <tr><td>2</td><td class="mono">10:08:05</td><td>Mark arrival — Rajesh Gupta</td><td class="mono">APPT-2026-51251</td><td><span class="chip amber">PENDING SYNC</span></td></tr>
+          <tr><td>3</td><td class="mono">10:09:40</td><td>Flag no-show (reconcile queue)</td><td class="mono">APPT-2026-51239</td><td><span class="chip amber">PENDING SYNC</span></td></tr>
+        </table>
+        <p class="small muted" style="margin-top:8px">Queued actions carry the original timestamp and operator ID; conflicts on replay open a reconcile task instead of overwriting.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — QUIET MORNING · EMPTY QUEUE</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Reception</div>
+      <div class="nav-item active">Dashboard &amp; tokens</div>
+      <div class="nav-item">Patient search</div>
+      <div class="nav-item">Register patient</div>
+      <div class="nav-item">Appointments <span class="nav-badge">41</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Front Office / Andheri West / Dashboard</div>
+      <div class="page-title">Reception dashboard <span class="chip green" style="vertical-align:middle">LIVE · synced 07:52 IST</span></div>
+      <div class="page-sub">Fri 24 Jul 2026 · doors opened 07:30 · first appointment 08:00</div>
+      <div class="banner info"><b>Working offline is supported</b> — actions queue and sync when reconnected.</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">—</div><div class="l">Now serving</div><div class="s">no tokens issued yet</div></div>
+        <div class="kpi"><div class="n">0</div><div class="l">Queue depth</div><div class="s">all service points idle</div></div>
+        <div class="kpi"><div class="n">0 / 41</div><div class="l">Appointments arrived</div><div class="s">first due 08:00 (Sofia Rossi)</div></div>
+        <div class="kpi"><div class="n">0</div><div class="l">Walk-ins</div><div class="s">—</div></div>
+      </div>
+      <div class="card" style="text-align:center;padding:34px 16px">
+        <div class="bold" style="font-size:15px;margin-bottom:4px">Queue is empty — nothing to serve yet</div>
+        <div class="muted small" style="margin-bottom:12px">41 appointments are scheduled today. First arrivals expected around 08:00 IST. Use the time to pre-verify insurance for the 09:00 CT block (4 patients).</div>
+        <a class="btn primary" href="#">Open today's appointment list</a> <a class="btn" href="#">Pre-verify insurance</a>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Token calls, arrival marks, no-show flags and dashboard views of patient identifiers are recorded in the access log with operator ID, terminal, branch and timestamp; offline-queued actions retain their original capture time when synced — all recorded in the access log.</p>
+</section>

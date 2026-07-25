@@ -1,0 +1,115 @@
+<section class="screen" id="rd-18">
+<div class="screen-head"><h1><span class="sid">RD-18</span> Templates &amp; macros admin</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The lead radiologist (template owner) and admin K. Verma maintain the report templates and text macros radiologists dictate into — creating drafts, publishing versions, and retiring stale ones. The system must guarantee that REGULATED sections (e.g. the PCPNDT foetal-sex non-disclosure declaration on obstetric ultrasound) are locked and system-enforced — editable only via a governance change request — that every published version has a named approver, and that a template with open report drafts cannot be retired out from under them. Org-scoped templates override branch copies unless a branch variance is approved.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Worklist</div>
+    <div class="nav-item">My worklist <span class="nav-badge">12</span></div>
+    <div class="nav-item">STAT queue <span class="nav-badge red">2</span></div>
+    <div class="nav-item">Unassigned pool</div>
+    <div class="sec-label">Reading</div>
+    <div class="nav-item">Report editor</div>
+    <div class="nav-item">Prior comparisons</div>
+    <div class="nav-item">Addenda &amp; versions</div>
+    <div class="sec-label">Quality</div>
+    <div class="nav-item">Critical results <span class="nav-badge red">1</span></div>
+    <div class="nav-item">Consults</div>
+    <div class="nav-item">My dashboard</div>
+    <div class="nav-item active">Templates &amp; macros</div>
+  </div>
+  <div class="main">
+    <div class="crumb">RIS · Reading › Templates &amp; macros</div>
+    <div class="page-title">Report templates &amp; macros <span class="btn small primary actions-right">+ New draft template</span></div>
+    <div class="page-sub">Template-owner role: Dr. V. Shetty (branch) · Org catalogue managed centrally by K. Verma (Clinical Governance). Showing 7 of 42.</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">34</div><div class="l">In use</div><div class="s">28 org · 6 branch</div></div>
+      <div class="kpi"><div class="n">5</div><div class="l">Drafts</div><div class="s">2 awaiting approval</div></div>
+      <div class="kpi amber"><div class="n">3</div><div class="l">Retired</div><div class="s">kept read-only for old reports</div></div>
+      <div class="kpi"><div class="n">61</div><div class="l">Text macros</div><div class="s">personal + shared</div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Template list <span class="right">filter: all modalities</span></div>
+      <table>
+        <tr><th>Template</th><th>Modality</th><th>Scope</th><th>Status</th><th>Version</th><th>Regulated blocks</th><th>Approved by</th><th></th></tr>
+        <tr><td class="bold">CT Chest with contrast — standard</td><td>CT</td><td><span class="chip blue">ORG</span></td><td><span class="chip green">IN USE</span></td><td class="mono">v7</td><td>—</td><td>Dr. A. Rao · 02-Jun-2026</td><td><span class="btn small">Open</span></td></tr>
+        <tr class="hl"><td class="bold">Obstetric US — anomaly scan (18–22 wk)</td><td>US</td><td><span class="chip blue">ORG</span></td><td><span class="chip green">IN USE</span></td><td class="mono">v11</td><td><span class="chip violet">PCPNDT · locked</span></td><td>K. Verma (Gov.) · 14-May-2026</td><td><span class="btn small">Open</span></td></tr>
+        <tr><td class="bold">MRI Brain plain — standard</td><td>MRI</td><td><span class="chip blue">ORG</span></td><td><span class="chip green">IN USE</span></td><td class="mono">v5</td><td>—</td><td>Dr. A. Rao · 20-Apr-2026</td><td><span class="btn small">Open</span></td></tr>
+        <tr><td class="bold">CT KUB — renal colic fast-read (Andheri variance)</td><td>CT</td><td><span class="chip teal">BRANCH</span></td><td><span class="chip green">IN USE</span></td><td class="mono">v2</td><td>—</td><td>Dr. V. Shetty · 30-Jun-2026</td><td><span class="btn small">Open</span></td></tr>
+        <tr><td class="bold">Mammography — BIRADS structured</td><td>MG</td><td><span class="chip blue">ORG</span></td><td><span class="chip amber">DRAFT v9 · awaiting approval</span></td><td class="mono">v8 live</td><td><span class="chip violet">MSP screening note</span></td><td>pending: Clinical Governance</td><td><span class="btn small">Open</span></td></tr>
+        <tr><td class="bold">X-ray Chest PA — screening camp short form</td><td>XR</td><td><span class="chip teal">BRANCH</span></td><td><span class="chip amber">DRAFT v1</span></td><td class="mono">—</td><td>—</td><td>—</td><td><span class="btn small">Open</span></td></tr>
+        <tr class="dim"><td>US Abdomen — legacy 2024 layout</td><td>US</td><td><span class="chip blue">ORG</span></td><td><span class="chip grey">RETIRED</span></td><td class="mono">v6 final</td><td>—</td><td>Dr. A. Rao · retired 01-Mar-2026</td><td><span class="btn small">View</span></td></tr>
+      </table>
+      <p class="small muted" style="margin-top:8px">Scope rule: an ORG template applies to all branches; a BRANCH variance requires an approved deviation record and shows both badges in the editor. Retired templates stay attached read-only to reports that used them.</p>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — EDITOR WITH SYSTEM-LOCKED REGULATED BLOCK</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Editing draft — Obstetric US anomaly scan <span class="chip amber">DRAFT v12 (from v11)</span> <span class="chip blue">ORG</span></div>
+  <div class="page-sub">Base: v11 approved 14-May-2026 · Draft owner: Dr. V. Shetty · Autosaved 21-Jul-2026 10:04 IST.</div>
+  <div class="split">
+    <div class="card">
+      <div class="card-title">Sections <span class="right">drag to reorder · locked blocks pinned</span></div>
+      <table>
+        <tr><th>#</th><th>Section</th><th>Type</th><th>Default codes</th><th></th></tr>
+        <tr><td class="mono">1</td><td>Clinical history &amp; LMP/EDD</td><td>Free text + fields</td><td class="mono">LOINC 11996-6</td><td><span class="btn small">Edit</span></td></tr>
+        <tr><td class="mono">2</td><td>Biometry (BPD, HC, AC, FL, EFW)</td><td>Structured grid</td><td class="mono">LOINC 11957-8 set</td><td><span class="btn small">Edit</span></td></tr>
+        <tr><td class="mono">3</td><td>Anatomy survey checklist</td><td>Checklist</td><td class="mono">MER-OBS-ANAT-01</td><td><span class="btn small">Edit</span></td></tr>
+        <tr class="hl"><td class="mono">4</td><td><b>PCPNDT declaration — foetal sex not determined / not disclosed</b> <span class="chip violet">REGULATED · LOCKED</span></td><td>Fixed statement + Form F ref</td><td class="mono">MER-REG-PCPNDT-F</td><td><span class="btn small disabled">Edit</span></td></tr>
+        <tr><td class="mono">5</td><td>Impression &amp; follow-up</td><td>Free text</td><td class="mono">LOINC 19005-8</td><td><span class="btn small">Edit</span></td></tr>
+      </table>
+    </div>
+    <div>
+      <div class="banner reg"><b>Section 4 is system-enforced</b>The PCPNDT wording, its mandatory placement, and the Form F reference cannot be edited, reordered below the impression, or removed in any draft — the publish action hard-fails if the block is altered. To change regulated wording, raise a change request to Clinical Governance; legal sign-off is required and the change ships as a new org-wide version. <span class="btn small warn-outline" style="margin-top:6px">Request change → Governance</span></div>
+      <div class="card">
+        <div class="card-title">Locked block preview <span class="right">read-only</span></div>
+        <p class="small mono" style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:7px;padding:8px">"Foetal sex has not been determined, ascertained or disclosed during this examination, in compliance with the PC-PNDT Act, 1994. Form F completed and filed: ref ______."</p>
+        <p class="small muted" style="margin-top:6px">Wording owner: Clinical Governance (K. Verma) · Legal review: 14-May-2026 · Applies to every obstetric US template org-wide.</p>
+      </div>
+      <div class="row"><span class="btn primary">Submit draft for approval</span><span class="btn">Preview as report</span><span class="btn ghost">Discard draft</span></div>
+    </div>
+  </div>
+</div></div></div>
+
+<div class="divider-label">state</div>
+
+<div class="state-tag">STATE C — VERSION HISTORY WITH APPROVER CHAIN</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Version history — Obstetric US anomaly scan <span class="chip blue">ORG</span></div>
+  <div class="page-sub">Full chain retained; any historical version can be viewed read-only exactly as radiologists saw it.</div>
+  <div class="card">
+    <table>
+      <tr><th>Version</th><th>Published (IST)</th><th>Authored by</th><th>Approved by</th><th>Change summary</th><th>Regulated block touched?</th></tr>
+      <tr class="hl"><td class="mono">v11 · live</td><td class="mono">14-May-2026 16:30</td><td>Dr. V. Shetty</td><td>K. Verma (Clinical Governance)</td><td>PCPNDT wording updated to 2026 legal-review text; Form F ref field made mandatory</td><td><span class="chip violet">Yes — via CR-GOV-2026-014</span></td></tr>
+      <tr><td class="mono">v10</td><td class="mono">03-Feb-2026 11:12</td><td>Dr. A. Rao</td><td>Dr. A. Rao (delegated)</td><td>Biometry grid: added EFW percentile column</td><td>No</td></tr>
+      <tr><td class="mono">v9</td><td class="mono">18-Nov-2025 09:40</td><td>Dr. V. Shetty</td><td>Dr. A. Rao</td><td>Anatomy checklist reordered; 2 macros attached</td><td>No</td></tr>
+      <tr class="dim"><td class="mono">v8</td><td class="mono">02-Sep-2025 14:05</td><td>Dr. A. Rao</td><td>Dr. A. Rao</td><td>Impression defaults reworded</td><td>No</td></tr>
+      <tr class="dim"><td class="mono">v7 and earlier</td><td class="mono">—</td><td colspan="3" class="muted">Archived — expand to view 7 older versions</td><td>—</td></tr>
+    </table>
+    <p class="small muted" style="margin-top:8px">Reports always record the template version they were authored against; opening an old report renders its own version, never the current one. Regulated-block changes carry the governance change-request ID and legal approver.</p>
+  </div>
+</div></div></div>
+
+<div class="divider-label">state</div>
+
+<div class="state-tag">STATE D — RETIRE BLOCKED: OPEN DRAFTS STILL USE THIS TEMPLATE</div>
+<div class="modal-wrap"><div class="modal danger">
+  <h3>Cannot retire "CT KUB — renal colic fast-read (Andheri variance)" yet</h3>
+  <p class="small muted" style="margin-bottom:10px">Retiring removes the template from the picker for new reports. It is blocked while unsigned drafts depend on it — retiring now would strand them mid-authoring.</p>
+  <table>
+    <tr><th>Open draft</th><th>Radiologist</th><th>Patient</th><th>Draft age</th></tr>
+    <tr><td class="mono">ACC-2026-91245</td><td>Dr. V. Shetty</td><td>Aarav Sharma · MRN-004821</td><td class="mono">1h 50m</td></tr>
+    <tr><td class="mono">ACC-2026-91330</td><td>Dr. A. Rao</td><td>Kwame Osei · MRN-004823</td><td class="mono">0h 35m</td></tr>
+    <tr><td class="mono">ACC-2026-91334</td><td>Dr. A. Rao</td><td>Sofia Rossi · MRN-004822</td><td class="mono">0h 12m</td></tr>
+  </table>
+  <div class="banner warn" style="margin-top:10px"><b>Options</b>Schedule retirement to take effect once all 3 drafts are signed (new drafts blocked immediately), or notify both radiologists to migrate drafts to "CT KUB — standard (ORG v4)". Force-retire is not available — this guard is system-enforced.</div>
+  <div class="field"><label>Confirm identity to schedule retirement (step-up) <span class="req">*</span></label><div class="input mono">Password re-entry · Dr. V. Shetty · template-owner role</div></div>
+  <div class="modal-actions"><span class="btn">Cancel</span><span class="btn">Notify draft owners</span><span class="btn warn-outline">Schedule retire after drafts close</span></div>
+</div></div>
+
+<p class="audit">Template creates, edits, approvals, scope changes, retirements and every governance change-request against a regulated block are recorded in the access log with user, role and IST timestamp. Regulated-section locks are enforced in the publish pipeline (server-side), not just hidden in the UI. Draft-owner names in the retire guard are visible only to template-owner and governance roles; patient rows show MRN plus name because the viewer holds a QA purpose — otherwise identifiers are masked.</p>
+</section>

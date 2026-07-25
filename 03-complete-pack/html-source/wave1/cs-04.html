@@ -1,0 +1,117 @@
+<section class="screen" id="cs-04">
+<div class="screen-head"><h1><span class="sid">CS-04</span> Physician override — blocked screening</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Clinical Safety</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> When a safety screening (contrast, MRI, pregnancy) blocks a study, the technologist or desk can only <i>request</i> an override — they can never grant one. The request lands in a physician queue; the physician reviews the underlying screening data, must confirm their identity, give a clinical reason, and acknowledge the risk statement. A grant is time-boxed and stamped onto the study as a banner; every step is fully audited.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>CLINICAL SAFETY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (Technologist) ▾</div></div>
+  <div class="body">
+  <div class="sidebar">
+    <div class="sec-label">Clinical Safety</div>
+    <div class="nav-item">Safety worklist <span class="nav-badge">6</span></div>
+    <div class="nav-item">Screening forms</div>
+    <div class="nav-item">Consents</div>
+    <div class="nav-item active">Physician overrides <span class="nav-badge red">2</span></div>
+    <div class="nav-item">Adverse reactions</div>
+    <div class="sec-label">Statutory</div>
+    <div class="nav-item">Form F register</div>
+    <div class="nav-item">PNDT compliance</div>
+    <div class="sec-label">Records</div>
+    <div class="nav-item">Audit trail</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Clinical Safety › Physician overrides › New request</div>
+    <div class="page-title">Request physician override <span class="chip red" style="margin-left:8px">STUDY BLOCKED BY SCREENING</span></div>
+    <div class="page-sub">Mohammed Al-Rashid · MRN-004790 · M 61y · ACC-2026-91266 · CT Angio w/ contrast · Referrer: Dr. Farida Khan · 24 Jul 2026</div>
+    <div class="banner danger"><b>Blocked by contrast screening rule R-eGFR-30</b> eGFR 27 mL/min/1.73m² (lab, 22 Jul 2026) is below the branch threshold of 30 for IV iodinated contrast. Technologists cannot proceed and <u>cannot self-override</u>. Only a physician may grant a time-boxed override.</div>
+    <div class="split">
+      <div>
+        <div class="card">
+          <div class="card-title">Screening data that triggered the block <span class="right">from CS-02 · read-only</span></div>
+          <dl class="kv">
+            <dt>Rule fired</dt><dd><span class="mono">R-eGFR-30</span> — eGFR &lt; 30 blocks iodinated IV contrast</dd>
+            <dt>eGFR</dt><dd>27 mL/min/1.73m² · SRL Labs · 22 Jul 2026 · verified original seen</dd>
+            <dt>Creatinine</dt><dd>2.4 mg/dL</dd>
+            <dt>Diabetic / metformin</dt><dd>Yes / held 48h per protocol</dd>
+            <dt>Prior contrast reaction</dt><dd>None recorded</dd>
+            <dt>Allergy flags</dt><dd><span class="chip grey">None on file</span></dd>
+            <dt>Screened by</dt><dd>T. Okafor · 24 Jul 2026, 09:44 IST</dd>
+          </dl>
+        </div>
+        <div class="card">
+          <div class="card-title">Override request (technologist section only)</div>
+          <div class="field"><label>Why is an override being requested? <span class="req">*</span></label><textarea class="textarea">Referrer Dr. Farida Khan states CT angiogram is urgent for suspected mesenteric ischaemia; nephrology aware. Requesting physician review of risk-benefit.</textarea></div>
+          <div class="field"><label>Route to physician <span class="req">*</span></label><select class="select"><option>Dr. V. Shetty — Radiologist on duty (RMC MH-44721)</option><option>Dr. A. Rao — Radiologist</option><option>Branch medical lead</option></select></div>
+          <div class="check"><span class="box on">✓</span> I understand I am requesting review only; I cannot authorise this study myself.</div>
+          <div style="display:flex;gap:10px;margin-top:8px"><span class="btn primary">Send to physician queue</span><span class="btn">Cancel — keep study blocked</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">Physician queue <span class="right">On duty: Dr. V. Shetty</span></div>
+          <table>
+            <tr><th>Req</th><th>Patient</th><th>Rule</th><th>SLA</th></tr>
+            <tr class="hl"><td class="mono">OVR-2026-0087</td><td>M. Al-Rashid<br><span class="small muted">MRN-004790</span></td><td>R-eGFR-30</td><td><span class="chip teal">due in 1h</span></td></tr>
+            <tr><td class="mono">OVR-2026-0086</td><td>R. Gupta<br><span class="small muted">MRN-004795</span></td><td>R-MRI-IMPLANT</td><td><span class="chip amber">due in 0h 20m</span></td></tr>
+            <tr><td class="mono">OVR-2026-0085</td><td>K. Osei<br><span class="small muted">MRN-004823</span></td><td>R-ALLERGY-HX</td><td><span class="chip red">OVERDUE 00:34</span><br><span class="small muted">owner Dr. V. Shetty · Escalated to branch medical lead</span></td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-title">Rules of this workflow</div>
+          <div class="check"><span class="box on">✓</span> Overrides are physician-only; identity step-up required at grant.</div>
+          <div class="check"><span class="box on">✓</span> Every grant is time-boxed (max 24h, single accession).</div>
+          <div class="check"><span class="box on">✓</span> The blocking rule and screening snapshot are frozen into the override record.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PHYSICIAN REVIEW · override decision modal (Dr. V. Shetty's session)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="modal-wrap"><div class="modal danger" style="max-width:620px">
+    <h3>Override request OVR-2026-0087 — physician decision</h3>
+    <p class="small muted" style="margin-bottom:10px">Mohammed Al-Rashid · MRN-004790 · ACC-2026-91266 · CT Angio w/ contrast · blocked by <span class="mono">R-eGFR-30</span> (eGFR 27). Full screening snapshot shown above this modal; review before deciding.</p>
+    <div class="field"><label>Clinical reason for override <span class="req">*</span></label><textarea class="textarea">Suspected acute mesenteric ischaemia; delay risks bowel infarction. Benefit outweighs CI-AKI risk. Pre/post-hydration protocol ordered; lowest-dose iso-osmolar agent; nephrology informed per Dr. Khan.</textarea></div>
+    <div class="field"><label>Validity window <span class="req">*</span></label><select class="select"><option>4 hours — this accession only (expires 24 Jul 2026, 15:10 IST)</option><option>8 hours — this accession only</option><option>24 hours — this accession only (maximum)</option></select></div>
+    <div class="check"><span class="box on">✓</span> <b>Risk acknowledgement:</b> I have read the risk statement for contrast administration at eGFR &lt; 30, including contrast-associated acute kidney injury, and accept clinical responsibility for this study.</div>
+    <div class="check"><span class="box on">✓</span> Mitigations documented above will be attached to the technologist's worklist entry.</div>
+    <div class="field"><label>Identity confirmation (step-up) <span class="req">*</span></label><input class="input" value="Dr. V. Shetty · RMC MH-44721 · Magnus PIN ••••• verified 11:09 IST"></div>
+    <div class="modal-actions"><span class="btn">Deny — keep blocked</span><span class="btn danger">Grant time-boxed override</span></div>
+  </div></div>
+  <p class="small muted">The technologist's screen updates in real time; they never see or enter the physician's credentials.</p>
+</div></div></div>
+
+<div class="state-tag">STATE C — GRANTED · time-boxed override banner shown on the study</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner warn"><b>⚠ PHYSICIAN OVERRIDE ACTIVE — OVR-2026-0087</b> Rule <span class="mono">R-eGFR-30</span> overridden by <b>Dr. V. Shetty (RMC MH-44721)</b> at 11:10 IST · valid until <b>15:10 IST, 24 Jul 2026</b> · this accession only. Reason: urgent CT angio for suspected mesenteric ischaemia; hydration protocol + iso-osmolar agent mandated. If the study has not started by expiry, the block re-applies automatically and a new request is required.</div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">04:00</div><div class="l">Validity window</div><div class="s">counts down on the study header</div></div>
+    <div class="kpi amber"><div class="n">2</div><div class="l">Mandated mitigations</div><div class="s">hydration · iso-osmolar low dose</div></div>
+    <div class="kpi"><div class="n">1</div><div class="l">Accession covered</div><div class="s">ACC-2026-91266 only</div></div>
+  </div>
+  <div class="card"><div class="card-title">Override audit trail <span class="right">immutable</span></div>
+    <div class="timeline">
+      <div class="ev"><span class="t">09:44</span><span>Screening blocked study — rule R-eGFR-30 · T. Okafor</span></div>
+      <div class="ev"><span class="t">09:51</span><span>Override requested by T. Okafor (Technologist) → queue of Dr. V. Shetty</span></div>
+      <div class="ev"><span class="t">11:06</span><span>Dr. V. Shetty opened screening snapshot (read logged)</span></div>
+      <div class="ev"><span class="t">11:09</span><span>Step-up identity verified — Dr. V. Shetty, RMC MH-44721</span></div>
+      <div class="ev"><span class="t">11:10</span><span>Override GRANTED · 4h · risk statement acknowledged · reason recorded</span></div>
+      <div class="ev"><span class="t">11:10</span><span>Referrer Dr. Farida Khan notified; banner stamped on ACC-2026-91266</span></div>
+    </div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE D — DENIED · block stands</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner danger"><b>Override DENIED — study remains blocked</b> OVR-2026-0085 · Kwame Osei · MRN-004823 · MRI Brain w/ contrast · rule <span class="mono">R-ALLERGY-HX</span> (prior moderate gadolinium reaction). Denied by Dr. A. Rao at 12:22 IST: "Non-urgent indication; reaction history not adequately characterised. Recommend allergist review and premedication protocol before rebooking."</div>
+  <dl class="kv" style="max-width:640px">
+    <dt>Study status</dt><dd><span class="chip red">BLOCKED — OVERRIDE DENIED</span> technologist worklist entry locked</dd>
+    <dt>Next steps</dt><dd>Referrer Dr. S. Iyer notified with denial reason; rebooking allowed only after premedication plan is attached</dd>
+    <dt>Re-request</dt><dd>Permitted only with new clinical information; the prior denial stays linked to any new request</dd>
+  </dl>
+</div></div></div>
+
+<p class="audit">Request, every physician view of screening data, step-up identity check, grant/denial with reason, validity window, expiry re-block and all notifications for OVR-2026-0085/0086/0087 are recorded in the access log. Technologist accounts have no code path to grant an override.</p>
+</section>

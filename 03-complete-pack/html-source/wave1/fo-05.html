@@ -1,0 +1,127 @@
+<section class="screen" id="fo-05">
+<div class="screen-head"><h1><span class="sid">FO-05</span> Registration — consent capture</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Final registration step: the patient (or guardian for minors) reviews the clinic privacy notice in their preferred language and grants purpose-level consent. Care and billing purposes are required to receive services; notifications and analytics are optional — analytics is unavailable for children. If a patient declines a required purpose, registration is <b>not blocked</b>: the refusal is recorded and flagged to the privacy team for follow-up. Staff-assisted (read-aloud) consent requires an attestation.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Reception</div>
+      <div class="nav-item">Dashboard &amp; tokens</div>
+      <div class="nav-item">Patient search</div>
+      <div class="nav-item active">Register patient</div>
+      <div class="nav-item">Appointments</div>
+      <div class="nav-item">Walk-in booking</div>
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Collect payment</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Front Office / Patients / Register new / Consent</div>
+      <div class="page-title">Consent capture — Kwame Osei (adult)</div>
+      <div class="page-sub">Draft MRN will be issued as <span class="mono">MRN-004823</span> on completion · 24 Jul 2026 10:44 IST</div>
+      <div class="stepper">
+        <div class="step done"><span class="dot">✓</span> Demographics &amp; identity</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Duplicate review</div><span class="step-line"></span>
+        <div class="step cur"><span class="dot">3</span> Consent</div><span class="step-line"></span>
+        <div class="step"><span class="dot">4</span> Done</div>
+      </div>
+      <div class="row">
+        <div class="grow" style="flex:1.3">
+          <div class="card">
+            <div class="card-title">Clinic privacy notice <span class="right"><span class="chip teal">NOTICE v3 · effective 01 Jun 2026</span></span></div>
+            <div class="row" style="margin-bottom:10px">
+              <div style="width:220px"><div class="field" style="margin-bottom:0"><label>Notice language</label><select class="select"><option>English</option><option>हिन्दी (Hindi)</option><option>मराठी (Marathi)</option><option>தமிழ் (Tamil)</option><option>മലയാളം (Malayalam)</option></select><div class="hint">Changing language re-renders the full notice text below.</div></div></div>
+              <div class="grow small muted" style="padding-top:20px">Shown language and version are stored with the consent record.</div>
+            </div>
+            <div style="border:1px solid #E2E8F0;border-radius:8px;padding:12px;background:#F8FAFC;font-size:12.5px;max-height:150px;overflow:auto">
+              <b>Meridian Diagnostics — How we use your information (v3, English)</b><br>
+              We collect your details to provide diagnostic care, produce reports for you and your referring doctor, and to bill you or your insurer. We never sell your data. Images and reports are stored securely in India. You may withdraw optional permissions at any time at reception or via the patient portal without affecting your care. Full notice: meridian.in/privacy · Grievance officer: privacy@meridian.in.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Purposes</div>
+            <table>
+              <tr><th>Purpose</th><th>Requirement</th><th>Patient choice</th></tr>
+              <tr><td><b>Care &amp; diagnostics</b><br><span class="small muted">Performing tests, producing and sharing reports with your referrer</span></td><td><span class="chip red">REQUIRED</span></td><td><span class="chip green">GRANTED</span></td></tr>
+              <tr><td><b>Billing &amp; insurance</b><br><span class="small muted">Invoicing, insurer/TPA claims, statutory tax records</span></td><td><span class="chip red">REQUIRED</span></td><td><span class="chip green">GRANTED</span></td></tr>
+              <tr><td><b>Service notifications</b><br><span class="small muted">SMS/WhatsApp for report-ready, appointment reminders</span></td><td><span class="chip grey">OPTIONAL · toggle</span></td><td><span class="box on" style="vertical-align:middle">✓</span> <span class="small">On — SMS to 98331 20456</span></td></tr>
+              <tr><td><b>Anonymised analytics</b><br><span class="small muted">Service-improvement statistics; de-identified before use</span></td><td><span class="chip grey">OPTIONAL</span></td><td><span class="box" style="vertical-align:middle">&nbsp;</span> <span class="small muted">Not granted</span></td></tr>
+            </table>
+            <p class="hint small muted" style="margin-top:8px">Analytics is automatically unavailable when the patient is a child — the row is disabled in the child variant.</p>
+          </div>
+        </div>
+        <div class="grow">
+          <div class="card">
+            <div class="card-title">Capture method</div>
+            <div class="check"><span class="box radio on">&nbsp;</span><span class="small">Patient read the notice themselves on the counter tablet</span></div>
+            <div class="check"><span class="box radio">&nbsp;</span><span class="small">Assisted consent — staff read the notice aloud in the patient's language</span></div>
+            <div class="banner reg small" style="margin-top:8px;margin-bottom:8px"><b>Assisted-consent attestation (when selected):</b> "I read the v3 notice aloud in full, in Malayalam, and answered the patient's questions." Attestation is signed by the staff member and stored with the consent.</div>
+            <div class="field"><label>Patient signature / confirmation</label>
+              <div class="sig-box signed">Kwame Osei</div>
+              <div class="hint">Signed on pad at 10:46 IST · alternative: OTP to registered mobile.</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Refusal handling</div>
+            <p class="small" style="margin-bottom:6px">If the patient declines a <b>required</b> purpose (care or billing): record the refusal, flag it to the privacy team, and continue — <b>registration is not blocked at the desk</b>. The privacy team follows up within 2 working days <span class="chip teal">due in 48h</span>.</p>
+            <p class="small muted">Optional purposes can be declined freely and changed later at reception or the portal.</p>
+          </div>
+          <div style="display:flex;gap:10px;justify-content:flex-end"><a class="btn" href="#">← Back</a><a class="btn primary" href="#">Record consent &amp; finish registration</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — CHILD VARIANT · GUARDIAN CONSENT, ANALYTICS UNAVAILABLE</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="page-title" style="font-size:16px">Consent capture — Meera Menon (7 y) · guardian: Priya Menon (Mother)</div>
+      <div class="page-sub">Guardian identity verified at demographics step (birth certificate sighted). Notice v3 · language: English.</div>
+      <div class="banner info"><b>Guardian consent.</b> All purposes are granted by the guardian on the child's behalf. When the patient turns 18, optional consents lapse and must be re-taken from the patient directly.</div>
+      <div class="card">
+        <table>
+          <tr><th>Purpose</th><th>Requirement</th><th>Guardian choice</th></tr>
+          <tr><td><b>Care &amp; diagnostics</b></td><td><span class="chip red">REQUIRED</span></td><td><span class="chip green">GRANTED by guardian</span></td></tr>
+          <tr><td><b>Billing &amp; insurance</b></td><td><span class="chip red">REQUIRED</span></td><td><span class="chip green">GRANTED by guardian</span></td></tr>
+          <tr><td><b>Service notifications</b> <span class="small muted">to guardian's mobile 98200 41775</span></td><td><span class="chip grey">OPTIONAL</span></td><td><span class="box on" style="vertical-align:middle">✓</span> <span class="small">On</span></td></tr>
+          <tr class="dim"><td><b>Anonymised analytics</b></td><td><span class="chip grey">UNAVAILABLE FOR CHILDREN</span></td><td><span class="small muted">Cannot be granted — row disabled by policy</span></td></tr>
+        </table>
+        <div class="row" style="margin-top:12px">
+          <div class="grow"><div class="field"><label>Guardian signature</label><div class="sig-box signed">Priya Menon</div><div class="hint">Signed as Mother of Meera Menon · 10:58 IST</div></div></div>
+          <div class="grow"><div class="kv"><dt>Consent by</dt><dd>Priya Menon · MRN-004828</dd><dt>Relation</dt><dd>Mother (proof sighted)</dd><dt>Notice</dt><dd>v3 · English</dd><dt>Captured by</dt><dd>D. Nair · terminal FO-03</dd></div></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:flex-end"><a class="btn primary" href="#">Record guardian consent &amp; finish</a></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — OPTIONAL PURPOSE DECLINED · RECORDED, NOT BLOCKING</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="page-title" style="font-size:16px">Consent recorded — Sofia Rossi · <span class="mono">MRN-004822</span></div>
+      <div class="banner success"><b>Registration complete at 11:07 IST.</b> Care and billing granted; notifications declined; analytics declined. Declines are choices, not errors — services proceed normally.</div>
+      <div class="card">
+        <div class="card-title">Consent summary <span class="right">Notice v3 · Italian requested → English shown (Italian unavailable, assisted read-out used)</span></div>
+        <table>
+          <tr><th>Purpose</th><th>Choice</th><th>Recorded</th></tr>
+          <tr><td>Care &amp; diagnostics</td><td><span class="chip green">GRANTED</span></td><td class="mono small">24 Jul 2026 11:06 IST</td></tr>
+          <tr><td>Billing &amp; insurance</td><td><span class="chip green">GRANTED</span></td><td class="mono small">24 Jul 2026 11:06 IST</td></tr>
+          <tr><td>Service notifications</td><td><span class="chip amber">DECLINED</span> <span class="small muted">patient will collect reports in person</span></td><td class="mono small">24 Jul 2026 11:07 IST</td></tr>
+          <tr><td>Anonymised analytics</td><td><span class="chip amber">DECLINED</span></td><td class="mono small">24 Jul 2026 11:07 IST</td></tr>
+        </table>
+        <div class="check" style="margin-top:10px"><span class="box on">✓</span><span class="small">Assisted-consent attestation: D. Nair read the v3 notice aloud in English and confirmed understanding. Attestation stored with the consent record.</span></div>
+        <p class="small muted" style="margin-top:6px">Had a <b>required</b> purpose been declined, this screen would show a violet "Flagged to privacy team <span class="chip teal">due in 48h</span> owner: privacy officer" banner — and registration would still have completed.</p>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:flex-end"><a class="btn" href="#">Print consent receipt</a><a class="btn primary" href="#">Go to booking →</a></div>
+    </div>
+  </div>
+</div>
+<p class="audit">Consent grants, declines, notice version and language shown, capture method, signatures/OTP results and any assisted-consent attestation are stored immutably with the patient record and recorded in the access log.</p>
+</section>

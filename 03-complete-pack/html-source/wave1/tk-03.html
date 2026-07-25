@@ -1,0 +1,106 @@
+<section class="screen" id="tk-03">
+<div class="screen-head"><h1><span class="sid">TK-03</span> Exception queues</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G6 Radiology Technician — workspace 'RIS · Technician'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The technologist (and PACS admin) work this screen whenever a study doesn't flow cleanly: unmatched studies from modalities, partial/failed transfers, MWL conflicts, and quarantined studies from unknown AE titles. It must guarantee that no study is attached to the wrong patient — reconciliation needs either two-person confirmation or an independent DOB re-entry — and that ageing exceptions carry SLA chips, with STAT exceptions alerting at 15 minutes.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · TECHNICIAN</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor · CT/MR Technologist ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Acquisition</div>
+    <div class="nav-item">My worklist <span class="nav-badge">14</span></div>
+    <div class="nav-item">Acquisition detail</div>
+    <div class="nav-item active">Exception queues <span class="nav-badge red">3</span></div>
+    <div class="nav-item">Holds &amp; cancellations</div>
+    <div class="sec-label">Room</div>
+    <div class="nav-item">CT-1 (Somatom go.Up)</div>
+    <div class="nav-item">MR-1 (1.5T Altea)</div>
+    <div class="nav-item">QC &amp; daily checks</div>
+  </div>
+  <div class="main">
+    <div class="crumb">RIS · Technician / Exception queues</div>
+    <div class="page-title">Exception queues <span class="actions-right"><span class="chip green">Staging store: healthy</span></span></div>
+    <div class="page-sub">Nothing here reaches reading or billing until resolved. Last sweep 10:44:02 IST.</div>
+    <div class="kpi-row">
+      <div class="kpi red"><div class="n">1</div><div class="l">Unmatched studies</div><div class="s">1 linked to a STAT order</div></div>
+      <div class="kpi amber"><div class="n">2</div><div class="l">Partial / failed transfers</div><div class="s">oldest 22 min</div></div>
+      <div class="kpi"><div class="n">1</div><div class="l">MWL conflicts</div><div class="s">demographic mismatch</div></div>
+      <div class="kpi amber"><div class="n">1</div><div class="l">Quarantine (unknown AE)</div><div class="s">held in staging, not filed</div></div>
+    </div>
+    <div class="banner danger"><b>🔊 STAT exception alert</b> Unmatched study <span class="mono">STG-77031</span> is a probable match for STAT order ACC-2026-91204 and has been unresolved for 16 min — past the 15-min STAT alert. Owner: T. Okafor · Escalated to Dr. V. Shetty and PACS admin K. Verma.</div>
+
+    <div class="card"><div class="card-title">Unmatched studies <span class="right">no order/accession in DICOM</span></div>
+    <table>
+      <tr><th>Staging ID</th><th>Received</th><th>From modality</th><th>DICOM demographics</th><th>Candidate order match</th><th>Age / SLA</th><th>Action</th></tr>
+      <tr class="hl"><td class="mono">STG-77031</td><td>10:28 IST</td><td>CT-1 · AE <span class="mono">SOMA_GOUP1</span></td><td>"ALRASHID^MOHAMMED" · M · DOB 02-Nov-1967 · no MRN</td><td><b>Mohammed Al-Rashid</b> MRN-004790 · <span class="mono">ACC-2026-91204</span> CT Head plain <span class="chip green">confidence 96%</span> (name+DOB+modality+time)</td><td><span class="chip red">OVERDUE 00:01</span><div class="small muted">STAT 15-min alert fired</div></td><td><span class="btn primary small">Reconcile…</span></td></tr>
+      <tr><td class="mono">STG-77028</td><td>09:51 IST</td><td>US-2 · AE <span class="mono">VOLUSON_E8</span></td><td>"MENON^P" · F · DOB blank · no MRN</td><td><b>Priya Menon</b> MRN-004828 · <span class="mono">ACC-2026-91190</span> US Obstetric <span class="chip amber">confidence 71%</span> (surname+modality only)</td><td><span class="chip amber">due in 0h 40m</span><div class="small muted">owner: T. Okafor</div></td><td><span class="btn primary small">Reconcile…</span></td></tr>
+    </table></div>
+
+    <div class="card"><div class="card-title">Partial / failed transfers <span class="right">count mismatch or commit failure</span></div>
+    <table>
+      <tr><th>Accession</th><th>Patient</th><th>Series</th><th>Sent / recd</th><th>Failure</th><th>Age / SLA</th><th>Action</th></tr>
+      <tr><td class="mono">ACC-2026-91186</td><td>Aarav Sharma · MRN-004821</td><td>3 — Arterial 1.5mm</td><td class="mono">212 / 148</td><td>Storage commit timeout (archive node B)</td><td><span class="chip amber">due in 0h 08m</span><div class="small muted">owner: T. Okafor</div></td><td><span class="btn primary small">Re-request from modality</span></td></tr>
+      <tr><td class="mono">ACC-2026-91175</td><td>Rajesh Gupta · MRN-004795</td><td>5 — T1 post-contrast</td><td class="mono">160 / 0</td><td>Association aborted by SCU</td><td><span class="chip teal">due in 0h 26m</span><div class="small muted">owner: T. Okafor</div></td><td><span class="btn primary small">Re-request</span> <span class="btn ghost small">Ping MR-1</span></td></tr>
+    </table></div>
+
+    <div class="row">
+    <div class="card grow"><div class="card-title">MWL conflicts</div>
+    <table>
+      <tr><th>Accession</th><th>Conflict</th><th>RIS value / modality value</th><th>Age</th><th>Action</th></tr>
+      <tr><td class="mono">ACC-2026-91218</td><td>DOB mismatch</td><td class="mono">09-Jun-1985 / 09-Jul-1985</td><td><span class="chip teal">due in 1h 05m</span></td><td><span class="btn small">Review…</span></td></tr>
+    </table></div>
+    <div class="card grow"><div class="card-title">Quarantine — unknown AE title</div>
+    <table>
+      <tr><th>Staging ID</th><th>AE title</th><th>Objects</th><th>Age</th><th>Action</th></tr>
+      <tr><td class="mono">STG-77012</td><td class="mono">MOBILE_XR_TEST</td><td>3 (CR)</td><td><span class="chip amber">due in 0h 15m</span><div class="small muted">owner: K. Verma (PACS admin)</div></td><td><span class="btn small">Inspect (masked)</span> <span class="btn ghost small">Reject &amp; purge…</span></td></tr>
+    </table>
+    <p class="small muted">Quarantined objects are never filed to a patient. Demographics show masked until a PACS admin accepts the source; accept/reject requires admin step-up.</p></div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — RECONCILE MODAL · TWO-PERSON CONFIRM OR DOB RE-ENTRY</div>
+<div class="modal-wrap"><div class="modal" style="max-width:640px">
+  <h3>Reconcile unmatched study <span class="mono">STG-77031</span> → order</h3>
+  <div class="row">
+    <div class="grow"><div class="kv">
+      <dt>Study (DICOM)</dt><dd>"ALRASHID^MOHAMMED" · M · DOB 02-Nov-1967 · CT Head · 10:26 IST · CT-1</dd>
+      <dt>Order (RIS)</dt><dd><b>Mohammed Al-Rashid</b> · MRN-004790 · DOB 02-Nov-1967 · <span class="mono">ACC-2026-91204</span> CT Head plain STAT</dd>
+      <dt>Match score</dt><dd><span class="chip green">96%</span> name + DOB + modality + acquisition-time window</dd>
+    </div></div>
+  </div>
+  <div class="banner warn" style="margin:10px 0"><b>Wrong-patient guard</b> Attaching images to the wrong record is a never-event. Complete ONE of the two confirmations below.</div>
+  <div class="row">
+    <div class="card grow" style="margin-bottom:0"><div class="card-title">Option A — second person confirms</div>
+      <div class="check"><span class="box on">✓</span> I, T. Okafor, confirm the demographic match above.</div>
+      <div class="field"><label>Second staff member <span class="req">*</span></label><div class="select">D. Nair (Front office) ▾</div></div>
+      <div class="field"><label>Their credential step-up <span class="req">*</span></label><div class="input mono">••••••</div></div>
+    </div>
+    <div class="card grow" style="margin-bottom:0"><div class="card-title">Option B — independent DOB re-entry</div>
+      <p class="small muted">Type the patient's DOB from the physical requisition / ID — not copied from either panel above.</p>
+      <div class="field"><label>DOB (DD-MM-YYYY) <span class="req">*</span></label><div class="input mono">02-11-1967</div><div class="hint">Must match both study and order exactly.</div></div>
+    </div>
+  </div>
+  <div class="modal-actions"><span class="btn">Not a match — keep unmatched</span><span class="btn primary">Attach study to ACC-2026-91204</span></div>
+</div></div>
+
+<div class="state-tag">STATE C — ALL QUEUES EMPTY</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner success"><b>All exception queues are clear — 12:05 IST</b> 0 unmatched · 0 partial transfers · 0 MWL conflicts · 0 quarantined. Sweep runs every 60s; the sidebar badge clears automatically.</div>
+  <div class="card" style="text-align:center;color:#64748B;padding:34px">Nothing needs reconciliation right now.<div class="small muted" style="margin-top:6px">Resolved today: 6 (median time-to-resolve 9 min · 1 STAT breach, reviewed by K. Verma).</div></div>
+</div></div></div>
+
+<div class="state-tag">STATE D — STAGING STORE UNREACHABLE · ERROR</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner danger"><b>Staging store unreachable since 11:41:12 IST</b> Exception details cannot be loaded or resolved. Incoming DICOM continues to spool on modality-side buffers; nothing is lost, and nothing can be mis-filed while staging is down. Retrying every 30s (attempt 4). PACS admin K. Verma paged automatically at 11:43.</div>
+  <div class="banner info" style="margin-bottom:12px"><b>Working offline is supported</b> — reconcile decisions made from cached data queue and sync when reconnected. Attach actions remain disabled offline because dual-confirm requires a live credential check.</div>
+  <table>
+    <tr><th>Queue</th><th>Last known count</th><th>As of</th></tr>
+    <tr class="dim"><td>Unmatched studies</td><td>2</td><td class="mono">11:40:58</td></tr>
+    <tr class="dim"><td>Partial / failed transfers</td><td>2</td><td class="mono">11:40:58</td></tr>
+    <tr class="dim"><td>MWL conflicts</td><td>1</td><td class="mono">11:40:58</td></tr>
+    <tr class="dim"><td>Quarantine</td><td>1</td><td class="mono">11:40:58</td></tr>
+  </table>
+</div></div></div>
+
+<p class="audit">Every reconcile attempt (including "not a match"), the identity of both confirming staff or the re-entered DOB hash, re-request commands, quarantine inspections and purges are recorded in the access log. Quarantine demographics remain masked until source acceptance; each unmask is separately recorded in the access log.</p>
+</section>

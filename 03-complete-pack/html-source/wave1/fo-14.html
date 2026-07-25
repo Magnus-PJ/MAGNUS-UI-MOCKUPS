@@ -1,0 +1,132 @@
+<section class="screen" id="fo-14">
+<div class="screen-head"><h1><span class="sid">FO-14</span> Queue control &amp; public display</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office and technologists run the live queues per service point: call the next token, recall, skip, requeue, transfer between service points, or confirm a no-show after two missed calls. Every queue action is individually audited with operator identity. The waiting-area public display defaults to token-only privacy — no names, no MRNs — and any change to display settings is admin-gated.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Front desk</div>
+      <div class="nav-item">Today overview</div>
+      <div class="nav-item">Appointments <span class="nav-badge">42</span></div>
+      <div class="nav-item">Check-in &amp; tokens</div>
+      <div class="nav-item active">Queue control <span class="nav-badge">14</span></div>
+      <div class="sec-label">Patients</div>
+      <div class="nav-item">Search / register</div>
+      <div class="nav-item">Consents &amp; forms</div>
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Estimates &amp; invoices</div>
+      <div class="nav-item">Refunds <span class="nav-badge red">2</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Front Office › Queue control › Sat 25 Jul 2026</div>
+      <div class="page-title">Live queues — 14 waiting across 4 service points <span class="actions-right"><span class="btn small">⚙ Display settings</span> <span class="btn small primary">Open display preview</span></span></div>
+      <div class="page-sub">Andheri West · updates in real time · last event 11:58:22 IST</div>
+      <div class="banner info" style="margin-bottom:12px"><b>Working offline is supported</b> — actions queue and sync when reconnected. Public display falls back to the last synced state.</div>
+
+      <div class="row" style="margin-bottom:14px">
+        <div class="card grow" style="border-left:4px solid #0F766E">
+          <div class="card-title">Ultrasound (US-1) <span class="chip teal">6 waiting</span></div>
+          <dl class="kv" style="grid-template-columns:100px 1fr">
+            <dt>Now serving</dt><dd><span class="mono bold" style="font-size:16px">U-016</span> · Room 2 · Dr. A. Rao · in for 14 min</dd>
+            <dt>Up next</dt><dd class="mono">U-017 → U-018 → U-019</dd>
+            <dt>Longest wait</dt><dd><span class="chip red">U-018 · 52 min</span> · owner: D. Nair · Escalated to branch manager K. Verma at 11:45</dd>
+          </dl>
+          <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap"><span class="btn small primary">📣 Call next (U-017)</span><span class="btn small">Recall U-016</span><span class="btn small">Skip</span><span class="btn small">Requeue…</span><span class="btn small warn-outline">No-show…</span></div>
+        </div>
+        <div class="card grow" style="border-left:4px solid #0F766E">
+          <div class="card-title">CT (CT-1) <span class="chip teal">4 waiting</span></div>
+          <dl class="kv" style="grid-template-columns:100px 1fr">
+            <dt>Now serving</dt><dd><span class="mono bold" style="font-size:16px">C-041</span> · T. Okafor · in for 6 min</dd>
+            <dt>Up next</dt><dd class="mono">C-042 → C-043 → C-044</dd>
+            <dt>SLA</dt><dd><span class="chip teal">all due in &lt; 1h</span></dd>
+          </dl>
+          <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap"><span class="btn small primary">📣 Call next (C-042)</span><span class="btn small">Recall</span><span class="btn small">Skip</span><span class="btn small">Requeue…</span><span class="btn small warn-outline">No-show…</span></div>
+        </div>
+      </div>
+
+      <div class="split">
+        <div class="card" style="padding:0;overflow:hidden">
+          <table>
+            <tr><th>Token</th><th>Service point</th><th>Status</th><th>Waited</th><th>Calls</th><th>Actions</th></tr>
+            <tr><td class="mono bold">U-017</td><td>Ultrasound</td><td><span class="chip blue">Waiting — next</span></td><td>31 min</td><td>0</td><td><span class="btn small">Call</span> <span class="btn small ghost">Transfer…</span></td></tr>
+            <tr class="hl"><td class="mono bold">U-018</td><td>Ultrasound</td><td><span class="chip red">Waiting — escalated</span></td><td><span class="chip red">OVERDUE 00:22</span></td><td>0</td><td><span class="btn small primary">Call now</span></td></tr>
+            <tr><td class="mono bold">C-042</td><td>CT</td><td><span class="chip blue">Waiting</span></td><td>19 min</td><td>0</td><td><span class="btn small">Call</span> <span class="btn small ghost">Transfer…</span></td></tr>
+            <tr><td class="mono bold">X-007</td><td>X-ray</td><td><span class="chip amber">Called ×1 — not present</span></td><td>26 min</td><td>1 (11:49)</td><td><span class="btn small">Recall</span> <span class="btn small">Skip</span></td></tr>
+            <tr><td class="mono bold">X-008</td><td>X-ray</td><td><span class="chip blue">Waiting (late requeue)</span></td><td>11 min</td><td>0</td><td><span class="btn small">Call</span></td></tr>
+            <tr><td class="mono bold">M-007</td><td>MRI</td><td><span class="chip violet">Prep — screening in progress</span></td><td>42 min</td><td>0</td><td><span class="btn small ghost">View gates</span></td></tr>
+            <tr class="dim"><td class="mono">C-040</td><td>CT</td><td><span class="chip green">Served 11:41</span></td><td>—</td><td>1</td><td>—</td></tr>
+          </table>
+          <div class="small muted" style="padding:8px 12px">Tokens only — patient identity opens in the right rail with a purpose-bound lookup, recorded in the access log.</div>
+        </div>
+
+        <div>
+          <div class="card">
+            <div class="card-title">Transfer token <span class="right">U-017</span></div>
+            <div class="field"><label>Move to service point <span class="req">*</span></label><div class="select">US-2 (Room 4, Dr. V. Shetty list) ▾</div></div>
+            <div class="field"><label>Reason <span class="req">*</span></label><div class="select">Load balancing — US-1 backlog ▾</div></div>
+            <div class="check"><span class="box on">✓</span><span>Keep original queue timestamp (patient keeps seniority)</span></div>
+            <div style="display:flex;justify-content:flex-end;gap:8px"><span class="btn small">Cancel</span><span class="btn small primary">Transfer</span></div>
+          </div>
+          <div class="card">
+            <div class="card-title">Public display preview <span class="chip green">TOKEN-ONLY</span></div>
+            <div style="background:#0F172A;border-radius:8px;padding:14px;color:#E2E8F0;text-align:center">
+              <div class="small" style="letter-spacing:.1em;color:#94A3B8">MERIDIAN DIAGNOSTICS · WAITING AREA A</div>
+              <div style="display:flex;gap:10px;justify-content:center;margin-top:10px">
+                <div style="background:#134E4A;border-radius:8px;padding:10px 14px"><div class="small" style="color:#99F6E4">ULTRASOUND</div><div class="mono" style="font-size:26px;font-weight:800;color:#5EEAD4">U-016</div><div class="small" style="color:#94A3B8">Room 2</div></div>
+                <div style="background:#134E4A;border-radius:8px;padding:10px 14px"><div class="small" style="color:#99F6E4">CT</div><div class="mono" style="font-size:26px;font-weight:800;color:#5EEAD4">C-041</div><div class="small" style="color:#94A3B8">Room 5</div></div>
+                <div style="background:#134E4A;border-radius:8px;padding:10px 14px"><div class="small" style="color:#99F6E4">X-RAY</div><div class="mono" style="font-size:26px;font-weight:800;color:#5EEAD4">X-006</div><div class="small" style="color:#94A3B8">Room 7</div></div>
+              </div>
+            </div>
+            <p class="small muted" style="margin-top:8px">Privacy default: tokens and rooms only. Names/MRNs are never shown on public screens.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PATIENT MISSED TWO CALLS → NO-SHOW CONFIRMATION</div>
+<div class="modal-wrap"><div class="modal danger">
+  <h3>Mark token X-007 as no-show?</h3>
+  <p class="small muted" style="margin-bottom:10px">X-ray queue · called at <span class="mono">11:49</span> and <span class="mono">12:04</span> (display + announcement), not present either time. Two missed calls is the branch threshold.</p>
+  <dl class="kv" style="grid-template-columns:140px 1fr;margin-bottom:10px">
+    <dt>Patient (masked)</dt><dd>E••••• N•••• · <span class="mono">MRN-••••30</span> — unmask requires purpose</dd>
+    <dt>Appointment</dt><dd class="mono">APPT-2026-50331 (reference kept)</dd>
+    <dt>Effect</dt><dd>Linked order returns to <span class="chip amber">awaiting scheduling</span>; token removed from queue and display</dd>
+  </dl>
+  <div class="field"><label>Reason <span class="req">*</span></label><div class="select">Not present after 2 calls ▾</div></div>
+  <div class="check"><span class="box on">✓</span><span>Notify patient per consent with rebooking link</span></div>
+  <div class="check"><span class="box">&nbsp;</span><span>Add to end-of-day no-show reconciliation list (FO-12)</span></div>
+  <div class="modal-actions"><span class="btn">Call once more</span><span class="btn danger">Confirm no-show</span></div>
+</div></div>
+<p class="audit">Both call events, the no-show decision and D. Nair's identity are written to the immutable queue audit and recorded in the access log.</p>
+
+<div class="state-tag">STATE C — DISPLAY SETTINGS GLIMPSE (ADMIN-GATED)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Public display settings — Waiting Area A</div>
+  <div class="page-sub">Changes apply to all screens in this waiting area · effective immediately</div>
+  <div class="banner warn"><b>Step-up confirmation required</b>Display settings affect patient privacy in public areas. Saving requires admin approval — K. Verma will be asked to confirm identity (password + OTP) before changes go live.</div>
+  <div class="row">
+    <div class="card grow">
+      <div class="card-title">Content shown</div>
+      <div class="check"><span class="box on">✓</span><span><b>Token number</b> (always on — cannot be disabled)</span></div>
+      <div class="check"><span class="box on">✓</span><span>Room / service point label</span></div>
+      <div class="check"><span class="box on">✓</span><span>Estimated wait per queue</span></div>
+      <div class="check"><span class="box">&nbsp;</span><span class="muted">Patient first name — <b>off by privacy default</b>; enabling logs a policy exception</span></div>
+      <div class="check"><span class="box">&nbsp;</span><span class="muted">Chime + voice announcement (English / Hindi / Marathi)</span></div>
+    </div>
+    <div class="card grow">
+      <div class="card-title">Behaviour</div>
+      <div class="field"><label>Recall repeat interval</label><div class="select">Every 90 seconds, max 2 calls ▾</div></div>
+      <div class="field"><label>Missed-call threshold before no-show prompt</label><div class="select">2 calls ▾</div></div>
+      <div class="field"><label>Offline fallback</label><div class="select">Freeze last synced state + “please wait” notice ▾</div></div>
+      <div style="display:flex;justify-content:flex-end;gap:8px"><span class="btn small">Discard</span><span class="btn small primary">Request admin approval to save</span></div>
+    </div>
+  </div>
+  <p class="audit">Setting changes require step-up identity confirmation by an admin (K. Verma) and are versioned — recorded in the access log.</p>
+</div></div></div>
+
+<p class="audit">Every call, recall, skip, requeue, transfer and no-show carries the operator's identity, timestamp and reason — recorded in the access log.</p>
+</section>

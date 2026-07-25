@@ -1,0 +1,164 @@
+<section class="screen" id="tk-01">
+<div class="screen-head"><h1><span class="sid">TK-01</span> Technician worklist with safety gates</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G6 Radiology Technician — workspace 'RIS · Technician'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The modality technologist's home screen — every ordered study for their assigned rooms today, ranked STAT → arrived → scheduled. It must guarantee that <b>Perform</b> is enabled only when every safety gate (screening, consent, Form&nbsp;F where applicable, MR checklist) shows ✓; blocked rows expose direct open-gate links or a physician-override request. STAT arrivals auto-refresh the list with an audible banner. Cancelled studies stay visible as terminal rows — they never silently disappear.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · TECHNICIAN</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor · CT/MR Technologist ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Acquisition</div>
+    <div class="nav-item active">My worklist <span class="nav-badge">14</span></div>
+    <div class="nav-item">Acquisition detail</div>
+    <div class="nav-item">Exception queues <span class="nav-badge red">3</span></div>
+    <div class="nav-item">Holds &amp; cancellations</div>
+    <div class="sec-label">Room</div>
+    <div class="nav-item">CT-1 (Somatom go.Up)</div>
+    <div class="nav-item">MR-1 (1.5T Altea)</div>
+    <div class="nav-item">QC &amp; daily checks</div>
+    <div class="sec-label">Reference</div>
+    <div class="nav-item">Protocol library</div>
+    <div class="nav-item">Contrast &amp; crash cart</div>
+  </div>
+  <div class="main">
+    <div class="crumb">RIS · Technician / My worklist / Fri 24 Jul 2026 · rooms CT-1, MR-1</div>
+    <div class="page-title">Today's worklist — safety gates enforced <span class="actions-right"><span class="chip green">Auto-refresh ON · 30s</span> <span class="btn small">⟳ Refresh now</span></span></div>
+    <div class="page-sub">Perform unlocks only when all gates read ✓. Last sync 10:42:17 IST · MWL feed healthy.</div>
+    <div class="banner info"><b>Working offline is supported</b> — actions queue and sync when reconnected. Gate states shown are the last confirmed server values.</div>
+    <div class="kpi-row">
+      <div class="kpi red"><div class="n">1</div><div class="l">STAT waiting</div><div class="s">15-min acquisition target</div></div>
+      <div class="kpi"><div class="n">5</div><div class="l">Arrived, all-clear</div><div class="s">ready to perform</div></div>
+      <div class="kpi amber"><div class="n">3</div><div class="l">Blocked by gates</div><div class="s">screening / consent / Form F</div></div>
+      <div class="kpi"><div class="n">5</div><div class="l">Scheduled later</div><div class="s">next at 11:30 IST</div></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">
+      <span class="chip red">STAT · 1</span><span class="chip teal">Arrived · 8</span><span class="chip grey">Scheduled · 5</span><span class="chip grey">Completed today · 11</span><span class="chip outline-red">Cancelled / terminal · 2</span>
+    </div>
+    <div class="card">
+    <table>
+      <tr><th>Priority</th><th>Time / SLA</th><th>Patient</th><th>Accession · study</th><th>Arrival</th><th>Gates</th><th>Action</th></tr>
+      <tr class="hl">
+        <td><span class="chip red">STAT</span></td>
+        <td><span class="chip red">OVERDUE 00:04</span><div class="small muted">owner: T. Okafor<br>Escalated to Dr. V. Shetty</div></td>
+        <td><b>Mohammed Al-Rashid</b><div class="small muted">MRN-004790 · M/58</div></td>
+        <td><span class="mono">ACC-2026-91204</span><div class="small">CT Head plain — ?CVA · Dr. Farida Khan</div></td>
+        <td><span class="chip teal">In dept · U-018</span><div class="small muted">arrived 10:23</div></td>
+        <td><span class="chip green">Screening ✓</span> <span class="chip green">Consent ✓</span> <span class="chip grey">Form F n/a</span> <span class="chip grey">MR n/a</span></td>
+        <td><span class="btn primary small">Perform</span></td>
+      </tr>
+      <tr>
+        <td><span class="chip amber">Urgent</span></td>
+        <td><span class="chip amber">due in 0h 25m</span><div class="small muted">owner: T. Okafor</div></td>
+        <td><b>Sofia Rossi</b><div class="small muted">MRN-004822 · F/34</div></td>
+        <td><span class="mono">ACC-2026-91198</span><div class="small">MRI Lumbar spine · Dr. Meera Nair</div></td>
+        <td><span class="chip teal">In dept · X-008</span><div class="small muted">arrived 10:05</div></td>
+        <td><span class="chip green">Screening ✓</span> <span class="chip green">Consent ✓</span> <span class="chip grey">Form F n/a</span> <span class="chip amber">MR checklist ⚠</span></td>
+        <td><span class="btn small disabled">Perform</span><div class="small"><a>Open MR checklist</a></div></td>
+      </tr>
+      <tr>
+        <td><span class="chip grey">Routine</span></td>
+        <td><span class="chip teal">due in 1h 10m</span><div class="small muted">owner: T. Okafor</div></td>
+        <td><b>Aarav Sharma</b><div class="small muted">MRN-004821 · M/46</div></td>
+        <td><span class="mono">ACC-2026-91186</span><div class="small">CT Abdomen contrast · Dr. S. Iyer</div></td>
+        <td><span class="chip teal">In dept · C-042</span><div class="small muted">arrived 09:48 · creatinine 0.9 ✓</div></td>
+        <td><span class="chip green">Screening ✓</span> <span class="chip green">Consent ✓</span> <span class="chip grey">Form F n/a</span> <span class="chip grey">MR n/a</span></td>
+        <td><span class="btn primary small">Perform</span></td>
+      </tr>
+      <tr>
+        <td><span class="chip grey">Routine</span></td>
+        <td><span class="chip teal">due in 1h 40m</span><div class="small muted">owner: T. Okafor</div></td>
+        <td><b>Priya Menon</b><div class="small muted">MRN-004828 · F/29 · G2P1</div></td>
+        <td><span class="mono">ACC-2026-91190</span><div class="small">US Obstetric — anomaly scan · Dr. Meera Nair<br><span class="chip violet">PCPNDT · foetal sex must not be disclosed or recorded</span></div></td>
+        <td><span class="chip teal">In dept · U-021</span><div class="small muted">arrived 10:31</div></td>
+        <td><span class="chip green">Screening ✓</span> <span class="chip green">Consent ✓</span> <span class="chip red">Form F ✗</span> <span class="chip grey">MR n/a</span></td>
+        <td><span class="btn small disabled">Perform</span><div class="small"><a>Open Form F</a></div></td>
+      </tr>
+      <tr>
+        <td><span class="chip grey">Routine</span></td>
+        <td><span class="chip teal">due in 2h 05m</span><div class="small muted">owner: T. Okafor</div></td>
+        <td><b>Rajesh Gupta</b><div class="small muted">MRN-004795 · M/61</div></td>
+        <td><span class="mono">ACC-2026-91175</span><div class="small">MRI Brain contrast · Dr. Farida Khan</div></td>
+        <td><span class="chip teal">In dept · X-011</span><div class="small muted">arrived 10:12 · eGFR 52 noted</div></td>
+        <td><span class="chip green">Screening ✓</span> <span class="chip red">Consent ✗</span> <span class="chip grey">Form F n/a</span> <span class="chip green">MR checklist ✓</span></td>
+        <td><span class="btn small disabled">Perform</span><div class="small"><a>Capture consent</a></div></td>
+      </tr>
+      <tr>
+        <td><span class="chip grey">Routine</span></td>
+        <td><span class="chip grey">sched 11:30</span></td>
+        <td><b>Ananya Rao</b><div class="small muted">MRN-004819 · F/8 · paediatric</div></td>
+        <td><span class="mono">ACC-2026-91211</span><div class="small">CT Temporal bone (low-dose paeds) · Dr. S. Iyer</div></td>
+        <td><span class="chip grey">Not arrived</span><div class="small muted">APPT-2026-51142</div></td>
+        <td><span class="chip amber">Screening ⚠ pending</span> <span class="chip amber">Consent ⚠ guardian</span> <span class="chip grey">Form F n/a</span> <span class="chip grey">MR n/a</span></td>
+        <td><span class="btn small disabled">Perform</span></td>
+      </tr>
+      <tr>
+        <td><span class="chip grey">Routine</span></td>
+        <td><span class="chip grey">sched 12:15</span></td>
+        <td><b>Kwame Osei</b><div class="small muted">MRN-004823 · M/41</div></td>
+        <td><span class="mono">ACC-2026-91218</span><div class="small">MRI Knee right · Dr. Meera Nair</div></td>
+        <td><span class="chip grey">Not arrived</span><div class="small muted">APPT-2026-51149</div></td>
+        <td><span class="chip green">Screening ✓</span> <span class="chip amber">Consent ⚠</span> <span class="chip grey">Form F n/a</span> <span class="chip amber">MR checklist ⚠</span></td>
+        <td><span class="btn small disabled">Perform</span></td>
+      </tr>
+      <tr class="dim">
+        <td><span class="chip grey">Routine</span></td>
+        <td><span class="chip grey">terminal</span></td>
+        <td><s><b>Elena Novak</b></s><div class="small muted">MRN-004830 · F/52</div></td>
+        <td><s><span class="mono">ACC-2026-91169</span> CT Chest HRCT</s><div class="small">Cancelled 09:55 — patient refused (pre-exposure) · by D. Nair, FO</div></td>
+        <td><span class="chip grey">Departed</span></td>
+        <td><span class="chip outline-red">CANCELLED</span></td>
+        <td><span class="btn ghost small">View record</span></td>
+      </tr>
+      <tr class="dim">
+        <td><span class="chip grey">Routine</span></td>
+        <td><span class="chip grey">terminal</span></td>
+        <td><s><b>Walk-in (unregistered)</b></s><div class="small muted">temp ID TMP-0142</div></td>
+        <td><s><span class="mono">ACC-2026-91160</span> X-ray Chest PA</s><div class="small">Cancelled 09:12 — duplicate order · by K. Verma, Admin</div></td>
+        <td>—</td>
+        <td><span class="chip outline-red">CANCELLED</span></td>
+        <td><span class="btn ghost small">View record</span></td>
+      </tr>
+    </table>
+    </div>
+    <p class="small muted">Gate legend: ✓ complete · ⚠ started/incomplete · ✗ missing. Perform is server-enforced — the button state is advisory only; the acquisition service re-checks all gates at start.</p>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — BLOCKED ROW EXPANDED · GATE DETAIL + PHYSICIAN OVERRIDE REQUEST</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title" style="font-size:15px">Blocked: <span class="mono">ACC-2026-91190</span> — Priya Menon, US Obstetric anomaly scan</div>
+  <div class="banner danger"><b>Cannot perform — 1 hard gate failed</b> Form F (PCPNDT) has not been completed and countersigned for this obstetric ultrasound. This is a statutory gate; it cannot be waived by physician override.</div>
+  <div class="row">
+    <div class="card grow">
+      <div class="card-title">Gate status <span class="right">re-checked 10:42:31 IST</span></div>
+      <table>
+        <tr><th>Gate</th><th>Status</th><th>Detail</th><th>Resolve</th></tr>
+        <tr><td>Pregnancy / safety screening</td><td><span class="chip green">✓ Complete</span></td><td>Completed 10:12 by D. Nair (FO), countersigned patient</td><td>—</td></tr>
+        <tr><td>Procedure consent</td><td><span class="chip green">✓ Complete</span></td><td>eSigned 10:15 · consent v3.2 (US-OB)</td><td><span class="btn ghost small">View</span></td></tr>
+        <tr><td>Form F (PCPNDT)</td><td><span class="chip red">✗ Missing</span></td><td>Required before any obstetric US. Declarant + radiologist signature needed. <b>No override path exists.</b></td><td><span class="btn primary small">Open Form F</span></td></tr>
+        <tr><td>MR safety checklist</td><td><span class="chip grey">n/a</span></td><td>Not an MR study</td><td>—</td></tr>
+      </table>
+    </div>
+    <div class="card" style="width:300px">
+      <div class="card-title">Physician override</div>
+      <p class="small">For <b>overridable</b> gates only (e.g. incomplete MR questionnaire item with clinical justification). Statutory gates (Form F) and identity verification are excluded.</p>
+      <div class="field"><label>Request override from</label><div class="select">Dr. V. Shetty (RMC MH-44721) ▾</div></div>
+      <div class="field"><label>Reason <span class="req">*</span></label><div class="textarea muted">Reason is mandatory and is sent verbatim to the physician…</div></div>
+      <span class="btn small disabled">Request override — unavailable for Form F</span>
+      <p class="small muted" style="margin-top:6px">Overrides require the physician's own credential step-up; the technologist cannot approve on their behalf.</p>
+    </div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — STAT ARRIVAL · AUTO-REFRESH + AUDIBLE BANNER</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner danger" style="display:flex;justify-content:space-between;align-items:center"><span><b>🔊 STAT arrival — CT Head plain</b> Mohammed Al-Rashid (MRN-004790) marked STAT-arrived at 10:23:41 IST from ED referral. Worklist re-sorted; 15-minute acquisition timer started. Audible alert repeats every 60s until acknowledged on this console.</span><span style="display:flex;gap:8px"><span class="btn danger small">Acknowledge &amp; open</span><span class="btn small">Mute 5 min</span></span></div>
+  <table>
+    <tr><th>Priority</th><th>SLA</th><th>Patient</th><th>Accession · study</th><th>Gates</th><th>Action</th></tr>
+    <tr class="hl"><td><span class="chip red">STAT</span></td><td><span class="chip teal">due in 0h 15m</span><div class="small muted">owner: T. Okafor</div></td><td><b>Mohammed Al-Rashid</b><div class="small muted">MRN-004790</div></td><td><span class="mono">ACC-2026-91204</span> CT Head plain — ?CVA</td><td><span class="chip green">Screening ✓</span> <span class="chip green">Consent ✓</span></td><td><span class="btn primary small">Perform</span></td></tr>
+    <tr><td><span class="chip amber">Urgent</span></td><td><span class="chip amber">due in 0h 25m</span></td><td><b>Sofia Rossi</b><div class="small muted">MRN-004822</div></td><td><span class="mono">ACC-2026-91198</span> MRI Lumbar spine</td><td><span class="chip amber">MR checklist ⚠</span></td><td><span class="btn small disabled">Perform</span></td></tr>
+    <tr class="dim"><td colspan="6" class="small">…7 more rows unchanged, pushed down by re-sort. Auto-refresh does not steal focus from an acquisition already in progress.</td></tr>
+  </table>
+</div></div></div>
+
+<p class="audit">Every worklist view, gate re-check, Perform click, override request and STAT acknowledgement is recorded in the access log with user, terminal (CT-1 console), and timestamp. Patient identifiers are shown because T. Okafor has an active care-purpose assignment for these rooms; rows outside the assignment are masked and access to them is recorded in the access log.</p>
+</section>

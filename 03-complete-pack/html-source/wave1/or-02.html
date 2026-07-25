@@ -1,0 +1,90 @@
+<section class="screen" id="or-02">
+<div class="screen-head"><h1><span class="sid">OR-02</span> Duplicate &amp; safety interception</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety — workspace 'Orders'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Fires synchronously at place-order for any staff member. It must guarantee (1) no accidental repeat radiation — active same-procedure orders are surfaced with Open-existing / Link / Create-distinct-with-reason choices; (2) laterality can never be omitted on paired-organ procedures (hard block, not a warning); (3) a 3-question safety mini-check (pacemaker/implant, pregnancy possibility, prior contrast reaction) is answered before the accession is issued, setting flags that pre-populate technologist screening.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Orders</div>
+      <div class="nav-item active">New order</div>
+      <div class="nav-item">Orders worklist <span class="nav-badge">38</span></div>
+      <div class="nav-item">Awaiting scheduling <span class="nav-badge red">6</span></div>
+      <div class="nav-item">Safety flags</div>
+      <div class="sec-label">Reference</div>
+      <div class="nav-item">Procedure catalog</div>
+      <div class="nav-item">Referrer directory</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Orders › New order › MRN-004821 › Place order</div>
+      <div class="page-title">Placing: X-Ray Chest PA — Aarav Sharma <span class="mono">MRN-004821</span></div>
+      <div class="page-sub">Duplicate check runs against all <b>active</b> (not cancelled / not delivered) orders for the same patient + same procedure code across all Meridian branches.</div>
+
+      <div class="modal-wrap"><div class="modal" style="max-width:640px">
+        <h3>⚠ Possible duplicate — 2 active orders for X-Ray Chest PA</h3>
+        <p class="small muted" style="margin-bottom:10px">Repeating an X-ray without clinical need exposes the patient to avoidable radiation. Review before continuing.</p>
+        <table>
+          <tr><th>Ref</th><th>Scheduled</th><th>Ordered by</th><th>Status</th><th></th></tr>
+          <tr class="hl"><td class="mono">ACC-2026-91802</td><td>26-Jul-2026 09:40 IST · Andheri West</td><td>Dr. S. Iyer (referrer)</td><td><span class="chip blue">Scheduled</span></td><td><span class="btn small">Open existing</span></td></tr>
+          <tr><td class="mono">ACC-2026-91695</td><td>Not yet scheduled · Bandra</td><td>D. Nair (front office)</td><td><span class="chip amber">Awaiting scheduling</span></td><td><span class="btn small">Open existing</span></td></tr>
+        </table>
+        <div class="field" style="margin-top:12px"><label>If a new order is genuinely needed, select the reason <span class="req">*</span></label>
+          <div class="select">— Select reason — ▾</div>
+          <div class="hint">Repeat post-treatment · Different clinical question · Prior study technically inadequate · Referrer explicitly requested repeat (note ref required)</div>
+        </div>
+        <div class="modal-actions">
+          <span class="btn">Link this request to ACC-2026-91802</span>
+          <span class="btn ghost">Cancel place-order</span>
+          <span class="btn primary disabled">Create distinct order</span>
+        </div>
+        <p class="small muted" style="margin-top:8px">“Create distinct order” stays disabled until a reason is selected. Your choice and reason are written to the order record and the access log.</p>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — LATERALITY HARD BLOCK (PAIRED-ORGAN PROCEDURE)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Orders › New order › MRN-004828 › Place order</div>
+  <div class="page-title">Placing: X-Ray Knee AP/Lateral — Priya Menon <span class="mono">MRN-004828</span></div>
+  <div class="banner danger"><b>Blocked: laterality is required for X-Ray Knee AP/Lateral</b>This procedure targets a paired organ. The order cannot be placed as “unspecified” — wrong-side imaging is a never-event. There is no override for this rule.</div>
+  <div class="card">
+    <div class="field"><label>Laterality <span class="req">*</span></label>
+      <div style="display:flex;gap:16px">
+        <span class="check"><span class="box radio"></span> Left</span>
+        <span class="check"><span class="box radio"></span> Right</span>
+        <span class="check"><span class="box radio"></span> Bilateral (both sides, single order)</span>
+      </div>
+      <div class="hint" style="color:#B91C1C">Select the side stated on the referral. If the referral note is ambiguous, contact Dr. Farida Khan before placing — do not guess.</div>
+    </div>
+    <div class="kv" style="margin-top:8px">
+      <dt>Referral says</dt><dd>“Rt knee pain 2/12, ? OA changes” — Dr. Farida Khan, 24-Jul-2026</dd>
+      <dt>Prior imaging</dt><dd>X-Ray Knee (Right) — 14-Mar-2026, ACC-2026-90211 (comparison available)</dd>
+    </div>
+    <div style="margin-top:10px;display:flex;gap:8px;justify-content:flex-end"><span class="btn">Back to form</span><span class="btn primary disabled">Place order</span></div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — ORDER-TIME SAFETY MINI-CHECK · FLAGS SET</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Orders › New order › MRN-004790 › Place order</div>
+  <div class="page-title">Placing: MRI Lumbar Spine (Contrast) — Mohammed Al-Rashid <span class="mono">MRN-004790</span></div>
+  <div class="modal-wrap"><div class="modal" style="max-width:620px">
+    <h3>Order-time safety mini-check (3 questions)</h3>
+    <p class="small muted" style="margin-bottom:10px">Answered by D. Nair with the patient/attendant present. These answers set flags only — the full technologist screening (SF-xx) still happens before acquisition and can overturn them.</p>
+    <table>
+      <tr><th style="width:55%">Question</th><th>Answer</th><th>Flag set</th></tr>
+      <tr><td>1. Pacemaker, cochlear implant, aneurysm clip or any implanted metal device?</td><td><span class="check" style="margin:0"><span class="box on">✓</span> Yes — “cardiac stent, 2021”</span></td><td><span class="chip red">MR-CONDITIONAL DEVICE — verify make/model</span></td></tr>
+      <tr><td>2. Any possibility of pregnancy? <span class="muted small">(asked per protocol regardless of presentation; recorded respectfully)</span></td><td><span class="check" style="margin:0"><span class="box on">✓</span> Not applicable</span></td><td><span class="chip grey">No flag</span></td></tr>
+      <tr><td>3. Previous reaction to contrast media (iodinated or gadolinium)?</td><td><span class="check" style="margin:0"><span class="box on">✓</span> Yes — “rash after CT dye, 2023”</span></td><td><span class="chip red">PRIOR CONTRAST REACTION — radiologist review before injection</span></td></tr>
+    </table>
+    <div class="banner warn" style="margin-top:12px;margin-bottom:0"><b>2 safety flags will travel with accession</b>Technologist screening is pre-populated; the study cannot start until T. Okafor confirms or clears each flag, and Dr. V. Shetty approves contrast given the 2023 reaction.</div>
+    <div class="modal-actions"><span class="btn ghost">Back</span><span class="btn primary">Confirm answers &amp; place order</span></div>
+  </div></div>
+  <div class="banner success" style="max-width:640px;margin:0 auto"><b>Order placed with flags — ACC-2026-91853</b>Flags: MR-conditional device · prior contrast reaction. Visible on the technologist worklist and the order timeline.</div>
+</div></div></div>
+
+<p class="audit">Duplicate-modal decisions (open / link / create-distinct + reason), the laterality block event, and all three safety answers with the answering staff identity (D. Nair) and timestamp are versioned on the order and recorded in the access log.</p>
+</section>

@@ -1,0 +1,108 @@
+<section class="screen" id="fo-10">
+<div class="screen-head"><h1><span class="sid">FO-10</span> Appointment scheduling</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office books modality appointments against per-room day grids. The system must guarantee no double-booking (server-side slot hold with instant conflict rejection), correct prep instructions per study, and consent-gated sending of prep messages. Tokens are never issued at booking — only at physical check-in. Booking works offline: actions queue locally and sync when reconnected.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Reception</div>
+    <div class="nav-item">Front desk home</div>
+    <div class="nav-item">Register patient</div>
+    <div class="nav-item">Patients</div>
+    <div class="nav-item active">Appointments <span class="nav-badge">14</span></div>
+    <div class="nav-item">Check-in &amp; tokens</div>
+    <div class="sec-label">Money &amp; delivery</div>
+    <div class="nav-item">Billing &amp; invoices</div>
+    <div class="nav-item">Report delivery <span class="nav-badge red">2</span></div>
+    <div class="sec-label">Data quality</div>
+    <div class="nav-item">Merge queue (MPI)</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Front Office › Appointments › New booking</div>
+    <div class="page-title">Schedule appointment — Mon 27 Jul 2026</div>
+    <div class="page-sub">Slots are held server-side for 3 minutes once selected. All times IST.</div>
+    <div class="banner info" style="margin-bottom:10px"><b>Working offline is supported</b> — actions queue and sync when reconnected. Offline bookings are provisional until the server confirms the slot.</div>
+    <div class="card" style="padding:10px 12px;margin-bottom:12px;background:#F0FDFA;border-color:#99F6E4">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+        <div><b>Sofia Rossi</b> · <span class="mono">MRN-004822</span> · F 34y · mobile ••476 <span class="chip green">verified</span> · balance ₹0.00 <span class="chip green">clear</span></div>
+        <div><span class="chip teal">Prep-message consent: Given</span> <span class="btn small ghost">Change patient</span></div>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px;flex-wrap:wrap">
+      <select class="select" style="width:150px"><option>Dept: Radiology</option></select>
+      <select class="select" style="width:170px"><option>Modality: Ultrasound</option><option>MRI</option><option>CT</option><option>X-Ray</option></select>
+      <select class="select" style="width:190px"><option>Radiologist: Any</option><option>Dr. V. Shetty</option><option>Dr. A. Rao</option></select>
+      <span class="btn small">◀ Sun 26</span><span class="chip grey">Mon 27 Jul 2026</span><span class="btn small">Tue 28 ▶</span>
+    </div>
+    <div class="split">
+      <div>
+        <div class="card"><div class="card-title">Day grid — Ultrasound rooms <span class="right">◻ open · ◼ booked · ▨ maintenance</span></div>
+        <table>
+          <tr><th style="width:70px">Time</th><th>US-1 (Dr. V. Shetty)</th><th>US-2 (Dr. A. Rao)</th><th>US-3 (rotating)</th></tr>
+          <tr><td class="mono">09:30</td><td><span class="chip grey">Booked · A. Sharma</span></td><td><span class="chip teal">Open — book</span></td><td><span class="chip amber">Maintenance until 11:00</span></td></tr>
+          <tr><td class="mono">10:00</td><td><span class="chip teal">Open — book</span></td><td><span class="chip grey">Booked · M. Al-Rashid</span></td><td><span class="chip amber">Maintenance</span></td></tr>
+          <tr class="hl"><td class="mono">10:30</td><td><span class="chip grey">Booked · P. Menon</span></td><td><span class="chip green">Selected — held 02:41</span></td><td><span class="chip amber">Maintenance</span></td></tr>
+          <tr><td class="mono">11:00</td><td><span class="chip teal">Open — book</span></td><td><span class="chip teal">Open — book</span></td><td><span class="chip teal">Open — book</span></td></tr>
+          <tr><td class="mono">11:30</td><td><span class="chip red">Just taken (refresh 11:58:02)</span></td><td><span class="chip teal">Open — book</span></td><td><span class="chip grey">Booked · K. Osei</span></td></tr>
+          <tr><td class="mono">12:00</td><td><span class="chip teal">Open — book</span></td><td><span class="chip grey">Booked · A. Rao (f/u)</span></td><td><span class="chip teal">Open — book</span></td></tr>
+          <tr><td class="mono">12:30</td><td><span class="chip grey">Blocked · lunch</span></td><td><span class="chip grey">Blocked · lunch</span></td><td><span class="chip grey">Blocked · lunch</span></td></tr>
+        </table>
+        <p class="small muted" style="margin-top:6px">Booked slots show name only to front office; no study details are exposed on the grid. "Just taken" cells appear when another desk wins a slot between refreshes.</p>
+        </div>
+      </div>
+      <div>
+        <div class="card"><div class="card-title">New appointment</div>
+          <div class="field"><label>Study <span class="req">*</span></label><select class="select"><option>USG Abdomen (whole)</option><option>USG KUB</option><option>USG Obstetric — dating</option></select><div class="hint">Obstetric US: foetal-sex information is never disclosed or recorded on any patient-facing output (PCPNDT).</div></div>
+          <div class="field"><label>Source</label><select class="select"><option>Referral — Dr. Meera Nair</option><option>Walk-in / self</option><option>Referral — Dr. S. Iyer</option><option>Referral — Dr. Farida Khan</option></select></div>
+          <div class="field"><label>Slot</label><input class="input" value="Mon 27 Jul · 10:30 · Room US-2 · Dr. A. Rao" disabled style="background:#F8FAFC"></div>
+          <div class="card" style="background:#F8FAFC;margin-bottom:11px"><div class="card-title" style="font-size:12.5px;margin-bottom:6px">Prep instructions preview</div>
+            <p class="small">USG Abdomen: fast 6 hours before scan; water permitted. Arrive 15 min early with referral note and prior reports. Carry photo ID.</p>
+          </div>
+          <div class="check"><span class="box on">✓</span><span class="small">Send prep instructions to verified mobile — <b>allowed</b> (consent "Reminders &amp; prep": Given)</span></div>
+          <div style="display:flex;gap:8px;margin-top:10px"><span class="btn primary">Confirm booking</span><span class="btn">Release slot</span></div>
+          <p class="small muted" style="margin-top:8px">No queue token is issued now — tokens are generated only at check-in on the day of the visit.</p>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SLOT CONFLICT (double-book rejected)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Front Office › Appointments › New booking</div>
+  <div class="banner danger"><b>Slot no longer available — booking rejected</b>US-2 · 10:30 was confirmed by counter 3 (VIS desk, S. Kulkarni) at 11:59:41 IST while this hold was pending. The server accepts exactly one confirmation per slot; nothing was double-booked. Pick an alternative below — your form entries are preserved.</div>
+  <div class="card"><div class="card-title">Nearest alternatives for USG Abdomen · Mon 27 Jul</div>
+    <table>
+      <tr><th>Time</th><th>Room / radiologist</th><th>Fit</th><th></th></tr>
+      <tr class="hl"><td class="mono">11:00</td><td>US-2 · Dr. A. Rao</td><td><span class="chip green">Same radiologist</span></td><td><span class="btn small primary">Hold this slot</span></td></tr>
+      <tr><td class="mono">11:00</td><td>US-1 · Dr. V. Shetty</td><td><span class="chip grey">Different radiologist</span></td><td><span class="btn small">Hold this slot</span></td></tr>
+      <tr><td class="mono">12:00</td><td>US-3 · rotating</td><td><span class="chip grey">Any-radiologist slot</span></td><td><span class="btn small">Hold this slot</span></td></tr>
+    </table>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — BOOKING CONFIRMED</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Front Office › Appointments › APPT-2026-51204</div>
+  <div class="banner success"><b>Appointment confirmed — APPT-2026-51204</b>Sofia Rossi · USG Abdomen (whole) · Mon 27 Jul 2026, 10:30 IST · Room US-2 · Dr. A. Rao · source: referral Dr. Meera Nair. Booked by D. Nair at 12:01 IST.</div>
+  <div class="row">
+    <div class="grow"><div class="card"><div class="card-title">Confirmation details</div>
+      <dl class="kv">
+        <dt>Reference</dt><dd class="mono">APPT-2026-51204</dd>
+        <dt>Patient</dt><dd>Sofia Rossi · MRN-004822</dd>
+        <dt>Study</dt><dd>USG Abdomen (whole)</dd>
+        <dt>Slot</dt><dd>Mon 27 Jul 2026 · 10:30 IST · US-2 · Dr. A. Rao</dd>
+        <dt>Prep message</dt><dd><span class="chip green">Sent 12:01 IST</span> to +91 98••• ••476 (consented channel)</dd>
+        <dt>Estimated charge</dt><dd>₹1,450.00 · payable at check-in</dd>
+      </dl>
+    </div></div>
+    <div class="grow"><div class="card"><div class="card-title">What happens next</div>
+      <div class="banner info" style="margin-bottom:8px"><b>No token yet</b>Queue token is issued only when the patient checks in at the branch on 27 Jul. The confirmation message says exactly this to avoid queue disputes.</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="btn small">Print confirmation slip</span><span class="btn small ghost">Reschedule</span><span class="btn small ghost">Cancel (reason required)</span></div>
+    </div></div>
+  </div>
+</div></div></div>
+
+<p class="audit">Slot holds, confirmations, conflict rejections and prep-message sends are recorded in the access log with counter ID and timestamps. Prep messages are sent only where the "Reminders &amp; prep" consent is Given; the toggle is disabled otherwise. Offline-queued bookings are marked provisional in the log until server confirmation.</p>
+</section>

@@ -1,0 +1,144 @@
+<section class="screen" id="tk-06">
+<div class="screen-head"><h1><span class="sid">TK-06</span> Contrast Administration Record</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G6 Radiology Technician — workspace 'RIS · Technician'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The technologist records every contrast administration at the point of injection: agent from the branch catalog, concentration/volume/route, LOT &amp; BATCH with expiry (scan or type), who administered and who supervised, with timestamps. The record must be linked to the screening decision (TK-02) and checked against the weight-based suggested dose; an expired lot is a hard block. Saving decrements pharmacy stock and keeps a one-tap path to the reaction workflow (CS-05).</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · TECHNICIAN</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Worklist</div>
+      <div class="nav-item">My worklist <span class="nav-badge">7</span></div>
+      <div class="nav-item">Patient prep &amp; screening</div>
+      <div class="nav-item">Image receipt &amp; QC</div>
+      <div class="nav-item">Retakes</div>
+      <div class="sec-label">Safety</div>
+      <div class="nav-item active">Contrast log</div>
+      <div class="nav-item">Reaction / incident</div>
+      <div class="sec-label">Equipment</div>
+      <div class="nav-item">Device status</div>
+      <div class="nav-item">MWL sync</div>
+    </div>
+    <div class="main">
+      <div class="crumb">RIS · Technician › ACC-2026-91252 › Contrast administration</div>
+      <div class="page-title">Contrast administration — CECT Abdomen &amp; Pelvis</div>
+      <div class="page-sub">Mohammed Al-Rashid · MRN-004790 · M/58 · 82 kg (measured today) · ACC-2026-91252 · CT-01 · Referrer Dr. S. Iyer</div>
+      <div class="banner success"><b>Screening decision linked — CLEARED FOR IV CONTRAST</b> TK-02 screening SCR-2026-1187, signed by Dr. V. Shetty 25-Jul 12:10 IST. eGFR 74 mL/min (21-Jul-2026, in-house lab) · no prior contrast reaction · metformin: instructed per protocol. <span class="btn small ghost">Open screening record</span></div>
+      <div class="row">
+        <div class="grow">
+          <div class="card">
+            <div class="card-title">Agent &amp; dose <span class="right">from branch catalog</span></div>
+            <div class="row">
+              <div class="field grow"><label>Contrast agent <span class="req">*</span></label><div class="select">Iohexol (Omnipaque™) 350 mgI/mL — IV, non-ionic ▾</div><div class="hint">Catalog: Iohexol 300 · Iohexol 350 · Iodixanol 320 · Gadobutrol 1.0 mmol/mL (MR)</div></div>
+              <div class="field" style="width:150px"><label>Concentration</label><div class="input mono">350 mgI/mL</div></div>
+            </div>
+            <div class="row">
+              <div class="field" style="width:140px"><label>Volume (mL) <span class="req">*</span></label><div class="input mono">95</div></div>
+              <div class="field" style="width:170px"><label>Route <span class="req">*</span></label><div class="select">IV — pressure injector ▾</div></div>
+              <div class="field" style="width:150px"><label>Flow rate</label><div class="input mono">3.5 mL/s</div></div>
+              <div class="field grow"><label>IV access</label><div class="select">20G right antecubital · saline flush 40 mL ▾</div></div>
+            </div>
+            <div class="banner info" style="margin-bottom:0"><b>Weight-based dose check — within range</b> Suggested for 82 kg at 1.2 mL/kg (Iohexol 350): <b>98 mL</b> (acceptable 78–108 mL). Entered 95 mL ✓. Deviation &gt; 15% would require a supervising radiologist override note.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">LOT / BATCH &amp; expiry <span class="right">scan or manual entry</span></div>
+            <div class="row">
+              <div class="field grow"><label>Barcode scan</label><div class="input mono">⌸ 8901234OMN350-C7841…</div><div class="hint">GS1 scan auto-fills LOT, batch and expiry from the vial label.</div></div>
+              <div class="field" style="width:140px"><label>LOT <span class="req">*</span></label><div class="input mono">C7841</div></div>
+              <div class="field" style="width:150px"><label>Batch</label><div class="input mono">OMN-26-118</div></div>
+              <div class="field" style="width:140px"><label>Expiry <span class="req">*</span></label><div class="input mono">02/2027 ✓</div></div>
+            </div>
+            <p class="small muted">Expiry validated against pharmacy master. Vial size 100 mL — residual 5 mL will be recorded as wastage.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Personnel &amp; timestamps</div>
+            <dl class="kv">
+              <dt>Administered by</dt><dd>T. Okafor — Radiology Technologist (IV-certified, valid to 03/2027) <span class="chip teal">YOU</span></dd>
+              <dt>Supervising</dt><dd>Dr. V. Shetty (RMC MH-44721) — on premises, CT suite <span class="chip green">CONFIRMED PRESENT 12:36</span></dd>
+              <dt>Injection start</dt><dd class="mono">25-Jul-2026 12:38:12 IST <span class="btn small ghost">⏱ stamp now</span></dd>
+              <dt>Injection end</dt><dd class="mono">25-Jul-2026 12:38:39 IST</dd>
+              <dt>Post-obs window</dt><dd>Observe 15 min in bay · <span class="chip teal">obs due 12:54</span> owner T. Okafor</dd>
+            </dl>
+          </div>
+        </div>
+        <div style="width:300px;flex-shrink:0">
+          <div class="card">
+            <div class="card-title">Save &amp; safety</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <span class="btn primary">Save administration record</span>
+              <span class="btn danger">⚠ Report reaction → CS-05</span>
+              <span class="btn ghost">Save draft</span>
+            </div>
+            <p class="small muted" style="margin-top:8px">Reaction quick-link opens CS-05 pre-filled with this agent, LOT and timestamps — no re-typing during an emergency.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Stock impact</div>
+            <dl class="kv" style="grid-template-columns:110px 1fr">
+              <dt>Item</dt><dd>Iohexol 350 · 100 mL vial</dd>
+              <dt>On hand (CT store)</dt><dd class="mono">14 vials</dd>
+              <dt>On save</dt><dd>−1 vial (95 mL used, 5 mL wastage) → 13 vials</dd>
+              <dt>Reorder level</dt><dd class="mono">8 vials <span class="chip green">OK</span></dd>
+            </dl>
+          </div>
+          <div class="card">
+            <div class="card-title">Patient flags</div>
+            <p class="small">Allergies: none recorded · Asthma: no · Beta-blocker: yes (noted for reaction protocol). Aadhaar on file: ••••-••••-4471 (last-4 only shown; full number never displayed).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE B — LOT EXPIRED · HARD BLOCK</div>
+<div class="frame">
+  <div class="body" style="min-height:0">
+    <div class="main">
+      <div class="page-title">Contrast administration — CECT Abdomen &amp; Pelvis <span class="chip red">BLOCKED</span></div>
+      <div class="page-sub">Mohammed Al-Rashid · MRN-004790 · ACC-2026-91252</div>
+      <div class="modal-wrap">
+        <div class="modal danger">
+          <h3>⛔ Expired lot — administration blocked</h3>
+          <p class="small">Scanned vial <b class="mono">LOT B5527 · Batch OMN-25-091 · expiry 06/2026</b> is <b>past expiry</b> (today 25-Jul-2026). This record cannot be saved with an expired lot — there is no override for expiry.</p>
+          <div class="banner danger" style="margin-top:10px"><b>Required actions</b> 1) Quarantine the vial in the red bin and do not administer. 2) Scan a replacement vial from CT store (13 in-date vials available). 3) An expired-stock incident is auto-raised to pharmacy &amp; branch admin K. Verma.</div>
+          <div class="field" style="margin-top:10px"><label>Where was this vial found? <span class="req">*</span></label><div class="select">CT store — shelf 2 (should have been removed at monthly expiry sweep) ▾</div></div>
+          <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Quarantine &amp; scan replacement</span></div>
+        </div>
+      </div>
+      <div class="banner warn"><b>Stock alert raised — STK-EXP-2026-014</b> Expired lot B5527 flagged in CT store. Pharmacy sweep task created · <span class="chip amber">due in 4h</span> owner Pharmacy in-charge · Escalated to K. Verma (Branch Admin) if unactioned.</div>
+    </div>
+  </div>
+</div>
+<div class="state-tag">STATE C — COMPLETED RECORD</div>
+<div class="frame">
+  <div class="body" style="min-height:0">
+    <div class="main">
+      <div class="page-title">Contrast record CON-2026-0871 <span class="chip green">COMPLETED</span></div>
+      <div class="page-sub">Saved 25-Jul-2026 12:39 IST · post-observation cleared 12:55 IST · no reaction</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Administration summary</div>
+          <dl class="kv">
+            <dt>Patient</dt><dd>Mohammed Al-Rashid · MRN-004790 · ACC-2026-91252</dd>
+            <dt>Agent</dt><dd>Iohexol (Omnipaque) 350 mgI/mL · 95 mL IV via pressure injector @ 3.5 mL/s</dd>
+            <dt>LOT / Batch / Exp</dt><dd class="mono">C7841 / OMN-26-118 / 02-2027</dd>
+            <dt>Dose check</dt><dd>95 mL vs suggested 98 mL (82 kg × 1.2 mL/kg) — within range, no override needed</dd>
+            <dt>Administered / supervising</dt><dd>T. Okafor / Dr. V. Shetty (RMC MH-44721)</dd>
+            <dt>Timestamps</dt><dd class="mono">start 12:38:12 · end 12:38:39 · obs cleared 12:55:03 IST</dd>
+            <dt>Screening link</dt><dd class="mono">SCR-2026-1187 (cleared for IV contrast)</dd>
+            <dt>Reaction</dt><dd><span class="chip green">NONE OBSERVED</span> 15-min observation completed</dd>
+          </dl>
+        </div>
+        <div class="card" style="width:300px;flex-shrink:0">
+          <div class="card-title">Stock decrement posted</div>
+          <div class="timeline">
+            <div class="ev"><span class="t">12:39</span><span>CT store: Iohexol 350 · 100 mL — 14 → <b>13 vials</b></span></div>
+            <div class="ev"><span class="t">12:39</span><span>Wastage 5 mL recorded against CON-2026-0871</span></div>
+            <div class="ev"><span class="t">12:39</span><span>Usage charged to visit VIS-2026-31190 (billing feed)</span></div>
+          </div>
+          <p class="small muted">Record is now read-only. Amendments require supervising radiologist countersign with step-up identity confirmation and appear as versioned addenda.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Agent, LOT/batch/expiry, dose-check result, administering and supervising staff identities, all timestamps, the linked screening decision and the stock decrement are recorded in the access log. Expired-lot block attempts are logged with the scanned barcode. Opening this record from outside the care team requires a stated purpose and is recorded in the access log.</p>
+</section>

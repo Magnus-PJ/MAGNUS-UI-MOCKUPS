@@ -1,0 +1,100 @@
+<section class="screen" id="or-05">
+<div class="screen-head"><h1><span class="sid">OR-05</span> Order modify / cancel</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety — workspace 'Orders'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Controlled change surface for an existing order, used by front office and branch admins. It must guarantee that what can change depends strictly on order status (indication editable until acquired; a procedure change is always cancel + new linked order, never an in-place edit), that cancellation states its reason from a fixed taxonomy and lists every downstream effect, and that post-acquisition cancellation is guarded because radiation has already been delivered. Every change produces a new order version.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Orders</div>
+      <div class="nav-item">New order</div>
+      <div class="nav-item active">Orders worklist <span class="nav-badge">38</span></div>
+      <div class="nav-item">Awaiting scheduling <span class="nav-badge red">6</span></div>
+      <div class="nav-item">Safety flags</div>
+      <div class="sec-label">Reference</div>
+      <div class="nav-item">Procedure catalog</div>
+      <div class="nav-item">Referrer directory</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Orders › ACC-2026-91853 › Modify</div>
+      <div class="page-title">Modify order — ACC-2026-91853 · MRI L-Spine (Contrast)</div>
+      <div class="page-sub">Mohammed Al-Rashid · <span class="mono">MRN-004790</span> · current status <span class="chip blue">Scheduled</span> · version 2 → editing creates version 3</div>
+
+      <div class="card">
+        <div class="card-title">Permitted changes at status “Scheduled” <span class="right">matrix enforced server-side</span></div>
+        <table>
+          <tr><th>Field</th><th>Ordered</th><th>Scheduled</th><th>Arrived</th><th>Acquired +</th><th>Rule</th></tr>
+          <tr><td>Clinical indication</td><td><span class="chip green">edit</span></td><td><span class="chip green">edit</span></td><td><span class="chip green">edit</span></td><td><span class="chip red">locked</span></td><td>Editable until acquisition; every edit versioned</td></tr>
+          <tr class="hl"><td>Priority</td><td><span class="chip green">edit</span></td><td><span class="chip green">edit</span></td><td><span class="chip amber">upgrade only</span></td><td><span class="chip red">locked</span></td><td>Raising to STAT requires justification</td></tr>
+          <tr><td>Referring doctor</td><td><span class="chip green">edit</span></td><td><span class="chip green">edit</span></td><td><span class="chip red">locked</span></td><td><span class="chip red">locked</span></td><td>Correction-of-record after arrival goes via admin</td></tr>
+          <tr><td>Performing branch</td><td><span class="chip green">edit</span></td><td><span class="chip amber">rebook</span></td><td><span class="chip red">locked</span></td><td><span class="chip red">locked</span></td><td>Branch change releases &amp; rebooks the slot</td></tr>
+          <tr><td>Laterality</td><td><span class="chip green">edit</span></td><td><span class="chip amber">with reason</span></td><td><span class="chip amber">with reason</span></td><td><span class="chip red">locked</span></td><td>Side change alerts technologist worklist</td></tr>
+          <tr><td>Procedure</td><td colspan="4" style="text-align:center"><span class="chip red">never edited in place</span></td><td>Always cancel + new linked order (preserves both audit trails)</td></tr>
+        </table>
+      </div>
+
+      <div class="row">
+        <div class="grow"><div class="card">
+          <div class="card-title">Editable now</div>
+          <div class="field"><label>Clinical indication</label><div class="textarea">Chronic low-back pain radiating to left leg × 6 months; failed conservative therapy. ? disc prolapse L4-L5. <b>Added 25-Jul:</b> new left foot drop noted by referrer — please expedite.</div><div class="hint">Change reason required on save · previous text kept in version 2</div></div>
+          <div class="row">
+            <div style="width:180px"><div class="field"><label>Priority</label><div class="select">Urgent ▾ <span class="muted small">(was Routine)</span></div></div></div>
+            <div class="grow"><div class="field"><label>Reason for change <span class="req">*</span></label><div class="select">New neurological deficit reported by referrer ▾</div></div></div>
+          </div>
+          <div style="display:flex;justify-content:flex-end;gap:8px"><span class="btn">Discard</span><span class="btn primary">Save as version 3</span></div>
+        </div></div>
+        <div style="width:280px"><div class="card" style="background:#F8FAFC">
+          <div class="card-title">Need a different procedure?</div>
+          <p class="small" style="margin-bottom:8px">Procedure cannot be edited. Use <b>Cancel + create linked order</b>: this order closes with reason “procedure changed”, and the new order carries a link both ways, reuses the referral and safety answers, and prompts re-pricing.</p>
+          <span class="btn small warn-outline">Cancel + create linked order…</span>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — CANCEL MODAL (PRE-ACQUISITION)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="modal-wrap"><div class="modal danger" style="max-width:600px">
+    <h3>Cancel order ACC-2026-91829 — X-Ray Knee (Right), Priya Menon</h3>
+    <div class="field"><label>Cancellation reason <span class="req">*</span></label>
+      <div class="select">Patient request — unable to attend ▾</div>
+      <div class="hint">Taxonomy: patient request · duplicate order · referrer withdrew · clinical contraindication found · booking error · payment not completed · other (note required)</div>
+    </div>
+    <div class="card" style="margin-bottom:0;background:#FFF7F7;border-color:#FCA5A5">
+      <div class="card-title">Downstream effects — applied automatically on confirm</div>
+      <table>
+        <tr><td>Scheduled slot</td><td>APPT-2026-51188 (26-Jul 11:20, XR-02) — <b>released</b> back to availability</td></tr>
+        <tr><td>Invoice</td><td class="mono">INV/AND/26-27/0478</td></tr>
+        <tr><td></td><td>Paid ₹450 — <b>credit-note prompt</b> opens next (refund vs adjust against future visit)</td></tr>
+        <tr><td>Report</td><td>Not applicable — order never reached reporting</td></tr>
+        <tr><td>Patient notice</td><td>SMS in preferred language confirming cancellation; no clinical details in the message</td></tr>
+      </table>
+    </div>
+    <div class="field" style="margin-top:12px"><label>Step-up identity confirmation <span class="req">*</span></label><div class="input" style="width:260px;color:#94A3B8">Re-enter your Magnus password…</div><div class="hint">Cancellation is a destructive action — D. Nair must re-confirm identity; the confirmation is itself logged.</div></div>
+    <div class="modal-actions"><span class="btn ghost">Keep order</span><span class="btn danger">Confirm cancellation</span></div>
+  </div></div>
+</div></div></div>
+
+<div class="state-tag">STATE C — POST-ACQUISITION GUARD (RADIATION ALREADY DELIVERED)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Orders › ACC-2026-91847 › Cancel</div>
+  <div class="page-title">Cancel request — ACC-2026-91847 · CT Brain (Plain), Sofia Rossi <span class="mono">MRN-004822</span></div>
+  <div class="banner danger"><b>Guard: acquisition already completed — radiation dose has been delivered (DLP 812 mGy·cm)</b>A post-acquisition cancellation does not undo exposure and would orphan an acquired study. Standard cancellation is blocked for front office at this status.</div>
+  <div class="card">
+    <div class="card-title">Available paths instead</div>
+    <table>
+      <tr><th>Path</th><th>Effect</th><th>Who can do it</th></tr>
+      <tr><td><b>Continue to reporting</b> (recommended)</td><td>Study is reported normally; dispute handled on billing side only</td><td>Default — no action needed</td></tr>
+      <tr><td>Mark “reported not required — referrer withdrew”</td><td>Study retained &amp; dose logged; report step waived with referrer's written note attached; invoice credit-note prompt</td><td>Branch admin (K. Verma) + radiologist countersign (Dr. V. Shetty)</td></tr>
+      <tr><td>Administrative void</td><td>Only for wrong-patient/wrong-record incidents — opens an incident record, never deletes the study or dose entry</td><td>Admin with step-up confirmation; reviewed in weekly safety meeting</td></tr>
+    </table>
+    <div class="hint" style="margin-top:6px">Whatever path is chosen, the dose record and acquired study STU-2026-88410 are immutable. All three paths create order version entries.</div>
+    <div style="margin-top:10px;display:flex;gap:8px;justify-content:flex-end"><span class="btn">Back to order</span><span class="btn warn-outline">Request admin review</span><span class="btn danger disabled">Cancel order</span></div>
+  </div>
+</div></div></div>
+
+<p class="audit">All modifications (field, old value, new value, reason, version number), cancellation reasons, step-up identity confirmations, and post-acquisition guard encounters are versioned on the order and recorded in the access log.</p>
+</section>

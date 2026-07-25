@@ -1,0 +1,165 @@
+<section class="screen" id="tk-07">
+<div class="screen-head"><h1><span class="sid">TK-07</span> Device Status Board</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G6 Radiology Technician — workspace 'RIS · Technician'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Technologists and the shift lead watch this board to know, per modality unit, whether the machine is up, degraded or unreachable (DICOM echo), and how deep the affected queue is. When a unit goes unreachable the system auto-notifies the branch admin and surfaces the affected-appointment list with a bulk reschedule/redirect action. Maintenance mode is an explicit, scheduled toggle so planned downtime never looks like an outage.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · TECHNICIAN</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Worklist</div>
+      <div class="nav-item">My worklist <span class="nav-badge">7</span></div>
+      <div class="nav-item">Patient prep &amp; screening</div>
+      <div class="nav-item">Image receipt &amp; QC</div>
+      <div class="nav-item">Retakes</div>
+      <div class="sec-label">Safety</div>
+      <div class="nav-item">Contrast log</div>
+      <div class="nav-item">Reaction / incident</div>
+      <div class="sec-label">Equipment</div>
+      <div class="nav-item active">Device status</div>
+      <div class="nav-item">MWL sync</div>
+    </div>
+    <div class="main">
+      <div class="crumb">RIS · Technician › Equipment › Device status</div>
+      <div class="page-title">Device status board <span class="chip green">ALL UNITS UP</span></div>
+      <div class="page-sub">Auto-refresh every 60 s · DICOM C-ECHO probes every 2 min · last sweep 25-Jul-2026 13:02:14 IST</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">6 / 6</div><div class="l">Units responding</div><div class="s">last full sweep 13:02 IST</div></div>
+        <div class="kpi"><div class="n">23</div><div class="l">Studies queued today</div><div class="s">across all modalities</div></div>
+        <div class="kpi"><div class="n">0</div><div class="l">Open device incidents</div><div class="s">last incident closed 22-Jul</div></div>
+      </div>
+      <div class="row" style="flex-wrap:wrap">
+        <div class="card grow" style="min-width:31%">
+          <div class="card-title">CT-01 · Siemens go.Up <span class="chip green">UP</span></div>
+          <dl class="kv" style="grid-template-columns:105px 1fr">
+            <dt>Last echo</dt><dd class="mono">13:02:11 · 41 ms</dd>
+            <dt>Queue depth</dt><dd>5 appointments (next 13:20)</dd>
+            <dt>AE / Host</dt><dd class="mono">CT01_AW · 10.20.4.11</dd>
+            <dt>Maintenance</dt><dd>Toggle: OFF · <span class="btn small ghost">Schedule window</span></dd>
+          </dl>
+        </div>
+        <div class="card grow" style="min-width:31%">
+          <div class="card-title">MR-01 · GE SIGNA Creator <span class="chip green">UP</span></div>
+          <dl class="kv" style="grid-template-columns:105px 1fr">
+            <dt>Last echo</dt><dd class="mono">13:01:44 · 58 ms</dd>
+            <dt>Queue depth</dt><dd>4 appointments (next 13:45)</dd>
+            <dt>AE / Host</dt><dd class="mono">MR01_AW · 10.20.4.21</dd>
+            <dt>Maintenance</dt><dd>Toggle: OFF · <span class="btn small ghost">Schedule window</span></dd>
+          </dl>
+        </div>
+        <div class="card grow" style="min-width:31%">
+          <div class="card-title">XR-01 · DR room 1 <span class="chip amber">DEGRADED</span></div>
+          <dl class="kv" style="grid-template-columns:105px 1fr">
+            <dt>Last echo</dt><dd class="mono">13:02:09 · 1,920 ms (slow)</dd>
+            <dt>Queue depth</dt><dd>7 appointments (walk-ins)</dd>
+            <dt>AE / Host</dt><dd class="mono">XR01_AW · 10.20.4.31</dd>
+            <dt>Note</dt><dd>Image push latency high since 12:40 — network team notified, monitoring</dd>
+          </dl>
+        </div>
+        <div class="card grow" style="min-width:31%">
+          <div class="card-title">XR-02 · Mobile DR <span class="chip green">UP</span></div>
+          <dl class="kv" style="grid-template-columns:105px 1fr">
+            <dt>Last echo</dt><dd class="mono">13:01:58 · 66 ms</dd>
+            <dt>Queue depth</dt><dd>1 appointment</dd>
+            <dt>AE / Host</dt><dd class="mono">XR02_MOB · 10.20.4.32</dd>
+            <dt>Maintenance</dt><dd>Toggle: OFF</dd>
+          </dl>
+        </div>
+        <div class="card grow" style="min-width:31%">
+          <div class="card-title">US-01 · Ultrasound room A <span class="chip green">UP</span></div>
+          <dl class="kv" style="grid-template-columns:105px 1fr">
+            <dt>Last echo</dt><dd class="mono">13:02:02 · 39 ms</dd>
+            <dt>Queue depth</dt><dd>4 appointments (incl. 1 obstetric — foetal-sex non-disclosure notice active on console)</dd>
+            <dt>AE / Host</dt><dd class="mono">US01_AW · 10.20.4.41</dd>
+          </dl>
+        </div>
+        <div class="card grow" style="min-width:31%">
+          <div class="card-title">MG-01 · Mammography <span class="chip green">UP</span></div>
+          <dl class="kv" style="grid-template-columns:105px 1fr">
+            <dt>Last echo</dt><dd class="mono">13:01:39 · 52 ms</dd>
+            <dt>Queue depth</dt><dd>2 appointments</dd>
+            <dt>AE / Host</dt><dd class="mono">MG01_AW · 10.20.4.51</dd>
+            <dt>Maintenance</dt><dd>Next PM window: 27-Jul 07:00–09:00 (scheduled)</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE B — MR-01 UNREACHABLE · IMPACT PANEL &amp; BULK RESCHEDULE</div>
+<div class="frame">
+  <div class="body" style="min-height:0">
+    <div class="main">
+      <div class="page-title">Device status board <span class="chip red">1 UNIT UNREACHABLE</span></div>
+      <div class="page-sub">MR-01 stopped answering C-ECHO at 13:44:07 IST · 3 consecutive probe failures</div>
+      <div class="banner danger"><b>MR-01 · GE SIGNA Creator — UNREACHABLE since 13:44 IST (12 min)</b> Auto-notification sent to Branch Admin K. Verma (app + SMS) at 13:46 and to biomedical engineering ticket BME-2026-0455. Resolution SLA: <span class="chip red">OVERDUE 00:12</span> owner K. Verma · Escalated to Regional Ops (Mumbai) at 14:15 if still down.</div>
+      <div class="card">
+        <div class="card-title">Affected appointments on MR-01 <span class="right">4 patients in impact window 13:45–16:30</span></div>
+        <table>
+          <tr><th><span class="box on">✓</span></th><th>Time</th><th>Appt</th><th>Patient</th><th>Study</th><th>Status</th><th>Suggested action</th></tr>
+          <tr><td><span class="box on">✓</span></td><td class="mono">13:45</td><td class="mono">APPT-2026-51284</td><td>Priya Menon · MRN-004828</td><td>MRI Lumbar Spine</td><td><span class="chip amber">CHECKED-IN, WAITING</span></td><td>Redirect → Juhu branch MR (slot 15:00) </td></tr>
+          <tr><td><span class="box on">✓</span></td><td class="mono">14:30</td><td class="mono">APPT-2026-51290</td><td>Rajesh Gupta · MRN-004795</td><td>MRI Brain + Contrast</td><td><span class="chip grey">NOT ARRIVED</span></td><td>Reschedule → tomorrow 09:15 (same unit)</td></tr>
+          <tr><td><span class="box on">✓</span></td><td class="mono">15:15</td><td class="mono">APPT-2026-51293</td><td>Ananya Rao · MRN-004819</td><td>MRI Knee (Rt)</td><td><span class="chip grey">NOT ARRIVED</span></td><td>Reschedule → tomorrow 10:00</td></tr>
+          <tr><td><span class="box"></span></td><td class="mono">16:15</td><td class="mono">APPT-2026-51297</td><td>K••••• O••• · MRN-004823</td><td>MRI Shoulder</td><td><span class="chip grey">NOT ARRIVED</span></td><td>Hold — unit may recover (masked: outside your list; open with purpose to act)</td></tr>
+        </table>
+        <div style="display:flex;gap:10px;margin-top:10px;align-items:center">
+          <span class="btn primary">Bulk reschedule / redirect 3 selected</span>
+          <span class="btn">Notify patients (SMS + call task to D. Nair, Front Office)</span>
+          <span class="small muted">Fee/refund differences route to the billing desk automatically.</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Probe history — MR-01</div>
+          <div class="timeline">
+            <div class="ev"><span class="t">13:42:07</span><span>C-ECHO OK · 61 ms</span></div>
+            <div class="ev"><span class="t">13:44:07</span><span>C-ECHO timeout (10 s) — failure 1/3</span></div>
+            <div class="ev"><span class="t">13:46:07</span><span>C-ECHO timeout — failure 3/3 → status UNREACHABLE; K. Verma auto-notified; MWL sends to MR-01 suspended &amp; queued</span></div>
+            <div class="ev"><span class="t">13:52:00</span><span>Manual retry by T. Okafor — still unreachable</span></div>
+          </div>
+        </div>
+        <div class="card" style="width:300px;flex-shrink:0">
+          <div class="card-title">Actions</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span class="btn">Retry echo now</span>
+            <span class="btn">Open BME-2026-0455</span>
+            <span class="btn warn-outline">Mark as maintenance instead</span>
+          </div>
+          <p class="small muted" style="margin-top:8px">Marking a down unit as "maintenance" requires shift-lead role and a reason — prevents hiding outages from the uptime report.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="state-tag">STATE C — MAINTENANCE MODE (PLANNED)</div>
+<div class="frame">
+  <div class="body" style="min-height:0">
+    <div class="main">
+      <div class="page-title">Device status board <span class="chip blue">1 UNIT IN MAINTENANCE</span></div>
+      <div class="page-sub">MG-01 planned preventive maintenance window in effect</div>
+      <div class="modal-wrap">
+        <div class="modal">
+          <h3>Enable maintenance mode — MG-01 · Mammography</h3>
+          <dl class="kv">
+            <dt>Window</dt><dd class="mono">27-Jul-2026 07:00 → 09:00 IST (linked to PM schedule MAINT-2026-118)</dd>
+            <dt>Reason</dt><dd>Quarterly preventive maintenance — vendor engineer visit (Hologic)</dd>
+            <dt>Booking effect</dt><dd>Slots inside window auto-blocked; 0 existing appointments conflict</dd>
+            <dt>Requested by</dt><dd>T. Okafor · approved by K. Verma (Branch Admin)</dd>
+          </dl>
+          <div class="check" style="margin-top:8px"><span class="box on">✓</span> <span>Suppress unreachable alerts for this unit during the window (probes continue, logged silently)</span></div>
+          <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Confirm — step-up PIN required</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">MG-01 · Mammography <span class="chip blue">MAINTENANCE 07:00–09:00</span></div>
+        <dl class="kv" style="grid-template-columns:130px 1fr">
+          <dt>Probe status</dt><dd class="mono">C-ECHO paused-alerting · last silent echo 07:12 OK</dd>
+          <dt>Queue depth</dt><dd>0 — booking blocked until 09:00; first slot 09:15</dd>
+          <dt>Exit criteria</dt><dd>Engineer sign-off + test exposure QC pass, recorded on MAINT-2026-118</dd>
+          <dt>Auto-exit</dt><dd>If window lapses without sign-off, unit flips to <span class="chip amber">DEGRADED</span> and shift lead is notified</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Status transitions (up/degraded/unreachable/maintenance), auto-notifications to the branch admin, bulk reschedule actions with the affected appointment list, and maintenance-mode toggles (with approver identity and step-up confirmation) are recorded in the access log. Patient names on the impact panel are masked where the viewer lacks a care or scheduling purpose.</p>
+</section>

@@ -1,0 +1,140 @@
+<section class="screen" id="or-06">
+<div class="screen-head"><h1><span class="sid">OR-06</span> Order sets &amp; prep protocols admin</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Admin (K. Verma) and the chief radiologist maintain per-procedure prep protocols: fasting rules, multi-language patient prep instructions, contrast defaults, mandatory safety questionnaires, slot-template and price-list links. Every protocol is versioned with effective dates — a booked appointment always carries the version that was live at booking time. Branch overrides must never weaken a safety flag set at chain level.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Admin) ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Orders</div>
+    <div class="nav-item">Order worklist</div>
+    <div class="nav-item">STAT governance</div>
+    <div class="nav-item">Referral intake</div>
+    <div class="sec-label">Catalogue admin</div>
+    <div class="nav-item active">Prep protocols</div>
+    <div class="nav-item">Procedure master</div>
+    <div class="nav-item">Price lists</div>
+    <div class="nav-item">Slot templates</div>
+    <div class="sec-label">Clinical safety</div>
+    <div class="nav-item">Screening forms</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Catalogue admin › Prep protocols</div>
+    <div class="page-title">Prep protocols &amp; order sets <span class="actions-right"><span class="btn small">Export catalogue</span> <span class="btn primary small">+ New protocol</span></span></div>
+    <div class="page-sub">42 active protocols · chain scope: Meridian Diagnostics (7 branches) · viewing branch overlay: Andheri West</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">42</div><div class="l">Active protocols</div><div class="s">across 6 modalities</div></div>
+      <div class="kpi"><div class="n">3</div><div class="l">Draft versions</div><div class="s">pending effective date</div></div>
+      <div class="kpi amber"><div class="n">2</div><div class="l">Branch overrides</div><div class="s">Andheri West only</div></div>
+      <div class="kpi red"><div class="n">1</div><div class="l">Missing language</div><div class="s">Marathi text absent</div></div>
+    </div>
+    <div class="row" style="margin-bottom:12px">
+      <div class="grow"><input class="input" value="🔍 Search protocol, procedure code…"></div>
+      <div style="width:150px"><select class="select"><option>Modality: All</option></select></div>
+      <div style="width:150px"><select class="select"><option>Contrast: Any</option></select></div>
+      <div style="width:170px"><select class="select"><option>Status: Active + Draft</option></select></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Protocol cards <span class="right">version live at booking is always honoured</span></div>
+      <table>
+        <tr><th>Protocol / procedure</th><th>Prep &amp; fasting</th><th>Contrast default</th><th>Safety questionnaire</th><th>Languages</th><th>Links</th><th>Version</th><th></th></tr>
+        <tr class="hl"><td><b>CT Abdomen + Pelvis (contrast)</b><div class="small muted mono">CT-ABD-PEL-C · CPT-equiv 74178</div></td><td>Fasting 6h solids / 2h clear fluids<div class="small muted">Hydration 500 ml before arrival</div></td><td><span class="chip blue">Iohexol 350 · weight-based</span></td><td><span class="chip red">CS-01 required · hard gate</span></td><td>EN · HI · MR</td><td class="small">Slot: CT-30min · Price: GEN-26-27</td><td><span class="mono">v7</span> <span class="chip green">Active</span><div class="small muted">eff. 01-Jul-2026</div></td><td><span class="btn ghost small">Edit</span> <span class="btn ghost small">History</span></td></tr>
+        <tr><td><b>MRI Brain (plain)</b><div class="small muted mono">MR-BRAIN-P</div></td><td>No fasting<div class="small muted">Remove metallic objects; arrive 30 min early</div></td><td><span class="chip grey">None</span></td><td><span class="chip red">CS-02 MR safety · hard gate</span></td><td>EN · HI · MR</td><td class="small">Slot: MR-45min · Price: GEN-26-27</td><td><span class="mono">v4</span> <span class="chip green">Active</span><div class="small muted">eff. 15-May-2026</div></td><td><span class="btn ghost small">Edit</span> <span class="btn ghost small">History</span></td></tr>
+        <tr><td><b>MRI Brain + Contrast</b><div class="small muted mono">MR-BRAIN-C</div></td><td>Fasting 4h<div class="small muted">Bring prior reports &amp; implant cards</div></td><td><span class="chip blue">Gadobutrol 0.1 mmol/kg</span></td><td><span class="chip red">CS-01 + CS-02 · hard gates</span></td><td>EN · HI · MR</td><td class="small">Slot: MR-60min · Price: GEN-26-27</td><td><span class="mono">v6</span> <span class="chip green">Active</span><div class="small muted">eff. 01-Jul-2026</div></td><td><span class="btn ghost small">Edit</span> <span class="btn ghost small">History</span></td></tr>
+        <tr><td><b>US Obstetric — Growth scan</b><div class="small muted mono">US-OB-GROWTH</div></td><td>No fasting · full bladder not required &gt;14 wks</td><td><span class="chip grey">None</span></td><td><span class="chip violet">PCPNDT Form F · mandatory</span><div class="small muted">Foetal-sex non-disclosure notice printed on prep sheet</div></td><td>EN · HI · MR</td><td class="small">Slot: US-OB-30 · Price: GEN-26-27</td><td><span class="mono">v9</span> <span class="chip green">Active</span><div class="small muted">eff. 01-Apr-2026</div></td><td><span class="btn ghost small">Edit</span> <span class="btn ghost small">History</span></td></tr>
+        <tr><td><b>CT KUB (plain)</b><div class="small muted mono">CT-KUB-P</div></td><td>No fasting · full bladder preferred</td><td><span class="chip grey">None</span></td><td><span class="chip amber">Pregnancy check only</span></td><td>EN · HI · MR</td><td class="small">Slot: CT-15min · Price: GEN-26-27</td><td><span class="mono">v3</span> <span class="chip green">Active</span><div class="small muted">eff. 10-Feb-2026</div></td><td><span class="btn ghost small">Edit</span> <span class="btn ghost small">History</span></td></tr>
+        <tr><td><b>CT Coronary Angio</b><div class="small muted mono">CT-CORO-C</div></td><td>Fasting 4h · no caffeine 12h<div class="small muted">Beta-blocker protocol if HR &gt; 65 — physician order</div></td><td><span class="chip blue">Iohexol 350 · bolus-tracked</span></td><td><span class="chip red">CS-01 required · hard gate</span></td><td>EN · HI <span class="chip red">MR missing</span></td><td class="small">Slot: CT-45min · Price: CARD-26-27</td><td><span class="mono">v2</span> <span class="chip green">Active</span><div class="small muted">eff. 20-Jun-2026</div></td><td><span class="btn ghost small">Edit</span> <span class="btn ghost small">History</span></td></tr>
+        <tr><td><b>X-ray Chest PA</b><div class="small muted mono">XR-CHEST-PA</div></td><td>None</td><td><span class="chip grey">None</span></td><td><span class="chip amber">Pregnancy check only</span></td><td>EN · HI · MR</td><td class="small">Slot: XR-10min · Price: GEN-26-27</td><td><span class="mono">v2</span> <span class="chip green">Active</span><div class="small muted">eff. 01-Jan-2026</div></td><td><span class="btn ghost small">Edit</span> <span class="btn ghost small">History</span></td></tr>
+        <tr class="dim"><td><b>MRI Whole Spine screening</b><div class="small muted mono">MR-SPINE-WS</div></td><td>No fasting</td><td><span class="chip grey">None</span></td><td><span class="chip red">CS-02 MR safety</span></td><td>EN · HI · MR</td><td class="small">Slot: MR-60min · Price: GEN-26-27</td><td><span class="mono">v1</span> <span class="chip grey">Draft</span><div class="small muted">eff. 01-Aug-2026</div></td><td><span class="btn ghost small">Edit</span> <span class="btn ghost small">History</span></td></tr>
+      </table>
+    </div>
+    <div class="banner warn"><b>Branch override in effect — Andheri West</b>CT Abdomen + Pelvis (contrast): fasting extended to 8h for evening slots (chief radiologist memo 14-Jul-2026). Overrides may tighten but never relax chain-level safety flags — the override editor blocks any attempt to remove a required questionnaire.</div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — EDIT PROTOCOL (CT ABDOMEN + PELVIS CONTRAST, DRAFTING v8)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="crumb">Catalogue admin › Prep protocols › CT-ABD-PEL-C › Edit</div>
+    <div class="page-title">Edit protocol — CT Abdomen + Pelvis (contrast) <span class="chip grey">drafting v8 (from v7)</span></div>
+    <div class="page-sub">Changes take effect only from the effective date; existing bookings retain v7. Publishing requires chief radiologist countersign.</div>
+    <div class="stepper">
+      <div class="step done"><span class="dot">1</span> Prep &amp; fasting</div><span class="step-line"></span>
+      <div class="step cur"><span class="dot">2</span> Contrast &amp; safety</div><span class="step-line"></span>
+      <div class="step"><span class="dot">3</span> Languages</div><span class="step-line"></span>
+      <div class="step"><span class="dot">4</span> Links &amp; publish</div>
+    </div>
+    <div class="row">
+      <div class="grow">
+        <div class="card">
+          <div class="card-title">Contrast default</div>
+          <div class="row">
+            <div class="grow"><div class="field"><label>Agent <span class="req">*</span></label><select class="select"><option>Iohexol 350 mgI/ml</option></select></div></div>
+            <div class="grow"><div class="field"><label>Dosing rule <span class="req">*</span></label><select class="select"><option>Weight-based — 1.2 ml/kg, cap 120 ml</option></select></div></div>
+          </div>
+          <div class="field"><label>Radiologist override allowed</label><div class="check"><span class="box on">✓</span> Yes — protocolling radiologist may change agent/volume with reason code</div></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Safety questionnaire flags <span class="right">chain-level · locked for branch overrides</span></div>
+          <div class="check"><span class="box on">✓</span> <b>CS-01 Contrast &amp; general screening required</b> — hard gate; acquisition console blocks start until Cleared/Precautions recorded</div>
+          <div class="check"><span class="box on">✓</span> eGFR staleness rule: result older than <b>90 days</b> treated as unavailable (point-of-care creatinine or physician risk-acceptance pathway)</div>
+          <div class="check"><span class="box on">✓</span> Pregnancy/LMP question mandatory for patients 12–55 recorded female at registration</div>
+          <div class="check"><span class="box">&nbsp;</span> CS-02 MR safety screening (not applicable to CT)</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Patient prep instructions — multi-language</div>
+          <div class="field"><label>English <span class="req">*</span></label><textarea class="textarea">Do not eat solid food for 6 hours before your scan. You may drink clear fluids up to 2 hours before. Drink 500 ml of water 1 hour before arrival. Bring your previous reports and kidney function (creatinine/eGFR) report if done in the last 3 months.</textarea></div>
+          <div class="field"><label>हिन्दी (Hindi) <span class="req">*</span></label><textarea class="textarea">स्कैन से 6 घंटे पहले ठोस भोजन न करें। 2 घंटे पहले तक साफ़ तरल पदार्थ ले सकते हैं। आने से 1 घंटा पहले 500 मि.ली. पानी पिएँ। पिछली रिपोर्ट और किडनी (क्रिएटिनिन/eGFR) रिपोर्ट साथ लाएँ।</textarea></div>
+          <div class="field"><label>मराठी (Marathi) <span class="req">*</span></label><textarea class="textarea">स्कॅनच्या 6 तास आधी घन आहार घेऊ नका. 2 तास आधीपर्यंत स्वच्छ द्रव चालतील. येण्याच्या 1 तास आधी 500 मि.ली. पाणी प्या. मागील अहवाल व किडनी (क्रिएटिनिन/eGFR) अहवाल सोबत आणा.</textarea></div>
+        </div>
+      </div>
+      <div style="width:300px;flex-shrink:0">
+        <div class="card">
+          <div class="card-title">Version &amp; publish</div>
+          <dl class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Editing</dt><dd><span class="mono">v8 (draft)</span></dd>
+            <dt>Based on</dt><dd><span class="mono">v7</span> active since 01-Jul-2026</dd>
+            <dt>Effective from</dt><dd><input class="input" value="01-08-2026 00:00 IST"></dd>
+            <dt>Scope</dt><dd>Chain-wide (7 branches)</dd>
+            <dt>Countersign</dt><dd><span class="chip amber">Awaiting Dr. V. Shetty</span></dd>
+          </dl>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><span class="btn primary">Save draft</span><span class="btn disabled">Publish v8</span></div>
+          <div class="small muted" style="margin-top:8px">Publish is enabled after chief radiologist countersign (step-up identity confirmation required).</div>
+        </div>
+        <div class="banner info"><b>Booking behaviour</b>Appointments booked before the effective date keep v7 prep text and fasting rules; reminder messages re-send automatically only if the patient's booked version changes safety-relevant content.</div>
+        <div class="card">
+          <div class="card-title">Links</div>
+          <dl class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Slot template</dt><dd>CT-30min (Andheri West: 08:00–21:00)</dd>
+            <dt>Price list</dt><dd>GEN-26-27 · ₹8,500 base · contrast ₹2,200</dd>
+            <dt>Order set</dt><dd>Abdo pain panel (CT-ABD-PEL-C + US-ABD)</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — VERSION HISTORY (CT ABDOMEN + PELVIS CONTRAST)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="crumb">Catalogue admin › Prep protocols › CT-ABD-PEL-C › Version history</div>
+    <div class="page-title">Version history — CT Abdomen + Pelvis (contrast)</div>
+    <div class="page-sub">Full immutable trail. Any version can be viewed read-only; rollback creates a new version, it never deletes history.</div>
+    <div class="card">
+      <table>
+        <tr><th>Ver</th><th>Effective</th><th>Superseded</th><th>Key changes</th><th>Edited by</th><th>Countersigned</th><th>Bookings on ver</th><th></th></tr>
+        <tr class="dim"><td class="mono">v8</td><td>01-Aug-2026 (planned)</td><td>—</td><td>Marathi prep text refreshed; hydration guidance added; eGFR staleness window restated at 90 days</td><td>K. Verma · 25-Jul-2026 14:12</td><td><span class="chip amber">Pending Dr. V. Shetty</span></td><td>0</td><td><span class="btn ghost small">Open draft</span></td></tr>
+        <tr class="hl"><td class="mono">v7</td><td>01-Jul-2026</td><td>—</td><td>Contrast default moved to weight-based dosing (was fixed 100 ml); CS-01 made hard gate at console</td><td>K. Verma · 24-Jun-2026 11:05</td><td>Dr. V. Shetty (RMC MH-44721) · 24-Jun-2026 16:40</td><td>212 active</td><td><span class="btn ghost small">View</span></td></tr>
+        <tr><td class="mono">v6</td><td>02-Apr-2026</td><td>01-Jul-2026</td><td>Fasting reduced 8h → 6h per updated chain guideline; Hindi text corrected</td><td>K. Verma · 28-Mar-2026</td><td>Dr. A. Rao · 30-Mar-2026</td><td>0 (all completed)</td><td><span class="btn ghost small">View</span> <span class="btn ghost small">Rollback → new ver</span></td></tr>
+        <tr><td class="mono">v5</td><td>05-Jan-2026</td><td>02-Apr-2026</td><td>Price link moved to GEN-26-27; slot template CT-30min</td><td>K. Verma · 02-Jan-2026</td><td>Dr. V. Shetty · 03-Jan-2026</td><td>0 (all completed)</td><td><span class="btn ghost small">View</span></td></tr>
+        <tr><td class="mono">v4</td><td>11-Sep-2025</td><td>05-Jan-2026</td><td>Marathi language pack added; metformin question wording aligned with CS-01 v3</td><td>Chain admin (HQ)</td><td>Dr. V. Shetty · 10-Sep-2025</td><td>0 (all completed)</td><td><span class="btn ghost small">View</span></td></tr>
+      </table>
+    </div>
+    <div class="banner reg"><b>Diff — v6 → v7 (safety-relevant lines highlighted)</b>− Contrast default: Iohexol 350, fixed 100 ml &nbsp;→&nbsp; + Iohexol 350, weight-based 1.2 ml/kg cap 120 ml · + CS-01 enforcement point changed from "front office check-in" to "acquisition console hard gate".</div>
+  </div></div>
+</div>
+<p class="audit">All protocol edits, countersigns, branch overrides and rollbacks are versioned and recorded in the access log with editor identity, timestamp (IST) and before/after diff. Viewing patient-free catalogue data requires no purpose declaration; publish actions require step-up identity confirmation.</p>
+</section>

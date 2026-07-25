@@ -1,0 +1,99 @@
+<section class="screen" id="fo-20">
+<div class="screen-head"><h1><span class="sid">FO-20</span> Family &amp; linked contacts</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office staff link representatives to a patient record — guardian, DPDP nominee, emergency contact, bill-payer — each with an explicit, chip-visible scope of authority and validity period. The system must guarantee that authority is never implied by relationship alone: every capability (consent, records access, billing, collection of reports) is granted per checkbox with proof-of-relation noted, and guardianship of minors auto-expires at age 18 with an advance amber warning.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Reception</div>
+    <div class="nav-item">Front desk queue <span class="nav-badge">14</span></div>
+    <div class="nav-item">Appointments</div>
+    <div class="nav-item">Check-in</div>
+    <div class="sec-label">Patients</div>
+    <div class="nav-item">Registration</div>
+    <div class="nav-item active">Family &amp; contacts</div>
+    <div class="nav-item">Consents</div>
+    <div class="sec-label">Cash &amp; billing</div>
+    <div class="nav-item">Billing desk</div>
+    <div class="nav-item">Cash session</div>
+    <div class="sec-label">Shift</div>
+    <div class="nav-item">Shift handover</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Front Office › Patients › Sofia Rossi (MRN-004822) › Family &amp; linked contacts</div>
+    <div class="page-title">Linked persons — Sofia Rossi <span class="actions-right"><span class="btn small primary">+ Add representative</span></span></div>
+    <div class="page-sub">Patient: Sofia Rossi · <span class="mono">MRN-004822</span> · F · 34y · ID on file: Aadhaar ••••-••••-7093 (last-4 only, verified 12 Jul 2026) · VIS-2026-31174 active</div>
+    <div class="banner reg"><b>DPDP note — nominee is distinct from guardian</b>A DPDP nominee exercises the patient's data rights (access, correction, erasure requests) in case of death or incapacity. A guardian acts for a minor or a person lacking capacity <i>now</i>. The same person may hold both roles, but each must be recorded and evidenced separately.</div>
+    <div class="card">
+      <div class="card-title">Linked persons (4) <span class="right">Scope shown as granted — nothing implied by relation</span></div>
+      <table>
+        <tr><th>Person</th><th>Relation</th><th>Role</th><th>Scope of authority</th><th>Proof seen</th><th>Validity</th><th></th></tr>
+        <tr><td class="bold">Marco Rossi<br><span class="muted small">+91 ••••• ••204</span></td><td>Spouse</td><td><span class="chip violet">DPDP nominee</span></td><td><span class="chip blue">Data rights (death/incapacity only)</span></td><td>Passport (sighted, not stored) · 12 Jul 2026 · D. Nair</td><td>Until revoked</td><td><span class="btn small">Edit</span></td></tr>
+        <tr><td class="bold">Marco Rossi</td><td>Spouse</td><td><span class="chip teal">Bill-payer</span></td><td><span class="chip blue">Pay invoices</span> <span class="chip blue">Receive payment receipts</span></td><td>Same sighting as above</td><td>12 Jul 2026 → 11 Jul 2027</td><td><span class="btn small">Edit</span></td></tr>
+        <tr><td class="bold">Ananya Rao<br><span class="muted small">MRN-004819 (also a patient — records not cross-linked)</span></td><td>Friend</td><td><span class="chip amber">Emergency contact</span></td><td><span class="chip blue">Contact in emergency</span> <span class="chip grey">No records access</span></td><td>Declared by patient (no proof required for this role)</td><td>Until revoked</td><td><span class="btn small">Edit</span></td></tr>
+        <tr class="dim"><td class="bold">L. Fernandes</td><td>Colleague</td><td><span class="chip grey">Report collection (revoked)</span></td><td><span class="chip grey">— revoked 18 Jul 2026 by patient request</span></td><td>Company ID (sighted) · 05 Jul 2026</td><td>Ended 18 Jul 2026</td><td><span class="btn small ghost">History</span></td></tr>
+      </table>
+      <div class="muted small" style="margin-top:8px">Report collection by a linked person still requires the collection OTP sent to the patient, unless the linked scope explicitly includes “collect reports without patient OTP” (guardian-only).</div>
+    </div>
+    <div class="row">
+      <div class="card grow"><div class="card-title">What each role can never do</div>
+        <div class="check"><span class="box on">✓</span> Emergency contact: contact only — no consent, no records, no billing.</div>
+        <div class="check"><span class="box on">✓</span> Bill-payer: sees invoice amounts and service names, never clinical findings.</div>
+        <div class="check"><span class="box on">✓</span> DPDP nominee: dormant until a certified death/incapacity event is recorded.</div>
+        <div class="check"><span class="box on">✓</span> No role permits viewing obstetric US foetal-sex fields — these are non-disclosable to everyone under the PCPNDT Act.</div>
+      </div>
+      <div class="card" style="width:300px"><div class="card-title">Record hygiene</div>
+        <dl class="kv" style="grid-template-columns:110px 1fr">
+          <dt>Last review</dt><dd>12 Jul 2026 · D. Nair</dd>
+          <dt>Next review</dt><dd>On next visit or 12 Jan 2027</dd>
+          <dt>Proof storage</dt><dd>Proof documents are sighted, not scanned or retained.</dd>
+        </dl>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ADD REPRESENTATIVE MODAL</div>
+<div class="modal-wrap"><div class="modal">
+  <h3>Add representative — Sofia Rossi (MRN-004822)</h3>
+  <div class="field"><label>Full name <span class="req">*</span></label><div class="input">Marco Rossi</div></div>
+  <div class="row">
+    <div class="field grow"><label>Relation to patient <span class="req">*</span></label><div class="select">Spouse ▾</div></div>
+    <div class="field grow"><label>Role <span class="req">*</span></label><div class="select">Bill-payer ▾</div></div>
+  </div>
+  <div class="field"><label>Relation proof — sighted <span class="req">*</span></label><div class="select">Passport (physical, sighted at desk) ▾</div><div class="hint">Proof is recorded as “seen by D. Nair”, never scanned or stored. Aadhaar, if shown, is recorded last-4 only.</div></div>
+  <div class="field"><label>What they can do (each grant is explicit)</label>
+    <div class="check"><span class="box on">✓</span> Pay invoices and receive payment receipts</div>
+    <div class="check"><span class="box">&nbsp;</span> Book / reschedule appointments on patient's behalf</div>
+    <div class="check"><span class="box">&nbsp;</span> Collect printed reports (patient OTP still required)</div>
+    <div class="check"><span class="box">&nbsp;</span> Give procedural consent (guardians of minors / court order only)</div>
+    <div class="check"><span class="box">&nbsp;</span> Exercise DPDP data rights on death/incapacity (nominee — separate evidence)</div>
+  </div>
+  <div class="row">
+    <div class="field grow"><label>Valid from</label><div class="input mono">12 Jul 2026</div></div>
+    <div class="field grow"><label>Valid until</label><div class="input mono">11 Jul 2027</div><div class="hint">Blank = until revoked</div></div>
+  </div>
+  <div class="banner info" style="margin-top:4px"><b>Patient confirmation required</b>An SMS will ask Sofia Rossi to confirm this link (reply within 24 h). The link stays “pending patient confirmation” until then.</div>
+  <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Save &amp; send confirmation SMS</span></div>
+</div></div>
+<p class="audit">Creating, editing or revoking a linked person is recorded in the access log with the proof type sighted, staff ID and patient-confirmation status.</p>
+
+<div class="state-tag">STATE C — GUARDIAN EXPIRING AT AGE 18 (AMBER)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Front Office › Patients › Aarav Sharma (MRN-004821) › Family &amp; linked contacts</div>
+  <div class="page-title">Linked persons — Aarav Sharma</div>
+  <div class="page-sub">Patient: Aarav Sharma · <span class="mono">MRN-004821</span> · M · 17y 10m · DOB 14 Sep 2008</div>
+  <div class="banner warn"><b>Guardianship expires at age 18 — 14 Sep 2026 (51 days)</b>On the patient's 18th birthday, guardian consent and records-access authority end automatically. Consent for services on or after that date must be the patient's own. Invite Aarav Sharma to confirm his own contact details and choose whether to re-link a representative with his consent.</div>
+  <div class="card"><div class="card-title">Linked persons (2)</div>
+    <table>
+      <tr><th>Person</th><th>Relation</th><th>Role</th><th>Scope of authority</th><th>Validity</th><th></th></tr>
+      <tr><td class="bold">Nisha Sharma<br><span class="muted small">+91 ••••• ••771</span></td><td>Mother</td><td><span class="chip amber">Guardian (minor)</span></td><td><span class="chip blue">Consent for procedures</span> <span class="chip blue">Records access</span> <span class="chip blue">Collect reports w/o patient OTP</span> <span class="chip blue">Billing</span></td><td><span class="chip amber">Auto-expires 14 Sep 2026 (age 18)</span></td><td><span class="btn small">Plan transition</span></td></tr>
+      <tr><td class="bold">Rohit Sharma</td><td>Father</td><td><span class="chip amber">Emergency contact</span></td><td><span class="chip blue">Contact in emergency</span> <span class="chip grey">No records access</span></td><td>Until revoked</td><td><span class="btn small">Edit</span></td></tr>
+    </table>
+    <div class="muted small" style="margin-top:8px">After expiry the guardian row is retained read-only for history; no new authority survives unless the adult patient re-grants it.</div>
+  </div>
+</div></div></div>
+
+<p class="audit">Every view of this page, every unmasking of a linked person's phone number, and every authority grant, change, revocation or age-18 expiry is recorded in the access log.</p>
+</section>

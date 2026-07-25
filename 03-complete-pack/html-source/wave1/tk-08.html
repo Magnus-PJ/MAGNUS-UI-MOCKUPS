@@ -1,0 +1,127 @@
+<section class="screen" id="tk-08">
+<div class="screen-head"><h1><span class="sid">TK-08</span> MWL / Modality Sync Status</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G6 Radiology Technician — workspace 'RIS · Technician'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The technologist (and PACS admin remotely) reconciles what the RIS sent to each modality worklist against what was actually performed and what MPPS completion messages came back. Rows missing MPPS can be manually completed with a mandatory reason so downstream reading and billing are never blocked by a silent modality. The screen also shows AE title registry health and offers per-unit retry; when a unit is offline, outbound MWL entries queue and sync on reconnect.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · TECHNICIAN</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Worklist</div>
+      <div class="nav-item">My worklist <span class="nav-badge">7</span></div>
+      <div class="nav-item">Patient prep &amp; screening</div>
+      <div class="nav-item">Image receipt &amp; QC</div>
+      <div class="nav-item">Retakes</div>
+      <div class="sec-label">Safety</div>
+      <div class="nav-item">Contrast log</div>
+      <div class="nav-item">Reaction / incident</div>
+      <div class="sec-label">Equipment</div>
+      <div class="nav-item">Device status</div>
+      <div class="nav-item active">MWL sync</div>
+    </div>
+    <div class="main">
+      <div class="crumb">RIS · Technician › Equipment › MWL / modality sync</div>
+      <div class="page-title">MWL / modality sync status <span class="chip green">SYNCED</span></div>
+      <div class="page-sub">Today 25-Jul-2026 · reconciliation as of 13:05 IST · MWL C-FIND served on demand, MPPS N-CREATE/N-SET listener active</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">31</div><div class="l">Worklist entries sent</div><div class="s">today, all units</div></div>
+        <div class="kpi"><div class="n">24</div><div class="l">Performed</div><div class="s">7 still scheduled</div></div>
+        <div class="kpi"><div class="n">24 / 24</div><div class="l">MPPS received</div><div class="s">0 missing · 0 discrepant</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Reconciliation by unit <span class="right">sent vs performed vs MPPS</span></div>
+        <table>
+          <tr><th>Unit</th><th>AE title</th><th>Sent</th><th>Performed</th><th>MPPS recv</th><th>Missing MPPS</th><th>Last MPPS</th><th>Health</th><th></th></tr>
+          <tr><td>CT-01</td><td class="mono">CT01_AW</td><td class="mono">9</td><td class="mono">7</td><td class="mono">7</td><td class="mono">0</td><td class="mono">12:58 IST</td><td><span class="chip green">OK</span></td><td><span class="btn small ghost">Details</span></td></tr>
+          <tr><td>MR-01</td><td class="mono">MR01_AW</td><td class="mono">6</td><td class="mono">4</td><td class="mono">4</td><td class="mono">0</td><td class="mono">12:41 IST</td><td><span class="chip green">OK</span></td><td><span class="btn small ghost">Details</span></td></tr>
+          <tr><td>XR-01</td><td class="mono">XR01_AW</td><td class="mono">8</td><td class="mono">7</td><td class="mono">7</td><td class="mono">0</td><td class="mono">13:01 IST</td><td><span class="chip green">OK</span></td><td><span class="btn small ghost">Details</span></td></tr>
+          <tr><td>XR-02</td><td class="mono">XR02_MOB</td><td class="mono">2</td><td class="mono">2</td><td class="mono">2</td><td class="mono">0</td><td class="mono">11:22 IST</td><td><span class="chip green">OK</span></td><td><span class="btn small ghost">Details</span></td></tr>
+          <tr><td>US-01</td><td class="mono">US01_AW</td><td class="mono">4</td><td class="mono">3</td><td class="mono">3</td><td class="mono">0</td><td class="mono">12:50 IST</td><td><span class="chip green">OK</span></td><td><span class="btn small ghost">Details</span></td></tr>
+          <tr><td>MG-01</td><td class="mono">MG01_AW</td><td class="mono">2</td><td class="mono">1</td><td class="mono">1</td><td class="mono">0</td><td class="mono">10:15 IST</td><td><span class="chip green">OK</span></td><td><span class="btn small ghost">Details</span></td></tr>
+        </table>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">AE title registry health</div>
+          <table>
+            <tr><th>AE title</th><th>Role</th><th>Host:port</th><th>Verified (C-ECHO)</th><th>Status</th></tr>
+            <tr><td class="mono">MAGNUS_MWL</td><td>MWL SCP (this RIS)</td><td class="mono">10.20.4.5:104</td><td class="mono">13:04 IST</td><td><span class="chip green">SERVING</span></td></tr>
+            <tr><td class="mono">MAGNUS_MPPS</td><td>MPPS SCP listener</td><td class="mono">10.20.4.5:105</td><td class="mono">13:04 IST</td><td><span class="chip green">LISTENING</span></td></tr>
+            <tr><td class="mono">PACS_AND1</td><td>Archive (store)</td><td class="mono">10.20.4.8:11112</td><td class="mono">13:03 IST</td><td><span class="chip green">OK</span></td></tr>
+            <tr><td class="mono">CT01_AW … MG01_AW</td><td>6 modality SCUs</td><td class="mono">registry v2026-07-18</td><td class="mono">13:02 IST</td><td><span class="chip green">6/6 VERIFIED</span></td></tr>
+          </table>
+          <p class="small muted" style="margin-top:6px">Registry changes (add/rename AE title) are PACS-admin only and require change-ticket reference.</p>
+        </div>
+        <div class="card" style="width:280px;flex-shrink:0">
+          <div class="card-title">Actions</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span class="btn">Run reconciliation now</span>
+            <span class="btn">Re-verify all AE titles</span>
+            <span class="btn ghost">Export today's sync report</span>
+          </div>
+          <p class="small muted" style="margin-top:8px">Reconciliation compares RIS order state, image receipt (TK-04) and MPPS messages; mismatches open as discrepancy rows below.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE B — DISCREPANCIES · MISSING MPPS WITH MANUAL COMPLETE</div>
+<div class="frame">
+  <div class="body" style="min-height:0">
+    <div class="main">
+      <div class="page-title">MWL / modality sync status <span class="chip amber">3 DISCREPANCIES</span></div>
+      <div class="page-sub">Reconciliation 15:35 IST · 2 missing MPPS · 1 performed-without-worklist (unmatched)</div>
+      <div class="banner warn"><b>Discrepancies block downstream steps</b> Studies without a performed/MPPS state do not enter the reading worklist and cannot bill. Resolve below or retry the unit. Resolution SLA: <span class="chip amber">due in 1h</span> owner T. Okafor · Escalated to PACS admin (Regional) at 16:35.</div>
+      <div class="card">
+        <div class="card-title">Discrepancy rows</div>
+        <table>
+          <tr><th>Accession</th><th>Patient</th><th>Unit</th><th>MWL sent</th><th>Images recv</th><th>MPPS</th><th>Issue</th><th>Action</th></tr>
+          <tr class="hl"><td class="mono">ACC-2026-91261</td><td>Aarav Sharma · MRN-004821</td><td>XR-01</td><td class="mono">14:02</td><td class="mono">14:26 (2 img)</td><td><span class="chip red">MISSING</span></td><td>Images arrived, no MPPS N-SET for 69 min</td><td><span class="btn small">Retry query</span> <span class="btn small primary">Manual complete</span></td></tr>
+          <tr class="hl"><td class="mono">ACC-2026-91263</td><td>Elena Novak · MRN-004830</td><td>US-01</td><td class="mono">14:15</td><td class="mono">14:52 (18 img)</td><td><span class="chip red">MISSING</span></td><td>US console MPPS disabled by vendor preset</td><td><span class="btn small">Retry query</span> <span class="btn small primary">Manual complete</span></td></tr>
+          <tr><td class="mono">— (unmatched)</td><td>“SHARMA^A” · no MRN match</td><td>XR-01</td><td><span class="chip grey">NOT SENT</span></td><td class="mono">15:10 (1 img)</td><td class="mono">15:11</td><td>Performed without worklist — manual console entry, name typed at modality</td><td><span class="btn small">Match to order…</span></td></tr>
+        </table>
+        <p class="small muted" style="margin-top:6px">Unmatched studies are quarantined in PACS (not visible to reading) until matched to an order — prevents wrong-patient association.</p>
+      </div>
+      <div class="modal-wrap">
+        <div class="modal">
+          <h3>Manual complete — ACC-2026-91261</h3>
+          <dl class="kv">
+            <dt>Patient</dt><dd>Aarav Sharma · MRN-004821 · XR Chest PA</dd>
+            <dt>Evidence</dt><dd>2 images received 14:26 IST · QC passed · unit echo OK</dd>
+          </dl>
+          <div class="field" style="margin-top:8px"><label>Reason for missing MPPS <span class="req">*</span></label><div class="select">Modality did not send MPPS (known intermittent fault — BME ticket open) ▾</div><div class="hint">Other reasons: console rebooted mid-study · MPPS disabled on unit · network drop · unknown (investigate)</div></div>
+          <div class="field"><label>Performed end time (from console) <span class="req">*</span></label><div class="input mono">25-Jul-2026 14:24 IST</div></div>
+          <div class="check"><span class="box on">✓</span> <span>I confirm the study was performed and images verified. Marking complete releases it to the reading worklist and billing.</span></div>
+          <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Complete — recorded under my ID</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="state-tag">STATE C — UNIT OFFLINE · OUTBOUND QUEUE</div>
+<div class="frame">
+  <div class="body" style="min-height:0">
+    <div class="main">
+      <div class="page-title">MWL / modality sync status <span class="chip red">MR-01 OFFLINE — QUEUEING</span></div>
+      <div class="page-sub">MR-01 unreachable since 13:44 IST (see Device status TK-07) · MWL entries for MR-01 held in outbound queue</div>
+      <div class="banner info"><b>Working offline is supported — actions queue and sync when reconnected.</b> 3 worklist entries and 1 cancellation for MR-01 are queued locally; they transmit automatically on the next successful C-ECHO. Manual-complete and reconciliation for other units are unaffected.</div>
+      <div class="card">
+        <div class="card-title">Outbound queue — MR-01 <span class="right">held since 13:44 IST</span></div>
+        <table>
+          <tr><th>#</th><th>Type</th><th>Accession</th><th>Patient</th><th>Queued at</th><th>Attempts</th><th>Status</th></tr>
+          <tr><td class="mono">1</td><td>MWL create</td><td class="mono">ACC-2026-91270</td><td>Priya Menon · MRN-004828</td><td class="mono">13:46</td><td class="mono">4</td><td><span class="chip amber">QUEUED — retry 14:12</span></td></tr>
+          <tr><td class="mono">2</td><td>MWL create</td><td class="mono">ACC-2026-91272</td><td>Rajesh Gupta · MRN-004795</td><td class="mono">14:02</td><td class="mono">3</td><td><span class="chip amber">QUEUED</span></td></tr>
+          <tr><td class="mono">3</td><td>MWL cancel</td><td class="mono">ACC-2026-91268</td><td>Ananya Rao · MRN-004819</td><td class="mono">14:05</td><td class="mono">3</td><td><span class="chip amber">QUEUED</span></td></tr>
+          <tr><td class="mono">4</td><td>MWL create</td><td class="mono">ACC-2026-91275</td><td>K••••• O••• · MRN-004823 <span class="small muted">(masked — not on your list)</span></td><td class="mono">14:10</td><td class="mono">2</td><td><span class="chip amber">QUEUED</span></td></tr>
+        </table>
+        <div style="display:flex;gap:10px;margin-top:10px">
+          <span class="btn primary">Retry unit now</span>
+          <span class="btn">Flush queue on reconnect (auto — default)</span>
+          <span class="btn warn-outline">Redirect queued studies to Juhu MR</span>
+        </div>
+        <p class="small muted" style="margin-top:8px">If MR-01 recovers, entries send in order with the same accession numbers — no duplicates are created; the modality sees a single consistent worklist. Redirecting instead re-issues accessions under the Juhu AE title and notifies front office D. Nair for patient communication.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Reconciliation runs, manual-complete actions (with reason, performer identity and confirmation checkbox), unmatched-study quarantine and match events, AE registry verifications and offline queue retries are recorded in the access log. Manual completion of another technologist's study prompts a purpose declaration before names unmask.</p>
+</section>

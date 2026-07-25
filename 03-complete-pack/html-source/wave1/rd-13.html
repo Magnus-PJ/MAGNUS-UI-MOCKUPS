@@ -1,0 +1,104 @@
+<section class="screen" id="rd-13">
+<div class="screen-head"><h1><span class="sid">RD-13</span> Signed report &amp; distribution</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The canonical view of a signed report and everywhere it has gone. Radiologists, front office and coordinators use it to verify delivery per recipient and to resend. It must guarantee that addenda surface at the top as the current truth (never buried below v1), that every export/print captures a purpose and is logged, and that reprints are watermarked "DUPLICATE COPY". Failed deliveries link to the notification-failure workflow (NS-07 pattern).</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Reading</div>
+      <div class="nav-item">Reading worklist <span class="nav-badge">14</span></div>
+      <div class="nav-item">Current study</div>
+      <div class="sec-label">Results</div>
+      <div class="nav-item">Critical results <span class="nav-badge red">3</span></div>
+      <div class="nav-item">Addenda</div>
+      <div class="nav-item active">My signed reports</div>
+      <div class="sec-label">Registry</div>
+      <div class="nav-item">Report search</div>
+      <div class="nav-item">Peer review</div>
+    </div>
+    <div class="main">
+      <div class="crumb">My signed reports › ACC-2026-91190</div>
+      <div class="page-title">USG Abdomen &amp; Pelvis — signed report <span class="chip green" style="vertical-align:middle">FINAL + ADDENDUM v2</span></div>
+      <div class="page-sub">Priya Menon · F 34y · MRN-004828 · ACC-2026-91190 · VIS-2026-31184 · Referrer: Dr. Farida Khan · Invoice INV/AND/26-27/0412</div>
+      <div class="split">
+        <div>
+          <div class="banner warn" style="border-width:2px"><b>⚠ CURRENT TRUTH — ADDENDUM v2 (25 Jul 2026, 12:36 IST)</b>On re-review with the prior study of 12 Jan 2026, the previously described 2.1 cm right adnexal cyst has increased from 1.2 cm (interval growth). Recommend gynaecological correlation and follow-up ultrasound in 6 weeks. Impression of the original report otherwise unchanged. — Dr. V. Shetty (RMC MH-44721) · reason: supplementary finding</div>
+          <div class="card">
+            <div class="card-title">Report v1 — FINAL, signed 24 Jul 2026, 09:33 IST <span class="right">Read below the addendum</span></div>
+            <div class="kv" style="margin-bottom:10px">
+              <dt>Study</dt><dd>USG Abdomen &amp; Pelvis · performed 24 Jul 2026, 08:50 IST · T. Okafor</dd>
+              <dt>Clinical</dt><dd>Right iliac fossa pain, 2 days. R/o appendicitis.</dd>
+              <dt>Comparison</dt><dd>USG 12 Jan 2026 (same centre)</dd>
+            </div>
+            <p style="font-size:12.5px;margin-bottom:8px"><b>FINDINGS:</b> Liver normal in size and echotexture. Gall bladder, pancreas, spleen and both kidneys unremarkable. Appendix visualised, 9&nbsp;mm, non-compressible, with periappendiceal fluid — findings of acute appendicitis. A 2.1&nbsp;cm simple-appearing right adnexal cyst noted. No free fluid in the pelvis otherwise.</p>
+            <p style="font-size:12.5px;margin-bottom:8px"><b>IMPRESSION:</b> 1. Acute appendicitis. 2. Right adnexal cyst — see Addendum v2 for interval comparison and follow-up advice.</p>
+            <div class="sig-box signed">Dr. V. Shetty — RMC MH-44721 · 24 Jul 2026, 09:33 IST</div>
+            <p class="small muted" style="margin-top:6px">v1 is immutable. The distributed document always renders Addendum v2 above this section with a "current truth" banner.</p>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Distribution <span class="right">Per recipient</span></div>
+            <table>
+              <tr><th>Recipient</th><th>Status</th></tr>
+              <tr><td>Patient — SMS portal link<br><span class="small muted mono">+91 98••• ••441</span></td><td><span class="chip green">✓ delivered 12:05</span><br><span class="small muted">v2 re-notify ✓ 12:36</span><br><span class="btn small ghost">Resend</span></td></tr>
+              <tr><td>Dr. Farida Khan — secure inbox</td><td><span class="chip green">✓ read 12:40</span><br><span class="small muted">v2 posted 12:36 · read 12:40</span><br><span class="btn small ghost">Resend</span></td></tr>
+              <tr><td>Printed counter copy<br><span class="small muted">Front office · D. Nair</span></td><td><span class="chip amber">pending pickup</span><br><span class="small muted">reprint task 12:36 (v2 layout)</span><br><span class="btn small ghost">Notify desk</span></td></tr>
+            </table>
+          </div>
+          <div class="card">
+            <div class="card-title">Export / print <span class="right">Purpose required</span></div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <span class="btn">Print duplicate copy…</span>
+              <span class="btn">Export PDF (logged)…</span>
+              <span class="btn ghost">View access history</span>
+            </div>
+            <p class="small muted" style="margin-top:8px">Every export/print records who, purpose and destination. Reprints carry a "DUPLICATE COPY" watermark; the original print date remains on the document.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ONE DELIVERY FAILED → NOTIFICATION-FAILURE WORKFLOW (NS-07 PATTERN)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="page-title">Distribution — delivery failure on patient SMS</div>
+      <div class="banner danger"><b>1 of 3 deliveries failed</b>Patient SMS to +91 98••• ••441 rejected by gateway (error DND-BLOCK, 2 retries exhausted, last attempt 12:52 IST). A failure ticket <span class="mono">NTF-2026-2231</span> was auto-raised in the notification-failure queue (NS-07) — owner: front office D. Nair · <span class="chip amber">resolve in 3h 40m</span>.</div>
+      <div class="card" style="max-width:680px">
+        <div class="card-title">Distribution — failure detail</div>
+        <table>
+          <tr><th>Recipient</th><th>Channel</th><th>Attempts</th><th>Status</th><th>Action</th></tr>
+          <tr style="background:#FEF2F2"><td>Priya Menon (patient)</td><td class="mono">SMS +91 98••• ••441</td><td>3 · last 12:52</td><td><span class="chip red">FAILED · DND-BLOCK</span></td><td><span class="btn small danger">Open NTF-2026-2231</span> <span class="btn small">Try alt channel</span></td></tr>
+          <tr><td>Dr. Farida Khan</td><td class="mono">Secure inbox</td><td>1</td><td><span class="chip green">✓ read 12:40</span></td><td><span class="btn small ghost">Resend</span></td></tr>
+          <tr><td>Printed counter copy</td><td class="mono">Front office</td><td>—</td><td><span class="chip amber">pending pickup</span></td><td><span class="btn small ghost">Notify desk</span></td></tr>
+        </table>
+        <p class="small muted" style="margin-top:8px">Alternate channels offered: voice callback from front office, or counter pickup with identity check (MRN last-4 + registered phone verification). No clinical content is ever left on voicemail.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — REPRINT MODAL: PURPOSE CAPTURE + DUPLICATE WATERMARK</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Print duplicate copy — ACC-2026-91190</h3>
+    <p class="small muted" style="margin-bottom:10px">Priya Menon · MRN-004828 · current version: FINAL + Addendum v2. The printout renders the addendum at the top as current truth and carries a diagonal <b>"DUPLICATE COPY"</b> watermark on every page, plus print serial and your identity in the footer.</p>
+    <div class="field"><label>Purpose of reprint <span class="req">*</span></label><div class="select">Patient lost original — counter reissue ▾</div><div class="hint">Options: patient lost original · insurance/TPA submission · referrer request · legal/medico-legal (requires branch admin approval) · internal QA.</div></div>
+    <div class="field"><label>Collected by</label><div class="input">Patient in person — identity verified at counter (MRN last-4 + registered phone)</div></div>
+    <div class="check"><span class="box on">✓</span><span>I confirm this reprint is for the stated purpose. This print event, purpose and my identity will be recorded in the access log.</span></div>
+    <div class="kv" style="margin-top:8px">
+      <dt>Watermark</dt><dd>DUPLICATE COPY · print serial DUP-0412-03</dd>
+      <dt>Printed by</dt><dd>Dr. V. Shetty · 25 Jul 2026, 13:02 IST</dd>
+    </div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Print with watermark</span></div>
+  </div>
+</div>
+<p class="audit">Report opens, resends, delivery receipts, failure tickets, exports and reprints (with purpose, print serial and watermark) are recorded in the access log; medico-legal reprints additionally require branch admin approval.</p>
+</section>

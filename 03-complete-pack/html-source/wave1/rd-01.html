@@ -1,0 +1,162 @@
+<section class="screen" id="rd-01">
+<div class="screen-head"><h1><span class="sid">RD-01</span> Reading worklist</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The radiologist's home queue. Dr. V. Shetty opens it at shift start and works "open-next-unread" until the pool is clear. It must guarantee a single, unambiguous ownership state per study (Pending → Assigned → Accepted → Reading → Reported), enforce accept/steal rules (stealing an accepted study requires a typed reason and is logged), and surface SLA breaches with owner + escalation line. Image completeness comes live from TK-02 so a read never starts on a partial study unknowingly.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · Reading</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty · RMC MH-44721 ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Reading</div>
+    <div class="nav-item active">Worklist <span class="nav-badge">14</span></div>
+    <div class="nav-item">Assigned to me <span class="nav-badge">5</span></div>
+    <div class="nav-item">Drafts <span class="nav-badge">2</span></div>
+    <div class="nav-item">Addenda</div>
+    <div class="sec-label">Quality &amp; safety</div>
+    <div class="nav-item">Critical results <span class="nav-badge red">1</span></div>
+    <div class="nav-item">Peer review</div>
+    <div class="nav-item">Discrepancy log</div>
+    <div class="sec-label">Setup</div>
+    <div class="nav-item">Hanging protocols</div>
+    <div class="nav-item">Report macros</div>
+  </div>
+  <div class="main">
+    <div class="crumb">RIS · Reading &rsaquo; Worklist &rsaquo; Pool</div>
+    <div class="page-title">Reading worklist <span class="actions-right"><span class="btn primary">▶ Open next unread (STAT first)</span> <span class="btn">⟳ Refresh · 25 Jul 2026, 10:42 IST</span></span></div>
+    <div class="page-sub">Andheri West + assigned teleradiology feed · states: <span class="chip grey">Pending</span> → <span class="chip blue">Assigned</span> → <span class="chip violet">Accepted</span> → <span class="chip teal">Reading</span> → <span class="chip green">Reported</span></div>
+    <div class="kpi-row">
+      <div class="kpi red"><div class="n">1</div><div class="l">STAT overdue</div><div class="s">escalated to duty consultant</div></div>
+      <div class="kpi amber"><div class="n">3</div><div class="l">Due &lt; 1h</div><div class="s">2 STAT · 1 urgent</div></div>
+      <div class="kpi"><div class="n">14</div><div class="l">In pool</div><div class="s">5 assigned to me</div></div>
+      <div class="kpi"><div class="n">31 min</div><div class="l">Median TAT today</div><div class="s">target ≤ 45 min STAT</div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Queue filters <span class="right">Auto-refresh 30s · TK-02 completeness feed live</span></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+        <span class="btn small primary">All priorities (14)</span><span class="btn small">STAT (3)</span><span class="btn small">Urgent (5)</span><span class="btn small">Routine (6)</span>
+        <span style="width:14px"></span>
+        <span class="btn small primary">Pool</span><span class="btn small">Mine (5)</span>
+        <span style="width:14px"></span>
+        <span class="btn small">CT</span><span class="btn small">MRI</span><span class="btn small">US</span><span class="btn small">XR</span>
+      </div>
+      <table>
+        <tr><th>Accession</th><th>Patient</th><th>Study / priority</th><th>State · owner</th><th>Images (TK-02)</th><th>Alerts</th><th>SLA</th><th></th></tr>
+        <tr>
+          <td class="mono">ACC-2026-91104</td>
+          <td><b>Rajesh Gupta</b><div class="small muted">MRN-004795 · M/58</div></td>
+          <td>CT Brain plain<br><span class="chip red">STAT</span> <span class="small muted">Dr. Meera Nair (ER)</span></td>
+          <td><span class="chip violet">Accepted</span><div class="small muted">Dr. A. Rao · 09:48</div></td>
+          <td><span class="chip green">Complete 2/2</span></td>
+          <td>⚠ <span class="small">Prior critical (2025 SDH)</span></td>
+          <td><span class="chip red">OVERDUE 00:19</span><div class="small muted">Owner: Dr. A. Rao</div><div class="small" style="color:#B91C1C">Escalated to Dr. V. Shetty (duty consultant) 10:38</div></td>
+          <td><span class="btn small danger">Steal…</span></td>
+        </tr>
+        <tr class="hl">
+          <td class="mono">ACC-2026-91112</td>
+          <td><b>Sofia Rossi</b><div class="small muted">MRN-004822 · F/34</div></td>
+          <td>MRI Brain + contrast<br><span class="chip red">STAT</span> <span class="small muted">Dr. S. Iyer</span></td>
+          <td><span class="chip grey">Pending</span><div class="small muted">unowned</div></td>
+          <td><span class="chip green">Complete 5/5</span></td>
+          <td>💊 <span class="small">Allergy: gadolinium (mild)</span></td>
+          <td><span class="chip amber">due in 0h 22m</span><div class="small muted">Owner: pool</div></td>
+          <td><span class="btn small primary">Accept</span></td>
+        </tr>
+        <tr>
+          <td class="mono">ACC-2026-91118</td>
+          <td><b>Aarav Sharma</b><div class="small muted">MRN-004821 · M/41</div></td>
+          <td>CT KUB<br><span class="chip red">STAT</span> <span class="small muted">Dr. Farida Khan</span></td>
+          <td><span class="chip blue">Assigned</span><div class="small muted">→ Dr. V. Shetty (auto, RD-02 rule R-04)</div></td>
+          <td><span class="chip amber">Partial 1/2 · scout pending</span></td>
+          <td>—</td>
+          <td><span class="chip amber">due in 0h 41m</span><div class="small muted">Owner: Dr. V. Shetty</div></td>
+          <td><span class="btn small primary">Accept</span></td>
+        </tr>
+        <tr>
+          <td class="mono">ACC-2026-91096</td>
+          <td><b>Priya Menon</b><div class="small muted">MRN-004828 · F/29 · 🤰 Obstetric</div></td>
+          <td>US Obstetric anomaly scan<br><span class="chip amber">Urgent</span> <span class="small muted">Dr. Meera Nair</span></td>
+          <td><span class="chip teal">Reading</span><div class="small muted">Dr. V. Shetty · opened 10:31</div></td>
+          <td><span class="chip green">Complete 3/3</span></td>
+          <td>⚖ <span class="small">PCPNDT — foetal sex non-disclosure enforced</span></td>
+          <td><span class="chip teal">due in 1h 50m</span><div class="small muted">Owner: Dr. V. Shetty</div></td>
+          <td><span class="btn small">Resume</span></td>
+        </tr>
+        <tr>
+          <td class="mono">ACC-2026-91101</td>
+          <td><b>Mohammed Al-Rashid</b><div class="small muted">MRN-004790 · M/62</div></td>
+          <td>HRCT Chest<br><span class="chip amber">Urgent</span> <span class="small muted">Dr. S. Iyer</span></td>
+          <td><span class="chip grey">Pending</span><div class="small muted">unowned</div></td>
+          <td><span class="chip green">Complete 2/2</span></td>
+          <td>⚠ <span class="small">Prior critical (2026-02 PE)</span></td>
+          <td><span class="chip teal">due in 2h 05m</span><div class="small muted">Owner: pool</div></td>
+          <td><span class="btn small primary">Accept</span></td>
+        </tr>
+        <tr>
+          <td class="mono">ACC-2026-91089</td>
+          <td><b>Ananya Rao</b><div class="small muted">MRN-004819 · F/8</div></td>
+          <td>XR Wrist AP/LAT<br><span class="chip grey">Routine</span> <span class="small muted">Dr. Farida Khan</span></td>
+          <td><span class="chip grey">Pending</span><div class="small muted">unowned</div></td>
+          <td><span class="chip green">Complete 2/2</span></td>
+          <td>🧒 <span class="small">Paediatric dose protocol</span></td>
+          <td><span class="chip teal">due in 5h 40m</span><div class="small muted">Owner: pool</div></td>
+          <td><span class="btn small primary">Accept</span></td>
+        </tr>
+        <tr>
+          <td class="mono">ACC-2026-91093</td>
+          <td><b>Kwame Osei</b><div class="small muted">MRN-004823 · M/47</div></td>
+          <td>MRI Lumbar spine<br><span class="chip grey">Routine</span> <span class="small muted">Dr. S. Iyer</span></td>
+          <td><span class="chip violet">Accepted</span><div class="small muted">Dr. A. Rao · 10:12</div></td>
+          <td><span class="chip green">Complete 4/4</span></td>
+          <td>—</td>
+          <td><span class="chip teal">due in 6h 15m</span><div class="small muted">Owner: Dr. A. Rao</div></td>
+          <td><span class="btn small disabled">Locked</span></td>
+        </tr>
+        <tr class="dim">
+          <td class="mono">ACC-2026-91082</td>
+          <td><b>Elena Novak</b><div class="small muted">MRN-004830 · F/52</div></td>
+          <td>US Abdomen<br><span class="chip grey">Routine</span> <span class="small muted">Walk-in</span></td>
+          <td><span class="chip green">Reported</span><div class="small muted">Dr. V. Shetty · 10:05</div></td>
+          <td><span class="chip green">Complete 1/1</span></td>
+          <td>—</td>
+          <td><span class="chip green">met · TAT 38m</span></td>
+          <td><span class="btn small ghost">View report</span></td>
+        </tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Accept = take ownership from pool. Steal = take a study already Accepted/Reading by another reader — allowed only for STAT breach or by duty consultant, requires a typed reason, and notifies the current owner. All transitions are timestamped in the state ledger.</div>
+    </div>
+    <div class="modal-wrap"><div class="modal danger">
+      <h3>Steal study — ACC-2026-91104 (Rajesh Gupta, CT Brain STAT)</h3>
+      <div class="banner warn"><b>You are taking over a study Accepted by Dr. A. Rao.</b>SLA breached 19 min ago; you are the escalation duty consultant. Dr. A. Rao will be notified immediately and any in-progress draft transfers to you.</div>
+      <div class="field"><label>Reason for takeover <span class="req">*</span></label><textarea class="textarea">STAT SLA breach &gt;15 min; original reader unreachable on RIS chat and phone; taking over as duty consultant per escalation policy ESC-STAT-01.</textarea><div class="hint">Minimum 30 characters. This reason is written verbatim to the study state ledger and shared with the original reader and the radiology lead.</div></div>
+      <div class="check"><span class="box on">✓</span> I confirm clinical purpose <b>Treatment</b> — takeover recorded against my licence RMC MH-44721.</div>
+      <div class="modal-actions"><span class="btn">Cancel</span><span class="btn danger">Confirm takeover &amp; open study</span></div>
+    </div></div>
+  </div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE B — "MINE" TAB: ONLY MY OWNED STUDIES, NEXT-UNREAD ORDER</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">RIS · Reading &rsaquo; Worklist &rsaquo; Mine</div>
+  <div class="page-title">My studies (5) <span class="actions-right"><span class="btn primary">▶ Open next unread</span></span></div>
+  <div class="page-sub">Ordered by priority, then SLA. Studies you Accept leave the pool and appear here for all colleagues as "locked to Dr. V. Shetty".</div>
+  <table>
+    <tr><th>#</th><th>Accession</th><th>Patient</th><th>Study</th><th>State</th><th>Images</th><th>SLA</th><th></th></tr>
+    <tr class="hl"><td>1</td><td class="mono">ACC-2026-91096</td><td>Priya Menon · MRN-004828</td><td>US Obstetric anomaly <span class="chip amber">Urgent</span></td><td><span class="chip teal">Reading</span></td><td><span class="chip green">Complete 3/3</span></td><td><span class="chip teal">due in 1h 50m</span></td><td><span class="btn small primary">Resume</span></td></tr>
+    <tr><td>2</td><td class="mono">ACC-2026-91118</td><td>Aarav Sharma · MRN-004821</td><td>CT KUB <span class="chip red">STAT</span></td><td><span class="chip blue">Assigned</span></td><td><span class="chip amber">Partial 1/2</span></td><td><span class="chip amber">due in 0h 41m</span></td><td><span class="btn small primary">Accept</span></td></tr>
+    <tr><td>3</td><td class="mono">ACC-2026-91104</td><td>Rajesh Gupta · MRN-004795</td><td>CT Brain <span class="chip red">STAT</span></td><td><span class="chip violet">Accepted (stolen 10:43)</span></td><td><span class="chip green">Complete 2/2</span></td><td><span class="chip red">OVERDUE 00:20</span><div class="small muted">Owner: Dr. V. Shetty · Escalated to Radiology Lead 10:53 if unread</div></td><td><span class="btn small primary">Open</span></td></tr>
+    <tr><td>4</td><td class="mono">ACC-2026-91077</td><td>Kwame Osei · MRN-004823</td><td>XR Chest PA <span class="chip grey">Routine</span></td><td><span class="chip violet">Accepted</span></td><td><span class="chip green">Complete 1/1</span></td><td><span class="chip teal">due in 4h 10m</span></td><td><span class="btn small">Open</span></td></tr>
+    <tr class="dim"><td>5</td><td class="mono">ACC-2026-91082</td><td>Elena Novak · MRN-004830</td><td>US Abdomen <span class="chip grey">Routine</span></td><td><span class="chip green">Reported</span></td><td><span class="chip green">Complete 1/1</span></td><td><span class="chip green">met · 38m</span></td><td><span class="btn small ghost">Report</span></td></tr>
+  </table>
+</div></div></div>
+<div class="state-tag">STATE C — EMPTY POOL: ALL CLEAR</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">RIS · Reading &rsaquo; Worklist &rsaquo; Pool</div>
+  <div class="page-title">Reading worklist</div>
+  <div class="banner success"><b>Pool clear — 0 unread studies at Andheri West.</b>Last study reported 11:58 IST. Median TAT today 29 min; 0 SLA breaches outstanding. New arrivals from modality will appear here automatically (auto-refresh 30s).</div>
+  <div class="card"><div class="card-title">While the pool is empty</div>
+    <div class="row">
+      <div class="grow"><span class="btn">Pick up teleradiology overflow (Vashi · 4 pending)</span><div class="small muted" style="margin-top:4px">Cross-branch reading is same-org; priors load under Treatment purpose.</div></div>
+      <div class="grow"><span class="btn">Review peer-review queue (2 assigned)</span></div>
+      <div class="grow"><span class="btn">Complete addendum drafts (1)</span></div>
+    </div>
+  </div>
+</div></div></div>
+<p class="audit">Every state transition (Pending→Assigned→Accepted→Reading→Reported), each Accept, and each Steal with its typed reason is written to the study state ledger with reader identity, licence number and IST timestamp, and is recorded in the access log.</p>
+</section>

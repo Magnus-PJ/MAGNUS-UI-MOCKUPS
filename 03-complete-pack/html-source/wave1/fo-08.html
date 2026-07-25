@@ -1,0 +1,86 @@
+<section class="screen" id="fo-08">
+<div class="screen-head"><h1><span class="sid">FO-08</span> Patient merge queue — MPI</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Data-quality reviewers (senior front office / MPI stewards) work this queue daily to resolve suspected duplicate patient records before they cause report mis-delivery or split history. Each candidate pair carries a match score, a source, and an SLA; items lock while a reviewer has them open so two staff never resolve the same pair. Resolution always happens in the compare screen (FO-09) — never from the list.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Reception</div>
+    <div class="nav-item">Front desk home</div>
+    <div class="nav-item">Register patient</div>
+    <div class="nav-item">Patients</div>
+    <div class="nav-item">Appointments <span class="nav-badge">14</span></div>
+    <div class="nav-item">Check-in &amp; tokens</div>
+    <div class="sec-label">Money &amp; delivery</div>
+    <div class="nav-item">Billing &amp; invoices</div>
+    <div class="nav-item">Report delivery <span class="nav-badge red">2</span></div>
+    <div class="sec-label">Data quality</div>
+    <div class="nav-item active">Merge queue (MPI) <span class="nav-badge">6</span></div>
+  </div>
+  <div class="main">
+    <div class="crumb">Front Office › Data quality › Merge queue</div>
+    <div class="page-title">Patient merge queue <span class="chip grey">Master Patient Index</span></div>
+    <div class="page-sub">Potential duplicates awaiting review. SLA: high-score pairs 24h, others 72h. Only identity fields are shown here — no clinical data.</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">6</div><div class="l">Open candidates</div><div class="s">2 high-score (≥90)</div></div>
+      <div class="kpi amber"><div class="n">2</div><div class="l">Due today</div><div class="s">within 24h SLA</div></div>
+      <div class="kpi red"><div class="n">1</div><div class="l">Overdue</div><div class="s">escalated to admin</div></div>
+      <div class="kpi"><div class="n">14</div><div class="l">Resolved this week</div><div class="s">11 merged · 3 not-a-duplicate</div></div>
+    </div>
+    <div class="card" style="padding:10px 12px;margin-bottom:12px">
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <select class="select" style="width:170px"><option>Source: All</option><option>Registration match</option><option>Import (lab feed)</option><option>Staff flag</option><option>Grievance / DPO</option></select>
+        <select class="select" style="width:150px"><option>Score: All</option><option>≥ 90 (high)</option><option>70–89</option><option>&lt; 70</option></select>
+        <select class="select" style="width:150px"><option>Age: All</option><option>Overdue only</option><option>Due today</option></select>
+        <input class="input" style="width:220px" placeholder="Search MRN / name / phone last-4">
+        <span class="btn small">Apply</span><span class="btn small ghost">Clear</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Duplicate candidates <span class="right">6 pairs · sorted by SLA</span></div>
+      <table>
+        <tr><th>Pair</th><th>Candidate records</th><th>Match evidence</th><th>Score</th><th>Source</th><th>Raised</th><th>SLA</th><th></th></tr>
+        <tr class="hl"><td class="mono">DUP-1187</td><td><b>Elena Novak</b> MRN-004830<br><b>Elena Novak</b> MRN-004841</td><td class="small">Name exact · DOB exact · phone last-4 same · address differs</td><td><span class="chip red">96</span></td><td><span class="chip grey">Registration</span></td><td class="small">22 Jul 10:04<br>by system</td><td><span class="chip red">OVERDUE 04:20</span><br><span class="small">owner: D. Nair · Escalated to K. Verma</span></td><td><span class="btn small primary">Open compare</span></td></tr>
+        <tr><td class="mono">DUP-1190</td><td><b>Priya Menon</b> MRN-004828<br><b>Priya R. Menon</b> MRN-004836</td><td class="small">Name fuzzy 0.92 · DOB exact · email exact</td><td><span class="chip red">93</span></td><td><span class="chip blue">Import</span></td><td class="small">24 Jul 09:31<br>lab feed HL7</td><td><span class="chip amber">due in 3h</span><br><span class="small">owner: D. Nair</span></td><td><span class="btn small primary">Open compare</span></td></tr>
+        <tr><td class="mono">DUP-1191</td><td><b>Mohammed Al-Rashid</b> MRN-004790<br><b>Mohd Al Rashid</b> MRN-004845</td><td class="small">Name fuzzy 0.88 · DOB exact · Aadhaar last-4 same</td><td><span class="chip amber">89</span></td><td><span class="chip grey">Registration</span></td><td class="small">24 Jul 14:12<br>by system</td><td><span class="chip amber">due in 9h</span><br><span class="small">owner: unassigned</span></td><td><span class="btn small primary">Open compare</span></td></tr>
+        <tr><td class="mono">DUP-1193</td><td><b>Ananya Rao</b> MRN-004819<br><b>Ananya Rao</b> MRN-004848</td><td class="small">Name exact · DOB off by 1 day · phone differs</td><td><span class="chip amber">78</span></td><td><span class="chip violet">Staff flag</span></td><td class="small">25 Jul 08:50<br>by D. Nair</td><td><span class="chip teal">due in 2d 21h</span><br><span class="small">owner: unassigned</span></td><td><span class="btn small primary">Open compare</span></td></tr>
+        <tr><td class="mono">DUP-1194</td><td><b>Kwame Osei</b> MRN-004823<br><b>K. Osei</b> MRN-004851</td><td class="small">Name partial · passport last-4 same · DOB exact</td><td><span class="chip amber">74</span></td><td><span class="chip blue">Import</span></td><td class="small">25 Jul 09:22<br>referral portal</td><td><span class="chip teal">due in 2d 22h</span><br><span class="small">owner: unassigned</span></td><td><span class="btn small primary">Open compare</span></td></tr>
+        <tr><td class="mono">DUP-1195</td><td><b>Rajesh Gupta</b> MRN-004795<br><b>Rajesh K. Gupta</b> MRN-004852</td><td class="small">Name fuzzy 0.81 · phone exact · DOB missing on one</td><td><span class="chip grey">62</span></td><td><span class="chip red">Grievance</span></td><td class="small">25 Jul 10:15<br>via DPO ticket GRV-311</td><td><span class="chip teal">due in 2d 23h</span><br><span class="small">owner: unassigned · DPO watching</span></td><td><span class="btn small primary">Open compare</span></td></tr>
+      </table>
+      <p class="small muted" style="margin-top:6px">Opening a pair locks it to you for 30 minutes. Contact fields are masked in this list; full values appear only inside compare, where the view is logged.</p>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — QUEUE EMPTY</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Front Office › Data quality › Merge queue</div>
+  <div class="page-title">Patient merge queue</div>
+  <div class="card" style="text-align:center;padding:42px 20px">
+    <div style="font-size:34px;margin-bottom:8px">✔</div>
+    <div class="bold" style="font-size:15px;margin-bottom:4px">No duplicate candidates awaiting review</div>
+    <p class="small muted" style="max-width:460px;margin:0 auto 12px">The matcher runs after every registration and import. New candidates will appear here with a score and SLA. You can raise one manually if a patient reports two MRNs.</p>
+    <span class="btn small">Flag a suspected duplicate…</span>
+    <p class="small muted" style="margin-top:12px">Last resolved: DUP-1186 (merged) · 24 Jul 2026, 17:05 IST by D. Nair, approved K. Verma</p>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — ITEM LOCKED BY ANOTHER USER</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Front Office › Data quality › Merge queue › DUP-1190</div>
+  <div class="banner warn"><b>DUP-1190 is locked by another reviewer</b>S. Kulkarni (Front Office, Andheri West) opened this pair at 11:38 IST — lock expires 12:08 IST if left idle. To avoid conflicting merges, only one reviewer may resolve a pair at a time.</div>
+  <div class="card"><div class="card-title">Pair DUP-1190 — read-only preview</div>
+    <dl class="kv">
+      <dt>Records</dt><dd>Priya Menon MRN-004828 · Priya R. Menon MRN-004836</dd>
+      <dt>Score</dt><dd><span class="chip red">93</span> name fuzzy 0.92 · DOB exact · email exact</dd>
+      <dt>Locked by</dt><dd>S. Kulkarni since 11:38 IST</dd>
+      <dt>SLA</dt><dd><span class="chip amber">due in 3h</span> owner: S. Kulkarni</dd>
+    </dl>
+    <div style="margin-top:10px;display:flex;gap:8px"><span class="btn small disabled">Open compare (locked)</span><span class="btn small ghost">Notify reviewer</span><span class="btn small">Back to queue</span></div>
+    <p class="small muted" style="margin-top:8px">Supervisors may break a lock; the break is recorded with reason and both reviewers are notified.</p>
+  </div>
+</div></div></div>
+
+<p class="audit">Queue views, lock acquisitions, lock breaks and every open of a compare view are recorded in the access log with reviewer ID and pair reference. Grievance-sourced pairs are additionally visible to the DPO dashboard until resolved.</p>
+</section>

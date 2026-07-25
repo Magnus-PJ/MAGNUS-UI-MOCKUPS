@@ -1,0 +1,118 @@
+<section class="screen" id="rd-17">
+<div class="screen-head"><h1><span class="sid">RD-17</span> Radiologist dashboard</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Dr. V. Shetty opens this at shift start and between reads to see personal turnaround performance versus target, everything pending by state, and anything overdue or awaiting critical-loop action — each with one-click open into the editor. It must guarantee the numbers are personal (own reads only), timestamped as-of, and rendered as accessible tables/KPIs rather than chart-only widgets so they work for screen readers and printouts.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Worklist</div>
+    <div class="nav-item">My worklist <span class="nav-badge">12</span></div>
+    <div class="nav-item">STAT queue <span class="nav-badge red">2</span></div>
+    <div class="nav-item">Unassigned pool</div>
+    <div class="sec-label">Reading</div>
+    <div class="nav-item">Report editor</div>
+    <div class="nav-item">Prior comparisons</div>
+    <div class="nav-item">Addenda &amp; versions</div>
+    <div class="sec-label">Quality</div>
+    <div class="nav-item">Critical results <span class="nav-badge red">1</span></div>
+    <div class="nav-item">Consults <span class="nav-badge">3</span></div>
+    <div class="nav-item active">My dashboard</div>
+    <div class="nav-item">Templates &amp; macros</div>
+  </div>
+  <div class="main">
+    <div class="crumb">RIS · Reading › My dashboard</div>
+    <div class="page-title">My performance — Dr. V. Shetty <span class="chip grey">Own reads only</span></div>
+    <div class="page-sub">As of 21-Jul-2026 09:12 IST · figures refresh every 10 min · month-to-date window 01–21 Jul 2026 · targets from branch SLA policy v3.</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">12</div><div class="l">Pending reads</div><div class="s">2 STAT · 3 urgent · 7 routine</div></div>
+      <div class="kpi amber"><div class="n">1</div><div class="l">Overdue</div><div class="s">worst breach 00:42</div></div>
+      <div class="kpi red"><div class="n">1</div><div class="l">Critical loop — my action</div><div class="s">awaiting my callback confirm</div></div>
+      <div class="kpi"><div class="n">1.4%</div><div class="l">Addenda rate (MTD)</div><div class="s">6 of 418 signed · branch median 1.9%</div></div>
+    </div>
+    <div class="split" style="grid-template-columns:1.2fr 1fr">
+      <div class="card">
+        <div class="card-title">My TAT vs target by priority <span class="right">Signed reads, MTD</span></div>
+        <table>
+          <tr><th>Priority</th><th>Signed</th><th>P50 (mine)</th><th>P90 (mine)</th><th>Target P90</th><th>Status</th></tr>
+          <tr><td><span class="chip red">STAT</span></td><td class="mono">31</td><td class="mono">0h 38m</td><td class="mono">0h 55m</td><td class="mono">1h 00m</td><td><span class="chip green">Within target</span></td></tr>
+          <tr><td><span class="chip amber">Urgent</span></td><td class="mono">96</td><td class="mono">2h 10m</td><td class="mono">3h 48m</td><td class="mono">4h 00m</td><td><span class="chip green">Within target</span></td></tr>
+          <tr><td><span class="chip grey">Routine</span></td><td class="mono">291</td><td class="mono">7h 05m</td><td class="mono">21h 30m</td><td class="mono">24h 00m</td><td><span class="chip green">Within target</span></td></tr>
+        </table>
+        <div class="progress" style="margin-top:10px"><i style="width:89%"></i></div>
+        <p class="small muted">Routine P90 at 89% of allowance. TAT clock: study-complete → final sign; consult and QA holds shown separately, not excluded.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Pending by state <span class="right">live</span></div>
+        <table>
+          <tr><th>State</th><th>Count</th><th>Oldest</th></tr>
+          <tr><td>Assigned, not opened</td><td class="mono">4</td><td class="mono">1h 05m</td></tr>
+          <tr><td>Draft in progress</td><td class="mono">3</td><td class="mono">2h 40m</td></tr>
+          <tr><td>Blocked — consult open</td><td class="mono">2</td><td class="mono">0h 50m</td></tr>
+          <tr><td>Blocked — prior awaited</td><td class="mono">1</td><td class="mono">3h 15m</td></tr>
+          <tr><td>Returned by QA / peer review</td><td class="mono">1</td><td class="mono">0h 25m</td></tr>
+          <tr><td>Awaiting my addendum</td><td class="mono">1</td><td class="mono">0h 42m</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Overdue &amp; at-risk — one-click open <span class="right">Sorted by breach</span></div>
+      <table>
+        <tr><th>Accession</th><th>Patient</th><th>Study</th><th>Priority</th><th>SLA</th><th>Owner / escalation</th><th></th></tr>
+        <tr class="hl"><td class="mono">ACC-2026-91245</td><td>Aarav Sharma · MRN-004821</td><td>CT KUB plain</td><td><span class="chip amber">Urgent</span></td><td><span class="chip red">OVERDUE 00:42</span></td><td class="small">Dr. V. Shetty · Escalated to Branch Lead Radiologist 08:55 IST</td><td><span class="btn small primary">Open</span></td></tr>
+        <tr><td class="mono">ACC-2026-91298</td><td>Ananya Rao · MRN-004819</td><td>MRI Lumbar spine</td><td><span class="chip grey">Routine</span></td><td><span class="chip amber">due in 1h 10m</span></td><td class="small">Dr. V. Shetty</td><td><span class="btn small">Open</span></td></tr>
+        <tr><td class="mono">ACC-2026-91312</td><td>Priya Menon · MRN-004828</td><td>MRI Brain plain</td><td><span class="chip grey">Routine</span></td><td><span class="chip teal">due in 3h</span></td><td class="small">Dr. V. Shetty · consult CON-2026-0158 open</td><td><span class="btn small">Open</span></td></tr>
+      </table>
+    </div>
+    <div class="split" style="grid-template-columns:1.2fr 1fr">
+      <div class="card">
+        <div class="card-title">Critical-loop items awaiting my action <span class="right">closed-loop</span></div>
+        <table>
+          <tr><th>Ref</th><th>Patient</th><th>Finding</th><th>Awaiting</th><th>SLA</th><th></th></tr>
+          <tr><td class="mono">CRIT-2026-087</td><td>Kwame Osei · MRN-004823</td><td>CXR — new large right pneumothorax</td><td>My documented read-back with Dr. Meera Nair</td><td><span class="chip amber">due in 0h 35m</span></td><td><span class="btn small primary">Open loop</span></td></tr>
+        </table>
+        <p class="small muted" style="margin-top:6px">If unclosed at breach: auto-escalates to Branch Lead Radiologist, then Medical Director per the critical-communication ladder.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">This-month volume by modality <span class="right">Signed, MTD</span></div>
+        <table>
+          <tr><th>Modality</th><th>Signed</th><th>Addenda</th><th>Share</th></tr>
+          <tr><td>CT</td><td class="mono">147</td><td class="mono">3</td><td class="mono">35%</td></tr>
+          <tr><td>MRI</td><td class="mono">104</td><td class="mono">2</td><td class="mono">25%</td></tr>
+          <tr><td>X-ray</td><td class="mono">98</td><td class="mono">0</td><td class="mono">23%</td></tr>
+          <tr><td>Ultrasound</td><td class="mono">61</td><td class="mono">1</td><td class="mono">15%</td></tr>
+          <tr><td>Mammography</td><td class="mono">8</td><td class="mono">0</td><td class="mono">2%</td></tr>
+          <tr><td class="bold">Total</td><td class="mono bold">418</td><td class="mono bold">6</td><td class="mono bold">100%</td></tr>
+        </table>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — OVERDUE-HEAVY AMBER DAY (BACKLOG AFTER SCANNER DOWNTIME)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">My performance — Dr. V. Shetty <span class="chip amber">HIGH LOAD</span></div>
+  <div class="page-sub">As of 21-Jul-2026 16:48 IST · CT-2 downtime 11:20–14:05 released a burst of studies; branch load-balancing suggestions active.</div>
+  <div class="banner warn"><b>5 reads overdue, 6 more due within the hour</b>Branch Lead Radiologist notified at 16:30 IST. Suggested: release 4 routine studies to the hub reading pool (Powai) — you keep report authorship credit rules per policy. <span class="btn small warn-outline">Review release list</span> <span class="btn small">Snooze 30 min (logged)</span></div>
+  <div class="kpi-row">
+    <div class="kpi red"><div class="n">5</div><div class="l">Overdue</div><div class="s">worst breach 01:37</div></div>
+    <div class="kpi amber"><div class="n">6</div><div class="l">Due &lt; 1h</div><div class="s">incl. 1 STAT</div></div>
+    <div class="kpi amber"><div class="n">23</div><div class="l">Pending reads</div><div class="s">vs 12 at 09:12</div></div>
+    <div class="kpi red"><div class="n">2</div><div class="l">Critical loop — my action</div><div class="s">1 within 20 min of breach</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Overdue — one-click open <span class="right">5 items · sorted by breach</span></div>
+    <table>
+      <tr><th>Accession</th><th>Patient</th><th>Study</th><th>SLA</th><th>Owner / escalation</th><th></th></tr>
+      <tr class="hl"><td class="mono">ACC-2026-91245</td><td>Aarav Sharma · MRN-004821</td><td>CT KUB plain</td><td><span class="chip red">OVERDUE 01:37</span></td><td class="small">Dr. V. Shetty · Escalated to Branch Lead Radiologist, then Ops Head 16:15 IST</td><td><span class="btn small primary">Open</span></td></tr>
+      <tr><td class="mono">ACC-2026-91290</td><td>Rajesh Gupta · MRN-004795</td><td>CT Chest HRCT</td><td><span class="chip red">OVERDUE 00:58</span></td><td class="small">Dr. V. Shetty · Escalated to Branch Lead Radiologist</td><td><span class="btn small primary">Open</span></td></tr>
+      <tr><td class="mono">ACC-2026-91307</td><td>Elena Novak · MRN-004830</td><td>MRI Knee</td><td><span class="chip red">OVERDUE 00:31</span></td><td class="small">Dr. V. Shetty · Escalated to Branch Lead Radiologist</td><td><span class="btn small primary">Open</span></td></tr>
+      <tr><td class="mono">ACC-2026-91315</td><td>Mohammed Al-Rashid · MRN-004790</td><td>CT Abdomen contrast</td><td><span class="chip red">OVERDUE 00:19</span></td><td class="small">Dr. V. Shetty</td><td><span class="btn small primary">Open</span></td></tr>
+      <tr><td class="mono">ACC-2026-91321</td><td>Ananya Rao · MRN-004819</td><td>X-ray Chest PA</td><td><span class="chip red">OVERDUE 00:04</span></td><td class="small">Dr. V. Shetty</td><td><span class="btn small primary">Open</span></td></tr>
+    </table>
+  </div>
+  <div class="banner info" style="max-width:820px"><b>TAT figures ring-fence the downtime</b>Studies delayed by the CT-2 outage carry an equipment-downtime flag; your personal P90 is reported both raw and downtime-adjusted in the monthly review, so today's amber day does not distort your record without context.</div>
+</div></div></div>
+
+<p class="audit">Dashboard views are personal-scope: only the signed-in radiologist's own reads and loops appear, and each render is recorded in the access log with the as-of timestamp. Patient names on worklists are shown because the viewer holds an active reading assignment (treatment purpose); releasing a study to the pool removes the name from this view. Snoozes, escalations and pool releases are all logged with user and reason.</p>
+</section>

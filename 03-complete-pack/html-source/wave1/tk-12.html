@@ -1,0 +1,87 @@
+<section class="screen" id="tk-12">
+<div class="screen-head"><h1><span class="sid">TK-12</span> Technician daily summary &amp; handover</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G6 Radiology Technician — workspace 'RIS · Technician'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> At shift end the technologist reviews an auto-compiled day summary (performed, retakes, holds, open exceptions) and hands open items to the incoming shift, who must acknowledge each item by name. Incidents and contrast reactions logged today are surfaced so nothing travels by word of mouth. Once acknowledged, the handover becomes an immutable record — later changes are addenda, never edits.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · TECHNICIAN</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Today</div>
+    <div class="nav-item">Modality worklist <span class="nav-badge">3</span></div>
+    <div class="nav-item">My queue — CT-01</div>
+    <div class="nav-item">Room &amp; patient prep</div>
+    <div class="sec-label">Safety &amp; quality</div>
+    <div class="nav-item">Dose registry <span class="nav-badge red">1</span></div>
+    <div class="nav-item">QC &amp; calibration <span class="nav-badge red">1</span></div>
+    <div class="nav-item">Contrast reactions</div>
+    <div class="sec-label">Shift</div>
+    <div class="nav-item active">Daily summary</div>
+  </div>
+  <div class="main">
+    <div class="crumb">RIS · Technician › Daily summary › 25 Jul 2026 · morning shift (07:00–15:00)</div>
+    <div class="page-title">My day — T. Okafor · CT-01 / shared XR cover <span class="actions-right"><span class="btn small primary">Start handover ▸</span></span></div>
+    <div class="page-sub">Auto-compiled at 14:38 IST from worklist, dose registry, QC log and exception queue · nothing on this page is hand-entered except handover notes</div>
+    <div class="banner info"><b>Working offline is supported</b> — actions queue and sync when reconnected.</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">23</div><div class="l">Studies performed</div><div class="s">19 CT · 4 XR cover</div></div>
+      <div class="kpi amber"><div class="n">2</div><div class="l">Retakes</div><div class="s">both reason-coded, in dose registry</div></div>
+      <div class="kpi amber"><div class="n">3</div><div class="l">Holds</div><div class="s">2 clinical query · 1 payment hold</div></div>
+      <div class="kpi red"><div class="n">4</div><div class="l">Exceptions open</div><div class="s">to hand over</div></div>
+    </div>
+    <div class="card"><div class="card-title">Open items for handover — 4 <span class="right">each needs incoming-shift acknowledgement</span></div>
+      <table>
+        <tr><th>#</th><th>Item</th><th>Patient / ref</th><th>SLA</th><th>Note for next shift</th></tr>
+        <tr><td>1</td><td>Delayed-phase CT to complete (90-min delay ends 15:40)</td><td>Rajesh Gupta · <span class="mono">MRN-004795</span> · <span class="mono">ACC-2026-90319</span></td><td><span class="chip teal">due in 1h 02m</span> owner: incoming CT tech</td><td>Patient waiting in bay 2; IV in situ, flushed 14:10. Do not re-cannulate.</td></tr>
+        <tr class="hl"><td>2</td><td><b>Contrast reaction follow-up call</b> — mild urticaria post-CT, resolved with cetirizine, obs normal at discharge</td><td>Ananya Rao · <span class="mono">MRN-004819</span> · <span class="mono">ACC-2026-90301</span></td><td><span class="chip red">OVERDUE 00:24</span> owner: T. Okafor<br><span class="small muted">Escalated to Dr. V. Shetty (radiologist on duty)</span></td><td>Call patient 4h post-discharge (was due 14:15). Reaction logged in registry INC-2026-0141.</td></tr>
+        <tr><td>3</td><td>Hold — pregnancy re-ask answered "unsure"; XR pelvis paused pending referrer discussion</td><td>Priya Menon · <span class="mono">MRN-004828</span> · <span class="mono">ACC-2026-90322</span></td><td><span class="chip amber">due in 2h 45m</span> owner: Dr. A. Rao</td><td>Do NOT expose. Dr. Farida Khan (referrer) to call back re: β-hCG first. Study locked at prep step.</td></tr>
+        <tr><td>4</td><td>US-02 degraded after QA fail — vendor engineer ETA 16:30</td><td>Unit · <span class="mono">TK-07/EQ-0234</span></td><td><span class="chip teal">vendor due in 1h 52m</span> owner: K. Verma</td><td>Probe L12-4 quarantined (tag QT-0071). Re-run QA + physicist countersign before clinical use.</td></tr>
+      </table>
+    </div>
+    <div class="row">
+      <div class="card grow"><div class="card-title">Retakes today <span class="right">reason-coded · counted in dose registry</span></div>
+        <table>
+          <tr><th>Study</th><th>Reason code</th><th>Extra dose</th></tr>
+          <tr><td><span class="mono">ACC-2026-90295</span> · XR chest · Kwame Osei <span class="mono">MRN-004823</span></td><td>Motion — patient coughed</td><td>DAP +0.11 Gy·cm²</td></tr>
+          <tr><td><span class="mono">ACC-2026-90308</span> · CT brain · Aarav Sharma <span class="mono">MRN-004821</span></td><td>Positioning — gantry tilt reset</td><td>DLP +38 mGy·cm</td></tr>
+        </table>
+      </div>
+      <div class="card grow"><div class="card-title">Incidents &amp; reactions logged today <span class="right">read-only, from registers</span></div>
+        <table>
+          <tr><th>Ref</th><th>Type</th><th>Status</th></tr>
+          <tr><td class="mono">INC-2026-0141</td><td>Contrast reaction — mild (urticaria), Ananya Rao</td><td><span class="chip amber">FOLLOW-UP CALL DUE</span></td></tr>
+          <tr><td class="mono">INC-2026-0142</td><td>Near-miss — wrong-side marker caught at prep check</td><td><span class="chip green">CLOSED · QA SAMPLED</span></td></tr>
+        </table>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — HANDOVER ACKNOWLEDGED → IMMUTABLE RECORD</div>
+<div class="modal-wrap"><div class="modal">
+  <h3>Acknowledge handover — morning → evening shift</h3>
+  <p class="small muted" style="margin-bottom:10px">Incoming technologist confirms each item individually. On sign-off the handover freezes: later changes are countersigned addenda, never edits.</p>
+  <div class="check"><span class="box on">✓</span>Item 1 — delayed-phase CT, R. Gupta (IV in situ) · accepted by <b>M. D'Souza</b></div>
+  <div class="check"><span class="box on">✓</span>Item 2 — contrast-reaction follow-up call, A. Rao · <b>OVERDUE — accepted with escalation to Dr. V. Shetty noted</b></div>
+  <div class="check"><span class="box on">✓</span>Item 3 — pregnancy-hold XR pelvis, P. Menon · accepted, "no exposure" lock verified</div>
+  <div class="check"><span class="box on">✓</span>Item 4 — US-02 degraded, vendor ETA 16:30 · accepted</div>
+  <div class="field" style="margin-top:10px"><label>Incoming shift identity confirmation <span class="req">*</span></label><div class="input">M. D'Souza · badge tap + PIN verified at 14:58 IST</div><div class="hint">Step-up identity confirmation is required because acknowledgement transfers clinical responsibility.</div></div>
+  <div class="modal-actions"><span class="btn">Back</span><span class="btn primary">Acknowledge all 4 &amp; seal handover</span></div>
+</div></div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner success"><b>Handover sealed — HND-2026-0725-AM · 14:59 IST</b>4 of 4 items acknowledged by M. D'Souza (evening shift). Record is immutable; ownership of item 2's overdue follow-up call has transferred and its SLA clock continues unbroken.</div>
+  <div class="kv" style="max-width:660px">
+    <dt>Outgoing</dt><dd>T. Okafor · morning (07:00–15:00) · signed 14:58</dd>
+    <dt>Incoming</dt><dd>M. D'Souza · evening (15:00–22:00) · acknowledged 14:59, badge + PIN</dd>
+    <dt>Items</dt><dd>4 transferred · 0 rejected · 1 carried overdue (escalation already active)</dd>
+    <dt>Record</dt><dd><span class="mono">HND-2026-0725-AM</span> · <span class="chip grey">IMMUTABLE</span> addenda only, countersign required</dd>
+  </div>
+  <div class="timeline" style="margin-top:12px">
+    <div class="ev"><span class="t">14:38</span><span>Day summary auto-compiled for T. Okafor.</span></div>
+    <div class="ev"><span class="t">14:52</span><span>Handover draft created with 4 open items; notes added.</span></div>
+    <div class="ev"><span class="t">14:59</span><span>All items acknowledged; record sealed. Copies visible to duty radiologist and branch admin dashboards.</span></div>
+  </div>
+  <div style="margin-top:10px"><span class="btn">View sealed record</span> <span class="btn ghost">Add countersigned addendum…</span></div>
+</div></div></div>
+
+<p class="audit">The compiled summary, every handover note, each per-item acknowledgement with the incoming technologist's verified identity, and any addenda are recorded in the access log; sealed handover HND-2026-0725-AM cannot be edited, and patient identifiers within it are masked for viewers without a care or QA purpose.</p>
+</section>

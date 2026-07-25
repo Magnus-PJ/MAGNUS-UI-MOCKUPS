@@ -1,0 +1,137 @@
+<section class="screen" id="or-08">
+<div class="screen-head"><h1><span class="sid">OR-08</span> External / paper referral digitisation</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office (D. Nair) digitises paper referral slips scanned at the counter (FO-18) into structured orders before or during patient registration. The screen guarantees the original scan stays attached to the order forever, unknown referrers enter the directory in a pending-verify state (no payouts, STAT capped), and every transcription names the transcriber.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front office) ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Front office</div>
+    <div class="nav-item">Today's visits</div>
+    <div class="nav-item">Appointments</div>
+    <div class="nav-item">Scan inbox (FO-18) <span class="nav-badge">5</span></div>
+    <div class="sec-label">Orders</div>
+    <div class="nav-item active">Referral intake <span class="nav-badge red">9</span></div>
+    <div class="nav-item">Order worklist</div>
+    <div class="sec-label">Directory</div>
+    <div class="nav-item">Referrers</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Orders › External referral intake</div>
+    <div class="page-title">Paper referral intake queue <span class="actions-right"><span class="btn small">Rescan / re-upload</span></span></div>
+    <div class="page-sub">9 scanned referrals awaiting transcription · sourced from FO-18 counter scanner · Fri 25-Jul-2026, 11:20 IST</div>
+    <div class="banner info"><b>Working offline is supported</b> — actions queue and sync when reconnected. Scans captured offline upload automatically once the link returns.</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">9</div><div class="l">Awaiting transcription</div><div class="s">oldest 38 min</div></div>
+      <div class="kpi amber"><div class="n">2</div><div class="l">Patient at counter</div><div class="s">transcribe-before-register</div></div>
+      <div class="kpi"><div class="n">1</div><div class="l">Unknown referrer</div><div class="s">pending directory verify</div></div>
+      <div class="kpi"><div class="n">96%</div><div class="l">Same-visit completion</div><div class="s">this week</div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Intake queue <span class="right">SLA: transcribe within 45 min of scan while patient waits</span></div>
+      <table>
+        <tr><th>Scan ref</th><th>Received</th><th>Patient (as written)</th><th>Referrer (as written)</th><th>Legibility</th><th>Patient link</th><th>SLA</th><th></th></tr>
+        <tr class="hl"><td class="mono">SCN-2026-7741</td><td>10:42 · Counter 2</td><td>Sofia Rossi</td><td>Dr. Meera Nair · Nair Ortho Centre</td><td><span class="chip green">Good</span></td><td><span class="chip green">Matched MRN-004822</span></td><td><span class="chip amber">due in 0h 07m</span><div class="small muted">Owner: D. Nair</div></td><td><span class="btn primary small">Transcribe</span></td></tr>
+        <tr class="hl"><td class="mono">SCN-2026-7742</td><td>10:51 · Counter 1</td><td>Md. Al-Rashid</td><td>Dr. Farida Khan · Khan Polyclinic</td><td><span class="chip amber">Partly legible</span></td><td><span class="chip green">Matched MRN-004790</span></td><td><span class="chip teal">due in 0h 16m</span></td><td><span class="btn primary small">Transcribe</span></td></tr>
+        <tr><td class="mono">SCN-2026-7738</td><td>10:12 · WhatsApp intake</td><td>Ananya Rao</td><td><b>Dr. P. Deshmukh</b> — not in directory</td><td><span class="chip green">Good</span></td><td><span class="chip green">Matched MRN-004819</span></td><td><span class="chip red">OVERDUE 00:23</span><div class="small muted">Owner: D. Nair · Escalated to shift lead R. Pillai</div></td><td><span class="btn warn-outline small">Transcribe</span></td></tr>
+        <tr><td class="mono">SCN-2026-7736</td><td>09:58 · Counter 2</td><td>Rajesh Gupta</td><td>Dr. S. Iyer · Iyer Clinic</td><td><span class="chip green">Good</span></td><td><span class="chip green">Matched MRN-004795</span></td><td><span class="chip teal">due in 0h 23m</span></td><td><span class="btn primary small">Transcribe</span></td></tr>
+        <tr><td class="mono">SCN-2026-7735</td><td>09:47 · Counter 3</td><td>"E. Novak" (new to Meridian)</td><td>Dr. Meera Nair</td><td><span class="chip green">Good</span></td><td><span class="chip amber">No match — register new</span></td><td><span class="chip teal">due in 0h 12m</span></td><td><span class="btn primary small">Transcribe</span></td></tr>
+        <tr><td class="mono">SCN-2026-7729</td><td>09:20 · Courier batch</td><td>Priya Menon</td><td>Dr. Farida Khan</td><td><span class="chip red">Poor — request callback</span></td><td><span class="chip green">Matched MRN-004828</span></td><td><span class="chip teal">due in 1h 40m</span><div class="small muted">non-waiting batch</div></td><td><span class="btn ghost small">Open</span></td></tr>
+        <tr class="dim"><td class="mono">SCN-2026-7712</td><td>Yesterday 18:44</td><td>Kwame Osei</td><td>Suvarna Nursing Home (stamp only)</td><td><span class="chip amber">Stamp unclear</span></td><td><span class="chip green">Matched MRN-004823</span></td><td><span class="chip grey">held — awaiting clinic callback</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      </table>
+    </div>
+    <div class="banner warn"><b>Duplicate guard</b>SCN-2026-7736 resembles order ACC-2026-91334 (same patient, CT KUB, same referrer, 3 days ago). Transcriber must mark "new order" or "duplicate of existing" before saving.</div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — TRANSCRIBE VIEW (SCAN + FORM SIDE-BY-SIDE, SOFIA ROSSI)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="crumb">Orders › Referral intake › SCN-2026-7741 › Transcribe</div>
+    <div class="page-title">Transcribe to order — SCN-2026-7741</div>
+    <div class="page-sub">Patient waiting at Counter 2 · token U-018 · transcriber identity D. Nair is stamped on the resulting order</div>
+    <div class="row">
+      <div class="grow" style="flex:1.1">
+        <div class="card">
+          <div class="card-title">Original scan <span class="right">immutable · stays attached to order</span></div>
+          <div class="sig-box" style="min-height:280px">[ Scanned referral slip — Nair Ortho Centre letterhead · pinch-zoom, rotate, enhance contrast ]</div>
+          <div class="small muted" style="margin-top:6px">Captured 25-Jul-2026 10:42 IST at Counter 2 scanner · 2 pages · quality check passed</div>
+          <div style="margin-top:8px;display:flex;gap:8px"><span class="btn small">Rotate</span><span class="btn small">Enhance</span><span class="btn small">Page 2</span><span class="btn small">Flag illegible</span></div>
+        </div>
+      </div>
+      <div class="grow" style="flex:1.3">
+        <div class="card">
+          <div class="card-title">Order details (as transcribed)</div>
+          <div class="banner success" style="padding:7px 10px"><b>Patient linked</b>Sofia Rossi · MRN-004822 · F · 34y · ✔ identity confirmed at counter (Aadhaar last-4 ••7714). <span class="btn ghost small">Change link</span></div>
+          <div class="row">
+            <div class="grow"><div class="field"><label>Referrer <span class="req">*</span></label><select class="select"><option>Dr. Meera Nair — Nair Ortho Centre (verified)</option></select><div class="hint">Verified referrer · RMC registration on file</div></div></div>
+            <div style="width:150px"><div class="field"><label>Referral date</label><input class="input" value="24-07-2026"></div></div>
+          </div>
+          <div class="field"><label>Procedure(s) <span class="req">*</span></label>
+            <table>
+              <tr><th>Procedure</th><th>Laterality</th><th>Priority</th><th></th></tr>
+              <tr><td>MRI Knee (plain) <span class="mono small">MR-KNEE-P</span></td><td><select class="select" style="width:90px"><option>Right</option></select></td><td><select class="select" style="width:110px"><option>Routine</option><option>Urgent</option><option>STAT</option></select></td><td><span class="btn ghost small">✕</span></td></tr>
+              <tr><td>X-ray Knee AP/Lat <span class="mono small">XR-KNEE-2V</span></td><td><select class="select" style="width:90px"><option>Right</option></select></td><td><select class="select" style="width:110px"><option>Routine</option></select></td><td><span class="btn ghost small">✕</span></td></tr>
+            </table>
+            <span class="btn ghost small">+ Add procedure</span>
+          </div>
+          <div class="field"><label>Clinical notes from slip <span class="req">*</span></label><textarea class="textarea">R knee pain 3 weeks post twisting injury; ?meniscal tear. On examination: joint-line tenderness, McMurray positive. No prior imaging.</textarea><div class="hint">Transcribe verbatim; do not interpret. Radiologist sees both this text and the scan.</div></div>
+          <div class="check"><span class="box on">✓</span> This is a <b>new order</b> — duplicate check returned no similar order in 90 days</div>
+          <div class="check"><span class="box">&nbsp;</span> Referrer requested report copy by courier (default: portal + WhatsApp PDF)</div>
+          <div style="display:flex;gap:8px;margin-top:10px"><span class="btn primary">Create order &amp; continue to billing</span><span class="btn">Save draft</span><span class="btn">Return to queue</span></div>
+          <div class="small muted" style="margin-top:8px">On save: order ACC-2026-9xxxx is created with source = "paper referral SCN-2026-7741", transcriber = D. Nair, and the scan permanently attached.</div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — UNKNOWN REFERRER · QUICK-ADD PENDING VERIFICATION (SCN-2026-7738)</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:600px">
+    <h3>Add unknown referrer to directory — pending verification</h3>
+    <div class="banner warn" style="margin-top:8px"><b>"Dr. P. Deshmukh" not found in referrer directory</b>Quick-add lets the order proceed now. The entry stays <b>Pending verify</b> until admin confirms RMC registration — until then: no referrer payouts accrue, no report portal access, and STAT priority is capped at Urgent.</div>
+    <div class="row">
+      <div class="grow"><div class="field"><label>Name as on slip <span class="req">*</span></label><input class="input" value="Dr. Prakash Deshmukh"></div></div>
+      <div class="grow"><div class="field"><label>Qualification (if legible)</label><input class="input" value="MS Ortho"></div></div>
+    </div>
+    <div class="row">
+      <div class="grow"><div class="field"><label>Clinic / institution</label><input class="input" value="Deshmukh Bone &amp; Joint Clinic, Jogeshwari E"></div></div>
+      <div style="width:170px"><div class="field"><label>Phone (from slip)</label><input class="input" value="+91 98•• ••3321"></div></div>
+    </div>
+    <div class="field"><label>RMC / council registration no.</label><input class="input" value=""><div class="hint">Leave blank if not on slip — verification team will obtain it. Payouts cannot be enabled without it.</div></div>
+    <div class="check"><span class="box on">✓</span> Attach scan SCN-2026-7738 as evidence for the verification team</div>
+    <div class="check"><span class="box on">✓</span> Notify directory admin (K. Verma) — verification SLA <span class="chip teal">due in 48h</span></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Add as Pending verify &amp; continue order</span></div>
+  </div>
+</div>
+<div class="frame" style="margin-top:14px">
+  <div class="body"><div class="main">
+    <div class="page-title" style="font-size:15px">Resulting directory entry &amp; order state</div>
+    <div class="row">
+      <div class="grow"><div class="card">
+        <div class="card-title">Referrer — Dr. Prakash Deshmukh <span class="chip amber">Pending verify</span></div>
+        <dl class="kv">
+          <dt>Added by</dt><dd>D. Nair (front office) · 25-Jul-2026 11:31 IST · via paper-referral quick-add</dd>
+          <dt>Evidence</dt><dd>Scan SCN-2026-7738 attached</dd>
+          <dt>Restrictions</dt><dd>No payouts · no portal access · STAT capped at Urgent · flagged in monthly governance report until verified</dd>
+          <dt>Verification</dt><dd>Assigned K. Verma · <span class="chip teal">due in 48h</span></dd>
+        </dl>
+      </div></div>
+      <div class="grow"><div class="card">
+        <div class="card-title">Order created</div>
+        <dl class="kv">
+          <dt>Accession</dt><dd class="mono">ACC-2026-91402</dd>
+          <dt>Patient</dt><dd>Ananya Rao · MRN-004819</dd>
+          <dt>Procedure</dt><dd>US Abdomen + Pelvis · Routine</dd>
+          <dt>Source</dt><dd>Paper referral SCN-2026-7738 · transcriber D. Nair</dd>
+          <dt>Referrer state</dt><dd><span class="chip amber">Pending-verify referrer linked</span> — link auto-upgrades when verification completes; if verification fails, order keeps an "unverified referrer" annotation for audit</dd>
+        </dl>
+      </div></div>
+    </div>
+  </div></div>
+</div>
+<p class="audit">Each transcription stores the transcriber's identity, the immutable source scan, patient-link decisions and duplicate-check outcome; quick-added referrers, their restrictions and later verification results are all recorded in the access log.</p>
+</section>

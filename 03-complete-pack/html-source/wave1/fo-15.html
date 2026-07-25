@@ -1,0 +1,154 @@
+<section class="screen" id="fo-15">
+<div class="screen-head"><h1><span class="sid">FO-15</span> Walk-in fast-track</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office (D. Nair) uses this compressed single-stepper flow — Register → Consent → Order → Pay → Token — when a walk-in patient arrives without an appointment and the queue must keep moving. Only fields legally required for billing and safety are mandatory; everything else carries a "complete later" flag that surfaces in FO-17 end-of-day reconciliation. It must guarantee an inline duplicate check before a new MRN is minted, and it ends by printing token, invoice and prep instructions together in one action.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Reception</div>
+    <div class="nav-item">Today's schedule</div>
+    <div class="nav-item">Registration</div>
+    <div class="nav-item active">Walk-in fast-track</div>
+    <div class="nav-item">Token queue <span class="nav-badge">14</span></div>
+    <div class="sec-label">Billing</div>
+    <div class="nav-item">Collect payment</div>
+    <div class="nav-item">Invoices</div>
+    <div class="sec-label">Records</div>
+    <div class="nav-item">Document intake</div>
+    <div class="nav-item">Visit summaries</div>
+    <div class="nav-item">End-of-day close</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Front Office › Walk-in fast-track › New walk-in</div>
+    <div class="page-title">Walk-in fast-track <span class="chip amber">DRAFT — not yet registered</span></div>
+    <div class="page-sub">Sat 25 Jul 2026 · 10:41 IST · Counter 2 · Queue depth: 6 waiting (avg wait 11 min)</div>
+    <div class="banner info"><b>Working offline is supported</b> — actions queue and sync when reconnected. Token numbers are reserved from the local block (U-016…U-030).</div>
+    <div class="stepper">
+      <div class="step done"><span class="dot">✓</span> Register</div><span class="step-line"></span>
+      <div class="step done"><span class="dot">✓</span> Consent</div><span class="step-line"></span>
+      <div class="step cur"><span class="dot">3</span> Order</div><span class="step-line"></span>
+      <div class="step"><span class="dot">4</span> Pay</div><span class="step-line"></span>
+      <div class="step"><span class="dot">5</span> Token</div>
+    </div>
+    <div class="row">
+      <div class="grow">
+        <div class="card">
+          <div class="card-title">Step 3 — Order services <span class="right">Fast-track · minimal fields</span></div>
+          <div class="field"><label>Search service / modality <span class="req">*</span></label><input class="input" value="X-Ray Chest PA"/></div>
+          <table>
+            <tr><th>Service</th><th>Modality</th><th>Prep</th><th style="text-align:right">Rate (₹)</th><th></th></tr>
+            <tr class="hl"><td class="bold">X-Ray Chest PA view</td><td>XR · Room 1</td><td>None</td><td style="text-align:right" class="mono">450.00</td><td><span class="btn small">Remove</span></td></tr>
+            <tr class="hl"><td class="bold">CBC (Complete Blood Count)</td><td>LAB · Phlebotomy</td><td>None</td><td style="text-align:right" class="mono">350.00</td><td><span class="btn small">Remove</span></td></tr>
+            <tr class="dim"><td>USG Abdomen — <span class="small">suggested (referral mentions "abd pain")</span></td><td>US · Room 3</td><td>6 hr fasting</td><td style="text-align:right" class="mono">1,200.00</td><td><span class="btn small">Add</span></td></tr>
+          </table>
+          <div class="field" style="margin-top:10px"><label>Referring doctor</label><input class="input" value="Dr. Meera Nair — MedPlus Clinic, Andheri (directory match)"/><div class="hint">Self-referral allowed for XR/LAB; USG requires a referral note per branch policy.</div></div>
+          <div class="check"><span class="box on">✓</span> Referral slip received on paper — will scan later via Document intake (FO-18) <span class="chip amber">complete later</span></div>
+          <div class="modal-actions" style="justify-content:space-between"><span class="btn ghost">← Back to Consent</span><span><span class="btn">Save &amp; park</span> <span class="btn primary">Continue to Pay → ₹800.00</span></span></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Registered in step 1 (60-second registration) <span class="right">Editable until token issued</span></div>
+          <dl class="kv">
+            <dt>Patient</dt><dd class="bold">Kwame Osei · M · 34y <span class="chip green">MRN-004823 issued</span></dd>
+            <dt>Mobile</dt><dd class="mono">+91 98••• ••442 <span class="chip grey">OTP verified</span></dd>
+            <dt>ID proof</dt><dd>Aadhaar ····6621 (last-4 only stored) · full number never retained</dd>
+            <dt>Address</dt><dd class="muted">— skipped · <span class="chip amber">complete later</span></dd>
+            <dt>Email</dt><dd class="muted">— skipped · <span class="chip amber">complete later</span></dd>
+            <dt>Consent (step 2)</dt><dd>General diagnostic consent — signed on pad 10:39 IST <span class="chip green">CAPTURED</span></dd>
+          </dl>
+        </div>
+      </div>
+      <div style="width:290px;flex-shrink:0">
+        <div class="card">
+          <div class="card-title">Running total</div>
+          <dl class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Services</dt><dd class="mono">₹800.00</dd>
+            <dt>Discount</dt><dd class="mono">₹0.00 <span class="small muted">(needs approver)</span></dd>
+            <dt>Payable</dt><dd class="bold mono">₹800.00</dd>
+          </dl>
+          <div class="progress" style="margin-top:8px"><i style="width:55%"></i></div>
+          <div class="small muted" style="margin-top:4px">Step 3 of 5 · elapsed 2m 40s · fast-track target &lt; 5m</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Complete-later flags <span class="chip amber">3</span></div>
+          <div class="check"><span class="box">&nbsp;</span> Address &amp; pincode</div>
+          <div class="check"><span class="box">&nbsp;</span> Email for report delivery</div>
+          <div class="check"><span class="box">&nbsp;</span> Referral slip scan (FO-18)</div>
+          <div class="small muted">Flags roll into end-of-day "unfinished registrations" (FO-17) if untouched by 20:00 IST.</div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — DUPLICATE FOUND INLINE (STEP 1, BEFORE MRN IS MINTED)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="crumb">Front Office › Walk-in fast-track › New walk-in</div>
+    <div class="page-title">Walk-in fast-track — Register</div>
+    <div class="stepper">
+      <div class="step cur"><span class="dot">1</span> Register</div><span class="step-line"></span>
+      <div class="step"><span class="dot">2</span> Consent</div><span class="step-line"></span>
+      <div class="step"><span class="dot">3</span> Order</div><span class="step-line"></span>
+      <div class="step"><span class="dot">4</span> Pay</div><span class="step-line"></span>
+      <div class="step"><span class="dot">5</span> Token</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Quick registration</div>
+      <div class="row">
+        <div class="grow"><div class="field"><label>Full name <span class="req">*</span></label><input class="input" value="Priya Menon"/></div></div>
+        <div style="width:170px"><div class="field"><label>Mobile <span class="req">*</span></label><input class="input" value="+91 98220 41177"/></div></div>
+        <div style="width:110px"><div class="field"><label>DOB / age <span class="req">*</span></label><input class="input" value="14-03-1991"/></div></div>
+        <div style="width:80px"><div class="field"><label>Sex <span class="req">*</span></label><input class="input" value="F"/></div></div>
+      </div>
+      <div class="banner warn"><b>Possible existing patient — do not create a new MRN yet.</b> Name + mobile + DOB matched 1 record with high confidence (96%). Merging duplicates later requires admin approval; confirming now avoids a split record.</div>
+      <table>
+        <tr><th>Match</th><th>MRN</th><th>Name / DOB</th><th>Mobile</th><th>Last visit</th><th>Confidence</th><th></th></tr>
+        <tr class="hl"><td><span class="chip red">96%</span></td><td class="mono">MRN-004828</td><td class="bold">Priya Menon · F · 14-03-1991</td><td class="mono">+91 98••• ••177</td><td>VIS-2026-30871 · 18 Jul 2026 · USG Abdomen</td><td>Name exact · mobile exact · DOB exact</td><td><span class="btn primary small">Use this patient</span></td></tr>
+        <tr><td><span class="chip grey">41%</span></td><td class="mono">MRN-003944</td><td>Priya P. Menon · F · 02-11-1988</td><td class="mono">+91 99••• ••810</td><td>12 Feb 2026 · XR Knee</td><td>Name similar only</td><td><span class="btn small">View</span></td></tr>
+      </table>
+      <div class="modal-actions" style="justify-content:space-between"><span class="small muted">Contact details are masked until a patient is selected for this visit (purpose-based reveal).</span><span><span class="btn warn-outline">Not a match — create new MRN (reason required)</span></span></div>
+    </div>
+    <p class="audit">Duplicate-check result, the operator's choice (use existing / create new + reason) and any masked-field reveal are recorded in the access log.</p>
+  </div></div>
+</div>
+
+<div class="state-tag">STATE C — COMPLETED SUMMARY · TOKEN + INVOICE + PREP PRINTED TOGETHER</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="crumb">Front Office › Walk-in fast-track › APPT-2026-51244</div>
+    <div class="page-title">Walk-in complete — Kwame Osei <span class="chip green">TOKEN ISSUED</span></div>
+    <div class="page-sub">Total elapsed 4m 12s · fast-track target met</div>
+    <div class="stepper">
+      <div class="step done"><span class="dot">✓</span> Register</div><span class="step-line"></span>
+      <div class="step done"><span class="dot">✓</span> Consent</div><span class="step-line"></span>
+      <div class="step done"><span class="dot">✓</span> Order</div><span class="step-line"></span>
+      <div class="step done"><span class="dot">✓</span> Pay</div><span class="step-line"></span>
+      <div class="step done"><span class="dot">✓</span> Token</div>
+    </div>
+    <div class="banner success"><b>Registered, paid and queued in one pass.</b> Token slip, tax invoice and prep instructions were sent to Counter-2 printer as a single 3-part print job at 10:45 IST.</div>
+    <div class="row">
+      <div class="grow"><div class="card">
+        <div class="card-title">Visit summary</div>
+        <dl class="kv">
+          <dt>Patient</dt><dd class="bold">Kwame Osei · MRN-004823 · M · 34y</dd>
+          <dt>Visit</dt><dd class="mono">VIS-2026-30902 · walk-in · Andheri West</dd>
+          <dt>Appointment</dt><dd class="mono">APPT-2026-51244 (auto-created, slot: next available)</dd>
+          <dt>Services</dt><dd>X-Ray Chest PA (Room 1) · CBC (Phlebotomy)</dd>
+          <dt>Invoice</dt><dd class="mono">INV/AND/26-27/0412 · ₹800.00 · PAID — UPI (UTR ····8821)</dd>
+          <dt>Consent</dt><dd>General diagnostic consent · signed 10:39 IST · stored against visit</dd>
+          <dt>Pending flags</dt><dd><span class="chip amber">address</span> <span class="chip amber">email</span> <span class="chip amber">referral scan</span> → carried to end-of-day list</dd>
+        </dl>
+        <div class="modal-actions" style="justify-content:flex-start"><span class="btn primary">Reprint all 3 slips</span><span class="btn">Open visit summary (FO-16)</span><span class="btn ghost">Start next walk-in</span></div>
+      </div></div>
+      <div style="width:270px;flex-shrink:0"><div class="card" style="text-align:center">
+        <div class="small muted" style="letter-spacing:.08em;text-transform:uppercase;font-weight:700">Queue token</div>
+        <div style="font-size:44px;font-weight:800;color:#0F766E">U-018</div>
+        <div class="small">XR Room 1 → then Phlebotomy</div>
+        <div class="chip teal" style="margin-top:6px">est. call in 12 min</div>
+        <div class="small muted" style="margin-top:8px">Prep printed: "No preparation required. Remove metallic objects before X-ray."</div>
+      </div></div>
+    </div>
+  </div></div>
+</div>
+<p class="audit">Every fast-track completion writes registration, consent capture, order, payment and token issuance as one linked event chain; operator D. Nair and counter ID are recorded in the access log.</p>
+</section>

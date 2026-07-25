@@ -1,0 +1,151 @@
+<section class="screen" id="fo-06">
+<div class="screen-head"><h1><span class="sid">FO-06</span> Patient record — front-office view</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front-office staff open this record when a patient calls, walks in, or a delivery/billing issue must be resolved. It must guarantee purpose-limited visibility: clinical content is never shown here — only identity, consent, visit/appointment/invoice history and delivery status. Aadhaar is always last-4 only; every open of this record is written to the access log with the operator's stated purpose.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Reception</div>
+    <div class="nav-item">Front desk home</div>
+    <div class="nav-item">Register patient</div>
+    <div class="nav-item active">Patients</div>
+    <div class="nav-item">Appointments <span class="nav-badge">14</span></div>
+    <div class="nav-item">Check-in &amp; tokens</div>
+    <div class="sec-label">Money &amp; delivery</div>
+    <div class="nav-item">Billing &amp; invoices</div>
+    <div class="nav-item">Report delivery <span class="nav-badge red">2</span></div>
+    <div class="sec-label">Data quality</div>
+    <div class="nav-item">Merge queue (MPI)</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Front Office › Patients › MRN-004822</div>
+    <div class="page-title">Sofia Rossi <span class="chip green">Active</span> <span class="chip grey">Adult · Self-consenting</span></div>
+    <div class="page-sub">MRN-004822 · Female · 34y (DOB 12 Mar 1992) · Registered at Andheri West · Viewing purpose: <b>Front-office service</b> — clinical data hidden for this role.</div>
+
+    <div class="kpi-row">
+      <div class="kpi"><div class="l">Registered</div><div class="n" style="font-size:16px">04 Jan 2026</div><div class="s">by D. Nair · walk-in</div></div>
+      <div class="kpi"><div class="l">Last visit</div><div class="n" style="font-size:16px">18 Jul 2026</div><div class="s">VIS-2026-38812 · MRI Brain</div></div>
+      <div class="kpi"><div class="l">Next appointment</div><div class="n" style="font-size:16px">27 Jul, 10:30</div><div class="s">APPT-2026-51204 · USG Abdomen</div></div>
+      <div class="kpi"><div class="l">Outstanding balance</div><div class="n" style="font-size:16px">₹0.00</div><div class="s">All invoices settled</div></div>
+    </div>
+
+    <div class="row">
+      <div class="grow" style="flex:1.2">
+        <div class="card">
+          <div class="card-title">Identity &amp; contact <span class="right">Verified 22 Jul 2026</span></div>
+          <dl class="kv">
+            <dt>Full name</dt><dd>Sofia Rossi</dd>
+            <dt>MRN</dt><dd class="mono">MRN-004822</dd>
+            <dt>DOB / Age</dt><dd>12 Mar 1992 · 34y</dd>
+            <dt>Sex</dt><dd>Female</dd>
+            <dt>Mobile</dt><dd>+91 98••• ••402 <span class="chip green">OTP-verified</span></dd>
+            <dt>Email</dt><dd>s.r•••@gmail.com <span class="chip green">Verified</span></dd>
+            <dt>Address</dt><dd>B-1104, Lokhandwala Residency, Andheri West, Mumbai 400053</dd>
+            <dt>Govt ID</dt><dd>Aadhaar •••• •••• 7031 <span class="small muted">(last-4 only — full number never stored)</span></dd>
+            <dt>Preferred language</dt><dd>English · Hindi</dd>
+            <dt>ABHA</dt><dd class="mono">91-4402-XXXX-XXXX <span class="chip grey">Linked</span></dd>
+          </dl>
+          <div style="margin-top:10px;display:flex;gap:8px"><span class="btn small">Edit details (FO-07)</span><span class="btn small ghost">View change history</span></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Representatives <span class="right">Guardian / nominee</span></div>
+          <table>
+            <tr><th>Role</th><th>Name</th><th>Relationship</th><th>Contact</th><th>Scope</th></tr>
+            <tr><td><span class="chip blue">Nominee</span></td><td>Marco Rossi</td><td>Spouse</td><td>+91 99••• ••118</td><td>Report collection only · ID check at counter required</td></tr>
+          </table>
+          <p class="small muted" style="margin-top:6px">No guardian on file — patient is an adult and self-consenting. Nominee cannot change contact details or consents.</p>
+        </div>
+      </div>
+      <div class="grow">
+        <div class="card">
+          <div class="card-title">Consent status — per purpose <span class="right">Recorded per DPDP</span></div>
+          <table>
+            <tr><th>Purpose</th><th>Status</th><th>Recorded</th></tr>
+            <tr><td>Care &amp; diagnostics (required)</td><td><span class="chip green">Given</span></td><td class="small">04 Jan 2026 · in person</td></tr>
+            <tr><td>Digital report delivery (WhatsApp/SMS link)</td><td><span class="chip green">Given</span></td><td class="small">04 Jan 2026</td></tr>
+            <tr><td>Share report with referring doctor</td><td><span class="chip green">Given</span></td><td class="small">18 Jul 2026 · per-visit</td></tr>
+            <tr><td>Reminders &amp; prep instructions</td><td><span class="chip green">Given</span></td><td class="small">04 Jan 2026</td></tr>
+            <tr><td>Health-camp / marketing contact</td><td><span class="chip red">Declined</span></td><td class="small">04 Jan 2026</td></tr>
+          </table>
+          <p class="small muted" style="margin-top:6px">Consent changes are made only by the patient (kiosk/OTP) or with recorded in-person confirmation. Withdrawal takes effect immediately.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">History — visits, appointments, reports, invoices <span class="right">Newest first · 6 of 11</span></div>
+      <table>
+        <tr><th>Ref</th><th>Type</th><th>Date (IST)</th><th>Detail</th><th>Referrer</th><th>Status</th><th>Actions</th></tr>
+        <tr><td class="mono">APPT-2026-51204</td><td>Appointment</td><td>27 Jul 2026 10:30</td><td>USG Abdomen · Room US-2</td><td>Dr. Meera Nair</td><td><span class="chip teal">Scheduled</span></td><td><span class="btn small">Reschedule</span> <span class="btn small ghost">Prep sheet</span></td></tr>
+        <tr><td class="mono">VIS-2026-38812</td><td>Visit</td><td>18 Jul 2026 09:12</td><td>MRI Brain (plain) · ACC-2026-91188</td><td>Dr. Meera Nair</td><td><span class="chip green">Completed</span></td><td><span class="btn small ghost">Visit summary</span></td></tr>
+        <tr><td class="mono">ACC-2026-91188</td><td>Report</td><td>19 Jul 2026 14:05</td><td>MRI Brain — final, signed Dr. V. Shetty</td><td>Dr. Meera Nair</td><td><span class="chip green">Delivered</span></td><td><span class="btn small">Re-send link</span></td></tr>
+        <tr><td class="mono">INV/AND/26-27/0641</td><td>Invoice</td><td>18 Jul 2026 09:20</td><td>MRI Brain · ₹7,850.00 · UPI</td><td>—</td><td><span class="chip green">Paid</span></td><td><span class="btn small ghost">Print duplicate</span></td></tr>
+        <tr><td class="mono">VIS-2026-37504</td><td>Visit</td><td>02 May 2026 11:40</td><td>X-Ray Chest PA · ACC-2026-90412</td><td>Dr. S. Iyer</td><td><span class="chip green">Completed</span></td><td><span class="btn small ghost">Visit summary</span></td></tr>
+        <tr><td class="mono">INV/AND/26-27/0322</td><td>Invoice</td><td>02 May 2026 11:48</td><td>X-Ray Chest PA · ₹450.00 · Cash</td><td>—</td><td><span class="chip green">Paid</span></td><td><span class="btn small ghost">Print duplicate</span></td></tr>
+      </table>
+      <p class="small muted" style="margin-top:6px">Report content opens only for roles with a clinical purpose; front office sees delivery status, never the report body. "Re-send link" issues a fresh expiring secure link and voids the previous one.</p>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — CHILD RECORD WITH GUARDIAN (Aarav Sharma)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Front Office › Patients › MRN-004821</div>
+  <div class="page-title">Aarav Sharma <span class="chip green">Active</span> <span class="chip violet">Minor · Guardian-consented</span></div>
+  <div class="page-sub">MRN-004821 · Male · 9y (DOB 03 Aug 2016) · All consents and contact actions route via guardian on file.</div>
+  <div class="banner info"><b>Minor record — guardian required</b>All consents, contact changes and report deliveries go to the recorded guardian. At age 18 the record prompts for the patient's own consent refresh.</div>
+  <div class="row">
+    <div class="grow">
+      <div class="card"><div class="card-title">Representatives <span class="right">Guardian mandatory</span></div>
+      <table>
+        <tr><th>Role</th><th>Name</th><th>Relationship</th><th>Contact</th><th>Proof recorded</th></tr>
+        <tr class="hl"><td><span class="chip violet">Guardian (primary)</span></td><td>Nisha Sharma</td><td>Mother</td><td>+91 98••• ••217 <span class="chip green">OTP-verified</span></td><td>Aadhaar •••• 5512 (last-4) · 11 Feb 2026</td></tr>
+        <tr><td><span class="chip blue">Alternate guardian</span></td><td>Rohit Sharma</td><td>Father</td><td>+91 97••• ••860</td><td>PAN sighted · 11 Feb 2026</td></tr>
+      </table></div>
+    </div>
+    <div class="grow">
+      <div class="card"><div class="card-title">Consent status — recorded by guardian</div>
+      <table>
+        <tr><th>Purpose</th><th>Status</th><th>Recorded</th></tr>
+        <tr><td>Care &amp; diagnostics</td><td><span class="chip green">Given</span></td><td class="small">11 Feb 2026 · Nisha Sharma, in person</td></tr>
+        <tr><td>Digital report delivery (to guardian)</td><td><span class="chip green">Given</span></td><td class="small">11 Feb 2026</td></tr>
+        <tr><td>Reminders &amp; prep instructions</td><td><span class="chip green">Given</span></td><td class="small">11 Feb 2026</td></tr>
+        <tr><td>Marketing contact</td><td><span class="chip grey">Not asked</span></td><td class="small">n/a for minors</td></tr>
+      </table></div>
+    </div>
+  </div>
+  <div class="card"><div class="card-title">History <span class="right">3 records</span></div>
+  <table>
+    <tr><th>Ref</th><th>Type</th><th>Date (IST)</th><th>Detail</th><th>Status</th><th>Actions</th></tr>
+    <tr><td class="mono">APPT-2026-51219</td><td>Appointment</td><td>29 Jul 2026 16:00</td><td>X-Ray Left Wrist · paediatric slot</td><td><span class="chip teal">Scheduled</span></td><td><span class="btn small">Reschedule</span></td></tr>
+    <tr><td class="mono">VIS-2026-36110</td><td>Visit</td><td>11 Feb 2026 10:05</td><td>USG Abdomen (paed) · ACC-2026-90077</td><td><span class="chip green">Completed</span></td><td><span class="btn small ghost">Visit summary</span></td></tr>
+    <tr><td class="mono">INV/AND/26-27/0119</td><td>Invoice</td><td>11 Feb 2026 10:18</td><td>USG Abdomen · ₹1,200.00 · Card</td><td><span class="chip green">Paid</span></td><td><span class="btn small ghost">Print duplicate</span></td></tr>
+  </table></div>
+</div></div></div>
+
+<div class="state-tag">STATE C — RECORD WITH ALERTS (balance due · delivery failed)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Front Office › Patients › MRN-004795</div>
+  <div class="page-title">Rajesh Gupta <span class="chip green">Active</span> <span class="chip red">2 alerts</span></div>
+  <div class="page-sub">MRN-004795 · Male · 58y · Alerts require action before new bookings are confirmed.</div>
+  <div class="banner warn"><b>Balance due — ₹2,340.00 outstanding</b>INV/AND/26-27/0587 (CT KUB, 09 Jul 2026) part-paid. Policy: collect balance at next check-in; new appointments may be booked but token issue is held until settled or supervisor waives. <span class="btn small warn-outline">Open invoice</span></div>
+  <div class="banner danger"><b>Report delivery failed — action needed</b>Secure link for ACC-2026-90934 bounced on WhatsApp (+91 98••• ••334 unreachable, 3 attempts, last 21 Jul 18:42). <span class="chip red">OVERDUE 06:12</span> owner: D. Nair · Escalated to Branch Manager K. Verma at 22 Jul 09:00. <span class="btn small danger">Fix delivery (verify contact →)</span></div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="l">Registered</div><div class="n" style="font-size:16px">17 Sep 2025</div><div class="s">walk-in</div></div>
+    <div class="kpi"><div class="l">Last visit</div><div class="n" style="font-size:16px">09 Jul 2026</div><div class="s">VIS-2026-38240 · CT KUB</div></div>
+    <div class="kpi amber"><div class="l">Next appointment</div><div class="n" style="font-size:16px">None</div><div class="s">follow-up USG advised</div></div>
+    <div class="kpi red"><div class="l">Outstanding balance</div><div class="n" style="font-size:16px">₹2,340.00</div><div class="s">1 invoice part-paid</div></div>
+  </div>
+  <div class="card"><div class="card-title">History — items with alerts pinned first</div>
+  <table>
+    <tr><th>Ref</th><th>Type</th><th>Date (IST)</th><th>Detail</th><th>Status</th><th>Actions</th></tr>
+    <tr class="hl"><td class="mono">ACC-2026-90934</td><td>Report</td><td>19 Jul 2026 17:30</td><td>CT KUB — final, signed Dr. A. Rao</td><td><span class="chip red">Delivery failed ×3</span></td><td><span class="btn small danger">Fix delivery</span></td></tr>
+    <tr class="hl"><td class="mono">INV/AND/26-27/0587</td><td>Invoice</td><td>09 Jul 2026 12:04</td><td>CT KUB · ₹4,940.00 · paid ₹2,600.00</td><td><span class="chip amber">Balance ₹2,340.00</span></td><td><span class="btn small">Collect balance</span></td></tr>
+    <tr><td class="mono">VIS-2026-38240</td><td>Visit</td><td>09 Jul 2026 11:20</td><td>CT KUB · ACC-2026-90934</td><td><span class="chip green">Completed</span></td><td><span class="btn small ghost">Visit summary</span></td></tr>
+    <tr><td class="mono">VIS-2026-34009</td><td>Visit</td><td>03 Dec 2025 09:44</td><td>USG KUB · ACC-2026-88102</td><td><span class="chip green">Completed</span></td><td><span class="btn small ghost">Visit summary</span></td></tr>
+  </table></div>
+</div></div></div>
+
+<p class="audit">Every open of a patient record by front-office staff is recorded in the access log with operator ID, timestamp, and stated purpose (e.g. "delivery fix", "billing"). Clinical report bodies are not rendered for this role; Aadhaar is displayed last-4 only. Alert actions (waive hold, re-send link) require reason capture and are recorded in the access log.</p>
+</section>

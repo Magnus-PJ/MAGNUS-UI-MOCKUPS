@@ -1,0 +1,119 @@
+<section class="screen" id="tk-09">
+<div class="screen-head"><h1><span class="sid">TK-09</span> Room &amp; patient prep checklist</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G6 Radiology Technician — workspace 'RIS · Technician'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The technologist opens this checklist after calling the patient into the room and before starting acquisition. Items are rendered per-protocol from the order (OR-06) — a contrast CT shows IV-access and eGFR items, an XR shows only exposure-safety items. Every item must be ticked with initials or a deviation recorded; the <b>Perform study</b> action (TK-05) stays disabled until the checklist is complete, and pregnancy status is re-asked at the point of exposure for XR/CT regardless of registration answers.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · TECHNICIAN</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Today</div>
+    <div class="nav-item">Modality worklist <span class="nav-badge">14</span></div>
+    <div class="nav-item">My queue — CT-01 <span class="nav-badge">5</span></div>
+    <div class="nav-item active">Room &amp; patient prep</div>
+    <div class="nav-item">Perform study</div>
+    <div class="sec-label">Safety &amp; quality</div>
+    <div class="nav-item">Dose registry</div>
+    <div class="nav-item">QC &amp; calibration <span class="nav-badge red">1</span></div>
+    <div class="nav-item">Contrast reactions</div>
+    <div class="sec-label">Shift</div>
+    <div class="nav-item">Daily summary</div>
+  </div>
+  <div class="main">
+    <div class="crumb">RIS · Technician › My queue — CT-01 › ACC-2026-90312 › Prep checklist</div>
+    <div class="page-title">Prep checklist — CT Abdomen &amp; Pelvis with contrast <span class="chip amber">PREP IN PROGRESS</span></div>
+    <div class="page-sub">Rendered from protocol <span class="mono">CT-ABD-PEL-C</span> on order OR-06 · 7 items · started 10:42 IST, 25 Jul 2026 · Room CT-01</div>
+    <div class="banner info"><b>Working offline is supported</b> — actions queue and sync when reconnected.</div>
+    <div class="row">
+      <div class="grow">
+        <div class="card"><div class="card-title">Patient &amp; order <span class="right">verified against APPT-2026-51108</span></div>
+          <div class="kv">
+            <dt>Patient</dt><dd><b>Sofia Rossi</b> · F · 34y · <span class="mono">MRN-004822</span> · token <span class="mono">C-042</span></dd>
+            <dt>Accession</dt><dd><span class="mono">ACC-2026-90312</span> · VIS-2026-31877</dd>
+            <dt>Protocol</dt><dd>CT Abdomen &amp; Pelvis with IV contrast (Iohexol 350, 80 mL planned)</dd>
+            <dt>Referrer</dt><dd>Dr. Meera Nair · clinical note: "recurrent RIF pain, r/o appendicular mass"</dd>
+            <dt>ID check</dt><dd><span class="chip green">2-POINT ID CONFIRMED</span> name + DOB stated by patient · Aadhaar ····6621 (last-4 only)</dd>
+            <dt>SLA</dt><dd><span class="chip teal">due in 1h 20m</span> owner: T. Okafor</dd>
+          </div>
+        </div>
+        <div class="card"><div class="card-title">Checklist — 5 of 7 complete <span class="right">each tick stamps initials + time</span></div>
+          <div class="progress" style="margin-bottom:12px"><i style="width:71%"></i></div>
+          <table>
+            <tr><th style="width:26px"></th><th>Item</th><th>Source rule</th><th>By / at</th><th>Status</th></tr>
+            <tr><td><span class="box on">✓</span></td><td>Fasting ≥ 4h confirmed verbally (last meal 05:30)</td><td class="muted">Contrast CT · protocol</td><td class="mono small">TO · 10:43</td><td><span class="chip green">DONE</span></td></tr>
+            <tr><td><span class="box on">✓</span></td><td>Jewellery, belts &amp; metal objects removed; valuables in locker L-07</td><td class="muted">All CT/XR</td><td class="mono small">TO · 10:44</td><td><span class="chip green">DONE</span></td></tr>
+            <tr><td><span class="box on">✓</span></td><td>Changed into gown; modesty &amp; chaperone offer made</td><td class="muted">All modalities</td><td class="mono small">TO · 10:45</td><td><span class="chip green">DONE</span></td></tr>
+            <tr><td><span class="box on">✓</span></td><td>eGFR sighted: 96 mL/min (22 Jul 2026, within 90 days)</td><td class="muted">IV contrast rule</td><td class="mono small">TO · 10:46</td><td><span class="chip green">DONE</span></td></tr>
+            <tr><td><span class="box on">✓</span></td><td>Contrast consent signed &amp; allergy screen negative (no prior reaction)</td><td class="muted">IV contrast rule</td><td class="mono small">TO · 10:47</td><td><span class="chip green">DONE</span></td></tr>
+            <tr class="hl"><td><span class="box"></span></td><td><b>IV access secured &amp; flushed</b> — 20G, right antecubital</td><td class="muted">IV contrast rule</td><td class="mono small">—</td><td><span class="chip amber">PENDING</span></td></tr>
+            <tr class="hl"><td><span class="box"></span></td><td><b>Pregnancy re-ask at point of exposure</b> — LMP &amp; possibility of pregnancy asked in-room, answer recorded verbatim</td><td class="muted">XR/CT ionising · mandatory, cannot be waived</td><td class="mono small">—</td><td><span class="chip amber">PENDING</span></td></tr>
+          </table>
+          <div class="row" style="margin-top:12px;justify-content:flex-end">
+            <span class="btn">Record deviation…</span>
+            <span class="btn disabled">Mark complete &amp; enable Perform</span>
+          </div>
+          <div class="hint muted small" style="margin-top:6px">Perform study stays locked until all 7 items are ticked or carry a recorded deviation. Pregnancy re-ask can never be recorded as a deviation.</div>
+        </div>
+      </div>
+      <div style="width:280px;flex-shrink:0">
+        <div class="card"><div class="card-title">Room CT-01</div>
+          <div class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Unit</dt><dd>GE Revolution EVO</dd>
+            <dt>QC today</dt><dd><span class="chip green">PASS 07:58</span></dd>
+            <dt>AERB licence</dt><dd class="mono small">AERB/CT/MH/2024-1187 · valid</dd>
+            <dt>Contrast lot</dt><dd class="mono small">IOH-350/26-0714 · exp 03/2027</dd>
+            <dt>Crash cart</dt><dd>Checked 08:05 · sealed</dd>
+          </div>
+        </div>
+        <div class="card"><div class="card-title">Safety prompts</div>
+          <div class="check"><span class="box on">✓</span>Lead shielding available for attendant</div>
+          <div class="check"><span class="box on">✓</span>Emergency call bell demonstrated</div>
+          <div class="check"><span class="box"></span>Warm-flush sensation explained before injection</div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — DEVIATION NOTED (ITEM CANNOT BE MET AS WRITTEN)</div>
+<div class="modal-wrap"><div class="modal">
+  <h3>Record deviation — Fasting ≥ 4h confirmed</h3>
+  <p class="small muted" style="margin-bottom:10px">Deviations are visible on the study record, to the reporting radiologist, and in the QA review queue. They do not unlock ionising-safety items.</p>
+  <div class="field"><label>Deviation type <span class="req">*</span></label>
+    <div class="check"><span class="radio box on"></span>Requirement partially met — proceeding with radiologist awareness</div>
+    <div class="check"><span class="radio box"></span>Requirement not met — hold study, return to scheduling</div>
+    <div class="check"><span class="radio box"></span>Requirement not applicable to this patient</div>
+  </div>
+  <div class="field"><label>Reason <span class="req">*</span></label><div class="textarea">Patient reports tea with milk at 08:10 (2h 35m ago). Dr. V. Shetty consulted by phone at 10:49 — approved to proceed; oral contrast phase unaffected.</div></div>
+  <div class="field"><label>Approving radiologist</label><div class="select">Dr. V. Shetty (RMC MH-44721) — verbal, 10:49 IST</div></div>
+  <div class="check"><span class="box on">✓</span>I confirm this note is accurate. Recorded under my initials <b>TO</b> and cannot be edited after save — corrections require a countersigned addendum.</div>
+  <div class="modal-actions"><span class="btn">Cancel</span><span class="btn warn-outline">Save deviation</span></div>
+</div></div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner warn"><b>1 deviation recorded on ACC-2026-90312</b>Fasting item marked "partially met" — approved verbally by Dr. V. Shetty at 10:49. Flag travels with the study into reporting (RD-02) and the monthly QA sample.</div>
+  <table>
+    <tr><th style="width:26px"></th><th>Item</th><th>By / at</th><th>Status</th></tr>
+    <tr><td><span class="box on" style="background:#F59E0B;border-color:#F59E0B">!</span></td><td>Fasting ≥ 4h confirmed — <b>deviation: tea at 08:10, radiologist-approved</b></td><td class="mono small">TO · 10:50</td><td><span class="chip amber">DEVIATION</span></td></tr>
+    <tr><td><span class="box"></span></td><td>Pregnancy re-ask at point of exposure</td><td class="mono small">—</td><td><span class="chip amber">PENDING</span></td></tr>
+  </table>
+</div></div></div>
+
+<div class="state-tag">STATE C — CHECKLIST COMPLETE → PERFORM ENABLED</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner success"><b>Prep complete — 7/7 items (1 with recorded deviation)</b>Pregnancy re-ask recorded at 10:53: patient states "not pregnant, LMP 11 Jul 2026", answer captured verbatim. Perform study is now unlocked for room CT-01.</div>
+  <div class="stepper">
+    <div class="step done"><span class="dot">✓</span>Checked in</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span>Prep checklist</div><span class="step-line"></span>
+    <div class="step cur"><span class="dot">3</span>Perform study</div><span class="step-line"></span>
+    <div class="step"><span class="dot">4</span>Dose capture</div><span class="step-line"></span>
+    <div class="step"><span class="dot">5</span>Send to reporting</div>
+  </div>
+  <div class="kv" style="max-width:560px">
+    <dt>Completed</dt><dd>10:53 IST by T. Okafor · elapsed 11 min</dd>
+    <dt>Deviations</dt><dd>1 (fasting — radiologist-approved)</dd>
+    <dt>Pregnancy re-ask</dt><dd><span class="chip green">RECORDED 10:53</span> answer stored on the exposure record, not editable</dd>
+  </div>
+  <div style="margin-top:12px"><span class="btn primary">Perform study — CT-01 ▸</span> <span class="btn ghost">Reopen checklist (supervisor step-up required)</span></div>
+</div></div></div>
+
+<p class="audit">Every tick, un-tick, deviation and the verbatim pregnancy re-ask answer on ACC-2026-90312 is timestamped with the technologist's initials and device, and recorded in the access log. Reopening a completed checklist requires supervisor step-up identity confirmation and is itself logged.</p>
+</section>

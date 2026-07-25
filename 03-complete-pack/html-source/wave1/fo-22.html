@@ -1,0 +1,88 @@
+<section class="screen" id="fo-22">
+<div class="screen-head"><h1><span class="sid">FO-22</span> Kiosk self check-in</h1><div class="meta"><span class="chip amber">CONDITIONAL</span><div class="cluster">G3 Front Office &amp; Reception — workspace 'Front Office'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Patients with an appointment check themselves in at a lobby kiosk using phone last-4 + OTP or their appointment reference, and receive a printed queue token. The screen must guarantee zero PHI beyond the patient's first name, large-touch accessible controls with a language toggle, and a hard gate: if any form, consent or payment is pending, the kiosk never states why on screen — it prints a desk slip and routes the patient to reception.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>KIOSK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch · Kiosk-1 (lobby)</span></div><div class="userchip"><span class="av">K1</span>Kiosk mode · staff exit locked ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Language / भाषा</div>
+    <div class="nav-item active">English</div>
+    <div class="nav-item">हिन्दी</div>
+    <div class="nav-item">मराठी</div>
+    <div class="sec-label">Accessibility</div>
+    <div class="nav-item">A&nbsp; Text size: Large</div>
+    <div class="nav-item">◐ High contrast</div>
+    <div class="nav-item">🔊 Read aloud</div>
+    <div class="sec-label">Help</div>
+    <div class="nav-item">🛎 Call reception</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Kiosk-1 · Self check-in · Step 1 of 2</div>
+    <div class="page-title" style="font-size:26px">Welcome. Let's check you in.</div>
+    <div class="page-sub" style="font-size:15px">Use the phone number you booked with, or your appointment reference. Nothing personal is shown on this screen.</div>
+    <div class="stepper">
+      <div class="step cur"><span class="dot">1</span> Find my appointment</div><span class="step-line"></span>
+      <div class="step"><span class="dot">2</span> Get my token</div>
+    </div>
+    <div class="row">
+      <div class="card grow" style="border-width:2px">
+        <div class="card-title" style="font-size:17px">Option A — Phone + OTP</div>
+        <div class="field"><label style="font-size:15px">Last 4 digits of your mobile number</label>
+          <div class="input mono" style="font-size:26px;letter-spacing:.35em;padding:14px;text-align:center;max-width:240px">9 4 1 8</div>
+        </div>
+        <div class="field"><label style="font-size:15px">One-time code sent by SMS</label>
+          <div class="input mono" style="font-size:26px;letter-spacing:.35em;padding:14px;text-align:center;max-width:240px">_ _ _ _ _ _</div>
+          <div class="hint" style="font-size:13px">We sent a 6-digit code to +91 ••••• ••418. It expires in 3 minutes.</div>
+        </div>
+        <span class="btn primary" style="font-size:18px;padding:14px 30px">Continue ▸</span>
+        <span class="btn ghost" style="font-size:15px">Resend code</span>
+      </div>
+      <div class="card grow" style="border-width:2px">
+        <div class="card-title" style="font-size:17px">Option B — Appointment reference</div>
+        <div class="field"><label style="font-size:15px">Reference from your SMS (starts with APPT)</label>
+          <div class="input mono" style="font-size:22px;padding:14px;text-align:center">APPT-2026-5____</div>
+        </div>
+        <span class="btn primary" style="font-size:18px;padding:14px 30px">Find my appointment ▸</span>
+        <div class="muted" style="font-size:13px;margin-top:12px">Prefer the desk? Reception is to your left — walk-ins welcome.</div>
+      </div>
+    </div>
+    <div class="banner info" style="font-size:13px"><b>Your privacy</b>This kiosk shows only your first name — never your full name, number, tests or reports. The screen resets after 45 seconds of inactivity.</div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — TOKEN ISSUED (SUCCESS)</div>
+<div class="frame"><div class="body"><div class="main" style="text-align:center;padding-top:34px">
+  <div class="page-title" style="font-size:30px">You're checked in, Sofia 👋</div>
+  <div class="page-sub" style="font-size:16px">Your token is printing below. Please take a seat in the Ultrasound waiting area.</div>
+  <div class="card" style="max-width:340px;margin:18px auto;border:2px solid #0F766E">
+    <div style="font-size:12px;letter-spacing:.1em;color:#64748B;font-weight:700">YOUR TOKEN</div>
+    <div style="font-size:56px;font-weight:800;color:#0F766E;font-family:Consolas,monospace">U-018</div>
+    <dl class="kv" style="grid-template-columns:130px 1fr;text-align:left;font-size:14px">
+      <dt>Area</dt><dd>Ultrasound · Waiting area B (follow teal floor line)</dd>
+      <dt>Now serving</dt><dd class="mono">U-014</dd>
+      <dt>People ahead</dt><dd>3 · about 25 minutes</dd>
+      <dt>Checked in</dt><dd class="mono">10:42 IST · 25 Jul 2026</dd>
+    </dl>
+  </div>
+  <span class="chip green" style="font-size:13px">🖨 Token slip printed — please collect it below</span>
+  <div class="muted" style="font-size:13px;margin-top:14px">We'll also call your token number on the waiting-area display. This screen clears in 15 seconds.</div>
+  <div style="margin-top:14px"><span class="btn" style="font-size:16px;padding:12px 26px">Done — clear screen now</span></div>
+</div></div></div>
+
+<div class="state-tag">STATE C — GATES PENDING → ROUTE TO DESK (NO REASON DISCLOSED ON SCREEN)</div>
+<div class="frame"><div class="body"><div class="main" style="text-align:center;padding-top:34px">
+  <div class="page-title" style="font-size:28px">Almost there, Priya</div>
+  <div class="banner warn" style="max-width:520px;margin:16px auto;text-align:left;font-size:14px"><b>Please see reception — a form is needed before your visit.</b>Our team at the desk will help you finish in a couple of minutes. A slip with your desk number is printing below.</div>
+  <div class="card" style="max-width:340px;margin:0 auto;border:2px solid #F59E0B">
+    <div style="font-size:12px;letter-spacing:.1em;color:#64748B;font-weight:700">DESK SLIP</div>
+    <div style="font-size:44px;font-weight:800;color:#92400E;font-family:Consolas,monospace">X-008</div>
+    <div style="font-size:14px">Reception desk 2 · to your left<br><span class="muted small">Printed 10:47 IST</span></div>
+  </div>
+  <div class="muted" style="font-size:13px;margin-top:14px;max-width:520px;margin-left:auto;margin-right:auto">For your privacy, this screen never shows what is pending. The desk sees the detail (e.g. a consent form or a payment) on their own screen only.</div>
+  <div style="margin-top:14px"><span class="btn" style="font-size:16px;padding:12px 26px">OK</span></div>
+  <div class="banner info" style="max-width:520px;margin:16px auto;text-align:left;font-size:12.5px"><b>Working offline is supported — actions queue and sync when reconnected.</b>If the kiosk loses network, tokens keep printing from a local sequence and check-ins sync automatically.</div>
+</div></div></div>
+
+<p class="audit">Each kiosk lookup, OTP attempt (success/failure), token issue and route-to-desk event is recorded in the access log against the appointment reference — the kiosk itself stores no personal data and displays first name only.</p>
+</section>
