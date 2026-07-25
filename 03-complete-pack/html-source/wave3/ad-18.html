@@ -1,0 +1,98 @@
+<section class="screen" id="ad-18">
+<div class="screen-head"><h1><span class="sid">AD-18</span> Scheduled jobs monitor</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G12 Admin — workspace 'Admin'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single pane for the system jobs that keep Magnus compliant and consistent — retention evaluation, PC-PNDT submission reminders, licence/expiry alerts, offline-sync reconciliation, backup verification and the SLA sweep. Admins see last-run/next-run/status, drill into failed runs to retry or escalate to the owning team, and may pause a job only with a written reason and risk note.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Administration</div>
+      <div class="nav-item">Admin dashboard</div>
+      <div class="nav-item">Users &amp; roles</div>
+      <div class="nav-item">Branch registry</div>
+      <div class="nav-item">Number series</div>
+      <div class="nav-item">Feature toggles</div>
+      <div class="nav-item active">Scheduled jobs <span class="nav-badge red">1</span></div>
+      <div class="nav-item">Announcements</div>
+      <div class="nav-item">Audit log</div>
+      <div class="sec-label">Compliance</div>
+      <div class="nav-item">Retention policies</div>
+      <div class="nav-item">Licence hub</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Admin › Operations › Scheduled jobs</div>
+      <div class="page-title">Scheduled jobs monitor <span class="actions-right"><span class="btn small">Run history (30d)</span> <span class="btn small">Alert routing</span></span></div>
+      <div class="page-sub">6 system jobs · all times IST · monitor refreshed 25 Jul 2026 11:12 IST</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">4</div><div class="l">Healthy</div><div class="s">last run OK, on schedule</div></div>
+        <div class="kpi red"><div class="n">1</div><div class="l">Failed</div><div class="s">sync reconciliation — retrying</div></div>
+        <div class="kpi amber"><div class="n">1</div><div class="l">Paused</div><div class="s">with reason + risk note</div></div>
+        <div class="kpi"><div class="n">99.2%</div><div class="l">30-day success rate</div><div class="s">417 of 420 runs succeeded</div></div>
+      </div>
+      <div class="banner danger"><b>1 failed run needs attention</b>Sync reconciliation (Kalyan node) failed at 06:00 with 12 unmatched records. Auto-retry 2 of 3 at 12:00. SLA <span class="chip amber">4H — 2h 48m left</span> owner: Platform on-call (R. Menon) · escalated-to: none yet.</div>
+      <div class="card">
+        <div class="card-title">System jobs <span class="right">pause requires reason + risk note</span></div>
+        <table>
+          <tr><th>Job</th><th>Schedule</th><th>Last run</th><th>Duration</th><th>Result</th><th>Next run</th><th>Owner</th><th></th></tr>
+          <tr><td><b>Retention evaluation</b><div class="muted small">Flags records past policy (radiology 10y, billing 8y) for disposition review — never auto-deletes</div></td><td class="mono small">Daily 02:00</td><td class="mono small">25 Jul 02:00</td><td class="small">14m 22s</td><td><span class="chip green">OK</span> <span class="small muted">31 flagged → queue</span></td><td class="mono small">26 Jul 02:00</td><td class="small">DPO Priya Sharma</td><td><span class="btn ghost small">Detail</span></td></tr>
+          <tr><td><b>PNDT submission reminder</b><div class="muted small">Form F monthly filing due by the 5th — reminds Dr. S. Iyer per centre registration</div></td><td class="mono small">Daily 08:00 (1st–5th)</td><td class="mono small">05 Jul 08:00</td><td class="small">0m 41s</td><td><span class="chip green">OK</span> <span class="small muted">Jun filing confirmed all 4 centres</span></td><td class="mono small">01 Aug 08:00</td><td class="small">Compliance desk</td><td><span class="btn ghost small">Detail</span></td></tr>
+          <tr><td><b>Expiry alerts</b><div class="muted small">AERB equipment licences, PNDT registrations, staff registrations (e.g. RMC MH-44721), DLT templates</div></td><td class="mono small">Daily 07:00</td><td class="mono small">25 Jul 07:00</td><td class="small">2m 05s</td><td><span class="chip green">OK</span> <span class="small muted">3 alerts: AERB CT-AND due 30 Sep</span></td><td class="mono small">26 Jul 07:00</td><td class="small">Compliance desk</td><td><span class="btn ghost small">Detail</span></td></tr>
+          <tr class="hl"><td><b>Sync reconciliation</b><div class="muted small">Matches offline branch-node transactions against central ledger</div></td><td class="mono small">Every 6h</td><td class="mono small">25 Jul 06:00</td><td class="small">8m 10s → abort</td><td><span class="chip red">FAILED</span> <span class="small muted">12 unmatched (KLY)</span></td><td class="mono small">Retry 12:00</td><td class="small">Platform on-call</td><td><span class="btn ghost small">Detail</span></td></tr>
+          <tr><td><b>Backup verification</b><div class="muted small">Restores random sample from nightly backup to isolated env; checks hashes</div></td><td class="mono small">Daily 03:30</td><td class="mono small">25 Jul 03:30</td><td class="small">26m 48s</td><td><span class="chip green">OK</span> <span class="small muted">sample 512 objects, 0 mismatches</span></td><td class="mono small">26 Jul 03:30</td><td class="small">Platform team</td><td><span class="btn ghost small">Detail</span></td></tr>
+          <tr><td><b>SLA sweep</b><div class="muted small">Recomputes SLA clocks (DPDP rights 30d, report TAT, grievances) and fires escalations</div></td><td class="mono small">Hourly :15</td><td class="mono small">25 Jul 11:15</td><td class="small">1m 12s</td><td><span class="chip green">OK</span> <span class="small muted">2 escalations fired (GRV-2026-0139, DPDP-CR-00612)</span></td><td class="mono small">25 Jul 12:15</td><td class="small">Ops manager</td><td><span class="btn ghost small">Detail</span></td></tr>
+        </table>
+      </div>
+      <div class="banner info"><b>Safety rails</b>Jobs touching patient data run under a service identity with least privilege; retention evaluation only flags — human disposition review with four-eyes is mandatory before any destruction. All job reads of patient records appear in the audit log (AD-20).</div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE B — FAILED RUN DETAIL: SYNC RECONCILIATION (KALYAN)</div>
+<div class="card">
+  <div class="card-title">Run detail — Sync reconciliation · 25 Jul 2026 06:00 IST <span class="chip red">FAILED</span> <span class="right">run id JOB-SYNC-26-2841</span></div>
+  <div class="split">
+    <div>
+      <div class="kv">
+        <dt>Failure point</dt><dd>Step 3 of 5 — ledger match (Kalyan node KLY-EDGE-01)</dd>
+        <dt>Error</dt><dd class="mono">RECON_MISMATCH: 12 transactions present on node, absent in central ledger (window 24 Jul 22:10–23:55 IST)</dd>
+        <dt>Probable cause</dt><dd>KLY uplink outage 22:05–23:58 on 24 Jul (network ticket NW-4471); queue flush incomplete</dd>
+        <dt>Impact</dt><dd>12 receipts (₹41,280 total) not yet posted centrally — includes RCP/KLY/26-27/03118 (patient Rajesh Gupta, MRN-004795, name shown after reason capture). No data lost; held in node journal.</dd>
+        <dt>Auto-retry</dt><dd>1 of 3 attempted 09:00 (failed, uplink still degraded) · attempt 2 at 12:00 · attempt 3 at 18:00 then hard-fail</dd>
+        <dt>SLA</dt><dd><span class="chip amber">RESOLVE IN 4H — 2h 48m left</span> owner: R. Menon (Platform on-call) · escalated-to: Platform lead at breach; CFO notified if fiscal docs &gt;24h unposted</dd>
+      </div>
+      <div style="margin-top:12px;display:flex;gap:10px"><span class="btn primary">Retry now</span><span class="btn warn-outline">Escalate to Platform lead</span><span class="btn">Download run log</span></div>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:10px">
+        <div class="card-title">Run timeline</div>
+        <div class="timeline">
+          <div class="ev"><span class="t">06:00:00</span><span>Run started (scheduler)</span></div>
+          <div class="ev"><span class="t">06:00:14</span><span>Step 1 node inventory — OK (4 nodes)</span></div>
+          <div class="ev"><span class="t">06:02:31</span><span>Step 2 pull journals — OK (2,208 txns)</span></div>
+          <div class="ev"><span class="t">06:07:52</span><span>Step 3 ledger match — <b style="color:#B91C1C">12 unmatched (KLY)</b></span></div>
+          <div class="ev"><span class="t">06:08:10</span><span>Abort; alert to on-call; incident INC-2026-0233 opened</span></div>
+          <div class="ev"><span class="t">09:00:00</span><span>Auto-retry 1 — failed (uplink degraded)</span></div>
+        </div>
+      </div>
+      <div class="banner warn" style="margin:0"><b>No-gap note</b>The 12 receipts already hold committed RCP numbers on the node — the gap-free chain is intact; only central posting is delayed.</div>
+    </div>
+  </div>
+</div>
+<p class="audit">Run detail viewed by K. Verma · 25 Jul 2026 11:14 IST · patient identifiers in failure samples stay masked until an access reason is captured — view and reason recorded in the access log.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — PAUSE JOB (AMBER): REASON + RISK NOTE REQUIRED</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:600px;border-top-color:#F59E0B">
+    <h3>Pause job — Expiry alerts</h3>
+    <div class="banner warn"><b>Pausing suppresses compliance alerts</b>While paused, no AERB licence, PNDT registration or DLT template expiry warnings will fire. Maximum pause: 72h, then auto-resume. Pause is visible on the admin dashboard the whole time.</div>
+    <div class="field"><label>Reason for pause <span class="req">*</span></label><textarea class="textarea">Licence hub migration window 26 Jul 01:00–03:00 IST; alerts would fire against half-migrated records and create false expiries.</textarea></div>
+    <div class="field"><label>Risk note — what could be missed &amp; mitigation <span class="req">*</span></label><textarea class="textarea">Risk: a real expiry alert (next known: AERB CT-AND due 30 Sep) could be delayed up to 72h. Mitigation: compliance desk runs manual expiry checklist on 26 Jul; auto-resume set for 26 Jul 06:00.</textarea></div>
+    <div class="field"><label>Auto-resume at <span class="req">*</span></label><input class="input mono" value="26 Jul 2026 06:00 IST" style="max-width:240px"></div>
+    <div class="banner info" style="margin-bottom:0"><b>Step-up confirmation</b>Pausing a compliance job requires re-entering your Magnus password. Retention evaluation and SLA sweep additionally require a second approver (four-eyes) to pause.</div>
+    <div class="field" style="margin-top:10px"><label>Confirm identity — password <span class="req">*</span></label><input class="input" value="••••••••••" style="max-width:240px"></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn warn-outline">Pause until 26 Jul 06:00</span></div>
+  </div>
+</div>
+<div class="banner warn" style="max-width:760px"><b>Paused</b>Expiry alerts <span class="chip amber">PAUSED · auto-resume 26 Jul 06:00 IST</span> by K. Verma · reason and risk note attached · compliance desk notified.</div>
+<p class="audit">Pause action, reason, risk note, step-up verification result and auto-resume timer are all recorded in the access log.</p>
+</section>

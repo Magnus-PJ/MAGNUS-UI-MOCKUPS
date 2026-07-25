@@ -1,0 +1,122 @@
+<section class="screen" id="gv-11">
+<div class="screen-head"><h1><span class="sid">GV-11</span> Consent registry &amp; analytics</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G14 Governance &amp; Compliance — workspace 'Governance'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Org-wide view of consent state by purpose (granted / declined / withdrawn with trend), notice-version adoption, and a per-patient lookup that stays masked until a documented reason is supplied. Withdrawals are traceable end-to-end: every suppression the withdrawal created (SMS, WhatsApp, teleradiology routing) is listed as an audit trail. Exports are aggregate-only by design.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>GOVERNANCE</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Privacy</div>
+    <div class="nav-item">Privacy notices</div>
+    <div class="nav-item active">Consent registry</div>
+    <div class="nav-item">Rights requests <span class="nav-badge">4</span></div>
+    <div class="sec-label">Risk &amp; vendors</div>
+    <div class="nav-item">DPIA-lite register</div>
+    <div class="nav-item">Processor register</div>
+    <div class="nav-item">Data residency</div>
+    <div class="sec-label">Oversight</div>
+    <div class="nav-item">Compliance calendar <span class="nav-badge red">2</span></div>
+    <div class="nav-item">Incidents</div>
+    <div class="nav-item">Access log</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Governance › Privacy › Consent registry</div>
+    <div class="page-title">Consent registry — analytics <span class="actions-right"><span class="btn small">Patient lookup</span> <span class="btn primary small">Export (aggregate-only)</span></span></div>
+    <div class="page-sub">All branches · as of 25 Jul 2026 08:30 IST · purposes as defined in Patient privacy notice v3</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">48,912</div><div class="l">Patients with consent record</div><div class="s">100% of registered base</div></div>
+      <div class="kpi"><div class="n">96.1%</div><div class="l">Care purposes granted</div><div class="s">Diagnostics + report sharing</div></div>
+      <div class="kpi amber"><div class="n">312</div><div class="l">Withdrawals (30 days)</div><div class="s">▲ 14% vs prior 30 days</div></div>
+      <div class="kpi"><div class="n">92.4%</div><div class="l">Notice v3 adoption</div><div class="s">Active patients acknowledged</div></div>
+    </div>
+    <div class="card"><div class="card-title">Consent state by purpose <span class="right">Counts · 30-day trend</span></div>
+      <table>
+        <tr><th>Purpose (notice §4)</th><th>Legal basis</th><th>Granted</th><th>Declined</th><th>Withdrawn</th><th>30-day trend</th><th>Notes</th></tr>
+        <tr><td><b>Diagnostic service delivery</b></td><td>Consent + legal obligation</td><td>48,893</td><td>0</td><td>19</td><td><span class="chip green">STABLE</span></td><td>Withdrawal triggers record-closure workflow</td></tr>
+        <tr><td>Report sharing with referrer</td><td>Consent</td><td>47,020</td><td>1,544</td><td>348</td><td><span class="chip green">STABLE</span></td><td>Decline blocks referrer portal access per patient</td></tr>
+        <tr><td>SMS reminders (DLT)</td><td>Consent</td><td>41,207</td><td>6,110</td><td>1,595</td><td><span class="chip amber">▲ WITHDRAWALS</span></td><td>212 of 312 recent withdrawals are SMS</td></tr>
+        <tr><td>WhatsApp report delivery (BSP)</td><td>Consent</td><td>28,764</td><td>17,433</td><td>2,715</td><td><span class="chip grey">FLAT</span></td><td>Opt-in only at registration</td></tr>
+        <tr><td>Health-camp follow-up contact</td><td>Consent</td><td>3,904</td><td>2,215</td><td>140</td><td><span class="chip grey">FLAT</span></td><td>Camp notice v1 cohort only</td></tr>
+        <tr class="hl"><td>Teleradiology second reads <span class="chip blue">NEW · v4</span></td><td>Consent</td><td>0</td><td>0</td><td>0</td><td><span class="chip grey">PENDING</span></td><td>Activates per patient on notice v4 ack (GV-10)</td></tr>
+      </table>
+    </div>
+    <div class="row">
+      <div class="grow card"><div class="card-title">Notice-version adoption <span class="right">Active patients</span></div>
+        <table>
+          <tr><th>Notice version</th><th>Acknowledged</th><th>Share</th><th></th></tr>
+          <tr><td>Patient notice v3 (active)</td><td>38,148</td><td>92.4%</td><td><div class="progress"><i style="width:92%"></i></div></td></tr>
+          <tr><td>Patient notice v2 (superseded)</td><td>2,731</td><td>6.6%</td><td><div class="progress amber"><i style="width:7%"></i></div></td></tr>
+          <tr><td>v1 / pre-registry</td><td>407</td><td>1.0%</td><td><div class="progress red"><i style="width:1%"></i></div></td></tr>
+        </table>
+        <p class="small muted" style="margin-top:8px">Patients on superseded versions are prompted to re-acknowledge at next visit; no service denial for care purposes.</p>
+      </div>
+      <div style="width:320px" class="card"><div class="card-title">Export policy</div>
+        <div class="banner info" style="margin-bottom:0"><b>Aggregate-only export.</b> Registry exports contain counts, purposes and version stats only — never patient identifiers. Per-patient consent evidence is exported solely via a rights request (DPDP-CR) or legal-hold workflow, each with its own approval trail.</div>
+      </div>
+    </div>
+  </div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PER-PATIENT LOOKUP · masked until reason supplied</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Governance › Privacy › Consent registry › Patient lookup</div>
+  <div class="page-title">Patient consent lookup</div>
+  <div class="page-sub">Identity fields stay masked until you record a lookup reason. Every unmask is written to the access log with your name and reason.</div>
+  <div class="modal-wrap"><div class="modal">
+    <h3>Reason required to unmask — MRN-004822</h3>
+    <p class="small" style="margin-bottom:10px">Record: <b>S••••a R•••i</b> · MRN-004822 · phone +91 ••••• ••382 · Aadhaar ••••-••••-4417</p>
+    <div class="field"><label>Reason for access <span class="req">*</span></label>
+      <select class="select"><option>DPDP rights request verification (DPDP-CR-00291)</option></select></div>
+    <div class="field"><label>Reference no.</label><input class="input mono" value="DPDP-CR-00291"></div>
+    <p class="small muted">Access will be visible to the patient in their disclosure log and reviewed weekly by Dr. A. Rao (Privacy Officer).</p>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Unmask &amp; log access</span></div>
+  </div></div>
+  <div class="card"><div class="card-title">Consent record — Sofia Rossi · MRN-004822 <span class="right">Unmasked · reason logged 25 Jul 2026 10:42 IST</span></div>
+    <table>
+      <tr><th>Purpose</th><th>State</th><th>Captured</th><th>Channel</th><th>Notice version</th><th>Evidence</th></tr>
+      <tr><td>Diagnostic service delivery</td><td><span class="chip green">GRANTED</span></td><td>04 Mar 2026 · D. Nair</td><td>Front desk, signature pad</td><td class="mono">v3-EN</td><td><span class="btn ghost small">View signed form</span></td></tr>
+      <tr><td>Report sharing with referrer (Dr. Meera Nair)</td><td><span class="chip green">GRANTED</span></td><td>04 Mar 2026 · D. Nair</td><td>Front desk</td><td class="mono">v3-EN</td><td><span class="btn ghost small">View signed form</span></td></tr>
+      <tr class="hl"><td>SMS reminders (DLT)</td><td><span class="chip red">WITHDRAWN</span></td><td>18 Jul 2026 · patient portal</td><td>Self-service</td><td class="mono">v3-EN</td><td><span class="btn ghost small">Withdrawal trace</span></td></tr>
+      <tr><td>WhatsApp report delivery</td><td><span class="chip grey">DECLINED</span></td><td>04 Mar 2026 · D. Nair</td><td>Front desk</td><td class="mono">v3-EN</td><td>—</td></tr>
+      <tr><td>Teleradiology second reads</td><td><span class="chip grey">NOT YET OFFERED</span></td><td class="muted">awaits notice v4 ack</td><td>—</td><td class="mono">v4</td><td>—</td></tr>
+    </table>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — WITHDRAWAL TRACE · suppressions created, end-to-end audit</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Governance › Privacy › Consent registry › MRN-004822 › Withdrawal trace</div>
+  <div class="page-title">Withdrawal-effect audit — SMS reminders</div>
+  <div class="page-sub">Sofia Rossi · MRN-004822 · withdrawn 18 Jul 2026 21:17 IST via patient portal · effect propagation completed in 41 seconds</div>
+  <div class="banner success"><b>Withdrawal fully propagated.</b> 4 suppressions created, 1 queued message cancelled, 0 failures. DPDP requires withdrawal to be as easy as consent — this trace is the evidence.</div>
+  <div class="card"><div class="card-title">Suppressions &amp; downstream effects <span class="right">Immutable trace · WD-2026-00877</span></div>
+    <div class="timeline">
+      <div class="ev"><span class="t">21:17:03</span><span><b>Withdrawal recorded</b> — purpose "SMS reminders (DLT)", channel patient portal, notice v3-EN. Consent registry row flipped GRANTED → WITHDRAWN.</span></div>
+      <div class="ev"><span class="t">21:17:09</span><span><b>Suppression created</b> — Engage SMS queue: number +91 ••••• ••382 added to purpose-level suppression list <span class="mono">SUP-SMS-004822</span>.</span></div>
+      <div class="ev"><span class="t">21:17:11</span><span><b>Queued message cancelled</b> — appointment reminder (DLT template DLT-0932) scheduled 19 Jul 07:00 IST, cancelled before dispatch.</span></div>
+      <div class="ev"><span class="t">21:17:24</span><span><b>Processor notified</b> — DLT SMS provider (Trellis Telecom Ltd) suppression sync acknowledged, ref <span class="mono">TRL-ACK-99213</span>.</span></div>
+      <div class="ev"><span class="t">21:17:44</span><span><b>Confirmation sent</b> — one final transactional SMS confirming opt-out (permitted service message), then channel closed.</span></div>
+      <div class="ev"><span class="t">21:18:00</span><span><b>Trace sealed</b> — WD-2026-00877 hash-chained into the audit log; visible to patient in their disclosure log.</span></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="grow card"><div class="card-title">What remains unaffected</div>
+      <table>
+        <tr><th>Purpose</th><th>State</th><th>Why</th></tr>
+        <tr><td>Diagnostic service delivery</td><td><span class="chip green">GRANTED</span></td><td>Withdrawal is purpose-scoped; care continues</td></tr>
+        <tr><td>Critical-result phone calls</td><td><span class="chip blue">ALWAYS ON</span></td><td>Patient-safety communication, not marketing/reminder</td></tr>
+        <tr><td>Billing records</td><td><span class="chip grey">RETAINED 8Y</span></td><td>GST legal obligation overrides erasure for this class</td></tr>
+      </table>
+    </div>
+    <div style="width:300px" class="card"><div class="card-title">Trace summary</div>
+      <dl class="kv" style="grid-template-columns:120px 1fr">
+        <dt>Trace ID</dt><dd class="mono">WD-2026-00877</dd>
+        <dt>Suppressions</dt><dd>4 created · 0 failed</dd>
+        <dt>Propagation</dt><dd>41 s (SLA ≤ 24 h) <span class="chip teal">WITHIN SLA</span></dd>
+        <dt>Owner</dt><dd>Dr. A. Rao (PO)</dd>
+        <dt>Escalated to</dt><dd>— (none needed)</dd>
+      </dl>
+    </div>
+  </div>
+</div></div></div>
+<p class="audit">Aggregate views are logged by user and time; every per-patient unmask requires a recorded reason and reference; withdrawal traces are hash-chained and immutable — all recorded in the access log.</p>
+</section>

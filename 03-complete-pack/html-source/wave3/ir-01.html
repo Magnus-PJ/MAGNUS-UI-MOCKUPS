@@ -1,0 +1,119 @@
+<section class="screen" id="ir-01">
+<div class="screen-head"><h1><span class="sid">IR-01</span> Form F register</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The Form F register is the single source of truth for every PC-PNDT Form F generated at a centre — one record per prenatal ultrasound procedure, tamper-evident from the moment of capture. Compliance staff filter by month, resolve needs-attention items inline (missing signature, missing indication) before the monthly filing cutoff, and bulk-open records for review. Records feed IR-02 monthly submission prep; the filing month is determined by <b>scan date</b>, not entry date.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West (PNDT Regn MH/AND/PNDT/0142)</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">PC-PNDT</div>
+    <div class="nav-item active">Form F register <span class="nav-badge red">3</span></div>
+    <div class="nav-item">Monthly submission</div>
+    <div class="nav-item">Submissions &amp; acks</div>
+    <div class="nav-item">Corrections</div>
+    <div class="sec-label">AERB</div>
+    <div class="nav-item">Equipment licences</div>
+    <div class="nav-item">Dose registry</div>
+    <div class="sec-label">Governance</div>
+    <div class="nav-item">Registrations</div>
+    <div class="nav-item">Audit trail</div>
+  </div>
+  <div class="main"><div class="crumb">Regulatory › PC-PNDT › Form F register</div>
+  <div class="page-title">Form F register — July 2026 <span class="actions-right"><span class="btn small">Bulk-open selected (2)</span> <span class="btn small">Export register (PDF)</span> <span class="btn primary small">+ New Form F</span></span></div>
+  <div class="page-sub">Filing month is derived from <b>scan date (IST)</b>. Records lock on submission; changes after ack require a correction record (IR-04). Patient names masked per DPDP purpose limitation — full identity visible only inside the record with a logged reason.</div>
+  <div class="banner warn"><b>Monthly filing due Wed 05 Aug 2026 — 11 days remaining.</b> 3 records need attention before July can be marked submission-ready. SLA owner: K. Verma · Escalates to Dr. A. Rao (Privacy Officer) if open on 03 Aug.</div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">42</div><div class="l">Form F — July 2026</div><div class="s">scan-date basis, this centre</div></div>
+    <div class="kpi"><div class="n">37</div><div class="l">Ready</div><div class="s">all validations passed</div></div>
+    <div class="kpi amber"><div class="n">3</div><div class="l">Needs attention</div><div class="s">signature / indication gaps</div></div>
+    <div class="kpi"><div class="n">2</div><div class="l">Draft</div><div class="s">procedure not yet finalised</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Register <span class="right">Filters applied: Month = Jul 2026 · Status = All</span></div>
+    <div class="row" style="margin-bottom:10px">
+      <div class="grow"><input class="input" value="🔎 Search FF ref / MRN (names not searchable in register view)"></div>
+      <div style="width:150px"><select class="select"><option>Month: Jul 2026</option></select></div>
+      <div style="width:170px"><select class="select"><option>Status: All (42)</option></select></div>
+      <div style="width:180px"><select class="select"><option>Doctor: All PNDT-registered</option></select></div>
+    </div>
+    <table>
+      <tr><th style="width:26px"><span class="box on">✓</span></th><th>FF Ref</th><th>Patient (masked)</th><th>Procedure</th><th>Scan date (IST)</th><th>PNDT doctor</th><th>Status</th><th>Integrity</th><th></th></tr>
+      <tr><td><span class="box on">✓</span></td><td class="mono">FF-2026-01847</td><td>S••••a R•••i · MRN-004822</td><td>USG Obstetric — Level II anomaly</td><td class="mono">24-Jul 10:42</td><td>Dr. S. Iyer</td><td><span class="chip green">READY</span></td><td><span class="chip teal">🔏 SEALED · SHA-256</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr class="hl"><td><span class="box on">✓</span></td><td class="mono">FF-2026-01843</td><td>A••••a R•o · MRN-004819</td><td>USG Obstetric — NT/NB scan</td><td class="mono">23-Jul 09:15</td><td>Dr. S. Iyer</td><td><span class="chip amber">NEEDS ATTENTION</span><div class="small" style="color:#92400E">⚠ Patient signature missing on declaration (Sec 4(3))</div></td><td><span class="chip teal">🔏 SEALED · SHA-256</span></td><td><span class="btn ghost small">Fix</span></td></tr>
+      <tr class="hl"><td><span class="box">&nbsp;</span></td><td class="mono">FF-2026-01839</td><td>M•••• P••••r · MRN-004761</td><td>USG Obstetric — dating scan</td><td class="mono">21-Jul 16:05</td><td>Dr. V. Shetty</td><td><span class="chip amber">NEEDS ATTENTION</span><div class="small" style="color:#92400E">⚠ Medical indication field blank (col. 9)</div></td><td><span class="chip teal">🔏 SEALED · SHA-256</span></td><td><span class="btn ghost small">Fix</span></td></tr>
+      <tr class="hl"><td><span class="box">&nbsp;</span></td><td class="mono">FF-2026-01835</td><td>K••••a S••h · MRN-004744</td><td>USG Obstetric — growth scan</td><td class="mono">20-Jul 11:30</td><td>Dr. S. Iyer</td><td><span class="chip amber">NEEDS ATTENTION</span><div class="small" style="color:#92400E">⚠ Referring doctor name/regn missing (col. 6)</div></td><td><span class="chip teal">🔏 SEALED · SHA-256</span></td><td><span class="btn ghost small">Fix</span></td></tr>
+      <tr><td><span class="box">&nbsp;</span></td><td class="mono">FF-2026-01831</td><td>P••••i D••••e · MRN-004702</td><td>USG Obstetric — anomaly scan</td><td class="mono">17-Jul 14:20</td><td>Dr. S. Iyer</td><td><span class="chip green">READY</span></td><td><span class="chip teal">🔏 SEALED · SHA-256</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr><td><span class="box">&nbsp;</span></td><td class="mono">FF-2026-01828</td><td>N••••a K••••r · MRN-004688</td><td>USG Obstetric — dating scan</td><td class="mono">15-Jul 09:55</td><td>Dr. V. Shetty</td><td><span class="chip grey">DRAFT</span><div class="small muted">procedure report unsigned</div></td><td><span class="chip grey">PENDING SEAL</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr><td><span class="box">&nbsp;</span></td><td class="mono">FF-2026-01822</td><td>R••••a M••••a · MRN-004651</td><td>USG Obstetric — Level II anomaly</td><td class="mono">11-Jul 12:40</td><td>Dr. S. Iyer</td><td><span class="chip green">READY</span></td><td><span class="chip teal">🔏 SEALED · SHA-256</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr class="dim"><td><span class="box">&nbsp;</span></td><td class="mono">FF-2026-01795</td><td>S••••a J••••i · MRN-004597</td><td>USG Obstetric — NT/NB scan</td><td class="mono">30-Jun 10:10</td><td>Dr. S. Iyer</td><td><span class="chip blue">SUBMITTED</span><div class="small muted">June batch · ack MH/AA/2026/0713</div></td><td><span class="chip teal">🔏 SEALED · LOCKED</span></td><td><span class="btn ghost small">View</span></td></tr>
+    </table>
+    <div class="small muted" style="margin-top:8px">Showing 8 of 42 · Tamper-evident chain: each record hash includes the previous record's hash; verification runs nightly and before every submission build. Last chain verify: 25-Jul 02:00 IST — <span class="chip green">CHAIN OK</span></div>
+  </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — NEEDS-ATTENTION FOCUS (FILTER APPLIED, INLINE FIX PANEL)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+  <div class="crumb">Regulatory › PC-PNDT › Form F register › Needs attention</div>
+  <div class="page-title">Needs attention — 3 records (July 2026)</div>
+  <div class="page-sub">Each reason maps to a Form F column. Fixes are captured as versioned amendments before submission; after submission, use a correction record instead.</div>
+  <div class="card">
+    <div class="card-title">FF-2026-01843 · A••••a R•o · MRN-004819 <span class="chip amber">NEEDS ATTENTION</span></div>
+    <div class="split">
+      <div>
+        <dl class="kv">
+          <dt>Reason</dt><dd>Patient signature missing on declaration (Form F, Sec 4(3) undertaking)</dd>
+          <dt>Scan date</dt><dd>23-Jul-2026 09:15 IST · USG Obstetric — NT/NB scan</dd>
+          <dt>PNDT doctor</dt><dd>Dr. S. Iyer · MH/PNDT/2019/4471 <span class="chip green">VALID to 31-Mar-2027</span></dd>
+          <dt>Fix path</dt><dd>Patient revisit signature OR upload signed paper declaration scanned at front desk (D. Nair)</dd>
+          <dt>Owner · SLA</dt><dd>D. Nair (front office) · <span class="chip amber">DUE 30-Jul</span> · escalates to K. Verma, then Dr. A. Rao</dd>
+        </dl>
+        <div style="margin-top:10px"><span class="btn primary small">Upload signed declaration</span> <span class="btn small">Request patient revisit (SMS via DLT template MERI-FF-REVISIT-04)</span></div>
+      </div>
+      <div>
+        <div class="sig-box">Patient declaration — signature pending</div>
+        <div class="small muted" style="margin-top:6px">Uploads are hash-stamped and appended to the sealed record as amendment v2; original v1 is retained unmodified (tamper-evident).</div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Remaining items</div>
+    <table>
+      <tr><th>FF Ref</th><th>Reason (Form F column)</th><th>Fix owner</th><th>SLA</th><th>Action</th></tr>
+      <tr><td class="mono">FF-2026-01839</td><td>Medical indication blank (col. 9)</td><td>Dr. V. Shetty</td><td><span class="chip amber">DUE 29-Jul</span></td><td><span class="btn ghost small">Send to doctor worklist</span></td></tr>
+      <tr><td class="mono">FF-2026-01835</td><td>Referring doctor name/regn missing (col. 6) — referrer: Dr. Meera Nair</td><td>D. Nair</td><td><span class="chip red">OVERDUE 2d</span> · escalated to K. Verma</td><td><span class="btn ghost small">Fill from referrer directory</span></td></tr>
+    </table>
+  </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — MONTH COMPLETE (JUNE 2026, SUBMITTED &amp; LOCKED)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+  <div class="crumb">Regulatory › PC-PNDT › Form F register › June 2026</div>
+  <div class="page-title">Form F register — June 2026 <span class="chip blue" style="vertical-align:middle">MONTH SUBMITTED</span></div>
+  <div class="banner success"><b>June 2026 filed on time.</b> 39 records submitted 03-Jul-2026 by K. Verma (identity confirmed) · Acknowledgement MH/AA/2026/0713 dated 04-Jul-2026 captured in IR-03. Register for this month is immutable; discrepancies must go through a correction record (IR-04).</div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">39</div><div class="l">Records filed</div><div class="s">scan dates 01–30 Jun</div></div>
+    <div class="kpi"><div class="n">0</div><div class="l">Open issues</div><div class="s">all validations passed pre-filing</div></div>
+    <div class="kpi"><div class="n">1</div><div class="l">Corrections since</div><div class="s">FF-2026-01722 · queued for Aug batch</div></div>
+  </div>
+  <div class="card">
+    <table>
+      <tr><th>FF Ref</th><th>Patient (masked)</th><th>Procedure</th><th>Scan date</th><th>PNDT doctor</th><th>Status</th><th>Integrity</th></tr>
+      <tr class="dim"><td class="mono">FF-2026-01795</td><td>S••••a J••••i · MRN-004597</td><td>USG Obstetric — NT/NB</td><td class="mono">30-Jun</td><td>Dr. S. Iyer</td><td><span class="chip blue">SUBMITTED</span></td><td><span class="chip teal">🔏 LOCKED</span></td></tr>
+      <tr class="dim"><td class="mono">FF-2026-01788</td><td>M••••a K••••i · MRN-004573</td><td>USG Obstetric — anomaly</td><td class="mono">27-Jun</td><td>Dr. S. Iyer</td><td><span class="chip blue">SUBMITTED</span></td><td><span class="chip teal">🔏 LOCKED</span></td></tr>
+      <tr><td class="mono">FF-2026-01722</td><td>R••••i T••••e · MRN-004489</td><td>USG Obstetric — dating</td><td class="mono">09-Jun</td><td>Dr. V. Shetty</td><td><span class="chip violet">CORRECTION PENDING</span><div class="small muted">gestational age typo · IR-04 ref COR-2026-0031</div></td><td><span class="chip teal">🔏 LOCKED</span></td></tr>
+      <tr class="dim"><td class="mono">FF-2026-01718</td><td>P••••a S••••e · MRN-004462</td><td>USG Obstetric — growth</td><td class="mono">07-Jun</td><td>Dr. S. Iyer</td><td><span class="chip blue">SUBMITTED</span></td><td><span class="chip teal">🔏 LOCKED</span></td></tr>
+      <tr class="dim"><td class="mono">FF-2026-01709</td><td>A••••a M••••n · MRN-004430</td><td>USG Obstetric — NT/NB</td><td class="mono">03-Jun</td><td>Dr. S. Iyer</td><td><span class="chip blue">SUBMITTED</span></td><td><span class="chip teal">🔏 LOCKED</span></td></tr>
+    </table>
+    <div class="small muted" style="margin-top:8px">Retention: Form F records retained 10 years per radiology record policy; disposal only via governed retention workflow with four-eyes approval.</div>
+  </div>
+  </div></div>
+</div>
+
+<p class="audit">Every register view, filter, bulk-open, record open and amendment upload is written to the immutable audit trail with actor, branch, purpose and record hash; unmasking a patient name inside a Form F requires a logged reason and is recorded in the access log.</p>
+</section>

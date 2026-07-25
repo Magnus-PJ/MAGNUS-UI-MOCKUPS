@@ -1,0 +1,93 @@
+<section class="screen" id="gr-02">
+<div class="screen-head"><h1><span class="sid">GR-02</span> Log a Concern Wizard</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G14 + G11 — workspaces 'Governance' / 'Grievance'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Channel-agnostic intake for complaints: front desk logs on a patient's behalf, patients use their own link, or anyone can file anonymously (with a clear note on what anonymity limits). The category picker drives routing — privacy items auto-hand off to Governance, clinical concerns raise the care-safety flag — and the wizard nudges reporters not to paste unnecessary PHI. Every submission gets a GRV reference and a tracking explanation.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>GRIEVANCE</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Grievance</div>
+    <div class="nav-item">Queue <span class="nav-badge red">2</span></div>
+    <div class="nav-item active">Log a concern</div>
+    <div class="nav-item">My assignments <span class="nav-badge">2</span></div>
+    <div class="nav-item">Care-safety board</div>
+    <div class="nav-item">Closed &amp; outcomes</div>
+    <div class="sec-label">Governance handoffs</div>
+    <div class="nav-item">Privacy cases → GV</div>
+    <div class="sec-label">Reference</div>
+    <div class="nav-item">SLA policy</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Grievance › Log a concern › Step 2 of 4</div>
+    <div class="page-title">Log a concern — front desk, on behalf of patient</div>
+    <div class="page-sub">Same wizard for all channels; the intake channel is recorded for reporting, never to gate severity.</div>
+    <div class="stepper">
+      <div class="step done"><span class="dot">✓</span> Who is raising this</div><span class="step-line"></span>
+      <div class="step cur"><span class="dot">2</span> Category &amp; severity</div><span class="step-line"></span>
+      <div class="step"><span class="dot">3</span> Description</div><span class="step-line"></span>
+      <div class="step"><span class="dot">4</span> Review &amp; reference</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Step 1 recap — raiser <span class="right">Channel: front desk</span></div>
+      <div class="kv">
+        <dt>Raised by</dt><dd>D. Nair (front office) <b>on behalf of</b> Mohammed Al-Rashid · <span class="mono">MRN-004790</span></dd>
+        <dt>Consent to log</dt><dd><span class="chip green">Patient present · verbal consent noted</span></dd>
+        <dt>Preferred contact</dt><dd>SMS to registered mobile (DLT-registered template) · ******7841</dd>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Step 2 — category picker <span class="right">Drives routing</span></div>
+      <div class="row">
+        <div class="grow">
+          <div class="check"><span class="box radio">&nbsp;</span><span><b>Service</b> — waiting time, staff behaviour, facilities. <span class="muted">Handled by branch grievance owner.</span></span></div>
+          <div class="check"><span class="box radio">&nbsp;</span><span><b>Billing</b> — charges, refunds, GST invoices. <span class="muted">Routed to cashier team (P. D'Souza).</span></span></div>
+          <div class="check"><span class="box radio">&nbsp;</span><span><b>Privacy</b> — data access, consent, report sharing. <span class="chip violet">Auto-handoff → Governance (Privacy Officer Dr. A. Rao)</span></span></div>
+          <div class="check"><span class="box radio on">●</span><span><b>Clinical concern</b> — report accuracy, procedure safety, contrast reaction. <span class="chip outline-red">CARE-SAFETY flag — clinical lead paged in parallel</span></span></div>
+        </div>
+        <div style="width:270px">
+          <div class="field"><label>Severity (suggested) <span class="req">*</span></label><div class="select">Critical — patient-safety impact ▾</div><div class="hint">Clinical concerns default to Critical (2h SLA) until the clinical lead downgrades with a reason.</div></div>
+          <div class="banner danger" style="margin-bottom:0"><b>Dual escalation will fire</b>Submitting pages Dr. V. Shetty (clinical lead) alongside the grievance owner. Both must sign off before closure.</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Step 3 — description <span class="right">Keep it minimal</span></div>
+      <div class="field"><label>What happened? <span class="req">*</span></label><div class="textarea">Patient reports dizziness and rash ~20 minutes after contrast CT this morning; front desk observed visible rash on forearm at 13:55 IST. Duty doctor informed verbally.</div>
+      <div class="hint">Do not paste report contents, Aadhaar numbers or other IDs — the case links to <span class="mono">MRN-004790</span> automatically, so the record is already connected without extra PHI. Text is scanned and flagged if identifiers are detected.</div></div>
+      <div class="check"><span class="box on">✓</span><span>I confirmed the description contains no unnecessary personal or clinical detail.</span></div>
+      <div style="display:flex;justify-content:flex-end;gap:10px"><span class="btn">◂ Back</span><span class="btn primary">Continue to review ▸</span></div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ANONYMOUS VARIANT (PUBLIC LINK / QR)</div>
+<div class="card">
+  <div class="card-title">Anonymous concern — step 1 <span class="right">No login · no patient record link</span></div>
+  <div class="check"><span class="box radio">&nbsp;</span><span>I am a patient / attendant and will share my details</span></div>
+  <div class="check"><span class="box radio on">●</span><span><b>I want to stay anonymous</b></span></div>
+  <div class="banner warn"><b>What anonymity means here — please read</b>We will not record your name, phone, IP address or device details, and staff cannot see who filed this. But it also limits us: <b>we cannot contact you</b> for clarification or updates, we cannot fix anything tied to your specific bill or report without knowing who you are, and severity may be capped if we cannot verify safety details. You can still check status with your GRV reference and passcode.</div>
+  <div class="field"><label>Category <span class="req">*</span></label><div class="select">Service — staff behaviour ▾</div><div class="hint">Privacy and clinical categories remain available anonymously; a clinical concern still pages the clinical lead even without a patient identity.</div></div>
+  <div class="field"><label>What happened?</label><div class="textarea">On 23 July around 6 pm at the Andheri centre, the front-desk queue for report collection had no token system and elderly patients were made to stand for over 40 minutes.</div><div class="hint">Avoid naming other patients or including anyone's phone/ID numbers — this text is visible to the handling team.</div></div>
+  <div style="display:flex;justify-content:flex-end"><span class="btn primary">Submit anonymously</span></div>
+</div>
+<p class="audit">Anonymous submissions store the concern text and branch only; no raiser identifiers, IP or device fingerprint are retained. The fact of anonymous intake is recorded in the access log.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — SUBMITTED · GRV REFERENCE ISSUED</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Concern logged — reference issued</h3>
+    <div class="banner success"><b>GRV-2026-0034 · Critical · Clinical concern (CARE-SAFETY)</b>Logged 25 Jul 2026, 14:03 IST by D. Nair on behalf of Mohammed Al-Rashid (MRN-004790).</div>
+    <div class="kv">
+      <dt>Response SLA</dt><dd><span class="chip red">Critical · first response within 2h — by 16:03 IST today</span></dd>
+      <dt>Dual escalation</dt><dd>Grievance owner D. Nair assigned · clinical lead <b>Dr. V. Shetty paged 14:05 IST</b> — both sign-offs required to close</dd>
+      <dt>Patient tracking</dt><dd>SMS sent to ******7841 with ref <span class="mono">GRV-2026-0034</span> and a status link — the patient sees status stages (received → in review → resolved), never internal notes</dd>
+      <dt>If unresolved</dt><dd>Escalation path printed on the acknowledgement: grievance owner → Privacy Officer Dr. A. Rao → DPO Priya Sharma → DPB of India (30-day SLA for privacy/rights matters)</dd>
+    </div>
+    <div class="modal-actions"><span class="btn">Print acknowledgement</span><span class="btn primary">Open case GRV-2026-0034</span></div>
+  </div>
+</div>
+<div class="banner info"><b>Anonymous submissions get the same rigour</b>An anonymous filer receives an on-screen reference plus a one-time passcode to check status; no SMS is sent because no number is stored.</div>
+<p class="audit">Intake channel, category routing, care-safety paging, the issued GRV reference and the acknowledgement SMS (DLT template ID) are recorded in the access log.</p>
+</section>

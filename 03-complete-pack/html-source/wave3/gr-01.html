@@ -1,0 +1,86 @@
+<section class="screen" id="gr-01">
+<div class="screen-head"><h1><span class="sid">GR-01</span> Grievance Queue</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G14 + G11 — workspaces 'Governance' / 'Grievance'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Central worklist of all patient complaints (GRV refs) across channels, with severity-driven SLA chips — Critical 2h, High 8h, Medium 2 days, Low 5 days. Rows flagged CARE-SAFETY also page the clinical lead in parallel (dual escalation), privacy-category items hand off to Governance, and every overdue item shows owner + escalated-to in the standard pattern.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>GRIEVANCE</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Grievance</div>
+    <div class="nav-item active">Queue <span class="nav-badge red">2</span></div>
+    <div class="nav-item">Log a concern</div>
+    <div class="nav-item">My assignments <span class="nav-badge">3</span></div>
+    <div class="nav-item">Care-safety board</div>
+    <div class="nav-item">Closed &amp; outcomes</div>
+    <div class="sec-label">Governance handoffs</div>
+    <div class="nav-item">Privacy cases → GV</div>
+    <div class="sec-label">Reference</div>
+    <div class="nav-item">SLA policy</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Grievance › Queue › Open items</div>
+    <div class="page-title">Grievance queue <span class="actions-right"><span class="btn primary small">＋ Log a concern</span> <span class="btn small">SLA report</span></span></div>
+    <div class="page-sub">SLA by severity: Critical 2h · High 8h · Medium 2 days · Low 5 days — clocks start at intake, run 24×7 in IST.</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">11</div><div class="l">Open</div><div class="s">Across 4 branches</div></div>
+      <div class="kpi red"><div class="n">2</div><div class="l">Overdue</div><div class="s">Both escalated per ladder</div></div>
+      <div class="kpi amber"><div class="n">1</div><div class="l">Care-safety flagged</div><div class="s">Clinical lead paged 14:05 IST</div></div>
+      <div class="kpi"><div class="n">96%</div><div class="l">SLA met · Jul</div><div class="s">Target ≥ 95%</div></div>
+    </div>
+    <div class="banner danger"><b>Dual escalation on CARE-SAFETY rows</b>A grievance flagged as a clinical concern pages the clinical lead (Dr. V. Shetty) in parallel with the grievance owner. Neither party can close it alone — clinical review and grievance resolution are both required.</div>
+    <div class="card">
+      <div class="card-title">Open complaints <span class="right">11 items · sorted by SLA risk</span></div>
+      <table>
+        <tr><th>GRV ref</th><th>Patient / raiser</th><th>Category</th><th>Severity · SLA</th><th>Channel</th><th>Assigned</th><th>Status</th><th></th></tr>
+        <tr class="hl"><td class="mono">GRV-2026-0034</td><td>Mohammed Al-Rashid<br><span class="small mono muted">MRN-004790</span></td><td>Clinical concern <span class="chip outline-red">CARE-SAFETY</span><br><span class="chip red">⚡ Clinical lead paged — Dr. V. Shetty</span></td><td><span class="chip red">Critical · 0h 42m left · owner D. Nair</span></td><td>Front desk</td><td>D. Nair</td><td><span class="chip amber">CLINICAL REVIEW + GRIEVANCE OPEN</span></td><td><span class="btn primary small">Open</span></td></tr>
+        <tr><td class="mono">GRV-2026-0033</td><td>Ananya Rao<br><span class="small mono muted">MRN-004819</span></td><td>Billing — disputed ₹4,720 CT charge</td><td><span class="chip amber">High · 3h 10m left · owner P. D'Souza</span></td><td>Patient link</td><td>P. D'Souza</td><td><span class="chip blue">IN PROGRESS</span></td><td><span class="btn small">Open</span></td></tr>
+        <tr><td class="mono">GRV-2026-0031</td><td>Sofia Rossi<br><span class="small mono muted">MRN-004822</span></td><td>Privacy <span class="chip violet">→ handed off to Governance</span></td><td><span class="chip amber">High · 5h 55m left · owner Dr. A. Rao</span></td><td>Patient link</td><td>Dr. A. Rao (PO)</td><td><span class="chip violet">WITH PRIVACY OFFICE</span></td><td><span class="btn small">Open</span></td></tr>
+        <tr><td class="mono">GRV-2026-0030</td><td>Rajesh Gupta<br><span class="small mono muted">MRN-004795</span></td><td>Service — 2h wait for USG despite appointment</td><td><span class="chip red">Medium · OVERDUE 6h · owner D. Nair · escalated to K. Verma</span></td><td>Phone</td><td>D. Nair</td><td><span class="chip red">ESCALATED</span></td><td><span class="btn warn-outline small">Open</span></td></tr>
+        <tr><td class="mono">GRV-2026-0029</td><td><span class="muted">Anonymous</span><br><span class="small muted">no callback possible</span></td><td>Service — front-desk behaviour, Andheri</td><td><span class="chip teal">Low · 3d 2h left · owner D. Nair</span></td><td>Anonymous form</td><td>D. Nair</td><td><span class="chip blue">IN PROGRESS</span></td><td><span class="btn small">Open</span></td></tr>
+        <tr><td class="mono">GRV-2026-0028</td><td>Ananya Rao<br><span class="small mono muted">MRN-004819</span></td><td>Billing — GST invoice copy not received</td><td><span class="chip teal">Low · 4d 6h left · owner P. D'Souza</span></td><td>Email</td><td>P. D'Souza</td><td><span class="chip grey">AWAITING PATIENT</span></td><td><span class="btn small">Open</span></td></tr>
+        <tr><td class="mono">GRV-2026-0027</td><td>Mohammed Al-Rashid<br><span class="small mono muted">MRN-004790</span></td><td>Service — report SMS link expired early</td><td><span class="chip teal">Medium · 1d 3h left · owner D. Nair</span></td><td>SMS reply</td><td>D. Nair</td><td><span class="chip blue">IN PROGRESS</span></td><td><span class="btn small">Open</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Patient identifiers show MRN only; contact details open on the case page and each view is logged. Privacy-category rows are worked in Governance — this queue shows status only.</div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — OVERDUE ITEM ESCALATED · ASSIGNMENT MODAL</div>
+<div class="banner danger"><b>GRV-2026-0030 breached its 2-day SLA at 08:14 IST today</b>Standard overdue pattern applied: chip shows <span class="mono">OVERDUE 6h · owner D. Nair · escalated to K. Verma</span>. Escalation ladder: owner → branch manager (K. Verma) at breach → Privacy Officer at breach + 24h. Patient was auto-notified of the delay with a revised response date.</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:560px">
+    <h3>Reassign GRV-2026-0030 — service delay, Rajesh Gupta</h3>
+    <div class="kv">
+      <dt>Current owner</dt><dd>D. Nair (front office) — on leave today, unplanned</dd>
+      <dt>New owner</dt><dd><div class="select">K. Verma — org admin, Andheri ▾</div></dd>
+      <dt>SLA effect</dt><dd><b>None.</b> Reassignment never resets the clock; breach at 08:14 IST stays on record.</dd>
+      <dt>Note to patient</dt><dd><div class="input">Your concern is now handled by the branch manager; response by 26 Jul, 12:00 IST.</div></dd>
+    </div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Reassign &amp; notify patient</span></div>
+  </div>
+</div>
+<p class="audit">SLA breach, escalation ladder firing, reassignment and the patient notification for GRV-2026-0030 are recorded in the access log.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — FILTERED VIEW · CATEGORY + SEVERITY + BRANCH</div>
+<div class="card">
+  <div class="card-title">Filters applied <span class="right">3 active</span></div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
+    <span class="chip teal">Category: Billing ✕</span>
+    <span class="chip teal">Severity: High + Medium ✕</span>
+    <span class="chip teal">Branch: Andheri ✕</span>
+    <span class="chip grey">Status: any</span>
+    <span class="btn ghost small">Clear all</span>
+    <span class="btn small">Save as view "Billing follow-ups"</span>
+  </div>
+  <table>
+    <tr><th>GRV ref</th><th>Patient</th><th>Category</th><th>Severity · SLA</th><th>Channel</th><th>Assigned</th><th>Status</th></tr>
+    <tr><td class="mono">GRV-2026-0033</td><td>Ananya Rao · <span class="mono small">MRN-004819</span></td><td>Billing — disputed ₹4,720 CT charge</td><td><span class="chip amber">High · 3h 10m left · owner P. D'Souza</span></td><td>Patient link</td><td>P. D'Souza</td><td><span class="chip blue">IN PROGRESS</span></td></tr>
+    <tr><td class="mono">GRV-2026-0025</td><td>Rajesh Gupta · <span class="mono small">MRN-004795</span></td><td>Billing — refund of ₹1,180 advance pending</td><td><span class="chip teal">Medium · 1d 9h left · owner P. D'Souza</span></td><td>Front desk</td><td>P. D'Souza</td><td><span class="chip blue">IN PROGRESS</span></td></tr>
+    <tr class="dim"><td class="mono">GRV-2026-0021</td><td>Sofia Rossi · <span class="mono small">MRN-004822</span></td><td>Billing — duplicate payment ₹2,950 reversed</td><td><span class="chip green">Resolved in SLA</span></td><td>Email</td><td>P. D'Souza</td><td><span class="chip green">CLOSED 21 Jul</span></td></tr>
+  </table>
+  <div class="small muted" style="margin-top:8px">Saved views are per-user and contain no patient data — only filter definitions.</div>
+</div>
+<p class="audit">Queue views, filter usage on patient-identifying columns, and every case open from this list are recorded in the access log.</p>
+</section>

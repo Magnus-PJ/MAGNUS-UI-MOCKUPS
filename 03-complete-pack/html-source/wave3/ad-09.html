@@ -1,0 +1,107 @@
+<section class="screen" id="ad-09">
+<div class="screen-head"><h1><span class="sid">AD-09</span> Compliance registrations &amp; expiry</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G12 Admin — workspace 'Admin'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> One dashboard for every statutory registration Meridian holds — AERB equipment licences, PNDT machine and doctor registrations, RMC registrations, trade licences — each with an expiry countdown and an explicit <em>what-blocks-on-expiry</em> column so the operational consequence is never a surprise. Alerts fire at 60/30/7 days to org admin + branch manager; renewals are closed by uploading evidence which a second admin verifies.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Organisation</div>
+    <div class="nav-item">Branches &amp; centres</div>
+    <div class="nav-item">Practitioner profiles</div>
+    <div class="nav-item">Referrer directory</div>
+    <div class="sec-label">Equipment</div>
+    <div class="nav-item">Modalities &amp; equipment</div>
+    <div class="nav-item active">Compliance registry <span class="nav-badge red">3</span></div>
+    <div class="sec-label">Privacy</div>
+    <div class="nav-item">Consent notices</div>
+    <div class="nav-item">Access log</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Admin › Equipment › Compliance registrations &amp; expiry</div>
+    <div class="page-title">Compliance registrations <span class="actions-right"><span class="btn small">Alert settings</span> <span class="btn small">Export register (CSV)</span> <span class="btn primary small">+ Add registration</span></span></div>
+    <div class="page-sub">All statutory registrations, org-wide. Expiry consequences are enforced automatically — there are no manual overrides for statutory blocks.</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">23</div><div class="l">Tracked registrations</div><div class="s">5 types · 3 centres</div></div>
+      <div class="kpi red"><div class="n">1</div><div class="l">Expired</div><div class="s">RMC KA-38812 — blocking</div></div>
+      <div class="kpi amber"><div class="n">3</div><div class="l">Expiring ≤ 60 days</div><div class="s">renewals in progress: 2</div></div>
+      <div class="kpi"><div class="n">100%</div><div class="l">Evidence on file</div><div class="s">verified-by recorded</div></div>
+    </div>
+    <div class="card"><div class="card-title">Registration register <span class="right">Sort: soonest expiry first</span></div>
+    <table>
+      <tr><th>Registration</th><th>Type</th><th>Holder / unit</th><th>Centre</th><th>Valid till</th><th>Countdown</th><th>What blocks on expiry</th><th>Renewal</th></tr>
+      <tr style="background:#FEF2F2"><td class="mono">RMC KA-38812</td><td>RMC (doctor)</td><td>Dr. R. Menon</td><td>Vashi</td><td>30-Jun-2026</td><td><span class="chip red">EXPIRED −25d</span></td><td><b>Sign-off blocked</b> (all modalities, this doctor) — active since 01-Jul</td><td><span class="btn primary small">Upload evidence…</span> owner: K. Verma · escalated to: Branch Mgr, Vashi</td></tr>
+      <tr><td class="mono">MH/PNDT/2019/4471</td><td>PNDT (doctor, per-centre)</td><td>Dr. S. Iyer</td><td>Andheri</td><td>14-Aug-2026</td><td><span class="chip amber">20d</span></td><td>Obstetric US <b>scheduling + acquisition</b> for this doctor at Andheri</td><td><span class="chip amber">Renewal filed 18-Jul</span> · ack awaited · owner: K. Verma</td></tr>
+      <tr><td class="mono">Layout approval MR-AND</td><td>AERB / layout</td><td>MRI-AND-01</td><td>Andheri</td><td>18-Aug-2026</td><td><span class="chip amber">24d</span></td><td>MRI <b>scheduling</b> on MRI-AND-01 (new bookings held)</td><td><span class="btn small">Start renewal</span> owner: Branch Mgr, Andheri</td></tr>
+      <tr><td class="mono">RMC MH-44721</td><td>RMC (doctor)</td><td>Dr. V. Shetty</td><td>Andheri, Vashi</td><td>20-Aug-2026</td><td><span class="chip amber">27d</span></td><td><b>Sign-off blocked</b> (all modalities, this doctor)</td><td><span class="chip amber">Doctor notified 21-Jul</span> · owner: Dr. V. Shetty</td></tr>
+      <tr><td class="mono">MH/PNDT/M/2022/0441</td><td>PNDT (machine)</td><td>US-AND-03</td><td>Andheri</td><td>30-Sep-2026</td><td><span class="chip teal">67d</span></td><td>Obstetric US <b>acquisition</b> on this unit</td><td>Not started</td></tr>
+      <tr><td class="mono">AERB/CT/MH/2022/08871</td><td>AERB (equipment)</td><td>CT-VASHI-01</td><td>Vashi</td><td>15-Jan-2027</td><td><span class="chip teal">174d</span></td><td>CT <b>acquisition</b> on this unit (scheduling held 7d prior)</td><td>Not started</td></tr>
+      <tr><td class="mono">MH/PNDT/M/2023/0788</td><td>PNDT (machine)</td><td>US-VASHI-01</td><td>Vashi</td><td>30-Nov-2026</td><td><span class="chip teal">128d</span></td><td>Obstetric US <b>acquisition</b> on this unit</td><td>Not started</td></tr>
+      <tr><td class="mono">TL/MCGM/2024/88132</td><td>Trade licence</td><td>Centre licence</td><td>Andheri</td><td>31-Mar-2027</td><td><span class="chip teal">249d</span></td><td>Escalation to management (no system block)</td><td>Not started</td></tr>
+      <tr><td class="mono">AERB/MG/MH/2023/10944</td><td>AERB (equipment)</td><td>MG-AND-01</td><td>Andheri</td><td>22-Jun-2027</td><td><span class="chip teal">332d</span></td><td>MG <b>acquisition</b> on this unit</td><td>Not started</td></tr>
+    </table>
+    <div class="small muted" style="margin-top:8px">Block semantics — <b>scheduling</b>: no new bookings can be made; <b>acquisition</b>: modality worklist refuses new studies on the unit; <b>sign-off</b>: doctor cannot finalise reports. Existing signed reports are never affected.</div>
+    </div>
+    <div class="card"><div class="card-title">Alert configuration <span class="right">applies org-wide</span></div>
+      <div class="row">
+        <div class="grow"><dl class="kv" style="grid-template-columns:170px 1fr">
+          <dt>Reminder schedule</dt><dd><span class="chip teal">60 days</span> <span class="chip amber">30 days</span> <span class="chip red">7 days</span> before expiry, then daily after expiry</dd>
+          <dt>Recipients</dt><dd>Org admin (K. Verma) + branch manager of the affected centre; doctor registrations also notify the practitioner</dd>
+          <dt>Channels</dt><dd>In-app task + email; 7-day and post-expiry alerts also SMS (DLT template <span class="mono">1107-REGEXP</span>)</dd>
+          <dt>Escalation</dt><dd>Unacknowledged 7-day alert → escalated to: COO office within 24h</dd>
+        </dl></div>
+        <div style="width:220px;flex-shrink:0"><span class="btn small" style="width:100%">Edit schedule…</span><div class="hint" style="font-size:11px;color:#64748B;margin-top:6px">Schedule can be tightened per registration type but never below 7 days. Changes require org-admin role.</div></div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — Renewal evidence upload (verified-by, four-eyes)</div>
+<div class="modal-wrap"><div class="modal" style="max-width:620px">
+  <h3>Record renewal — RMC KA-38812 (Dr. R. Menon)</h3>
+  <div class="stepper"><div class="step done"><span class="dot">✓</span> Evidence</div><span class="step-line"></span><div class="step cur"><span class="dot">2</span> Details</div><span class="step-line"></span><div class="step"><span class="dot">3</span> Verification</div></div>
+  <div class="banner success"><b>renewed_certificate_KMC_menon.pdf uploaded</b> · 318 KB · SHA-256 <span class="mono">9f2c…b71a</span> recorded · visible to org admins and auditors only.</div>
+  <div class="row">
+    <div class="grow">
+      <div class="field"><label>New registration number <span class="req">*</span></label><input class="input" value="KMC KA-38812 (renewed)"></div>
+      <div class="field"><label>Valid from <span class="req">*</span></label><input class="input" value="24-Jul-2026"></div>
+    </div>
+    <div class="grow">
+      <div class="field"><label>Valid till <span class="req">*</span></label><input class="input" value="23-Jul-2031"></div>
+      <div class="field"><label>Issuing body</label><input class="input" value="Karnataka Medical Council"></div>
+    </div>
+  </div>
+  <div class="field"><label>Verified by (second admin, four-eyes) <span class="req">*</span></label><select class="select"><option>Request verification: Branch Manager, Vashi</option></select><div class="hint">Uploader (K. Verma) cannot self-verify. The sign-off block on Dr. Menon lifts automatically the moment verification completes; 12 queued drafts return to his worklist.</div></div>
+  <div class="field"><label>Step-up identity confirmation <span class="req">*</span></label><input class="input" placeholder="Re-enter your Magnus password (K. Verma)"><div class="hint">Required — this action restores a statutory capability.</div></div>
+  <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Submit for verification</span></div>
+</div></div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — Blocked-action example: scheduling an obstetric US after PNDT expiry</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>FRONT OFFICE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Front office</div>
+    <div class="nav-item">Registration</div>
+    <div class="nav-item active">Scheduling</div>
+    <div class="nav-item">Billing</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Front office › Scheduling › New appointment</div>
+    <div class="page-title">Book appointment — Ananya Rao <span class="mono small">MRN-004819</span></div>
+    <div class="page-sub">Service: US Obstetric — anomaly scan · requested date 17-Aug-2026 · Andheri</div>
+    <div class="banner danger"><b>Booking blocked — PNDT registration lapse (simulated for 17-Aug).</b> Dr. S. Iyer's PNDT registration <span class="mono">MH/PNDT/2019/4471</span> (Andheri) expires 14-Aug-2026. Obstetric US with this doctor cannot be scheduled on or after 15-Aug unless renewal is verified. Blocking rule: <span class="mono">PNDT-DOC-EXPIRY</span> · source: Compliance registry (AD-09). <b>This block cannot be overridden at the counter.</b></div>
+    <div class="card"><div class="card-title">Available alternatives</div>
+      <table>
+        <tr><th>Option</th><th>Detail</th><th>Constraint check</th><th></th></tr>
+        <tr><td>Earlier date, same doctor</td><td>Dr. S. Iyer · Andheri · slots on 11–13 Aug</td><td><span class="chip green">PNDT valid till 14-Aug</span></td><td><span class="btn primary small">Pick slot</span></td></tr>
+        <tr><td>Same date, different centre/doctor</td><td>Dr. N. Kulkarni · Thane · 17-Aug 10:30</td><td><span class="chip green">PNDT MH/PNDT/2021/6120 valid</span> · unit US-THN? → <span class="chip green">US-VASHI-01 alt at Vashi also valid</span></td><td><span class="btn small">Pick slot</span></td></tr>
+        <tr><td>Hold pending renewal</td><td>Waitlist; auto-confirm if renewal verified before 10-Aug</td><td><span class="chip amber">Renewal filed 18-Jul, ack awaited</span> owner: K. Verma</td><td><span class="btn small">Add to waitlist</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">The patient-facing message never mentions the compliance detail — D. Nair sees the rule; the patient is offered alternatives only.</div>
+    </div>
+  </div></div>
+</div>
+<p class="audit">Registration additions, renewals (evidence hash + verified-by), alert-schedule changes, block activations/lifts and every blocked-action event (rule id, actor, context) are recorded in the access log; the register export itself is logged as a disclosure.</p>
+</section>

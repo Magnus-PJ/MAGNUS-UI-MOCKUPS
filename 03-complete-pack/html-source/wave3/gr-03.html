@@ -1,0 +1,144 @@
+<section class="screen" id="gr-03">
+<div class="screen-head"><h1><span class="sid">GR-03</span> Case detail &amp; resolution</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G11 Grievance &amp; Support — workspace 'Grievance'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single working surface for a grievance case: intake facts, investigation tasks, every patient communication, and linked artifacts (invoice, report-delivery event, access-log entries). Resolution requires an outcome category and an explicit patient-notified confirmation; the patient can reopen within 30 days, which auto-escalates to the branch manager. Privacy-classified cases carry a handoff chip to the Privacy Officer queue (GR-04).</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>GRIEVANCE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+  <div class="sidebar">
+    <div class="sec-label">Grievance</div>
+    <div class="nav-item">Dashboard</div>
+    <div class="nav-item">Intake queue <span class="nav-badge">6</span></div>
+    <div class="nav-item active">Case board</div>
+    <div class="nav-item">My cases <span class="nav-badge">4</span></div>
+    <div class="nav-item">Privacy handoff <span class="nav-badge red">3</span></div>
+    <div class="nav-item">Analytics</div>
+    <div class="sec-label">Admin</div>
+    <div class="nav-item">SLA policies</div>
+    <div class="nav-item">Reply templates</div>
+    <div class="nav-item">Access log</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Grievance › Case board › GRV-2026-0142</div>
+    <div class="page-title">GRV-2026-0142 — Report not delivered after 48 hours <span class="actions-right"><span class="btn small">Add task</span> <span class="btn small">Log patient contact</span> <span class="btn primary small">Resolve case…</span></span></div>
+    <div class="page-sub">Sofia Rossi · <span class="mono">MRN-004822</span> · Opened 18 Jul 2026, 10:42 IST via front desk · Category: Report delivery · <span class="chip amber">SLA 7d — due 25 Jul, 10:42 · 22h left</span> · Owner: D. Nair · Escalated-to: R. Menon (Branch Manager)</div>
+
+    <div class="split">
+      <div>
+        <div class="card">
+          <div class="card-title">Case timeline <span class="right">Intake → Resolution</span></div>
+          <div class="stepper">
+            <span class="step done"><span class="dot">✓</span> Intake</span><span class="step-line"></span>
+            <span class="step done"><span class="dot">✓</span> Assigned</span><span class="step-line"></span>
+            <span class="step cur"><span class="dot">3</span> Investigation</span><span class="step-line"></span>
+            <span class="step"><span class="dot">4</span> Patient comms</span><span class="step-line"></span>
+            <span class="step"><span class="dot">5</span> Resolution</span>
+          </div>
+          <div class="timeline">
+            <div class="ev"><span class="t">18 Jul 10:42</span><div><b>Intake recorded</b> at front desk by D. Nair. Patient states CT Abdomen report (ORD-88213) promised in 24h, not received in 48h. Consent to contact via SMS confirmed.</div></div>
+            <div class="ev"><span class="t">18 Jul 11:05</span><div><b>Auto-assigned</b> to D. Nair (front office, Andheri West) per routing rule GR-RT-04. SLA clock started (7 calendar days).</div></div>
+            <div class="ev"><span class="t">18 Jul 14:20</span><div><b>Investigation task opened</b> — "Check report sign-off &amp; delivery events" → T. Okafor.</div></div>
+            <div class="ev"><span class="t">19 Jul 09:12</span><div><b>Finding</b> — report signed by Dr. V. Shetty (RMC MH-44721) 17 Jul 16:03; SMS delivery to +91-98xxx-xx482 failed twice (DLT template TPL-RPT-01, operator error 202).</div></div>
+            <div class="ev"><span class="t">19 Jul 09:40</span><div><b>Patient contacted</b> (call, 4 min) — apologised, confirmed alternate email address, re-sent secure link.</div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Investigation tasks <span class="right">2 open · 1 done</span></div>
+          <table>
+            <tr><th>#</th><th>Task</th><th>Owner</th><th>Due</th><th>Status</th></tr>
+            <tr><td class="mono">T-1</td><td>Check report sign-off &amp; delivery events for ORD-88213</td><td>T. Okafor</td><td>19 Jul</td><td><span class="chip green">DONE</span></td></tr>
+            <tr class="hl"><td class="mono">T-2</td><td>Confirm patient received re-sent report link; capture acknowledgement</td><td>D. Nair</td><td>21 Jul</td><td><span class="chip amber">IN PROGRESS</span></td></tr>
+            <tr><td class="mono">T-3</td><td>Raise notifications backlog item for repeated DLT error 202 (link GR-06 theme)</td><td>K. Verma</td><td>24 Jul</td><td><span class="chip grey">OPEN</span></td></tr>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Patient communications log <span class="right">All contacts recorded</span></div>
+          <table>
+            <tr><th>When (IST)</th><th>Channel</th><th>By</th><th>Summary</th><th>Outcome</th></tr>
+            <tr><td class="mono">18 Jul 10:42</td><td>In person</td><td>D. Nair</td><td>Grievance recorded; acknowledgement slip GRV-2026-0142 handed over</td><td><span class="chip teal">ACK GIVEN</span></td></tr>
+            <tr><td class="mono">18 Jul 11:07</td><td>SMS (DLT TPL-GRV-ACK)</td><td>System</td><td>Acknowledgement + tracking link with OTP access</td><td><span class="chip green">DELIVERED</span></td></tr>
+            <tr><td class="mono">19 Jul 09:40</td><td>Call (logged)</td><td>D. Nair</td><td>Apology; verified email; explained failed SMS delivery</td><td><span class="chip green">REACHED</span></td></tr>
+            <tr><td class="mono">19 Jul 09:52</td><td>Email (secure link)</td><td>System</td><td>Report link re-sent, expires 72h, OTP protected</td><td><span class="chip amber">NOT YET OPENED</span></td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <div class="card-title">Case facts</div>
+          <dl class="kv">
+            <dt>Case ref</dt><dd class="mono">GRV-2026-0142</dd>
+            <dt>Patient</dt><dd>Sofia Rossi · <span class="mono">MRN-004822</span></dd>
+            <dt>Branch</dt><dd>Andheri West</dd>
+            <dt>Category</dt><dd>Report delivery</dd>
+            <dt>Severity</dt><dd><span class="chip amber">MEDIUM</span></dd>
+            <dt>Channel</dt><dd>Front desk (in person)</dd>
+            <dt>SLA</dt><dd><span class="chip amber">Due 25 Jul 10:42 · 22h left</span></dd>
+            <dt>Owner</dt><dd>D. Nair</dd>
+            <dt>Escalated-to</dt><dd>R. Menon, Branch Manager</dd>
+            <dt>Privacy class</dt><dd><span class="chip grey">NOT PRIVACY</span></dd>
+          </dl>
+        </div>
+        <div class="card">
+          <div class="card-title">Linked artifacts</div>
+          <table>
+            <tr><th>Type</th><th>Ref</th><th>Note</th></tr>
+            <tr><td>Invoice</td><td class="mono">INV-2026-08812</td><td>CT Abdomen · ₹6,850 · paid</td></tr>
+            <tr><td>Order</td><td class="mono">ORD-88213</td><td>Signed 17 Jul 16:03 by Dr. V. Shetty</td></tr>
+            <tr><td>Delivery event</td><td class="mono">NTF-55201</td><td>SMS failed ×2 (DLT err 202)</td></tr>
+            <tr><td>Access events</td><td class="mono">3 entries</td><td>Report viewed by staff only; patient link unopened</td></tr>
+          </table>
+          <div class="hint small muted" style="margin-top:6px">Opening a linked clinical artifact from a grievance requires a stated reason and is written to the access log.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Related case example <span class="right">Privacy-linked</span></div>
+          <div class="small"><span class="mono">GRV-2026-0139</span> · Unwanted marketing SMS · <span class="chip violet">PRIVACY HANDOFF → Dr. A. Rao</span><div class="muted" style="margin-top:4px">Handled in Privacy handoff queue (GR-04); grievance team retains read-only view. DPDP 30-day clock shown there.</div></div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — RESOLVE CASE: OUTCOME + PATIENT-NOTIFIED CONFIRMATION</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Resolve GRV-2026-0142</h3>
+    <div class="field"><label>Outcome category <span class="req">*</span></label>
+      <div class="select">Process lapse — report delivery failure (notification) ▾</div>
+      <div class="hint">Feeds root-cause analytics (GR-06). Choose the primary cause, not the symptom.</div>
+    </div>
+    <div class="field"><label>What we did (shared with patient, plain language) <span class="req">*</span></label>
+      <div class="textarea">Your CT report was ready on 17 July but our SMS to you failed twice due to a telecom error. We re-sent it to your verified email on 19 July and you confirmed receipt on 21 July. We have raised a fix so failed SMS deliveries now retry by email automatically.</div>
+    </div>
+    <div class="check"><span class="box on">✓</span><span><b>Patient notified of resolution</b> — call 21 Jul 15:10 IST + SMS (DLT TPL-GRV-RES) delivered 21 Jul 15:14. Resolution cannot be saved without this confirmation.</span></div>
+    <div class="check"><span class="box on">✓</span><span>Patient informed of 30-day reopen window and escalation path (Branch Manager).</span></div>
+    <div class="banner info" style="margin-top:10px"><b>Identity confirmation required</b> Re-enter your Magnus password to sign this resolution as D. Nair. The outcome letter is a legal record retained 8 years with the billing file.</div>
+    <div class="field"><label>Password</label><div class="input mono">••••••••••</div></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Confirm identity &amp; resolve</span></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-title">Resolved header (after save) <span class="right">Read-only</span></div>
+  <div class="small"><span class="mono">GRV-2026-0142</span> · <span class="chip green">RESOLVED 21 Jul 2026, 15:22 IST</span> · <span class="chip teal">SLA MET — 3d 4h of 7d</span> · Outcome: Process lapse — delivery · Patient notified: ✓ call + SMS · Reopen window until <b>20 Aug 2026</b></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — REOPENED BY PATIENT WITHIN 30 DAYS · ESCALATED</div>
+<div class="banner danger"><b>Case reopened — patient unsatisfied (24 Jul 2026, 09:05 IST)</b> Patient used the tracking page reopen button within the 30-day window: "The report link expired before I could download it." Case auto-escalated to <b>R. Menon (Branch Manager)</b>; original owner D. Nair retained as working owner. New SLA: <span class="chip red">REOPEN SLA 3d — due 27 Jul 09:05 · OVERDUE in 2d 8h</span></div>
+<div class="card">
+  <div class="card-title">Reopen record</div>
+  <dl class="kv">
+    <dt>Reopened by</dt><dd>Patient (tracking page, OTP-verified +91-98xxx-xx482)</dd>
+    <dt>Reason given</dt><dd>Secure link expired before download; wants a fresh link and a printed copy</dd>
+    <dt>Escalated-to</dt><dd>R. Menon, Branch Manager · acknowledged 24 Jul 09:31 IST</dd>
+    <dt>Next escalation</dt><dd>Regional Ops Head if unresolved by 27 Jul 09:05 IST</dd>
+    <dt>New tasks</dt><dd class="mono">T-4 Re-issue link (D. Nair, today) · T-5 Print &amp; hand over at branch (front desk, 25 Jul)</dd>
+  </dl>
+  <div class="banner warn" style="margin-top:8px"><b>Second reopen rule</b> A second reopen on the same case routes automatically to the Privacy Officer (Dr. A. Rao) for independent review — a four-eyes check on repeated failures.</div>
+</div>
+<p class="audit">All case views, artifact opens, resolution signatures, reopen events and escalation acknowledgements are recorded in the access log.</p>
+</section>

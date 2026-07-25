@@ -1,0 +1,156 @@
+<section class="screen" id="ad-12">
+<div class="screen-head"><h1><span class="sid">AD-12</span> Data import</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G12 Admin — workspace 'Admin'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Org admin migrates legacy data (patients, visits, reports, referrers) from prior systems in controlled batches. Every batch runs a mandatory dry-run with an error report before execution; execution needs four-eyes approval. Imported patients carry consent state "legacy — notice at next visit" until DPDP notice is served. A batch can be reversed only while no new activity has touched its records.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Organisation</div>
+      <div class="nav-item">Branches &amp; units</div>
+      <div class="nav-item">Users &amp; roles</div>
+      <div class="nav-item">Org settings</div>
+      <div class="sec-label">Catalogue</div>
+      <div class="nav-item">Service catalogue</div>
+      <div class="nav-item">Terminology &amp; codes</div>
+      <div class="nav-item">Document templates</div>
+      <div class="sec-label">Data</div>
+      <div class="nav-item active">Data import <span class="nav-badge">2</span></div>
+      <div class="nav-item">Operational dashboard</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Access log</div>
+      <div class="nav-item">Approvals <span class="nav-badge red">1</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Admin › Data › Import batches</div>
+      <div class="page-title">Data import <span class="actions-right"><span class="btn small">Mapping templates</span> <span class="btn primary small">＋ New import batch</span></span></div>
+      <div class="page-sub">Legacy migration from MedSoft LIS (Andheri, Thane) and RadOne PACS worklists. Source files are held encrypted in the staging vault and purged 30 days after batch closure.</div>
+      <div class="banner reg"><b>DPDP notice for migrated records</b>Legacy patients were collected under pre-DPDP consent. Each imported patient is flagged <span class="chip amber">LEGACY — NOTICE AT NEXT VISIT</span>; the front-office check-in flow serves the DPDP notice and records acknowledgement before any new purpose-based processing. DPO: Priya Sharma.</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">7</div><div class="l">Batches total</div><div class="s">4 executed · 1 reversed</div></div>
+        <div class="kpi amber"><div class="n">2</div><div class="l">Awaiting action</div><div class="s">1 dry-run review · 1 approval</div></div>
+        <div class="kpi"><div class="n">18,442</div><div class="l">Patients imported</div><div class="s">11,206 notice served so far</div></div>
+        <div class="kpi"><div class="n">30 d</div><div class="l">Staging purge</div><div class="s">Next purge: IMP-2026-004 files · 09 Aug</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Import batches <span class="right">All branches · newest first</span></div>
+        <table>
+          <tr><th>Batch</th><th>Source system</th><th>Entities</th><th>Status</th><th>SLA / next step</th><th>Owner</th><th></th></tr>
+          <tr class="hl"><td class="mono bold">IMP-2026-007</td><td>MedSoft LIS · Thane</td><td>Patients 6,318 · Visits 21,940 · Reports (PDF) 19,772</td><td><span class="chip amber">DRY-RUN: 214 ERRORS</span></td><td><span class="chip amber">Review by 27 Jul</span> owner K. Verma</td><td>K. Verma</td><td><span class="btn small">Open dry-run</span></td></tr>
+          <tr><td class="mono bold">IMP-2026-006</td><td>RadOne PACS · Andheri</td><td>Referrers 412 · Study links 8,205</td><td><span class="chip blue">AWAITING 2ND APPROVER</span></td><td><span class="chip red">OVERDUE</span> owner D. Nair · escalated to K. Verma 24 Jul</td><td>D. Nair</td><td><span class="btn small">Review</span></td></tr>
+          <tr><td class="mono bold">IMP-2026-005</td><td>MedSoft LIS · Andheri</td><td>Patients 9,104 · Visits 34,110</td><td><span class="chip green">EXECUTED 18 Jul</span></td><td>Post-check complete · reversible until new activity</td><td>K. Verma</td><td><span class="btn ghost small">Summary</span></td></tr>
+          <tr><td class="mono bold">IMP-2026-004</td><td>Excel price list v9 (billing)</td><td>Service codes 1,335 · Price rows 4,012</td><td><span class="chip green">EXECUTED 10 Jul</span></td><td>Staging files purge 09 Aug</td><td>P. D'Souza</td><td><span class="btn ghost small">Summary</span></td></tr>
+          <tr><td class="mono bold">IMP-2026-003</td><td>MedSoft LIS · Thane (pilot)</td><td>Patients 500</td><td><span class="chip red">REVERSED 02 Jul</span></td><td>Rollback ref <span class="mono">REV-2026-001</span> · duplicate MRN defect</td><td>K. Verma</td><td><span class="btn ghost small">Rollback log</span></td></tr>
+          <tr class="dim"><td class="mono">IMP-2026-002</td><td>Referrer directory CSV</td><td>Referrers 388</td><td><span class="chip green">EXECUTED 21 Jun</span></td><td>Closed · staging purged</td><td>D. Nair</td><td><span class="btn ghost small">Summary</span></td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">Mapping template — MedSoft LIS → Magnus patient <span class="right">Template v3 · approved 12 Jul</span></div>
+        <table>
+          <tr><th>Source field</th><th>Target field</th><th>Transform</th><th>Validation</th></tr>
+          <tr><td class="mono">PAT_ID</td><td class="mono">legacy_ref (kept); new MRN issued</td><td>Prefix <span class="mono">MS-</span></td><td>Unique across batch + existing legacy_refs</td></tr>
+          <tr><td class="mono">PNAME</td><td class="mono">full_name</td><td>Split honorific; trim</td><td>Non-empty; script check (Latin/Devanagari)</td></tr>
+          <tr><td class="mono">DOB / AGE</td><td class="mono">dob or age_estimate</td><td>DOB wins; age→estimate flag</td><td>Not future; age ≤ 120</td></tr>
+          <tr><td class="mono">MOBILE</td><td class="mono">phone_primary</td><td>Normalise +91</td><td>10 digits; duplicates allowed, flagged for merge queue</td></tr>
+          <tr><td class="mono">AADHAAR</td><td class="mono">govt_id_last4</td><td><b>Truncate to last 4 only; full number discarded at staging</b></td><td>4 digits or blank</td></tr>
+          <tr><td class="mono">CONSENT</td><td class="mono">consent_state</td><td>Constant → <span class="chip amber">LEGACY — NOTICE AT NEXT VISIT</span></td><td>Never mapped to "granted"</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — Dry-run report with errors (IMP-2026-007)</div>
+<div class="frame">
+  <div class="body" style="min-height:0">
+    <div class="main">
+      <div class="crumb">Admin › Data import › IMP-2026-007 › Dry-run report</div>
+      <div class="page-title">Dry-run report — IMP-2026-007 <span class="actions-right"><span class="chip amber">214 ERRORS · 1,032 WARNINGS</span></span></div>
+      <div class="page-sub">Run 25 Jul 2026 01:14 IST against staging copy. No production writes occurred. Execute is disabled until blocking errors are 0 or explicitly waived with reason.</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">6,318</div><div class="l">Patients parsed</div><div class="s">6,104 clean</div></div>
+        <div class="kpi red"><div class="n">214</div><div class="l">Blocking errors</div><div class="s">Rows excluded until fixed</div></div>
+        <div class="kpi amber"><div class="n">1,032</div><div class="l">Warnings</div><div class="s">Import proceeds; flags applied</div></div>
+        <div class="kpi"><div class="n">327</div><div class="l">Probable duplicates</div><div class="s">Routed to merge queue, not auto-merged</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Errors by type</div>
+        <table>
+          <tr><th>Type</th><th>Count</th><th>Severity</th><th>Handling</th></tr>
+          <tr><td>DOB in future / unparseable</td><td>96</td><td><span class="chip red">BLOCKING</span></td><td>Fix in source extract and re-stage</td></tr>
+          <tr><td>Duplicate PAT_ID within file</td><td>58</td><td><span class="chip red">BLOCKING</span></td><td>Source must dedupe; no silent last-wins</td></tr>
+          <tr><td>Full Aadhaar present in free-text notes</td><td>41</td><td><span class="chip red">BLOCKING · PRIVACY</span></td><td>Redaction pass required; DPO Priya Sharma notified</td></tr>
+          <tr><td>Missing mobile AND address</td><td>19</td><td><span class="chip red">BLOCKING</span></td><td>Cannot serve DPDP notice; hold rows</td></tr>
+          <tr><td>Name script mixed / mojibake</td><td>612</td><td><span class="chip amber">WARNING</span></td><td>Import with review flag</td></tr>
+          <tr><td>Report PDF missing for visit row</td><td>420</td><td><span class="chip amber">WARNING</span></td><td>Visit imported; report marked "not migrated"</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">Sample failing rows <span class="right">Masked preview — full values only in staging vault</span></div>
+        <table>
+          <tr><th>Src row</th><th>PAT_ID</th><th>Name</th><th>Error</th><th>Detail</th></tr>
+          <tr><td class="mono">1,204</td><td class="mono">MS-88213</td><td>R■■■■ G■■■■</td><td><span class="chip red">DOB_FUTURE</span></td><td class="mono">DOB=12/03/2031 (likely 2013 transposed)</td></tr>
+          <tr><td class="mono">2,977</td><td class="mono">MS-90441</td><td>S■■■■ R■■■■</td><td><span class="chip red">DUP_PAT_ID</span></td><td>Also at row 3,010 with different DOB</td></tr>
+          <tr><td class="mono">4,182</td><td class="mono">MS-91557</td><td>A■■■■■ R■■</td><td><span class="chip red">AADHAAR_IN_NOTES</span></td><td>12-digit number detected in NOTES col — quarantined</td></tr>
+          <tr><td class="mono">5,530</td><td class="mono">MS-93002</td><td>M■■■■■■■ A■-R■■■■■</td><td><span class="chip red">NO_CONTACT</span></td><td>Mobile blank, address blank — notice undeliverable</td></tr>
+        </table>
+      </div>
+      <div style="display:flex;gap:10px"><span class="btn">Download full error CSV (audited)</span><span class="btn warn-outline">Waive warnings with reason…</span><span class="btn primary disabled">Execute import (blocked: 214 errors)</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — Executed summary with four-eyes record (IMP-2026-005)</div>
+<div class="frame">
+  <div class="body" style="min-height:0">
+    <div class="main">
+      <div class="crumb">Admin › Data import › IMP-2026-005 › Execution summary</div>
+      <div class="page-title">Execution summary — IMP-2026-005 <span class="actions-right"><span class="chip green">EXECUTED 18 Jul 2026 02:37 IST</span></span></div>
+      <div class="stepper">
+        <div class="step done"><span class="dot">✓</span> Staged</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Dry-run clean</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Four-eyes approved</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Executed</div><span class="step-line"></span>
+        <div class="step cur"><span class="dot">5</span> Post-checks / reversible window</div>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Result counts</div>
+          <table>
+            <tr><th>Entity</th><th>Attempted</th><th>Created</th><th>Skipped (dup → merge queue)</th><th>Failed</th></tr>
+            <tr><td>Patients</td><td>9,104</td><td>8,871</td><td>233</td><td>0</td></tr>
+            <tr><td>Visits</td><td>34,110</td><td>34,110</td><td>—</td><td>0</td></tr>
+            <tr><td>Legacy report PDFs</td><td>31,566</td><td>31,499</td><td>—</td><td>67 (checksum mismatch, re-fetch queued)</td></tr>
+          </table>
+          <p class="small muted" style="margin-top:8px">All 8,871 imported patients carry <span class="chip amber">LEGACY — NOTICE AT NEXT VISIT</span>. As of 25 Jul, 2,114 have since visited and acknowledged the DPDP notice; their state moved to "notice served".</p>
+        </div>
+        <div class="card" style="width:330px">
+          <div class="card-title">Approval record</div>
+          <div class="kv" style="grid-template-columns:120px 1fr">
+            <dt>First approver</dt><dd>K. Verma (org admin) · 17 Jul 18:04 · step-up: hardware key</dd>
+            <dt>Second approver</dt><dd>Priya Sharma (DPO) · 17 Jul 19:22 · step-up: OTP + passphrase</dd>
+            <dt>Basis</dt><dd>Dry-run <span class="mono">DR-2026-005-03</span> · 0 blocking errors</dd>
+            <dt>Reversible until</dt><dd>New activity on any imported record, or 17 Aug 2026 — whichever first</dd>
+          </div>
+          <div style="margin-top:10px"><span class="btn danger small">Reverse batch…</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="state-tag">STATE D — Reverse-batch guard (constraint violation)</div>
+<div class="modal-wrap"><div class="modal danger">
+  <h3>Reverse batch IMP-2026-005 — blocked</h3>
+  <div class="banner danger" style="margin-bottom:10px"><b>Rollback constraint: new activity exists on imported records</b>Since execution, 2,114 imported patients have new visits, 3 have signed reports (incl. Rajesh Gupta MRN-004795, report signed by Dr. V. Shetty on 22 Jul), and 1,846 invoices reference migrated visits. Reversing would orphan clinical and billing records and is not permitted.</div>
+  <div class="kv" style="grid-template-columns:190px 1fr">
+    <dt>Records with new activity</dt><dd>2,114 of 8,871 patients (23.8%)</dd>
+    <dt>Permitted alternative</dt><dd>Selective correction: fix individual records via the data-correction workflow (each correction audited, patient notified where required under DPDP)</dd>
+    <dt>Full reversal possible</dt><dd>Only for the 6,757 untouched records, as a partial rollback batch <span class="mono">REV-2026-002 (draft)</span> — still requires four-eyes: K. Verma + Priya Sharma, with step-up identity confirmation from both</dd>
+  </div>
+  <div class="field" style="margin-top:10px"><label>Reason for attempted reversal <span class="req">*</span></label><textarea class="textarea" placeholder="Recorded verbatim in the governance log even when the action is blocked"></textarea></div>
+  <div class="modal-actions"><span class="btn">Close</span><span class="btn warn-outline">Draft partial rollback (untouched records only)</span><span class="btn danger disabled">Reverse full batch (blocked)</span></div>
+</div></div>
+<p class="audit">Batch creation, dry-runs, waivers, approvals, executions, reversal attempts (including blocked ones) and staging-vault downloads are written to the immutable governance log; opening any masked sample row is recorded in the access log.</p>
+</section>

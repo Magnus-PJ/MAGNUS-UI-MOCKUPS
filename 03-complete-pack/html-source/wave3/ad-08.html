@@ -1,0 +1,113 @@
+<section class="screen" id="ad-08">
+<div class="screen-head"><h1><span class="sid">AD-08</span> Modalities &amp; equipment</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G12 Admin — workspace 'Admin'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single write surface for the equipment registry: modality, room, DICOM AE title (unique across the org), serial, AERB licence and — for ultrasound units — the PNDT machine registration. Scheduling, acquisition (IN-xx) and QA screens read from here but cannot edit. Decommissioning preserves the full trail; dose-baseline fields feed the dose-watch alerts.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Organisation</div>
+    <div class="nav-item">Branches &amp; centres</div>
+    <div class="nav-item">Practitioner profiles</div>
+    <div class="nav-item">Referrer directory</div>
+    <div class="sec-label">Equipment</div>
+    <div class="nav-item active">Modalities &amp; equipment</div>
+    <div class="nav-item">Compliance registry <span class="nav-badge red">3</span></div>
+    <div class="sec-label">Privacy</div>
+    <div class="nav-item">Consent notices</div>
+    <div class="nav-item">Access log</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Admin › Equipment › Modalities &amp; equipment</div>
+    <div class="page-title">Equipment registry <span class="actions-right"><span class="btn small">Export (CSV)</span> <span class="btn primary small">+ Register equipment</span></span></div>
+    <div class="page-sub">This is the <b>only write surface</b> for equipment data. Acquisition consoles (IN-03), scheduling (FO-04) and QA read-only link here.</div>
+    <div class="banner info"><b>Single source of truth.</b> AE titles, AERB licence numbers and PNDT machine registrations shown on any other screen are read-only mirrors of this registry. Edits here propagate within 60 seconds; changes to an AE title require a maintenance window acknowledgement.</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">9</div><div class="l">Active units</div><div class="s">3 centres</div></div>
+      <div class="kpi"><div class="n">4</div><div class="l">US units (PNDT)</div><div class="s">machine registrations current</div></div>
+      <div class="kpi amber"><div class="n">1</div><div class="l">In maintenance</div><div class="s">CT-VASHI-01 · till 27-Jul</div></div>
+      <div class="kpi red"><div class="n">1</div><div class="l">AERB licence ≤30d</div><div class="s">MRI-AND-01 · 18-Aug-2026</div></div>
+    </div>
+    <div class="card"><div class="card-title">Registered equipment <span class="right">Filter: all modalities · all centres</span></div>
+    <table>
+      <tr><th>Unit / room</th><th>Modality</th><th>AE title</th><th>Make · serial</th><th>AERB licence</th><th>PNDT machine reg</th><th>Dose baseline</th><th>Status</th><th></th></tr>
+      <tr><td><b>CT-AND-01</b> · Room CT-1, Andheri</td><td>CT (128-slice)</td><td class="mono">CTAND01 <span class="chip green">unique</span></td><td>Siemens go.Top · <span class="mono">SN 88412-C</span></td><td class="mono">AERB/CT/MH/2023/11482</td><td>n/a</td><td>CTDIvol ref 12 mGy (head 55)</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+      <tr><td><b>MRI-AND-01</b> · Room MR-1, Andheri</td><td>MRI 1.5T</td><td class="mono">MRAND01 <span class="chip green">unique</span></td><td>GE Voyager · <span class="mono">SN MR-40233</span></td><td class="mono">AERB n/a (non-ionising) — layout approval <span class="chip amber">renew 18-Aug</span></td><td>n/a</td><td>n/a (SAR limits device-managed)</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+      <tr class="hl"><td><b>US-AND-02</b> · Room US-2, Andheri</td><td>US (OB-capable)</td><td class="mono">USAND02 <span class="chip green">unique</span></td><td>Samsung HS50 · <span class="mono">SN US-77120</span></td><td>n/a</td><td class="mono">MH/PNDT/M/2024/0912 <span class="chip teal">valid to 31-Mar-2027</span></td><td>n/a</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+      <tr><td><b>US-AND-03</b> · Room US-3, Andheri</td><td>US (general)</td><td class="mono">USAND03 <span class="chip green">unique</span></td><td>Mindray DC-80 · <span class="mono">SN US-61988</span></td><td>n/a</td><td class="mono">MH/PNDT/M/2022/0441 <span class="chip amber">renew 30-Sep-2026</span></td><td>n/a</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+      <tr><td><b>CR-AND-01</b> · Room XR-1, Andheri</td><td>CR/DX</td><td class="mono">CRAND01 <span class="chip green">unique</span></td><td>Fuji FDR · <span class="mono">SN DX-15521</span></td><td class="mono">AERB/DX/MH/2024/09211</td><td>n/a</td><td>DAP ref 1.8 Gy·cm² (chest PA)</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+      <tr><td><b>CT-VASHI-01</b> · Room CT-1, Vashi</td><td>CT (64-slice)</td><td class="mono">CTVAS01 <span class="chip green">unique</span></td><td>Canon Prime · <span class="mono">SN 51201-A</span></td><td class="mono">AERB/CT/MH/2022/08871</td><td>n/a</td><td>CTDIvol ref 13 mGy</td><td><span class="chip amber">Maintenance till 27-Jul</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+      <tr><td><b>US-VASHI-01</b> · Room US-1, Vashi</td><td>US (OB-capable)</td><td class="mono">USVAS01 <span class="chip green">unique</span></td><td>GE Versana · <span class="mono">SN US-30467</span></td><td>n/a</td><td class="mono">MH/PNDT/M/2023/0788 <span class="chip teal">valid to 30-Nov-2026</span></td><td>n/a</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+      <tr><td><b>MG-AND-01</b> · Room MG-1, Andheri</td><td>Mammography</td><td class="mono">MGAND01 <span class="chip green">unique</span></td><td>Hologic 3Dimensions · <span class="mono">SN MG-09314</span></td><td class="mono">AERB/MG/MH/2023/10944</td><td>n/a</td><td>AGD ref 1.3 mGy/view</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+      <tr class="dim"><td><b>US-THN-01</b> · Room US-1, Thane</td><td>US (general)</td><td class="mono">USTHN01 (released)</td><td>Philips HD11 · <span class="mono">SN US-08812</span></td><td>n/a</td><td class="mono">MH/PNDT/M/2016/0107 <span class="chip grey">closed</span></td><td>n/a</td><td><span class="chip grey">Decommissioned 30-Jun-2026</span></td><td><span class="btn ghost small">Trail</span></td></tr>
+    </table>
+    <div class="small muted" style="margin-top:8px">Units in <span class="chip amber">Maintenance</span> are hidden from scheduling slots automatically. OB-capable US units may only host obstetric appointments when both the unit's PNDT machine registration and the performing doctor's per-centre PNDT registration are valid.</div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — Edit unit with AE-title uniqueness conflict</div>
+<div class="modal-wrap"><div class="modal" style="max-width:620px">
+  <h3>Edit equipment — US-VASHI-01</h3>
+  <div class="row">
+    <div class="grow">
+      <div class="field"><label>Unit name <span class="req">*</span></label><input class="input" value="US-VASHI-01"></div>
+      <div class="field"><label>Room</label><input class="input" value="US-1, Vashi"></div>
+      <div class="field"><label>AE title <span class="req">*</span></label><input class="input err" value="USAND02">
+      <div class="hint" style="color:#B91C1C"><b>AE title conflict:</b> “USAND02” is already assigned to US-AND-02 (Room US-2, Andheri). AE titles must be unique across the organisation — duplicate AE titles cause studies to route to the wrong worklist. Suggested: <span class="mono">USVAS01</span> (current) or <span class="mono">USVAS02</span>.</div></div>
+      <div class="field"><label>Serial number <span class="req">*</span></label><input class="input" value="US-30467"><div class="hint">Locked after first save; change requires org-admin + reason.</div></div>
+    </div>
+    <div class="grow">
+      <div class="field"><label>PNDT machine registration <span class="req">*</span></label><input class="input" value="MH/PNDT/M/2023/0788"><div class="hint">Required because unit is OB-capable. Validity 30-Nov-2026 tracked in AD-09.</div></div>
+      <div class="field"><label>Status</label><select class="select"><option>Active</option><option>Maintenance</option><option>Decommissioned…</option></select></div>
+      <div class="field"><label>Dose baseline</label><input class="input" value="n/a — non-ionising"><div class="hint">For CT/DX/MG units this field seeds the dose-watch deviation alerts (e.g. CTDIvol &gt; 125% of baseline flags the study).</div></div>
+      <div class="field"><label>Change reason <span class="req">*</span></label><textarea class="textarea">AE title correction attempted during PACS migration IMP-2026-014.</textarea></div>
+    </div>
+  </div>
+  <div class="banner warn" style="margin-top:4px"><b>AE title changes require a maintenance-window acknowledgement.</b> The modality worklist (MWL) mapping updates on save; in-flight studies keep their original AE association. Notify the technologist on shift (T. Okafor) before saving.</div>
+  <div class="modal-actions"><span class="btn">Cancel</span><span class="btn disabled">Save changes</span></div>
+</div></div>
+<p class="small muted" style="margin:6px 2px 0">Save stays disabled while the uniqueness check fails. Uniqueness is validated server-side against all branches, including decommissioned units whose AE titles are still inside the 90-day quarantine.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — Decommissioned unit: full trail (read-only)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · Thane</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Equipment</div>
+    <div class="nav-item active">Modalities &amp; equipment</div>
+    <div class="nav-item">Compliance registry</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Admin › Equipment › US-THN-01 › Decommission trail</div>
+    <div class="page-title">US-THN-01 — Philips HD11 <span class="chip grey">Decommissioned 30-Jun-2026</span></div>
+    <div class="page-sub">Record is read-only. Studies acquired on this unit remain fully retrievable (radiology retention 10y).</div>
+    <div class="split">
+      <div class="card"><div class="card-title">Decommission timeline</div>
+        <div class="timeline">
+          <div class="ev"><span class="t">02-Jun 10:04</span><div><b>Decommission proposed</b> by K. Verma (org admin) — reason: end-of-life, vendor support ceased. Step-up identity confirmation completed.</div></div>
+          <div class="ev"><span class="t">03-Jun 09:31</span><div><b>Second approver confirmed</b> — Branch Manager, Thane (four-eyes). Scheduling slots on this unit closed from 15-Jun.</div></div>
+          <div class="ev"><span class="t">15-Jun 18:00</span><div><b>Last clinical study</b> ACC-2026-17250 acquired; unit set to Maintenance.</div></div>
+          <div class="ev"><span class="t">28-Jun 11:15</span><div><b>PNDT closure intimation</b> filed with Appropriate Authority, Thane (PC-PNDT Rules) — acknowledgement <span class="mono">AA-THN/2026/0553</span> uploaded.</div></div>
+          <div class="ev"><span class="t">30-Jun 16:40</span><div><b>Decommissioned.</b> AE title <span class="mono">USTHN01</span> released after 90-day quarantine (reusable from 28-Sep-2026). Local disk sanitisation certificate <span class="mono">WIPE-2026-081</span> attached (vendor engineer + T. Okafor witness).</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="card"><div class="card-title">Final registry snapshot</div>
+          <dl class="kv" style="grid-template-columns:120px 1fr">
+            <dt>Modality</dt><dd>US (general)</dd>
+            <dt>Serial</dt><dd class="mono">US-08812</dd>
+            <dt>PNDT machine reg</dt><dd class="mono">MH/PNDT/M/2016/0107 — closed</dd>
+            <dt>Lifetime studies</dt><dd>41,208 (2016–2026)</dd>
+            <dt>Data on device</dt><dd>Sanitised — certificate on file</dd>
+            <dt>Disposal</dt><dd>Buy-back to vendor, e-waste manifest <span class="mono">EW-2026-112</span></dd>
+          </dl>
+        </div>
+        <div class="banner reg" style="margin-bottom:0"><b>PC-PNDT note.</b> Sale/transfer/disposal of an ultrasound machine must be intimated to the Appropriate Authority; the acknowledgement is a mandatory attachment before the decommission can complete.</div>
+      </div>
+    </div>
+  </div></div>
+</div>
+<p class="audit">Equipment creation, every field edit (with before/after values), status changes, AE-title assignments/releases and decommission approvals (initiator + second approver) are recorded in the access log.</p>
+</section>

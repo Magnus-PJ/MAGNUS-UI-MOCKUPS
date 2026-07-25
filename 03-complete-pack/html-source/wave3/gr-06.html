@@ -1,0 +1,95 @@
+<section class="screen" id="gr-06">
+<div class="screen-head"><h1><span class="sid">GR-06</span> Root-cause &amp; outcomes analytics</h1><div class="meta"><span class="chip amber">CONDITIONAL</span><div class="cluster">G11 Grievance &amp; Support — workspace 'Grievance'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Monthly management view of grievance outcomes: volume, resolution time, SLA hit rate and reopen rate by category, computed from the outcome categories captured at resolution (GR-03). Recurring-theme detection flags patterns (e.g. delivery failures rising → links to the notifications backlog) and feeds a corrective-actions register with owners and due dates. All figures are aggregate-only; no patient-identifying drill-down exists on this screen.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>GRIEVANCE</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+  <div class="sidebar">
+    <div class="sec-label">Grievance</div>
+    <div class="nav-item">Dashboard</div>
+    <div class="nav-item">Intake queue <span class="nav-badge">6</span></div>
+    <div class="nav-item">Case board</div>
+    <div class="nav-item">My cases</div>
+    <div class="nav-item">Privacy handoff <span class="nav-badge red">3</span></div>
+    <div class="nav-item active">Analytics</div>
+    <div class="sec-label">Governance</div>
+    <div class="nav-item">Corrective actions <span class="nav-badge">5</span></div>
+    <div class="nav-item">SLA policies</div>
+    <div class="nav-item">Access log</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Grievance › Analytics › July 2026</div>
+    <div class="page-title">Root-cause &amp; outcomes — July 2026 <span class="actions-right"><span class="select" style="display:inline-block;width:auto">July 2026 ▾</span> <span class="select" style="display:inline-block;width:auto">All branches ▾</span> <span class="btn small">Export (aggregate CSV)</span></span></div>
+    <div class="page-sub">Data through 25 Jul 2026, 06:00 IST refresh · Aggregate-only: minimum cell size 5; smaller cells shown as "&lt;5" and excluded from rates</div>
+
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">63</div><div class="l">Cases opened</div><div class="s">▲ 12% vs June (56)</div></div>
+      <div class="kpi"><div class="n">2.9d</div><div class="l">Avg resolution time</div><div class="s">Target ≤ 4.0d · June: 3.4d</div></div>
+      <div class="kpi amber"><div class="n">88%</div><div class="l">SLA hit rate</div><div class="s">Target 95% · dragged by delivery category</div></div>
+      <div class="kpi red"><div class="n">9.4%</div><div class="l">Reopen rate</div><div class="s">Target ≤ 5% · 6 of 64 resolutions</div></div>
+    </div>
+
+    <div class="banner warn"><b>Recurring theme flagged — report delivery failures ↑ 3rd consecutive month</b> 18 cases in July (June 11, May 7); 14 trace to SMS DLT error 202 on one operator route. Linked to <b>Notifications backlog item NTF-BL-042</b> ("email fallback on SMS failure", owner K. Verma, due 31 Jul). Corrective action CA-2026-017 open below.</div>
+
+    <div class="card">
+      <div class="card-title">Categories — July 2026 <span class="right">volume · time · SLA · reopen</span></div>
+      <table>
+        <tr><th>Outcome category</th><th>Volume</th><th>Δ vs Jun</th><th>Avg resolution</th><th>SLA hit %</th><th>Reopen rate</th><th>Theme</th></tr>
+        <tr class="hl"><td>Report delivery failure (notification)</td><td>18</td><td><span class="chip red">▲ +7</span></td><td>3.8d</td><td>72% <div class="progress red" style="width:90px"><i style="width:72%"></i></div></td><td>16.7%</td><td><span class="chip amber">RECURRING ↑</span></td></tr>
+        <tr><td>Billing / refund dispute</td><td>12</td><td><span class="chip grey">▬ 0</span></td><td>2.6d</td><td>92% <div class="progress" style="width:90px"><i style="width:92%"></i></div></td><td>8.3%</td><td>—</td></tr>
+        <tr><td>Waiting time / scheduling</td><td>11</td><td><span class="chip green">▼ −3</span></td><td>1.9d</td><td>100% <div class="progress" style="width:90px"><i style="width:100%"></i></div></td><td>0%</td><td>—</td></tr>
+        <tr><td>Staff conduct</td><td>8</td><td><span class="chip grey">▲ +1</span></td><td>3.1d</td><td>88% <div class="progress amber" style="width:90px"><i style="width:88%"></i></div></td><td>12.5%</td><td>—</td></tr>
+        <tr><td>Privacy / DPDP (handed off, GR-04)</td><td>6</td><td><span class="chip grey">▲ +1</span></td><td>9.2d*</td><td>83% <div class="progress amber" style="width:90px"><i style="width:83%"></i></div></td><td>0%</td><td><span class="chip violet">DUAL SLA</span></td></tr>
+        <tr><td>Facility / cleanliness</td><td>5</td><td><span class="chip grey">▼ −1</span></td><td>1.4d</td><td>100% <div class="progress" style="width:90px"><i style="width:100%"></i></div></td><td>0%</td><td>—</td></tr>
+        <tr class="dim"><td>Clinical query routed to radiologist</td><td>&lt;5</td><td>—</td><td>suppressed</td><td>suppressed</td><td>suppressed</td><td>—</td></tr>
+      </table>
+      <div class="small muted" style="margin-top:6px">*Privacy category measured against the DPDP 30-day statutory clock, not the 7-day grievance SLA. Cells under 5 suppressed per aggregate-only policy.</div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — THEME DRILL: REPORT DELIVERY FAILURES (AGGREGATE ONLY)</div>
+<div class="card">
+  <div class="card-title">Theme drill — Report delivery failure <span class="right">Jul 2026 · 18 cases · no patient identifiers</span></div>
+  <div class="row">
+    <div class="grow">
+      <table>
+        <tr><th>Failure mode</th><th>Cases</th><th>Branches affected</th><th>Linked system ref</th></tr>
+        <tr class="hl"><td>SMS DLT error 202 (operator route)</td><td>14</td><td>Andheri West, Powai, Thane</td><td class="mono">NTF-BL-042</td></tr>
+        <tr><td>Secure link expired before download</td><td>&lt;5</td><td>suppressed</td><td class="mono">NTF-BL-047</td></tr>
+        <tr><td>Wrong contact number on file</td><td>&lt;5</td><td>suppressed</td><td class="mono">REG-DQ-011</td></tr>
+      </table>
+      <div class="banner info" style="margin-top:10px"><b>Cross-workspace link</b> 14 of 18 cases share one root cause already queued in the Notifications backlog (<span class="mono">NTF-BL-042</span> — email fallback on SMS failure, owner K. Verma, due 31 Jul). Shipping it is projected to lift category SLA hit from 72% to ~94% based on June simulation.</div>
+    </div>
+    <div style="width:280px">
+      <div class="card" style="margin-bottom:10px">
+        <div class="card-title">Monthly trend</div>
+        <div class="small">May <div class="progress" style="width:100%"><i style="width:28%"></i></div> 7 cases</div>
+        <div class="small" style="margin-top:6px">Jun <div class="progress amber" style="width:100%"><i style="width:44%"></i></div> 11 cases</div>
+        <div class="small" style="margin-top:6px">Jul <div class="progress red" style="width:100%"><i style="width:72%"></i></div> 18 cases</div>
+      </div>
+      <div class="banner reg" style="margin-bottom:0"><b>Aggregate-only view</b> Drill stops at counts and system refs. Case-level access requires opening the case in GR-03 with a stated reason — every such open is recorded in the access log.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — CORRECTIVE ACTIONS REGISTER</div>
+<div class="card">
+  <div class="card-title">Corrective actions register <span class="right">5 open · reviewed monthly by branch managers + Privacy Officer</span></div>
+  <table>
+    <tr><th>Ref</th><th>Corrective action</th><th>Source theme</th><th>Owner</th><th>Due</th><th>Status</th></tr>
+    <tr class="hl"><td class="mono">CA-2026-017</td><td>Ship email fallback for failed report SMS (NTF-BL-042); add operator-route health alerting</td><td>Report delivery ↑</td><td>K. Verma</td><td>31 Jul</td><td><span class="chip amber">IN PROGRESS · SLA 6d left</span></td></tr>
+    <tr><td class="mono">CA-2026-016</td><td>Extend secure-link validity 72h → 7d with re-OTP on each open</td><td>Report delivery</td><td>K. Verma</td><td>15 Aug</td><td><span class="chip grey">PLANNED</span></td></tr>
+    <tr><td class="mono">CA-2026-014</td><td>Contact-number verification prompt at every check-in (front office script)</td><td>Wrong contact on file</td><td>D. Nair</td><td>08 Aug</td><td><span class="chip amber">IN PROGRESS</span></td></tr>
+    <tr><td class="mono">CA-2026-012</td><td>Refund turnaround: cashier dual-check at ₹5,000+ to cut billing disputes</td><td>Billing / refund</td><td>P. D'Souza</td><td>22 Jul</td><td><span class="chip red">OVERDUE 3d · escalated to R. Menon (Branch Manager)</span></td></tr>
+    <tr><td class="mono">CA-2026-011</td><td>Re-verify marketing consent flags after opt-out sync gap (with Privacy Officer)</td><td>Unwanted messages (GR-04)</td><td>Dr. A. Rao</td><td>30 Jul</td><td><span class="chip amber">IN PROGRESS · DPO co-review</span></td></tr>
+    <tr class="dim"><td class="mono">CA-2026-009</td><td>Queue-display boards at Powai to address waiting-time complaints</td><td>Waiting time</td><td>R. Menon</td><td>30 Jun</td><td><span class="chip green">DONE · verified 05 Jul</span></td></tr>
+  </table>
+  <div class="banner warn" style="margin-top:10px"><b>Closure control</b> Marking a corrective action DONE requires evidence attachment and verification by a second person (not the owner) — four-eyes on closure. Actions arising from privacy themes additionally require sign-off by Privacy Officer Dr. A. Rao.</div>
+</div>
+<p class="audit">Analytics views are aggregate-only; exports, filter selections, theme drills and corrective-action edits (including four-eyes closure verifications) are recorded in the access log.</p>
+</section>

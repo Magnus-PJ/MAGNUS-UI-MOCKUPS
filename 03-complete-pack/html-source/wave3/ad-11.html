@@ -1,0 +1,142 @@
+<section class="screen" id="ad-11">
+<div class="screen-head"><h1><span class="sid">AD-11</span> Terminology &amp; code sets</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G12 Admin — workspace 'Admin'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Org admin manages the code systems that drive orders, reports and billing — ICD-10, SNOMED CT, LOINC and Meridian's local service codes. Each system has a pinned active version; already-signed reports permanently keep the version they were coded against. Upgrades run as scheduled jobs with a mandatory dry-run report before activation.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Organisation</div>
+      <div class="nav-item">Branches &amp; units</div>
+      <div class="nav-item">Users &amp; roles</div>
+      <div class="nav-item">Org settings</div>
+      <div class="sec-label">Catalogue</div>
+      <div class="nav-item">Service catalogue</div>
+      <div class="nav-item active">Terminology &amp; codes</div>
+      <div class="nav-item">Document templates</div>
+      <div class="sec-label">Data</div>
+      <div class="nav-item">Data import <span class="nav-badge">2</span></div>
+      <div class="nav-item">Operational dashboard</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Access log</div>
+      <div class="nav-item">Approvals <span class="nav-badge red">1</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Admin › Catalogue › Terminology &amp; code sets</div>
+      <div class="page-title">Terminology &amp; code sets <span class="actions-right"><span class="btn small">Export mapping CSV</span> <span class="btn primary small">＋ Schedule upgrade</span></span></div>
+      <div class="page-sub">Code systems, licence status, active-version pinning and local→standard mappings. Changes are versioned and require Terminology Steward approval.</div>
+      <div class="banner reg"><b>Version pinning is contractual for signed documents</b>Signed reports, issued invoices and filed PC-PNDT Form F records keep the code-system version active at signing time. Upgrading a code set never rewrites historical documents — it only changes coding for new activity.</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">4</div><div class="l">Code systems</div><div class="s">All licences valid</div></div>
+        <div class="kpi"><div class="n">1,284</div><div class="l">Local codes mapped</div><div class="s">96.2% coverage to SNOMED CT</div></div>
+        <div class="kpi amber"><div class="n">51</div><div class="l">Unmapped local codes</div><div class="s">Owner: T. Okafor · due 05 Aug</div></div>
+        <div class="kpi"><div class="n">1</div><div class="l">Scheduled upgrade</div><div class="s">SNOMED CT IN-ext · 02 Aug 02:00 IST</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Code systems <span class="right">Active versions pinned org-wide</span></div>
+        <table>
+          <tr><th>System</th><th>Scope of use</th><th>Active (pinned) version</th><th>Next version</th><th>Licence status</th><th>Last upgraded</th><th></th></tr>
+          <tr><td class="bold">ICD-10 (WHO)</td><td>Clinical indication coding on orders, insurance claims</td><td class="mono">2019 rel. + IN corrigenda 2025-01</td><td class="mono">—</td><td><span class="chip green">Public / no licence</span></td><td>14 Jan 2026 · K. Verma</td><td><span class="btn ghost small">Details</span></td></tr>
+          <tr class="hl"><td class="bold">SNOMED CT</td><td>Report findings coding, radiology procedure semantics</td><td class="mono">2026-01-31 INT + India ext 2026-04</td><td class="mono">2026-07-31 INT + IN ext 2026-07</td><td><span class="chip green">Affiliate licence · NRC India · valid to 31 Mar 2027</span></td><td>18 Apr 2026 · K. Verma</td><td><span class="btn ghost small">Details</span></td></tr>
+          <tr><td class="bold">LOINC</td><td>Lab analytes (Phase-2 lab), radiology document codes</td><td class="mono">2.78</td><td class="mono">2.80 (evaluating)</td><td><span class="chip green">Regenstrief · free with attribution</span></td><td>02 Mar 2026 · T. Okafor</td><td><span class="btn ghost small">Details</span></td></tr>
+          <tr><td class="bold">MDX local service codes</td><td>Meridian orderables, price list, GST HSN/SAC mapping</td><td class="mono">v14 (active 01 Jul 2026)</td><td class="mono">v15 draft — 12 pending edits</td><td><span class="chip grey">Internal</span></td><td>01 Jul 2026 · K. Verma</td><td><span class="btn ghost small">Open editor</span></td></tr>
+        </table>
+        <p class="small muted" style="margin-top:8px">Pinned version applies to all 6 branches. Branch-level overrides are not permitted — coding must be uniform for claims and PC-PNDT/AERB filings.</p>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Mapping coverage — MDX local → SNOMED CT <span class="right">1,335 codes total</span></div>
+          <div class="kv">
+            <dt>Mapped &amp; verified</dt><dd>1,284 (96.2%) <div class="progress" style="max-width:220px"><i style="width:96%"></i></div></dd>
+            <dt>Unmapped</dt><dd>51 — mostly new CT contrast protocol variants added in v14</dd>
+            <dt>Steward</dt><dd>T. Okafor (technologist, terminology steward) · reviewer Dr. V. Shetty (RMC MH-44721)</dd>
+            <dt>SLA</dt><dd><span class="chip amber">Due 05 Aug 2026</span> owner T. Okafor · escalates to K. Verma on 06 Aug</dd>
+          </div>
+        </div>
+        <div class="card" style="width:320px">
+          <div class="card-title">Upgrade window</div>
+          <div class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Job</dt><dd class="mono">TERM-UPG-2026-007</dd>
+            <dt>System</dt><dd>SNOMED CT → 2026-07-31 + IN ext</dd>
+            <dt>Window</dt><dd>Sat 02 Aug 2026 · 02:00–04:00 IST</dd>
+            <dt>Dry-run</dt><dd><span class="chip green">PASSED 24 Jul</span> 3 warnings</dd>
+            <dt>Approvals</dt><dd>K. Verma ✓ · Dr. V. Shetty <span class="chip amber">PENDING</span></dd>
+          </div>
+          <div style="margin-top:10px"><span class="btn small">View dry-run report</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — Mapping workbench (local → SNOMED CT)</div>
+<div class="frame">
+  <div class="body" style="min-height:0">
+    <div class="main">
+      <div class="crumb">Admin › Terminology › Mapping workbench · MDX v14 → SNOMED CT 2026-01</div>
+      <div class="page-title">Mapping workbench <span class="actions-right"><span class="chip amber">51 UNMAPPED</span> <span class="btn primary small">Submit batch for review</span></span></div>
+      <div class="page-sub">Filter: <span class="chip grey">Status = Unmapped / Needs review</span> <span class="chip grey">Modality = CT</span> · Suggestions are machine-proposed and must be human-verified before use in reports.</div>
+      <table>
+        <tr><th>Local code</th><th>Local description</th><th>Proposed SNOMED CT concept</th><th>Match</th><th>Status</th><th>Mapped by</th><th>Action</th></tr>
+        <tr><td class="mono">MDX-CT-1142</td><td>CT KUB (non-contrast, stone protocol)</td><td class="mono">169070004 |CT of kidneys, ureters and bladder|</td><td><span class="chip green">EXACT</span></td><td><span class="chip green">VERIFIED</span></td><td>T. Okafor · 22 Jul</td><td><span class="btn ghost small">Re-open</span></td></tr>
+        <tr class="hl"><td class="mono">MDX-CT-1178</td><td>CT chest HRCT (low-dose screening variant)</td><td class="mono">16334891000119109 |Low dose CT of thorax|</td><td><span class="chip amber">NARROWER</span></td><td><span class="chip amber">NEEDS REVIEW</span></td><td>suggestion · unconfirmed</td><td><span class="btn small">Accept</span> <span class="btn ghost small">Search</span></td></tr>
+        <tr><td class="mono">MDX-CT-1181</td><td>CT triple-phase liver with portography timing</td><td class="mono">241541005 |CT of liver| + qualifier</td><td><span class="chip amber">PARTIAL</span></td><td><span class="chip amber">NEEDS REVIEW</span></td><td>suggestion · unconfirmed</td><td><span class="btn small">Accept</span> <span class="btn ghost small">Search</span></td></tr>
+        <tr><td class="mono">MDX-US-0904</td><td>USG obstetric anomaly scan (Level II) — PC-PNDT regulated</td><td class="mono">443006005 |Detailed fetal anomaly ultrasound scan|</td><td><span class="chip green">EXACT</span></td><td><span class="chip violet">STEWARD-LOCKED</span></td><td>Dr. S. Iyer · 04 Mar</td><td><span class="btn ghost small" style="opacity:.5">Locked</span></td></tr>
+        <tr><td class="mono">MDX-MR-0517</td><td>MRI brain with contrast + MR venogram</td><td class="mono">—</td><td><span class="chip red">NO MATCH</span></td><td><span class="chip red">UNMAPPED</span></td><td>—</td><td><span class="btn small">Map manually</span></td></tr>
+        <tr><td class="mono">MDX-XR-0221</td><td>X-ray chest PA (mobile unit, camp workflow)</td><td class="mono">399208008 |Plain X-ray of chest|</td><td><span class="chip green">EXACT</span></td><td><span class="chip green">VERIFIED</span></td><td>T. Okafor · 21 Jul</td><td><span class="btn ghost small">Re-open</span></td></tr>
+      </table>
+      <div class="banner reg" style="margin-top:12px"><b>PC-PNDT regulated codes are steward-locked</b>Mappings for obstetric USG procedures (Form F reportable) can only be changed by the PC-PNDT registered doctor on record (Dr. S. Iyer, MH/PNDT/2019/4471) with four-eyes approval from the org admin. Edits here are blocked for all other roles.</div>
+      <p class="small muted">Batch review: accepted mappings go to Dr. V. Shetty for clinical verification before activation. Nothing edited here affects any signed report.</p>
+    </div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — Scheduled upgrade · dry-run report</div>
+<div class="frame">
+  <div class="body" style="min-height:0">
+    <div class="main">
+      <div class="crumb">Admin › Terminology › Upgrade TERM-UPG-2026-007 › Dry-run report</div>
+      <div class="page-title">Dry-run report — SNOMED CT 2026-07-31 + India ext 2026-07</div>
+      <div class="page-sub">Executed 24 Jul 2026 22:41 IST on masked copy of production. No production data was modified. Report retained 8 years with the change record.</div>
+      <div class="stepper">
+        <div class="step done"><span class="dot">✓</span> Version staged</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Dry-run executed</div><span class="step-line"></span>
+        <div class="step cur"><span class="dot">3</span> Four-eyes approval</div><span class="step-line"></span>
+        <div class="step"><span class="dot">4</span> Activation window 02 Aug</div><span class="step-line"></span>
+        <div class="step"><span class="dot">5</span> Post-checks &amp; sign-off</div>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">1,284</div><div class="l">Mappings re-resolved</div><div class="s">1,269 unchanged</div></div>
+        <div class="kpi amber"><div class="n">12</div><div class="l">Concepts inactivated</div><div class="s">Replacement concepts proposed</div></div>
+        <div class="kpi amber"><div class="n">3</div><div class="l">Warnings</div><div class="s">Description changes only</div></div>
+        <div class="kpi"><div class="n">0</div><div class="l">Blocking errors</div><div class="s">Eligible for activation</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Inactivated concepts — proposed replacements <span class="right">12 rows · showing 4</span></div>
+        <table>
+          <tr><th>Local code</th><th>Old concept (inactivated in 2026-07)</th><th>Proposed replacement</th><th>Reason</th><th>Steward decision</th></tr>
+          <tr><td class="mono">MDX-CT-1004</td><td class="mono">418272005 |CT angiography|</td><td class="mono">712851003 |CTA of coronary arteries|</td><td>MOVED TO — more specific concept</td><td><span class="chip green">ACCEPTED · T. Okafor</span></td></tr>
+          <tr><td class="mono">MDX-US-0911</td><td class="mono">241502001 |US obstetric scan|</td><td class="mono">268445003 |US scan – obstetric|</td><td>DUPLICATE — same meaning</td><td><span class="chip violet">STEWARD-LOCKED · needs Dr. S. Iyer</span></td></tr>
+          <tr><td class="mono">MDX-MR-0533</td><td class="mono">433236007 |MRI whole spine|</td><td class="mono">—</td><td>AMBIGUOUS — split into 3 concepts</td><td><span class="chip amber">PENDING</span></td></tr>
+          <tr><td class="mono">MDX-XR-0240</td><td class="mono">399038000 |X-ray skeletal survey|</td><td class="mono">241058008 |Skeletal survey|</td><td>REPLACED BY</td><td><span class="chip green">ACCEPTED · T. Okafor</span></td></tr>
+        </table>
+      </div>
+      <div class="banner info"><b>What activation will and will not do</b>Will: pin 2026-07-31 as the org-wide active version for new orders and reports from 02 Aug 02:00 IST; apply 12 replacement mappings. Will not: alter any of the 41,207 signed reports coded under 2026-01-31 — they retain their original version tag (<span class="mono">codedUnder=SCT-2026-01-31+IN-2026-04</span>) permanently.</div>
+      <div class="modal-wrap"><div class="modal">
+        <h3>Approve activation — four-eyes required</h3>
+        <p class="small">Irreversible governance action: once activated, the org-wide pin moves forward. Rollback requires a new change record, not an undo.</p>
+        <div class="kv" style="grid-template-columns:170px 1fr;margin-top:10px">
+          <dt>Change record</dt><dd class="mono">TERM-UPG-2026-007</dd>
+          <dt>First approver</dt><dd>K. Verma (org admin) — approved 25 Jul 09:12 IST ✓</dd>
+          <dt>Second approver</dt><dd>Dr. V. Shetty (chief radiologist) — <span class="chip amber">PENDING</span> · must differ from first approver</dd>
+        </div>
+        <div class="field" style="margin-top:10px"><label>Second approver identity confirmation <span class="req">*</span></label><input class="input" placeholder="Dr. Shetty re-enters passphrase or taps hardware key"/><div class="hint">Step-up identity confirmation required; session login is not sufficient for activation approval.</div></div>
+        <div class="check"><span class="box on">✓</span><span>I have read the dry-run report incl. 2 steward-locked items that remain under old mappings until Dr. S. Iyer decides.</span></div>
+        <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Approve activation for 02 Aug window</span></div>
+      </div></div>
+    </div>
+  </div>
+</div>
+<p class="audit">Every version pin, mapping edit, dry-run execution and approval is written to the immutable change log with actor, step-up method and timestamp; views of this page by non-steward roles are recorded in the access log.</p>
+</section>

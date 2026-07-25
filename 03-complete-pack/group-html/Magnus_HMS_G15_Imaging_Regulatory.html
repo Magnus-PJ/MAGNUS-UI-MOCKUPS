@@ -1,0 +1,940 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Magnus HMS — G15 · Imaging Regulatory (PC-PNDT / AERB)</title><style>/* Magnus HMS — NS design pack shared design system */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
+.mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
+.muted{color:#64748B}.small{font-size:12px}.bold{font-weight:700}
+/* ---------- page / screen frame ---------- */
+.screen{page-break-after:always;padding:28px 34px;background:#fff;min-height:1000px}
+.screen-head{display:flex;justify-content:space-between;align-items:flex-start;border-left:5px solid #0F766E;padding:6px 0 6px 14px;margin-bottom:6px}
+.screen-head h1{font-size:22px;font-weight:800}
+.screen-head .sid{color:#0F766E;margin-right:10px}
+.screen-head .meta{text-align:right}
+.screen-head .meta .cluster{color:#64748B;font-size:12px;margin-top:3px}
+.gap-note{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:8px 12px;margin:10px 0 16px;font-size:12.5px;color:#7C2D12}
+.gap-note b{color:#9A3412}
+/* ---------- app chrome ---------- */
+.frame{border:1px solid #CBD5E1;border-radius:10px;overflow:hidden;background:#F4F6F8;box-shadow:0 1px 4px rgba(15,23,42,.08);margin-bottom:22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:2px solid #0F766E;padding:9px 16px}
+.brand{font-weight:800;color:#0F766E}.brand span{color:#1E293B}
+.org{font-size:12.5px;color:#334155;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px}
+.userchip{font-size:12.5px;color:#334155}
+.userchip .av{display:inline-block;background:#CCFBF1;color:#0F766E;font-weight:700;border-radius:5px;padding:2px 6px;margin-right:6px;font-size:11px}
+.body{display:flex;min-height:520px}
+.sidebar{width:196px;background:#fff;border-right:1px solid #E2E8F0;padding:12px 0;flex-shrink:0}
+.sec-label{font-size:10.5px;letter-spacing:.08em;color:#94A3B8;font-weight:700;padding:8px 16px 4px;text-transform:uppercase}
+.nav-item{padding:7px 16px;font-size:13px;color:#334155;display:flex;justify-content:space-between;align-items:center}
+.nav-item.active{background:#F0FDFA;color:#0F766E;font-weight:700;border-left:3px solid #0F766E;padding-left:13px}
+.nav-badge{background:#0F766E;color:#fff;border-radius:9px;font-size:10.5px;padding:1px 7px;font-weight:700}
+.nav-badge.red{background:#B91C1C}
+.main{flex:1;padding:16px 18px;min-width:0}
+.crumb{font-size:12px;color:#64748B;margin-bottom:8px}
+.page-title{font-size:19px;font-weight:800;margin-bottom:2px}
+.page-sub{font-size:12.5px;color:#64748B;margin-bottom:14px}
+.actions-right{float:right}
+/* ---------- components ---------- */
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card-title{font-weight:800;font-size:14.5px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.card-title .right{font-size:10.5px;letter-spacing:.07em;color:#94A3B8;font-weight:700;text-transform:uppercase}
+.row{display:flex;gap:14px}.row>*{min-width:0}.grow{flex:1}
+.btn{display:inline-block;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:700;border:1px solid #CBD5E1;background:#fff;color:#334155;text-align:center;white-space:nowrap}
+.btn.primary{background:#0F766E;border-color:#0F766E;color:#fff}
+.btn.danger{background:#B91C1C;border-color:#B91C1C;color:#fff}
+.btn.warn-outline{border-color:#F59E0B;color:#92400E;background:#FFFBEB}
+.btn.ghost{border:none;background:none;color:#0F766E;padding:7px 6px}
+.btn.small{padding:4px 10px;font-size:12px}
+.btn.disabled{opacity:.45}
+.chip{display:inline-block;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip.teal{background:#CCFBF1;color:#0F766E}
+.chip.green{background:#DCFCE7;color:#15803D}
+.chip.amber{background:#FEF3C7;color:#92400E}
+.chip.red{background:#FEE2E2;color:#B91C1C}
+.chip.grey{background:#F1F5F9;color:#475569}
+.chip.blue{background:#E0F2FE;color:#0369A1}
+.chip.violet{background:#EDE9FE;color:#6D28D9}
+.chip.outline-red{background:#fff;border:1.5px solid #B91C1C;color:#B91C1C}
+.banner{border-radius:8px;padding:10px 13px;font-size:12.5px;margin-bottom:12px;border:1px solid}
+.banner b{display:block;margin-bottom:2px;font-size:13px}
+.banner.info{background:#E0F2FE;border-color:#7DD3FC;color:#075985}
+.banner.warn{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+.banner.danger{background:#FEE2E2;border-color:#FCA5A5;color:#991B1B}
+.banner.success{background:#DCFCE7;border-color:#86EFAC;color:#166534}
+.banner.reg{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding:7px 9px;border-bottom:2px solid #E2E8F0;background:#F8FAFC}
+td{padding:8px 9px;border-bottom:1px solid #EEF2F6;vertical-align:top}
+tr.hl td{background:#F0FDFA}
+tr.dim td{color:#94A3B8}
+.kv{display:grid;grid-template-columns:150px 1fr;row-gap:6px;column-gap:12px;font-size:12.5px}
+.kv dt{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding-top:2px}
+.kv dd{margin:0}
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+.field label .req{color:#B91C1C}
+.field .hint{font-size:11px;color:#64748B;margin-top:3px}
+.input,.select,.textarea{width:100%;border:1px solid #CBD5E1;border-radius:7px;padding:7px 10px;font-size:13px;background:#fff;color:#1E293B}
+.input.err{border-color:#B91C1C;background:#FEF2F2}
+.textarea{min-height:64px}
+.check{font-size:12.5px;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.box{display:inline-block;width:14px;height:14px;border:1.6px solid #64748B;border-radius:3px;flex-shrink:0;margin-top:1px;text-align:center;line-height:12px;font-size:11px;font-weight:800}
+.box.on{background:#0F766E;border-color:#0F766E;color:#fff}
+.radio{border-radius:50%}
+.radio.on{background:#fff;border-color:#0F766E;box-shadow:inset 0 0 0 3.5px #0F766E;color:transparent}
+/* modal */
+.modal-wrap{background:#64748B22;border:1px dashed #94A3B8;border-radius:12px;padding:26px 40px;margin:14px 0}
+.modal{background:#fff;border-radius:12px;border-top:5px solid #0F766E;box-shadow:0 8px 30px rgba(15,23,42,.25);max-width:560px;margin:0 auto;padding:18px 20px}
+.modal.danger{border-top-color:#B91C1C}
+.modal h3{font-size:16px;margin-bottom:8px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+/* misc */
+.divider-label{text-align:center;color:#94A3B8;font-size:11.5px;margin:20px 0 14px;position:relative}
+.divider-label:before,.divider-label:after{content:"";display:inline-block;width:24%;border-top:1px dashed #CBD5E1;vertical-align:middle;margin:0 10px}
+.audit{font-size:11px;color:#8A6D1D;margin-top:10px}
+.audit:before{content:"🔒 "}
+.state-tag{font-size:10px;letter-spacing:.08em;font-weight:800;text-transform:uppercase;color:#94A3B8;text-align:right;margin-bottom:4px}
+.kpi-row{display:flex;gap:12px;margin-bottom:14px}
+.kpi{flex:1;background:#fff;border:1px solid #E2E8F0;border-left:4px solid #0F766E;border-radius:9px;padding:10px 13px}
+.kpi.amber{border-left-color:#F59E0B}.kpi.red{border-left-color:#B91C1C}
+.kpi .n{font-size:23px;font-weight:800}.kpi .l{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700}
+.kpi .s{font-size:11px;color:#64748B;margin-top:2px}
+.stepper{display:flex;gap:6px;align-items:center;font-size:12px;color:#64748B;margin-bottom:14px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:6px}
+.step .dot{width:20px;height:20px;border-radius:50%;background:#E2E8F0;color:#475569;font-size:11px;font-weight:800;text-align:center;line-height:20px}
+.step.done .dot{background:#15803D;color:#fff}.step.cur .dot{background:#0F766E;color:#fff}
+.step.cur{color:#0F766E;font-weight:700}
+.step-line{width:26px;border-top:2px solid #CBD5E1}
+.sig-box{border:1.5px dashed #94A3B8;border-radius:8px;min-height:64px;background:#F8FAFC;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:12px;font-style:italic}
+.sig-box.signed{border-style:solid;border-color:#15803D;color:#166534;background:#F0FDF4;font-family:'Segoe Script','Comic Sans MS',cursive;font-size:17px;font-style:normal}
+.ladder{border-left:3px solid #E2E8F0;margin-left:8px;padding-left:16px}
+.ladder .tier{margin-bottom:12px;position:relative}
+.ladder .tier:before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:#CBD5E1}
+.ladder .tier.done:before{background:#15803D}.ladder .tier.cur:before{background:#0F766E;box-shadow:0 0 0 3px #CCFBF1}
+.ladder .tier.fail:before{background:#B91C1C}
+.progress{height:7px;border-radius:4px;background:#E2E8F0;overflow:hidden;margin-top:4px}
+.progress i{display:block;height:100%;background:#0F766E}
+.progress.amber i{background:#F59E0B}.progress.red i{background:#B91C1C}
+.split{display:grid;grid-template-columns:1fr 300px;gap:14px}
+.timeline{font-size:12.5px}
+.timeline .ev{display:flex;gap:10px;margin-bottom:9px}
+.timeline .t{color:#64748B;white-space:nowrap;font-family:Consolas,monospace;font-size:11.5px;padding-top:1px}
+
+@page{size:A4;margin:0}@media print{body{background:#fff}}</style></head><body><section class="screen" id="cover">
+<div style="padding-top:120px"><div style="border-left:6px solid #0F766E;padding-left:22px">
+<div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">Magnus HMS · MVP 1 Complete Design Pack</div>
+<h1 style="font-size:36px;font-weight:800">G15 · Imaging Regulatory (PC-PNDT / AERB)</h1>
+<p style="font-size:14px;color:#64748B;margin-top:10px">6 screens · every screen with alternate states · shared design system · synthetic data only (no PHI)</p></div>
+<div class="card" style="max-width:700px;margin-top:26px"><div class="card-title">Screens in this group</div>
+<table><tr><th style="width:70px">ID</th><th>Screen</th></tr><tr><td class="mono bold" style="color:#0F766E">IR-01</td><td>Form F register</td></tr><tr><td class="mono bold" style="color:#0F766E">IR-02</td><td>Monthly submission prep</td></tr><tr><td class="mono bold" style="color:#0F766E">IR-03</td><td>Submission &amp; acknowledgement</td></tr><tr><td class="mono bold" style="color:#0F766E">IR-04</td><td>Corrections &amp; resubmission</td></tr><tr><td class="mono bold" style="color:#0F766E">IR-05</td><td>AERB Compliance Register</td></tr><tr><td class="mono bold" style="color:#0F766E">IR-06</td><td>Regulatory Calendar &amp; Obligations</td></tr></table></div>
+<p class="muted small" style="margin-top:14px">Magnus Diagnostics → NUMINACORE · July 2026 · Prototype/reference — not committed product scope.</p></div></section><section class="screen" id="ir-01">
+<div class="screen-head"><h1><span class="sid">IR-01</span> Form F register</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The Form F register is the single source of truth for every PC-PNDT Form F generated at a centre — one record per prenatal ultrasound procedure, tamper-evident from the moment of capture. Compliance staff filter by month, resolve needs-attention items inline (missing signature, missing indication) before the monthly filing cutoff, and bulk-open records for review. Records feed IR-02 monthly submission prep; the filing month is determined by <b>scan date</b>, not entry date.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West (PNDT Regn MH/AND/PNDT/0142)</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">PC-PNDT</div>
+    <div class="nav-item active">Form F register <span class="nav-badge red">3</span></div>
+    <div class="nav-item">Monthly submission</div>
+    <div class="nav-item">Submissions &amp; acks</div>
+    <div class="nav-item">Corrections</div>
+    <div class="sec-label">AERB</div>
+    <div class="nav-item">Equipment licences</div>
+    <div class="nav-item">Dose registry</div>
+    <div class="sec-label">Governance</div>
+    <div class="nav-item">Registrations</div>
+    <div class="nav-item">Audit trail</div>
+  </div>
+  <div class="main"><div class="crumb">Regulatory › PC-PNDT › Form F register</div>
+  <div class="page-title">Form F register — July 2026 <span class="actions-right"><span class="btn small">Bulk-open selected (2)</span> <span class="btn small">Export register (PDF)</span> <span class="btn primary small">+ New Form F</span></span></div>
+  <div class="page-sub">Filing month is derived from <b>scan date (IST)</b>. Records lock on submission; changes after ack require a correction record (IR-04). Patient names masked per DPDP purpose limitation — full identity visible only inside the record with a logged reason.</div>
+  <div class="banner warn"><b>Monthly filing due Wed 05 Aug 2026 — 11 days remaining.</b> 3 records need attention before July can be marked submission-ready. SLA owner: K. Verma · Escalates to Dr. A. Rao (Privacy Officer) if open on 03 Aug.</div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">42</div><div class="l">Form F — July 2026</div><div class="s">scan-date basis, this centre</div></div>
+    <div class="kpi"><div class="n">37</div><div class="l">Ready</div><div class="s">all validations passed</div></div>
+    <div class="kpi amber"><div class="n">3</div><div class="l">Needs attention</div><div class="s">signature / indication gaps</div></div>
+    <div class="kpi"><div class="n">2</div><div class="l">Draft</div><div class="s">procedure not yet finalised</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Register <span class="right">Filters applied: Month = Jul 2026 · Status = All</span></div>
+    <div class="row" style="margin-bottom:10px">
+      <div class="grow"><input class="input" value="🔎 Search FF ref / MRN (names not searchable in register view)"></div>
+      <div style="width:150px"><select class="select"><option>Month: Jul 2026</option></select></div>
+      <div style="width:170px"><select class="select"><option>Status: All (42)</option></select></div>
+      <div style="width:180px"><select class="select"><option>Doctor: All PNDT-registered</option></select></div>
+    </div>
+    <table>
+      <tr><th style="width:26px"><span class="box on">✓</span></th><th>FF Ref</th><th>Patient (masked)</th><th>Procedure</th><th>Scan date (IST)</th><th>PNDT doctor</th><th>Status</th><th>Integrity</th><th></th></tr>
+      <tr><td><span class="box on">✓</span></td><td class="mono">FF-2026-01847</td><td>S••••a R•••i · MRN-004822</td><td>USG Obstetric — Level II anomaly</td><td class="mono">24-Jul 10:42</td><td>Dr. S. Iyer</td><td><span class="chip green">READY</span></td><td><span class="chip teal">🔏 SEALED · SHA-256</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr class="hl"><td><span class="box on">✓</span></td><td class="mono">FF-2026-01843</td><td>A••••a R•o · MRN-004819</td><td>USG Obstetric — NT/NB scan</td><td class="mono">23-Jul 09:15</td><td>Dr. S. Iyer</td><td><span class="chip amber">NEEDS ATTENTION</span><div class="small" style="color:#92400E">⚠ Patient signature missing on declaration (Sec 4(3))</div></td><td><span class="chip teal">🔏 SEALED · SHA-256</span></td><td><span class="btn ghost small">Fix</span></td></tr>
+      <tr class="hl"><td><span class="box">&nbsp;</span></td><td class="mono">FF-2026-01839</td><td>M•••• P••••r · MRN-004761</td><td>USG Obstetric — dating scan</td><td class="mono">21-Jul 16:05</td><td>Dr. V. Shetty</td><td><span class="chip amber">NEEDS ATTENTION</span><div class="small" style="color:#92400E">⚠ Medical indication field blank (col. 9)</div></td><td><span class="chip teal">🔏 SEALED · SHA-256</span></td><td><span class="btn ghost small">Fix</span></td></tr>
+      <tr class="hl"><td><span class="box">&nbsp;</span></td><td class="mono">FF-2026-01835</td><td>K••••a S••h · MRN-004744</td><td>USG Obstetric — growth scan</td><td class="mono">20-Jul 11:30</td><td>Dr. S. Iyer</td><td><span class="chip amber">NEEDS ATTENTION</span><div class="small" style="color:#92400E">⚠ Referring doctor name/regn missing (col. 6)</div></td><td><span class="chip teal">🔏 SEALED · SHA-256</span></td><td><span class="btn ghost small">Fix</span></td></tr>
+      <tr><td><span class="box">&nbsp;</span></td><td class="mono">FF-2026-01831</td><td>P••••i D••••e · MRN-004702</td><td>USG Obstetric — anomaly scan</td><td class="mono">17-Jul 14:20</td><td>Dr. S. Iyer</td><td><span class="chip green">READY</span></td><td><span class="chip teal">🔏 SEALED · SHA-256</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr><td><span class="box">&nbsp;</span></td><td class="mono">FF-2026-01828</td><td>N••••a K••••r · MRN-004688</td><td>USG Obstetric — dating scan</td><td class="mono">15-Jul 09:55</td><td>Dr. V. Shetty</td><td><span class="chip grey">DRAFT</span><div class="small muted">procedure report unsigned</div></td><td><span class="chip grey">PENDING SEAL</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr><td><span class="box">&nbsp;</span></td><td class="mono">FF-2026-01822</td><td>R••••a M••••a · MRN-004651</td><td>USG Obstetric — Level II anomaly</td><td class="mono">11-Jul 12:40</td><td>Dr. S. Iyer</td><td><span class="chip green">READY</span></td><td><span class="chip teal">🔏 SEALED · SHA-256</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr class="dim"><td><span class="box">&nbsp;</span></td><td class="mono">FF-2026-01795</td><td>S••••a J••••i · MRN-004597</td><td>USG Obstetric — NT/NB scan</td><td class="mono">30-Jun 10:10</td><td>Dr. S. Iyer</td><td><span class="chip blue">SUBMITTED</span><div class="small muted">June batch · ack MH/AA/2026/0713</div></td><td><span class="chip teal">🔏 SEALED · LOCKED</span></td><td><span class="btn ghost small">View</span></td></tr>
+    </table>
+    <div class="small muted" style="margin-top:8px">Showing 8 of 42 · Tamper-evident chain: each record hash includes the previous record's hash; verification runs nightly and before every submission build. Last chain verify: 25-Jul 02:00 IST — <span class="chip green">CHAIN OK</span></div>
+  </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — NEEDS-ATTENTION FOCUS (FILTER APPLIED, INLINE FIX PANEL)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+  <div class="crumb">Regulatory › PC-PNDT › Form F register › Needs attention</div>
+  <div class="page-title">Needs attention — 3 records (July 2026)</div>
+  <div class="page-sub">Each reason maps to a Form F column. Fixes are captured as versioned amendments before submission; after submission, use a correction record instead.</div>
+  <div class="card">
+    <div class="card-title">FF-2026-01843 · A••••a R•o · MRN-004819 <span class="chip amber">NEEDS ATTENTION</span></div>
+    <div class="split">
+      <div>
+        <dl class="kv">
+          <dt>Reason</dt><dd>Patient signature missing on declaration (Form F, Sec 4(3) undertaking)</dd>
+          <dt>Scan date</dt><dd>23-Jul-2026 09:15 IST · USG Obstetric — NT/NB scan</dd>
+          <dt>PNDT doctor</dt><dd>Dr. S. Iyer · MH/PNDT/2019/4471 <span class="chip green">VALID to 31-Mar-2027</span></dd>
+          <dt>Fix path</dt><dd>Patient revisit signature OR upload signed paper declaration scanned at front desk (D. Nair)</dd>
+          <dt>Owner · SLA</dt><dd>D. Nair (front office) · <span class="chip amber">DUE 30-Jul</span> · escalates to K. Verma, then Dr. A. Rao</dd>
+        </dl>
+        <div style="margin-top:10px"><span class="btn primary small">Upload signed declaration</span> <span class="btn small">Request patient revisit (SMS via DLT template MERI-FF-REVISIT-04)</span></div>
+      </div>
+      <div>
+        <div class="sig-box">Patient declaration — signature pending</div>
+        <div class="small muted" style="margin-top:6px">Uploads are hash-stamped and appended to the sealed record as amendment v2; original v1 is retained unmodified (tamper-evident).</div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Remaining items</div>
+    <table>
+      <tr><th>FF Ref</th><th>Reason (Form F column)</th><th>Fix owner</th><th>SLA</th><th>Action</th></tr>
+      <tr><td class="mono">FF-2026-01839</td><td>Medical indication blank (col. 9)</td><td>Dr. V. Shetty</td><td><span class="chip amber">DUE 29-Jul</span></td><td><span class="btn ghost small">Send to doctor worklist</span></td></tr>
+      <tr><td class="mono">FF-2026-01835</td><td>Referring doctor name/regn missing (col. 6) — referrer: Dr. Meera Nair</td><td>D. Nair</td><td><span class="chip red">OVERDUE 2d</span> · escalated to K. Verma</td><td><span class="btn ghost small">Fill from referrer directory</span></td></tr>
+    </table>
+  </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — MONTH COMPLETE (JUNE 2026, SUBMITTED &amp; LOCKED)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+  <div class="crumb">Regulatory › PC-PNDT › Form F register › June 2026</div>
+  <div class="page-title">Form F register — June 2026 <span class="chip blue" style="vertical-align:middle">MONTH SUBMITTED</span></div>
+  <div class="banner success"><b>June 2026 filed on time.</b> 39 records submitted 03-Jul-2026 by K. Verma (identity confirmed) · Acknowledgement MH/AA/2026/0713 dated 04-Jul-2026 captured in IR-03. Register for this month is immutable; discrepancies must go through a correction record (IR-04).</div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">39</div><div class="l">Records filed</div><div class="s">scan dates 01–30 Jun</div></div>
+    <div class="kpi"><div class="n">0</div><div class="l">Open issues</div><div class="s">all validations passed pre-filing</div></div>
+    <div class="kpi"><div class="n">1</div><div class="l">Corrections since</div><div class="s">FF-2026-01722 · queued for Aug batch</div></div>
+  </div>
+  <div class="card">
+    <table>
+      <tr><th>FF Ref</th><th>Patient (masked)</th><th>Procedure</th><th>Scan date</th><th>PNDT doctor</th><th>Status</th><th>Integrity</th></tr>
+      <tr class="dim"><td class="mono">FF-2026-01795</td><td>S••••a J••••i · MRN-004597</td><td>USG Obstetric — NT/NB</td><td class="mono">30-Jun</td><td>Dr. S. Iyer</td><td><span class="chip blue">SUBMITTED</span></td><td><span class="chip teal">🔏 LOCKED</span></td></tr>
+      <tr class="dim"><td class="mono">FF-2026-01788</td><td>M••••a K••••i · MRN-004573</td><td>USG Obstetric — anomaly</td><td class="mono">27-Jun</td><td>Dr. S. Iyer</td><td><span class="chip blue">SUBMITTED</span></td><td><span class="chip teal">🔏 LOCKED</span></td></tr>
+      <tr><td class="mono">FF-2026-01722</td><td>R••••i T••••e · MRN-004489</td><td>USG Obstetric — dating</td><td class="mono">09-Jun</td><td>Dr. V. Shetty</td><td><span class="chip violet">CORRECTION PENDING</span><div class="small muted">gestational age typo · IR-04 ref COR-2026-0031</div></td><td><span class="chip teal">🔏 LOCKED</span></td></tr>
+      <tr class="dim"><td class="mono">FF-2026-01718</td><td>P••••a S••••e · MRN-004462</td><td>USG Obstetric — growth</td><td class="mono">07-Jun</td><td>Dr. S. Iyer</td><td><span class="chip blue">SUBMITTED</span></td><td><span class="chip teal">🔏 LOCKED</span></td></tr>
+      <tr class="dim"><td class="mono">FF-2026-01709</td><td>A••••a M••••n · MRN-004430</td><td>USG Obstetric — NT/NB</td><td class="mono">03-Jun</td><td>Dr. S. Iyer</td><td><span class="chip blue">SUBMITTED</span></td><td><span class="chip teal">🔏 LOCKED</span></td></tr>
+    </table>
+    <div class="small muted" style="margin-top:8px">Retention: Form F records retained 10 years per radiology record policy; disposal only via governed retention workflow with four-eyes approval.</div>
+  </div>
+  </div></div>
+</div>
+
+<p class="audit">Every register view, filter, bulk-open, record open and amendment upload is written to the immutable audit trail with actor, branch, purpose and record hash; unmasking a patient name inside a Form F requires a logged reason and is recorded in the access log.</p>
+</section>
+<section class="screen" id="ir-02">
+<div class="screen-head"><h1><span class="sid">IR-02</span> Monthly submission prep</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Prepares the centre's PC-PNDT Form F monthly filing: counts records by readiness, runs the full validation suite (patient signature, doctor PNDT validity, machine registration), and turns every failure into an owned fix-list item. The month cutoff is <b>scan date</b> — anything scanned in July files in the July batch regardless of when it was entered. A due-by-5th countdown drives escalation to the org admin and Privacy Officer if the batch risks going overdue.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West (PNDT Regn MH/AND/PNDT/0142)</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">PC-PNDT</div>
+    <div class="nav-item">Form F register <span class="nav-badge red">3</span></div>
+    <div class="nav-item active">Monthly submission</div>
+    <div class="nav-item">Submissions &amp; acks</div>
+    <div class="nav-item">Corrections</div>
+    <div class="sec-label">AERB</div>
+    <div class="nav-item">Equipment licences</div>
+    <div class="nav-item">Dose registry</div>
+    <div class="sec-label">Governance</div>
+    <div class="nav-item">Registrations</div>
+    <div class="nav-item">Audit trail</div>
+  </div>
+  <div class="main"><div class="crumb">Regulatory › PC-PNDT › Monthly submission › July 2026</div>
+  <div class="page-title">July 2026 submission prep <span class="actions-right"><span class="btn small">Re-run validation</span> <span class="btn primary small disabled">Proceed to generate (IR-03)</span></span></div>
+  <div class="page-sub">Month-cutoff rule: batch includes every Form F with <b>scan date 01–31 Jul 2026 (IST)</b>. Entry date, billing date and report sign-off date do not affect batch membership. Due to Appropriate Authority by <b>Tue 05 Aug 2026</b>.</div>
+  <div class="stepper">
+    <div class="step done"><span class="dot">1</span> Records captured</div><span class="step-line"></span>
+    <div class="step cur"><span class="dot">2</span> Validate &amp; fix</div><span class="step-line"></span>
+    <div class="step"><span class="dot">3</span> Generate file</div><span class="step-line"></span>
+    <div class="step"><span class="dot">4</span> Submit</div><span class="step-line"></span>
+    <div class="step"><span class="dot">5</span> Capture ack</div>
+  </div>
+  <div class="banner warn"><b>Due in 11 days — Tue 05 Aug 2026.</b> <span class="chip amber">T-11 DAYS</span> Owner: K. Verma (org admin). Auto-escalation: T-2 days → daily digest to K. Verma; T-0 missed → <b>OVERDUE</b> alert to K. Verma + Dr. A. Rao (Privacy Officer), logged as compliance exception.</div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">42</div><div class="l">In July batch</div><div class="s">scan-date basis</div></div>
+    <div class="kpi"><div class="n">37</div><div class="l">Ready</div><div class="s">all checks green</div></div>
+    <div class="kpi amber"><div class="n">3</div><div class="l">Needs attention</div><div class="s">blocking generation</div></div>
+    <div class="kpi"><div class="n">2</div><div class="l">In progress</div><div class="s">drafts — report unsigned</div></div>
+  </div>
+  <div class="split">
+    <div class="card">
+      <div class="card-title">Validation panel — every record must pass all checks <span class="right">Last run 25-Jul 09:12 IST</span></div>
+      <table>
+        <tr><th>Check</th><th>Rule</th><th>Result</th></tr>
+        <tr><td><b>Patient signature / declaration</b></td><td>Signed declaration present on every record (Sec 4(3))</td><td><span class="chip amber">41 / 42 ✓</span> <span class="small">FF-2026-01843 missing</span></td></tr>
+        <tr><td><b>Doctor PNDT registration valid</b></td><td>Performing doctor's PNDT regn valid on scan date, this centre</td><td><span class="chip green">42 / 42 ✓</span> <span class="small">Dr. S. Iyer MH/PNDT/2019/4471 · Dr. V. Shetty MH/PNDT/2021/6120</span></td></tr>
+        <tr><td><b>Machine registration</b></td><td>USG machine listed on centre's PC-PNDT registration MH/AND/PNDT/0142</td><td><span class="chip green">42 / 42 ✓</span> <span class="small">GE Voluson S8 (SN V8-22041) · Samsung HS40 (SN HS-19230)</span></td></tr>
+        <tr><td><b>Medical indication recorded</b></td><td>Col. 9 non-blank, from approved indication list</td><td><span class="chip amber">41 / 42 ✓</span> <span class="small">FF-2026-01839 blank</span></td></tr>
+        <tr><td><b>Referrer details</b></td><td>Referring doctor name + regn no. (col. 6) where referred</td><td><span class="chip amber">41 / 42 ✓</span> <span class="small">FF-2026-01835 missing</span></td></tr>
+        <tr><td><b>Report finalised</b></td><td>Procedure report signed by radiologist</td><td><span class="chip amber">40 / 42 ✓</span> <span class="small">2 drafts (FF-2026-01828, FF-2026-01851)</span></td></tr>
+        <tr><td><b>Tamper-evidence chain</b></td><td>Hash chain verifies across all 42 records</td><td><span class="chip green">CHAIN OK</span> <span class="small">verified 25-Jul 02:00</span></td></tr>
+        <tr><td><b>No sex-determination flags</b></td><td>No record contains prohibited disclosure indicators</td><td><span class="chip green">42 / 42 ✓</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Generation is blocked until every check is 42/42. Validation results are versioned and attached to the submission record.</div>
+    </div>
+    <div>
+      <div class="card">
+        <div class="card-title">Month cutoff</div>
+        <dl class="kv" style="grid-template-columns:110px 1fr">
+          <dt>Basis</dt><dd><b>Scan date</b> (IST)</dd>
+          <dt>Window</dt><dd>01-Jul 00:00 → 31-Jul 23:59</dd>
+          <dt>Late entries</dt><dd>A July scan entered in August still files in the July batch; if July is already acknowledged, it becomes a correction (IR-04)</dd>
+          <dt>Centre</dt><dd>Per-registration — Andheri West files separately from Powai (MH/POW/PNDT/0201)</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <div class="card-title">Due-by-5th countdown</div>
+        <div style="font-size:26px;font-weight:800">11 days <span class="chip teal" style="vertical-align:middle">ON TRACK</span></div>
+        <div class="progress" style="margin-top:8px"><i style="width:64%"></i></div>
+        <div class="small muted" style="margin-top:6px">Statutory: file by 5th of following month. Internal target: 02 Aug (buffer for portal outages / physical delivery).</div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Fix-list with owners <span class="right">3 blocking · 2 watch</span></div>
+    <table>
+      <tr><th>Item</th><th>FF Ref</th><th>Fix required</th><th>Owner</th><th>SLA</th><th>Escalated to</th></tr>
+      <tr><td>1</td><td class="mono">FF-2026-01843</td><td>Capture patient signature on declaration</td><td>D. Nair (front office)</td><td><span class="chip amber">DUE 30-Jul</span></td><td>—</td></tr>
+      <tr><td>2</td><td class="mono">FF-2026-01839</td><td>Record medical indication (col. 9)</td><td>Dr. V. Shetty</td><td><span class="chip amber">DUE 29-Jul</span></td><td>—</td></tr>
+      <tr><td>3</td><td class="mono">FF-2026-01835</td><td>Add referrer name/regn — Dr. Meera Nair</td><td>D. Nair (front office)</td><td><span class="chip red">OVERDUE 2d</span></td><td>K. Verma</td></tr>
+      <tr class="dim"><td>4</td><td class="mono">FF-2026-01828</td><td>Radiologist to sign report (draft)</td><td>Dr. V. Shetty</td><td><span class="chip teal">DUE 01-Aug</span></td><td>—</td></tr>
+      <tr class="dim"><td>5</td><td class="mono">FF-2026-01851</td><td>Radiologist to sign report (draft)</td><td>Dr. S. Iyer</td><td><span class="chip teal">DUE 01-Aug</span></td><td>—</td></tr>
+    </table>
+  </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ALL-READY GREEN (GENERATION UNBLOCKED)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+  <div class="crumb">Regulatory › PC-PNDT › Monthly submission › July 2026</div>
+  <div class="page-title">July 2026 submission prep <span class="actions-right"><span class="btn primary small">Proceed to generate (IR-03)</span></span></div>
+  <div class="banner success"><b>All 44 records ready — July 2026 batch may be generated.</b> Every validation passed at 02-Aug 08:30 IST. Two late-signed drafts joined the batch (scan-date basis). Generation will freeze this validation snapshot into the submission record.</div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">44</div><div class="l">In July batch</div><div class="s">2 late report sign-offs included</div></div>
+    <div class="kpi"><div class="n">44</div><div class="l">Ready</div><div class="s">8/8 checks green</div></div>
+    <div class="kpi"><div class="n">0</div><div class="l">Needs attention</div><div class="s">fix-list cleared 01-Aug</div></div>
+    <div class="kpi"><div class="n">3 days</div><div class="l">To statutory due</div><div class="s">05 Aug · <span class="chip teal">ON TRACK</span></div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Validation panel <span class="right">Run 02-Aug 08:30 IST · snapshot v4</span></div>
+    <table>
+      <tr><th>Check</th><th>Result</th></tr>
+      <tr><td>Patient signature / declaration</td><td><span class="chip green">44 / 44 ✓</span></td></tr>
+      <tr><td>Doctor PNDT registration valid on scan date</td><td><span class="chip green">44 / 44 ✓</span></td></tr>
+      <tr><td>Machine registration on MH/AND/PNDT/0142</td><td><span class="chip green">44 / 44 ✓</span></td></tr>
+      <tr><td>Medical indication · referrer details · report finalised</td><td><span class="chip green">44 / 44 ✓</span></td></tr>
+      <tr><td>Tamper-evidence chain</td><td><span class="chip green">CHAIN OK</span></td></tr>
+    </table>
+    <div style="margin-top:10px"><span class="btn primary">Proceed to generate submission file →</span> <span class="small muted">Requires identity confirmation at submission step (IR-03).</span></div>
+  </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — OVERDUE RED (PAST THE 5TH, ESCALATED)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+  <div class="crumb">Regulatory › PC-PNDT › Monthly submission › July 2026</div>
+  <div class="page-title">July 2026 submission prep <span class="chip red" style="vertical-align:middle">OVERDUE</span></div>
+  <div class="banner danger"><b>Statutory deadline missed — 2 days overdue (due 05 Aug 2026).</b> <span class="chip red">OVERDUE 2d</span> Escalated 05-Aug 18:00 IST to K. Verma (org admin) and Dr. A. Rao (Privacy Officer); daily reminders until filed. Compliance exception CE-2026-0114 opened automatically — closure requires filing evidence plus a reason narrative, reviewed by Dr. A. Rao (four-eyes).</div>
+  <div class="kpi-row">
+    <div class="kpi red"><div class="n">−2d</div><div class="l">Past due</div><div class="s">due 05 Aug · today 07 Aug</div></div>
+    <div class="kpi amber"><div class="n">1</div><div class="l">Blocking item</div><div class="s">FF-2026-01843 signature</div></div>
+    <div class="kpi"><div class="n">43 / 44</div><div class="l">Ready</div><div class="s">generation blocked</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Escalation ladder — CE-2026-0114</div>
+    <div class="ladder">
+      <div class="tier done"><b>T-2 (03 Aug)</b> — daily digest to owner K. Verma · <span class="small muted">sent 03-Aug 08:00</span></div>
+      <div class="tier done"><b>T-0 missed (05 Aug 18:00)</b> — OVERDUE alert to K. Verma + Dr. A. Rao · compliance exception opened</div>
+      <div class="tier cur"><b>T+2 (today)</b> — daily reminder; blocking item owner D. Nair, escalated to K. Verma</div>
+      <div class="tier"><b>T+5</b> — flagged in monthly governance review pack; legal-hold assessment if authority notice received (ref pattern LH-2026-xxx)</div>
+    </div>
+    <div class="small muted">The overdue state, alerts and closure narrative are immutable audit entries; they cannot be deleted or edited after the fact.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">Blocking item</div>
+    <table>
+      <tr><th>FF Ref</th><th>Fix required</th><th>Owner</th><th>SLA</th><th>Escalated to</th></tr>
+      <tr class="hl"><td class="mono">FF-2026-01843</td><td>Patient signature on declaration — revisit booked 08-Aug 10:00</td><td>D. Nair</td><td><span class="chip red">OVERDUE 8d</span></td><td>K. Verma → Dr. A. Rao</td></tr>
+    </table>
+    <div style="margin-top:10px"><span class="btn danger small">File without record (not permitted — disabled)</span> <span class="small muted">Partial filing is not allowed; the batch files whole once the last record clears.</span></div>
+  </div>
+  </div></div>
+</div>
+
+<p class="audit">Validation runs, snapshot versions, countdown state changes, escalation notifications and compliance-exception lifecycle events are all recorded in the access log.</p>
+</section>
+<section class="screen" id="ir-03">
+<div class="screen-head"><h1><span class="sid">IR-03</span> Submission &amp; acknowledgement</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Generates the monthly Form F submission file in the format required by the Appropriate Authority, records the act of submission (portal or physical, submitted-by with step-up identity confirmation, date), then captures the authority's receipt/acknowledgement (upload, reference number, date). Once the ack is captured, the month's submission record and its register become immutable — later fixes flow only through corrections (IR-04).</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West (PNDT Regn MH/AND/PNDT/0142)</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">PC-PNDT</div>
+    <div class="nav-item">Form F register</div>
+    <div class="nav-item">Monthly submission</div>
+    <div class="nav-item active">Submissions &amp; acks <span class="nav-badge">1</span></div>
+    <div class="nav-item">Corrections</div>
+    <div class="sec-label">AERB</div>
+    <div class="nav-item">Equipment licences</div>
+    <div class="nav-item">Dose registry</div>
+    <div class="sec-label">Governance</div>
+    <div class="nav-item">Registrations</div>
+    <div class="nav-item">Audit trail</div>
+  </div>
+  <div class="main"><div class="crumb">Regulatory › PC-PNDT › Submissions &amp; acks › July 2026 · Generate</div>
+  <div class="page-title">Generate submission file — July 2026</div>
+  <div class="page-sub">Source: validation snapshot v4 (02-Aug 08:30 IST, 44/44 ready). The generated file is hash-stamped; regeneration is allowed only before submission is recorded and always produces a new numbered build.</div>
+  <div class="stepper">
+    <div class="step done"><span class="dot">1</span> Records captured</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">2</span> Validate &amp; fix</div><span class="step-line"></span>
+    <div class="step cur"><span class="dot">3</span> Generate file</div><span class="step-line"></span>
+    <div class="step"><span class="dot">4</span> Submit</div><span class="step-line"></span>
+    <div class="step"><span class="dot">5</span> Capture ack</div>
+  </div>
+  <div class="split">
+    <div class="card">
+      <div class="card-title">Build parameters</div>
+      <div class="field"><label>Format (per Appropriate Authority) <span class="req">*</span></label>
+        <select class="select"><option>Maharashtra AA — consolidated Form F PDF bundle + summary statement (v2024.2)</option></select>
+        <div class="hint">Format profile maintained per authority; Powai centre uses the same MH profile under its own registration.</div>
+      </div>
+      <div class="field"><label>Batch</label><input class="input" value="July 2026 · 44 records · scan dates 01–31 Jul · MH/AND/PNDT/0142" disabled></div>
+      <div class="field"><label>Contents</label>
+        <div class="check"><span class="box on">✓</span> 44 × Form F (sealed PDFs, chain-verified)</div>
+        <div class="check"><span class="box on">✓</span> Monthly summary statement (counts by indication, doctor, machine)</div>
+        <div class="check"><span class="box on">✓</span> Centre registration extract + doctor PNDT registrations</div>
+        <div class="check"><span class="box">&nbsp;</span> Include cover letter on Meridian letterhead (optional)</div>
+      </div>
+      <div style="margin-top:8px"><span class="btn primary">Generate build #1</span> <span class="btn">Preview summary statement</span></div>
+    </div>
+    <div>
+      <div class="card">
+        <div class="card-title">Pre-generation checks</div>
+        <div class="check"><span class="box on">✓</span> Validation snapshot v4 — 44/44 ready</div>
+        <div class="check"><span class="box on">✓</span> Tamper chain verified 02-Aug 08:31</div>
+        <div class="check"><span class="box on">✓</span> No open corrections targeting July records</div>
+        <div class="check"><span class="box on">✓</span> Centre registration MH/AND/PNDT/0142 valid to 14-Feb-2028</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Deadline</div>
+        <div style="font-size:22px;font-weight:800">Due 05 Aug <span class="chip teal">T-3 DAYS</span></div>
+        <div class="small muted" style="margin-top:4px">Owner: K. Verma · escalates to Dr. A. Rao if unfiled on 05-Aug 18:00 IST.</div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-wrap">
+    <div class="modal">
+      <h3>Confirm your identity to generate the statutory filing</h3>
+      <p class="small" style="margin-bottom:10px">Generating a Form F submission file is a legal-filing action. Confirm it is you, K. Verma (org admin). This confirmation is bound to build #1 and recorded immutably.</p>
+      <div class="field"><label>Password <span class="req">*</span></label><input class="input" value="••••••••••"></div>
+      <div class="field"><label>OTP to registered mobile ••••• •4821 <span class="req">*</span></label><input class="input" value="7 3 2 9 1 4" style="letter-spacing:6px;width:180px"></div>
+      <div class="check"><span class="box on">✓</span> I confirm the July 2026 batch (44 records, snapshot v4) is complete and accurate to my knowledge.</div>
+      <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Confirm &amp; generate</span></div>
+    </div>
+  </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SUBMITTED, AWAITING ACKNOWLEDGEMENT</div>
+<div class="frame">
+  <div class="body"><div class="main">
+  <div class="crumb">Regulatory › PC-PNDT › Submissions &amp; acks › July 2026</div>
+  <div class="page-title">July 2026 — submitted, awaiting acknowledgement <span class="chip amber" style="vertical-align:middle">AWAITING ACK</span></div>
+  <div class="banner info"><b>Submission recorded 03-Aug-2026 11:24 IST.</b> Build #1 (SHA-256 9f3a…c821) filed via <b>AA portal</b> by K. Verma (identity confirmed by password + OTP). Portal transaction ID MHAA-TXN-882914. Capture the acknowledgement below when received — the record locks at that point. Reminder if no ack by 12-Aug: owner K. Verma.</div>
+  <div class="split">
+    <div class="card">
+      <div class="card-title">Submission record — SUB-2026-07-AND</div>
+      <dl class="kv">
+        <dt>Batch</dt><dd>July 2026 · 44 records · MH/AND/PNDT/0142</dd>
+        <dt>Build</dt><dd>#1 · MeridianAND_FormF_Jul2026.pdf (18.4 MB) · SHA-256 9f3a…c821</dd>
+        <dt>Mode</dt><dd><span class="chip blue">PORTAL</span> Maharashtra AA e-filing · TXN MHAA-TXN-882914</dd>
+        <dt>Submitted by</dt><dd>K. Verma (org admin) · identity confirmed 03-Aug 11:23 IST (password + OTP)</dd>
+        <dt>Submitted on</dt><dd>03-Aug-2026 11:24 IST · 2 days before statutory due</dd>
+        <dt>Ack status</dt><dd><span class="chip amber">AWAITING ACK</span> · follow-up reminder 12-Aug</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <div class="card-title">Capture acknowledgement</div>
+      <div class="field"><label>Ack reference no. <span class="req">*</span></label><input class="input" placeholder="e.g. MH/AA/2026/____"></div>
+      <div class="field"><label>Ack date <span class="req">*</span></label><input class="input" placeholder="DD-MM-YYYY"></div>
+      <div class="field"><label>Upload receipt / ack document <span class="req">*</span></label>
+        <div class="sig-box">Drop PDF or scan here — hash-stamped on upload</div>
+      </div>
+      <div class="banner warn" style="margin:8px 0"><b>Locks the month.</b> Capturing the ack makes SUB-2026-07-AND and the July register immutable. This cannot be undone.</div>
+      <span class="btn primary small">Capture ack (identity confirmation required)</span>
+    </div>
+  </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — ACK CAPTURED, HISTORY TABLE (IMMUTABLE)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+  <div class="crumb">Regulatory › PC-PNDT › Submissions &amp; acks</div>
+  <div class="page-title">Submission history — Andheri West <span class="actions-right"><span class="btn small">Export history (PDF)</span></span></div>
+  <div class="banner success"><b>July 2026 acknowledgement captured.</b> Ack ref MH/AA/2026/0798 dated 06-Aug-2026, receipt uploaded (SHA-256 41be…77d0), captured by K. Verma 06-Aug 15:02 IST with identity confirmation. SUB-2026-07-AND is now <b>immutable</b>; discrepancies route to corrections (IR-04).</div>
+  <div class="card">
+    <div class="card-title">History <span class="right">Retention: submission records + acks 10 years</span></div>
+    <table>
+      <tr><th>Month</th><th>Submission</th><th>Records</th><th>Mode · date</th><th>Submitted by</th><th>Ack status</th><th>Ack ref · date</th><th>Lock</th></tr>
+      <tr class="hl"><td>Jul 2026</td><td class="mono">SUB-2026-07-AND</td><td>44</td><td>Portal · 03-Aug</td><td>K. Verma</td><td><span class="chip green">ACK CAPTURED</span></td><td class="mono">MH/AA/2026/0798 · 06-Aug</td><td><span class="chip teal">🔏 IMMUTABLE</span></td></tr>
+      <tr><td>Jun 2026</td><td class="mono">SUB-2026-06-AND</td><td>39</td><td>Portal · 03-Jul</td><td>K. Verma</td><td><span class="chip green">ACK CAPTURED</span></td><td class="mono">MH/AA/2026/0713 · 04-Jul</td><td><span class="chip teal">🔏 IMMUTABLE</span></td></tr>
+      <tr><td>May 2026</td><td class="mono">SUB-2026-05-AND</td><td>47</td><td>Physical · 04-Jun</td><td>K. Verma (delivered by D. Nair)</td><td><span class="chip green">ACK CAPTURED</span></td><td class="mono">MH/AA/2026/0621 · 04-Jun (stamped copy)</td><td><span class="chip teal">🔏 IMMUTABLE</span></td></tr>
+      <tr><td>Apr 2026</td><td class="mono">SUB-2026-04-AND</td><td>41</td><td>Portal · 02-May</td><td>K. Verma</td><td><span class="chip green">ACK CAPTURED</span></td><td class="mono">MH/AA/2026/0544 · 05-May</td><td><span class="chip teal">🔏 IMMUTABLE</span></td></tr>
+      <tr><td>Mar 2026</td><td class="mono">SUB-2026-03-AND</td><td>45</td><td>Portal · 06-Apr <span class="chip red">FILED LATE +1d</span></td><td>K. Verma</td><td><span class="chip green">ACK CAPTURED</span></td><td class="mono">MH/AA/2026/0489 · 08-Apr</td><td><span class="chip teal">🔏 IMMUTABLE</span></td></tr>
+      <tr><td>Feb 2026</td><td class="mono">SUB-2026-02-AND</td><td>38</td><td>Portal · 03-Mar</td><td>K. Verma</td><td><span class="chip green">ACK CAPTURED</span></td><td class="mono">MH/AA/2026/0402 · 04-Mar</td><td><span class="chip teal">🔏 IMMUTABLE</span></td></tr>
+      <tr><td>Jan 2026</td><td class="mono">SUB-2026-01-AND</td><td>36 + 1 corr</td><td>Portal · 04-Feb</td><td>K. Verma</td><td><span class="chip green">ACK CAPTURED</span></td><td class="mono">MH/AA/2026/0317 · 05-Feb</td><td><span class="chip teal">🔏 IMMUTABLE</span></td></tr>
+    </table>
+    <div class="small muted" style="margin-top:8px">Mar 2026 late filing is preserved with its compliance-exception narrative (CE-2026-0071, closed by Dr. A. Rao). Immutable rows cannot be edited or deleted by any role, including org admin; a court/authority-ordered change would be executed as a superseding correction with four-eyes approval (K. Verma + Dr. A. Rao) and full audit lineage.</div>
+  </div>
+  </div></div>
+</div>
+
+<p class="audit">File generation, identity confirmations, submission recording, ack capture and every download of a submission build are recorded in the access log.</p>
+</section>
+<section class="screen" id="ir-04">
+<div class="screen-head"><h1><span class="sid">IR-04</span> Corrections &amp; resubmission</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Once a month is acknowledged its Form F records are immutable, so any error is remedied through a correction record: it links the original FF, classifies the error against a reason taxonomy, and queues the correction for inclusion in the next monthly submission. The system generates a correction letter for the Appropriate Authority and maintains a register of corrections with authority responses. Creating a correction requires step-up identity confirmation plus a second approver (four-eyes: Dr. A. Rao, Privacy Officer).</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West (PNDT Regn MH/AND/PNDT/0142)</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">PC-PNDT</div>
+    <div class="nav-item">Form F register</div>
+    <div class="nav-item">Monthly submission</div>
+    <div class="nav-item">Submissions &amp; acks</div>
+    <div class="nav-item active">Corrections <span class="nav-badge">2</span></div>
+    <div class="sec-label">AERB</div>
+    <div class="nav-item">Equipment licences</div>
+    <div class="nav-item">Dose registry</div>
+    <div class="sec-label">Governance</div>
+    <div class="nav-item">Registrations</div>
+    <div class="nav-item">Audit trail</div>
+  </div>
+  <div class="main"><div class="crumb">Regulatory › PC-PNDT › Corrections › New correction</div>
+  <div class="page-title">Create correction record — COR-2026-0032 (draft)</div>
+  <div class="page-sub">A correction never edits the original: it creates a linked, superseding record. The original FF stays sealed and visible with a "corrected-by" pointer.</div>
+  <div class="stepper">
+    <div class="step done"><span class="dot">1</span> Link original</div><span class="step-line"></span>
+    <div class="step cur"><span class="dot">2</span> Classify &amp; correct</div><span class="step-line"></span>
+    <div class="step"><span class="dot">3</span> Four-eyes approval</div><span class="step-line"></span>
+    <div class="step"><span class="dot">4</span> Queue for next submission</div>
+  </div>
+  <div class="split">
+    <div>
+      <div class="card">
+        <div class="card-title">Original record (locked)</div>
+        <dl class="kv">
+          <dt>Original FF</dt><dd class="mono">FF-2026-01722 <span class="chip teal">🔏 IMMUTABLE</span></dd>
+          <dt>Patient</dt><dd>R••••i T••••e · MRN-004489 (unmask requires logged reason)</dd>
+          <dt>Procedure</dt><dd>USG Obstetric — dating scan · 09-Jun-2026 · Dr. V. Shetty</dd>
+          <dt>Filed in</dt><dd>SUB-2026-06-AND · ack MH/AA/2026/0713 dated 04-Jul-2026</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <div class="card-title">Correction details</div>
+        <div class="field"><label>Reason (taxonomy) <span class="req">*</span></label>
+          <select class="select"><option>DATA-03 · Clinical data error — gestational age recorded incorrectly</option></select>
+          <div class="hint">Taxonomy: DATA-01 patient demographics · DATA-02 referrer details · DATA-03 clinical data · DOC-01 signature/declaration defect · PROC-01 wrong machine/doctor attribution · ADM-01 duplicate record · ADM-02 record omitted from batch (late entry)</div>
+        </div>
+        <div class="field"><label>Field(s) corrected <span class="req">*</span></label><input class="input" value="Col. 10 — Period of gestation: 11 weeks 2 days → 12 weeks 2 days"></div>
+        <div class="field"><label>Narrative for authority <span class="req">*</span></label><div class="textarea">Transcription error at data entry; source report by Dr. V. Shetty correctly states 12 weeks 2 days (report REP-2026-11834, signed 09-Jun-2026). No clinical or eligibility impact; no change to indication or declaration.</div></div>
+        <div class="field"><label>Evidence attached</label><div class="check"><span class="box on">✓</span> Signed report extract REP-2026-11834 (hash-stamped)</div><div class="check"><span class="box on">✓</span> Original FF-2026-01722 sealed copy</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <div class="card-title">Approvals — four-eyes required</div>
+        <div class="ladder">
+          <div class="tier done"><b>Initiator</b> — K. Verma (org admin) · identity confirmed 09-Jul 15:41 IST (password + OTP)</div>
+          <div class="tier cur"><b>Second approver</b> — Dr. A. Rao (Privacy Officer) · <span class="chip amber">PENDING</span> · SLA <span class="chip teal">DUE 11-Jul</span></div>
+        </div>
+        <div class="small muted">Initiator and approver must be different people; the system blocks self-approval. Rejection returns the draft with comments.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">What happens next</div>
+        <div class="check"><span class="box on">✓</span> Correction joins the <b>next submission queue</b> (July batch or later)</div>
+        <div class="check"><span class="box on">✓</span> Correction letter auto-generated for AA</div>
+        <div class="check"><span class="box on">✓</span> Original FF flagged "corrected by COR-2026-0032"</div>
+        <div class="check"><span class="box">&nbsp;</span> Authority response tracked in corrections register</div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-wrap">
+    <div class="modal">
+      <h3>Submit for second approval</h3>
+      <p class="small" style="margin-bottom:10px">Corrections amend an acknowledged statutory filing and are irreversible once included in a submission. Dr. A. Rao (Privacy Officer) will be asked to independently review the evidence.</p>
+      <div class="check"><span class="box on">✓</span> I confirm the correction narrative is accurate and the evidence is complete.</div>
+      <div class="modal-actions"><span class="btn">Back to draft</span><span class="btn primary">Send to Dr. A. Rao</span></div>
+    </div>
+  </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — QUEUED FOR NEXT SUBMISSION + CORRECTION LETTER</div>
+<div class="frame">
+  <div class="body"><div class="main">
+  <div class="crumb">Regulatory › PC-PNDT › Corrections › Queue</div>
+  <div class="page-title">Included-in-next-submission queue <span class="actions-right"><span class="btn primary small">Generate correction letters (2)</span></span></div>
+  <div class="banner info"><b>2 approved corrections will ride with the August 2026 batch (due 05-Sep-2026).</b> Each carries a correction letter on Meridian letterhead citing the original submission's ack reference. The queue freezes when the August build is generated in IR-03.</div>
+  <div class="card">
+    <div class="card-title">Queue — next submission: Aug 2026 · SUB-2026-08-AND (not yet built)</div>
+    <table>
+      <tr><th>Correction</th><th>Original FF</th><th>Reason</th><th>Approved by (four-eyes)</th><th>Letter</th><th>Status</th></tr>
+      <tr><td class="mono">COR-2026-0031</td><td class="mono">FF-2026-01722 <span class="small muted">(Jun batch · ack MH/AA/2026/0713)</span></td><td>DATA-03 · gestational age typo</td><td>K. Verma + Dr. A. Rao · 10-Jul</td><td><span class="chip green">GENERATED</span> LTR-2026-0148</td><td><span class="chip teal">QUEUED — AUG</span></td></tr>
+      <tr><td class="mono">COR-2026-0032</td><td class="mono">FF-2026-01703 <span class="small muted">(Jun batch · ack MH/AA/2026/0713)</span></td><td>DATA-02 · referrer regn no. wrong (Dr. Meera Nair)</td><td>K. Verma + Dr. A. Rao · 14-Jul</td><td><span class="chip amber">PENDING</span></td><td><span class="chip teal">QUEUED — AUG</span></td></tr>
+      <tr class="dim"><td class="mono">COR-2026-0029</td><td class="mono">FF-2026-01688 <span class="small muted">(May batch · ack MH/AA/2026/0621)</span></td><td>ADM-02 · record omitted (late entry)</td><td>K. Verma + Dr. A. Rao · 28-Jun</td><td><span class="chip green">GENERATED</span> LTR-2026-0139</td><td><span class="chip blue">SENT — JUL BATCH</span></td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <div class="card-title">Correction letter preview — LTR-2026-0148 <span class="right">Auto-generated · editable before four-eyes sign-off</span></div>
+    <div style="border:1px solid #E2E8F0;border-radius:8px;padding:14px 16px;background:#F8FAFC;font-size:12.5px">
+      <div class="bold">Meridian Diagnostics Pvt. Ltd. — Andheri West Centre · PNDT Regn MH/AND/PNDT/0142 · GSTIN 27AAACM1234K1Z5</div>
+      <div class="muted small" style="margin:4px 0 8px">To: The Appropriate Authority (PC-PNDT), Mumbai Suburban District · Date: 12-Jul-2026</div>
+      <div><b>Sub:</b> Correction to Form F No. FF-2026-01722 submitted in the June 2026 monthly statement (your acknowledgement MH/AA/2026/0713 dated 04-Jul-2026).</div>
+      <div style="margin-top:6px">Respected Sir/Madam, we wish to place on record a correction to column 10 (period of gestation) of the above Form F: "11 weeks 2 days" should read "12 weeks 2 days", owing to a transcription error at data entry. The signed sonography report of Dr. V. Shetty (RMC MH-44721) is enclosed as evidence. There is no change to the medical indication, declaration or any other particular. Kindly take the corrected Form F, enclosed herewith, on record.</div>
+      <div style="margin-top:8px" class="muted small">Enclosures: corrected Form F (COR-2026-0031) · report extract REP-2026-11834 · Sd/- K. Verma, Authorised Signatory · Countersigned: Dr. A. Rao, Privacy Officer</div>
+    </div>
+  </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — REGISTER OF CORRECTIONS WITH AUTHORITY RESPONSES</div>
+<div class="frame">
+  <div class="body"><div class="main">
+  <div class="crumb">Regulatory › PC-PNDT › Corrections › Register</div>
+  <div class="page-title">Corrections register — Andheri West <span class="actions-right"><span class="btn small">Export register (PDF)</span></span></div>
+  <div class="page-sub">Full lineage per correction: original FF → correction record → carrying submission → authority response. Register rows become immutable once the authority response is recorded.</div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">7</div><div class="l">Corrections · 2026 YTD</div><div class="s">rate 0.9% of 780 Form F</div></div>
+    <div class="kpi"><div class="n">4</div><div class="l">Accepted by AA</div><div class="s">taken on record</div></div>
+    <div class="kpi amber"><div class="n">2</div><div class="l">Awaiting response</div><div class="s">follow-up owner: K. Verma</div></div>
+    <div class="kpi red"><div class="n">1</div><div class="l">Query raised</div><div class="s">response due 05-Aug</div></div>
+  </div>
+  <div class="card">
+    <table>
+      <tr><th>Correction</th><th>Original FF</th><th>Reason</th><th>Sent with</th><th>Authority response</th><th>Lock</th></tr>
+      <tr><td class="mono">COR-2026-0031</td><td class="mono">FF-2026-01722</td><td>DATA-03 gestational age</td><td>Jul batch · SUB-2026-07-AND · 03-Aug</td><td><span class="chip amber">AWAITING</span> <span class="small muted">follow-up 20-Aug</span></td><td><span class="chip grey">OPEN</span></td></tr>
+      <tr><td class="mono">COR-2026-0029</td><td class="mono">FF-2026-01688</td><td>ADM-02 record omitted</td><td>Jul batch · SUB-2026-07-AND · 03-Aug</td><td><span class="chip amber">AWAITING</span></td><td><span class="chip grey">OPEN</span></td></tr>
+      <tr class="hl"><td class="mono">COR-2026-0024</td><td class="mono">FF-2026-01514</td><td>DOC-01 declaration re-signed</td><td>Jun batch · SUB-2026-06-AND · 03-Jul</td><td><span class="chip red">QUERY RAISED</span> <span class="small">AA letter 22-Jul: explain delay in obtaining signature · response owner K. Verma · <span class="chip amber">DUE 05-Aug</span> · escalated to Dr. A. Rao</span></td><td><span class="chip grey">OPEN</span></td></tr>
+      <tr><td class="mono">COR-2026-0019</td><td class="mono">FF-2026-01390</td><td>DATA-01 patient age typo</td><td>May batch · 04-Jun</td><td><span class="chip green">ACCEPTED</span> <span class="small muted">AA memo MH/AA/CORR/2026/044 · 18-Jun</span></td><td><span class="chip teal">🔏 IMMUTABLE</span></td></tr>
+      <tr><td class="mono">COR-2026-0014</td><td class="mono">FF-2026-01201</td><td>DATA-02 referrer regn</td><td>Apr batch · 02-May</td><td><span class="chip green">ACCEPTED</span> <span class="small muted">MH/AA/CORR/2026/031 · 19-May</span></td><td><span class="chip teal">🔏 IMMUTABLE</span></td></tr>
+      <tr><td class="mono">COR-2026-0011</td><td class="mono">FF-2026-01144</td><td>ADM-01 duplicate withdrawn</td><td>Mar batch · 06-Apr</td><td><span class="chip green">ACCEPTED</span> <span class="small muted">MH/AA/CORR/2026/022 · 24-Apr</span></td><td><span class="chip teal">🔏 IMMUTABLE</span></td></tr>
+      <tr><td class="mono">COR-2026-0008</td><td class="mono">FF-2026-01067</td><td>DATA-03 indication wording</td><td>Feb batch · 03-Mar</td><td><span class="chip green">ACCEPTED</span> <span class="small muted">MH/AA/CORR/2026/015 · 21-Mar</span></td><td><span class="chip teal">🔏 IMMUTABLE</span></td></tr>
+    </table>
+    <div class="small muted" style="margin-top:8px">Authority responses are uploaded and hash-stamped; a QUERY RAISED row opens a tracked response task with SLA and escalation (owner → org admin → Privacy Officer Dr. A. Rao). Corrections register retained 10 years with the Form F records.</div>
+  </div>
+  </div></div>
+</div>
+
+<p class="audit">Correction creation, taxonomy selection, evidence uploads, four-eyes approvals/rejections, letter generation and authority-response capture are all recorded in the access log.</p>
+</section>
+<section class="screen" id="ir-05">
+<div class="screen-head"><h1><span class="sid">IR-05</span> AERB Compliance Register</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single register for every radiation-generating unit across Meridian branches: AERB/eLORA licences and validity, RSO designation, dose-event (DRL exceedance) log with physicist review, and inspection findings with corrective actions. Renewal reminders auto-create obligations in the Regulatory Calendar (IR-06) at T-90/T-60/T-30. Licence records are legal evidence — edits require step-up identity confirmation and are never hard-deleted.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Imaging Regulatory</div>
+    <div class="nav-item">PC-PNDT register</div>
+    <div class="nav-item">Form F filings</div>
+    <div class="nav-item active">AERB compliance</div>
+    <div class="nav-item">Regulatory calendar <span class="nav-badge red">2</span></div>
+    <div class="sec-label">Privacy &amp; DPDP</div>
+    <div class="nav-item">Consent registry</div>
+    <div class="nav-item">Rights requests</div>
+    <div class="sec-label">Governance</div>
+    <div class="nav-item">Incidents</div>
+    <div class="nav-item">Legal holds</div>
+    <div class="nav-item">Access log</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Regulatory › Imaging › AERB compliance register</div>
+    <div class="page-title">AERB compliance register <span class="actions-right"><span class="btn small">⬇ Export register (PDF)</span> <span class="btn primary small">+ Add equipment licence</span></span></div>
+    <div class="page-sub">Atomic Energy Regulatory Board · eLORA institution ID <span class="mono">ELORA-INST-104482</span> · Last synced from eLORA reference notes 24 Jul 2026, 18:02 IST</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">7</div><div class="l">Licensed units</div><div class="s">4 CT · 2 X-ray · 1 mammography</div></div>
+      <div class="kpi amber"><div class="n">1</div><div class="l">Renewal ≤ 90 days</div><div class="s">CT-02, Andheri — due 30 Sep 2026</div></div>
+      <div class="kpi red"><div class="n">1</div><div class="l">Open dose events</div><div class="s">DRL exceedance awaiting physicist</div></div>
+      <div class="kpi"><div class="n">2</div><div class="l">Open corrective actions</div><div class="s">From AERB inspection 02 Jun 2026</div></div>
+    </div>
+    <div class="banner warn"><b>Renewal window open — CT-02 (Andheri West)</b>Licence AERB/CT/MH/2021/33810 expires 30 Sep 2026. Obligation OBL-2026-0187 auto-created in the regulatory calendar; owner K. Verma; SLA <span class="chip amber">T-67 days</span>. eLORA renewal must be submitted via the eLORA portal — record the acknowledgement number here as evidence.</div>
+    <div class="card">
+      <div class="card-title">Equipment licence register <span class="right">7 units · all branches</span></div>
+      <table>
+        <tr><th>Unit</th><th>Branch</th><th>Licence no. (eLORA)</th><th>Valid from</th><th>Valid to</th><th>RSO attached</th><th>Status</th><th></th></tr>
+        <tr><td class="bold">CT-01 · Siemens go.Up 64</td><td>Andheri West</td><td class="mono">AERB/CT/MH/2023/41205</td><td>12 Jan 2023</td><td>11 Jan 2028</td><td>T. Okafor</td><td><span class="chip green">VALID</span></td><td><span class="btn ghost small">Open</span></td></tr>
+        <tr class="hl"><td class="bold">CT-02 · GE Revolution ACT</td><td>Andheri West</td><td class="mono">AERB/CT/MH/2021/33810</td><td>01 Oct 2021</td><td>30 Sep 2026</td><td>T. Okafor</td><td><span class="chip amber">RENEW ≤ 90 D</span></td><td><span class="btn ghost small">Renew</span></td></tr>
+        <tr><td class="bold">CT-03 · Siemens go.Now</td><td>Bandra</td><td class="mono">AERB/CT/MH/2024/45771</td><td>03 Mar 2024</td><td>02 Mar 2029</td><td>R. Kulkarni</td><td><span class="chip green">VALID</span></td><td><span class="btn ghost small">Open</span></td></tr>
+        <tr><td class="bold">CT-04 · Canon Aquilion Start</td><td>Powai</td><td class="mono">AERB/CT/MH/2025/48120</td><td>18 Feb 2025</td><td>17 Feb 2030</td><td>R. Kulkarni</td><td><span class="chip green">VALID</span></td><td><span class="btn ghost small">Open</span></td></tr>
+        <tr><td class="bold">XR-01 · Siemens Multix</td><td>Andheri West</td><td class="mono">AERB/DR/MH/2022/37455</td><td>22 Jul 2022</td><td>21 Jul 2027</td><td>T. Okafor</td><td><span class="chip green">VALID</span></td><td><span class="btn ghost small">Open</span></td></tr>
+        <tr><td class="bold">XR-02 · GE Definium</td><td>Bandra</td><td class="mono">AERB/DR/MH/2023/40912</td><td>09 May 2023</td><td>08 May 2028</td><td>R. Kulkarni</td><td><span class="chip green">VALID</span></td><td><span class="btn ghost small">Open</span></td></tr>
+        <tr><td class="bold">MG-01 · Hologic 3Dimensions</td><td>Powai</td><td class="mono">AERB/MG/MH/2024/44236</td><td>14 Nov 2024</td><td>13 Nov 2029</td><td>R. Kulkarni</td><td><span class="chip green">VALID</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Decommissioning or transfer of a unit requires AERB intimation via eLORA and a four-eyes approval (Privacy/Compliance + Org Admin) before the licence row can be marked <span class="chip grey">SURRENDERED</span>. Licence rows are retained 10 years after surrender.</div>
+    </div>
+    <div class="row">
+      <div class="card grow" style="flex:1">
+        <div class="card-title">Radiation Safety Officer (RSO) designation <span class="right">Personnel</span></div>
+        <dl class="kv">
+          <dt>RSO (Andheri West)</dt><dd class="bold">T. Okafor — Sr. Technologist</dd>
+          <dt>AERB approval</dt><dd class="mono">RSO/MH/2023/11842 · approved 20 Apr 2023</dd>
+          <dt>RSO level</dt><dd>Level I (Diagnostic Radiology)</dd>
+          <dt>Next AERB review</dt><dd>20 Apr 2028 · <span class="chip green">CURRENT</span></dd>
+          <dt>TLD badge no.</dt><dd class="mono">TLD-88412 · last reading 30 Jun 2026 · 0.14 mSv (qtr)</dd>
+          <dt>Backup RSO</dt><dd>R. Kulkarni (Bandra/Powai) · <span class="mono">RSO/MH/2024/13207</span></dd>
+        </dl>
+        <div style="margin-top:10px"><span class="btn small">View RSO certificate</span> <span class="btn small">Annual RSO review — schedule</span></div>
+      </div>
+      <div class="card" style="width:340px">
+        <div class="card-title">eLORA reference note <span class="right">Evidence</span></div>
+        <div class="field"><label>eLORA acknowledgement / reference</label><div class="input mono">ELORA-ACK-2026-771running…</div><div class="hint">Paste the eLORA portal acknowledgement number after each submission (licence, renewal, decommissioning, RSO nomination). Stored as evidence and linked to the obligation.</div></div>
+        <div class="field"><label>Note</label><div class="textarea">CT-02 renewal application drafted in eLORA on 20 Jul 2026; QA test report from RP agency pending upload.</div></div>
+        <span class="btn primary small">Save reference note</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Dose-event log — DRL exceedances <span class="right">Last 6 months</span></div>
+      <table>
+        <tr><th>Event ID</th><th>Date</th><th>Unit</th><th>Study / patient</th><th>DRL metric</th><th>Recorded vs DRL</th><th>Physicist review</th><th>SLA · owner</th></tr>
+        <tr class="hl"><td class="mono">DOSE-2026-0112</td><td>22 Jul 2026</td><td>CT-02</td><td>CT Abdomen+Pelvis · <span class="mono">MRN-004795</span> Rajesh Gupta</td><td>CTDIvol</td><td class="bold">31.4 vs 25.0 mGy (+26%)</td><td><span class="chip amber">AWAITING PHYSICIST</span></td><td><span class="chip amber">SLA 48h · 14h left</span> · Dr. V. Shetty · escalated-to: —</td></tr>
+        <tr><td class="mono">DOSE-2026-0107</td><td>09 Jul 2026</td><td>CT-01</td><td>CT Brain · <span class="mono">MRN-004822</span> Sofia Rossi</td><td>DLP</td><td>1,120 vs 1,000 mGy·cm (+12%)</td><td><span class="chip green">REVIEWED — justified (repeat, motion)</span></td><td><span class="chip teal">CLOSED 10 Jul</span> · Dr. V. Shetty</td></tr>
+        <tr><td class="mono">DOSE-2026-0101</td><td>28 Jun 2026</td><td>XR-01</td><td>X-ray Lumbar Spine · <span class="mono">MRN-004790</span> Mohammed Al-Rashid</td><td>ESD</td><td>4.1 vs 3.5 mGy (+17%)</td><td><span class="chip green">REVIEWED — protocol retuned</span></td><td><span class="chip teal">CLOSED 30 Jun</span> · Dr. V. Shetty</td></tr>
+        <tr><td class="mono">DOSE-2026-0094</td><td>11 Jun 2026</td><td>CT-02</td><td>CT Chest HR · <span class="mono">MRN-004819</span> Ananya Rao</td><td>CTDIvol</td><td>14.9 vs 12.0 mGy (+24%)</td><td><span class="chip green">REVIEWED — bariatric protocol applied</span></td><td><span class="chip teal">CLOSED 13 Jun</span> · Dr. V. Shetty</td></tr>
+        <tr class="dim"><td class="mono">DOSE-2026-0089</td><td>29 May 2026</td><td>MG-01</td><td>Mammography bilateral · (identifier minimised)</td><td>AGD</td><td>2.9 vs 2.5 mGy (+16%)</td><td><span class="chip green">REVIEWED — compression issue fixed</span></td><td><span class="chip teal">CLOSED 01 Jun</span> · Dr. V. Shetty</td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Patient identifiers in this log are visible only to roles with <b>dose-review</b> purpose; each open is recorded in the access log. Dose events feed the annual AERB safety status report.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Audits &amp; inspections <span class="right">AERB / internal RP audits</span></div>
+      <table>
+        <tr><th>Ref</th><th>Type</th><th>Date</th><th>Branch</th><th>Findings</th><th>Corrective actions</th><th>Status</th></tr>
+        <tr class="hl"><td class="mono">INSP-2026-003</td><td>AERB regulatory inspection</td><td>02 Jun 2026</td><td>Andheri West</td><td>2 findings (1 major, 1 minor)</td><td>2 open · due 05 Aug 2026</td><td><span class="chip amber">CAP IN PROGRESS</span></td></tr>
+        <tr><td class="mono">INSP-2026-001</td><td>Internal RP audit (physicist)</td><td>18 Feb 2026</td><td>Bandra</td><td>1 minor</td><td>1 closed</td><td><span class="chip green">CLOSED</span></td></tr>
+        <tr><td class="mono">INSP-2025-006</td><td>QA test — RP agency</td><td>11 Nov 2025</td><td>Powai</td><td>0 findings</td><td>—</td><td><span class="chip green">CLOSED</span></td></tr>
+        <tr><td class="mono">INSP-2025-004</td><td>AERB regulatory inspection</td><td>21 Aug 2025</td><td>Bandra</td><td>1 minor</td><td>1 closed 30 Sep 2025</td><td><span class="chip green">CLOSED</span></td></tr>
+      </table>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — DOSE-EVENT REVIEW (PHYSICIST / RADIOLOGIST SIGN-OFF ON DOSE-2026-0112)</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:640px">
+    <h3>Dose-event review — <span class="mono">DOSE-2026-0112</span></h3>
+    <div class="banner warn"><b>DRL exceedance +26% · CTDIvol</b>CT Abdomen+Pelvis on CT-02 (Andheri West), 22 Jul 2026 14:37 IST · Technologist T. Okafor · Patient <span class="mono">MRN-004795</span> Rajesh Gupta (dose-review purpose; this view is access-logged).</div>
+    <dl class="kv">
+      <dt>Recorded CTDIvol</dt><dd class="bold">31.4 mGy (local DRL 25.0 mGy)</dd>
+      <dt>DLP</dt><dd>1,480 mGy·cm</dd>
+      <dt>Protocol used</dt><dd>Abdomen routine · 120 kV · auto-mA ceiling 400</dd>
+      <dt>Patient factors</dt><dd>BMI 34 · repeat phase for suspected bleed</dd>
+      <dt>Reviewer</dt><dd>Dr. V. Shetty, Radiologist · RMC MH-44721</dd>
+    </dl>
+    <div class="field" style="margin-top:10px"><label>Physicist / radiologist assessment <span class="req">*</span></label>
+      <div class="check"><span class="box radio on"></span> Justified — clinical indication documented, dose optimisation followed</div>
+      <div class="check"><span class="box radio"></span> Not justified — protocol correction required, notify RSO</div>
+      <div class="check"><span class="box radio"></span> Equipment fault suspected — open QA ticket, suspend protocol</div>
+    </div>
+    <div class="field"><label>Review note <span class="req">*</span></label><div class="textarea">Repeat arterial phase clinically justified (suspected GI bleed). Recommend bariatric protocol preset for BMI &gt; 32 on CT-02; RSO to brief technologists by 01 Aug 2026.</div></div>
+    <div class="field"><label>Follow-up action</label><div class="select">Create corrective action → assign RSO T. Okafor · due 01 Aug 2026 ▾</div><div class="hint">Closing a dose event without a note is not permitted; the note is included verbatim in the AERB annual safety status report.</div></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Sign &amp; close event</span></div>
+  </div>
+</div>
+<p class="audit">Dose-event review DOSE-2026-0112 opened by Dr. V. Shetty (dose-review purpose) 25 Jul 2026 09:12 IST; patient identifier view recorded in the access log.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — INSPECTION FINDINGS &amp; CORRECTIVE ACTION PLAN (INSP-2026-003)</div>
+<div class="card">
+  <div class="card-title">AERB inspection <span class="mono">INSP-2026-003</span> · Andheri West · 02 Jun 2026 <span class="right">CAP due 05 Aug 2026</span></div>
+  <div class="banner reg"><b>Regulatory inspection record</b>Inspector ref <span class="mono">AERB/INSP/WR/2026/0921</span> · eLORA reference <span class="mono">ELORA-ACK-2026-66418</span>. Findings and corrective-action evidence are compiled into the compliance reply submitted through eLORA; closure requires four-eyes sign-off (RSO + Org Admin).</div>
+  <table>
+    <tr><th>#</th><th>Finding</th><th>Severity</th><th>Corrective action</th><th>Evidence</th><th>Owner · SLA</th><th>Status</th></tr>
+    <tr class="hl"><td>F-1</td><td>Radiation warning placard at CT-02 console faded / partially illegible (AERB Safety Code SC/MED-2 §5.4)</td><td><span class="chip red">MAJOR</span></td><td>Replace placards at all CT consoles; photographic evidence per room</td><td><span class="btn ghost small">📎 2 photos uploaded</span></td><td>T. Okafor (RSO) · <span class="chip amber">DUE 05 AUG · 11 d</span> · escalated-to: —</td><td><span class="chip amber">IN PROGRESS</span></td></tr>
+    <tr><td>F-2</td><td>One technologist TLD badge return delayed 12 days beyond quarterly cycle</td><td><span class="chip amber">MINOR</span></td><td>TLD return checklist added to monthly RSO review; reminder task in regulatory calendar</td><td><span class="btn ghost small">📎 SOP v1.3 + OBL-2026-0191</span></td><td>T. Okafor (RSO) · <span class="chip teal">DONE 18 JUL</span></td><td><span class="chip green">EVIDENCE SUBMITTED</span></td></tr>
+  </table>
+  <div class="row" style="margin-top:12px">
+    <div class="grow">
+      <div class="check"><span class="box on">✓</span> Corrective-action evidence reviewed by RSO T. Okafor — 24 Jul 2026</div>
+      <div class="check"><span class="box"></span> Second approver (four-eyes): Org Admin K. Verma — sign-off pending before eLORA reply</div>
+    </div>
+    <div><span class="btn small">Download CAP pack</span> <span class="btn primary small">Request second approval</span></div>
+  </div>
+</div>
+<p class="audit">All licence edits, dose-event sign-offs and inspection-record changes are step-up verified (re-authentication) and recorded in the access log. AERB records retained 10 years; nothing on this register is hard-deleted.</p>
+</section>
+<section class="screen" id="ir-06">
+<div class="screen-head"><h1><span class="sid">IR-06</span> Regulatory Calendar &amp; Obligations</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> One unified list of every recurring statutory obligation — PC-PNDT Form F monthly filing (by the 5th), AERB licence renewals and RSO reviews, DPDP attestations and rights-SLA checks — each with an owner, due date, evidence links and status. The system auto-creates tasks at configurable lead times and escalates overdue items up the ownership chain. A year heat-strip (rendered as an accessible table) shows load and misses per month.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Imaging Regulatory</div>
+    <div class="nav-item">PC-PNDT register</div>
+    <div class="nav-item">Form F filings</div>
+    <div class="nav-item">AERB compliance</div>
+    <div class="nav-item active">Regulatory calendar <span class="nav-badge red">2</span></div>
+    <div class="sec-label">Privacy &amp; DPDP</div>
+    <div class="nav-item">Consent registry</div>
+    <div class="nav-item">Rights requests <span class="nav-badge">3</span></div>
+    <div class="sec-label">Governance</div>
+    <div class="nav-item">Incidents</div>
+    <div class="nav-item">Legal holds</div>
+    <div class="nav-item">Access log</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Regulatory › Calendar &amp; obligations</div>
+    <div class="page-title">Regulatory calendar &amp; obligations <span class="actions-right"><span class="btn small">⬇ Export obligations (CSV)</span> <span class="btn primary small">+ New obligation</span></span></div>
+    <div class="page-sub">FY 2026-27 · All branches · Filters: <span class="chip grey">Regime: All ▾</span> <span class="chip grey">Owner: All ▾</span> <span class="chip grey">Status: Open ▾</span> · Today 25 Jul 2026 IST</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">14</div><div class="l">Open obligations</div><div class="s">Next 60 days, all regimes</div></div>
+      <div class="kpi red"><div class="n">1</div><div class="l">Overdue</div><div class="s">DPDP quarterly attestation — escalated</div></div>
+      <div class="kpi amber"><div class="n">3</div><div class="l">Due ≤ 7 days</div><div class="s">Incl. PC-PNDT Form F (5 Aug)</div></div>
+      <div class="kpi"><div class="n">96%</div><div class="l">On-time, trailing 12 m</div><div class="s">2 misses / 47 obligations</div></div>
+    </div>
+    <div class="banner danger"><b>Overdue &amp; escalated — OBL-2026-0174 DPDP quarterly consent-registry attestation (Q1 FY27)</b>Due 15 Jul 2026, now <span class="chip red">OVERDUE 10 d</span>. Owner D. Nair → escalated-to Privacy Officer Dr. A. Rao (T+3) → DPO Priya Sharma (T+7). Filing evidence must be attached before closure.</div>
+    <div class="card">
+      <div class="card-title">Unified obligations list <span class="right">Sorted by due date</span></div>
+      <table>
+        <tr><th>Ref</th><th>Obligation</th><th>Regime</th><th>Recurrence</th><th>Owner</th><th>Due</th><th>Evidence</th><th>Status · SLA</th></tr>
+        <tr class="hl"><td class="mono">OBL-2026-0174</td><td class="bold">Quarterly consent-registry attestation — Q1 FY27</td><td><span class="chip violet">DPDP</span></td><td>Quarterly</td><td>D. Nair</td><td>15 Jul 2026</td><td><span class="muted">— none attached</span></td><td><span class="chip red">OVERDUE 10 d</span> · escalated-to: Dr. A. Rao, Priya Sharma</td></tr>
+        <tr><td class="mono">OBL-2026-0182</td><td class="bold">PC-PNDT Form F monthly filing — Jul 2026 (Andheri West)</td><td><span class="chip blue">PC-PNDT</span></td><td>Monthly, by the 5th</td><td>Dr. S. Iyer <span class="small muted">(MH/PNDT/2019/4471)</span></td><td>05 Aug 2026</td><td><span class="btn ghost small">📎 FF-2026-00834 draft</span></td><td><span class="chip amber">DUE 11 d</span> · owner OK</td></tr>
+        <tr><td class="mono">OBL-2026-0183</td><td class="bold">PC-PNDT Form F monthly filing — Jul 2026 (Bandra)</td><td><span class="chip blue">PC-PNDT</span></td><td>Monthly, by the 5th</td><td>Dr. S. Iyer</td><td>05 Aug 2026</td><td><span class="muted">— pending draft</span></td><td><span class="chip amber">DUE 11 d</span></td></tr>
+        <tr><td class="mono">OBL-2026-0191</td><td class="bold">TLD badge quarterly return — Q2 2026</td><td><span class="chip teal">AERB</span></td><td>Quarterly</td><td>T. Okafor (RSO)</td><td>10 Aug 2026</td><td><span class="btn ghost small">📎 courier receipt</span></td><td><span class="chip teal">ON TRACK</span></td></tr>
+        <tr><td class="mono">OBL-2026-0187</td><td class="bold">AERB licence renewal — CT-02 (AERB/CT/MH/2021/33810)</td><td><span class="chip teal">AERB</span></td><td>5-yearly</td><td>K. Verma</td><td>30 Sep 2026</td><td><span class="btn ghost small">📎 eLORA draft ack</span></td><td><span class="chip teal">T-67 d · IN PROGRESS</span></td></tr>
+        <tr><td class="mono">OBL-2026-0195</td><td class="bold">DPDP rights-request SLA check (30-day) — monthly sweep</td><td><span class="chip violet">DPDP</span></td><td>Monthly</td><td>Priya Sharma (DPO)</td><td>31 Jul 2026</td><td><span class="btn ghost small">📎 DPDP-CR queue report</span></td><td><span class="chip amber">DUE 6 d</span></td></tr>
+        <tr><td class="mono">OBL-2026-0198</td><td class="bold">Annual RSO safety review — Andheri West</td><td><span class="chip teal">AERB</span></td><td>Yearly</td><td>T. Okafor (RSO)</td><td>15 Sep 2026</td><td><span class="muted">— agenda not started</span></td><td><span class="chip teal">T-52 d</span></td></tr>
+        <tr><td class="mono">OBL-2026-0201</td><td class="bold">GST returns — GSTR-1 Jul 2026 (GSTIN 27AAACM1234K1Z5)</td><td><span class="chip grey">GST</span></td><td>Monthly</td><td>P. D'Souza</td><td>11 Aug 2026</td><td><span class="muted">— pending period close</span></td><td><span class="chip teal">ON TRACK</span></td></tr>
+        <tr><td class="mono">OBL-2026-0204</td><td class="bold">DLT SMS template re-verification (reminder + report-ready)</td><td><span class="chip grey">TRAI/DLT</span></td><td>Yearly</td><td>D. Nair</td><td>28 Aug 2026</td><td><span class="btn ghost small">📎 current template IDs</span></td><td><span class="chip teal">T-34 d</span></td></tr>
+        <tr class="dim"><td class="mono">OBL-2026-0168</td><td>PC-PNDT Form F monthly filing — Jun 2026 (all centres)</td><td><span class="chip blue">PC-PNDT</span></td><td>Monthly</td><td>Dr. S. Iyer</td><td>05 Jul 2026</td><td><span class="btn ghost small">📎 FF-2026-00791 ack</span></td><td><span class="chip green">FILED 03 JUL</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Auto-created tasks: each recurring obligation spawns a task to its owner at T-14 (T-90/T-60/T-30 for AERB renewals) with reminders at T-7 and T-1. Closure requires at least one evidence link (acknowledgement, receipt or report). Completed obligations are locked and retained per regime (PC-PNDT records 2y+, AERB 10y, billing/GST 8y).</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Year view — obligation load &amp; misses (accessible heat-strip) <span class="right">Jan–Dec 2026 · all regimes</span></div>
+      <table>
+        <tr><th>Month</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th><th>Jul</th><th>Aug</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dec</th></tr>
+        <tr><td class="bold">Obligations due</td><td>4</td><td>4</td><td>6</td><td>5</td><td>4</td><td>6</td><td>7</td><td>8</td><td>6</td><td>5</td><td>5</td><td>6</td></tr>
+        <tr><td class="bold">Load (density)</td><td><span class="chip teal">LOW</span></td><td><span class="chip teal">LOW</span></td><td><span class="chip amber">MED</span></td><td><span class="chip teal">LOW</span></td><td><span class="chip teal">LOW</span></td><td><span class="chip amber">MED</span></td><td><span class="chip amber">MED</span></td><td><span class="chip red">HIGH</span></td><td><span class="chip amber">MED</span></td><td><span class="chip teal">LOW</span></td><td><span class="chip teal">LOW</span></td><td><span class="chip amber">MED</span></td></tr>
+        <tr><td class="bold">Missed / overdue</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td class="bold">1 (open)</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Screen-reader friendly: each cell carries month, count and load label as text — no colour-only meaning. Aug 2026 is HIGH due to Form F ×3 centres, TLD returns, GSTR-1 and DLT re-verification.</div>
+    </div>
+    <div class="row">
+      <div class="card grow">
+        <div class="card-title">Escalation policy <span class="right">Applies to all obligations</span></div>
+        <div class="ladder">
+          <div class="tier done"><b>T-14 / T-90</b> — task auto-created for owner; reminder T-7, T-1 <span class="small muted">(email + in-app)</span></div>
+          <div class="tier done"><b>Due date</b> — status flips to DUE TODAY; owner nudged 09:00 IST</div>
+          <div class="tier cur"><b>Overdue T+3</b> — escalated to functional head (Privacy Officer Dr. A. Rao for DPDP; RSO for AERB; PNDT-registered doctor's centre head for Form F)</div>
+          <div class="tier"><b>Overdue T+7</b> — escalated to DPO Priya Sharma &amp; Org Admin K. Verma; weekly governance report flag</div>
+          <div class="tier fail"><b>Overdue T+14</b> — board-pack exception item; closure now requires four-eyes (owner + escalation approver) with reason for delay</div>
+        </div>
+      </div>
+      <div class="card" style="width:320px">
+        <div class="card-title">Auto-created tasks <span class="right">This week</span></div>
+        <div class="timeline">
+          <div class="ev"><span class="t">25 Jul 09:00</span><span>Task → Priya Sharma: monthly DPDP rights-SLA sweep (OBL-2026-0195), due 31 Jul</span></div>
+          <div class="ev"><span class="t">24 Jul 09:00</span><span>Task → Dr. S. Iyer: prepare Form F filing Jul 2026 ×3 centres (T-14 to the 5th)</span></div>
+          <div class="ev"><span class="t">22 Jul 11:40</span><span>Escalation → Dr. A. Rao: OBL-2026-0174 overdue T+7 → DPO copied</span></div>
+          <div class="ev"><span class="t">21 Jul 09:00</span><span>Reminder → T. Okafor: TLD quarterly return courier by 10 Aug</span></div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — OVERDUE ESCALATED: OBL-2026-0174 DETAIL WITH FOUR-EYES CLOSURE GATE</div>
+<div class="card">
+  <div class="card-title">Obligation <span class="mono">OBL-2026-0174</span> — DPDP quarterly consent-registry attestation (Q1 FY27) <span class="right"><span class="chip red">OVERDUE 10 d</span></span></div>
+  <div class="banner danger"><b>Escalation active — T+14 rule engages 29 Jul 2026</b>Owner D. Nair · escalated-to Dr. A. Rao (T+3, 18 Jul) and Priya Sharma (T+7, 22 Jul). From T+14, closure requires four-eyes: owner sign-off plus escalation approver, with a documented reason for delay retained in the compliance record.</div>
+  <div class="stepper">
+    <div class="step done"><span class="dot">✓</span> Task created 01 Jul</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Reminders T-7 / T-1</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Overdue 15 Jul</div><span class="step-line"></span>
+    <div class="step cur"><span class="dot">4</span> Escalated (T+3 / T+7)</div><span class="step-line"></span>
+    <div class="step"><span class="dot">5</span> Evidence + closure</div>
+  </div>
+  <div class="split">
+    <div>
+      <dl class="kv">
+        <dt>Requirement</dt><dd>Attest that the consent registry is complete for Q1 FY27: purposes mapped, expired consents flagged, notices in current language versions (DPDP Act — consent &amp; purpose limitation).</dd>
+        <dt>Owner</dt><dd>D. Nair (Front office lead) · backup: Dr. A. Rao</dd>
+        <dt>Evidence required</dt><dd>Signed attestation PDF + consent-registry exception report (auto-generated)</dd>
+        <dt>Reason for delay</dt><dd class="muted">Not yet provided — mandatory at closure once T+14</dd>
+        <dt>Linked items</dt><dd><span class="mono">DPDP-CR-00912</span> (open correction request), <span class="mono">GRV-2026-0143</span></dd>
+      </dl>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:0">
+        <div class="card-title">Closure gate</div>
+        <div class="check"><span class="box"></span> Evidence attached (0 of 2)</div>
+        <div class="check"><span class="box"></span> Owner sign-off — D. Nair</div>
+        <div class="check"><span class="box"></span> Second approver (four-eyes from T+14) — Dr. A. Rao</div>
+        <div style="margin-top:10px"><span class="btn small">📎 Attach evidence</span> <span class="btn primary small disabled">Close obligation</span></div>
+        <div class="small muted" style="margin-top:8px">Close is disabled until evidence and sign-offs are complete. Closure is step-up verified.</div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Escalation events for OBL-2026-0174 (18 Jul, 22 Jul) notified via approved DLT templates and recorded in the access log.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — EVIDENCE COMPLETE: CLOSING OBL-2026-0168 (FORM F JUN 2026) WITH STEP-UP CONFIRMATION</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Close obligation — <span class="mono">OBL-2026-0168</span> PC-PNDT Form F, Jun 2026</h3>
+    <div class="banner success"><b>Evidence complete</b>Filing acknowledgement <span class="mono">FF-2026-00791</span> (Appropriate Authority receipt, 03 Jul 2026) and centre-wise Form F summary (3 centres, registrations verified against Dr. S. Iyer · MH/PNDT/2019/4471) are attached and hash-sealed.</div>
+    <dl class="kv">
+      <dt>Owner</dt><dd>Dr. S. Iyer — signed 03 Jul 2026, 16:22 IST</dd>
+      <dt>Evidence</dt><dd><span class="btn ghost small">📎 AA receipt (PDF)</span> <span class="btn ghost small">📎 Form F summary Jun-2026</span></dd>
+      <dt>Next occurrence</dt><dd>Auto-scheduled: Jul 2026 filing, due 05 Aug 2026 (<span class="mono">OBL-2026-0182/0183/0184</span>)</dd>
+      <dt>Retention</dt><dd>Filing evidence retained with the PC-PNDT register; obligation record locked after closure.</dd>
+    </dl>
+    <div class="field" style="margin-top:10px"><label>Step-up identity confirmation <span class="req">*</span></label><div class="input">Re-enter password or passkey to confirm closure as K. Verma (Org Admin)</div><div class="hint">Closing a statutory filing obligation is a legal-record action and requires fresh authentication.</div></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Confirm &amp; close obligation</span></div>
+  </div>
+</div>
+<p class="audit">Obligation closures, escalations, evidence attachments and calendar edits are step-up verified where legally significant and recorded in the access log.</p>
+</section>
+</body></html>

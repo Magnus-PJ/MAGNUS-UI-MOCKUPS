@@ -1,0 +1,114 @@
+<section class="screen" id="ad-20">
+<div class="screen-head"><h1><span class="sid">AD-20</span> Audit log viewer — branch admin scope</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G12 Admin — workspace 'Admin'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Filterable, tamper-evident event stream for branch admins: who did what, to which record, when — with subject-patient identity masked until a documented reason is captured. Anomaly quick-filters surface after-hours access, bulk record opens and export events. Raw export is gated behind a governance approval (GV) with four-eyes; the hash-chain chip proves the log has not been altered.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · Andheri (branch scope)</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Administration</div>
+      <div class="nav-item">Admin dashboard</div>
+      <div class="nav-item">Users &amp; roles</div>
+      <div class="nav-item">Branch registry</div>
+      <div class="nav-item">Number series</div>
+      <div class="nav-item">Feature toggles</div>
+      <div class="nav-item">Scheduled jobs <span class="nav-badge red">1</span></div>
+      <div class="nav-item">Announcements</div>
+      <div class="nav-item active">Audit log</div>
+      <div class="sec-label">Compliance</div>
+      <div class="nav-item">Retention policies</div>
+      <div class="nav-item">Licence hub</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Admin › Governance › Audit log (Andheri scope)</div>
+      <div class="page-title">Audit log viewer <span class="actions-right"><span class="chip green">HASH CHAIN ✓ VERIFIED 11:20 IST</span> <span class="btn small disabled">Export (gated)</span></span></div>
+      <div class="page-sub">Branch admin scope: Andheri events only · viewing the log is itself logged · 24 Jul 00:00 – 25 Jul 11:20 IST</div>
+      <div class="card" style="padding:10px 14px">
+        <div class="row" style="align-items:flex-end">
+          <div class="field grow" style="margin-bottom:0"><label>Actor</label><select class="select"><option>All staff</option></select></div>
+          <div class="field grow" style="margin-bottom:0"><label>Action</label><select class="select"><option>All actions</option></select></div>
+          <div class="field grow" style="margin-bottom:0"><label>Module</label><select class="select"><option>All modules</option></select></div>
+          <div class="field grow" style="margin-bottom:0"><label>Subject patient</label><input class="input" placeholder="MRN (identity stays masked in list)"></div>
+          <div class="field" style="margin-bottom:0;width:210px"><label>Time range (IST)</label><input class="input mono" value="24 Jul 00:00 → now"></div>
+          <span class="btn primary" style="margin-bottom:1px">Apply</span>
+        </div>
+        <div style="margin-top:10px;display:flex;gap:8px;align-items:center"><span class="small muted bold">ANOMALY QUICK-FILTERS:</span>
+          <span class="chip amber">🌙 After-hours access (7)</span>
+          <span class="chip red">📚 Bulk opens ≥20/10min (1)</span>
+          <span class="chip violet">⇩ Export events (3)</span>
+          <span class="chip grey">Failed logins (4)</span>
+          <span class="chip grey">Permission denials (11)</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Event stream — 1,406 events, showing latest <span class="right">subject shown masked · unmask requires reason</span></div>
+        <table>
+          <tr><th>Time (IST)</th><th>Actor</th><th>Action</th><th>Subject</th><th>Module</th><th>Flags</th><th></th></tr>
+          <tr><td class="mono small">25 Jul 11:14</td><td>K. Verma · Org admin</td><td>Viewed failed job run detail</td><td class="mono">Patient ████ (MRN-0047▒▒)</td><td>Scheduled jobs</td><td><span class="chip grey">admin</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+          <tr><td class="mono small">25 Jul 10:41</td><td>P. D'Souza · Cashier</td><td>Issued receipt RCP/AND/26-27/14502</td><td class="mono">Patient ████ (MRN-0048▒▒)</td><td>Billing</td><td></td><td><span class="btn ghost small">Detail</span></td></tr>
+          <tr><td class="mono small">25 Jul 10:22</td><td>Dr. V. Shetty · Radiologist</td><td>Signed report ACC AND-CT-26-04462</td><td class="mono">Patient ████ (MRN-0047▒▒)</td><td>Reporting</td><td></td><td><span class="btn ghost small">Detail</span></td></tr>
+          <tr class="hl"><td class="mono small">25 Jul 02:11</td><td>T. Okafor · Technologist</td><td>Opened prior study images ×3</td><td class="mono">Patient ████ (MRN-0048▒▒)</td><td>Imaging</td><td><span class="chip amber">after-hours</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+          <tr class="hl"><td class="mono small">24 Jul 23:52</td><td>D. Nair · Front office</td><td>Opened 26 patient records in 8 min</td><td class="mono">multiple (26 subjects)</td><td>Registration</td><td><span class="chip red">bulk-open</span> <span class="chip amber">after-hours</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+          <tr><td class="mono small">24 Jul 19:03</td><td>K. Verma · Org admin</td><td>Feature change: WhatsApp PAUSED @ Powai</td><td class="muted">— (config)</td><td>Feature toggles</td><td><span class="chip grey">config</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+          <tr><td class="mono small">24 Jul 17:48</td><td>D. Nair · Front office</td><td>Export attempt: today's visit list (CSV)</td><td class="muted">— (47 subjects)</td><td>Registration</td><td><span class="chip violet">export</span> <span class="chip red">DENIED</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+          <tr><td class="mono small">24 Jul 15:36</td><td>svc-retention · Service</td><td>Retention evaluation scan (read-only)</td><td class="muted">— (31 subjects flagged)</td><td>Retention</td><td><span class="chip grey">service</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+          <tr><td class="mono small">24 Jul 11:19</td><td>Dr. S. Iyer · PNDT authorised</td><td>Filed Form F FF-2026-01179</td><td class="mono">Patient ████ (MRN-0048▒▒)</td><td>PC-PNDT</td><td><span class="chip violet">regulatory</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+          <tr><td class="mono small">24 Jul 09:02</td><td>P. D'Souza · Cashier</td><td>Credit note CRN/AND/26-27/00217 (four-eyes: K. Verma)</td><td class="mono">Patient ████ (MRN-0047▒▒)</td><td>Billing</td><td><span class="chip grey">four-eyes</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+        </table>
+      </div>
+      <div class="banner reg"><b>Tamper evidence</b>Each event is chained: <span class="mono">hash(event N) ⊂ event N+1</span>. Chain head <span class="mono">a94f…c2e1</span> anchored daily to WORM store. Any edit or deletion breaks verification and raises INC automatically.</div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE B — EVENT DETAIL WITH BEFORE/AFTER (UNMASKED AFTER REASON)</div>
+<div class="card">
+  <div class="card-title">Event detail — EVT-26-0918-4471 <span class="chip green">CHAIN ✓</span> <span class="right">unmask reason captured 11:23 IST</span></div>
+  <div class="banner info"><b>Subject unmasked for this view only</b>Reason recorded: “Investigating bulk-open flag EVT-26-0918-4466 — supervisor review.” Unmask expires when you leave this page; the patient is notified in their DPDP access report.</div>
+  <div class="split">
+    <div>
+      <div class="kv">
+        <dt>Event</dt><dd>Demographics update (contact number)</dd>
+        <dt>Actor</dt><dd>D. Nair · Front office · Andheri · session from terminal FO-AND-03</dd>
+        <dt>Subject</dt><dd>Sofia Rossi · MRN-004822 · Aadhaar ••••-••••-7714 (last-4 only, policy)</dd>
+        <dt>When</dt><dd>24 Jul 2026 23:54:08 IST <span class="chip amber">after-hours</span></dd>
+        <dt>Authorisation</dt><dd>Role permission REG-EDIT · purpose tag: “patient callback correction”</dd>
+        <dt>Chain check</dt><dd class="mono">prev 77b2…09aa → this 3f61…d8c4 <span class="chip green">✓</span></dd>
+      </div>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:0">
+        <div class="card-title">Before / after</div>
+        <table>
+          <tr><th>Field</th><th>Before</th><th>After</th></tr>
+          <tr><td>Mobile</td><td class="mono">+91 98••• ••214</td><td class="mono">+91 98••• ••771</td></tr>
+          <tr><td>Preferred channel</td><td>SMS</td><td>SMS (unchanged)</td></tr>
+          <tr><td>Consent snapshot</td><td colspan="2" class="small muted">unchanged — reminder consent v3, granted 02 Feb 2026</td></tr>
+        </table>
+      </div>
+      <div style="margin-top:10px;display:flex;gap:8px"><span class="btn small">Open actor's session trail</span><span class="btn warn-outline small">Flag for review → Dr. A. Rao</span></div>
+    </div>
+  </div>
+</div>
+<p class="audit">Unmask by K. Verma with recorded reason · this detail view generated audit event EVT-26-0918-5102 · subject notification queued per DPDP transparency policy.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — EXPORT BLOCKED → GOVERNANCE REQUEST (GV)</div>
+<div class="modal-wrap">
+  <div class="modal danger" style="max-width:620px">
+    <h3>⛔ Raw audit export requires governance approval</h3>
+    <div class="banner danger"><b>Export blocked at branch-admin scope</b>A raw export of 1,406 events would include masked patient references for ~312 subjects. Branch admins cannot self-approve bulk disclosure — DPDP purpose limitation applies even to internal exports.</div>
+    <div class="kv">
+      <dt>Requested export</dt><dd>CSV · Andheri · 24–25 Jul 2026 · all modules (1,406 events)</dd>
+      <dt>Gate</dt><dd>Governance approval <span class="mono">GV-2026-0187</span> — approvers: Privacy Officer Dr. A. Rao <b>and</b> DPO Priya Sharma (four-eyes, both required)</dd>
+      <dt>Step-up</dt><dd>Password re-entry + OTP to your registered staff number at submission</dd>
+      <dt>If approved</dt><dd>Export is watermarked, subject columns stay masked unless GV explicitly grants unmasked scope; file link expires in 72h; download itself is logged</dd>
+      <dt>Decision SLA</dt><dd><span class="chip teal">48H</span> owner: Dr. A. Rao · escalated-to: DPO Priya Sharma at 36h</dd>
+    </div>
+    <div class="field" style="margin-top:10px"><label>Purpose of export <span class="req">*</span></label><textarea class="textarea">Evidence pack for internal review of bulk-open anomaly on 24 Jul (D. Nair, 26 records) — HR &amp; privacy joint review, ref INC-2026-0234.</textarea></div>
+    <div class="field"><label>Confirm identity — password <span class="req">*</span></label><input class="input" value="••••••••••" style="max-width:240px"></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Submit governance request GV-2026-0187</span></div>
+  </div>
+</div>
+<div class="banner info" style="max-width:760px"><b>Request submitted</b>GV-2026-0187 sent to Dr. A. Rao (Privacy Officer) and Priya Sharma (DPO) · you will be notified on decision · export remains blocked until both approve.</div>
+<p class="audit">Blocked export attempt, purpose text, step-up verification and governance request GV-2026-0187 are all recorded in the access log.</p>
+</section>

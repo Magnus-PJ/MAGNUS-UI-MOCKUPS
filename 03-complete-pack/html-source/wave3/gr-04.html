@@ -1,0 +1,107 @@
+<section class="screen" id="gr-04">
+<div class="screen-head"><h1><span class="sid">GR-04</span> Privacy handoff queue</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G11 Grievance &amp; Support — workspace 'Grievance'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Grievances classified as privacy/DPDP (consent disputes, unwanted messages, access complaints) auto-route here to the Privacy Officer with a combined SLA view — the grievance SLA and the DPDP 30-day statutory clock run in parallel and the tighter one drives colour. Disposition is one of: resolve as grievance, convert to a DPDP rights request (DPDP-CR), or convert to a security/privacy incident (INC). Cross-references are written both ways so neither trail goes dark.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>GRIEVANCE</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">AR</span>Dr. A. Rao (Privacy Officer) ▾</div></div>
+  <div class="body">
+  <div class="sidebar">
+    <div class="sec-label">Grievance</div>
+    <div class="nav-item">Dashboard</div>
+    <div class="nav-item">Intake queue <span class="nav-badge">6</span></div>
+    <div class="nav-item">Case board</div>
+    <div class="nav-item">My cases</div>
+    <div class="nav-item active">Privacy handoff <span class="nav-badge red">3</span></div>
+    <div class="nav-item">Analytics</div>
+    <div class="sec-label">Privacy</div>
+    <div class="nav-item">Rights requests (DPDP-CR)</div>
+    <div class="nav-item">Incidents (INC)</div>
+    <div class="nav-item">Access log</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Grievance › Privacy handoff</div>
+    <div class="page-title">Privacy handoff queue <span class="actions-right"><span class="btn small">Export register (aggregate)</span> <span class="btn primary small">Routing rules…</span></span></div>
+    <div class="page-sub">Auto-routed to Privacy Officer Dr. A. Rao per rule GR-RT-09 · DPO Priya Sharma has read access · DPDP Act 30-day rights SLA tracked alongside grievance SLA</div>
+
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">5</div><div class="l">Open handoffs</div><div class="s">3 need disposition today</div></div>
+      <div class="kpi amber"><div class="n">2</div><div class="l">DPDP clock &lt; 10 days</div><div class="s">Statutory 30-day rights SLA</div></div>
+      <div class="kpi red"><div class="n">1</div><div class="l">Grievance SLA overdue</div><div class="s">GRV-2026-0139 · escalated</div></div>
+      <div class="kpi"><div class="n">14</div><div class="l">Converted YTD</div><div class="s">11 → DPDP-CR · 3 → INC</div></div>
+    </div>
+
+    <div class="banner reg"><b>DPDP Act framing</b> A grievance alleging a consent or data-rights failure may itself constitute exercise of a right. If unresolved, the patient may complain to the Data Protection Board of India — dispose within the 30-day statutory window, not just the internal grievance SLA.</div>
+
+    <div class="card">
+      <div class="card-title">Queue <span class="right">Combined SLA view · tighter clock drives colour</span></div>
+      <table>
+        <tr><th>Case</th><th>Patient</th><th>Classification</th><th>Received</th><th>Grievance SLA</th><th>DPDP 30-day clock</th><th>Owner / escalated-to</th><th>Disposition</th></tr>
+        <tr><td class="mono">GRV-2026-0139</td><td>Mohammed Al-Rashid<br><span class="mono small muted">MRN-004790</span></td><td><span class="chip violet">UNWANTED MESSAGES</span><div class="small muted">Marketing SMS after opt-out</div></td><td class="mono">10 Jul</td><td><span class="chip red">OVERDUE 3d</span></td><td><span class="chip amber">16d left · 09 Aug</span></td><td>Dr. A. Rao<br><span class="small muted">esc: DPO Priya Sharma</span></td><td><span class="btn small primary">Dispose…</span></td></tr>
+        <tr class="hl"><td class="mono">GRV-2026-0147</td><td>Ananya Rao<br><span class="mono small muted">MRN-004819</span></td><td><span class="chip violet">CONSENT DISPUTE</span><div class="small muted">Denies consenting to research use</div></td><td class="mono">16 Jul</td><td><span class="chip amber">2d left · 27 Jul</span></td><td><span class="chip teal">22d left · 15 Aug</span></td><td>Dr. A. Rao<br><span class="small muted">esc: —</span></td><td><span class="btn small primary">Dispose…</span></td></tr>
+        <tr><td class="mono">GRV-2026-0151</td><td>Rajesh Gupta<br><span class="mono small muted">MRN-004795</span></td><td><span class="chip violet">ACCESS COMPLAINT</span><div class="small muted">"Someone viewed my report who shouldn't"</div></td><td class="mono">20 Jul</td><td><span class="chip teal">5d left · 30 Jul</span></td><td><span class="chip teal">26d left · 19 Aug</span></td><td>Dr. A. Rao<br><span class="small muted">esc: —</span></td><td><span class="btn small primary">Dispose…</span></td></tr>
+        <tr><td class="mono">GRV-2026-0153</td><td>Sofia Rossi<br><span class="mono small muted">MRN-004822</span></td><td><span class="chip violet">ACCESS COMPLAINT</span><div class="small muted">Wants list of who accessed her records</div></td><td class="mono">22 Jul</td><td><span class="chip teal">6d left · 31 Jul</span></td><td><span class="chip amber">9d left*</span><div class="small muted">*treated as access-rights request from receipt</div></td><td>Dr. A. Rao<br><span class="small muted">esc: —</span></td><td><span class="btn small primary">Dispose…</span></td></tr>
+        <tr class="dim"><td class="mono">GRV-2026-0131</td><td>Withheld (aggregate view)</td><td><span class="chip violet">UNWANTED MESSAGES</span></td><td class="mono">04 Jul</td><td><span class="chip green">RESOLVED</span></td><td><span class="chip green">CLOSED 18 Jul</span></td><td>Dr. A. Rao</td><td><span class="chip grey">RESOLVED AS GRIEVANCE</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:6px">Handoff chip appears on the source case (GR-03) and grievance staff keep read-only visibility. Clinical artifacts open only with a stated reason.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Disposition options</div>
+      <table>
+        <tr><th>Disposition</th><th>Creates</th><th>Clock effect</th><th>Controls</th></tr>
+        <tr><td><b>Resolve as grievance</b></td><td>—</td><td>Stops both clocks on patient-notified resolution</td><td>Outcome category + patient-notified confirmation (as GR-03)</td></tr>
+        <tr><td><b>Convert → rights request</b></td><td class="mono">DPDP-CR-xxxxx</td><td>DPDP 30-day clock continues from original receipt date</td><td>Step-up identity confirmation; cross-refs written both ways</td></tr>
+        <tr><td><b>Convert → incident</b></td><td class="mono">INC-2026-xxxx</td><td>Starts incident clocks incl. CERT-In 6h assessment</td><td>Step-up + four-eyes (DPO Priya Sharma must co-approve)</td></tr>
+      </table>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — CONVERSION MODAL (GRV-2026-0147 → DPDP RIGHTS REQUEST)</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Convert GRV-2026-0147 to a DPDP rights request</h3>
+    <div class="banner info"><b>What this does</b> Creates <span class="mono">DPDP-CR-00231</span> (right to correction / withdrawal of consent) for Ananya Rao, MRN-004819. The 30-day statutory clock keeps its original start (16 Jul 2026) — due <b>15 Aug 2026</b>. Cross-references are written on both records; the grievance moves to "Converted" and stops its own SLA.</div>
+    <div class="field"><label>Rights request type <span class="req">*</span></label><div class="select">Withdrawal of consent — research/secondary use ▾</div></div>
+    <div class="field"><label>Purpose(s) affected</label><div class="input">Research &amp; service-improvement analytics (consent v3, captured 02 Mar 2026)</div><div class="hint">Care-delivery and statutory retention purposes (radiology 10y, billing 8y) are unaffected by withdrawal.</div></div>
+    <div class="field"><label>Note to patient (plain language)</label><div class="textarea">We are treating your complaint as a formal request to withdraw consent for research use of your data. You will receive confirmation within the legal 30-day window, counted from 16 July.</div></div>
+    <div class="check"><span class="box on">✓</span><span>Notify patient of conversion via SMS (DLT TPL-DPDP-01) and email.</span></div>
+    <div class="banner warn" style="margin-top:8px"><b>Step-up identity confirmation</b> This is a statutory action recorded against your name. Confirm with your Magnus password and the OTP sent to your registered device.</div>
+    <div class="row"><div class="grow field"><label>Password</label><div class="input mono">••••••••••</div></div><div class="grow field"><label>OTP</label><div class="input mono">4 8 2 · · ·</div></div></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Confirm &amp; create DPDP-CR-00231</span></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-title">If converting to incident instead <span class="right">Four-eyes required</span></div>
+  <div class="small">Choosing <b>Convert → incident</b> for GRV-2026-0151 (access complaint) would create <span class="mono">INC-2026-0088</span>, start the CERT-In 6-hour reportability assessment, and require a second approver: <span class="chip violet">CO-APPROVAL PENDING — DPO Priya Sharma</span>. The conversion is not effective until both approvals are recorded.</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — CLOSED WITH DUAL REFERENCES</div>
+<div class="banner success"><b>GRV-2026-0147 closed as CONVERTED (24 Jul 2026, 12:18 IST)</b> Rights request <span class="mono">DPDP-CR-00231</span> is now the system of record; it closed on 24 Jul (22 days — within the 30-day SLA). Patient notified by SMS + email; both records reference each other.</div>
+<div class="row">
+  <div class="grow card">
+    <div class="card-title">Grievance record <span class="right mono">GRV-2026-0147</span></div>
+    <dl class="kv">
+      <dt>Status</dt><dd><span class="chip grey">CONVERTED → DPDP-CR</span></dd>
+      <dt>Cross-ref</dt><dd class="mono">DPDP-CR-00231 (forward link)</dd>
+      <dt>Grievance SLA</dt><dd><span class="chip green">STOPPED AT CONVERSION — MET</span></dd>
+      <dt>Disposed by</dt><dd>Dr. A. Rao · step-up verified 22 Jul 17:04 IST</dd>
+      <dt>Reopen window</dt><dd>Follows DPDP-CR record; grievance reopen disabled</dd>
+    </dl>
+  </div>
+  <div class="grow card">
+    <div class="card-title">Rights request record <span class="right mono">DPDP-CR-00231</span></div>
+    <dl class="kv">
+      <dt>Status</dt><dd><span class="chip green">COMPLETED 24 Jul 2026</span></dd>
+      <dt>Cross-ref</dt><dd class="mono">GRV-2026-0147 (origin link)</dd>
+      <dt>DPDP 30-day SLA</dt><dd><span class="chip green">MET — 22 of 30 days</span></dd>
+      <dt>Outcome</dt><dd>Research-use consent withdrawn; downstream analytics extracts purged; statutory retention unaffected</dd>
+      <dt>DPB escalation</dt><dd>Patient informed of right to approach the Data Protection Board of India if unsatisfied</dd>
+    </dl>
+  </div>
+</div>
+<p class="audit">Handoff routing, queue views, disposition choices, step-up verifications, co-approvals and both cross-reference writes are recorded in the access log.</p>
+</section>

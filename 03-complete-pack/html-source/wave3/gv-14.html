@@ -1,0 +1,131 @@
+<section class="screen" id="gv-14">
+<div class="screen-head"><h1><span class="sid">GV-14</span> Data residency evidence</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G14 Governance &amp; Compliance — workspace 'Governance'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Evidence page proving that every data class is pinned to India-region storage and processing. Shows region pinning per data class, an attestation table of physical storage locations, and a cross-border transfer log that is empty by design — the "no transfers recorded" state is the positive outcome. A monthly attestation is signed off (four-eyes) and can be exported as an audit evidence pack.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>GOVERNANCE</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Privacy</div>
+    <div class="nav-item">Privacy notices</div>
+    <div class="nav-item">Consent registry</div>
+    <div class="nav-item">Rights requests <span class="nav-badge">4</span></div>
+    <div class="sec-label">Risk &amp; vendors</div>
+    <div class="nav-item">DPIA-lite register</div>
+    <div class="nav-item">Processor register</div>
+    <div class="nav-item active">Data residency</div>
+    <div class="sec-label">Oversight</div>
+    <div class="nav-item">Compliance calendar <span class="nav-badge red">2</span></div>
+    <div class="nav-item">Incidents</div>
+    <div class="nav-item">Access log</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Governance › Vendors › Data residency</div>
+    <div class="page-title">Data residency evidence <span class="actions-right"><span class="btn small">Transfer log</span> <span class="btn primary small">Export evidence pack</span></span></div>
+    <div class="page-sub">Policy: all patient, staff and billing data stored and processed in India · July 2026 attestation window open until 05 Aug</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">7/7</div><div class="l">Data classes India-pinned</div><div class="s">Verified 25 Jul 2026 03:00 IST</div></div>
+      <div class="kpi"><div class="n">0</div><div class="l">Cross-border transfers</div><div class="s">Since go-live · empty by design</div></div>
+      <div class="kpi"><div class="n">12/12</div><div class="l">Monthly attestations signed</div><div class="s">Jul 2025 – Jun 2026, unbroken</div></div>
+      <div class="kpi amber"><div class="n">1</div><div class="l">Attestation due</div><div class="s">July 2026 · due 05 Aug</div></div>
+    </div>
+    <div class="card"><div class="card-title">Region pinning per data class <span class="right">Nightly automated verification</span></div>
+      <table>
+        <tr><th>Data class</th><th>Pinned region</th><th>Primary store</th><th>DR / backup</th><th>Retention</th><th>Last verified</th><th>Status</th></tr>
+        <tr><td><b>Radiology images (DICOM)</b></td><td>India</td><td>IndraCloud — Mumbai (ap-in-1)</td><td>IndraCloud — Pune (ap-in-2)</td><td>10 years</td><td class="mono">25 Jul 03:00</td><td><span class="chip green">PINNED</span></td></tr>
+        <tr><td><b>Radiology reports &amp; orders</b></td><td>India</td><td>IndraCloud — Mumbai</td><td>Pune</td><td>10 years</td><td class="mono">25 Jul 03:00</td><td><span class="chip green">PINNED</span></td></tr>
+        <tr><td>Patient demographics &amp; consent</td><td>India</td><td>IndraCloud — Mumbai</td><td>Pune</td><td>10 years (with clinical record)</td><td class="mono">25 Jul 03:00</td><td><span class="chip green">PINNED</span></td></tr>
+        <tr><td>Billing &amp; GST records</td><td>India</td><td>IndraCloud — Mumbai</td><td>Pune</td><td>8 years</td><td class="mono">25 Jul 03:00</td><td><span class="chip green">PINNED</span></td></tr>
+        <tr><td>PC-PNDT Form F archive</td><td>India</td><td>IndraCloud — Mumbai (sealed store)</td><td>Pune</td><td>Statutory · centre-scoped</td><td class="mono">25 Jul 03:00</td><td><span class="chip green">PINNED</span></td></tr>
+        <tr><td>Staff HR records</td><td>India</td><td>IndraCloud — Mumbai</td><td>Pune</td><td>Per HR policy</td><td class="mono">25 Jul 03:00</td><td><span class="chip green">PINNED</span></td></tr>
+        <tr><td>Audit &amp; access logs</td><td>India</td><td>IndraCloud — Mumbai (WORM)</td><td>Pune</td><td>10 years, immutable</td><td class="mono">25 Jul 03:00</td><td><span class="chip green">PINNED</span></td></tr>
+      </table>
+      <p class="small muted" style="margin-top:8px">Verification job compares live bucket/cluster region metadata against policy; any drift raises a red banner here and an INC-2026-xxxx incident automatically.</p>
+    </div>
+    <div class="row">
+      <div class="grow card"><div class="card-title">Storage locations — processor attestations <span class="right">From GV-13 register</span></div>
+        <table>
+          <tr><th>Processor</th><th>Role</th><th>Location(s)</th><th>Attestation on file</th></tr>
+          <tr><td>IndraCloud Services</td><td>Cloud host</td><td>Mumbai (primary), Pune (DR)</td><td><span class="chip green">01 Apr 2026 · annual</span></td></tr>
+          <tr><td>NetraRad Teleradiology LLP</td><td>Second reads</td><td>Bengaluru</td><td><span class="chip green">20 Jun 2026</span></td></tr>
+          <tr><td>Trellis Telecom Ltd</td><td>SMS DLT</td><td>Mumbai</td><td><span class="chip green">12 Sep 2025</span></td></tr>
+          <tr><td>Chatline BSP Pvt Ltd</td><td>WhatsApp BSP</td><td>Chennai</td><td><span class="chip green">03 Feb 2026</span></td></tr>
+          <tr><td>PayOrbit India Ltd</td><td>Payments</td><td>Mumbai, Hyderabad</td><td><span class="chip green">15 Nov 2025</span></td></tr>
+        </table>
+      </div>
+      <div style="width:320px" class="card"><div class="card-title">Cross-border transfer log</div>
+        <div class="banner success" style="margin-bottom:8px"><b>No transfers recorded.</b> 0 cross-border transfers since go-live (14 Jul 2025). This log is expected to remain empty; any entry would require prior PO + DPO approval and a documented legal basis.</div>
+        <p class="small muted">The log cannot be edited or purged. An empty log is itself exportable evidence, signed with the monthly attestation hash.</p>
+      </div>
+    </div>
+  </div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — MONTHLY ATTESTATION SIGNED · four-eyes sign-off, July 2026</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Governance › Vendors › Data residency › Attestation · Jul 2026</div>
+  <div class="page-title">Monthly residency attestation — July 2026 <span class="chip green">SIGNED</span></div>
+  <div class="page-sub">Signed 01 Aug 2026 · covers 01–31 Jul 2026 · evidence hash <span class="mono">SHA-256 9f4c…a1e7</span></div>
+  <div class="stepper">
+    <div class="step done"><span class="dot">✓</span> Automated checks (31/31 nights green)</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Processor attestations current</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Transfer log reviewed (empty)</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Dual sign-off</div>
+  </div>
+  <div class="row">
+    <div class="grow card"><div class="card-title">Attestation statement</div>
+      <p class="small" style="margin-bottom:10px">"For the period 01–31 July 2026, all seven registered data classes of Meridian Diagnostics remained stored and processed exclusively within the territory of India. Nightly automated region verification passed on all 31 nights. Zero cross-border transfers were recorded. Processor location attestations were current for all six active processors."</p>
+      <dl class="kv">
+        <dt>Prepared by</dt><dd>K. Verma (Org Admin) · 01 Aug 2026 09:12 IST</dd>
+        <dt>Signed by</dt><dd>Dr. A. Rao (Privacy Officer) · step-up verified 01 Aug 2026 10:05 IST</dd>
+        <dt>Countersigned</dt><dd>Priya Sharma (DPO) · step-up verified 01 Aug 2026 11:40 IST</dd>
+        <dt>Exceptions</dt><dd>None</dd>
+      </dl>
+    </div>
+    <div style="width:300px" class="card"><div class="card-title">Signatures</div>
+      <div class="sig-box signed">A. Rao</div>
+      <div class="sig-box signed" style="margin-top:8px">Priya Sharma</div>
+      <p class="small muted" style="margin-top:8px">Four-eyes rule: preparer cannot be a signer. Each signature required individual step-up identity confirmation.</p>
+    </div>
+  </div>
+  <div class="card"><div class="card-title">Attestation history <span class="right">Last 6 periods</span></div>
+    <table>
+      <tr><th>Period</th><th>Nights green</th><th>Transfers</th><th>Signed by</th><th>Status</th></tr>
+      <tr><td>Jul 2026</td><td>31/31</td><td>0</td><td>Dr. A. Rao + Priya Sharma</td><td><span class="chip green">SIGNED</span></td></tr>
+      <tr><td>Jun 2026</td><td>30/30</td><td>0</td><td>Dr. A. Rao + Priya Sharma</td><td><span class="chip green">SIGNED</span></td></tr>
+      <tr><td>May 2026</td><td>31/31</td><td>0</td><td>Dr. A. Rao + Priya Sharma</td><td><span class="chip green">SIGNED</span></td></tr>
+      <tr><td>Apr 2026</td><td>30/30</td><td>0</td><td>Dr. A. Rao + Priya Sharma</td><td><span class="chip green">SIGNED</span></td></tr>
+      <tr><td>Mar 2026</td><td>31/31</td><td>0</td><td>Dr. A. Rao + Priya Sharma</td><td><span class="chip green">SIGNED</span></td></tr>
+      <tr><td>Feb 2026</td><td>28/28</td><td>0</td><td>Dr. A. Rao + Priya Sharma</td><td><span class="chip green">SIGNED</span></td></tr>
+    </table>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — AUDITOR EXPORT LOGGED · evidence pack generated for external audit</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Governance › Vendors › Data residency › Evidence exports</div>
+  <div class="page-title">Evidence pack export</div>
+  <div class="page-sub">Exports bundle attestations, nightly check results, processor location letters and the (empty) transfer log — no patient data is ever included</div>
+  <div class="modal-wrap"><div class="modal">
+    <h3>Export residency evidence pack</h3>
+    <dl class="kv" style="grid-template-columns:140px 1fr;margin-bottom:10px">
+      <dt>Requested for</dt><dd>External DPDP readiness audit — M/s Kelkar &amp; Associates</dd>
+      <dt>Period</dt><dd>Jul 2025 – Jul 2026 (13 attestations)</dd>
+      <dt>Contents</dt><dd>Attestation PDFs, nightly verification summaries, 5 processor location letters, transfer log extract (0 rows), hash manifest</dd>
+      <dt>Excludes</dt><dd><b>All patient-identifiable data</b> — pack is metadata and attestations only</dd>
+    </dl>
+    <div class="field"><label>Reason / engagement reference <span class="req">*</span></label><input class="input mono" value="AUDIT-KA-2026-07 · engagement letter dt. 20 Jul 2026"></div>
+    <div class="field"><label>Step-up identity confirmation <span class="req">*</span></label><input class="input" placeholder="Enter your Magnus password to confirm (K. Verma)"><div class="hint">Evidence exports leave the system boundary and are individually watermarked and logged.</div></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Generate &amp; log export</span></div>
+  </div></div>
+  <div class="card"><div class="card-title">Export log <span class="right">Immutable</span></div>
+    <table>
+      <tr><th>Export ID</th><th>Generated</th><th>By</th><th>Recipient</th><th>Scope</th><th>Watermark</th><th>Status</th></tr>
+      <tr class="hl"><td class="mono">RES-EXP-2026-011</td><td>25 Jul 2026 15:22 IST</td><td>K. Verma</td><td>Kelkar &amp; Associates (auditor)</td><td>Jul 2025 – Jul 2026</td><td class="mono">WM-9F4C-KA26</td><td><span class="chip green">DELIVERED</span></td></tr>
+      <tr><td class="mono">RES-EXP-2026-007</td><td>10 Apr 2026 11:03 IST</td><td>Dr. A. Rao</td><td>Meridian board audit committee</td><td>FY 2025-26</td><td class="mono">WM-2B71-BRD</td><td><span class="chip green">DELIVERED</span></td></tr>
+      <tr><td class="mono">RES-EXP-2026-002</td><td>08 Jan 2026 09:44 IST</td><td>Priya Sharma</td><td>Hospital empanelment reviewer</td><td>Jul–Dec 2025</td><td class="mono">WM-77C0-EMP</td><td><span class="chip grey">EXPIRED LINK</span></td></tr>
+    </table>
+    <p class="small muted" style="margin-top:8px">Download links expire after 7 days; each open of the pack by the recipient is receipt-logged against the export ID.</p>
+  </div>
+</div></div></div>
+<p class="audit">Nightly verification results, attestation signatures (with step-up), transfer-log reads and every evidence-pack export (requester, recipient, watermark) are recorded in the access log.</p>
+</section>

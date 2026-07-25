@@ -1,0 +1,144 @@
+<section class="screen" id="ad-06">
+<div class="screen-head"><h1><span class="sid">AD-06</span> Practitioner profiles</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G12 Admin — workspace 'Admin'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Org admins maintain practitioner profiles with the registrations that are <em>mandatory per role</em> — a radiologist cannot sign reports without a valid RMC registration, and a sonologist cannot perform obstetric US at a centre without a valid per-centre PNDT registration. Expiry countdowns (60/30/7-day chips) drive proactive renewal; on expiry the system auto-suspends the affected capability (sign-off, US acquisition) rather than the whole account.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Organisation</div>
+    <div class="nav-item">Branches &amp; centres</div>
+    <div class="nav-item">Users &amp; roles</div>
+    <div class="nav-item active">Practitioner profiles</div>
+    <div class="nav-item">Referrer directory</div>
+    <div class="sec-label">Equipment</div>
+    <div class="nav-item">Modalities &amp; equipment</div>
+    <div class="nav-item">Compliance registry <span class="nav-badge red">3</span></div>
+    <div class="sec-label">Privacy</div>
+    <div class="nav-item">Consent notices</div>
+    <div class="nav-item">Access log</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Admin › Organisation › Practitioner profiles</div>
+    <div class="page-title">Practitioner profiles <span class="actions-right"><span class="btn small">Export list (CSV)</span> <span class="btn primary small">+ Add practitioner</span></span></div>
+    <div class="page-sub">Registrations are mandatory per role. Sign-off and PNDT-scoped acquisition are automatically blocked when a required registration lapses.</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">14</div><div class="l">Active practitioners</div><div class="s">across 3 centres</div></div>
+      <div class="kpi amber"><div class="n">2</div><div class="l">Expiring ≤ 30 days</div><div class="s">renewal reminders sent</div></div>
+      <div class="kpi red"><div class="n">1</div><div class="l">Suspended on expiry</div><div class="s">sign-off blocked</div></div>
+      <div class="kpi"><div class="n">6</div><div class="l">PNDT-registered</div><div class="s">per-centre registrations</div></div>
+    </div>
+    <div class="banner warn"><b>2 registrations expire within 30 days.</b> Dr. S. Iyer — PNDT (Andheri centre) expires 14-Aug-2026 · Dr. V. Shetty — RMC renewal due 20-Aug-2026. Renewal reminders were sent to the practitioner, branch manager and org admin on 15-Jul-2026.</div>
+    <div class="card"><div class="card-title">Practitioners <span class="right">Filter: role = All · centre = All · status = All</span></div>
+    <table>
+      <tr><th>Practitioner</th><th>Role</th><th>Mandatory registration(s)</th><th>Validity</th><th>Reads / performs</th><th>Centres</th><th>Status</th><th></th></tr>
+      <tr><td><b>Dr. V. Shetty</b><br><span class="small muted">Radiologist · emp MD-0117</span></td><td>Radiologist</td><td><span class="mono">RMC MH-44721</span> <span class="chip green">verified</span></td><td>20-Aug-2026 <span class="chip amber">27d</span></td><td>CT · MRI · US · CR/DX · MG</td><td>Andheri, Vashi</td><td><span class="chip green">Active — can sign</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr class="hl"><td><b>Dr. S. Iyer</b><br><span class="small muted">Sonologist · emp MD-0142</span></td><td>Sonologist (US)</td><td><span class="mono">RMC MH-51203</span> <span class="chip green">verified</span><br><span class="mono">PNDT MH/PNDT/2019/4471</span> <span class="chip green">Andheri</span></td><td>RMC 03-Mar-2027 <span class="chip teal">OK</span><br>PNDT 14-Aug-2026 <span class="chip amber">20d</span></td><td>US (incl. obstetric)</td><td>Andheri</td><td><span class="chip green">Active — can sign</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr><td><b>Dr. R. Menon</b><br><span class="small muted">Radiologist · emp MD-0156</span></td><td>Radiologist</td><td><span class="mono">RMC KA-38812</span> <span class="chip red">EXPIRED 30-Jun-2026</span></td><td>30-Jun-2026 <span class="chip red">−25d</span></td><td>CT · CR/DX</td><td>Vashi</td><td><span class="chip red">Suspended — sign-off blocked</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr><td><b>Dr. K. Bhatt</b><br><span class="small muted">Radiologist · emp MD-0161</span></td><td>Radiologist</td><td><span class="mono">RMC MH-60244</span> <span class="chip green">verified</span></td><td>11-Feb-2027 <span class="chip teal">OK</span></td><td>MRI · CT</td><td>Andheri, Thane</td><td><span class="chip green">Active — can sign</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr><td><b>Dr. N. Kulkarni</b><br><span class="small muted">Sonologist · emp MD-0170</span></td><td>Sonologist (US)</td><td><span class="mono">RMC MH-58817</span> <span class="chip green">verified</span><br><span class="mono">PNDT MH/PNDT/2021/6120</span> <span class="chip green">Thane</span></td><td>RMC 09-Nov-2026 <span class="chip teal">OK</span><br>PNDT 02-Oct-2026 <span class="chip amber">60d</span></td><td>US (incl. obstetric)</td><td>Thane</td><td><span class="chip green">Active — can sign</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr><td><b>T. Okafor</b><br><span class="small muted">Technologist · emp TX-0308</span></td><td>Technologist</td><td><span class="mono">RT licence MH-RT-2210</span> <span class="chip green">verified</span></td><td>18-Dec-2026 <span class="chip teal">OK</span></td><td>Performs: CT · CR/DX</td><td>Andheri</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr><td><b>Dr. P. Wagh</b><br><span class="small muted">Radiologist (visiting) · emp MD-0180</span></td><td>Radiologist</td><td><span class="mono">RMC MH-71190</span> <span class="chip amber">verification pending</span></td><td>—</td><td>MRI (pending)</td><td>Vashi</td><td><span class="chip grey">Onboarding — cannot sign yet</span></td><td><span class="btn ghost small">Open</span></td></tr>
+    </table>
+    <div class="small muted" style="margin-top:8px">Expiry chips: <span class="chip teal">OK</span> &gt;60d · <span class="chip amber">60d/30d/7d</span> countdown · <span class="chip red">EXPIRED</span> capability auto-suspended. PNDT registrations are <b>per-centre</b>: a practitioner may sign obstetric US only at centres listed on their PNDT registration.</div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — Profile detail: Dr. V. Shetty (registrations, modality scope, signature block)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Organisation</div>
+    <div class="nav-item">Branches &amp; centres</div>
+    <div class="nav-item">Users &amp; roles</div>
+    <div class="nav-item active">Practitioner profiles</div>
+    <div class="nav-item">Referrer directory</div>
+    <div class="sec-label">Equipment</div>
+    <div class="nav-item">Modalities &amp; equipment</div>
+    <div class="nav-item">Compliance registry <span class="nav-badge red">3</span></div>
+  </div>
+  <div class="main">
+    <div class="crumb">Admin › Practitioner profiles › Dr. V. Shetty</div>
+    <div class="page-title">Dr. V. Shetty — Radiologist <span class="chip green">Active — can sign</span> <span class="actions-right"><span class="btn small">Edit profile</span> <span class="btn warn-outline small">Suspend capability…</span></span></div>
+    <div class="page-sub">Employee MD-0117 · joined 03-Apr-2022 · reporting workspace enabled</div>
+    <div class="row">
+      <div class="grow">
+        <div class="card"><div class="card-title">Mandatory registrations <span class="right">Required for role: Radiologist</span></div>
+        <table>
+          <tr><th>Type</th><th>Number</th><th>Issuing body</th><th>Valid till</th><th>Countdown</th><th>Evidence</th><th>Verified by</th></tr>
+          <tr><td>Medical council (required to sign)</td><td class="mono">RMC MH-44721</td><td>Maharashtra Medical Council</td><td>20-Aug-2026</td><td><span class="chip amber">27 days</span></td><td><span class="btn ghost small">certificate.pdf</span></td><td>K. Verma · 21-Aug-2024</td></tr>
+          <tr><td>PNDT (per-centre, obstetric US)</td><td class="mono">— not held —</td><td>—</td><td>—</td><td><span class="chip grey">n/a</span></td><td>—</td><td>Obstetric US assignment disabled</td></tr>
+        </table>
+        <div class="banner warn" style="margin-top:10px"><b>Renewal window open.</b> RMC MH-44721 expires in 27 days. If not renewed and verified by 20-Aug-2026 23:59 IST, report <b>sign-off will be blocked automatically</b> at 00:00 on 21-Aug-2026. Reminders: sent 60d (21-Jun) and 30d (21-Jul); next at 7d (13-Aug) to practitioner + branch manager + org admin.</div>
+        </div>
+        <div class="card"><div class="card-title">Modalities this practitioner reads <span class="right">Drives worklist routing</span></div>
+        <table>
+          <tr><th>Modality</th><th>Sub-scope</th><th>Assigned centres</th><th>Avg reads/day (30d)</th><th>Enabled</th></tr>
+          <tr><td>CT</td><td>All body regions</td><td>Andheri, Vashi</td><td>21.4</td><td><span class="box on">✓</span></td></tr>
+          <tr><td>MRI</td><td>All body regions</td><td>Andheri</td><td>9.8</td><td><span class="box on">✓</span></td></tr>
+          <tr><td>US</td><td>Non-obstetric only (no PNDT reg.)</td><td>Andheri, Vashi</td><td>6.1</td><td><span class="box on">✓</span></td></tr>
+          <tr><td>CR/DX</td><td>All</td><td>Andheri, Vashi</td><td>30.2</td><td><span class="box on">✓</span></td></tr>
+          <tr><td>MG</td><td>Screening + diagnostic</td><td>Andheri</td><td>4.5</td><td><span class="box on">✓</span></td></tr>
+        </table>
+        </div>
+      </div>
+      <div style="width:300px;flex-shrink:0">
+        <div class="card"><div class="card-title">Signature block preview</div>
+          <div class="sig-box signed">V. Shetty</div>
+          <dl class="kv" style="margin-top:10px;grid-template-columns:110px 1fr">
+            <dt>Rendered as</dt><dd><b>Dr. V. Shetty, MD (Radiodiagnosis)</b><br>Consultant Radiologist<br>Reg. No. RMC MH-44721<br>Meridian Diagnostics, Andheri (W)</dd>
+            <dt>Applied on</dt><dd>Final signed reports (PDF + portal)</dd>
+            <dt>Last changed</dt><dd>02-Feb-2026 by K. Verma</dd>
+          </dl>
+          <div class="small muted" style="margin-top:8px">Registration number is printed from this profile — it cannot be typed free-hand into reports. Changing the block requires org-admin role and is versioned.</div>
+        </div>
+        <div class="card"><div class="card-title">Profile facts</div>
+          <dl class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Login user</dt><dd class="mono">v.shetty@meridian.in</dd>
+            <dt>2FA</dt><dd><span class="chip green">Enrolled</span></dd>
+            <dt>Sign-off right</dt><dd><span class="chip green">Granted</span> (radiologist + valid RMC)</dd>
+            <dt>Contact</dt><dd>+91 98••• ••417 <span class="chip green">verified</span></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — Expired registration → capability auto-suspended (Dr. R. Menon)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · Vashi</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Organisation</div>
+    <div class="nav-item active">Practitioner profiles</div>
+    <div class="nav-item">Referrer directory</div>
+    <div class="sec-label">Equipment</div>
+    <div class="nav-item">Compliance registry <span class="nav-badge red">3</span></div>
+  </div>
+  <div class="main">
+    <div class="crumb">Admin › Practitioner profiles › Dr. R. Menon</div>
+    <div class="page-title">Dr. R. Menon — Radiologist <span class="chip red">Suspended — sign-off blocked</span></div>
+    <div class="page-sub">Employee MD-0156 · Vashi centre</div>
+    <div class="banner danger"><b>Sign-off automatically suspended on 01-Jul-2026 00:00 IST.</b> RMC KA-38812 expired 30-Jun-2026. Dr. Menon can still view worklists and draft, but <b>cannot finalise or sign any report</b>. 12 drafts are queued and have been offered for reassignment to Dr. V. Shetty. Suspension lifts automatically once a renewed certificate is uploaded and verified by an org admin (four-eyes: uploader ≠ verifier).</div>
+    <div class="card"><div class="card-title">Suspension record</div>
+      <dl class="kv">
+        <dt>Trigger</dt><dd>Registration expiry — automatic (no manual override permitted)</dd>
+        <dt>Capability blocked</dt><dd>Report finalise / digital sign-off (all modalities)</dd>
+        <dt>Not blocked</dt><dd>Login, worklist view, draft authoring, addendum requests to co-signers</dd>
+        <dt>Queued drafts</dt><dd>12 · oldest ACC-2026-18744 (CT Brain, Rajesh Gupta MRN-004795) <span class="chip red">SLA OVERDUE</span> owner: Dr. R. Menon · escalated to: Branch Mgr, Vashi</dd>
+        <dt>Renewal status</dt><dd>Practitioner reports renewal submitted to KMC on 08-Jul-2026; certificate awaited</dd>
+        <dt>Restore path</dt><dd>Upload renewed certificate → verified by second org admin → capability restores automatically; a restore entry is written to the compliance log</dd>
+      </dl>
+      <div class="modal-wrap" style="margin-top:12px"><div class="modal danger">
+        <h3>Override request — denied by policy</h3>
+        <p class="small">K. Verma attempted "temporary sign-off exception" on 03-Jul-2026 10:12 IST. Policy <span class="mono">REG-SIGN-01</span> does not permit exceptions to statutory registration requirements. This attempt itself has been recorded.</p>
+        <div class="modal-actions"><span class="btn small">Close</span><span class="btn primary small">Upload renewal evidence instead</span></div>
+      </div></div>
+    </div>
+  </div></div>
+</div>
+<p class="audit">All registration edits, verifications, suspensions, restore events and override attempts are recorded in the access log with actor, timestamp (IST) and before/after values; registration certificates are retained per statutory schedule (radiology records 10y).</p>
+</section>

@@ -1,0 +1,106 @@
+<section class="screen" id="gv-02">
+<div class="screen-head"><h1><span class="sid">GV-02</span> Access log review</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G14 Governance &amp; Compliance — workspace 'Governance'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Reviewers work a queue of automatically flagged PHI access events — after-hours access, non-care-team lookups, bulk reads and exports — plus a monthly 5% random sample. Each event gets a verdict: <b>justified</b>, <b>needs explanation</b> (creates a task for the user's manager), or <b>violation</b> (opens an incident). Violation verdicts require a second reviewer (four-eyes) before the incident is raised.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>GOVERNANCE</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Compliance calendar</div>
+      <div class="nav-item active">Access log review <span class="nav-badge">14</span></div>
+      <div class="nav-item">Emergency access <span class="nav-badge red">3</span></div>
+      <div class="nav-item">Deletion requests <span class="nav-badge">6</span></div>
+      <div class="nav-item">Grievances</div>
+      <div class="nav-item">Incidents</div>
+      <div class="sec-label">Registers</div>
+      <div class="nav-item">Legal holds</div>
+      <div class="nav-item">Evidence vault</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Governance › Access log review › Q2 FY26-27 cycle</div>
+      <div class="page-title">Flagged access events — review queue <span class="actions-right"><span class="btn small">Export queue (audited)</span> <span class="btn small primary">Start next review</span></span></div>
+      <div class="page-sub">Reviewer: K. Verma · cycle 01 Apr – 30 Jun 2026 · verdicts due with Q2 quarterly review (see GV-01, overdue)</div>
+      <div class="banner reg"><b>Sampling policy GOV-SAMP-01</b> In addition to rule-flagged events, <b>5% of all PHI access events are randomly sampled each month</b> for review. Sample is drawn by the system (seed logged); reviewers cannot add or remove sampled events. This queue: 412 events (388 sampled · 24 rule-flagged).</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">412</div><div class="l">In cycle</div><div class="s">318 reviewed (77%)</div></div>
+        <div class="kpi"><div class="n">24</div><div class="l">Rule-flagged</div><div class="s">10 after-hours · 6 non-care-team · 5 bulk · 3 export</div></div>
+        <div class="kpi amber"><div class="n">7</div><div class="l">Needs explanation</div><div class="s">manager tasks open</div></div>
+        <div class="kpi red"><div class="n">2</div><div class="l">Violation (pending dual review)</div><div class="s">4-eyes required</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Pending events <span class="right">filters: flag type · branch · role · all</span></div>
+        <table>
+          <tr><th>Event</th><th>Flag reason</th><th>Accessed by</th><th>Patient / scope</th><th>When (IST)</th><th>Verdict</th><th></th></tr>
+          <tr class="hl"><td class="mono">ACC-2026-88410</td><td><span class="chip amber">AFTER-HOURS</span></td><td>D. Nair · Front office · Andheri W</td><td>Sofia Rossi · MRN-004822 · report view</td><td>Sun 12 Jul 02:14</td><td><span class="chip grey">PENDING</span></td><td><span class="btn small">Review</span></td></tr>
+          <tr><td class="mono">ACC-2026-88395</td><td><span class="chip red">NON-CARE-TEAM</span></td><td>P. D'Souza · Cashier · Bandra</td><td>Ananya Rao · MRN-004819 · full chart</td><td>Fri 10 Jul 15:41</td><td><span class="chip red">VIOLATION — awaiting 2nd reviewer</span></td><td><span class="btn small">Co-review</span></td></tr>
+          <tr><td class="mono">ACC-2026-88371</td><td><span class="chip violet">BULK</span></td><td>T. Okafor · Technologist · Andheri W</td><td>62 studies · worklist re-index</td><td>Thu 09 Jul 20:05</td><td><span class="chip grey">PENDING</span></td><td><span class="btn small">Review</span></td></tr>
+          <tr><td class="mono">ACC-2026-88322</td><td><span class="chip blue">EXPORT</span></td><td>Dr. V. Shetty · Radiologist · RMC MH-44721</td><td>Mohammed Al-Rashid · MRN-004790 · DICOM export</td><td>Wed 08 Jul 11:12</td><td><span class="chip green">JUSTIFIED</span> <span class="small muted">2nd opinion referral</span></td><td><span class="btn small ghost">Open</span></td></tr>
+          <tr><td class="mono">ACC-2026-88301</td><td><span class="chip amber">AFTER-HOURS</span></td><td>Dr. V. Shetty · Radiologist</td><td>Rajesh Gupta · MRN-004795 · report sign-off</td><td>Tue 07 Jul 23:48</td><td><span class="chip green">JUSTIFIED</span> <span class="small muted">on-call reporting</span></td><td><span class="btn small ghost">Open</span></td></tr>
+          <tr><td class="mono">ACC-2026-88264</td><td><span class="chip red">NON-CARE-TEAM</span></td><td>D. Nair · Front office</td><td>Rajesh Gupta · MRN-004795 · invoice + report</td><td>Mon 06 Jul 10:22</td><td><span class="chip amber">NEEDS EXPLANATION</span> <span class="small muted">task → manager S. Kulkarni · due 29 Jul</span></td><td><span class="btn small ghost">Open</span></td></tr>
+          <tr><td class="mono">ACC-2026-88240</td><td><span class="chip grey">SAMPLED</span></td><td>T. Okafor · Technologist</td><td>Sofia Rossi · MRN-004822 · study QC</td><td>Sat 04 Jul 09:31</td><td><span class="chip green">JUSTIFIED</span></td><td><span class="btn small ghost">Open</span></td></tr>
+          <tr><td class="mono">ACC-2026-88217</td><td><span class="chip violet">BULK</span></td><td>P. D'Souza · Cashier</td><td>140 invoices · day-close report</td><td>Fri 03 Jul 21:02</td><td><span class="chip grey">PENDING</span></td><td><span class="btn small">Review</span></td></tr>
+        </table>
+      </div>
+      <div class="banner info"><b>Reviewer identity &amp; four-eyes</b> Every verdict is recorded against the reviewer's verified identity. A <b>violation</b> verdict is provisional until a second, independent reviewer (not the flagged user's manager) concurs; only then is an incident created. Reviewers cannot review their own access events — such events are auto-routed to Dr. A. Rao.</div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — Verdict modal (after-hours event ACC-2026-88410)</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:620px">
+    <h3>Record verdict — ACC-2026-88410</h3>
+    <dl class="kv">
+      <dt>Event</dt><dd>Report view · Sofia Rossi · MRN-004822 · CT abdomen (12 Jul 02:14 IST)</dd>
+      <dt>Accessed by</dt><dd>D. Nair · Front office · Andheri West · session IP 10.4.22.18 (branch LAN)</dd>
+      <dt>Flag</dt><dd><span class="chip amber">AFTER-HOURS</span> — outside rostered shift (roster: 08:00–17:00); no appointment context within ±24h</dd>
+      <dt>Prior history</dt><dd>1 prior flag (Feb 2026, verdict: justified — night-shift cover)</dd>
+    </dl>
+    <div class="field" style="margin-top:10px"><label>Verdict <span class="req">*</span></label>
+      <div class="check"><span class="box radio"></span><span><b>Justified</b> — legitimate care/operations context; closes with note.</span></div>
+      <div class="check"><span class="box radio on">●</span><span><b>Needs explanation</b> — creates a task for the user's manager (S. Kulkarni) with a 7-day response SLA; user is notified.</span></div>
+      <div class="check"><span class="box radio"></span><span><b>Violation</b> — provisional; routes to a second reviewer, then opens an incident (INC-2026-xxxx).</span></div>
+    </div>
+    <div class="field"><label>Reviewer note <span class="req">*</span></label><div class="textarea">No roster entry, no appointment or billing context found for MRN-004822 in the 02:00–03:00 window. Requesting manager to obtain the staff member's explanation before closing.</div><div class="hint">Note is visible to the manager and the second reviewer; do not include clinical detail beyond what is needed.</div></div>
+    <div class="banner warn" style="margin-bottom:0"><b>Reviewer identity</b> Verdict will be signed as <b>K. Verma</b> (step-up verified 14:02 IST, passkey). If your session is stale you will be asked to re-confirm identity on submit.</div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Submit verdict → create manager task</span></div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — Violation confirmed by second reviewer · incident created</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Governance › Access log review › ACC-2026-88395</div>
+      <div class="page-title">ACC-2026-88395 — verdict: VIOLATION <span class="chip red">INCIDENT OPENED</span></div>
+      <div class="page-sub">Non-care-team full-chart access · P. D'Souza (Cashier) → Ananya Rao MRN-004819 · 10 Jul 15:41 IST</div>
+      <div class="banner danger"><b>Incident INC-2026-0142 created</b> Four-eyes complete: first reviewer K. Verma (22 Jul), second reviewer Dr. A. Rao (24 Jul) — both recorded VIOLATION. Incident opened automatically and assigned to Privacy Officer; user's PHI access to non-billing scopes suspended pending incident outcome. CERT-In 6h reporting assessment: <b>not a reportable cyber incident</b> (internal misuse, no exfiltration detected) — assessment logged.</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Verdict record</div>
+          <dl class="kv">
+            <dt>Verdict</dt><dd><span class="chip red">VIOLATION</span> — access outside role purpose (DPDP purpose limitation)</dd>
+            <dt>1st reviewer</dt><dd>K. Verma · 22 Jul 16:10 IST · step-up verified</dd>
+            <dt>2nd reviewer</dt><dd>Dr. A. Rao (Privacy Officer) · 24 Jul 09:36 IST · concurred</dd>
+            <dt>Incident</dt><dd><span class="mono">INC-2026-0142</span> · severity S3 · owner Dr. A. Rao</dd>
+            <dt>Manager notified</dt><dd>S. Kulkarni · 24 Jul 09:40 IST</dd>
+            <dt>Patient impact</dt><dd>Assessment pending within incident; DPDP notification decision due by <b>27 Jul</b> (owner: Priya Sharma, DPO)</dd>
+          </dl>
+        </div>
+        <div class="card" style="width:300px">
+          <div class="card-title">Next steps</div>
+          <div class="timeline">
+            <div class="ev"><span class="t">24 Jul 09:36</span><span>INC-2026-0142 opened · scope containment applied</span></div>
+            <div class="ev"><span class="t">27 Jul</span><span>DPDP patient-notification decision (DPO) · <span class="chip amber">DUE 2d</span></span></div>
+            <div class="ev"><span class="t">31 Jul</span><span>HR disciplinary referral decision · owner Dr. A. Rao</span></div>
+          </div>
+          <span class="btn small" style="width:100%">Open incident INC-2026-0142</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Every verdict, reviewer identity (with step-up method), second-reviewer concurrence, manager task and incident linkage — plus each reviewer's own viewing of the flagged event — is recorded in the access log.</p>
+</section>

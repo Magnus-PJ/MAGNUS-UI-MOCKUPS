@@ -1,0 +1,144 @@
+<section class="screen" id="gv-03">
+<div class="screen-head"><h1><span class="sid">GV-03</span> Emergency access review</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G14 Governance &amp; Compliance — workspace 'Governance'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Every break-glass (emergency) access auto-expires after 60 minutes and lands in this queue with a <b>2-working-day review SLA</b>. The reviewer sees who broke glass, the masked patient (reveal requires a reason), duration, and every action taken during the session, then records an outcome: appropriate, coaching needed, or violation (which opens an incident). Monthly summary stats feed the governance committee.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>GOVERNANCE</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Compliance calendar</div>
+      <div class="nav-item">Access log review <span class="nav-badge">14</span></div>
+      <div class="nav-item active">Emergency access <span class="nav-badge red">3</span></div>
+      <div class="nav-item">Deletion requests <span class="nav-badge">6</span></div>
+      <div class="nav-item">Grievances</div>
+      <div class="nav-item">Incidents</div>
+      <div class="sec-label">Registers</div>
+      <div class="nav-item">Legal holds</div>
+      <div class="nav-item">Evidence vault</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Governance › Emergency access review</div>
+      <div class="page-title">Break-glass events — review queue <span class="actions-right"><span class="btn small">Monthly summary</span> <span class="btn small primary">Review oldest first</span></span></div>
+      <div class="page-sub">Review SLA: 2 working days from event · reviewer must not be the break-glass user or their direct report</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">11</div><div class="l">Events — July</div><div class="s">vs 9 in June · 14 in May</div></div>
+        <div class="kpi"><div class="n">8</div><div class="l">Reviewed</div><div class="s">7 appropriate · 1 coaching</div></div>
+        <div class="kpi amber"><div class="n">2</div><div class="l">Due today/tomorrow</div><div class="s">within 2-day SLA</div></div>
+        <div class="kpi red"><div class="n">1</div><div class="l">Overdue</div><div class="s">escalated → Dr. A. Rao</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Pending review <span class="right">SLA owner: K. Verma · escalation: Dr. A. Rao</span></div>
+        <table>
+          <tr><th>Event</th><th>Break-glass by</th><th>Patient</th><th>Declared reason</th><th>Duration</th><th>Review SLA</th><th></th></tr>
+          <tr><td class="mono">BG-2026-0187<br><span class="small muted">23 Jul 21:07 IST · Bandra</span></td><td>Dr. V. Shetty · Radiologist</td><td><span class="mono">MRN-••••22</span> <span class="chip grey">MASKED</span></td><td>"Critical finding call-back; patient not on my worklist"</td><td>18 min · auto-expired</td><td><span class="chip teal">DUE 27 Jul</span> · owner K. Verma</td><td><span class="btn small">Review</span></td></tr>
+          <tr class="hl"><td class="mono">BG-2026-0186<br><span class="small muted">23 Jul 09:52 IST · Andheri W</span></td><td>T. Okafor · Technologist</td><td><span class="mono">MRN-••••90</span> <span class="chip grey">MASKED</span></td><td>"Contrast reaction — needed allergy history immediately"</td><td>11 min · auto-expired</td><td><span class="chip amber">DUE TODAY 18:00</span> · owner K. Verma</td><td><span class="btn small primary">Review</span></td></tr>
+          <tr><td class="mono">BG-2026-0184<br><span class="small muted">21 Jul 14:16 IST · Powai</span></td><td>D. Nair · Front office</td><td><span class="mono">MRN-••••95</span> <span class="chip grey">MASKED</span></td><td>"Doctor on phone needed report status urgently"</td><td>52 min · auto-expired</td><td><span class="chip red">OVERDUE 2d</span> · owner K. Verma · <b>escalated → Dr. A. Rao</b></td><td><span class="btn small">Review</span></td></tr>
+        </table>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Monthly summary — July 2026 (to date) <span class="right">feeds governance committee 05 Aug</span></div>
+          <table>
+            <tr><th>Metric</th><th>Jul</th><th>Jun</th><th>Trend</th></tr>
+            <tr><td>Break-glass events</td><td>11</td><td>9</td><td><span class="chip amber">+22%</span></td></tr>
+            <tr><td>Median duration</td><td>14 min</td><td>16 min</td><td><span class="chip green">improving</span></td></tr>
+            <tr><td>Auto-expiry (60 min) reached</td><td>0</td><td>1</td><td><span class="chip green">all ended early</span></td></tr>
+            <tr><td>Outcome: appropriate</td><td>7 of 8 reviewed</td><td>8 of 9</td><td><span class="chip grey">stable</span></td></tr>
+            <tr><td>Outcome: coaching</td><td>1</td><td>1</td><td><span class="chip grey">stable</span></td></tr>
+            <tr><td>Outcome: violation → incident</td><td>0</td><td>0</td><td><span class="chip green">nil</span></td></tr>
+            <tr><td>Reviews within 2-day SLA</td><td>87%</td><td>100%</td><td><span class="chip red">1 overdue</span></td></tr>
+          </table>
+        </div>
+        <div class="card" style="width:300px">
+          <div class="card-title">Policy — break-glass</div>
+          <div class="check"><span class="box on">✓</span><span>Reason mandatory at activation; patient sees the reason in their access history.</span></div>
+          <div class="check"><span class="box on">✓</span><span>Access auto-expires at 60 minutes; confirmation of expiry is written to the event record.</span></div>
+          <div class="check"><span class="box on">✓</span><span>Patient identity is masked in this queue; reveal requires a typed reason (logged).</span></div>
+          <div class="check"><span class="box on">✓</span><span>Violation outcome requires second reviewer before an incident is raised.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — Event detail review (BG-2026-0186) · patient reveal with reason · outcome selection</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Governance › Emergency access › BG-2026-0186</div>
+      <div class="page-title">BG-2026-0186 — break-glass review <span class="chip amber">DUE TODAY 18:00</span></div>
+      <div class="page-sub">Reviewer: K. Verma · event 23 Jul 09:52–10:03 IST · Andheri West</div>
+      <div class="banner success"><b>Auto-expiry confirmed</b> Session ended at 10:03 IST (user closed early); hard expiry would have fired at 10:52 IST. Expiry confirmation hash <span class="mono">bg-exp-9f27c1</span> written to the event record — no residual access remains.</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Who / what / how long</div>
+          <dl class="kv">
+            <dt>Break-glass by</dt><dd>T. Okafor · Technologist · CT room 2, Andheri West · badge + OTP verified at activation</dd>
+            <dt>Patient</dt><dd><span class="mono">Mohammed Al-Rashid · MRN-004790</span> <span class="chip blue">REVEALED</span><br><span class="small muted">Revealed by K. Verma 25 Jul 14:21 · reason: "Reviewing clinical context of contrast-reaction claim" (logged, visible to patient on request)</span></dd>
+            <dt>Declared reason</dt><dd>"Contrast reaction — needed allergy history immediately"</dd>
+            <dt>Duration</dt><dd>11 min (09:52–10:03) · auto-expiry confirmed</dd>
+            <dt>Care-team link</dt><dd>None at activation — patient was booked under technologist R. Menon's list (shift swap not recorded in roster)</dd>
+          </dl>
+        </div>
+        <div class="card grow">
+          <div class="card-title">Actions taken during session <span class="right">complete, immutable</span></div>
+          <div class="timeline">
+            <div class="ev"><span class="t">09:52:14</span><span>Break-glass activated · reason typed · patient banner shown</span></div>
+            <div class="ev"><span class="t">09:52:31</span><span>Viewed: allergy &amp; adverse-reaction panel</span></div>
+            <div class="ev"><span class="t">09:53:02</span><span>Viewed: prior contrast administrations (2 records)</span></div>
+            <div class="ev"><span class="t">09:56:47</span><span>Added note: "Mild urticaria post-contrast; Dr. on-call informed; obs 30 min"</span></div>
+            <div class="ev"><span class="t">10:03:09</span><span>User ended session · auto-expiry confirmation written</span></div>
+          </div>
+          <div class="banner info" style="margin-bottom:0"><b>No exports, no prints.</b> Session was view + one clinical note; scope stayed within allergy/contrast panels.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Outcome</div>
+        <div class="check"><span class="box radio on">●</span><span><b>Appropriate</b> — genuine emergency, minimal scope. Closes review; note to roster admin about the unrecorded shift swap.</span></div>
+        <div class="check"><span class="box radio"></span><span><b>Coaching</b> — access acceptable but process gap; creates a coaching task for the user's manager (7-day SLA).</span></div>
+        <div class="check"><span class="box radio"></span><span><b>Violation</b> — misuse of break-glass; routes to second reviewer (four-eyes), then opens INC-2026-xxxx.</span></div>
+        <div class="field" style="margin-top:8px"><label>Reviewer note <span class="req">*</span></label><div class="textarea">Emergency was real (contrast reaction documented in RIS at 09:58). Root cause is a roster gap, not access misuse. Flagging shift-swap recording to branch ops.</div></div>
+        <div style="display:flex;justify-content:flex-end;gap:10px"><span class="btn">Save draft</span><span class="btn primary">Sign outcome as K. Verma</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — Review overdue · amber-to-red escalation on BG-2026-0184</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Governance › Emergency access › BG-2026-0184</div>
+      <div class="page-title">BG-2026-0184 — review overdue <span class="chip red">OVERDUE 2 DAYS</span></div>
+      <div class="page-sub">Event 21 Jul 14:16 IST · SLA expired 23 Jul 18:00 · owner K. Verma · escalated to Dr. A. Rao</div>
+      <div class="banner warn"><b>SLA breach on a review, not on the access itself.</b> The break-glass session ended and auto-expired normally on 21 Jul (52 min, confirmation <span class="mono">bg-exp-4c88d0</span>). What is overdue is the governance review. Escalation notice sent to Privacy Officer Dr. A. Rao 24 Jul 06:00; this event is now co-assigned and will appear on the 05 Aug committee agenda if unresolved.</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">SLA ladder</div>
+          <div class="ladder">
+            <div class="tier done"><b>T+0 · 21 Jul 14:16</b><br><span class="small muted">Event created · review task assigned to K. Verma · <span class="chip teal">SLA 2 working days</span></span></div>
+            <div class="tier done"><b>T+1 · 22 Jul 09:00</b><br><span class="small muted">Reminder 1 → owner</span></div>
+            <div class="tier done"><b>Due · 23 Jul 18:00</b><br><span class="small muted">SLA expired · chip amber → red</span></div>
+            <div class="tier cur"><b>T+3 · 24 Jul 06:00</b><br><span class="small muted">Escalated → Dr. A. Rao (Privacy Officer) · co-assigned · <span class="chip red">OVERDUE</span></span></div>
+            <div class="tier"><b>05 Aug</b><br><span class="small muted">Governance committee agenda if still open</span></div>
+          </div>
+        </div>
+        <div class="card" style="width:320px">
+          <div class="card-title">Event snapshot</div>
+          <dl class="kv" style="grid-template-columns:110px 1fr">
+            <dt>By</dt><dd>D. Nair · Front office · Powai</dd>
+            <dt>Patient</dt><dd><span class="mono">MRN-••••95</span> <span class="chip grey">MASKED</span></dd>
+            <dt>Reason</dt><dd>"Doctor on phone needed report status urgently"</dd>
+            <dt>Duration</dt><dd>52 min · <span class="chip amber">longest this month</span> · auto-expiry confirmed</dd>
+            <dt>Flags</dt><dd>Front-office role + near-limit duration → likely <b>coaching</b> discussion</dd>
+          </dl>
+          <span class="btn small primary" style="width:100%">Begin review now</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Break-glass activations, every in-session action, auto-expiry confirmations, patient-identity reveals (with typed reason), outcomes and reviewer identity are recorded in the access log; patients can see break-glass events against their record.</p>
+</section>

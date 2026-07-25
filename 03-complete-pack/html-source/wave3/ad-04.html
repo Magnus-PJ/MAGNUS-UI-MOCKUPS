@@ -1,0 +1,135 @@
+<section class="screen" id="ad-04">
+<div class="screen-head"><h1><span class="sid">AD-04</span> Roles &amp; permission sets</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G12 Admin — Org, People &amp; Master Data — workspace 'Admin'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Admins review built-in and custom roles through a capability-group permission matrix (read / write / approve / export) with ABAC condition chips such as own-branch-only, care-team-only and masked-by-default. Any change to a role is drafted, versioned and held pending approval by a second admin before it takes effect. A simulate-user preview shows exactly what a role sees before granting it.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Organisation</div>
+      <div class="nav-item">Org &amp; branches</div>
+      <div class="nav-item">Departments &amp; service points</div>
+      <div class="sec-label">People</div>
+      <div class="nav-item">Users &amp; lifecycle</div>
+      <div class="nav-item active">Roles &amp; permissions</div>
+      <div class="nav-item">Approvals &amp; reviews <span class="nav-badge">6</span></div>
+      <div class="sec-label">Master data</div>
+      <div class="nav-item">Service catalogue</div>
+      <div class="nav-item">Referrer registry</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Audit log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Admin › People › Roles &amp; permission sets</div>
+      <div class="page-title">Roles &amp; permission sets <span class="actions-right"><span class="btn small">Simulate user</span> <span class="btn primary small">+ New custom role</span></span></div>
+      <div class="page-sub">9 roles (6 built-in, 3 custom) · role changes require second-admin approval · every version retained</div>
+      <div class="row">
+        <div style="width:300px;flex-shrink:0"><div class="card">
+          <div class="card-title">Roles <span class="right">9</span></div>
+          <table>
+            <tr><th>Role</th><th>Users</th><th>Ver.</th></tr>
+            <tr><td><b>Org Admin</b> <span class="chip grey">built-in</span></td><td>2</td><td class="mono">v6</td></tr>
+            <tr><td><b>Branch Admin</b> <span class="chip grey">built-in</span></td><td>6</td><td class="mono">v4</td></tr>
+            <tr class="hl"><td><b>Front Office</b> <span class="chip grey">built-in</span></td><td>18</td><td class="mono">v11</td></tr>
+            <tr><td><b>Cashier</b> <span class="chip grey">built-in</span></td><td>8</td><td class="mono">v7</td></tr>
+            <tr><td><b>Technologist</b> <span class="chip grey">built-in</span></td><td>12</td><td class="mono">v5</td></tr>
+            <tr><td><b>Radiologist</b> <span class="chip grey">built-in</span></td><td>7</td><td class="mono">v9</td></tr>
+            <tr><td><b>Referrer Liaison</b> <span class="chip blue">custom</span></td><td>3</td><td class="mono">v3</td></tr>
+            <tr><td><b>QA Reviewer</b> <span class="chip blue">custom</span></td><td>2</td><td class="mono">v2</td></tr>
+            <tr><td><b>Camp Coordinator</b> <span class="chip blue">custom</span></td><td>1</td><td class="mono">v1 <span class="chip amber">draft v2 pending</span></td></tr>
+          </table>
+        </div></div>
+        <div class="grow">
+          <div class="card">
+            <div class="card-title">Permission matrix — Front Office (v11, effective 12-Jun-2026) <span class="right">R read · W write · A approve · X export</span></div>
+            <table>
+              <tr><th>Capability group</th><th style="text-align:center">R</th><th style="text-align:center">W</th><th style="text-align:center">A</th><th style="text-align:center">X</th><th>ABAC conditions</th></tr>
+              <tr><td><b>Patient demographics</b></td><td style="text-align:center"><span class="box on" style="margin:0">✓</span></td><td style="text-align:center"><span class="box on" style="margin:0">✓</span></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td><span class="chip grey">own-branch-only</span> <span class="chip grey">masked-by-default</span> (Aadhaar last-4, phone masked)</td></tr>
+              <tr><td><b>Appointments &amp; queues</b></td><td style="text-align:center"><span class="box on" style="margin:0">✓</span></td><td style="text-align:center"><span class="box on" style="margin:0">✓</span></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td><span class="chip grey">own-branch-only</span></td></tr>
+              <tr><td><b>Consent records (DPDP)</b></td><td style="text-align:center"><span class="box on" style="margin:0">✓</span></td><td style="text-align:center"><span class="box on" style="margin:0">✓</span></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td><span class="chip grey">purpose-bound capture</span> · withdrawal routed to DPO</td></tr>
+              <tr><td><b>Clinical reports</b></td><td style="text-align:center"><span class="box on" style="margin:0">✓</span></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td><span class="chip grey">final-only</span> <span class="chip grey">handover-purpose-only</span> · no impression preview</td></tr>
+              <tr><td><b>Billing &amp; invoices</b></td><td style="text-align:center"><span class="box on" style="margin:0">✓</span></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td><span class="chip grey">own-branch-only</span> · amounts visible, no refund rights</td></tr>
+              <tr><td><b>PNDT / Form F registers</b></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td class="muted">no access — restricted to PNDT signatory &amp; compliance roles</td></tr>
+              <tr><td><b>Bulk export / lists</b></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td class="muted">no export — export always needs per-request approval (AD-05)</td></tr>
+              <tr><td><b>Audit log (self)</b></td><td style="text-align:center"><span class="box on" style="margin:0">✓</span></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td style="text-align:center"><span class="box" style="margin:0">&nbsp;</span></td><td><span class="chip grey">own-actions-only</span></td></tr>
+            </table>
+          </div>
+          <div class="row">
+            <div class="grow"><div class="card">
+              <div class="card-title">Version history — Front Office</div>
+              <div class="timeline">
+                <div class="ev"><span class="t">v11 · 12-Jun-26</span><span>Removed phone-unmask from default view — proposed D. Nair, approved K. Verma</span></div>
+                <div class="ev"><span class="t">v10 · 03-Apr-26</span><span>Added consent-capture write — proposed K. Verma, approved Dr. A. Rao</span></div>
+                <div class="ev"><span class="t">v9 · 19-Jan-26</span><span>Restricted reports to final-only — approved Dr. A. Rao (Privacy Officer)</span></div>
+              </div>
+            </div></div>
+            <div style="width:280px;flex-shrink:0"><div class="banner reg" style="height:100%"><b>Design principle</b>Least privilege by default: unmasking, exports and cross-branch reads are exceptions granted per-request with approval and purpose, never baked into broad roles.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — EDIT DRAFT PENDING APPROVAL (CAMP COORDINATOR v2)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Admin › Roles › Camp Coordinator › Draft v2</div>
+  <div class="page-title">Camp Coordinator — draft v2 <span class="chip amber">PENDING APPROVAL</span></div>
+  <div class="page-sub">Drafted by K. Verma · 24-Jul-2026 16:05 IST · approver required: any other Org Admin or Privacy Officer · <span class="chip amber">SLA 4h remaining: 1h 20m · owner: approvals queue</span></div>
+  <div class="banner warn"><b>Draft not in effect</b>Users keep v1 permissions until this draft is approved. The drafter (K. Verma) cannot self-approve — four-eyes applies to all role changes.</div>
+  <div class="card">
+    <div class="card-title">Proposed changes (v1 → v2) <span class="right">2 grants · 1 restriction</span></div>
+    <table>
+      <tr><th>Capability group</th><th>Change</th><th>v1</th><th>Draft v2</th><th>Risk note</th></tr>
+      <tr><td>Appointments &amp; queues</td><td><span class="chip green">GRANT W</span></td><td>read</td><td>read + write</td><td>Needed to book camp slots; scoped <span class="chip grey">camp-events-only</span></td></tr>
+      <tr><td>Patient demographics</td><td><span class="chip green">GRANT R</span></td><td>none</td><td>read (masked)</td><td><span class="chip grey">masked-by-default</span> <span class="chip grey">camp-roster-only</span>; no Aadhaar field at all</td></tr>
+      <tr><td>Bulk export / lists</td><td><span class="chip red">RESTRICT</span></td><td>request-able</td><td>disabled</td><td>Camp rosters leave via approved export requests only (AD-05)</td></tr>
+    </table>
+    <div class="field" style="margin-top:10px"><label>Justification (shown to approver) <span class="req">*</span></label><textarea class="textarea">August screening camps at Thane West require coordinators to book slots and view masked rosters. Export path intentionally removed after GRV-2026-0113 lessons learned.</textarea></div>
+    <div style="display:flex;gap:10px;justify-content:flex-end"><span class="btn">Withdraw draft</span><span class="btn disabled">Approve (not permitted — you are the drafter)</span><span class="btn primary">Nudge approvers</span></div>
+  </div>
+  <div class="banner info"><b>Who can approve</b>D. Nair (Branch Admin, delegated) · Dr. A. Rao (Privacy Officer). Approval action itself requires the approver's step-up identity confirmation and is written to the access log.</div>
+</div></div></div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — SIMULATE-USER PREVIEW</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Admin › Roles › Simulate user</div>
+  <div class="page-title">Simulation — viewing as "Front Office @ Andheri West" <span class="chip violet">SIMULATION MODE · READ-ONLY</span></div>
+  <div class="page-sub">Simulating role Front Office v11 for hypothetical user at Andheri West · started 25-Jul 11:32 IST by K. Verma · auto-ends in 15 min · no real patient actions possible</div>
+  <div class="banner reg"><b>Simulation is itself audited</b>This preview renders real records through the role's lens (masking applied). The simulation session, its duration and every record rendered are logged and visible to the Privacy Officer, Dr. A. Rao.</div>
+  <div class="card">
+    <div class="card-title">What this role sees — patient search result <span class="right">masking active</span></div>
+    <table>
+      <tr><th>Patient</th><th>MRN</th><th>Phone</th><th>Aadhaar</th><th>Reports</th><th>Billing</th></tr>
+      <tr><td>Sofia Rossi</td><td class="mono">MRN-004822</td><td class="mono">+91 98••• ••412 <span class="chip grey">masked</span></td><td class="mono">•••• 7093 <span class="chip grey">last-4</span></td><td>Final only (2) · <span class="muted">1 prelim hidden</span></td><td>View only</td></tr>
+      <tr><td>Mohammed Al-Rashid</td><td class="mono">MRN-004790</td><td class="mono">+91 99••• ••281 <span class="chip grey">masked</span></td><td class="mono">•••• 5518 <span class="chip grey">last-4</span></td><td>Final only (5)</td><td>View only</td></tr>
+      <tr><td>Ananya Rao</td><td class="mono">MRN-004819</td><td class="mono">+91 90••• ••776 <span class="chip grey">masked</span></td><td class="mono">•••• 2245 <span class="chip grey">last-4</span></td><td>Final only (1)</td><td>View only</td></tr>
+    </table>
+  </div>
+  <div class="row">
+    <div class="grow"><div class="card">
+      <div class="card-title">Blocked actions in this simulation</div>
+      <table>
+        <tr><th>Attempted action</th><th>Result</th><th>Why</th></tr>
+        <tr><td>Open patient from Powai branch</td><td><span class="chip red">DENIED</span></td><td>ABAC: own-branch-only</td></tr>
+        <tr><td>Unmask phone number</td><td><span class="chip amber">STEP-UP + reason required</span></td><td>masked-by-default; unmask events logged per-field</td></tr>
+        <tr><td>Export today's appointment list</td><td><span class="chip red">DENIED</span></td><td>No export capability — route via export request (AD-05)</td></tr>
+        <tr><td>View PNDT Form F register</td><td><span class="chip red">DENIED</span></td><td>Restricted to PNDT signatory &amp; compliance roles</td></tr>
+      </table>
+    </div></div>
+    <div style="width:280px;flex-shrink:0"><div class="card">
+      <div class="card-title">Session</div>
+      <dl class="kv" style="grid-template-columns:110px 1fr">
+        <dt>Simulated role</dt><dd>Front Office v11</dd>
+        <dt>Branch scope</dt><dd>Andheri West</dd>
+        <dt>Started</dt><dd class="mono">11:32 IST</dd>
+        <dt>Auto-end</dt><dd class="mono">11:47 IST</dd>
+        <dt>Log ref</dt><dd class="mono">SIM-2026-0457</dd>
+      </dl>
+      <div style="margin-top:10px;display:flex;gap:8px;justify-content:flex-end"><span class="btn small">End simulation</span></div>
+    </div></div>
+  </div>
+</div></div></div>
+<p class="audit">Role definitions, drafts, approvals, rejections and simulation sessions are versioned with actor, approver and timestamp (IST), and recorded in the access log.</p>
+</section>

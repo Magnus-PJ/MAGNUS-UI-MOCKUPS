@@ -1,0 +1,111 @@
+<section class="screen" id="ad-05">
+<div class="screen-head"><h1><span class="sid">AD-05</span> Approvals &amp; access reviews</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G12 Admin — Org, People &amp; Master Data — workspace 'Admin'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> A single queue where second approvers action role grants, permission changes and data-export requests within a 4-hour SLA, each with identity confirmation. The same module runs the quarterly access-review campaign: one reviewer per department attests or revokes every user's access, progress is tracked to 100%, overdue reviewers turn amber, and an evidence pack is exportable for auditors and the DPB of India if ever required.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Organisation</div>
+      <div class="nav-item">Org &amp; branches</div>
+      <div class="nav-item">Departments &amp; service points</div>
+      <div class="sec-label">People</div>
+      <div class="nav-item">Users &amp; lifecycle</div>
+      <div class="nav-item">Roles &amp; permissions</div>
+      <div class="nav-item active">Approvals &amp; reviews <span class="nav-badge">6</span></div>
+      <div class="sec-label">Master data</div>
+      <div class="nav-item">Service catalogue</div>
+      <div class="nav-item">Referrer registry</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Audit log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Admin › People › Approvals &amp; access reviews</div>
+      <div class="page-title">Pending approvals <span class="actions-right"><span class="btn small">My decisions log</span> <span class="btn small">Q3 access review →</span></span></div>
+      <div class="page-sub">6 items pending · 4h decision SLA from submission · approvers must differ from requesters (four-eyes)</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">6</div><div class="l">Pending</div><div class="s">3 role · 1 permission · 2 export</div></div>
+        <div class="kpi"><div class="n">1h 42m</div><div class="l">Median decision time</div><div class="s">last 30 days</div></div>
+        <div class="kpi amber"><div class="n">2</div><div class="l">Nearing SLA</div><div class="s">&lt; 1h remaining</div></div>
+        <div class="kpi red"><div class="n">1</div><div class="l">SLA breached</div><div class="s">escalated to Dr. A. Rao</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Queue <span class="right">sorted by SLA remaining</span></div>
+        <table>
+          <tr><th>Ref</th><th>Type</th><th>Request</th><th>Requester</th><th>SLA</th><th>Owner / escalation</th><th></th></tr>
+          <tr class="dim"><td class="mono">APR-2026-1180</td><td><span class="chip blue">Export</span></td><td>Referrer-wise revenue list, Jun-2026, de-identified, for Dr. Meera Nair MIS</td><td>P. D'Souza</td><td><span class="chip red">OVERDUE 0h 38m</span></td><td>K. Verma · escalated to: Dr. A. Rao (Privacy Officer)</td><td><span class="btn primary small">Decide</span></td></tr>
+          <tr class="hl"><td class="mono">APR-2026-1184</td><td><span class="chip teal">Role grant</span></td><td>Cashier @ Bandra Kurla for P. D'Souza (transfer, from 01-Aug)</td><td>K. Verma</td><td><span class="chip amber">0h 52m left</span></td><td>D. Nair (BKC admin delegate)</td><td><span class="btn primary small">Decide</span></td></tr>
+          <tr><td class="mono">APR-2026-1185</td><td><span class="chip teal">Role grant</span></td><td>Front Office (relief) @ BKC for P. D'Souza</td><td>K. Verma</td><td><span class="chip amber">0h 52m left</span></td><td>D. Nair</td><td><span class="btn primary small">Decide</span></td></tr>
+          <tr><td class="mono">APR-2026-1186</td><td><span class="chip violet">Permission change</span></td><td>Camp Coordinator draft v2 (grant W appointments, R masked demographics; disable export)</td><td>K. Verma</td><td><span class="chip teal">1h 20m left</span></td><td>Dr. A. Rao</td><td><span class="btn primary small">Decide</span></td></tr>
+          <tr><td class="mono">APR-2026-1187</td><td><span class="chip blue">Export</span></td><td>Unsigned-report backlog CSV (7 rows, staff names only, no patient data) for Medical Director</td><td>D. Nair</td><td><span class="chip teal">2h 05m left</span></td><td>K. Verma</td><td><span class="btn primary small">Decide</span></td></tr>
+          <tr><td class="mono">APR-2026-1188</td><td><span class="chip teal">Role grant</span></td><td>QA Reviewer for Dr. S. Iyer (discrepancy review panel)</td><td>Dr. V. Shetty</td><td><span class="chip teal">3h 41m left</span></td><td>K. Verma</td><td><span class="btn primary small">Decide</span></td></tr>
+        </table>
+      </div>
+      <div class="modal-wrap"><div class="modal">
+        <h3>Decide — APR-2026-1184 · Role grant</h3>
+        <dl class="kv" style="margin-bottom:10px">
+          <dt>Grant</dt><dd>Cashier @ Bandra Kurla → P. D'Souza · effective 01-Aug-2026 07:00 IST</dd>
+          <dt>Requester</dt><dd>K. Verma (Org Admin) — you may approve; you are not the requester's beneficiary</dd>
+          <dt>Context</dt><dd>Vashi Annexe decommission transfer (DECOM ref MRD-VSA) · least-privilege check passed · ABAC own-branch-only</dd>
+          <dt>Conflicts</dt><dd><span class="chip green">None</span> — no SoD conflict (cashier + no refund-approval role)</dd>
+        </dl>
+        <div class="field"><label>Decision note <span class="req">*</span></label><input class="input" value="Approved per decommission staffing plan; effective-dated to 01-Aug."></div>
+        <div class="field"><label>Identity confirmation <span class="req">*</span></label><input class="input" placeholder="Re-enter your Magnus password"><div class="hint">D. Nair · approval is signed with your identity and timestamp; MFA push follows</div></div>
+        <div class="modal-actions"><span class="btn danger">Reject</span><span class="btn">Request more info</span><span class="btn primary">Approve grant</span></div>
+      </div></div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — QUARTERLY ACCESS REVIEW CAMPAIGN DASHBOARD (Q3-2026)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Admin › People › Access reviews › Q3-2026 campaign</div>
+  <div class="page-title">Access review campaign — Q3-2026 <span class="actions-right"><span class="btn small">Export evidence pack (PDF+CSV)</span> <span class="btn small">Remind overdue</span></span></div>
+  <div class="page-sub">Window 15-Jul → 05-Aug-2026 · 62 users to review across 6 departments · sponsor: Dr. A. Rao (Privacy Officer) · evidence retained 8 years</div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">71%</div><div class="l">Overall progress</div><div class="s">44 of 62 users decided</div><div class="progress"><i style="width:71%"></i></div></div>
+    <div class="kpi"><div class="n">39</div><div class="l">Attested</div><div class="s">access confirmed appropriate</div></div>
+    <div class="kpi amber"><div class="n">5</div><div class="l">Revocations raised</div><div class="s">3 executed · 2 queued for approval</div></div>
+    <div class="kpi red"><div class="n">1</div><div class="l">Reviewer overdue</div><div class="s">Billing dept · escalated to Dr. A. Rao</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Reviewers by department <span class="right">one reviewer per department · deputies allowed</span></div>
+    <table>
+      <tr><th>Department</th><th>Reviewer</th><th>Scope</th><th>Progress</th><th>Revocations</th><th>Status</th><th></th></tr>
+      <tr><td>Radiology (all branches)</td><td>Dr. V. Shetty</td><td>19 users</td><td><div class="progress"><i style="width:100%"></i></div><span class="small muted">19/19</span></td><td>2 (1 stale locum, 1 scope trim)</td><td><span class="chip green">Complete · signed 22-Jul</span></td><td><span class="btn ghost small">View</span></td></tr>
+      <tr><td>Front Office</td><td>D. Nair</td><td>18 users</td><td><div class="progress"><i style="width:78%"></i></div><span class="small muted">14/18</span></td><td>1 (dormant account)</td><td><span class="chip teal">On track · due 05-Aug</span></td><td><span class="btn ghost small">View</span></td></tr>
+      <tr class="hl"><td>Billing &amp; Cash</td><td>P. D'Souza <span class="chip grey">interim</span></td><td>10 users</td><td><div class="progress amber"><i style="width:30%"></i></div><span class="small muted">3/10</span></td><td>0</td><td><span class="chip red">OVERDUE checkpoint (25-Jul) · escalated to: Dr. A. Rao</span></td><td><span class="btn ghost small">Nudge</span></td></tr>
+      <tr><td>Pathology</td><td>Dr. R. Bhat</td><td>8 users</td><td><div class="progress"><i style="width:63%"></i></div><span class="small muted">5/8</span></td><td>1 (ex-contractor, executed)</td><td><span class="chip teal">On track</span></td><td><span class="btn ghost small">View</span></td></tr>
+      <tr><td>Technologists</td><td>T. Okafor</td><td>12 users</td><td><div class="progress"><i style="width:75%"></i></div><span class="small muted">9/12</span></td><td>1 (branch scope trim, queued)</td><td><span class="chip teal">On track</span></td><td><span class="btn ghost small">View</span></td></tr>
+      <tr><td>Admin &amp; governance</td><td>Dr. A. Rao</td><td>5 users (incl. org admins)</td><td><div class="progress"><i style="width:80%"></i></div><span class="small muted">4/5</span></td><td>0</td><td><span class="chip teal">On track</span></td><td><span class="btn ghost small">View</span></td></tr>
+    </table>
+    <div class="small muted" style="margin-top:8px">Rule: no self-review — org admins are reviewed by the Privacy Officer. Revocations raised in a campaign execute through the normal approvals queue (four-eyes preserved).</div>
+  </div>
+  <div class="banner info"><b>Evidence pack</b>Export bundles per-user decisions, reviewer identity confirmations, timestamps (IST) and revocation outcomes — ref IMP-2026-031 filed to the compliance drive. Prior campaigns: Q2-2026 (100%, 4 revocations), Q1-2026 (100%, 6 revocations).</div>
+</div></div></div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — ATTEST / REVOKE MODAL (REVIEWER VIEW)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Admin › Access reviews › Q3-2026 › Front Office › S. Kulkarni</div>
+  <div class="page-title">Review user 15 of 18 — Front Office department</div>
+  <div class="modal-wrap"><div class="modal" style="max-width:620px">
+    <h3>Attest or revoke — S. Kulkarni (Cashier, Powai)</h3>
+    <dl class="kv" style="margin-bottom:10px">
+      <dt>Current access</dt><dd>Cashier @ Powai (v7) · ABAC own-branch-only · refunds ≤ ₹5,000</dd>
+      <dt>Status</dt><dd><span class="chip red">Suspended 18-Jul-2026</span> pending HR outcome</dd>
+      <dt>Last sign-in</dt><dd class="mono">18-Jul-2026 13:37 IST</dd>
+      <dt>90-day activity</dt><dd>412 cash receipts · 3 refunds · 0 exports · 1 unmask request (approved, purpose: refund KYC)</dd>
+      <dt>Anomaly flags</dt><dd><span class="chip amber">1</span> — refund frequency above dept median in June (reviewed, cleared, GRV-2026-0129)</dd>
+    </dl>
+    <div class="check"><span class="box radio">&nbsp;</span><span><b>Attest</b> — access remains appropriate for the role.</span></div>
+    <div class="check"><span class="box radio">&nbsp;</span><span><b>Attest with change</b> — keep account, trim scope (e.g. remove refund right).</span></div>
+    <div class="check"><span class="box radio on">●</span><span><b>Revoke</b> — remove access; account moves to leaving-checklist if HR confirms exit.</span></div>
+    <div class="field" style="margin-top:8px"><label>Reason <span class="req">*</span></label><textarea class="textarea">User suspended pending HR outcome; access not required. Revoke now; re-grant via approvals queue if reinstated.</textarea></div>
+    <div class="field"><label>Reviewer identity confirmation <span class="req">*</span></label><input class="input" placeholder="Re-enter your Magnus password"><div class="hint">D. Nair · your decision is signed and becomes part of the Q3-2026 evidence pack</div></div>
+    <div class="banner warn" style="margin-bottom:0"><b>Dependency note</b>No open cash session for this user. Revocation will queue as APR-2026-1191 for second-approver execution (four-eyes).</div>
+    <div class="modal-actions"><span class="btn">Skip (return later)</span><span class="btn primary">Submit decision → next user</span></div>
+  </div></div>
+</div></div></div>
+<p class="audit">Approval decisions, access-review attestations and revocations — with requester, approver, identity-confirmation result and SLA timing — are recorded in the access log.</p>
+</section>

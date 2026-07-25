@@ -1,0 +1,134 @@
+<section class="screen" id="ad-03">
+<div class="screen-head"><h1><span class="sid">AD-03</span> Users &amp; lifecycle</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G12 Admin — Org, People &amp; Master Data — workspace 'Admin'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Org admins manage the full staff lifecycle — invite, activate, suspend, transfer, deactivate — with a multi-branch multi-role assignment matrix. Deactivation runs dependency checks (unsigned reports, sole branch admin, open cash session) and a leaving-checklist so no clinical or financial thread is orphaned. Every lifecycle action is audited; sensitive ones require step-up identity confirmation.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Organisation</div>
+      <div class="nav-item">Org &amp; branches</div>
+      <div class="nav-item">Departments &amp; service points</div>
+      <div class="sec-label">People</div>
+      <div class="nav-item active">Users &amp; lifecycle</div>
+      <div class="nav-item">Roles &amp; permissions</div>
+      <div class="nav-item">Approvals &amp; reviews <span class="nav-badge">6</span></div>
+      <div class="sec-label">Master data</div>
+      <div class="nav-item">Service catalogue</div>
+      <div class="nav-item">Referrer registry</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Audit log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Admin › People › Users &amp; lifecycle</div>
+      <div class="page-title">Users &amp; lifecycle <span class="actions-right"><span class="btn small">Export user register</span> <span class="btn primary small">+ Invite user</span></span></div>
+      <div class="page-sub">62 users across 6 branches · search by name, role, branch or status · MFA mandatory for all clinical and admin roles</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">54</div><div class="l">Active</div><div class="s">51 with MFA enrolled</div></div>
+        <div class="kpi amber"><div class="n">4</div><div class="l">Invited</div><div class="s">2 invites expiring in 48h</div></div>
+        <div class="kpi amber"><div class="n">2</div><div class="l">Suspended</div><div class="s">1 pending HR outcome</div></div>
+        <div class="kpi red"><div class="n">3</div><div class="l">MFA not enrolled</div><div class="s">grace ends 31-Jul · owner K. Verma</div></div>
+      </div>
+      <div class="row" style="margin-bottom:10px">
+        <input class="input" style="max-width:260px" placeholder="Search name / email / role…">
+        <span class="btn small">Branch: All ▾</span><span class="btn small">Role: All ▾</span><span class="btn small">Status: All ▾</span><span class="btn small">MFA: Any ▾</span>
+      </div>
+      <div class="card">
+        <div class="card-title">Users <span class="right">showing 8 of 62</span></div>
+        <table>
+          <tr><th>User</th><th>Roles</th><th>Branches</th><th>Status</th><th>Last sign-in (IST)</th><th>MFA</th><th></th></tr>
+          <tr class="hl"><td><b>K. Verma</b><div class="small muted">k.verma@meridiandx.in</div></td><td><span class="chip teal">Org Admin</span></td><td>All branches</td><td><span class="chip green">Active</span></td><td class="mono">25-Jul 08:41</td><td><span class="chip green">TOTP + push</span></td><td><span class="btn ghost small">Manage</span></td></tr>
+          <tr><td><b>Dr. V. Shetty</b><div class="small muted">v.shetty@meridiandx.in · RMC MH-44721</div></td><td><span class="chip violet">Radiologist</span> <span class="chip grey">Report signer</span></td><td>Andheri, BKC, Powai</td><td><span class="chip green">Active</span></td><td class="mono">25-Jul 07:58</td><td><span class="chip green">TOTP</span></td><td><span class="btn ghost small">Manage</span></td></tr>
+          <tr><td><b>Dr. S. Iyer</b><div class="small muted">s.iyer@meridiandx.in · MH/PNDT/2019/4471</div></td><td><span class="chip violet">Sonologist</span> <span class="chip grey">PNDT signatory</span></td><td>Andheri</td><td><span class="chip green">Active</span></td><td class="mono">24-Jul 19:22</td><td><span class="chip green">TOTP</span></td><td><span class="btn ghost small">Manage</span></td></tr>
+          <tr><td><b>D. Nair</b><div class="small muted">d.nair@meridiandx.in</div></td><td><span class="chip blue">Front Office</span> <span class="chip grey">Branch admin (dep.)</span></td><td>Andheri, Kharghar</td><td><span class="chip green">Active</span></td><td class="mono">25-Jul 08:02</td><td><span class="chip green">Push</span></td><td><span class="btn ghost small">Manage</span></td></tr>
+          <tr><td><b>P. D'Souza</b><div class="small muted">p.dsouza@meridiandx.in</div></td><td><span class="chip blue">Cashier</span></td><td>Vashi Annexe → Bandra Kurla</td><td><span class="chip amber">Transfer in progress</span></td><td class="mono">25-Jul 08:20</td><td><span class="chip green">TOTP</span></td><td><span class="btn ghost small">Manage</span></td></tr>
+          <tr><td><b>T. Okafor</b><div class="small muted">t.okafor@meridiandx.in</div></td><td><span class="chip blue">Technologist (CT/XR)</span></td><td>Andheri</td><td><span class="chip green">Active</span></td><td class="mono">24-Jul 21:03</td><td><span class="chip red">Not enrolled</span></td><td><span class="btn ghost small">Manage</span></td></tr>
+          <tr><td><b>R. Menon</b><div class="small muted">r.menon@meridiandx.in</div></td><td><span class="chip blue">Front Office</span></td><td>Thane West</td><td><span class="chip amber">Invited · expires 27-Jul</span></td><td class="muted">never</td><td class="muted">—</td><td><span class="btn ghost small">Resend</span></td></tr>
+          <tr class="dim"><td><b>S. Kulkarni</b><div class="small muted">s.kulkarni@meridiandx.in</div></td><td><span class="chip blue">Cashier</span></td><td>Powai</td><td><span class="chip red">Suspended 18-Jul</span></td><td class="mono">18-Jul 13:37</td><td><span class="chip grey">Frozen</span></td><td><span class="btn ghost small">Manage</span></td></tr>
+        </table>
+      </div>
+      <div class="banner info"><b>Lifecycle rules</b>Invites expire in 7 days. Suspension freezes sign-in instantly but preserves ownership of open items. Deactivation requires the leaving-checklist and dependency clearance; user records are retained (never deleted) for audit — access history stays queryable for the retention period.</div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — DEACTIVATE BLOCKED BY DEPENDENCIES (DR. V. SHETTY)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Admin › People › Dr. V. Shetty › Deactivate</div>
+  <div class="page-title">Deactivate user — Dr. V. Shetty</div>
+  <div class="page-sub">Requested by K. Verma · 25-Jul-2026 09:10 IST · reason: contract end 31-Jul-2026</div>
+  <div class="banner danger"><b>Deactivation blocked — 3 dependencies must be cleared</b>Magnus will not orphan clinical or financial responsibilities. Clear each item below, then re-run the check. Dependency state is re-validated at the moment of deactivation.</div>
+  <div class="card">
+    <div class="card-title">Dependency check <span class="right">run 25-Jul 09:10 · re-run available</span></div>
+    <table>
+      <tr><th>Dependency</th><th>Detail</th><th>Resolution</th><th>Owner</th><th>SLA</th></tr>
+      <tr><td><span class="chip red">BLOCKER</span> Unsigned reports</td><td>7 draft/prelim reports awaiting signature, incl. RPT-2026-30217 (Rajesh Gupta MRN-004795, <b>overdue</b>) and RPT-2026-30411 (Sofia Rossi MRN-004822)</td><td>Sign, or formally reassign to another radiologist with patient-safety note</td><td>Dr. V. Shetty</td><td><span class="chip red">OVERDUE · escalated to Medical Director</span></td></tr>
+      <tr><td><span class="chip red">BLOCKER</span> Sole PNDT-adjacent signer at Powai</td><td>Only credentialed USG report signer mapped to Powai roster w/c 28-Jul</td><td>Roster Dr. S. Iyer or lock Powai USG slots before 31-Jul</td><td>K. Verma</td><td><span class="chip amber">Due 29-Jul</span></td></tr>
+      <tr><td><span class="chip red">BLOCKER</span> Open peer-review assignments</td><td>2 discrepancy reviews assigned (QA-2026-118, QA-2026-121)</td><td>Complete or reassign via QA module</td><td>Dr. V. Shetty</td><td><span class="chip teal">Due 30-Jul</span></td></tr>
+      <tr><td><span class="chip amber">WARNING</span> Saved worklist filters &amp; macros</td><td>14 personal report macros</td><td>Optional: export to department template library</td><td>Dr. V. Shetty</td><td class="muted">—</td></tr>
+    </table>
+  </div>
+  <div class="row">
+    <div class="grow"><div class="card">
+      <div class="card-title">Leaving-checklist <span class="right">2 of 7 complete</span></div>
+      <div class="progress amber"><i style="width:29%"></i></div>
+      <div style="margin-top:10px">
+        <div class="check"><span class="box on">✓</span>HR confirmation of last working day (31-Jul-2026)</div>
+        <div class="check"><span class="box on">✓</span>Handover note recorded by department head</div>
+        <div class="check"><span class="box">&nbsp;</span>All reports signed or reassigned (7 open)</div>
+        <div class="check"><span class="box">&nbsp;</span>Peer-review queue cleared (2 open)</div>
+        <div class="check"><span class="box">&nbsp;</span>Roster coverage confirmed for Powai</div>
+        <div class="check"><span class="box">&nbsp;</span>Sessions &amp; API tokens revoked (auto at deactivation)</div>
+        <div class="check"><span class="box">&nbsp;</span>Access-review attestation snapshot exported for records</div>
+      </div>
+    </div></div>
+    <div style="width:340px;flex-shrink:0">
+      <div class="modal-wrap" style="padding:16px"><div class="modal danger" style="max-width:320px">
+        <h3>Deactivate — blocked</h3>
+        <p class="small" style="margin-bottom:8px">3 blockers remain. The button stays disabled until the dependency check passes.</p>
+        <div class="field"><label>Step-up identity confirmation <span class="req">*</span></label><input class="input" placeholder="Re-enter password" ></div>
+        <div class="field"><label>Effective date</label><input class="input" value="31-Jul-2026 21:00 IST"></div>
+        <div class="modal-actions"><span class="btn">Close</span><span class="btn danger disabled">Deactivate (blocked)</span></div>
+      </div></div>
+      <div class="banner info" style="margin-top:10px"><b>Note</b>Deactivated users are retained read-only in registers and audit trails; their signatures on historic reports remain valid and immutable.</div>
+    </div>
+  </div>
+</div></div></div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — MULTI-BRANCH, MULTI-ROLE ASSIGNMENT (P. D'SOUZA TRANSFER)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Admin › People › P. D'Souza › Assignments</div>
+  <div class="page-title">Assignment matrix — P. D'Souza (Cashier)</div>
+  <div class="page-sub">Transfer context: Vashi Annexe decommission · target Bandra Kurla from 01-Aug-2026 · changes below are queued for approval</div>
+  <div class="banner warn"><b>Open cash session at source branch</b>Cash session CSH-VSA-0725 (₹18,420 float) is open at Vashi Annexe. The Vashi Cashier role cannot be removed until the session is closed and reconciled. This guard also blocks deactivation.</div>
+  <div class="card">
+    <div class="card-title">Role × branch matrix <span class="right">effective-dated · pending items highlighted</span></div>
+    <table>
+      <tr><th>Role ⌄ / Branch ›</th><th>Andheri West</th><th>Bandra Kurla</th><th>Powai</th><th>Vashi Annexe</th></tr>
+      <tr><td><b>Cashier</b><div class="small muted">cash, refunds ≤ ₹5,000</div></td><td class="muted">—</td><td><span class="chip amber">Pending · from 01-Aug</span></td><td class="muted">—</td><td><span class="chip green">Active</span> <span class="chip red">removal blocked</span></td></tr>
+      <tr><td><b>Front Office (relief)</b><div class="small muted">registration only, no exports</div></td><td class="muted">—</td><td><span class="chip amber">Pending · from 01-Aug</span></td><td class="muted">—</td><td class="muted">—</td></tr>
+      <tr><td><b>Report handover desk</b><div class="small muted">masked demographics by default</div></td><td class="muted">—</td><td class="muted">—</td><td class="muted">—</td><td><span class="chip green">Active · ends 31-Jul</span></td></tr>
+    </table>
+    <div class="small muted" style="margin-top:8px">Least-privilege check: proposed set grants no report-signing, no export, no cross-branch patient search. ABAC condition <span class="chip grey">own-branch-only</span> applies to all three roles.</div>
+  </div>
+  <div class="row">
+    <div class="grow"><div class="card">
+      <div class="card-title">Queued changes → approval</div>
+      <table>
+        <tr><th>Change</th><th>Effective</th><th>Approver required</th><th>Status</th></tr>
+        <tr><td>Grant Cashier @ Bandra Kurla</td><td class="mono">01-Aug 07:00</td><td>BKC branch admin</td><td><span class="chip teal">In approvals queue · SLA 4h</span></td></tr>
+        <tr><td>Grant Front Office (relief) @ BKC</td><td class="mono">01-Aug 07:00</td><td>BKC branch admin</td><td><span class="chip teal">In approvals queue · SLA 4h</span></td></tr>
+        <tr><td>Remove Cashier @ Vashi Annexe</td><td class="mono">after cash close</td><td>Auto on reconciliation</td><td><span class="chip amber">Waiting on CSH-VSA-0725</span></td></tr>
+      </table>
+    </div></div>
+    <div style="width:300px;flex-shrink:0"><div class="card">
+      <div class="card-title">Submit</div>
+      <div class="field"><label>Reason <span class="req">*</span></label><textarea class="textarea">Branch decommission transfer per DECOM plan MRD-VSA.</textarea></div>
+      <div class="field"><label>Step-up identity confirmation <span class="req">*</span></label><input class="input" placeholder="Re-enter your Magnus password"></div>
+      <div style="display:flex;gap:10px;justify-content:flex-end"><span class="btn">Discard</span><span class="btn primary">Send for approval</span></div>
+    </div></div>
+  </div>
+</div></div></div>
+<p class="audit">Invite, activation, suspension, transfer and deactivation events — including dependency-check results and leaving-checklist state — are recorded in the access log.</p>
+</section>

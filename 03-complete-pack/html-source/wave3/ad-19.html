@@ -1,0 +1,96 @@
+<section class="screen" id="ad-19">
+<div class="screen-head"><h1><span class="sid">AD-19</span> Staff announcements</h1><div class="meta"><span class="chip amber">CONDITIONAL</span><div class="cluster">G12 Admin — workspace 'Admin'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Compose targeted staff announcements (by role and branch) with priority and expiry, delivered as a workspace banner and — for urgent items — SMS to staff numbers only, never via any patient channel. Acknowledgement tracking shows read percentage and per-user pending lists so supervisors can chase; expired announcements auto-archive with their ack record.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Administration</div>
+      <div class="nav-item">Admin dashboard</div>
+      <div class="nav-item">Users &amp; roles</div>
+      <div class="nav-item">Branch registry</div>
+      <div class="nav-item">Number series</div>
+      <div class="nav-item">Feature toggles</div>
+      <div class="nav-item">Scheduled jobs <span class="nav-badge red">1</span></div>
+      <div class="nav-item active">Announcements <span class="nav-badge">2</span></div>
+      <div class="nav-item">Audit log</div>
+      <div class="sec-label">Compliance</div>
+      <div class="nav-item">Retention policies</div>
+      <div class="nav-item">Licence hub</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Admin › Communications › Staff announcements</div>
+      <div class="page-title">Staff announcements <span class="actions-right"><span class="btn small">Archive</span> <span class="btn primary small">+ New announcement</span></span></div>
+      <div class="page-sub">2 live · 1 awaiting acks · SMS via DLT-registered staff templates only · no patient channels</div>
+      <div class="banner info"><b>Channel guardrail</b>Announcements reach staff via workspace banner and (optional, priority = Urgent only) SMS to verified staff numbers. Patient messaging channels (appointment SMS, WhatsApp) are technically excluded from this module — cross-posting is not possible.</div>
+      <div class="card">
+        <div class="card-title">Compose announcement <span class="right">draft ANN-2026-041</span></div>
+        <div class="row">
+          <div class="grow">
+            <div class="field"><label>Title <span class="req">*</span></label><input class="input" value="Kiosk check-in disabled at Andheri from 25 Jul evening"></div>
+            <div class="field"><label>Body <span class="req">*</span></label><textarea class="textarea" style="min-height:84px">Kiosk K-AND-02 is under repair. From 18:00 today until vendor sign-off (expected 26 Jul noon), all Andheri walk-ins check in at the front counter. Front office: use manual token issue (FO-05). Please acknowledge so we know every shift has seen this.</textarea><div class="hint">No patient personal data in announcements — content is visible to the whole audience and retained in the archive.</div></div>
+          </div>
+          <div style="width:280px">
+            <div class="field"><label>Audience — roles <span class="req">*</span></label><select class="select"><option>Front office · Technologist · Cashier</option></select></div>
+            <div class="field"><label>Audience — branches <span class="req">*</span></label><select class="select"><option>Andheri only</option></select><div class="hint">Resolved audience: 23 staff (preview list →)</div></div>
+            <div class="field"><label>Priority <span class="req">*</span></label>
+              <div class="check"><span class="box radio"></span> Normal — banner only</div>
+              <div class="check"><span class="box radio on"></span> Important — banner, ack required</div>
+              <div class="check"><span class="box radio"></span> Urgent — banner + staff SMS, ack required</div>
+            </div>
+            <div class="field"><label>Expiry <span class="req">*</span></label><input class="input mono" value="27 Jul 2026 18:00 IST"><div class="hint">Auto-archives at expiry with final ack record.</div></div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;justify-content:flex-end"><span class="btn">Save draft</span><span class="btn">Preview banner</span><span class="btn primary">Publish to 23 staff</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Live announcements</div>
+        <table>
+          <tr><th>Ref</th><th>Title</th><th>Audience</th><th>Priority</th><th>Published</th><th>Expiry</th><th>Ack status</th><th></th></tr>
+          <tr><td class="mono">ANN-2026-040</td><td>WhatsApp channel paused at Powai — use SMS templates for report-ready</td><td>Front office · Powai (14)</td><td><span class="chip amber">Important</span></td><td class="small">24 Jul 18:22</td><td class="small">28 Jul 18:00</td><td><span class="chip amber">9/14 ack (64%)</span></td><td><span class="btn ghost small">Track</span></td></tr>
+          <tr><td class="mono">ANN-2026-039</td><td>Monthly PNDT Form F filing — records to compliance desk by 03 Aug</td><td>Technologist · Radiologist · all branches (31)</td><td><span class="chip red">Urgent</span></td><td class="small">23 Jul 09:00</td><td class="small">05 Aug 09:00</td><td><span class="chip green">31/31 ack (100%)</span></td><td><span class="btn ghost small">Track</span></td></tr>
+          <tr class="dim"><td class="mono">ANN-2026-038</td><td>Quarterly fire drill — Thane, 18 Jul 16:00</td><td>All roles · Thane (26)</td><td><span class="chip grey">Normal</span></td><td class="small">15 Jul 10:00</td><td class="small">18 Jul 18:00</td><td><span class="chip grey">Archived · 22/26 read</span></td><td><span class="btn ghost small">Archive</span></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE B — ACK TRACKING: ANN-2026-040 (POWAI WHATSAPP PAUSE)</div>
+<div class="card">
+  <div class="card-title">Acknowledgement tracking — ANN-2026-040 <span class="right">Important · banner · ack required · expires 28 Jul 18:00</span></div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">14</div><div class="l">Audience</div><div class="s">Front office · Powai</div></div>
+    <div class="kpi"><div class="n">9</div><div class="l">Acknowledged</div><div class="s">64% · latest 25 Jul 10:58</div></div>
+    <div class="kpi amber"><div class="n">5</div><div class="l">Pending</div><div class="s">3 not yet signed in since publish</div></div>
+    <div class="kpi"><div class="n" style="font-size:16px;padding-top:5px"><span class="chip amber">CHASE BY 26 JUL 12:00</span></div><div class="l">Ack SLA</div><div class="s">owner: K. Verma · escalated-to: branch manager Powai if &lt;90% at expiry-24h</div></div>
+  </div>
+  <div class="progress amber" style="max-width:420px;margin-bottom:12px"><i style="width:64%"></i></div>
+  <table>
+    <tr><th>Staff</th><th>Role</th><th>Shift</th><th>Delivered</th><th>Acknowledged</th><th>Status</th><th></th></tr>
+    <tr><td>D. Nair</td><td>Front office</td><td>Morning</td><td class="small mono">24 Jul 18:22 (banner)</td><td class="small mono">24 Jul 18:31</td><td><span class="chip green">ACK</span></td><td></td></tr>
+    <tr><td>S. Kulkarni</td><td>Front office</td><td>Morning</td><td class="small mono">24 Jul 18:22 (banner)</td><td class="small mono">25 Jul 08:04</td><td><span class="chip green">ACK</span></td><td></td></tr>
+    <tr><td>A. Fernandes</td><td>Front office</td><td>Evening</td><td class="small mono">24 Jul 18:22 (banner)</td><td class="small mono">25 Jul 10:58</td><td><span class="chip green">ACK</span></td><td></td></tr>
+    <tr class="hl"><td>R. Patil</td><td>Front office</td><td>Evening</td><td class="small mono">24 Jul 18:22 (banner)</td><td class="muted">—</td><td><span class="chip amber">Read, no ack</span></td><td><span class="btn ghost small">Remind</span></td></tr>
+    <tr class="hl"><td>M. Shaikh</td><td>Front office</td><td>Night</td><td class="muted small">not signed in since publish</td><td class="muted">—</td><td><span class="chip amber">Pending</span></td><td><span class="btn ghost small">Remind</span></td></tr>
+    <tr class="hl"><td>J. D'Cruz</td><td>Front office</td><td>Night</td><td class="muted small">not signed in since publish</td><td class="muted">—</td><td><span class="chip amber">Pending</span></td><td><span class="btn ghost small">Remind</span></td></tr>
+  </table>
+  <div style="margin-top:10px;display:flex;gap:10px"><span class="btn primary small">Remind all 5 pending (banner re-pin)</span><span class="btn small">Notify shift supervisor</span><span class="btn small disabled">Send SMS reminder — Urgent priority only</span></div>
+</div>
+<p class="audit">Per-user acknowledgement timestamps are staff workspace events, not patient data; reminder sends and supervisor notifications are recorded in the access log.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — FULLY ACKNOWLEDGED &amp; ARCHIVED: ANN-2026-039</div>
+<div class="card" style="max-width:820px">
+  <div class="card-title">ANN-2026-039 — Monthly PNDT Form F filing <span class="chip green">100% ACKNOWLEDGED</span></div>
+  <div class="banner success"><b>All 31 recipients acknowledged</b>Last ack 24 Jul 14:12 IST (T. Okafor, Technologist, Andheri). SMS leg delivered 31/31 on staff numbers via DLT template MER-STF-04; zero sends on patient channels (channel guardrail verified at dispatch).</div>
+  <div class="kv">
+    <dt>Published</dt><dd>23 Jul 2026 09:00 IST by K. Verma</dd>
+    <dt>Audience</dt><dd>Technologists + Radiologists, all branches (31) — incl. Dr. V. Shetty, Dr. S. Iyer, T. Okafor</dd>
+    <dt>Ack completion</dt><dd>100% in 29h 12m (target ≤48h) <span class="chip teal">SLA MET</span></dd>
+    <dt>Auto-archive</dt><dd>05 Aug 2026 09:00 IST — announcement text + full ack ledger retained 3y (staff records policy)</dd>
+  </div>
+  <div style="margin-top:10px;display:flex;gap:10px"><span class="btn small">Download ack ledger (CSV)</span><span class="btn small">Archive now</span></div>
+</div>
+<p class="audit">Publish, every delivery attempt, each acknowledgement and the archive event are recorded in the access log.</p>
+</section>

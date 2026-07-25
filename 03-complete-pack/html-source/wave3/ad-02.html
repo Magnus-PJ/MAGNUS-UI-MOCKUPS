@@ -1,0 +1,131 @@
+<section class="screen" id="ad-02">
+<div class="screen-head"><h1><span class="sid">AD-02</span> Departments &amp; service points</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G12 Admin — Org, People &amp; Master Data — workspace 'Admin'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Admins configure departments per branch and the physical service points (desks, rooms) beneath them — each with a token prefix, queue link and modality mapping. Service points can be active or hidden (invisible to booking but preserved for history). Deactivation is guarded: a service point with an open queue cannot be switched off, and every change is written to the change audit.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West (HQ)</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Organisation</div>
+      <div class="nav-item">Org &amp; branches</div>
+      <div class="nav-item active">Departments &amp; service points</div>
+      <div class="sec-label">People</div>
+      <div class="nav-item">Users &amp; lifecycle</div>
+      <div class="nav-item">Roles &amp; permissions</div>
+      <div class="nav-item">Approvals &amp; reviews <span class="nav-badge">6</span></div>
+      <div class="sec-label">Master data</div>
+      <div class="nav-item">Service catalogue</div>
+      <div class="nav-item">Referrer registry</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Audit log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Admin › Organisation › Andheri West › Departments &amp; service points</div>
+      <div class="page-title">Departments &amp; service points — Andheri West (HQ) <span class="actions-right"><span class="btn small">Branch: Andheri West ▾</span> <span class="btn primary small">+ Add service point</span></span></div>
+      <div class="page-sub">5 departments · 14 service points (12 active, 2 hidden) · token prefixes must be unique per branch</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">5</div><div class="l">Departments</div><div class="s">all active</div></div>
+        <div class="kpi"><div class="n">12</div><div class="l">Active service points</div><div class="s">2 hidden from booking</div></div>
+        <div class="kpi"><div class="n">7</div><div class="l">Modality mappings</div><div class="s">CT, MRI, USG×2, XR, MAM, ECG</div></div>
+        <div class="kpi amber"><div class="n">3</div><div class="l">Changes this week</div><div class="s">all audited · 1 pending guard</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Radiology <span><span class="chip green">Active</span> <span class="chip violet">PC-PNDT rooms flagged</span></span></div>
+        <table>
+          <tr><th>Service point</th><th>Type</th><th>Token prefix</th><th>Queue</th><th>Modality / equipment</th><th>State</th><th></th></tr>
+          <tr><td><b>CT Room 1</b></td><td>Room</td><td class="mono">CT-</td><td><span class="btn ghost small">Queue → 4 waiting</span></td><td>CT · Somatom go.Up (AERB E-38112)</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr><td><b>MRI Suite</b></td><td>Room</td><td class="mono">MR-</td><td><span class="btn ghost small">Queue → 2 waiting</span></td><td>MRI · Magnetom Sola 1.5T</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr class="hl"><td><b>USG Room 2</b> <span class="chip violet">PNDT</span></td><td>Room</td><td class="mono">US2-</td><td><span class="btn ghost small">Queue → 6 waiting</span></td><td>USG · Voluson S8 (obstetric) · Form F applies</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr><td><b>USG Room 1</b></td><td>Room</td><td class="mono">US1-</td><td><span class="btn ghost small">Queue → 3 waiting</span></td><td>USG · LOGIQ P9 (general)</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr><td><b>X-Ray Room</b></td><td>Room</td><td class="mono">XR-</td><td><span class="btn ghost small">Queue → 1 waiting</span></td><td>XR · DRX Evolution (AERB E-29904)</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr class="dim"><td><b>Mammography Room</b></td><td>Room</td><td class="mono">MAM-</td><td class="muted">queue closed</td><td>MAM · Senographe (under service until 30-Jul)</td><td><span class="chip grey">Hidden</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">Front Office <span class="chip green">Active</span></div>
+        <table>
+          <tr><th>Service point</th><th>Type</th><th>Token prefix</th><th>Queue</th><th>Mapped function</th><th>State</th><th></th></tr>
+          <tr><td><b>Registration Desk A</b></td><td>Desk</td><td class="mono">A-</td><td><span class="btn ghost small">Queue → 8 waiting</span></td><td>Registration &amp; consent capture (DPDP notice EN/HI/MR)</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr><td><b>Registration Desk B</b></td><td>Desk</td><td class="mono">B-</td><td><span class="btn ghost small">Queue → 5 waiting</span></td><td>Registration &amp; report handover</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr><td><b>Priority Desk</b></td><td>Desk</td><td class="mono">P-</td><td><span class="btn ghost small">Queue → 0 waiting</span></td><td>Senior citizens / accessibility</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr class="dim"><td><b>Desk C (seasonal)</b></td><td>Desk</td><td class="mono">C-</td><td class="muted">queue closed</td><td>Overflow — camps only</td><td><span class="chip grey">Hidden</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">Billing &amp; Cash <span class="chip green">Active</span></div>
+        <table>
+          <tr><th>Service point</th><th>Type</th><th>Token prefix</th><th>Queue</th><th>Mapped function</th><th>State</th><th></th></tr>
+          <tr><td><b>Cash Counter 1</b></td><td>Desk</td><td class="mono">K1-</td><td><span class="btn ghost small">Queue → 3 waiting</span></td><td>Payments, refunds (GST invoice · 27AAACM1234K1Z5)</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr><td><b>Cash Counter 2</b></td><td>Desk</td><td class="mono">K2-</td><td><span class="btn ghost small">Queue → 2 waiting</span></td><td>Payments · insurance desk</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">Recent change audit <span class="right">this branch · last 7 days</span></div>
+        <div class="timeline">
+          <div class="ev"><span class="t">24-Jul 17:41</span><span><b>K. Verma</b> hid <b>Mammography Room</b> (reason: equipment service window) — approved change, version v14 → v15</span></div>
+          <div class="ev"><span class="t">22-Jul 09:12</span><span><b>D. Nair</b> changed token prefix of <b>Priority Desk</b> from <span class="mono">S-</span> to <span class="mono">P-</span> (clash with Sonography prefix) — version v13 → v14</span></div>
+          <div class="ev"><span class="t">19-Jul 14:55</span><span><b>K. Verma</b> mapped <b>USG Room 2</b> to obstetric modality — auto-flagged PNDT; Form F workflow enabled; Dr. S. Iyer notified</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — EDIT SERVICE POINT (USG ROOM 2)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Admin › Andheri West › Radiology › USG Room 2 › Edit</div>
+  <div class="page-title">Edit service point — USG Room 2</div>
+  <div class="page-sub">Version v9 · last changed 19-Jul-2026 by K. Verma · all edits require a reason and are versioned</div>
+  <div class="row">
+    <div class="grow">
+      <div class="card">
+        <div class="card-title">Details</div>
+        <div class="row">
+          <div class="grow"><div class="field"><label>Display name <span class="req">*</span></label><input class="input" value="USG Room 2"></div></div>
+          <div style="width:140px"><div class="field"><label>Type</label><select class="select"><option>Room</option></select></div></div>
+          <div style="width:140px"><div class="field"><label>Token prefix <span class="req">*</span></label><input class="input mono" value="US2-"><div class="hint">Unique per branch. Tokens: US2-001…</div></div></div>
+        </div>
+        <div class="row">
+          <div class="grow"><div class="field"><label>Department</label><select class="select"><option>Radiology — Andheri West</option></select></div></div>
+          <div class="grow"><div class="field"><label>Modality mapping</label><select class="select"><option>USG — obstetric (Voluson S8)</option></select><div class="hint">Obstetric mapping enables PC-PNDT controls: Form F capture, monthly filing by the 5th, silent-on-sex UI.</div></div></div>
+        </div>
+        <div class="row">
+          <div class="grow"><div class="field"><label>Queue link</label><input class="input mono" value="queue://and/radiology/us2"><div class="hint">Shown on the waiting-area display board.</div></div></div>
+          <div class="grow"><div class="field"><label>Operating window (IST)</label><input class="input" value="Mon–Sat 08:00–20:00"></div></div>
+        </div>
+        <div class="field"><label>Reason for change <span class="req">*</span></label><textarea class="textarea">Extend evening window to 20:00 to absorb Vashi Annexe migration volume.</textarea></div>
+        <div style="display:flex;gap:10px;justify-content:flex-end"><span class="btn">Cancel</span><span class="btn primary">Save change (versioned)</span></div>
+      </div>
+    </div>
+    <div style="width:300px;flex-shrink:0">
+      <div class="banner reg"><b>PC-PNDT room</b>Sex determination disclosure is prohibited. Every obstetric scan here requires a Form F (FF-2026-xxxxx) before report release. Registration: MH/PNDT/2016/2210.</div>
+      <div class="card"><div class="card-title">Version history</div>
+        <div class="timeline">
+          <div class="ev"><span class="t">v9 · 19-Jul</span><span>Obstetric modality mapped — K. Verma</span></div>
+          <div class="ev"><span class="t">v8 · 03-Jun</span><span>Queue link updated — D. Nair</span></div>
+          <div class="ev"><span class="t">v7 · 12-May</span><span>Renamed from "Sono 2" — K. Verma</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div></div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — DEACTIVATION GUARD: OPEN QUEUE EXISTS</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Admin › Andheri West › Front Office › Registration Desk A</div>
+  <div class="page-title">Deactivate service point — Registration Desk A</div>
+  <div class="modal-wrap"><div class="modal danger">
+    <h3>Cannot deactivate — open queue exists</h3>
+    <p class="small" style="margin-bottom:10px">Registration Desk A has <b>8 patients waiting</b> (tokens A-041 … A-048) and <b>1 token being served</b>. Deactivating now would strand queued patients. Choose an option:</p>
+    <div class="check"><span class="box radio on">●</span><span><b>Drain then deactivate</b> — stop issuing new tokens immediately; deactivate automatically when the queue empties (est. 22 min). Waiting patients are unaffected.</span></div>
+    <div class="check"><span class="box radio">&nbsp;</span><span><b>Transfer queue</b> — move all 8 waiting tokens to Registration Desk B (current wait there: 5). Patients are re-announced with new token numbers; SMS via DLT template MER-QRESHUF-03.</span></div>
+    <div class="check"><span class="box radio">&nbsp;</span><span class="muted"><b>Force deactivate</b> — unavailable: requires branch-admin override plus second approver, and is reserved for safety incidents.</span></div>
+    <div class="field" style="margin-top:10px"><label>Reason <span class="req">*</span></label><input class="input" value="Desk PC hardware fault — replacement ETA 45 min"></div>
+    <div class="field"><label>Step-up identity confirmation <span class="req">*</span></label><input class="input" placeholder="Re-enter your Magnus password"><div class="hint">K. Verma · required because deactivation affects live patient flow</div></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn warn-outline">Drain then deactivate</span></div>
+  </div></div>
+  <div class="banner info" style="max-width:720px"><b>What patients see</b>The display board will show "Desk A closing — no new tokens" in EN/HI/MR. No patient identifiers are ever shown on the public board — token numbers only.</div>
+</div></div></div>
+<p class="audit">Service-point create/edit/hide/deactivate events are versioned with actor, reason, queue snapshot and timestamp (IST), and recorded in the access log.</p>
+</section>

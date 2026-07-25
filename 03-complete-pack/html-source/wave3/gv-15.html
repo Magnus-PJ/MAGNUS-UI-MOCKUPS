@@ -1,0 +1,112 @@
+<section class="screen" id="gv-15">
+<div class="screen-head"><h1><span class="sid">GV-15</span> Audit Export Governance</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G14 + G11 — workspaces 'Governance' / 'Grievance'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Every export of audit-log or patient-touching data leaves the system only through this controlled queue: requester states scope and justification, an approver runs a minimisation check (masking columns not needed for the stated purpose), and the file is issued as a watermarked, recipient-bound link with an expiry. A permanent export register records every issuance and supports one-click revoke; nothing is emailed as a raw attachment.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>GOVERNANCE</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Governance</div>
+    <div class="nav-item">Compliance calendar</div>
+    <div class="nav-item">DPDP rights desk <span class="nav-badge">4</span></div>
+    <div class="nav-item">Consent registry</div>
+    <div class="nav-item">Retention &amp; holds</div>
+    <div class="nav-item active">Audit exports <span class="nav-badge red">3</span></div>
+    <div class="nav-item">Access reviews</div>
+    <div class="sec-label">Privacy office</div>
+    <div class="nav-item">DPO / Privacy office</div>
+    <div class="nav-item">Incident register</div>
+    <div class="sec-label">Reference</div>
+    <div class="nav-item">Policy library</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Governance › Audit exports › Request queue</div>
+    <div class="page-title">Audit export requests <span class="actions-right"><span class="btn primary small">＋ New export request</span> <span class="btn small">Export register</span></span></div>
+    <div class="page-sub">All exports are watermarked, recipient-bound and expiring. Raw table dumps and email attachments are disabled platform-wide.</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">3</div><div class="l">Awaiting approval</div><div class="s">Oldest: 26h in queue</div></div>
+      <div class="kpi amber"><div class="n">2</div><div class="l">Approved · not downloaded</div><div class="s">Links expire in &lt; 48h</div></div>
+      <div class="kpi"><div class="n">14</div><div class="l">Issued this month</div><div class="s">July 2026 · all watermarked</div></div>
+      <div class="kpi red"><div class="n">1</div><div class="l">Revoked</div><div class="s">EXP-2026-0141 · recipient offboarded</div></div>
+    </div>
+    <div class="banner reg"><b>Minimisation is mandatory (DPDP §8(4))</b>Approvers must confirm every column in an export is necessary for the stated purpose. Columns not needed are masked at issue time — the requester never sees them. Approval without a completed minimisation check is blocked.</div>
+    <div class="card">
+      <div class="card-title">Pending export requests <span class="right">Queue · 3 items</span></div>
+      <table>
+        <tr><th>Req ID</th><th>Requester</th><th>Scope</th><th>Justification</th><th>Recipient</th><th>Approver</th><th>SLA</th><th></th></tr>
+        <tr class="hl"><td class="mono">EXP-2026-0148</td><td>Dr. A. Rao<br><span class="small muted">Privacy Officer</span></td><td>Access log — MRN-004822 (Sofia Rossi), 01–24 Jul 2026</td><td>Evidence pack for grievance <span class="mono">GRV-2026-0031</span> (privacy category)</td><td>Priya Sharma (DPO)<br><span class="small muted">internal · named user</span></td><td>K. Verma<br><span class="chip grey">You</span></td><td><span class="chip amber">8h left · owner K. Verma</span></td><td><span class="btn primary small">Review</span></td></tr>
+        <tr><td class="mono">EXP-2026-0147</td><td>P. D'Souza<br><span class="small muted">Cashier</span></td><td>Billing audit trail — invoices ₹0 adjustments, Jun 2026, Andheri branch</td><td>Statutory auditor query (GST · GSTIN 27AAACM1234K1Z5)</td><td>M/s Khandelwal &amp; Co.<br><span class="small muted">external · NDA on file</span></td><td>K. Verma</td><td><span class="chip teal">2d 4h left · owner K. Verma</span></td><td><span class="btn small">Review</span></td></tr>
+        <tr><td class="mono">EXP-2026-0146</td><td>T. Okafor<br><span class="small muted">Technologist</span></td><td>Full patient master, all branches, all columns</td><td>"Backup for my records"</td><td>Self<br><span class="small muted">internal</span></td><td>K. Verma</td><td><span class="chip red">OVERDUE 14h · owner K. Verma · escalated to Dr. A. Rao</span></td><td><span class="btn warn-outline small">Review / reject</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Requests older than 48h auto-escalate to the Privacy Officer. Over-broad scopes (e.g. "all columns") are flagged for likely rejection or narrowing.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">New export request (draft) <span class="right">Requester view</span></div>
+      <div class="row">
+        <div class="grow">
+          <div class="field"><label>Scope <span class="req">*</span></label><div class="input">Access log entries for MRN-004822 (Sofia Rossi), 01 Jul – 24 Jul 2026</div><div class="hint">Narrowest scope that serves the purpose. Date-bounded, single-record scopes are approved fastest.</div></div>
+          <div class="field"><label>Justification <span class="req">*</span></label><div class="textarea">Evidence pack for privacy grievance GRV-2026-0031 — patient alleges her report was viewed by staff not involved in her care. DPO requires the who/when/what access trail.</div></div>
+        </div>
+        <div style="width:280px">
+          <div class="field"><label>Recipient <span class="req">*</span></label><div class="select">Priya Sharma — DPO (internal) ▾</div><div class="hint">Link is bound to this recipient's login. Forwarded links will not open.</div></div>
+          <div class="field"><label>Link expiry <span class="req">*</span></label><div class="select">7 days (default) ▾</div></div>
+          <div class="check"><span class="box on">✓</span><span>I confirm this is the minimum data needed and I will not re-share the export.</span></div>
+          <span class="btn primary">Submit for approval</span>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — APPROVAL WITH MINIMISATION CHECK (APPROVER: K. VERMA)</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:640px">
+    <h3>Approve export EXP-2026-0148 — minimisation check</h3>
+    <div class="banner info"><b>Purpose on record</b>Evidence for grievance GRV-2026-0031 (unauthorised viewing allegation). Tick only the columns necessary for that purpose — everything else is masked in the issued file.</div>
+    <table>
+      <tr><th>Column</th><th>In export?</th><th>Minimisation note</th></tr>
+      <tr><td>Accessing user &amp; role</td><td><span class="chip green">INCLUDE</span></td><td>Core to the allegation</td></tr>
+      <tr><td>Timestamp (IST) &amp; action</td><td><span class="chip green">INCLUDE</span></td><td>Core to the allegation</td></tr>
+      <tr><td>Record / study accessed</td><td><span class="chip green">INCLUDE</span></td><td>Needed to match viewed items</td></tr>
+      <tr><td>Patient contact details</td><td><span class="chip grey">MASK</span></td><td>Not needed — DPO already holds contact via grievance file</td></tr>
+      <tr><td>Aadhaar last-4</td><td><span class="chip grey">MASK</span></td><td>Identifier not relevant to access trail</td></tr>
+      <tr><td>Clinical report body</td><td><span class="chip grey">MASK</span></td><td>Access metadata suffices; report content excluded</td></tr>
+    </table>
+    <div class="kv" style="margin-top:10px">
+      <dt>Watermark</dt><dd class="mono">MERIDIAN · EXP-2026-0148 · Recipient: P. Sharma · Issued 25-Jul-2026 · Expires 01-Aug-2026 — on every page/row</dd>
+      <dt>Recipient binding</dt><dd>Opens only for priya.sharma@meridiandx.in after login; downloads are themselves logged</dd>
+      <dt>Expiry</dt><dd>7 days — 01 Aug 2026 18:00 IST, then link is dead; re-issue requires a new request</dd>
+    </div>
+    <div class="banner warn" style="margin-top:10px"><b>Step-up identity confirmation required</b>Approving an export of patient access logs requires you to re-enter your password and OTP. This approval is recorded against your name.</div>
+    <div class="check"><span class="box on">✓</span><span>I have completed the minimisation check; masked columns are not needed for the stated purpose.</span></div>
+    <div class="modal-actions"><span class="btn">Send back — narrow scope</span><span class="btn danger">Reject</span><span class="btn primary">Step-up &amp; approve (3 of 6 columns)</span></div>
+  </div>
+</div>
+<p class="audit">Approval decision, column-level minimisation choices, step-up verification result and watermark parameters for EXP-2026-0148 are recorded in the access log.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — EXPORT REGISTER · ALL ISSUED EXPORTS · REVOKE LINK</div>
+<div class="card">
+  <div class="card-title">Export register — July 2026 <span class="right">Permanent record · cannot be edited</span></div>
+  <table>
+    <tr><th>Export ID</th><th>Issued</th><th>Scope (post-minimisation)</th><th>Recipient</th><th>Approver</th><th>Expiry</th><th>Status</th><th></th></tr>
+    <tr><td class="mono">EXP-2026-0148</td><td>25 Jul, 14:32 IST</td><td>Access log, MRN-004822 · 3 of 6 columns · watermarked</td><td>Priya Sharma (DPO)</td><td>K. Verma</td><td>01 Aug 2026</td><td><span class="chip green">ACTIVE · 0 downloads</span></td><td><span class="btn small">Revoke</span></td></tr>
+    <tr><td class="mono">EXP-2026-0145</td><td>22 Jul, 10:04 IST</td><td>PC-PNDT Form F register extract, Jun 2026 · Dr. S. Iyer studies only</td><td>Appropriate Authority (PNDT), Mumbai</td><td>Dr. A. Rao</td><td>05 Aug 2026</td><td><span class="chip green">ACTIVE · 1 download</span></td><td><span class="btn small">Revoke</span></td></tr>
+    <tr><td class="mono">EXP-2026-0144</td><td>19 Jul, 16:47 IST</td><td>DPDP rights-request evidence, DPDP-CR-00214 · masked contact fields</td><td>Priya Sharma (DPO)</td><td>K. Verma</td><td>26 Jul 2026</td><td><span class="chip amber">EXPIRES IN 22H</span></td><td><span class="btn small">Revoke</span></td></tr>
+    <tr><td class="mono">EXP-2026-0143</td><td>15 Jul, 09:20 IST</td><td>Billing audit trail, Andheri, May 2026 · amounts + invoice IDs only</td><td>M/s Khandelwal &amp; Co. (external)</td><td>K. Verma</td><td>22 Jul 2026</td><td><span class="chip grey">EXPIRED</span></td><td><span class="btn small disabled">Revoke</span></td></tr>
+    <tr><td class="mono">EXP-2026-0142</td><td>11 Jul, 12:11 IST</td><td>AERB dose register extract, CT-01 Andheri, H1 2026</td><td>RSO — Dr. V. Shetty</td><td>Dr. A. Rao</td><td>18 Jul 2026</td><td><span class="chip grey">EXPIRED · 2 downloads</span></td><td><span class="btn small disabled">Revoke</span></td></tr>
+    <tr><td class="mono">EXP-2026-0141</td><td>08 Jul, 15:38 IST</td><td>Access review evidence, Q2 2026 · staff IDs only</td><td>R. Menon (offboarded 14 Jul)</td><td>K. Verma</td><td>—</td><td><span class="chip red">REVOKED 14 Jul</span></td><td><span class="btn ghost small">View reason</span></td></tr>
+  </table>
+</div>
+<div class="modal-wrap">
+  <div class="modal danger">
+    <h3>Revoke export link — EXP-2026-0148</h3>
+    <p style="font-size:12.5px;margin-bottom:8px">The link dies immediately for the bound recipient. Any copies already downloaded remain traceable via the row-level watermark <span class="mono">EXP-2026-0148</span>.</p>
+    <div class="field"><label>Reason for revocation <span class="req">*</span></label><div class="select">Select — issued in error / recipient change / incident containment / scope dispute ▾</div></div>
+    <div class="banner warn"><b>Step-up identity confirmation</b>Re-enter your password to revoke. If reason is "incident containment", the incident register (INC-2026-xxxx) is opened automatically and the CERT-In 6-hour clock is shown.</div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn danger">Step-up &amp; revoke link</span></div>
+  </div>
+</div>
+<p class="audit">Every issue, download, expiry and revocation in the export register — including watermark IDs, recipient binding and approver identity — is recorded in the access log. Register rows are append-only and retained 10 years.</p>
+</section>

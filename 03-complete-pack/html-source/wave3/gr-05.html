@@ -1,0 +1,77 @@
+<section class="screen" id="gr-05">
+<div class="screen-head"><h1><span class="sid">GR-05</span> Patient tracking view</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G11 Grievance &amp; Support — workspace 'Grievance'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Public, patient-facing status page reached from the acknowledgement SMS: the patient enters the GRV reference and an OTP sent to their registered mobile. It shows an honest dated timeline (received → assigned → in progress → resolved), a plain-language "what we did" summary, an escalate option (branch manager first, Privacy Officer for privacy matters), and a reopen button that stays live for 30 days after resolution. No staff chrome, no clinical data — only the grievance itself.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>CARE</span></span><span class="org">🏥 Meridian Diagnostics · Grievance tracker</span></div><div class="userchip">English ▾ · हिन्दी · मराठी</div></div>
+  <div class="body" style="justify-content:center;background:#F4F6F8">
+    <div class="main" style="max-width:560px;flex:0 1 560px;margin:0 auto;padding:22px 18px">
+      <div class="card">
+        <div class="card-title">Your complaint — <span class="mono">GRV-2026-0142</span> <span class="right">Verified via OTP ····82</span></div>
+        <div class="small muted" style="margin-bottom:10px">Sofia R. · Andheri West centre · Raised 18 July 2026 · Currently with: <b>D. Nair, Front Office</b></div>
+        <span class="chip amber">IN PROGRESS</span> <span class="chip teal">Promised response by 25 July 2026</span>
+        <div class="timeline" style="margin-top:12px">
+          <div class="ev"><span class="t">18 Jul</span><div><b>Received.</b> We recorded your complaint about a delayed CT report and gave you this tracking reference.</div></div>
+          <div class="ev"><span class="t">18 Jul</span><div><b>Assigned.</b> A named staff member at your centre is responsible for your case.</div></div>
+          <div class="ev"><span class="t">19 Jul</span><div><b>In progress.</b> We found the cause (our SMS to you failed) and re-sent your report to your verified email. We called you the same morning.</div></div>
+          <div class="ev"><span class="t muted">— </span><div class="muted"><b>Resolved.</b> Not yet — we will update this page and message you.</div></div>
+        </div>
+        <div class="banner info"><b>What happens next</b> We aim to resolve within 7 days of receipt. If we miss that date, your case automatically goes to the Branch Manager and this page will say so.</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><span class="btn">Add a comment or document</span><span class="btn warn-outline">Not happy? Escalate to Branch Manager</span></div>
+      </div>
+      <div class="small muted" style="text-align:center;line-height:1.6">Meridian Diagnostics Pvt Ltd · GSTIN 27AAACM1234K1Z5 · Grievance helpline 1800-419-2100 (9:00–21:00 IST)<br>Privacy Officer: Dr. A. Rao · Data Protection Officer: Priya Sharma · This page shows only your complaint status — never medical details.<br>Data-related complaints may also be raised with the Data Protection Board of India.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — RESOLVED SUMMARY WITH 30-DAY REOPEN</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>CARE</span></span><span class="org">🏥 Meridian Diagnostics · Grievance tracker</span></div><div class="userchip">English ▾ · हिन्दी · मराठी</div></div>
+  <div class="body" style="justify-content:center;background:#F4F6F8">
+    <div class="main" style="max-width:560px;flex:0 1 560px;margin:0 auto;padding:22px 18px">
+      <div class="card">
+        <div class="card-title">Your complaint — <span class="mono">GRV-2026-0142</span> <span class="right">Verified via OTP ····82</span></div>
+        <span class="chip green">RESOLVED — 21 July 2026</span> <span class="chip teal">Closed in 3 days (within our 7-day promise)</span>
+        <div class="timeline" style="margin-top:12px">
+          <div class="ev"><span class="t">18 Jul</span><div><b>Received</b> at Andheri West front desk.</div></div>
+          <div class="ev"><span class="t">18 Jul</span><div><b>Assigned</b> to a named staff member.</div></div>
+          <div class="ev"><span class="t">19 Jul</span><div><b>In progress</b> — cause found, report re-sent, phone call made.</div></div>
+          <div class="ev"><span class="t">21 Jul</span><div><b>Resolved</b> — you confirmed you received the report. We messaged you this summary.</div></div>
+        </div>
+        <div class="banner success"><b>What we did, in plain language</b> Your CT report was ready on 17 July, but our SMS to you failed twice because of a telecom error. We re-sent it to your verified email on 19 July and you confirmed receipt on 21 July. We have also fixed our process so failed SMS deliveries now automatically retry by email for every patient.</div>
+        <div class="banner info"><b>Not satisfied?</b> You can reopen this complaint until <b>20 August 2026</b>. Reopening sends it straight to the Branch Manager with a 3-day response promise.</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><span class="btn warn-outline">Reopen this complaint</span><span class="btn ghost">Download resolution letter (PDF)</span></div>
+      </div>
+      <div class="small muted" style="text-align:center;line-height:1.6">Meridian Diagnostics Pvt Ltd · GSTIN 27AAACM1234K1Z5 · Grievance helpline 1800-419-2100<br>Privacy Officer: Dr. A. Rao · DPO: Priya Sharma</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — ESCALATED (PRIVACY MATTER → PRIVACY OFFICER)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>CARE</span></span><span class="org">🏥 Meridian Diagnostics · Grievance tracker</span></div><div class="userchip">English ▾ · हिन्दी · मराठी</div></div>
+  <div class="body" style="justify-content:center;background:#F4F6F8">
+    <div class="main" style="max-width:560px;flex:0 1 560px;margin:0 auto;padding:22px 18px">
+      <div class="card">
+        <div class="card-title">Your complaint — <span class="mono">GRV-2026-0139</span> <span class="right">Verified via OTP ····90</span></div>
+        <div class="small muted" style="margin-bottom:10px">Mohammed A. · Raised 10 July 2026 · About: text messages you did not want</div>
+        <span class="chip violet">WITH OUR PRIVACY OFFICER</span> <span class="chip red">ESCALATED — original deadline missed</span>
+        <div class="timeline" style="margin-top:12px">
+          <div class="ev"><span class="t">10 Jul</span><div><b>Received</b> through the helpline.</div></div>
+          <div class="ev"><span class="t">10 Jul</span><div><b>Assigned</b> — because this concerns your personal data, it went directly to our Privacy Officer, Dr. A. Rao.</div></div>
+          <div class="ev"><span class="t">22 Jul</span><div><b>Escalated.</b> We missed our own 7-day promise. Your case is now also overseen by our Data Protection Officer, Priya Sharma. We are sorry for the delay.</div></div>
+          <div class="ev"><span class="t muted">by 09 Aug</span><div><b>Legal deadline.</b> Under the DPDP Act we must resolve data-related complaints within 30 days of receipt. Ours is 9 August 2026.</div></div>
+        </div>
+        <div class="banner warn"><b>Escalation path</b> Step 1: Branch Manager (done for service issues). Step 2: Privacy Officer Dr. A. Rao — your case is here now. If you remain unsatisfied after our response, you may complain to the <b>Data Protection Board of India</b>; we will include instructions in our written reply.</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><span class="btn disabled">Escalate (already at highest internal level)</span><span class="btn">Add a comment or document</span></div>
+      </div>
+      <div class="small muted" style="text-align:center;line-height:1.6">Meridian Diagnostics Pvt Ltd · Grievance helpline 1800-419-2100 · Privacy Officer: Dr. A. Rao · DPO: Priya Sharma</div>
+    </div>
+  </div>
+</div>
+<p class="audit">Patient OTP verifications, page views, escalation clicks and reopen actions are recorded in the access log; the patient page itself never displays clinical content or staff personal data beyond role and first initial where required — and every staff view of this case is likewise recorded in the access log.</p>
+</section>

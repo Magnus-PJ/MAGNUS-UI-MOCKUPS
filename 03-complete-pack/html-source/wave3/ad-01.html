@@ -1,0 +1,154 @@
+<section class="screen" id="ad-01">
+<div class="screen-head"><h1><span class="sid">AD-01</span> Organisation &amp; branch structure</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G12 Admin — Org, People &amp; Master Data — workspace 'Admin'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Org admins maintain the legal-entity → branch → department tree that every booking, invoice and PC-PNDT registration hangs off. Branch cards carry address, GSTIN link, timezone and lifecycle status; adding a branch runs a compliance checklist before go-live. Branches are never deleted — decommissioning follows announce → stop-new-bookings → migrate-open-items → archive-read-only, with a mandatory second approver (four-eyes).</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Organisation</div>
+      <div class="nav-item active">Org &amp; branches</div>
+      <div class="nav-item">Departments &amp; service points</div>
+      <div class="sec-label">People</div>
+      <div class="nav-item">Users &amp; lifecycle</div>
+      <div class="nav-item">Roles &amp; permissions</div>
+      <div class="nav-item">Approvals &amp; reviews <span class="nav-badge">6</span></div>
+      <div class="sec-label">Master data</div>
+      <div class="nav-item">Service catalogue</div>
+      <div class="nav-item">Referrer registry</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Audit log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Admin › Organisation › Branch structure</div>
+      <div class="page-title">Organisation &amp; branch structure <span class="actions-right"><span class="btn small">Export structure (CSV)</span> <span class="btn primary small">+ Add branch</span></span></div>
+      <div class="page-sub">Legal entity: Meridian Diagnostics Pvt. Ltd. · CIN U85110MH2011PTC214563 · Registered office: Mumbai, Maharashtra</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">5</div><div class="l">Active branches</div><div class="s">3 with imaging (AERB-licensed)</div></div>
+        <div class="kpi"><div class="n">18</div><div class="l">Departments</div><div class="s">across all branches</div></div>
+        <div class="kpi amber"><div class="n">1</div><div class="l">Onboarding</div><div class="s">Kharghar — checklist 7/10</div></div>
+        <div class="kpi red"><div class="n">1</div><div class="l">Decommissioning</div><div class="s">Vashi Annexe — step 3 of 4</div></div>
+      </div>
+      <div class="row">
+        <div class="card" style="width:320px;flex-shrink:0">
+          <div class="card-title">Org tree <span class="right">live</span></div>
+          <div style="font-size:12.5px;line-height:2">
+            <div class="bold">▾ Meridian Diagnostics Pvt. Ltd.</div>
+            <div style="padding-left:14px">▾ <b>Andheri West (HQ)</b> <span class="chip green">Active</span></div>
+            <div style="padding-left:30px" class="muted">Radiology · Pathology · Front Office · Billing</div>
+            <div style="padding-left:14px">▸ <b>Bandra Kurla</b> <span class="chip green">Active</span></div>
+            <div style="padding-left:14px">▸ <b>Powai</b> <span class="chip green">Active</span></div>
+            <div style="padding-left:14px">▸ <b>Thane West</b> <span class="chip green">Active</span></div>
+            <div style="padding-left:14px">▸ <b>Pune Aundh</b> <span class="chip green">Active</span></div>
+            <div style="padding-left:14px">▸ <b>Kharghar</b> <span class="chip amber">Onboarding</span></div>
+            <div style="padding-left:14px">▸ <b>Vashi Annexe</b> <span class="chip red">Decommissioning</span></div>
+          </div>
+          <div class="banner reg" style="margin-top:10px;margin-bottom:0"><b>PC-PNDT is centre-specific</b>Each branch performing obstetric USG holds its own PNDT registration; registrations never transfer between branches.</div>
+        </div>
+        <div class="grow">
+          <div class="card">
+            <div class="card-title">Branch — Andheri West (HQ) <span><span class="chip green">Active</span> <span class="chip teal">Imaging</span></span></div>
+            <dl class="kv">
+              <dt>Branch code</dt><dd class="mono">MRD-AND</dd>
+              <dt>Address</dt><dd>Meridian House, 12 Veera Desai Rd, Andheri West, Mumbai 400053, MH</dd>
+              <dt>GSTIN</dt><dd class="mono">27AAACM1234K1Z5 <span class="btn ghost small">View GST profile →</span></dd>
+              <dt>Timezone</dt><dd>Asia/Kolkata (IST, UTC+05:30)</dd>
+              <dt>PNDT registration</dt><dd class="mono">MH/PNDT/2016/2210 · valid to 31-Mar-2027 · Dr. S. Iyer (MH/PNDT/2019/4471)</dd>
+              <dt>AERB licences</dt><dd>2 (CT-01 eLORA E-38112, XR-02 E-29904) — both valid</dd>
+              <dt>Departments</dt><dd>Radiology · Pathology · Cardiology · Front Office · Billing &amp; Cash</dd>
+              <dt>Branch admin</dt><dd>K. Verma (org admin) · deputy: D. Nair</dd>
+              <dt>Operating hours</dt><dd>Mon–Sat 07:00–21:00 · Sun 08:00–14:00 IST</dd>
+            </dl>
+          </div>
+          <div class="card">
+            <div class="card-title">All branches <span class="right">7 records</span></div>
+            <table>
+              <tr><th>Branch</th><th>Code</th><th>GSTIN</th><th>PNDT reg.</th><th>Depts</th><th>Status</th><th></th></tr>
+              <tr class="hl"><td><b>Andheri West (HQ)</b></td><td class="mono">MRD-AND</td><td class="mono">27AAACM1234K1Z5</td><td class="mono">MH/PNDT/2016/2210</td><td>5</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Open</span></td></tr>
+              <tr><td><b>Bandra Kurla</b></td><td class="mono">MRD-BKC</td><td class="mono">27AAACM1234K1Z5</td><td class="mono">MH/PNDT/2018/3187</td><td>4</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Open</span></td></tr>
+              <tr><td><b>Powai</b></td><td class="mono">MRD-POW</td><td class="mono">27AAACM1234K1Z5</td><td class="muted">— (no obstetric USG)</td><td>3</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Open</span></td></tr>
+              <tr><td><b>Thane West</b></td><td class="mono">MRD-THW</td><td class="mono">27AAACM1234K1Z5</td><td class="mono">MH/PNDT/2021/5522</td><td>3</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Open</span></td></tr>
+              <tr><td><b>Pune Aundh</b></td><td class="mono">MRD-PUN</td><td class="mono">27AAACM5678P2Z1</td><td class="mono">MH/PNDT/2022/6104</td><td>2</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Open</span></td></tr>
+              <tr><td><b>Kharghar</b></td><td class="mono">MRD-KHR</td><td class="muted">pending</td><td class="chip amber">applied 02-Jul</td><td>1</td><td><span class="chip amber">Onboarding</span></td><td><span class="btn ghost small">Checklist</span></td></tr>
+              <tr class="dim"><td><b>Vashi Annexe</b></td><td class="mono">MRD-VSA</td><td class="mono">27AAACM1234K1Z5</td><td class="mono">MH/PNDT/2015/1874</td><td>2</td><td><span class="chip red">Decommissioning</span></td><td><span class="btn ghost small">Lifecycle</span></td></tr>
+            </table>
+          </div>
+          <div class="card">
+            <div class="card-title">Add-branch checklist — Kharghar <span class="right">7 of 10 complete</span></div>
+            <div class="progress"><i style="width:70%"></i></div>
+            <div style="margin-top:10px">
+              <div class="check"><span class="box on">✓</span>Legal address &amp; branch code reserved (MRD-KHR)</div>
+              <div class="check"><span class="box on">✓</span>Timezone &amp; operating hours configured</div>
+              <div class="check"><span class="box on">✓</span>Branch admin assigned (D. Nair, interim)</div>
+              <div class="check"><span class="box on">✓</span>Department skeleton created (Front Office)</div>
+              <div class="check"><span class="box on">✓</span>DLT SMS sender ID &amp; templates mapped to branch</div>
+              <div class="check"><span class="box on">✓</span>Consent notices (DPDP) localised — EN/HI/MR</div>
+              <div class="check"><span class="box on">✓</span>Retention schedule inherited (radiology 10y, billing 8y)</div>
+              <div class="check"><span class="box">&nbsp;</span>GSTIN registration for Navi Mumbai vertical — <span class="chip amber">with Finance</span></div>
+              <div class="check"><span class="box">&nbsp;</span>PC-PNDT centre registration granted — <span class="chip amber">applied 02-Jul-2026</span></div>
+              <div class="check"><span class="box">&nbsp;</span>AERB eLORA licence for XR-01 — <span class="chip amber">inspection 29-Jul-2026</span></div>
+            </div>
+            <div class="banner warn" style="margin-top:10px;margin-bottom:0"><b>Go-live blocked</b>Bookings cannot open until GSTIN, PNDT and AERB items clear. Owner: K. Verma · <span class="chip amber">SLA 45d · due 18-Aug</span> · escalated to: COO office if overdue.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — DECOMMISSION LIFECYCLE (VASHI ANNEXE, STEP 3 OF 4)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Admin › Organisation › Vashi Annexe › Decommission lifecycle</div>
+  <div class="page-title">Decommission — Vashi Annexe (MRD-VSA)</div>
+  <div class="page-sub">Initiated 30-Jun-2026 by K. Verma · approved (four-eyes) by Dr. A. Rao, Privacy Officer · target archive date 15-Aug-2026</div>
+  <div class="stepper">
+    <div class="step done"><span class="dot">✓</span>Announce (staff + referrers notified)</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span>Stop new bookings (from 07-Jul)</div><span class="step-line"></span>
+    <div class="step cur"><span class="dot">3</span>Migrate open items</div><span class="step-line"></span>
+    <div class="step"><span class="dot">4</span>Archive read-only</div>
+  </div>
+  <div class="banner danger"><b>Records are never deleted</b>Archiving freezes the branch to read-only. All radiology records remain retrievable for 10 years, billing for 8 years, and PC-PNDT Form F registers for the statutory period. PNDT registration MH/PNDT/2015/1874 will be surrendered to the District Appropriate Authority, not transferred.</div>
+  <div class="card">
+    <div class="card-title">Open items to migrate <span class="right">14 remaining · owner: D. Nair · <span class="chip amber">SLA 21d · due 11-Aug</span></span></div>
+    <table>
+      <tr><th>Item</th><th>Ref</th><th>Patient / holder</th><th>Action</th><th>Target branch</th><th>Status</th></tr>
+      <tr><td>Future appointment (MRI Brain, 04-Aug)</td><td class="mono">APT-2026-88410</td><td>Sofia Rossi · MRN-004822</td><td>Rebook with consent re-confirmation</td><td>Andheri West</td><td><span class="chip amber">Awaiting patient reply</span></td></tr>
+      <tr><td>Unsigned report (USG Abdomen)</td><td class="mono">RPT-2026-30217</td><td>Rajesh Gupta · MRN-004795</td><td>Sign before archive (Dr. V. Shetty)</td><td>—</td><td><span class="chip red">OVERDUE · escalated to Dr. V. Shetty</span></td></tr>
+      <tr><td>Open credit note</td><td class="mono">CN-2026-01192</td><td>Mohammed Al-Rashid · MRN-004790</td><td>Settle or transfer ledger</td><td>Bandra Kurla</td><td><span class="chip amber">With P. D'Souza</span></td></tr>
+      <tr><td>Open cash session</td><td class="mono">CSH-VSA-0725</td><td>P. D'Souza (cashier)</td><td>Close &amp; reconcile</td><td>—</td><td><span class="chip teal">Due today</span></td></tr>
+      <tr><td>DPDP rights request (copy of records)</td><td class="mono">DPDP-CR-00341</td><td>Ananya Rao · MRN-004819</td><td>Fulfil before freeze (30-day SLA)</td><td>—</td><td><span class="chip teal">Day 9 of 30 · owner Priya Sharma</span></td></tr>
+      <tr><td>Pending PNDT Form F filing (July)</td><td class="mono">FF-2026-00882</td><td>Centre register</td><td>File by 05-Aug, then surrender reg.</td><td>—</td><td><span class="chip teal">On track</span></td></tr>
+    </table>
+  </div>
+  <div class="modal-wrap"><div class="modal danger">
+    <h3>Proceed to Step 4 — Archive read-only</h3>
+    <p class="small" style="margin-bottom:8px">This action is irreversible in-product (reversal requires a governance ticket). It disables all write operations for MRD-VSA. 14 open items remain — proceeding is blocked until the list is empty.</p>
+    <div class="field"><label>Step-up identity confirmation <span class="req">*</span></label><input class="input" value="" placeholder="Re-enter your Magnus password"><div class="hint">K. Verma · MFA push will follow · attempt recorded in the access log</div></div>
+    <div class="field"><label>Second approver (four-eyes) <span class="req">*</span></label><select class="select"><option>Dr. A. Rao — Privacy Officer (already approved initiation)</option></select><div class="hint">A different approver than the initiator is required. Approval token expires in 24h.</div></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn danger disabled">Archive branch (blocked — 14 open items)</span></div>
+  </div></div>
+</div></div></div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — ARCHIVED BRANCH, READ-ONLY VIEW</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Admin › Organisation › Ghatkopar (archived)</div>
+  <div class="page-title">Ghatkopar (MRD-GHK) <span class="chip grey">ARCHIVED · READ-ONLY</span></div>
+  <div class="page-sub">Archived 14-Feb-2025 · initiated by K. Verma · four-eyes approval: Dr. A. Rao · archive ref DECOM-2025-002</div>
+  <div class="banner info"><b>Read-only archive</b>No bookings, edits or new users can be created for this branch. Historical records remain searchable and exportable under the retention schedule: radiology 10 years (to Feb-2035), billing 8 years (to Feb-2033). Every retrieval from an archived branch is logged and visible to the Privacy Officer.</div>
+  <dl class="kv" style="margin-bottom:12px">
+    <dt>Final GSTIN filing</dt><dd class="mono">27AAACM1234K1Z5 · deregistration for vertical filed 28-Feb-2025</dd>
+    <dt>PNDT registration</dt><dd class="mono">MH/PNDT/2014/0912 · surrendered 20-Feb-2025 · acknowledgement on file</dd>
+    <dt>Record custodian</dt><dd>Dr. A. Rao (Privacy Officer) · archive storage: Meridian secure archive, Mumbai region</dd>
+    <dt>Open retrievals</dt><dd>1 — DPDP-CR-00298 (patient copy request, day 4 of 30, owner Priya Sharma)</dd>
+  </dl>
+  <div class="card"><div class="card-title">Recent archive retrievals <span class="right">last 90 days</span></div>
+  <table>
+    <tr><th>Date (IST)</th><th>Requested by</th><th>Purpose</th><th>Records</th><th>Approval</th></tr>
+    <tr><td class="mono">21-Jul-2026 10:14</td><td>Priya Sharma (DPO)</td><td>DPDP rights request DPDP-CR-00298</td><td>3 reports, 1 invoice</td><td><span class="chip green">Auto (rights basis)</span></td></tr>
+    <tr><td class="mono">08-Jul-2026 16:02</td><td>P. D'Souza (cashier)</td><td>GST audit FY24-25</td><td>62 invoices</td><td><span class="chip green">Approved · K. Verma</span></td></tr>
+    <tr><td class="mono">19-Jun-2026 11:47</td><td>Dr. V. Shetty</td><td>Prior-study comparison, MRN-004790</td><td>1 CT study</td><td><span class="chip green">Care-team basis</span></td></tr>
+  </table></div>
+</div></div></div>
+<p class="audit">Every branch-structure change (create, edit, lifecycle transition) is versioned with actor, approver, timestamp (IST) and reason, and recorded in the access log.</p>
+</section>

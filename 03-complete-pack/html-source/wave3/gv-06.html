@@ -1,0 +1,122 @@
+<section class="screen" id="gv-06">
+<div class="screen-head"><h1><span class="sid">GV-06</span> Retention schedules</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G14 Governance &amp; Compliance — workspace 'Governance'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Central register of retention rules per record class — period, legal basis, and action at expiry (review-then-delete, never silent purge). Rules ship as read-only defaults; any edit requires Privacy Officer proposal plus DPO four-eyes approval and a forward effective date. The 90-day expiry preview shows volumes queued for review, with legal-hold exclusions surfaced so held records are never staged for deletion.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>GOVERNANCE</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Privacy Office</div>
+    <div class="nav-item">Compliance calendar</div>
+    <div class="nav-item">Consent registry</div>
+    <div class="nav-item">Grievances <span class="nav-badge">4</span></div>
+    <div class="nav-item">Rights requests <span class="nav-badge">7</span></div>
+    <div class="sec-label">Data lifecycle</div>
+    <div class="nav-item active">Retention schedules</div>
+    <div class="nav-item">Legal holds</div>
+    <div class="sec-label">Incidents</div>
+    <div class="nav-item">Incident intake <span class="nav-badge red">2</span></div>
+    <div class="nav-item">Breach runbook</div>
+    <div class="sec-label">Records</div>
+    <div class="nav-item">Access log</div>
+    <div class="nav-item">Disclosure register</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Governance › Data lifecycle › Retention schedules</div>
+    <div class="page-title">Retention schedules <span class="actions-right"><span class="btn small">Print schedule (policy annexure)</span> <span class="btn warn-outline small">Propose rule change…</span></span></div>
+    <div class="page-sub">Policy RET-2026-v3 · effective 01 Apr 2026 · owner: Dr. A. Rao (Privacy Officer) · co-approver: Priya Sharma (DPO)</div>
+    <div class="banner reg"><b>Read-only defaults</b> These rules are locked system defaults derived from statute and Meridian policy. Direct editing is disabled for all roles including org admin. Changes require: Privacy Officer proposal → DPO four-eyes approval → effective date ≥ 14 days in the future → versioned publication. Nothing is ever deleted automatically — expiry triggers a <b>review queue</b>, and deletion itself follows the GV-04 destruction workflow with certificates.</div>
+    <div class="card">
+      <div class="card-title">Retention rules — active version RET-2026-v3 <span class="right">9 record classes</span></div>
+      <table>
+        <tr><th>Record class</th><th>Retention period</th><th>Clock starts</th><th>Legal / policy basis</th><th>Action at expiry</th><th>Legal-hold override</th></tr>
+        <tr><td><b>Radiology reports &amp; images</b> (incl. addenda, DICOM)</td><td class="mono">10 years</td><td>Date of study</td><td>Clinical records norms · Meridian policy RET-114 · limitation period</td><td><span class="chip amber">Review-then-delete</span></td><td>Suspended while held</td></tr>
+        <tr><td><b>PC-PNDT Form F &amp; registers</b></td><td class="mono">2 years min · kept 10 years</td><td>Date of procedure</td><td>PC-PNDT Act Rule 9 · centre registrations MH/PNDT/2019/4471</td><td><span class="chip amber">Review-then-delete</span> — PNDT officer sign-off required</td><td>Suspended while held</td></tr>
+        <tr><td><b>Billing, invoices, credit notes</b></td><td class="mono">8 years</td><td>End of financial year</td><td>GST record rules (GSTIN 27AAACM1234K1Z5) · Income-tax</td><td><span class="chip amber">Review-then-delete</span></td><td>Suspended while held</td></tr>
+        <tr><td><b>Consent artefacts &amp; notices served</b></td><td class="mono">Life of record + 3 years</td><td>Linked record expiry</td><td>DPDP Act accountability · policy PRV-102</td><td><span class="chip amber">Review-then-delete</span></td><td>Suspended while held</td></tr>
+        <tr><td><b>Registration / demographics</b></td><td class="mono">10 years after last visit</td><td>Last encounter</td><td>Aligned to longest clinical dependency</td><td><span class="chip amber">Review-then-delete</span></td><td>Suspended while held</td></tr>
+        <tr><td><b>Access &amp; audit logs</b></td><td class="mono">3 years (security) · 180 days hot</td><td>Event date</td><td>CERT-In directions (log retention) · ISO 27001</td><td><span class="chip grey">Archive → review</span></td><td>Suspended while held</td></tr>
+        <tr><td><b>AERB dose &amp; equipment QA records</b></td><td class="mono">Life of equipment + 5 years</td><td>Decommission date</td><td>AERB licence conditions</td><td><span class="chip amber">Review-then-delete</span></td><td>Suspended while held</td></tr>
+        <tr><td><b>Grievance &amp; rights-request files</b></td><td class="mono">5 years after closure</td><td>Closure date</td><td>DPDP accountability · DPB inquiry readiness</td><td><span class="chip amber">Review-then-delete</span></td><td>Suspended while held</td></tr>
+        <tr><td><b>CCTV footage (branch premises)</b></td><td class="mono">45 days</td><td>Recording date</td><td>Policy SEC-201 · state advisories</td><td><span class="chip grey">Auto-archive → review on flag</span></td><td>Suspended while held</td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Version history: RET-2026-v3 (current, 01 Apr 2026) · v2 (12 Aug 2025) · v1 (01 Feb 2025). Diffs and approver signatures retained for every version.</div>
+    </div>
+    <div class="row">
+      <div class="grow card">
+        <div class="card-title">Legal-hold exclusions currently in force <span class="right">from GV-07 register</span></div>
+        <table>
+          <tr><th>Hold</th><th>Scope excluded from expiry</th><th>Records</th><th>Status</th></tr>
+          <tr><td class="mono">LH-2026-031</td><td>All records — Sofia Rossi (MRN-004822)</td><td class="mono">312</td><td><span class="chip red">HOLD — deletion suspended</span></td></tr>
+          <tr><td class="mono">LH-2026-027</td><td>Billing FY 2018-19, Pune-Kothrud branch</td><td class="mono">18,440</td><td><span class="chip red">HOLD — deletion suspended</span></td></tr>
+          <tr><td class="mono">LH-2026-024</td><td>USG modality QA records, Jan–Mar 2025</td><td class="mono">1,206</td><td><span class="chip amber">HOLD — review overdue</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:6px">Held records are removed from expiry batches at compile time and re-enter review automatically on release.</div>
+      </div>
+      <div class="card" style="width:300px">
+        <div class="card-title">Rule-change pipeline</div>
+        <div class="ladder">
+          <div class="tier done"><b>Proposal drafted</b><div class="small muted">CCTV 45→30 days · Dr. A. Rao · 18 Jul</div></div>
+          <div class="tier cur"><b>DPO four-eyes review</b><div class="small muted">With Priya Sharma · due 28 Jul</div></div>
+          <div class="tier"><b>Effective date</b><div class="small muted">Proposed 15 Aug 2026 (≥14d notice)</div></div>
+          <div class="tier"><b>Publish RET-2026-v4</b><div class="small muted">Auto-notifies branch admins</div></div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — RULE EDIT GATED · FOUR-EYES PROPOSAL MODAL</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:620px">
+    <h3>Propose retention rule change — Billing, invoices, credit notes</h3>
+    <div class="banner warn" style="margin-bottom:12px"><b>This action does not change the rule now.</b> It creates a proposal requiring a second approver. You are signed in as <b>K. Verma (org admin)</b> — org admins may draft, but only <b>Dr. A. Rao (Privacy Officer)</b> can submit, and only <b>Priya Sharma (DPO)</b> can co-approve. Proposer and approver must be different people (four-eyes).</div>
+    <div class="row">
+      <div class="grow field"><label>Current period</label><div class="input" style="background:#F8FAFC">8 years from end of financial year</div></div>
+      <div class="grow field"><label>Proposed period <span class="req">*</span></label><div class="input">10 years from end of financial year</div></div>
+    </div>
+    <div class="field"><label>Justification &amp; legal basis <span class="req">*</span></label><div class="textarea">Align with extended reassessment window under GST notification 12/2026; counsel opinion ref MER-LGL-2026-08 attached.</div><div class="hint">Attach counsel opinion or statutory citation. Proposals without a basis are auto-returned.</div></div>
+    <div class="row">
+      <div class="grow field"><label>Effective date <span class="req">*</span></label><div class="input mono">15-Aug-2026</div><div class="hint">Must be ≥ 14 days out. Applies prospectively; records already past expiry stay in their current review queue.</div></div>
+      <div class="grow field"><label>Impact preview</label><div class="input" style="background:#F8FAFC">~41,200 records move out of FY26-27 expiry window</div></div>
+    </div>
+    <div class="field"><label>Step-up identity confirmation <span class="req">*</span></label>
+      <div class="row"><div class="grow"><div class="input">Password ••••••••••</div></div><div class="grow"><div class="input mono">OTP — — — — — —</div></div></div>
+      <div class="hint">Recorded against your identity; the DPO receives the proposal with your name, diff and impact preview.</div>
+    </div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn disabled">Submit to DPO (Privacy Officer only)</span></div>
+  </div>
+</div>
+<div class="banner danger" style="max-width:860px"><b>Blocked for this role</b> Submission disabled: signed-in role "org admin" is not Privacy Officer. Draft saved as <span class="mono">RETCH-2026-009</span> and routed to Dr. A. Rao for sponsorship. Attempt is recorded.</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — UPCOMING-EXPIRY PREVIEW · NEXT 90 DAYS</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="crumb">Governance › Retention schedules › Expiry preview</div>
+    <div class="page-title">Upcoming expiries — 26 Jul → 23 Oct 2026</div>
+    <div class="page-sub">Volumes entering review-then-delete. Nothing is deleted from this screen; batches flow to the GV-04 destruction workflow after review sign-off.</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">63,118</div><div class="l">Records reaching expiry</div><div class="s">Across 5 record classes</div></div>
+      <div class="kpi amber"><div class="n">19,646</div><div class="l">Excluded — legal hold</div><div class="s">3 active holds (GV-07)</div></div>
+      <div class="kpi"><div class="n">43,472</div><div class="l">Eligible for review</div><div class="s">Queued to reviewers by class</div></div>
+      <div class="kpi red"><div class="n">1</div><div class="l">Review batch overdue</div><div class="s">Batch RB-2026-114 · owner Dr. A. Rao · escalated to Priya Sharma</div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Expiry batches by month <span class="right">review owner &amp; SLA per batch</span></div>
+      <table>
+        <tr><th>Batch</th><th>Record class</th><th>Expiry window</th><th>Volume</th><th>Held (excluded)</th><th>Reviewer</th><th>Review SLA</th></tr>
+        <tr class="hl"><td class="mono">RB-2026-114</td><td>Billing FY 2017-18</td><td>Aug 2026</td><td class="mono">22,915</td><td class="mono">18,440 <span class="chip red">LH-2026-027</span></td><td>Dr. A. Rao</td><td><span class="chip red">OVERDUE 4d · escalated to Priya Sharma</span></td></tr>
+        <tr><td class="mono">RB-2026-117</td><td>Radiology studies · Jul–Sep 2016</td><td>Aug–Sep 2026</td><td class="mono">31,004</td><td class="mono">312 <span class="chip red">LH-2026-031</span></td><td>Dr. V. Shetty (clinical) + Dr. A. Rao</td><td><span class="chip teal">Due 30 Aug · on track</span></td></tr>
+        <tr><td class="mono">RB-2026-118</td><td>Consent artefacts (orphaned)</td><td>Sep 2026</td><td class="mono">4,006</td><td class="mono">0</td><td>D. Nair</td><td><span class="chip teal">Due 12 Sep</span></td></tr>
+        <tr><td class="mono">RB-2026-119</td><td>CCTV archive flags</td><td>Rolling</td><td class="mono">3,987</td><td class="mono">0</td><td>Branch security leads</td><td><span class="chip teal">Rolling 7d</span></td></tr>
+        <tr><td class="mono">RB-2026-120</td><td>Grievance files closed 2021</td><td>Oct 2026</td><td class="mono">1,206</td><td class="mono">894 <span class="chip amber">LH-2026-024</span></td><td>Dr. A. Rao</td><td><span class="chip amber">Due 05 Oct · reviewer on leave — delegate?</span></td></tr>
+      </table>
+    </div>
+    <div class="banner info"><b>What "review-then-delete" means here</b> Reviewer confirms no open litigation, no pending rights request, no legal hold, and no clinical dependency; then the batch moves to GV-04 where destruction runs with a second approver and a destruction certificate. Any single record can be pulled from a batch with a reason.</div>
+  </div></div>
+</div>
+
+<p class="audit">Rule views, change proposals, four-eyes approvals, effective-date publications and expiry-batch review decisions are versioned and retained for 8 years — recorded in the access log.</p>
+</section>

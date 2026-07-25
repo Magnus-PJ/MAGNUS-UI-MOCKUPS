@@ -1,0 +1,127 @@
+<section class="screen" id="gv-08">
+<div class="screen-head"><h1><span class="sid">GV-08</span> Incident intake &amp; triage</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G14 Governance &amp; Compliance — workspace 'Governance'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Any staff member can report a security or privacy incident in under two minutes; the form nudges reporters to avoid pasting patient identifiers. Auto-classification flags "personal data likely" reports onto the breach path — statutory clocks start only at confirmation, not at report — and rules like "PII in logs" force-route to BREACH review rather than a low-severity ops bucket. Triage owners work a severity-and-SLA queue, with false-positive closure always requiring a reason.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>GOVERNANCE</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Privacy Office</div>
+    <div class="nav-item">Compliance calendar</div>
+    <div class="nav-item">Consent registry</div>
+    <div class="nav-item">Grievances <span class="nav-badge">4</span></div>
+    <div class="nav-item">Rights requests <span class="nav-badge">7</span></div>
+    <div class="sec-label">Data lifecycle</div>
+    <div class="nav-item">Retention schedules</div>
+    <div class="nav-item">Legal holds <span class="nav-badge">4</span></div>
+    <div class="sec-label">Incidents</div>
+    <div class="nav-item active">Incident intake <span class="nav-badge red">2</span></div>
+    <div class="nav-item">Breach runbook</div>
+    <div class="sec-label">Records</div>
+    <div class="nav-item">Access log</div>
+    <div class="nav-item">Disclosure register</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Governance › Incidents › Report an incident</div>
+    <div class="page-title">Report an incident</div>
+    <div class="page-sub">Anyone at Meridian can report — no blame, no wrong reports. Security desk and Privacy Office (Dr. A. Rao) are notified on submit.</div>
+    <div class="row">
+      <div class="grow card" style="max-width:640px">
+        <div class="field"><label>Category <span class="req">*</span></label>
+          <div class="check"><span class="box radio">&nbsp;</span><span>Availability / outage (PACS, LIS, network)</span></div>
+          <div class="check"><span class="box radio">&nbsp;</span><span>Unauthorised access attempt / suspicious login</span></div>
+          <div class="check"><span class="box radio on">●</span><span><b>Suspected personal-data breach</b> (misdirected report, lost media, wrong-patient disclosure, exposed data)</span></div>
+          <div class="check"><span class="box radio">&nbsp;</span><span>Malware / phishing</span></div>
+          <div class="check"><span class="box radio">&nbsp;</span><span>Physical security (device theft, tailgating)</span></div>
+          <div class="check"><span class="box radio">&nbsp;</span><span>Vendor / processor incident</span></div>
+          <div class="check"><span class="box radio">&nbsp;</span><span>Other / not sure — triage will classify</span></div>
+        </div>
+        <div class="row">
+          <div class="grow field"><label>When did you notice it? <span class="req">*</span></label><div class="input mono">25-Jul-2026 09:35 IST</div></div>
+          <div class="grow field"><label>Branch / system</label><div class="select">Mumbai-Andheri · Report distribution ▾</div></div>
+        </div>
+        <div class="field"><label>What happened? <span class="req">*</span></label>
+          <div class="textarea">A CT report PDF appears to have been emailed to the wrong referring doctor. Referrer called our front desk at 09:20 saying she received a report for a patient who is not hers.</div>
+          <div class="hint" style="color:#92400E"><b>⚠ Do not paste patient identifiers here.</b> No names, MRNs, mobile numbers or Aadhaar digits — use record references (accession no., invoice no.) instead. Triage will link records securely. The system scans this field and masks obvious identifiers before storing.</div>
+        </div>
+        <div class="field"><label>Record references (safe to include)</label><div class="input mono">Accession ACC-2026-77120 · dispatch job DSP-88431</div></div>
+        <div class="check"><span class="box on">✓</span><span>I understand this report may start a formal breach assessment and I may be contacted by the Privacy Office.</span></div>
+        <div class="modal-actions" style="justify-content:flex-start"><span class="btn primary">Submit incident report</span><span class="btn ghost">Report anonymously instead</span></div>
+      </div>
+      <div style="width:300px">
+        <div class="card"><div class="card-title">What happens next</div>
+          <div class="ladder">
+            <div class="tier cur"><b>Auto-classification</b><div class="small muted">Instant — rules + category</div></div>
+            <div class="tier"><b>Triage by security desk</b><div class="small muted">SEV assignment · SLA starts</div></div>
+            <div class="tier"><b>Breach assessment if flagged</b><div class="small muted">Privacy Officer decides "confirmed?"</div></div>
+            <div class="tier"><b>You get a reference &amp; updates</b><div class="small muted">INC-2026-xxxx</div></div>
+          </div>
+        </div>
+        <div class="banner info" style="margin-bottom:0"><b>Clocks note</b> CERT-In 6h / DPB clocks start at <b>confirmation</b> of a breach by the Privacy Officer — reporting early never starts a clock against you, and late reporting delays protection for patients. When in doubt, report.</div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — AUTO-CLASSIFICATION CARD ON SUBMIT (INC-2026-0231)</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:620px">
+    <h3>Submitted — INC-2026-0231</h3>
+    <div class="banner reg" style="margin-bottom:12px"><b>Auto-classification: PERSONAL DATA LIKELY → breach assessment path</b> Category "suspected personal-data breach" + keywords ("report", "wrong referring doctor") + linked artefact type (report dispatch) matched rule <span class="mono">CLS-BRH-03</span>. Routed to Privacy Officer breach assessment, not the general ops queue.</div>
+    <dl class="kv">
+      <dt>Reference</dt><dd class="mono">INC-2026-0231</dd>
+      <dt>Provisional class</dt><dd><span class="chip red">BREACH-ASSESS</span> <span class="chip amber">SEV2 provisional</span></dd>
+      <dt>Assessment owner</dt><dd>Dr. A. Rao (Privacy Officer) · notified 09:41 IST</dd>
+      <dt>Assessment SLA</dt><dd><span class="chip amber">Confirm / rule out within 24h</span> · escalates to Priya Sharma (DPO)</dd>
+      <dt>Clocks</dt><dd><b>Not running.</b> CERT-In 6h and DPB intimation clocks start only if and when the Privacy Officer confirms a breach (then managed in GV-09 runbook). Confirmation timestamp becomes T0.</dd>
+      <dt>Evidence hold</dt><dd>Dispatch job DSP-88431 logs snapshotted automatically; suggest legal hold if confirmed</dd>
+      <dt>Identifier scan</dt><dd>1 phrase masked in your narrative before storage ("patient na••• ")</dd>
+    </dl>
+    <div class="banner warn" style="margin:12px 0 0"><b>Routing guard example</b> If a report mentions personal data in system logs (e.g. "MRNs visible in application logs"), rule <span class="mono">CLS-BRH-07</span> force-routes it to <b>BREACH-ASSESS</b> — it can never be filed as a SEV3 logging bug. Downgrading out of the breach path requires Privacy Officer sign-off with reason.</div>
+    <div class="modal-actions"><span class="btn">Copy reference</span><span class="btn primary">Done</span></div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — TRIAGE QUEUE · SECURITY DESK + PRIVACY OFFICE VIEW</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="crumb">Governance › Incidents › Triage queue</div>
+    <div class="page-title">Incident triage <span class="actions-right"><span class="btn small">Weekly incident report</span></span></div>
+    <div class="page-sub">Open incidents across Meridian · SEV1 page on-call · breach-assess items co-owned by Privacy Office</div>
+    <div class="kpi-row">
+      <div class="kpi red"><div class="n">1</div><div class="l">Breach-assess pending</div><div class="s">Confirm/rule-out SLA 24h</div></div>
+      <div class="kpi amber"><div class="n">2</div><div class="l">SEV2 open</div><div class="s">1 nearing SLA</div></div>
+      <div class="kpi"><div class="n">4</div><div class="l">SEV3 open</div><div class="s">Ops queue</div></div>
+      <div class="kpi"><div class="n">92%</div><div class="l">Triage within 4h (30d)</div><div class="s">Target ≥ 90%</div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Queue <span class="right">sorted: breach-assess → severity → SLA</span></div>
+      <table>
+        <tr><th>Ref</th><th>Summary (identifier-masked)</th><th>Class</th><th>Sev</th><th>Reported</th><th>Owner</th><th>SLA</th><th></th></tr>
+        <tr class="hl"><td class="mono">INC-2026-0231</td><td>Report PDF possibly emailed to wrong referrer · ACC-2026-77120</td><td><span class="chip red">BREACH-ASSESS</span></td><td><span class="chip amber">SEV2*</span></td><td>25 Jul 09:41</td><td>Dr. A. Rao</td><td><span class="chip amber">Confirm within 24h · 18h left</span></td><td><span class="btn small primary">Assess</span></td></tr>
+        <tr><td class="mono">INC-2026-0229</td><td>MRN values observed in app debug logs (staging)</td><td><span class="chip red">BREACH-ASSESS</span></td><td><span class="chip amber">SEV2*</span></td><td>24 Jul 17:22</td><td>Dr. A. Rao</td><td><span class="chip red">OVERDUE 2h · escalated to Priya Sharma</span></td><td><span class="btn small primary">Assess</span></td></tr>
+        <tr><td class="mono">INC-2026-0230</td><td>Phishing email to 14 staff mailboxes, 0 clicks confirmed</td><td><span class="chip blue">SECURITY</span></td><td><span class="chip amber">SEV2</span></td><td>25 Jul 08:10</td><td>IT security (R. Menon)</td><td><span class="chip teal">Contain within 8h · 5h left</span></td><td><span class="btn small">Open</span></td></tr>
+        <tr><td class="mono">INC-2026-0228</td><td>PACS viewer slow at Pune-Kothrud, radiology reading delayed</td><td><span class="chip grey">AVAILABILITY</span></td><td><span class="chip grey">SEV3</span></td><td>24 Jul 15:04</td><td>IT ops</td><td><span class="chip teal">Resolve 48h · 32h left</span></td><td><span class="btn small">Open</span></td></tr>
+        <tr><td class="mono">INC-2026-0227</td><td>Badge tailgating reported at server room door, Andheri</td><td><span class="chip blue">PHYSICAL</span></td><td><span class="chip grey">SEV3</span></td><td>24 Jul 11:48</td><td>Facilities</td><td><span class="chip teal">Review 72h</span></td><td><span class="btn small">Open</span></td></tr>
+        <tr class="dim"><td class="mono">INC-2026-0226</td><td>"Unusual export volume" alert — verified as approved counsel export EXP-2026-118</td><td><span class="chip grey">FALSE-POSITIVE</span></td><td>—</td><td>23 Jul 16:30</td><td>Closed by R. Menon</td><td><span class="chip green">Closed with reason</span></td><td><span class="btn small">History</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">* SEV on breach-assess rows is provisional until the Privacy Officer's determination. Confirmed breaches move to the GV-09 runbook with clocks at T0 = confirmation time.</div>
+    </div>
+    <div class="row">
+      <div class="grow card" style="margin-bottom:0">
+        <div class="card-title" style="margin-bottom:6px">Close as false positive — INC-2026-0226</div>
+        <dl class="kv" style="grid-template-columns:130px 1fr">
+          <dt>Reason <span class="req">*</span></dt><dd>Alert matched approved, logged counsel export (EXP-2026-118, hold LH-2026-024); volume within authorised scope.</dd>
+          <dt>Evidence</dt><dd>Disclosure-register entry + approval chain attached</dd>
+          <dt>Closed by</dt><dd>R. Menon · reviewed by Dr. A. Rao (breach-adjacent alerts need PO countersign)</dd>
+        </dl>
+      </div>
+      <div class="banner info" style="width:300px;margin-bottom:0"><b>No silent closures</b> False-positive closure always requires a written reason; closures of breach-assess items additionally require Privacy Officer countersign. Reopen is one click and preserves the original timeline.</div>
+    </div>
+  </div></div>
+</div>
+
+<p class="audit">Incident submissions (with identifier-masking results), classification rule hits, severity changes, ownership transfers, escalations and false-positive closure reasons are retained per CERT-In log requirements and — recorded in the access log.</p>
+</section>

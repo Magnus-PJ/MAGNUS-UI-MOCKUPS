@@ -1,0 +1,147 @@
+<section class="screen" id="gv-07">
+<div class="screen-head"><h1><span class="sid">GV-07</span> Legal holds register</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G14 Governance &amp; Compliance — workspace 'Governance'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Authoritative register of litigation/regulatory holds. Placing a hold requires a scoped selection, legal reference and step-up identity confirmation; releasing one is irreversible in effect and therefore four-eyes gated (Privacy Officer + DPO). While a hold is active it suspends retention deletion, blocks DSR erasure with a statutory citation to the requester, and forces counsel exports through a logged channel. Review cadence keeps stale holds from lingering.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>GOVERNANCE</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Privacy Office</div>
+    <div class="nav-item">Compliance calendar</div>
+    <div class="nav-item">Consent registry</div>
+    <div class="nav-item">Grievances <span class="nav-badge">4</span></div>
+    <div class="nav-item">Rights requests <span class="nav-badge">7</span></div>
+    <div class="sec-label">Data lifecycle</div>
+    <div class="nav-item">Retention schedules</div>
+    <div class="nav-item active">Legal holds <span class="nav-badge">4</span></div>
+    <div class="sec-label">Incidents</div>
+    <div class="nav-item">Incident intake <span class="nav-badge red">2</span></div>
+    <div class="nav-item">Breach runbook</div>
+    <div class="sec-label">Records</div>
+    <div class="nav-item">Access log</div>
+    <div class="nav-item">Disclosure register</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Governance › Data lifecycle › Legal holds</div>
+    <div class="page-title">Legal holds register <span class="actions-right"><span class="btn small">Export register (counsel copy)</span> <span class="btn primary small">＋ Place hold…</span></span></div>
+    <div class="page-sub">4 active · 1 review overdue · custodian: Dr. A. Rao (Privacy Officer) · release co-approver: Priya Sharma (DPO)</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">4</div><div class="l">Active holds</div><div class="s">21,164 records under hold</div></div>
+      <div class="kpi amber"><div class="n">1</div><div class="l">Review overdue</div><div class="s">LH-2026-024 · owner Dr. A. Rao</div></div>
+      <div class="kpi"><div class="n">2</div><div class="l">DSR deletions refused</div><div class="s">Citation issued, logged in refusal register</div></div>
+      <div class="kpi"><div class="n">3</div><div class="l">Counsel exports (90d)</div><div class="s">All via logged secure channel</div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Register <span class="right">Sorted by review due date</span></div>
+      <table>
+        <tr><th>Hold</th><th>Scope</th><th>Legal reference</th><th>Placed by / on</th><th>Review cadence</th><th>Next review</th><th>Status</th><th></th></tr>
+        <tr class="hl"><td class="mono">LH-2026-024</td><td>USG modality QA records, Jan–Mar 2025 · Pune-Kothrud (1,206 rec)</td><td>PC-PNDT Appropriate Authority notice <span class="mono">AA/PNDT/2026/117</span></td><td>Dr. A. Rao · 02 Apr 2026</td><td>60 days</td><td class="mono">18 Jul 2026</td><td><span class="chip amber">ACTIVE — review OVERDUE 7d</span></td><td><span class="btn small">Review</span></td></tr>
+        <tr><td class="mono">LH-2026-027</td><td>Billing FY 2018-19 · Pune-Kothrud (18,440 rec)</td><td>GST SCN <span class="mono">DGGI/MUM/2026/0331</span></td><td>Dr. A. Rao · 11 May 2026</td><td>90 days</td><td class="mono">09 Aug 2026</td><td><span class="chip green">ACTIVE</span></td><td><span class="btn small">Open</span></td></tr>
+        <tr><td class="mono">LH-2026-031</td><td>All records — Sofia Rossi, MRN-004822 (312 rec)</td><td>Civil suit <span class="mono">CS 448/2026, Bombay HC</span> · counsel: Khaitan &amp; Rao LLP</td><td>Dr. A. Rao · 03 Jun 2026</td><td>90 days</td><td class="mono">01 Sep 2026</td><td><span class="chip green">ACTIVE</span></td><td><span class="btn small">Open</span></td></tr>
+        <tr><td class="mono">LH-2026-033</td><td>Incident INC-2026-0207 evidence set: logs + exports (1,206 rec)</td><td>CERT-In direction 70B — incident preservation</td><td>Priya Sharma · 21 Jun 2026</td><td>30 days</td><td class="mono">20 Aug 2026</td><td><span class="chip green">ACTIVE</span></td><td><span class="btn small">Open</span></td></tr>
+        <tr class="dim"><td class="mono">LH-2025-019</td><td>Consumer complaint file — CC 220/2025 (74 rec)</td><td>District Commission order</td><td>Dr. A. Rao · 12 Nov 2025</td><td>—</td><td>—</td><td><span class="chip grey">RELEASED 14 May 2026 (four-eyes)</span></td><td><span class="btn small">History</span></td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="card-title">Effects while a hold is active <span class="right">enforced by platform, not by convention</span></div>
+      <div class="row">
+        <div class="grow banner warn" style="margin-bottom:0"><b>Retention suspended</b> Held records are excluded from expiry batches (GV-06) at compile time; no destruction job can include them.</div>
+        <div class="grow banner danger" style="margin-bottom:0"><b>DSR erasure refused</b> Erasure requests over held records are refused with citation — "retention required for compliance with law / legal proceedings (DPDP §8(7), §12(3))" — and the refusal letter is stored on the request.</div>
+        <div class="grow banner info" style="margin-bottom:0"><b>Counsel exports logged</b> Export-for-counsel runs only through the disclosure register: named recipient, matter ref, watermark, hash manifest, access-logged.</div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PLACE HOLD · SCOPE PICKER + IDENTITY CONFIRM</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:640px">
+    <h3>Place legal hold</h3>
+    <div class="field"><label>Legal reference <span class="req">*</span></label><div class="input">Bombay HC · CS 512/2026 · summons dated 22 Jul 2026</div><div class="hint">Attach the notice/summons PDF. Holds without a document reference expire in 72h unless countersigned by the DPO.</div></div>
+    <div class="field"><label>Scope <span class="req">*</span></label>
+      <div class="check"><span class="box radio on">●</span><span><b>Patient-centric</b> — all records of a data principal</span></div>
+      <div class="row" style="margin:6px 0 8px 22px"><div class="grow"><div class="input">Mohammed Al-Rashid · <span class="mono">MRN-004790</span></div></div><div style="width:170px"><div class="input" style="background:#F8FAFC">Preview: 288 records</div></div></div>
+      <div class="check"><span class="box radio">&nbsp;</span><span><b>Class-based</b> — record class × branch × date range</span></div>
+      <div class="check"><span class="box radio">&nbsp;</span><span><b>Incident evidence set</b> — bind to an INC-2026-xxxx evidence bundle</span></div>
+    </div>
+    <div class="row">
+      <div class="grow field"><label>Review cadence <span class="req">*</span></label><div class="select">Every 90 days ▾</div></div>
+      <div class="grow field"><label>Custodian</label><div class="select">Dr. A. Rao (Privacy Officer) ▾</div></div>
+      <div class="grow field"><label>External counsel</label><div class="input">Khaitan &amp; Rao LLP</div></div>
+    </div>
+    <div class="banner info" style="margin-bottom:10px"><b>Takes effect immediately on confirm.</b> Deletion suspension and DSR refusal logic apply from the moment of placement; affected retention batches recompile within 10 minutes. Placement is single-approver by design (speed of preservation) — <b>release</b> is the four-eyes side.</div>
+    <div class="field" style="margin-bottom:0"><label>Step-up identity confirmation — Dr. A. Rao <span class="req">*</span></label>
+      <div class="row"><div class="grow"><div class="input">Password ••••••••••</div></div><div class="grow"><div class="input mono">OTP — — — — — —</div></div></div>
+    </div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Place hold LH-2026-036</span></div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — RELEASE HOLD · FOUR-EYES REQUIRED</div>
+<div class="modal-wrap">
+  <div class="modal danger" style="max-width:640px">
+    <h3>Release legal hold LH-2026-027 — Billing FY 2018-19</h3>
+    <div class="banner danger" style="margin-bottom:12px"><b>Irreversible in effect.</b> On release, 18,440 records re-enter retention processing; 17,061 of them are already past expiry and will queue for review-then-delete within 24h. Release requires two distinct approvers and matter-closure evidence.</div>
+    <dl class="kv">
+      <dt>Matter outcome</dt><dd>GST SCN <span class="mono">DGGI/MUM/2026/0331</span> dropped · closure letter dated 18 Jul 2026 (attached, <span class="mono">DOC-88412</span>)</dd>
+      <dt>Counsel sign-off</dt><dd>Khaitan &amp; Rao LLP · email of 21 Jul 2026 attached</dd>
+      <dt>Post-release fate</dt><dd>Past-expiry records → review batch RB-2026-121 (GV-06); no auto-deletion</dd>
+    </dl>
+    <div class="row" style="margin-top:12px">
+      <div class="grow card" style="margin-bottom:0">
+        <div class="card-title" style="margin-bottom:6px">Approver 1 — initiator</div>
+        <div class="small">Dr. A. Rao · Privacy Officer</div>
+        <div class="sig-box signed" style="margin-top:8px">A. Rao — 25 Jul 2026, 11:04 IST</div>
+        <div class="small muted" style="margin-top:6px">Step-up verified (password + OTP)</div>
+      </div>
+      <div class="grow card" style="margin-bottom:0">
+        <div class="card-title" style="margin-bottom:6px">Approver 2 — must differ</div>
+        <div class="small">Priya Sharma · DPO</div>
+        <div class="sig-box" style="margin-top:8px">Awaiting second approval…</div>
+        <div class="small muted" style="margin-top:6px">Request sent 11:05 IST · expires in 72h if unactioned</div>
+      </div>
+    </div>
+    <div class="modal-actions"><span class="btn">Cancel request</span><span class="btn disabled">Release (locked until both approvals)</span></div>
+  </div>
+</div>
+<div class="banner info" style="max-width:860px"><b>Four-eyes rule</b> The same person cannot occupy both slots even with dual roles; the system checks distinct verified identities. If the DPO is unavailable ≥ 72h, the deputation chain (Dr. V. Shetty as alternate compliance approver) activates and is noted on the release record.</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE D — REVIEW OVERDUE · LH-2026-024</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="crumb">Governance › Legal holds › LH-2026-024</div>
+    <div class="page-title">LH-2026-024 — USG modality QA records, Jan–Mar 2025</div>
+    <div class="page-sub">PC-PNDT Appropriate Authority notice AA/PNDT/2026/117 · Pune-Kothrud · 1,206 records held since 02 Apr 2026</div>
+    <div class="banner warn"><b>Periodic review overdue by 7 days</b> 60-day review was due 18 Jul 2026. Owner: <b>Dr. A. Rao</b> · escalated to: <b>Priya Sharma (DPO)</b> on 21 Jul per escalation policy GOV-ESC-02. A hold cannot lapse from a missed review — it stays in force — but overdue reviews are reported on the monthly governance scorecard and to the audit committee.</div>
+    <div class="split">
+      <div class="card">
+        <div class="card-title">Review checklist — cycle 2 of 2026</div>
+        <div class="check"><span class="box on">✓</span><span>Matter still live? AA hearing adjourned to 09 Sep 2026 (notice attached)</span></div>
+        <div class="check"><span class="box on">✓</span><span>Scope still correct? No records added/removed since last cycle</span></div>
+        <div class="check"><span class="box">&nbsp;</span><span>Counsel confirmation of continued necessity (requested 22 Jul, pending)</span></div>
+        <div class="check"><span class="box">&nbsp;</span><span>Custodian attestation with step-up confirmation</span></div>
+        <div class="modal-actions" style="justify-content:flex-start"><span class="btn primary">Complete review — extend to next cycle</span><span class="btn warn-outline">Initiate release (four-eyes)</span></div>
+      </div>
+      <div>
+        <div class="card"><div class="card-title">Hold timeline</div>
+          <div class="timeline">
+            <div class="ev"><span class="t">02 Apr 10:12</span><span>Placed by Dr. A. Rao · step-up verified</span></div>
+            <div class="ev"><span class="t">02 Apr 10:22</span><span>1,206 records flagged; 2 retention batches recompiled</span></div>
+            <div class="ev"><span class="t">19 May 15:40</span><span>Review cycle 1 completed — extended</span></div>
+            <div class="ev"><span class="t">04 Jun 09:31</span><span>DSR erasure DPDP-CR-20231 refused with citation</span></div>
+            <div class="ev"><span class="t">30 Jun 14:05</span><span>Export-for-counsel EXP-2026-118 → Khaitan &amp; Rao LLP (logged)</span></div>
+            <div class="ev"><span class="t">18 Jul 00:00</span><span class="bold" style="color:#92400E">Review due — missed</span></div>
+            <div class="ev"><span class="t">21 Jul 09:00</span><span>Auto-escalated to Priya Sharma (DPO)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<p class="audit">Hold placement, scope previews, refusal citations, counsel exports, review attestations and both approver identities on release are written to the immutable holds ledger and — recorded in the access log.</p>
+</section>

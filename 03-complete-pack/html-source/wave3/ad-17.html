@@ -1,0 +1,86 @@
+<section class="screen" id="ad-17">
+<div class="screen-head"><h1><span class="sid">AD-17</span> Branch feature toggles</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G12 Admin — workspace 'Admin'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Per-branch on/off control of operational features — kiosk check-in, waitlist, teleradiology, WhatsApp channel, online payments. Every change shows a blast-radius preview first (affected screens, users, pending items) and rolls out staged: one pilot branch, observe, then all. Each flip records who changed it and why, and can be reverted from the change log.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Administration</div>
+      <div class="nav-item">Admin dashboard</div>
+      <div class="nav-item">Users &amp; roles</div>
+      <div class="nav-item">Branch registry</div>
+      <div class="nav-item">Number series</div>
+      <div class="nav-item active">Feature toggles</div>
+      <div class="nav-item">Scheduled jobs <span class="nav-badge red">1</span></div>
+      <div class="nav-item">Announcements</div>
+      <div class="nav-item">Audit log</div>
+      <div class="sec-label">Compliance</div>
+      <div class="nav-item">Retention policies</div>
+      <div class="nav-item">Licence hub</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Admin › Configuration › Feature toggles</div>
+      <div class="page-title">Branch feature toggles <span class="actions-right"><span class="btn small">Change log</span> <span class="btn small">Compare branches</span></span></div>
+      <div class="page-sub">5 flags · 4 branches (Andheri, Powai, Thane, Kalyan) · 1 staged rollout in progress · last change 24 Jul 2026 18:10 IST</div>
+      <div class="banner info"><b>Staged rollout in progress</b>“Online payments” is live at Andheri (pilot, day 3 of 7). Health checks green — payment success 98.6%, 0 reconciliation breaks. Expansion to remaining branches unlocks 28 Jul after pilot review.</div>
+      <div class="card">
+        <div class="card-title">Feature matrix <span class="right">ON = enabled at branch · changes require reason</span></div>
+        <table>
+          <tr><th>Feature</th><th>Andheri (AND)</th><th>Powai (PWA)</th><th>Thane (THN)</th><th>Kalyan (KLY)</th><th>Rollout state</th><th>Last change</th><th></th></tr>
+          <tr><td><b>Kiosk check-in</b><div class="muted small">Self-service arrival, token print</div></td><td><span class="chip green">ON</span></td><td><span class="chip green">ON</span></td><td><span class="chip green">ON</span></td><td><span class="chip grey">OFF</span></td><td><span class="chip teal">Steady</span></td><td class="small">12 Jun · K. Verma</td><td><span class="btn ghost small">Change…</span></td></tr>
+          <tr><td><b>Waitlist</b><div class="muted small">Standby slots, auto-offer on cancel</div></td><td><span class="chip green">ON</span></td><td><span class="chip green">ON</span></td><td><span class="chip grey">OFF</span></td><td><span class="chip grey">OFF</span></td><td><span class="chip teal">Steady</span></td><td class="small">03 Jul · K. Verma</td><td><span class="btn ghost small">Change…</span></td></tr>
+          <tr><td><b>Teleradiology</b><div class="muted small">External reads, Dr. V. Shetty panel</div></td><td><span class="chip green">ON</span></td><td><span class="chip green">ON</span></td><td><span class="chip green">ON</span></td><td><span class="chip green">ON</span></td><td><span class="chip teal">Steady</span></td><td class="small">28 May · K. Verma</td><td><span class="btn ghost small">Change…</span></td></tr>
+          <tr><td><b>WhatsApp channel</b><div class="muted small">Report-ready &amp; reminder msgs · DLT templates only · consent-gated</div></td><td><span class="chip green">ON</span></td><td><span class="chip amber">PAUSED</span></td><td><span class="chip grey">OFF</span></td><td><span class="chip grey">OFF</span></td><td><span class="chip amber">Paused at PWA — template re-approval</span></td><td class="small">24 Jul · K. Verma</td><td><span class="btn ghost small">Change…</span></td></tr>
+          <tr class="hl"><td><b>Online payments</b><div class="muted small">Payment links on estimates &amp; invoices</div></td><td><span class="chip green">ON · pilot</span></td><td><span class="chip grey">OFF</span></td><td><span class="chip grey">OFF</span></td><td><span class="chip grey">OFF</span></td><td><span class="chip blue">Staged — day 3/7</span></td><td class="small">22 Jul · K. Verma</td><td><span class="btn ghost small">Change…</span></td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">Change log <span class="right">who / why · revertible 30 days</span></div>
+        <table>
+          <tr><th>When (IST)</th><th>Feature</th><th>Branch</th><th>Change</th><th>By</th><th>Reason (required)</th><th></th></tr>
+          <tr><td class="mono small">24 Jul 18:10</td><td>WhatsApp channel</td><td>Powai</td><td><span class="chip amber">ON → PAUSED</span></td><td>K. Verma</td><td>DLT template MER-RPT-02 expired; re-approval filed with operator, ETA 27 Jul</td><td><span class="btn ghost small">Revert</span></td></tr>
+          <tr><td class="mono small">22 Jul 09:02</td><td>Online payments</td><td>Andheri</td><td><span class="chip green">OFF → ON (pilot)</span></td><td>K. Verma</td><td>MVP-1 rollout plan §4.2 — pilot before chain-wide enable</td><td><span class="btn ghost small">Revert</span></td></tr>
+          <tr><td class="mono small">03 Jul 11:44</td><td>Waitlist</td><td>Powai</td><td><span class="chip green">OFF → ON</span></td><td>K. Verma</td><td>Extend from Andheri pilot; CT slot utilisation +9% in pilot</td><td><span class="btn ghost small">Revert</span></td></tr>
+          <tr><td class="mono small">12 Jun 08:30</td><td>Kiosk check-in</td><td>Thane</td><td><span class="chip green">OFF → ON</span></td><td>K. Verma</td><td>Kiosk hardware installed &amp; UAT passed 10 Jun</td><td><span class="btn ghost small">Revert</span></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE B — BLAST-RADIUS PREVIEW BEFORE DISABLING KIOSK CHECK-IN AT ANDHERI</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:640px;border-top-color:#F59E0B">
+    <h3>Impact preview — turn OFF “Kiosk check-in” at Andheri</h3>
+    <div class="banner warn"><b>Blast radius — review before confirming</b>This change takes effect immediately for all signed-in users at Andheri. Nothing is deleted; kiosk devices show a “counter check-in only” notice.</div>
+    <div class="kv">
+      <dt>Screens affected</dt><dd>FO-02 Arrival board (kiosk lane hidden) · FO-05 Token queue (kiosk tokens stop) · KI-01/KI-02 kiosk UI (disabled notice)</dd>
+      <dt>Users affected</dt><dd>11 active now at Andheri — front office 4 (incl. D. Nair), technologists 5 (incl. T. Okafor), cashier 2 (incl. P. D'Souza)</dd>
+      <dt>Pending items</dt><dd>3 kiosk check-ins in progress — will complete; new starts blocked. 14 tokens in queue unaffected.</dd>
+      <dt>Patient impact</dt><dd>Walk-ins revert to counter desk; expected +4 min median wait at peak (based on May baseline)</dd>
+      <dt>Downstream</dt><dd>No billing, consent or report flows touched. No data loss. Reversible instantly.</dd>
+    </div>
+    <div class="field" style="margin-top:10px"><label>Reason for change <span class="req">*</span></label><textarea class="textarea">Kiosk touchscreen K-AND-02 unresponsive; vendor visit scheduled 26 Jul AM. Disabling to avoid failed check-ins.</textarea></div>
+    <div class="check"><span class="box on">✓</span> Notify affected Andheri staff via workspace banner (auto-drafted, see AD-19)</div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn warn-outline">Schedule for 06:00 tomorrow</span><span class="btn primary">Confirm change now</span></div>
+  </div>
+</div>
+<p class="audit">Impact preview generated 25 Jul 2026 11:03 IST for K. Verma · preview, reason text and final decision are recorded in the access log.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — STAGED ROLLOUT STATUS: ONLINE PAYMENTS, PILOT → ALL BRANCHES</div>
+<div class="card">
+  <div class="card-title">Rollout — Online payments <span class="right">Plan MVP-1 §4.2 · owner K. Verma</span></div>
+  <div class="ladder">
+    <div class="tier done"><b>Stage 1 — Pilot: Andheri</b> <span class="chip green">LIVE since 22 Jul 09:02</span><div class="small muted">Entry checks passed: gateway KYC ✓, GST invoice mapping ✓, refund path tested ✓</div></div>
+    <div class="tier cur"><b>Stage 2 — Observation window (7 days)</b> <span class="chip blue">Day 3 of 7</span>
+      <div class="small muted">Gates: payment success ≥97% (now 98.6%) · reconciliation breaks = 0 (now 0) · refund TAT &lt;48h (now 11h) · complaints = 0 (now 0)</div>
+      <div class="progress" style="max-width:300px"><i style="width:43%"></i></div>
+    </div>
+    <div class="tier"><b>Stage 3 — Expand: Powai + Thane</b> <span class="chip grey">Unlocks 28 Jul after pilot review</span><div class="small muted">Requires four-eyes sign-off: K. Verma + Finance Controller</div></div>
+    <div class="tier"><b>Stage 4 — All branches (adds Kalyan)</b> <span class="chip grey">Target 04 Aug</span><div class="small muted">Auto-halts and reverts to Stage 1 scope if any gate breaches during expansion</div></div>
+  </div>
+  <div class="banner success"><b>Health: green</b>1,214 online payments processed at pilot · ₹18,42,650 collected · 0 reconciliation breaks · SLA <span class="chip teal">ON TRACK</span> owner: K. Verma · escalation (if gate breach): Finance Controller → COO within 4h.</div>
+</div>
+<p class="audit">Rollout stage transitions require reason + four-eyes at expansion gates; every gate evaluation and sign-off is recorded in the access log.</p>
+</section>

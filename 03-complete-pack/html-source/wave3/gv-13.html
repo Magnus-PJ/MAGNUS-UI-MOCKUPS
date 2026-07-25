@@ -1,0 +1,126 @@
+<section class="screen" id="gv-13">
+<div class="screen-head"><h1><span class="sid">GV-13</span> Processor &amp; vendor register</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G14 Governance &amp; Compliance — workspace 'Governance'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Authoritative register of every data processor Meridian uses — SMS DLT provider, WhatsApp BSP, payment gateway, cloud host, teleradiology partner — with DPA status and dates, data categories shared, processing region, sub-processors, renewal chips and a 24×7 incident contact. Renewals are SLA-tracked with owner and escalation; an expired DPA blocks new data flows to that processor.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>GOVERNANCE</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Privacy</div>
+    <div class="nav-item">Privacy notices</div>
+    <div class="nav-item">Consent registry</div>
+    <div class="nav-item">Rights requests <span class="nav-badge">4</span></div>
+    <div class="sec-label">Risk &amp; vendors</div>
+    <div class="nav-item">DPIA-lite register</div>
+    <div class="nav-item active">Processor register <span class="nav-badge">1</span></div>
+    <div class="nav-item">Data residency</div>
+    <div class="sec-label">Oversight</div>
+    <div class="nav-item">Compliance calendar <span class="nav-badge red">2</span></div>
+    <div class="nav-item">Incidents</div>
+    <div class="nav-item">Access log</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Governance › Vendors › Processor register</div>
+    <div class="page-title">Processor &amp; vendor register <span class="actions-right"><span class="btn small">Export register (PDF)</span> <span class="btn primary small">+ Onboard processor</span></span></div>
+    <div class="page-sub">DPDP §8 processor accountability · 6 active processors · owner: K. Verma · reviewer: Dr. A. Rao (PO)</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">6</div><div class="l">Active processors</div><div class="s">All with executed DPA</div></div>
+      <div class="kpi amber"><div class="n">1</div><div class="l">DPA expiring ≤ 60 days</div><div class="s">Trellis Telecom (SMS DLT)</div></div>
+      <div class="kpi"><div class="n">6/6</div><div class="l">India-region processing</div><div class="s">Matches residency policy (GV-14)</div></div>
+      <div class="kpi"><div class="n">6/6</div><div class="l">Incident contacts verified</div><div class="s">Last drill 30 Jun 2026</div></div>
+    </div>
+    <div class="card"><div class="card-title">Register <span class="right">Sorted by renewal date</span></div>
+      <table>
+        <tr><th>Processor</th><th>Service</th><th>Data categories shared</th><th>Region</th><th>DPA status</th><th>Renewal</th><th>Sub-processors</th><th>Incident contact</th></tr>
+        <tr class="hl"><td><b>Trellis Telecom Ltd</b></td><td>SMS DLT provider</td><td>Phone no., appointment metadata, DLT template IDs</td><td>India (Mumbai)</td><td><span class="chip green">EXECUTED · 12 Sep 2024</span></td><td><span class="chip amber">EXPIRES 11 SEP 2026</span></td><td>1 (BSNL routes)</td><td class="mono small">noc@trellistel.in · +91 22 4890 1100</td></tr>
+        <tr><td><b>Chatline BSP Pvt Ltd</b></td><td>WhatsApp Business (BSP)</td><td>Phone no., report-ready notifications (no report content)</td><td>India (Chennai)</td><td><span class="chip green">EXECUTED · 03 Feb 2026</span></td><td><span class="chip teal">02 FEB 2028</span></td><td>1 (Meta Platforms — messaging fabric)</td><td class="mono small">security@chatlinebsp.in</td></tr>
+        <tr><td><b>PayOrbit India Ltd</b></td><td>Payment gateway</td><td>Name, amount, invoice ref (tokenised card, no PAN stored)</td><td>India (Mumbai/Hyderabad)</td><td><span class="chip green">EXECUTED · 15 Nov 2025</span></td><td><span class="chip teal">14 NOV 2027</span></td><td>2 (acquiring banks)</td><td class="mono small">csirt@payorbit.in · 24×7</td></tr>
+        <tr><td><b>IndraCloud Services</b></td><td>Cloud host (primary)</td><td>All application data (encrypted at rest, keys held by Meridian)</td><td>India (Mumbai + Pune DR)</td><td><span class="chip green">EXECUTED · 01 Apr 2026</span></td><td><span class="chip teal">31 MAR 2029</span></td><td>0</td><td class="mono small">soc@indracloud.in · 24×7</td></tr>
+        <tr><td><b>NetraRad Teleradiology LLP</b></td><td>Teleradiology partner</td><td>Pseudonymised studies + clinical context (re-ID key stays with Meridian)</td><td>India (Bengaluru)</td><td><span class="chip green">EXECUTED · 20 Jun 2026</span></td><td><span class="chip teal">19 JUN 2028</span></td><td>0</td><td class="mono small">oncall@netrarad.in</td></tr>
+        <tr><td><b>Radix Insight AI Pvt Ltd</b></td><td>AI triage (pilot — pending)</td><td class="muted">Proposed: pseudonymised studies</td><td>India (Bengaluru)</td><td><span class="chip grey">DPA IN NEGOTIATION</span></td><td class="muted">—</td><td class="muted">TBD</td><td class="muted">TBD</td></tr>
+      </table>
+      <p class="small muted" style="margin-top:8px">A processor with status other than EXECUTED cannot be selected as a destination in any data-flow configuration. Onboarding requires PO review of the DPA plus the DPIA-lite trigger check (GV-12).</p>
+    </div>
+  </div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PROCESSOR DETAIL · Trellis Telecom Ltd</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Governance › Vendors › Processor register › Trellis Telecom Ltd</div>
+  <div class="page-title">Trellis Telecom Ltd — SMS DLT provider <span class="chip amber">DPA EXPIRES 11 SEP 2026</span></div>
+  <div class="page-sub">Onboarded 12 Sep 2024 · last annual review 15 Sep 2025 (Dr. A. Rao) · vendor risk: MEDIUM</div>
+  <div class="row">
+    <div class="grow">
+      <div class="card"><div class="card-title">Contract &amp; DPA</div>
+        <dl class="kv">
+          <dt>DPA reference</dt><dd class="mono">DPA-TRL-2024-09 · executed 12 Sep 2024 · term 24 months</dd>
+          <dt>Purpose limitation</dt><dd>Transactional/service SMS only, approved DLT templates (14 registered, e.g. <span class="mono">DLT-0932</span>, <span class="mono">DLT-1107</span>)</dd>
+          <dt>Data categories</dt><dd>Phone number, first name, appointment date/time, branch name. <b>No health data, no report content.</b></dd>
+          <dt>Retention at processor</dt><dd>Delivery logs 90 days, then purged; purge certificate quarterly</dd>
+          <dt>Breach notification</dt><dd>To Meridian within 2 hours of detection (supports Meridian's CERT-In 6-hour reporting duty)</dd>
+          <dt>Audit rights</dt><dd>Annual questionnaire + right to audit on 15 days' notice; last exercised 15 Sep 2025</dd>
+          <dt>Sub-processors</dt><dd>BSNL carrier routes (delivery only) — flow-down clauses confirmed</dd>
+          <dt>Termination</dt><dd>Data return/destruction within 30 days, certified</dd>
+        </dl>
+      </div>
+      <div class="card"><div class="card-title">Compliance evidence <span class="right">Latest on file</span></div>
+        <table>
+          <tr><th>Evidence</th><th>Date</th><th>Status</th></tr>
+          <tr><td>ISO 27001 certificate</td><td>valid to 31 Mar 2027</td><td><span class="chip green">ON FILE</span></td></tr>
+          <tr><td>Quarterly purge certificate (Q1 FY27)</td><td>08 Jul 2026</td><td><span class="chip green">ON FILE</span></td></tr>
+          <tr><td>Suppression-list sync test (WD-2026-00877)</td><td>18 Jul 2026</td><td><span class="chip green">PASSED · 21 s</span></td></tr>
+          <tr><td>Incident-contact drill</td><td>30 Jun 2026</td><td><span class="chip green">ANSWERED · 4 min</span></td></tr>
+        </table>
+      </div>
+    </div>
+    <div style="width:310px">
+      <div class="card"><div class="card-title">Incident contact</div>
+        <dl class="kv" style="grid-template-columns:100px 1fr">
+          <dt>24×7 NOC</dt><dd class="mono">+91 22 4890 1100</dd>
+          <dt>Security</dt><dd class="mono">noc@trellistel.in</dd>
+          <dt>Escalation</dt><dd>R. Menon, CISO (verified 30 Jun 2026)</dd>
+        </dl>
+        <p class="small muted" style="margin-top:6px">Linked to incident runbook INC playbooks — auto-inserted into any INC-2026-xxxx record naming this processor.</p>
+      </div>
+      <div class="card"><div class="card-title">Renewal SLA</div>
+        <dl class="kv" style="grid-template-columns:100px 1fr">
+          <dt>Expiry</dt><dd>11 Sep 2026</dd>
+          <dt>Status</dt><dd><span class="chip amber">48 DAYS LEFT</span></dd>
+          <dt>Owner</dt><dd>K. Verma</dd>
+          <dt>Escalated to</dt><dd class="muted">— (escalates to Dr. A. Rao at T−30)</dd>
+        </dl>
+        <div style="margin-top:10px"><span class="btn primary small">Start renewal</span> <span class="btn small">Set reminder</span></div>
+      </div>
+      <div class="card"><div class="card-title">Offboarding</div>
+        <p class="small">Offboarding is an irreversible governance action: requires K. Verma + second approver (Dr. A. Rao), step-up identity confirmation, and a certified data-destruction receipt before closure.</p>
+        <div style="margin-top:8px"><span class="btn danger small">Begin offboarding…</span></div>
+      </div>
+    </div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — DPA EXPIRING (AMBER) · renewal workflow with four-eyes</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Governance › Vendors › Processor register › Renewals</div>
+  <div class="page-title">DPA renewals</div>
+  <div class="page-sub">Expiry within 60 days turns amber; within 15 days red; past expiry the processor is auto-suspended for new data flows</div>
+  <div class="banner warn"><b>DPA expiring: Trellis Telecom Ltd (SMS DLT).</b> Expires 11 Sep 2026 — 48 days. If not renewed by 27 Aug (T−15), status turns red and the compliance calendar raises a blocking task. On expiry, outbound SMS flows are suspended automatically except critical-result notifications, which fail over to voice-call workflow.</div>
+  <div class="card"><div class="card-title">Renewal queue <span class="right">SLA-tracked</span></div>
+    <table>
+      <tr><th>Processor</th><th>DPA expiry</th><th>SLA</th><th>Owner</th><th>Escalated to</th><th>Renewal stage</th><th></th></tr>
+      <tr class="hl"><td>Trellis Telecom Ltd</td><td>11 Sep 2026</td><td><span class="chip amber">48 DAYS</span></td><td>K. Verma</td><td class="muted">—</td><td>Redlines received — reviewing revised purge clause</td><td><span class="btn primary small">Open renewal</span></td></tr>
+      <tr><td>PayOrbit India Ltd</td><td>14 Nov 2027</td><td><span class="chip teal">ON TRACK</span></td><td>K. Verma</td><td class="muted">—</td><td class="muted">Not started (window opens Sep 2027)</td><td><span class="btn ghost small">View</span></td></tr>
+      <tr class="dim"><td><i>(example)</i> Legacy courier vendor</td><td>expired 02 Mar 2026</td><td><span class="chip red">OVERDUE — SUSPENDED</span></td><td>K. Verma</td><td>Dr. A. Rao → Priya Sharma</td><td>Offboarded 20 Mar 2026 · destruction certificate on file</td><td><span class="btn ghost small">History</span></td></tr>
+    </table>
+  </div>
+  <div class="modal-wrap"><div class="modal">
+    <h3>Execute renewed DPA — Trellis Telecom Ltd</h3>
+    <p class="small" style="margin-bottom:10px">Renewal <span class="mono">DPA-TRL-2026-09</span> (term 24 months, effective 12 Sep 2026). Attaching an executed DPA updates the register and re-arms the expiry clock. Four-eyes approval required.</p>
+    <div class="check"><span class="box on">✓</span><span class="small">Executed DPA PDF attached (signed by both parties).</span></div>
+    <div class="check"><span class="box on">✓</span><span class="small">Data categories and purpose limitation unchanged — no DPIA-lite re-trigger.</span></div>
+    <div class="check"><span class="box">✓</span><span class="small">Second approver review complete — <b>pending Dr. A. Rao (Privacy Officer)</b>.</span></div>
+    <div class="field" style="margin-top:8px"><label>Step-up identity confirmation <span class="req">*</span></label><input class="input" placeholder="Enter your Magnus password to confirm (K. Verma)"><div class="hint">Contract execution is a legal action; both approvers complete step-up individually.</div></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary disabled">Record renewal (awaiting 2nd approver)</span></div>
+  </div></div>
+</div></div></div>
+<p class="audit">Processor onboarding, DPA uploads, renewals (with dual approver step-up), suspensions and offboarding certificates are versioned; every view of a processor's contract file is recorded in the access log.</p>
+</section>

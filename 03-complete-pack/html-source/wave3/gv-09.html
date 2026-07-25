@@ -1,0 +1,150 @@
+<section class="screen" id="gv-09">
+<div class="screen-head"><h1><span class="sid">GV-09</span> Breach runbook</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G14 Governance &amp; Compliance — workspace 'Governance'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> War-room for a confirmed personal-data breach. Statutory clocks (CERT-In 6h report, DPB intimation without delay, detailed DPB report 72h) run from the confirmation timestamp, with delegation if an owner is absent and hard OVERDUE states that cannot be dismissed. The checklist drives containment, scope assessment, affected-patient notification from approved templates, and regulator filings with receipt capture; closure is gated on a post-incident review.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>GOVERNANCE</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Privacy Office</div>
+    <div class="nav-item">Compliance calendar</div>
+    <div class="nav-item">Consent registry</div>
+    <div class="nav-item">Grievances <span class="nav-badge">4</span></div>
+    <div class="nav-item">Rights requests <span class="nav-badge">7</span></div>
+    <div class="sec-label">Data lifecycle</div>
+    <div class="nav-item">Retention schedules</div>
+    <div class="nav-item">Legal holds <span class="nav-badge">4</span></div>
+    <div class="sec-label">Incidents</div>
+    <div class="nav-item">Incident intake <span class="nav-badge red">2</span></div>
+    <div class="nav-item active">Breach runbook <span class="nav-badge red">1</span></div>
+    <div class="sec-label">Records</div>
+    <div class="nav-item">Access log</div>
+    <div class="nav-item">Disclosure register</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Governance › Incidents › Breach runbook › INC-2026-0231</div>
+    <div class="page-title">BREACH-2026-04 · Misdirected report dispatch <span class="chip red">CONFIRMED BREACH</span></div>
+    <div class="page-sub">From INC-2026-0231 · confirmed by Dr. A. Rao (Privacy Officer) 25 Jul 2026, 11:10 IST — <b>T0 = 11:10 IST</b> · incident commander: Priya Sharma (DPO)</div>
+    <div class="card">
+      <div class="card-title">Statutory clocks — running <span class="right">now: 25 Jul 2026, 14:22 IST (T0 + 3h 12m)</span></div>
+      <table>
+        <tr><th>Obligation</th><th>Deadline</th><th>Time left</th><th>Owner</th><th>Delegate if absent</th><th>Status</th></tr>
+        <tr class="hl"><td><b>CERT-In incident report</b> (6h from noticing/confirmation)</td><td class="mono">25 Jul 17:10 IST</td><td><span class="chip amber">2h 48m left</span><div class="progress amber" style="width:120px"><i style="width:53%"></i></div></td><td>R. Menon (IT security)</td><td>K. Verma (org admin)</td><td><span class="chip amber">DRAFTING — form 70B annexure</span></td></tr>
+        <tr><td><b>DPB of India — intimation</b> (without delay on becoming aware)</td><td class="mono">Target 25 Jul 19:10 IST (internal T0+8h)</td><td><span class="chip teal">4h 48m to internal target</span></td><td>Priya Sharma (DPO)</td><td>Dr. A. Rao</td><td><span class="chip teal">IN PREP</span></td></tr>
+        <tr><td><b>DPB detailed report</b> (72h, extendable on request)</td><td class="mono">28 Jul 11:10 IST</td><td><span class="chip teal">68h 48m left</span></td><td>Priya Sharma (DPO)</td><td>Dr. A. Rao</td><td><span class="chip grey">NOT STARTED</span></td></tr>
+        <tr><td><b>Affected-patient notification</b> (policy: within 24h of confirmation)</td><td class="mono">26 Jul 11:10 IST</td><td><span class="chip teal">20h 48m left</span></td><td>Dr. A. Rao</td><td>D. Nair (send only)</td><td><span class="chip amber">TEMPLATE IN APPROVAL</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:6px">Clocks are anchored to the confirmation timestamp recorded at 11:10 IST and cannot be edited. Delegation activates automatically if the owner does not acknowledge within 60 minutes of assignment — delegate and time are stamped on the filing.</div>
+    </div>
+    <div class="split">
+      <div class="card">
+        <div class="card-title">Runbook checklist <span class="right">4 of 9 complete</span></div>
+        <div class="check"><span class="box on">✓</span><span><b>Contain</b> — dispatch job DSP-88431 halted; recall email sent to wrong recipient with delete-confirmation request (11:24)</span></div>
+        <div class="check"><span class="box on">✓</span><span><b>Preserve evidence</b> — logs snapshotted; legal hold LH-2026-036 placed on evidence set (11:31)</span></div>
+        <div class="check"><span class="box on">✓</span><span><b>Assess scope</b> — dispatch audit: 1 report, 1 unintended recipient (verified referrer, Dr. Meera Nair's clinic staff); no onward forwarding per mail-server receipts (12:40)</span></div>
+        <div class="check"><span class="box on">✓</span><span><b>Identify affected patients</b> — cohort built, 1 principal (13:05)</span></div>
+        <div class="check"><span class="box">&nbsp;</span><span><b>Notify affected patients</b> — from approved template BRH-PT-01, plain-language, includes harm mitigation steps &amp; Privacy Office contact</span></div>
+        <div class="check"><span class="box">&nbsp;</span><span><b>CERT-In filing</b> — via portal; capture acknowledgement number</span></div>
+        <div class="check"><span class="box">&nbsp;</span><span><b>DPB intimation + 72h detailed report</b> — capture receipt</span></div>
+        <div class="check"><span class="box">&nbsp;</span><span><b>Root cause &amp; corrective actions</b> — dispatch address-book validation defect suspected</span></div>
+        <div class="check"><span class="box">&nbsp;</span><span><b>Post-incident review</b> — closure gate, chaired by DPO</span></div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">Affected cohort <span class="right">masked view</span></div>
+          <dl class="kv" style="grid-template-columns:120px 1fr">
+            <dt>Principals</dt><dd><b>1</b> — S••••a R•••i · <span class="mono">MRN-••4822</span></dd>
+            <dt>Data classes</dt><dd>CT report (clinical findings), name, age, referrer</dd>
+            <dt>Recipient</dt><dd>1 verified clinic (bound by professional duty); delete-confirmation received 12:02</dd>
+            <dt>Harm rating</dt><dd><span class="chip amber">MODERATE — sensitive health data, contained</span></dd>
+          </dl>
+          <div class="small muted" style="margin-top:6px">Unmasking requires step-up confirmation and is limited to notification senders; every unmask is logged.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Comms templates per audience</div>
+          <table>
+            <tr><th>Audience</th><th>Template</th><th>Status</th></tr>
+            <tr><td>Affected patient</td><td class="mono">BRH-PT-01 · SMS (DLT MERI-BRH-01) + letter</td><td><span class="chip amber">PO approval pending</span></td></tr>
+            <tr><td>CERT-In</td><td class="mono">BRH-CERT-70B</td><td><span class="chip amber">Drafting</span></td></tr>
+            <tr><td>DPB of India</td><td class="mono">BRH-DPB-INT / BRH-DPB-72</td><td><span class="chip grey">Queued</span></td></tr>
+            <tr><td>Staff (need-to-know)</td><td class="mono">BRH-INT-01</td><td><span class="chip green">Sent 11:45</span></td></tr>
+            <tr><td>Referrer involved</td><td class="mono">BRH-REF-01</td><td><span class="chip green">Sent 12:05</span></td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — CLOCK OVERDUE · RED, NON-DISMISSIBLE</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="page-title">BREACH-2026-04 — clocks <span class="chip red">1 OVERDUE</span></div>
+    <div class="page-sub">now: 25 Jul 2026, 17:40 IST (T0 + 6h 30m)</div>
+    <div class="banner danger"><b>CERT-In 6h report OVERDUE by 30 minutes.</b> Owner R. Menon did not confirm filing by 17:10 IST. Delegation triggered at 17:10 → <b>K. Verma (org admin)</b> now holds the task; DPO Priya Sharma and Dr. A. Rao paged. This banner cannot be dismissed — it clears only when the acknowledgement number is captured. Delay reason will be recorded in the filing note and the post-incident review.</div>
+    <table>
+      <tr><th>Obligation</th><th>Deadline</th><th>Status</th><th>Owner → delegate</th></tr>
+      <tr class="hl"><td>CERT-In incident report (6h)</td><td class="mono">25 Jul 17:10 IST</td><td><span class="chip red">OVERDUE 30m</span><div class="progress red" style="width:120px"><i style="width:100%"></i></div></td><td>R. Menon <span class="chip red">unresponsive</span> → <b>K. Verma</b> · escalated to Priya Sharma</td></tr>
+      <tr><td>DPB intimation (internal T0+8h)</td><td class="mono">25 Jul 19:10 IST</td><td><span class="chip amber">1h 30m left</span></td><td>Priya Sharma</td></tr>
+      <tr><td>DPB detailed report (72h)</td><td class="mono">28 Jul 11:10 IST</td><td><span class="chip teal">65h 30m left</span></td><td>Priya Sharma → Dr. A. Rao</td></tr>
+      <tr><td>Patient notification (24h policy)</td><td class="mono">26 Jul 11:10 IST</td><td><span class="chip teal">17h 30m left</span></td><td>Dr. A. Rao</td></tr>
+    </table>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — REGULATOR FILINGS LOGGED · RECEIPT CAPTURE</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="page-title">BREACH-2026-04 — filings register</div>
+    <div class="page-sub">Every filing stores the artefact sent, channel, timestamp, filer identity (step-up verified) and the regulator's receipt.</div>
+    <div class="card">
+      <table>
+        <tr><th>Filing</th><th>Filed at (IST)</th><th>Filed by</th><th>Channel</th><th>Receipt / ack</th><th>Artefact</th></tr>
+        <tr><td>CERT-In incident report</td><td class="mono">25 Jul 17:52</td><td>K. Verma (delegate; step-up verified)</td><td>CERT-In portal</td><td class="mono">CERTIN-ACK-2026-118845</td><td class="mono">FF-2026-00612.pdf · sha256 ✓</td></tr>
+        <tr><td>DPB of India — intimation</td><td class="mono">25 Jul 18:47</td><td>Priya Sharma (DPO)</td><td>DPB portal</td><td class="mono">DPB-INT-2026-40221</td><td class="mono">FF-2026-00613.pdf · sha256 ✓</td></tr>
+        <tr><td>Affected-patient notification</td><td class="mono">25 Jul 21:15</td><td>Dr. A. Rao</td><td>SMS (DLT MERI-BRH-01) + letter + tracker banner</td><td class="mono">Delivery: SMS ✓ 21:16 · letter dispatched</td><td class="mono">BRH-PT-01-v2 (approved)</td></tr>
+        <tr><td>DPB detailed report (72h)</td><td class="mono">27 Jul 16:02</td><td>Priya Sharma (DPO)</td><td>DPB portal</td><td class="mono">DPB-RPT-2026-40388</td><td class="mono">FF-2026-00618.pdf · sha256 ✓</td></tr>
+      </table>
+      <div class="small muted" style="margin-top:6px">CERT-In filing was 42 minutes past the 6h mark; delay reason ("owner unreachable — delegation exercised") is embedded in the filing note and flagged for the review. Receipts are immutable once captured.</div>
+    </div>
+    <div class="banner success"><b>All statutory filings acknowledged.</b> Clocks stopped at receipt capture; residual tasks: root cause, corrective actions, post-incident review.</div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE D — CLOSED WITH POST-INCIDENT REVIEW · CLOSURE GATE</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="page-title">BREACH-2026-04 <span class="chip green">CLOSED — 31 Jul 2026</span></div>
+    <div class="page-sub">Closure permitted only after the post-incident review gate; closed by Priya Sharma (DPO) with Dr. A. Rao countersign (four-eyes).</div>
+    <div class="row">
+      <div class="grow card">
+        <div class="card-title">Post-incident review — PIR-2026-04 <span class="right">chaired by DPO · 30 Jul 2026</span></div>
+        <dl class="kv">
+          <dt>Root cause</dt><dd>Referrer address-book allowed free-text email override on dispatch; validation defect <span class="mono">BUG-4471</span></dd>
+          <dt>Corrective actions</dt><dd>1) Disable free-text override (shipped 29 Jul) · 2) Two-step recipient confirm for report dispatch (due 15 Aug, owner IT) · 3) Quarterly dispatch audit added to compliance calendar</dd>
+          <dt>Timeliness</dt><dd>CERT-In filed T0+6h42m (late 42m — delegation exercised); DPB intimation T0+7h37m; detailed report T0+52h52m; patient notified T0+10h05m</dd>
+          <dt>Harm outcome</dt><dd>Recipient deleted copy (confirmation on file); no evidence of onward disclosure; patient offered Privacy Office contact — no grievance raised (ref check GRV register: nil)</dd>
+          <dt>Register entries</dt><dd>Breach register updated · lessons pushed to training module TRN-PRV-07 · legal hold LH-2026-036 scheduled for release review (four-eyes)</dd>
+        </dl>
+      </div>
+      <div style="width:300px">
+        <div class="card">
+          <div class="card-title">Closure gate</div>
+          <div class="check"><span class="box on">✓</span><span>All clock items receipted</span></div>
+          <div class="check"><span class="box on">✓</span><span>Corrective actions logged with owners &amp; dates</span></div>
+          <div class="check"><span class="box on">✓</span><span>Affected patient informed &amp; tracker updated</span></div>
+          <div class="check"><span class="box on">✓</span><span>PIR document attached (<span class="mono">PIR-2026-04</span>)</span></div>
+          <div class="check"><span class="box on">✓</span><span>Four-eyes closure: Priya Sharma + Dr. A. Rao, both step-up verified</span></div>
+        </div>
+        <div class="banner info" style="margin-bottom:0"><b>Retention</b> Breach file retained 8 years; evidence under LH-2026-036 until hold release. Reopen requires DPO approval and restarts no clocks.</div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<p class="audit">Confirmation timestamp, clock states, delegation events, every checklist action, cohort unmasking, template approvals, filings with receipts and the four-eyes closure are written to the immutable breach register and — recorded in the access log.</p>
+</section>

@@ -1,0 +1,104 @@
+<section class="screen" id="gv-12">
+<div class="screen-head"><h1><span class="sid">GV-12</span> DPIA-lite register</h1><div class="meta"><span class="chip amber">CONDITIONAL</span><div class="cluster">G14 Governance &amp; Compliance — workspace 'Governance'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Lightweight register of processing activities (data types, purpose, risk rating, mitigations, review date) sized for a diagnostics chain rather than a full GDPR-style DPIA programme. Every new feature passes a trigger checklist — new data type, new processor, or AI use flags a full DPIA. Assessments require dual sign-off: Privacy Officer (Dr. A. Rao) and DPO (Priya Sharma).</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>GOVERNANCE</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Privacy</div>
+    <div class="nav-item">Privacy notices</div>
+    <div class="nav-item">Consent registry</div>
+    <div class="nav-item">Rights requests <span class="nav-badge">4</span></div>
+    <div class="sec-label">Risk &amp; vendors</div>
+    <div class="nav-item active">DPIA-lite register</div>
+    <div class="nav-item">Processor register</div>
+    <div class="nav-item">Data residency</div>
+    <div class="sec-label">Oversight</div>
+    <div class="nav-item">Compliance calendar <span class="nav-badge red">2</span></div>
+    <div class="nav-item">Incidents</div>
+    <div class="nav-item">Access log</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Governance › Risk › DPIA-lite register</div>
+    <div class="page-title">Processing-activity register <span class="actions-right"><span class="btn small">Review schedule</span> <span class="btn primary small">+ New assessment</span></span></div>
+    <div class="page-sub">DPDP accountability record · reviews annual (high-risk: 6-monthly) · owner: Dr. A. Rao · co-sign: Priya Sharma (DPO)</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">9</div><div class="l">Registered activities</div><div class="s">All with current sign-off</div></div>
+      <div class="kpi amber"><div class="n">2</div><div class="l">Reviews due ≤ 30 days</div><div class="s">See amber rows</div></div>
+      <div class="kpi red"><div class="n">1</div><div class="l">Full-DPIA flag raised</div><div class="s">AI triage pilot — assessment open</div></div>
+      <div class="kpi"><div class="n">0</div><div class="l">Activities without mitigation</div><div class="s">Target: 0</div></div>
+    </div>
+    <div class="card"><div class="card-title">Register <span class="right">9 activities · sorted by risk</span></div>
+      <table>
+        <tr><th>ID</th><th>Activity</th><th>Data types</th><th>Purpose</th><th>Risk</th><th>Key mitigations</th><th>Next review</th><th>Sign-off</th></tr>
+        <tr><td class="mono">PA-001</td><td><b>Radiology imaging &amp; reporting</b></td><td>Health data, images, identifiers</td><td>Diagnosis, referrer reporting</td><td><span class="chip red">HIGH</span></td><td>Role-based access, masking, 10y retention with sealed archive</td><td>12 Jan 2027</td><td><span class="chip green">PO + DPO</span></td></tr>
+        <tr><td class="mono">PA-004</td><td>Teleradiology second reads</td><td>Health data, images (pseudonymised)</td><td>Second-opinion reporting</td><td><span class="chip red">HIGH</span></td><td>Pseudonymised send, in-India processor, DPA (GV-13)</td><td>01 Feb 2027</td><td><span class="chip green">PO + DPO</span></td></tr>
+        <tr><td class="mono">PA-002</td><td>PC-PNDT Form F processing</td><td>Health data, pregnancy status, ID proof</td><td>Statutory filing (monthly, by the 5th)</td><td><span class="chip red">HIGH</span></td><td>Centre-scoped access, Dr. S. Iyer countersign, immutable filing log</td><td>05 Dec 2026</td><td><span class="chip green">PO + DPO</span></td></tr>
+        <tr class="hl"><td class="mono">PA-006</td><td>SMS/WhatsApp patient messaging</td><td>Contact data, appointment metadata</td><td>Reminders, report delivery</td><td><span class="chip amber">MEDIUM</span></td><td>DLT templates only, purpose-level suppression lists</td><td><span class="chip amber">18 Aug 2026</span></td><td><span class="chip green">PO + DPO</span></td></tr>
+        <tr class="hl"><td class="mono">PA-007</td><td>Health-camp registrations</td><td>Identity, contact, basic vitals</td><td>Camp diagnostics + follow-up</td><td><span class="chip amber">MEDIUM</span></td><td>Camp notice v1, offline capture with 48h sync-and-purge</td><td><span class="chip amber">10 Aug 2026</span></td><td><span class="chip green">PO + DPO</span></td></tr>
+        <tr><td class="mono">PA-003</td><td>Billing &amp; GST records</td><td>Identity, payment data</td><td>Invoicing, GST compliance (GSTIN 27AAACM1234K1Z5)</td><td><span class="chip amber">MEDIUM</span></td><td>8y retention, cashier-scoped access (P. D'Souza role)</td><td>15 Mar 2027</td><td><span class="chip green">PO + DPO</span></td></tr>
+        <tr><td class="mono">PA-008</td><td>Referrer portal access</td><td>Report links, referrer identity</td><td>Report sharing with consent</td><td><span class="chip amber">MEDIUM</span></td><td>Per-patient consent gate, expiring links</td><td>02 Feb 2027</td><td><span class="chip green">PO + DPO</span></td></tr>
+        <tr><td class="mono">PA-005</td><td>Staff HR records</td><td>Identity, payroll, credentials</td><td>Employment administration</td><td><span class="chip grey">LOW</span></td><td>Staff notice v2, HR-only access</td><td>20 Apr 2027</td><td><span class="chip green">PO + DPO</span></td></tr>
+        <tr><td class="mono">PA-009</td><td>Equipment dose logs (AERB)</td><td>Device data, operator ID (T. Okafor et al.)</td><td>AERB licence compliance</td><td><span class="chip grey">LOW</span></td><td>No patient identifiers in exported logs</td><td>30 May 2027</td><td><span class="chip green">PO + DPO</span></td></tr>
+      </table>
+    </div>
+    <div class="banner reg"><b>Full-DPIA flag open.</b> Assessment <span class="mono">DPIA-2026-014</span> "AI-assisted worklist triage (pilot)" tripped the AI-use trigger on 21 Jul 2026 — see State B. New activity is blocked from production until PO + DPO sign-off.</div>
+  </div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — NEW-FEATURE ASSESSMENT · trigger checklist flags full DPIA</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Governance › Risk › DPIA-lite › New assessment DPIA-2026-014</div>
+  <div class="page-title">Assessment — AI-assisted worklist triage (pilot)</div>
+  <div class="page-sub">Requested by Dr. V. Shetty (radiologist) · 21 Jul 2026 · proposed go-live Q4 2026</div>
+  <div class="stepper">
+    <div class="step done"><span class="dot">✓</span> Describe activity</div><span class="step-line"></span>
+    <div class="step cur"><span class="dot">2</span> Trigger checklist</div><span class="step-line"></span>
+    <div class="step"><span class="dot">3</span> Risk &amp; mitigations</div><span class="step-line"></span>
+    <div class="step"><span class="dot">4</span> PO + DPO sign-off</div>
+  </div>
+  <div class="row">
+    <div class="grow card"><div class="card-title">Trigger checklist <span class="right">Any YES on a bold trigger flags full DPIA</span></div>
+      <div class="check"><span class="box">✓</span><span class="small">New data type collected? — <b>No.</b> Uses existing imaging + order metadata only.</span></div>
+      <div class="check"><span class="box on">✓</span><span class="small"><b>New processor involved?</b> — <b>Yes.</b> Model vendor "Radix Insight AI Pvt Ltd" (India region) would receive pseudonymised studies. Requires processor onboarding in GV-13 before go-live.</span></div>
+      <div class="check"><span class="box on">✓</span><span class="small"><b>AI / automated processing influencing care?</b> — <b>Yes.</b> Model re-orders the radiologist worklist by suspected urgency. Radiologist remains final decision-maker.</span></div>
+      <div class="check"><span class="box">✓</span><span class="small">Children's or pregnancy-related data specially targeted? — <b>No.</b> PC-PNDT studies are excluded from the pilot dataset.</span></div>
+      <div class="check"><span class="box">✓</span><span class="small">Cross-border transfer? — <b>No.</b> Inference pinned to India region (see GV-14 residency evidence).</span></div>
+      <div class="banner danger" style="margin-top:10px"><b>FULL DPIA REQUIRED.</b> 2 triggers met (new processor, AI use). DPIA-lite fast path is disabled for this assessment; the full template (necessity/proportionality, model-error harm analysis, bias review) is attached and mandatory.</div>
+    </div>
+    <div style="width:320px">
+      <div class="card"><div class="card-title">Proposed mitigations (draft)</div>
+        <table>
+          <tr><th>Risk</th><th>Mitigation</th></tr>
+          <tr><td>Missed critical finding deprioritised</td><td>Floor rule: STAT orders never demoted; weekly discordance audit by Dr. V. Shetty</td></tr>
+          <tr><td>Vendor data misuse</td><td>Pseudonymisation before send; DPA bans model training on Meridian data</td></tr>
+          <tr><td>Silent model drift</td><td>Monthly performance report to PO; kill-switch documented</td></tr>
+        </table>
+      </div>
+      <div class="card"><div class="card-title">Sign-off (four-eyes)</div>
+        <div class="sig-box">Dr. A. Rao — Privacy Officer (pending)</div>
+        <div class="sig-box" style="margin-top:8px">Priya Sharma — DPO (pending)</div>
+        <p class="small muted" style="margin-top:8px">Both signatures required before status can move past ASSESSMENT. Neither signer may be the requester.</p>
+      </div>
+    </div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — REVIEW DUE (AMBER) · scheduled re-review with SLA ownership</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Governance › Risk › DPIA-lite › Reviews due</div>
+  <div class="page-title">Reviews due within 30 days</div>
+  <div class="page-sub">Overdue reviews escalate automatically: owner → Privacy Officer at +7 days → DPO at +14 days</div>
+  <div class="banner warn"><b>2 activity reviews due.</b> PA-007 (health camps) due 10 Aug 2026 and PA-006 (patient messaging) due 18 Aug 2026. Completing a review re-validates risk rating and mitigations and resets the review clock.</div>
+  <div class="card"><div class="card-title">Due queue <span class="right">SLA-tracked</span></div>
+    <table>
+      <tr><th>ID</th><th>Activity</th><th>Risk</th><th>Review due</th><th>SLA</th><th>Owner</th><th>Escalated to</th><th></th></tr>
+      <tr class="hl"><td class="mono">PA-007</td><td>Health-camp registrations</td><td><span class="chip amber">MEDIUM</span></td><td>10 Aug 2026</td><td><span class="chip amber">16 DAYS LEFT</span></td><td>Dr. A. Rao</td><td class="muted">—</td><td><span class="btn primary small">Start review</span></td></tr>
+      <tr><td class="mono">PA-006</td><td>SMS/WhatsApp patient messaging</td><td><span class="chip amber">MEDIUM</span></td><td>18 Aug 2026</td><td><span class="chip teal">24 DAYS LEFT</span></td><td>K. Verma</td><td class="muted">—</td><td><span class="btn small">Start review</span></td></tr>
+      <tr class="dim"><td class="mono">PA-011</td><td><i>(example, closed)</i> Discharge-summary OCR trial</td><td><span class="chip grey">RETIRED</span></td><td>—</td><td><span class="chip red">OVERDUE at closure</span></td><td>K. Verma</td><td>Dr. A. Rao → Priya Sharma</td><td><span class="btn ghost small">History</span></td></tr>
+    </table>
+    <p class="small muted" style="margin-top:8px">Review outcome options: re-affirm · update mitigations · escalate risk rating (requires fresh PO + DPO sign-off) · retire activity (data-disposition checklist enforced).</p>
+  </div>
+</div></div></div>
+<p class="audit">Assessment answers, trigger outcomes, dual sign-offs, review completions and escalations are versioned; who viewed each assessment is recorded in the access log.</p>
+</section>

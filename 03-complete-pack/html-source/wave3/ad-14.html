@@ -1,0 +1,149 @@
+<section class="screen" id="ad-14">
+<div class="screen-head"><h1><span class="sid">AD-14</span> Org settings &amp; branding</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G12 Admin — workspace 'Admin'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Org admin maintains Meridian's legal identity (name, CIN, GSTIN, registered addresses), letterhead versions with effective dates, brand tokens and the contact/grievance blocks printed on every document. Letterheads are versioned: a document always renders with the letterhead version in force when it was issued — new versions never rewrite history.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Organisation</div>
+      <div class="nav-item">Branches &amp; units</div>
+      <div class="nav-item">Users &amp; roles</div>
+      <div class="nav-item active">Org settings</div>
+      <div class="sec-label">Catalogue</div>
+      <div class="nav-item">Service catalogue</div>
+      <div class="nav-item">Terminology &amp; codes</div>
+      <div class="nav-item">Document templates</div>
+      <div class="sec-label">Data</div>
+      <div class="nav-item">Data import <span class="nav-badge">2</span></div>
+      <div class="nav-item">Operational dashboard</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Access log</div>
+      <div class="nav-item">Approvals <span class="nav-badge red">1</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Admin › Organisation › Org settings &amp; branding</div>
+      <div class="page-title">Org settings &amp; branding <span class="actions-right"><span class="btn small">Version history</span> <span class="btn primary small">Propose change…</span></span></div>
+      <div class="page-sub">Changes to legal identity fields require four-eyes approval (org admin + finance controller) and take effect on a stated date — never retroactively.</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Legal identity <span class="right">Effective 01 Apr 2026 · rev 7</span></div>
+          <div class="kv">
+            <dt>Legal name</dt><dd>Meridian Diagnostics Private Limited</dd>
+            <dt>Trade name</dt><dd>Meridian Diagnostics</dd>
+            <dt>CIN</dt><dd class="mono">U85110MH2011PTC219847</dd>
+            <dt>GSTIN (Maharashtra)</dt><dd class="mono">27AAACM1234K1Z5 <span class="chip green">ACTIVE · verified 01 Jul 2026</span></dd>
+            <dt>PAN</dt><dd class="mono">AAACM1234K</dd>
+            <dt>Registered office</dt><dd>4th Floor, Meridian House, Link Road, Andheri West, Mumbai 400053, Maharashtra</dd>
+            <dt>Corporate office</dt><dd>Same as registered office</dd>
+            <dt>Branches</dt><dd>6 operating units (Andheri West, Thane, Borivali, Pune Aundh, Vashi, Nashik camp unit) — addresses managed under Branches &amp; units</dd>
+            <dt>PC-PNDT registrations</dt><dd>Centre-specific; shown per branch, printed on obstetric USG documents only (e.g. Andheri: <span class="mono">MH/PNDT/2019/4471</span>, Dr. S. Iyer)</dd>
+          </div>
+        </div>
+        <div class="card" style="width:340px">
+          <div class="card-title">Brand tokens <span class="right"><span class="chip violet">WHITE-LABEL FOUNDATION</span></span></div>
+          <table>
+            <tr><th>Token</th><th>Value</th><th>Used by</th></tr>
+            <tr><td class="mono">brand.primary</td><td class="mono">#0F5E63</td><td>Letterhead rule, portal header</td></tr>
+            <tr><td class="mono">brand.accent</td><td class="mono">#C08A2D</td><td>Receipt band, token slip</td></tr>
+            <tr><td class="mono">brand.logo</td><td class="mono">meridian-mark-v3.svg</td><td>All printed documents</td></tr>
+            <tr><td class="mono">brand.font</td><td class="mono">Source Sans / Noto Sans Devanagari</td><td>EN / MR variants</td></tr>
+          </table>
+          <p class="small muted" style="margin-top:8px">Tokens are the white-label foundation: a franchise unit gets its own token set + letterhead series without code changes. Token edits create a new letterhead version — they never restyle issued documents.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Letterhead versions <span class="right">Issued documents keep their version — immutable render</span></div>
+        <table>
+          <tr><th>Version</th><th>Status</th><th>Effective from</th><th>Effective to</th><th>Key changes</th><th>Approved by (four-eyes)</th><th></th></tr>
+          <tr><td class="mono bold">LH-2026-004</td><td><span class="chip blue">DRAFT — PREVIEW</span></td><td>proposed 01 Sep 2026</td><td>—</td><td>New grievance block (DPB escalation line), Marathi address block</td><td>K. Verma ✓ · P. D'Souza <span class="chip amber">PENDING</span></td><td><span class="btn small">Preview</span></td></tr>
+          <tr class="hl"><td class="mono bold">LH-2026-003</td><td><span class="chip green">ACTIVE</span></td><td>01 Apr 2026</td><td>open</td><td>GSTIN state code note, DPO contact added</td><td>K. Verma + R. Menon (finance) · 22 Mar 2026</td><td><span class="btn ghost small">View</span></td></tr>
+          <tr><td class="mono">LH-2026-002</td><td><span class="chip grey">SUPERSEDED</span></td><td>01 Jan 2026</td><td>31 Mar 2026</td><td>DPDP notice line, grievance officer block</td><td>K. Verma + R. Menon · 18 Dec 2025</td><td><span class="btn ghost small">View</span></td></tr>
+          <tr><td class="mono">LH-2025-001</td><td><span class="chip grey">SUPERSEDED</span></td><td>01 Jul 2025</td><td>31 Dec 2025</td><td>Initial Magnus letterhead series</td><td>K. Verma + R. Menon · 20 Jun 2025</td><td><span class="btn ghost small">View</span></td></tr>
+        </table>
+        <div class="banner info" style="margin-top:10px;margin-bottom:0"><b>Immutable render guarantee</b>A report signed on 15 Feb 2026 re-prints today on LH-2026-002, not the current letterhead. The letterhead version ID is stored inside the signed document envelope; re-renders are byte-identical for 10 years (radiology) / 8 years (billing) per retention policy.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Contact &amp; grievance blocks (printed on documents) <span class="right">Part of letterhead version</span></div>
+        <table>
+          <tr><th>Block</th><th>Content (LH-2026-003)</th><th>Printed on</th></tr>
+          <tr><td>Patient helpline</td><td>1800-419-2266 · care@meridiandx.in · 08:00–20:00 IST</td><td>All patient documents</td></tr>
+          <tr><td>Grievance officer (DPDP)</td><td>Priya Sharma, DPO · dpo@meridiandx.in · response within 7 days; rights requests resolved within 30 days (DPDP)</td><td>Reports, receipts, consent forms</td></tr>
+          <tr><td>Privacy Officer</td><td>Dr. A. Rao · privacy@meridiandx.in</td><td>Consent forms, notices</td></tr>
+          <tr><td>Escalation</td><td>If unresolved, you may complain to the Data Protection Board of India</td><td>DPDP notices (draft in LH-2026-004)</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — Letterhead new-version preview (LH-2026-004 draft)</div>
+<div class="frame">
+  <div class="body" style="min-height:0">
+    <div class="main">
+      <div class="crumb">Admin › Org settings › Letterheads › LH-2026-004 (draft) › Preview</div>
+      <div class="page-title">Preview — LH-2026-004 <span class="actions-right"><span class="chip blue">DRAFT</span> <span class="btn small">Side-by-side vs LH-2026-003</span> <span class="btn primary small">Send for second approval</span></span></div>
+      <div class="page-sub">Rendered with synthetic data only (patient "Sofia Rossi, MRN-004822" sample). Proposed effective date 01 Sep 2026 00:00 IST — documents issued before that instant will continue to use LH-2026-003.</div>
+      <div class="card" style="border:1.5px solid #0F766E;background:#FBFDFC">
+        <div style="display:flex;justify-content:space-between;border-bottom:3px solid #0F5E63;padding-bottom:10px;margin-bottom:10px">
+          <div><div style="font-weight:800;font-size:16px;color:#0F5E63">◈ MERIDIAN DIAGNOSTICS</div><div class="small muted">Meridian Diagnostics Private Limited · CIN U85110MH2011PTC219847</div><div class="small muted">4th Floor, Meridian House, Link Road, Andheri West, Mumbai 400053 · GSTIN 27AAACM1234K1Z5</div><div class="small muted">मेरिडियन हाऊस, ४ था मजला, लिंक रोड, अंधेरी पश्चिम, मुंबई ४०००५३ <span class="chip teal">NEW — Marathi block</span></div></div>
+          <div class="small" style="text-align:right;color:#64748B">Radiology report · sample<br/>Sofia Rossi · MRN-004822<br/>25 Jul 2026 · Andheri West</div>
+        </div>
+        <div class="sig-box">— document body renders here; header/footer only are part of the letterhead —</div>
+        <div class="small muted" style="border-top:1px solid #E2E8F0;margin-top:10px;padding-top:8px">Helpline 1800-419-2266 · Grievance (DPDP): Priya Sharma, DPO, dpo@meridiandx.in — rights requests resolved within 30 days · <b>If unresolved, you may complain to the Data Protection Board of India</b> <span class="chip teal">NEW — DPB escalation line</span> · Page 1 of 1 · Letterhead LH-2026-004</div>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Pre-flight checks</div>
+          <table>
+            <tr><th>Check</th><th>Result</th></tr>
+            <tr><td>GSTIN matches active registration</td><td><span class="chip green">PASS</span></td></tr>
+            <tr><td>Grievance block includes 30-day DPDP SLA wording</td><td><span class="chip green">PASS</span></td></tr>
+            <tr><td>PC-PNDT number NOT on generic letterhead (branch-doc only)</td><td><span class="chip green">PASS</span></td></tr>
+            <tr><td>Marathi block reviewed by language owner</td><td><span class="chip amber">PENDING · D. Nair</span></td></tr>
+          </table>
+        </div>
+        <div class="card" style="width:330px">
+          <div class="card-title">Approval — four-eyes</div>
+          <div class="kv" style="grid-template-columns:130px 1fr">
+            <dt>Proposer</dt><dd>K. Verma · 24 Jul 16:20 · step-up: hardware key ✓</dd>
+            <dt>Second approver</dt><dd>P. D'Souza (finance/cashier lead) <span class="chip amber">PENDING</span> — must not be the proposer</dd>
+            <dt>Effective</dt><dd>01 Sep 2026 00:00 IST (cannot be back-dated)</dd>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — Version history &amp; change diff</div>
+<div class="frame">
+  <div class="body" style="min-height:0">
+    <div class="main">
+      <div class="crumb">Admin › Org settings › Version history</div>
+      <div class="page-title">Org settings version history</div>
+      <div class="page-sub">All revisions of legal identity, brand tokens and letterheads. Nothing is ever edited in place; each row is a signed revision.</div>
+      <div class="timeline">
+        <div class="ev"><span class="t">24 Jul 2026 16:20</span><div><b>LH-2026-004 drafted</b> — K. Verma · adds DPB escalation line + Marathi address · awaiting second approval <span class="chip amber">PENDING</span></div></div>
+        <div class="ev"><span class="t">01 Jul 2026 10:02</span><div><b>GSTIN re-verified</b> against GST portal — automated check, no change · rev 7 confirmed</div></div>
+        <div class="ev"><span class="t">01 Apr 2026 00:00</span><div><b>Legal identity rev 7 effective</b> — registered office floor updated (3rd → 4th) · approved K. Verma + R. Menon · 1,204 documents issued since carry rev 7 footer</div></div>
+        <div class="ev"><span class="t">22 Mar 2026 14:41</span><div><b>LH-2026-003 approved</b> — four-eyes K. Verma + R. Menon · effective 01 Apr 2026</div></div>
+        <div class="ev"><span class="t">18 Dec 2025 11:15</span><div><b>LH-2026-002 approved</b> — added DPDP grievance officer block (Priya Sharma) ahead of notice rollout</div></div>
+        <div class="ev"><span class="t">20 Jun 2025 09:30</span><div><b>LH-2025-001 approved</b> — initial letterhead series at Magnus go-live</div></div>
+      </div>
+      <div class="card" style="margin-top:12px">
+        <div class="card-title">Diff — rev 6 → rev 7 (legal identity)</div>
+        <table>
+          <tr><th>Field</th><th>Rev 6</th><th>Rev 7 (effective 01 Apr 2026)</th></tr>
+          <tr><td>Registered office</td><td>3rd Floor, Meridian House…</td><td class="bold">4th Floor, Meridian House…</td></tr>
+          <tr><td>GSTIN</td><td class="mono">27AAACM1234K1Z5</td><td class="mono">27AAACM1234K1Z5 (unchanged)</td></tr>
+          <tr><td>DPO contact</td><td>—</td><td class="bold">Priya Sharma · dpo@meridiandx.in</td></tr>
+        </table>
+        <p class="small muted" style="margin-top:8px">Invoices issued Jan–Mar 2026 legitimately show the 3rd-floor address; they are correct for their issue date and are retained unmodified for 8 years.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Every revision, approval, preview render and effective-date change is written to the governance log with both approvers' step-up confirmations; reads of this page are recorded in the access log.</p>
+</section>

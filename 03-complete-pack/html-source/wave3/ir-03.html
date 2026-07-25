@@ -1,0 +1,133 @@
+<section class="screen" id="ir-03">
+<div class="screen-head"><h1><span class="sid">IR-03</span> Submission &amp; acknowledgement</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Generates the monthly Form F submission file in the format required by the Appropriate Authority, records the act of submission (portal or physical, submitted-by with step-up identity confirmation, date), then captures the authority's receipt/acknowledgement (upload, reference number, date). Once the ack is captured, the month's submission record and its register become immutable — later fixes flow only through corrections (IR-04).</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West (PNDT Regn MH/AND/PNDT/0142)</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">PC-PNDT</div>
+    <div class="nav-item">Form F register</div>
+    <div class="nav-item">Monthly submission</div>
+    <div class="nav-item active">Submissions &amp; acks <span class="nav-badge">1</span></div>
+    <div class="nav-item">Corrections</div>
+    <div class="sec-label">AERB</div>
+    <div class="nav-item">Equipment licences</div>
+    <div class="nav-item">Dose registry</div>
+    <div class="sec-label">Governance</div>
+    <div class="nav-item">Registrations</div>
+    <div class="nav-item">Audit trail</div>
+  </div>
+  <div class="main"><div class="crumb">Regulatory › PC-PNDT › Submissions &amp; acks › July 2026 · Generate</div>
+  <div class="page-title">Generate submission file — July 2026</div>
+  <div class="page-sub">Source: validation snapshot v4 (02-Aug 08:30 IST, 44/44 ready). The generated file is hash-stamped; regeneration is allowed only before submission is recorded and always produces a new numbered build.</div>
+  <div class="stepper">
+    <div class="step done"><span class="dot">1</span> Records captured</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">2</span> Validate &amp; fix</div><span class="step-line"></span>
+    <div class="step cur"><span class="dot">3</span> Generate file</div><span class="step-line"></span>
+    <div class="step"><span class="dot">4</span> Submit</div><span class="step-line"></span>
+    <div class="step"><span class="dot">5</span> Capture ack</div>
+  </div>
+  <div class="split">
+    <div class="card">
+      <div class="card-title">Build parameters</div>
+      <div class="field"><label>Format (per Appropriate Authority) <span class="req">*</span></label>
+        <select class="select"><option>Maharashtra AA — consolidated Form F PDF bundle + summary statement (v2024.2)</option></select>
+        <div class="hint">Format profile maintained per authority; Powai centre uses the same MH profile under its own registration.</div>
+      </div>
+      <div class="field"><label>Batch</label><input class="input" value="July 2026 · 44 records · scan dates 01–31 Jul · MH/AND/PNDT/0142" disabled></div>
+      <div class="field"><label>Contents</label>
+        <div class="check"><span class="box on">✓</span> 44 × Form F (sealed PDFs, chain-verified)</div>
+        <div class="check"><span class="box on">✓</span> Monthly summary statement (counts by indication, doctor, machine)</div>
+        <div class="check"><span class="box on">✓</span> Centre registration extract + doctor PNDT registrations</div>
+        <div class="check"><span class="box">&nbsp;</span> Include cover letter on Meridian letterhead (optional)</div>
+      </div>
+      <div style="margin-top:8px"><span class="btn primary">Generate build #1</span> <span class="btn">Preview summary statement</span></div>
+    </div>
+    <div>
+      <div class="card">
+        <div class="card-title">Pre-generation checks</div>
+        <div class="check"><span class="box on">✓</span> Validation snapshot v4 — 44/44 ready</div>
+        <div class="check"><span class="box on">✓</span> Tamper chain verified 02-Aug 08:31</div>
+        <div class="check"><span class="box on">✓</span> No open corrections targeting July records</div>
+        <div class="check"><span class="box on">✓</span> Centre registration MH/AND/PNDT/0142 valid to 14-Feb-2028</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Deadline</div>
+        <div style="font-size:22px;font-weight:800">Due 05 Aug <span class="chip teal">T-3 DAYS</span></div>
+        <div class="small muted" style="margin-top:4px">Owner: K. Verma · escalates to Dr. A. Rao if unfiled on 05-Aug 18:00 IST.</div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-wrap">
+    <div class="modal">
+      <h3>Confirm your identity to generate the statutory filing</h3>
+      <p class="small" style="margin-bottom:10px">Generating a Form F submission file is a legal-filing action. Confirm it is you, K. Verma (org admin). This confirmation is bound to build #1 and recorded immutably.</p>
+      <div class="field"><label>Password <span class="req">*</span></label><input class="input" value="••••••••••"></div>
+      <div class="field"><label>OTP to registered mobile ••••• •4821 <span class="req">*</span></label><input class="input" value="7 3 2 9 1 4" style="letter-spacing:6px;width:180px"></div>
+      <div class="check"><span class="box on">✓</span> I confirm the July 2026 batch (44 records, snapshot v4) is complete and accurate to my knowledge.</div>
+      <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Confirm &amp; generate</span></div>
+    </div>
+  </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SUBMITTED, AWAITING ACKNOWLEDGEMENT</div>
+<div class="frame">
+  <div class="body"><div class="main">
+  <div class="crumb">Regulatory › PC-PNDT › Submissions &amp; acks › July 2026</div>
+  <div class="page-title">July 2026 — submitted, awaiting acknowledgement <span class="chip amber" style="vertical-align:middle">AWAITING ACK</span></div>
+  <div class="banner info"><b>Submission recorded 03-Aug-2026 11:24 IST.</b> Build #1 (SHA-256 9f3a…c821) filed via <b>AA portal</b> by K. Verma (identity confirmed by password + OTP). Portal transaction ID MHAA-TXN-882914. Capture the acknowledgement below when received — the record locks at that point. Reminder if no ack by 12-Aug: owner K. Verma.</div>
+  <div class="split">
+    <div class="card">
+      <div class="card-title">Submission record — SUB-2026-07-AND</div>
+      <dl class="kv">
+        <dt>Batch</dt><dd>July 2026 · 44 records · MH/AND/PNDT/0142</dd>
+        <dt>Build</dt><dd>#1 · MeridianAND_FormF_Jul2026.pdf (18.4 MB) · SHA-256 9f3a…c821</dd>
+        <dt>Mode</dt><dd><span class="chip blue">PORTAL</span> Maharashtra AA e-filing · TXN MHAA-TXN-882914</dd>
+        <dt>Submitted by</dt><dd>K. Verma (org admin) · identity confirmed 03-Aug 11:23 IST (password + OTP)</dd>
+        <dt>Submitted on</dt><dd>03-Aug-2026 11:24 IST · 2 days before statutory due</dd>
+        <dt>Ack status</dt><dd><span class="chip amber">AWAITING ACK</span> · follow-up reminder 12-Aug</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <div class="card-title">Capture acknowledgement</div>
+      <div class="field"><label>Ack reference no. <span class="req">*</span></label><input class="input" placeholder="e.g. MH/AA/2026/____"></div>
+      <div class="field"><label>Ack date <span class="req">*</span></label><input class="input" placeholder="DD-MM-YYYY"></div>
+      <div class="field"><label>Upload receipt / ack document <span class="req">*</span></label>
+        <div class="sig-box">Drop PDF or scan here — hash-stamped on upload</div>
+      </div>
+      <div class="banner warn" style="margin:8px 0"><b>Locks the month.</b> Capturing the ack makes SUB-2026-07-AND and the July register immutable. This cannot be undone.</div>
+      <span class="btn primary small">Capture ack (identity confirmation required)</span>
+    </div>
+  </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — ACK CAPTURED, HISTORY TABLE (IMMUTABLE)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+  <div class="crumb">Regulatory › PC-PNDT › Submissions &amp; acks</div>
+  <div class="page-title">Submission history — Andheri West <span class="actions-right"><span class="btn small">Export history (PDF)</span></span></div>
+  <div class="banner success"><b>July 2026 acknowledgement captured.</b> Ack ref MH/AA/2026/0798 dated 06-Aug-2026, receipt uploaded (SHA-256 41be…77d0), captured by K. Verma 06-Aug 15:02 IST with identity confirmation. SUB-2026-07-AND is now <b>immutable</b>; discrepancies route to corrections (IR-04).</div>
+  <div class="card">
+    <div class="card-title">History <span class="right">Retention: submission records + acks 10 years</span></div>
+    <table>
+      <tr><th>Month</th><th>Submission</th><th>Records</th><th>Mode · date</th><th>Submitted by</th><th>Ack status</th><th>Ack ref · date</th><th>Lock</th></tr>
+      <tr class="hl"><td>Jul 2026</td><td class="mono">SUB-2026-07-AND</td><td>44</td><td>Portal · 03-Aug</td><td>K. Verma</td><td><span class="chip green">ACK CAPTURED</span></td><td class="mono">MH/AA/2026/0798 · 06-Aug</td><td><span class="chip teal">🔏 IMMUTABLE</span></td></tr>
+      <tr><td>Jun 2026</td><td class="mono">SUB-2026-06-AND</td><td>39</td><td>Portal · 03-Jul</td><td>K. Verma</td><td><span class="chip green">ACK CAPTURED</span></td><td class="mono">MH/AA/2026/0713 · 04-Jul</td><td><span class="chip teal">🔏 IMMUTABLE</span></td></tr>
+      <tr><td>May 2026</td><td class="mono">SUB-2026-05-AND</td><td>47</td><td>Physical · 04-Jun</td><td>K. Verma (delivered by D. Nair)</td><td><span class="chip green">ACK CAPTURED</span></td><td class="mono">MH/AA/2026/0621 · 04-Jun (stamped copy)</td><td><span class="chip teal">🔏 IMMUTABLE</span></td></tr>
+      <tr><td>Apr 2026</td><td class="mono">SUB-2026-04-AND</td><td>41</td><td>Portal · 02-May</td><td>K. Verma</td><td><span class="chip green">ACK CAPTURED</span></td><td class="mono">MH/AA/2026/0544 · 05-May</td><td><span class="chip teal">🔏 IMMUTABLE</span></td></tr>
+      <tr><td>Mar 2026</td><td class="mono">SUB-2026-03-AND</td><td>45</td><td>Portal · 06-Apr <span class="chip red">FILED LATE +1d</span></td><td>K. Verma</td><td><span class="chip green">ACK CAPTURED</span></td><td class="mono">MH/AA/2026/0489 · 08-Apr</td><td><span class="chip teal">🔏 IMMUTABLE</span></td></tr>
+      <tr><td>Feb 2026</td><td class="mono">SUB-2026-02-AND</td><td>38</td><td>Portal · 03-Mar</td><td>K. Verma</td><td><span class="chip green">ACK CAPTURED</span></td><td class="mono">MH/AA/2026/0402 · 04-Mar</td><td><span class="chip teal">🔏 IMMUTABLE</span></td></tr>
+      <tr><td>Jan 2026</td><td class="mono">SUB-2026-01-AND</td><td>36 + 1 corr</td><td>Portal · 04-Feb</td><td>K. Verma</td><td><span class="chip green">ACK CAPTURED</span></td><td class="mono">MH/AA/2026/0317 · 05-Feb</td><td><span class="chip teal">🔏 IMMUTABLE</span></td></tr>
+    </table>
+    <div class="small muted" style="margin-top:8px">Mar 2026 late filing is preserved with its compliance-exception narrative (CE-2026-0071, closed by Dr. A. Rao). Immutable rows cannot be edited or deleted by any role, including org admin; a court/authority-ordered change would be executed as a superseding correction with four-eyes approval (K. Verma + Dr. A. Rao) and full audit lineage.</div>
+  </div>
+  </div></div>
+</div>
+
+<p class="audit">File generation, identity confirmations, submission recording, ack capture and every download of a submission build are recorded in the access log.</p>
+</section>

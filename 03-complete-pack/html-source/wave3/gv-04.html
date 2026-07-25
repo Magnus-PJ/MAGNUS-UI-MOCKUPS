@@ -1,0 +1,166 @@
+<section class="screen" id="gv-04">
+<div class="screen-head"><h1><span class="sid">GV-04</span> Deletion requests pipeline</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G14 Governance &amp; Compliance — workspace 'Governance'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> DPDP erasure requests (DPDP-CR refs) move through received → identity-verified → assessed → approved → executed. Assessment splits data into delete-now, retention-held (radiology 10y, billing 8y, with keep-until dates) and legal-hold-blocked; execution is irreversible and therefore needs step-up identity plus a second approver. The patient is always sent a completion / partial-completion / refusal letter within the DPDP 30-day SLA; overdue requests escalate to the DPO.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>GOVERNANCE</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Compliance calendar</div>
+      <div class="nav-item">Access log review <span class="nav-badge">14</span></div>
+      <div class="nav-item">Emergency access <span class="nav-badge red">3</span></div>
+      <div class="nav-item active">Deletion requests <span class="nav-badge">6</span></div>
+      <div class="nav-item">Grievances</div>
+      <div class="nav-item">Incidents</div>
+      <div class="sec-label">Registers</div>
+      <div class="nav-item">Legal holds</div>
+      <div class="nav-item">Evidence vault</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Governance › Deletion requests (DPDP erasure)</div>
+      <div class="page-title">Deletion requests — pipeline <span class="actions-right"><span class="btn small">Retention rules</span> <span class="btn small primary">Log new request</span></span></div>
+      <div class="page-sub">DPDP rights SLA: 30 days from receipt · overdue → auto-escalation to DPO Priya Sharma · retention: radiology 10y · billing 8y</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">6</div><div class="l">Open requests</div><div class="s">2 in assessment</div></div>
+        <div class="kpi"><div class="n">14</div><div class="l">Closed — 90 days</div><div class="s">9 partial · 3 executed · 2 refused</div></div>
+        <div class="kpi amber"><div class="n">1</div><div class="l">Execution failed</div><div class="s">retry queued · engineer task open</div></div>
+        <div class="kpi red"><div class="n">1</div><div class="l">SLA overdue</div><div class="s">escalated → DPO Priya Sharma</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Pipeline <span class="right">stage · SLA · owner</span></div>
+        <table>
+          <tr><th>Request</th><th>Patient</th><th>Stage</th><th>Scope summary</th><th>30-day SLA</th><th>Owner</th><th></th></tr>
+          <tr><td class="mono">DPDP-CR-00341<br><span class="small muted">recv 24 Jul · portal</span></td><td>Ananya Rao · MRN-004819</td><td><span class="chip grey">RECEIVED</span></td><td class="muted">identity check pending (Aadhaar OTP ••7719)</td><td><span class="chip teal">DUE 23 Aug</span></td><td>D. Nair</td><td><span class="btn small">Verify identity</span></td></tr>
+          <tr class="hl"><td class="mono">DPDP-CR-00332<br><span class="small muted">recv 12 Jul · in-branch</span></td><td>Sofia Rossi · MRN-004822</td><td><span class="chip blue">ASSESSED</span></td><td>delete-now 3 sets · retention-held 2 · legal hold 0</td><td><span class="chip teal">DUE 11 Aug</span></td><td>Dr. A. Rao</td><td><span class="btn small primary">Open assessment</span></td></tr>
+          <tr><td class="mono">DPDP-CR-00329<br><span class="small muted">recv 08 Jul · email</span></td><td>Mohammed Al-Rashid · MRN-004790</td><td><span class="chip violet">APPROVED — awaiting 2nd approver</span></td><td>delete-now 4 sets · retention-held 2 · hold <span class="mono">LH-2026-018</span></td><td><span class="chip teal">DUE 07 Aug</span></td><td>Dr. A. Rao · 2nd: Priya Sharma</td><td><span class="btn small">Co-approve</span></td></tr>
+          <tr><td class="mono">DPDP-CR-00325<br><span class="small muted">recv 30 Jun · portal</span></td><td>Rajesh Gupta · MRN-004795</td><td><span class="chip red">EXECUTION FAILED</span></td><td>marketing + portal sets failed at PACS de-link step</td><td><span class="chip amber">DUE 30 Jul (5d)</span></td><td>K. Verma · eng: IMP-2026-114</td><td><span class="btn small warn-outline">Retry / detail</span></td></tr>
+          <tr><td class="mono">DPDP-CR-00318<br><span class="small muted">recv 19 Jun · portal</span></td><td>N. Fernandes · MRN-004501</td><td><span class="chip blue">ASSESSED</span></td><td>refusal draft — active legal hold <span class="mono">LH-2026-011</span> covers full record</td><td><span class="chip red">OVERDUE 6d · escalated → DPO Priya Sharma</span></td><td>Dr. A. Rao</td><td><span class="btn small">Open</span></td></tr>
+          <tr><td class="mono">DPDP-CR-00311<br><span class="small muted">recv 10 Jun · in-branch</span></td><td>S. Kaur · MRN-004488</td><td><span class="chip grey">IDENTITY CHECK FAILED</span></td><td class="muted">2 OTP failures + name mismatch → request paused, requester re-contacted</td><td><span class="chip grey">CLOCK PAUSED</span></td><td>D. Nair</td><td><span class="btn small ghost">Open</span></td></tr>
+        </table>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Recently closed <span class="right">patient-notified confirmations</span></div>
+          <table>
+            <tr><th>Request</th><th>Outcome</th><th>Patient notified</th></tr>
+            <tr><td class="mono">DPDP-CR-00307</td><td><span class="chip green">EXECUTED</span> — full erasure (no retention class applied)</td><td>Letter + SMS 14 Jul · delivery confirmed · ack 15 Jul</td></tr>
+            <tr><td class="mono">DPDP-CR-00302</td><td><span class="chip amber">PARTIAL</span> — radiology held to 2033, billing to 2031</td><td>Partial-completion letter 08 Jul · delivery confirmed</td></tr>
+            <tr><td class="mono">DPDP-CR-00296</td><td><span class="chip red">REFUSED</span> — legal hold <span class="mono">LH-2026-009</span> (consumer case)</td><td>Refusal letter 01 Jul · DPB complaint rights included</td></tr>
+          </table>
+        </div>
+        <div class="card" style="width:300px">
+          <div class="card-title">Identity-check-failed path</div>
+          <div class="check"><span class="box on">✓</span><span>3 attempts max (OTP to registered mobile / Aadhaar last-4 match).</span></div>
+          <div class="check"><span class="box on">✓</span><span>On failure: SLA clock pauses, requester re-contacted via registered channel only.</span></div>
+          <div class="check"><span class="box on">✓</span><span>No record details are confirmed or denied to an unverified requester.</span></div>
+          <div class="check"><span class="box on">✓</span><span>Unresolved after 30 days → closed "identity not established", letter to registered address.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — Assessment detail (DPDP-CR-00332 · Sofia Rossi) · what deletes vs what is held</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Governance › Deletion requests › DPDP-CR-00332</div>
+      <div class="page-title">DPDP-CR-00332 — assessment <span class="chip blue">ASSESSED</span></div>
+      <div class="page-sub">Sofia Rossi · MRN-004822 · received 12 Jul · identity verified 13 Jul (OTP + Aadhaar ••4417) · SLA due 11 Aug</div>
+      <div class="stepper">
+        <div class="step done"><span class="dot">✓</span>Received</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span>Identity verified</div><span class="step-line"></span>
+        <div class="step cur"><span class="dot">3</span>Assessed</div><span class="step-line"></span>
+        <div class="step"><span class="dot">4</span>Approved (4-eyes)</div><span class="step-line"></span>
+        <div class="step"><span class="dot">5</span>Executed &amp; notified</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Data-set assessment <span class="right">assessed by Dr. A. Rao · 22 Jul</span></div>
+        <table>
+          <tr><th>Data set</th><th>Records</th><th>Disposition</th><th>Basis / keep-until</th></tr>
+          <tr><td>Marketing preferences &amp; campaign history</td><td>28</td><td><span class="chip green">DELETE NOW</span></td><td>Consent withdrawn; no statutory retention</td></tr>
+          <tr><td>Patient-portal account, saved devices, notification tokens</td><td>1 account</td><td><span class="chip green">DELETE NOW</span></td><td>Service no longer wanted</td></tr>
+          <tr><td>Appointment reminders &amp; DLT SMS delivery logs</td><td>64</td><td><span class="chip green">DELETE NOW</span></td><td>Beyond 90-day operational window</td></tr>
+          <tr><td>Radiology studies, reports &amp; dose records (3 studies incl. CT abdomen 02 Mar 2026)</td><td>3 studies</td><td><span class="chip amber">RETENTION-HELD</span></td><td>Radiology records 10y → <b>keep until 02 Mar 2036</b>; access restricted to statutory purposes</td></tr>
+          <tr><td>Invoices &amp; payment records (GSTIN 27AAACM1234K1Z5)</td><td>5 invoices</td><td><span class="chip amber">RETENTION-HELD</span></td><td>Billing 8y → <b>keep until 31 Mar 2034</b> (FY-end aligned)</td></tr>
+          <tr><td>Legal-hold check</td><td>—</td><td><span class="chip grey">NONE</span></td><td>No matching hold in register (checked 22 Jul 10:14)</td></tr>
+        </table>
+      </div>
+      <div class="banner warn"><b>Retention-held data is locked, not kept in use.</b> Held sets move to restricted storage: no operational access, no marketing, no analytics; auto-delete fires on the keep-until date and the deletion certificate is appended to this request.</div>
+      <div class="modal-wrap">
+        <div class="modal">
+          <h3>Approve for execution — irreversible</h3>
+          <div class="banner danger" style="margin-bottom:10px"><b>This action permanently destroys the delete-now sets.</b> Execution cannot be undone. Four-eyes approval and step-up identity are mandatory.</div>
+          <dl class="kv">
+            <dt>1st approver</dt><dd>Dr. A. Rao (Privacy Officer) — <b>you</b></dd>
+            <dt>2nd approver</dt><dd>Priya Sharma (DPO) — will be requested after you sign</dd>
+          </dl>
+          <div class="field"><label>Step-up identity confirmation <span class="req">*</span></label><div class="input mono">Passkey touch or OTP to ••••• 8821</div><div class="hint">Approval is signed against your verified identity; the signature hash is stored with the request.</div></div>
+          <div class="check"><span class="box on">✓</span><span>I confirm the assessment above, including keep-until dates 02 Mar 2036 (radiology) and 31 Mar 2034 (billing).</span></div>
+          <div class="modal-actions"><span class="btn">Back to assessment</span><span class="btn danger">Sign approval → request 2nd approver</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — Partial-completion letter preview (sent to patient on execution)</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:640px">
+    <h3>Letter preview — partial completion · DPDP-CR-00332</h3>
+    <div class="card" style="background:#F8FAFC">
+      <p class="small" style="margin-bottom:8px"><b>Meridian Diagnostics Pvt Ltd</b> · GSTIN 27AAACM1234K1Z5 · Grievance/DPO: Priya Sharma, dpo@meridiandx.in</p>
+      <p class="small" style="margin-bottom:8px">Dear Ms. Rossi,</p>
+      <p class="small" style="margin-bottom:8px">Regarding your erasure request <b>DPDP-CR-00332</b> (received 12 July 2026): we have <b>deleted</b> your marketing preferences and campaign history, your patient-portal account and its devices, and reminder/SMS delivery logs, effective the execution date.</p>
+      <p class="small" style="margin-bottom:8px">We are <b>required by law to retain</b>: (1) your radiology studies, reports and radiation-dose records until <b>02 March 2036</b> (10-year medical-records retention); (2) your invoices and payment records until <b>31 March 2034</b> (8-year tax retention). These are moved to restricted storage, used only where the law requires, and will be automatically deleted on the dates above — you will receive a confirmation when that happens.</p>
+      <p class="small" style="margin-bottom:0">If you are dissatisfied, you may escalate to our Privacy Officer (Dr. A. Rao) or complain to the <b>Data Protection Board of India</b>. This letter and its delivery receipt are retained as proof of compliance.</p>
+    </div>
+    <dl class="kv" style="margin-top:10px">
+      <dt>Channels</dt><dd>Registered email + SMS (DLT template DPDP-DEL-04) + patient-portal copy (portal deleted → email only)</dd>
+      <dt>Delivery proof</dt><dd>Stored with request · patient-notified confirmation required before request closes as <span class="chip amber">PARTIAL</span></dd>
+    </dl>
+    <div class="modal-actions"><span class="btn">Edit letter</span><span class="btn primary">Queue letter (sends on execution)</span></div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE D — Execution failed (DPDP-CR-00325) · retry + engineer task</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Governance › Deletion requests › DPDP-CR-00325</div>
+      <div class="page-title">DPDP-CR-00325 — execution failed <span class="chip red">EXECUTION FAILED</span></div>
+      <div class="page-sub">Rajesh Gupta · MRN-004795 · approved 22 Jul (Dr. A. Rao + Priya Sharma) · SLA due 30 Jul <span class="chip amber">5 DAYS LEFT</span></div>
+      <div class="banner danger"><b>Execution run #2 failed at step 4 of 6 — PACS de-link.</b> Error <span class="mono">PACS-409: study reference still pinned by prefetch cache (node blr-pacs-02)</span>. Marketing + portal sets (steps 1–3) deleted successfully and are certified; nothing was partially deleted inside the failed step (transactional). Engineer task <span class="mono">IMP-2026-114</span> opened, owner Infra on-call, priority P2, linked to this request. The patient has <b>not</b> yet been notified — notification is held until execution completes or the DPO approves an interim notice.</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Execution steps</div>
+          <div class="ladder">
+            <div class="tier done"><b>1 · Marketing &amp; campaign data</b> <span class="chip green">DELETED</span> <span class="small muted">cert del-9a44f2 · 23 Jul 02:10</span></div>
+            <div class="tier done"><b>2 · Portal account &amp; tokens</b> <span class="chip green">DELETED</span> <span class="small muted">cert del-9a44f3</span></div>
+            <div class="tier done"><b>3 · SMS/reminder logs</b> <span class="chip green">DELETED</span> <span class="small muted">cert del-9a44f4</span></div>
+            <div class="tier fail"><b>4 · PACS de-link of withdrawn-consent research copies</b> <span class="chip red">FAILED ×2</span> <span class="small muted">PACS-409 · last try 24 Jul 02:00</span></div>
+            <div class="tier"><b>5 · Move retention-held sets to restricted storage</b> <span class="small muted">blocked by step 4</span></div>
+            <div class="tier"><b>6 · Patient notification + closure certificate</b> <span class="small muted">held</span></div>
+          </div>
+        </div>
+        <div class="card" style="width:320px">
+          <div class="card-title">Recovery</div>
+          <dl class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Engineer task</dt><dd><span class="mono">IMP-2026-114</span> · Infra on-call · P2 · ETA 26 Jul</dd>
+            <dt>Auto-retry</dt><dd>Next run 26 Jul 02:00 IST (nightly window)</dd>
+            <dt>SLA risk</dt><dd><span class="chip amber">5 days to 30 Jul</span> · if slips past 28 Jul → escalate to DPO Priya Sharma per GOV-ESC-02</dd>
+            <dt>Re-approval</dt><dd>Not required for retry — original 4-eyes approval covers identical scope; any scope change voids it</dd>
+          </dl>
+          <span class="btn small primary" style="width:100%;margin-bottom:6px">Retry now (logged)</span>
+          <span class="btn small" style="width:100%;margin-bottom:6px">Open IMP-2026-114</span>
+          <span class="btn small warn-outline" style="width:100%">Ask DPO to approve interim notice</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Identity checks (pass/fail, channel), assessments, both approver signatures with step-up method, each execution step with deletion certificate hashes, retries, engineer-task links and patient-notification delivery proofs are recorded in the access log.</p>
+</section>

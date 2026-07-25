@@ -1,0 +1,140 @@
+<section class="screen" id="ir-04">
+<div class="screen-head"><h1><span class="sid">IR-04</span> Corrections &amp; resubmission</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Once a month is acknowledged its Form F records are immutable, so any error is remedied through a correction record: it links the original FF, classifies the error against a reason taxonomy, and queues the correction for inclusion in the next monthly submission. The system generates a correction letter for the Appropriate Authority and maintains a register of corrections with authority responses. Creating a correction requires step-up identity confirmation plus a second approver (four-eyes: Dr. A. Rao, Privacy Officer).</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West (PNDT Regn MH/AND/PNDT/0142)</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">PC-PNDT</div>
+    <div class="nav-item">Form F register</div>
+    <div class="nav-item">Monthly submission</div>
+    <div class="nav-item">Submissions &amp; acks</div>
+    <div class="nav-item active">Corrections <span class="nav-badge">2</span></div>
+    <div class="sec-label">AERB</div>
+    <div class="nav-item">Equipment licences</div>
+    <div class="nav-item">Dose registry</div>
+    <div class="sec-label">Governance</div>
+    <div class="nav-item">Registrations</div>
+    <div class="nav-item">Audit trail</div>
+  </div>
+  <div class="main"><div class="crumb">Regulatory › PC-PNDT › Corrections › New correction</div>
+  <div class="page-title">Create correction record — COR-2026-0032 (draft)</div>
+  <div class="page-sub">A correction never edits the original: it creates a linked, superseding record. The original FF stays sealed and visible with a "corrected-by" pointer.</div>
+  <div class="stepper">
+    <div class="step done"><span class="dot">1</span> Link original</div><span class="step-line"></span>
+    <div class="step cur"><span class="dot">2</span> Classify &amp; correct</div><span class="step-line"></span>
+    <div class="step"><span class="dot">3</span> Four-eyes approval</div><span class="step-line"></span>
+    <div class="step"><span class="dot">4</span> Queue for next submission</div>
+  </div>
+  <div class="split">
+    <div>
+      <div class="card">
+        <div class="card-title">Original record (locked)</div>
+        <dl class="kv">
+          <dt>Original FF</dt><dd class="mono">FF-2026-01722 <span class="chip teal">🔏 IMMUTABLE</span></dd>
+          <dt>Patient</dt><dd>R••••i T••••e · MRN-004489 (unmask requires logged reason)</dd>
+          <dt>Procedure</dt><dd>USG Obstetric — dating scan · 09-Jun-2026 · Dr. V. Shetty</dd>
+          <dt>Filed in</dt><dd>SUB-2026-06-AND · ack MH/AA/2026/0713 dated 04-Jul-2026</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <div class="card-title">Correction details</div>
+        <div class="field"><label>Reason (taxonomy) <span class="req">*</span></label>
+          <select class="select"><option>DATA-03 · Clinical data error — gestational age recorded incorrectly</option></select>
+          <div class="hint">Taxonomy: DATA-01 patient demographics · DATA-02 referrer details · DATA-03 clinical data · DOC-01 signature/declaration defect · PROC-01 wrong machine/doctor attribution · ADM-01 duplicate record · ADM-02 record omitted from batch (late entry)</div>
+        </div>
+        <div class="field"><label>Field(s) corrected <span class="req">*</span></label><input class="input" value="Col. 10 — Period of gestation: 11 weeks 2 days → 12 weeks 2 days"></div>
+        <div class="field"><label>Narrative for authority <span class="req">*</span></label><div class="textarea">Transcription error at data entry; source report by Dr. V. Shetty correctly states 12 weeks 2 days (report REP-2026-11834, signed 09-Jun-2026). No clinical or eligibility impact; no change to indication or declaration.</div></div>
+        <div class="field"><label>Evidence attached</label><div class="check"><span class="box on">✓</span> Signed report extract REP-2026-11834 (hash-stamped)</div><div class="check"><span class="box on">✓</span> Original FF-2026-01722 sealed copy</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <div class="card-title">Approvals — four-eyes required</div>
+        <div class="ladder">
+          <div class="tier done"><b>Initiator</b> — K. Verma (org admin) · identity confirmed 09-Jul 15:41 IST (password + OTP)</div>
+          <div class="tier cur"><b>Second approver</b> — Dr. A. Rao (Privacy Officer) · <span class="chip amber">PENDING</span> · SLA <span class="chip teal">DUE 11-Jul</span></div>
+        </div>
+        <div class="small muted">Initiator and approver must be different people; the system blocks self-approval. Rejection returns the draft with comments.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">What happens next</div>
+        <div class="check"><span class="box on">✓</span> Correction joins the <b>next submission queue</b> (July batch or later)</div>
+        <div class="check"><span class="box on">✓</span> Correction letter auto-generated for AA</div>
+        <div class="check"><span class="box on">✓</span> Original FF flagged "corrected by COR-2026-0032"</div>
+        <div class="check"><span class="box">&nbsp;</span> Authority response tracked in corrections register</div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-wrap">
+    <div class="modal">
+      <h3>Submit for second approval</h3>
+      <p class="small" style="margin-bottom:10px">Corrections amend an acknowledged statutory filing and are irreversible once included in a submission. Dr. A. Rao (Privacy Officer) will be asked to independently review the evidence.</p>
+      <div class="check"><span class="box on">✓</span> I confirm the correction narrative is accurate and the evidence is complete.</div>
+      <div class="modal-actions"><span class="btn">Back to draft</span><span class="btn primary">Send to Dr. A. Rao</span></div>
+    </div>
+  </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — QUEUED FOR NEXT SUBMISSION + CORRECTION LETTER</div>
+<div class="frame">
+  <div class="body"><div class="main">
+  <div class="crumb">Regulatory › PC-PNDT › Corrections › Queue</div>
+  <div class="page-title">Included-in-next-submission queue <span class="actions-right"><span class="btn primary small">Generate correction letters (2)</span></span></div>
+  <div class="banner info"><b>2 approved corrections will ride with the August 2026 batch (due 05-Sep-2026).</b> Each carries a correction letter on Meridian letterhead citing the original submission's ack reference. The queue freezes when the August build is generated in IR-03.</div>
+  <div class="card">
+    <div class="card-title">Queue — next submission: Aug 2026 · SUB-2026-08-AND (not yet built)</div>
+    <table>
+      <tr><th>Correction</th><th>Original FF</th><th>Reason</th><th>Approved by (four-eyes)</th><th>Letter</th><th>Status</th></tr>
+      <tr><td class="mono">COR-2026-0031</td><td class="mono">FF-2026-01722 <span class="small muted">(Jun batch · ack MH/AA/2026/0713)</span></td><td>DATA-03 · gestational age typo</td><td>K. Verma + Dr. A. Rao · 10-Jul</td><td><span class="chip green">GENERATED</span> LTR-2026-0148</td><td><span class="chip teal">QUEUED — AUG</span></td></tr>
+      <tr><td class="mono">COR-2026-0032</td><td class="mono">FF-2026-01703 <span class="small muted">(Jun batch · ack MH/AA/2026/0713)</span></td><td>DATA-02 · referrer regn no. wrong (Dr. Meera Nair)</td><td>K. Verma + Dr. A. Rao · 14-Jul</td><td><span class="chip amber">PENDING</span></td><td><span class="chip teal">QUEUED — AUG</span></td></tr>
+      <tr class="dim"><td class="mono">COR-2026-0029</td><td class="mono">FF-2026-01688 <span class="small muted">(May batch · ack MH/AA/2026/0621)</span></td><td>ADM-02 · record omitted (late entry)</td><td>K. Verma + Dr. A. Rao · 28-Jun</td><td><span class="chip green">GENERATED</span> LTR-2026-0139</td><td><span class="chip blue">SENT — JUL BATCH</span></td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <div class="card-title">Correction letter preview — LTR-2026-0148 <span class="right">Auto-generated · editable before four-eyes sign-off</span></div>
+    <div style="border:1px solid #E2E8F0;border-radius:8px;padding:14px 16px;background:#F8FAFC;font-size:12.5px">
+      <div class="bold">Meridian Diagnostics Pvt. Ltd. — Andheri West Centre · PNDT Regn MH/AND/PNDT/0142 · GSTIN 27AAACM1234K1Z5</div>
+      <div class="muted small" style="margin:4px 0 8px">To: The Appropriate Authority (PC-PNDT), Mumbai Suburban District · Date: 12-Jul-2026</div>
+      <div><b>Sub:</b> Correction to Form F No. FF-2026-01722 submitted in the June 2026 monthly statement (your acknowledgement MH/AA/2026/0713 dated 04-Jul-2026).</div>
+      <div style="margin-top:6px">Respected Sir/Madam, we wish to place on record a correction to column 10 (period of gestation) of the above Form F: "11 weeks 2 days" should read "12 weeks 2 days", owing to a transcription error at data entry. The signed sonography report of Dr. V. Shetty (RMC MH-44721) is enclosed as evidence. There is no change to the medical indication, declaration or any other particular. Kindly take the corrected Form F, enclosed herewith, on record.</div>
+      <div style="margin-top:8px" class="muted small">Enclosures: corrected Form F (COR-2026-0031) · report extract REP-2026-11834 · Sd/- K. Verma, Authorised Signatory · Countersigned: Dr. A. Rao, Privacy Officer</div>
+    </div>
+  </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — REGISTER OF CORRECTIONS WITH AUTHORITY RESPONSES</div>
+<div class="frame">
+  <div class="body"><div class="main">
+  <div class="crumb">Regulatory › PC-PNDT › Corrections › Register</div>
+  <div class="page-title">Corrections register — Andheri West <span class="actions-right"><span class="btn small">Export register (PDF)</span></span></div>
+  <div class="page-sub">Full lineage per correction: original FF → correction record → carrying submission → authority response. Register rows become immutable once the authority response is recorded.</div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">7</div><div class="l">Corrections · 2026 YTD</div><div class="s">rate 0.9% of 780 Form F</div></div>
+    <div class="kpi"><div class="n">4</div><div class="l">Accepted by AA</div><div class="s">taken on record</div></div>
+    <div class="kpi amber"><div class="n">2</div><div class="l">Awaiting response</div><div class="s">follow-up owner: K. Verma</div></div>
+    <div class="kpi red"><div class="n">1</div><div class="l">Query raised</div><div class="s">response due 05-Aug</div></div>
+  </div>
+  <div class="card">
+    <table>
+      <tr><th>Correction</th><th>Original FF</th><th>Reason</th><th>Sent with</th><th>Authority response</th><th>Lock</th></tr>
+      <tr><td class="mono">COR-2026-0031</td><td class="mono">FF-2026-01722</td><td>DATA-03 gestational age</td><td>Jul batch · SUB-2026-07-AND · 03-Aug</td><td><span class="chip amber">AWAITING</span> <span class="small muted">follow-up 20-Aug</span></td><td><span class="chip grey">OPEN</span></td></tr>
+      <tr><td class="mono">COR-2026-0029</td><td class="mono">FF-2026-01688</td><td>ADM-02 record omitted</td><td>Jul batch · SUB-2026-07-AND · 03-Aug</td><td><span class="chip amber">AWAITING</span></td><td><span class="chip grey">OPEN</span></td></tr>
+      <tr class="hl"><td class="mono">COR-2026-0024</td><td class="mono">FF-2026-01514</td><td>DOC-01 declaration re-signed</td><td>Jun batch · SUB-2026-06-AND · 03-Jul</td><td><span class="chip red">QUERY RAISED</span> <span class="small">AA letter 22-Jul: explain delay in obtaining signature · response owner K. Verma · <span class="chip amber">DUE 05-Aug</span> · escalated to Dr. A. Rao</span></td><td><span class="chip grey">OPEN</span></td></tr>
+      <tr><td class="mono">COR-2026-0019</td><td class="mono">FF-2026-01390</td><td>DATA-01 patient age typo</td><td>May batch · 04-Jun</td><td><span class="chip green">ACCEPTED</span> <span class="small muted">AA memo MH/AA/CORR/2026/044 · 18-Jun</span></td><td><span class="chip teal">🔏 IMMUTABLE</span></td></tr>
+      <tr><td class="mono">COR-2026-0014</td><td class="mono">FF-2026-01201</td><td>DATA-02 referrer regn</td><td>Apr batch · 02-May</td><td><span class="chip green">ACCEPTED</span> <span class="small muted">MH/AA/CORR/2026/031 · 19-May</span></td><td><span class="chip teal">🔏 IMMUTABLE</span></td></tr>
+      <tr><td class="mono">COR-2026-0011</td><td class="mono">FF-2026-01144</td><td>ADM-01 duplicate withdrawn</td><td>Mar batch · 06-Apr</td><td><span class="chip green">ACCEPTED</span> <span class="small muted">MH/AA/CORR/2026/022 · 24-Apr</span></td><td><span class="chip teal">🔏 IMMUTABLE</span></td></tr>
+      <tr><td class="mono">COR-2026-0008</td><td class="mono">FF-2026-01067</td><td>DATA-03 indication wording</td><td>Feb batch · 03-Mar</td><td><span class="chip green">ACCEPTED</span> <span class="small muted">MH/AA/CORR/2026/015 · 21-Mar</span></td><td><span class="chip teal">🔏 IMMUTABLE</span></td></tr>
+    </table>
+    <div class="small muted" style="margin-top:8px">Authority responses are uploaded and hash-stamped; a QUERY RAISED row opens a tracked response task with SLA and escalation (owner → org admin → Privacy Officer Dr. A. Rao). Corrections register retained 10 years with the Form F records.</div>
+  </div>
+  </div></div>
+</div>
+
+<p class="audit">Correction creation, taxonomy selection, evidence uploads, four-eyes approvals/rejections, letter generation and authority-response capture are all recorded in the access log.</p>
+</section>

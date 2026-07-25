@@ -1,0 +1,148 @@
+<section class="screen" id="ir-02">
+<div class="screen-head"><h1><span class="sid">IR-02</span> Monthly submission prep</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Prepares the centre's PC-PNDT Form F monthly filing: counts records by readiness, runs the full validation suite (patient signature, doctor PNDT validity, machine registration), and turns every failure into an owned fix-list item. The month cutoff is <b>scan date</b> — anything scanned in July files in the July batch regardless of when it was entered. A due-by-5th countdown drives escalation to the org admin and Privacy Officer if the batch risks going overdue.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West (PNDT Regn MH/AND/PNDT/0142)</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">PC-PNDT</div>
+    <div class="nav-item">Form F register <span class="nav-badge red">3</span></div>
+    <div class="nav-item active">Monthly submission</div>
+    <div class="nav-item">Submissions &amp; acks</div>
+    <div class="nav-item">Corrections</div>
+    <div class="sec-label">AERB</div>
+    <div class="nav-item">Equipment licences</div>
+    <div class="nav-item">Dose registry</div>
+    <div class="sec-label">Governance</div>
+    <div class="nav-item">Registrations</div>
+    <div class="nav-item">Audit trail</div>
+  </div>
+  <div class="main"><div class="crumb">Regulatory › PC-PNDT › Monthly submission › July 2026</div>
+  <div class="page-title">July 2026 submission prep <span class="actions-right"><span class="btn small">Re-run validation</span> <span class="btn primary small disabled">Proceed to generate (IR-03)</span></span></div>
+  <div class="page-sub">Month-cutoff rule: batch includes every Form F with <b>scan date 01–31 Jul 2026 (IST)</b>. Entry date, billing date and report sign-off date do not affect batch membership. Due to Appropriate Authority by <b>Tue 05 Aug 2026</b>.</div>
+  <div class="stepper">
+    <div class="step done"><span class="dot">1</span> Records captured</div><span class="step-line"></span>
+    <div class="step cur"><span class="dot">2</span> Validate &amp; fix</div><span class="step-line"></span>
+    <div class="step"><span class="dot">3</span> Generate file</div><span class="step-line"></span>
+    <div class="step"><span class="dot">4</span> Submit</div><span class="step-line"></span>
+    <div class="step"><span class="dot">5</span> Capture ack</div>
+  </div>
+  <div class="banner warn"><b>Due in 11 days — Tue 05 Aug 2026.</b> <span class="chip amber">T-11 DAYS</span> Owner: K. Verma (org admin). Auto-escalation: T-2 days → daily digest to K. Verma; T-0 missed → <b>OVERDUE</b> alert to K. Verma + Dr. A. Rao (Privacy Officer), logged as compliance exception.</div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">42</div><div class="l">In July batch</div><div class="s">scan-date basis</div></div>
+    <div class="kpi"><div class="n">37</div><div class="l">Ready</div><div class="s">all checks green</div></div>
+    <div class="kpi amber"><div class="n">3</div><div class="l">Needs attention</div><div class="s">blocking generation</div></div>
+    <div class="kpi"><div class="n">2</div><div class="l">In progress</div><div class="s">drafts — report unsigned</div></div>
+  </div>
+  <div class="split">
+    <div class="card">
+      <div class="card-title">Validation panel — every record must pass all checks <span class="right">Last run 25-Jul 09:12 IST</span></div>
+      <table>
+        <tr><th>Check</th><th>Rule</th><th>Result</th></tr>
+        <tr><td><b>Patient signature / declaration</b></td><td>Signed declaration present on every record (Sec 4(3))</td><td><span class="chip amber">41 / 42 ✓</span> <span class="small">FF-2026-01843 missing</span></td></tr>
+        <tr><td><b>Doctor PNDT registration valid</b></td><td>Performing doctor's PNDT regn valid on scan date, this centre</td><td><span class="chip green">42 / 42 ✓</span> <span class="small">Dr. S. Iyer MH/PNDT/2019/4471 · Dr. V. Shetty MH/PNDT/2021/6120</span></td></tr>
+        <tr><td><b>Machine registration</b></td><td>USG machine listed on centre's PC-PNDT registration MH/AND/PNDT/0142</td><td><span class="chip green">42 / 42 ✓</span> <span class="small">GE Voluson S8 (SN V8-22041) · Samsung HS40 (SN HS-19230)</span></td></tr>
+        <tr><td><b>Medical indication recorded</b></td><td>Col. 9 non-blank, from approved indication list</td><td><span class="chip amber">41 / 42 ✓</span> <span class="small">FF-2026-01839 blank</span></td></tr>
+        <tr><td><b>Referrer details</b></td><td>Referring doctor name + regn no. (col. 6) where referred</td><td><span class="chip amber">41 / 42 ✓</span> <span class="small">FF-2026-01835 missing</span></td></tr>
+        <tr><td><b>Report finalised</b></td><td>Procedure report signed by radiologist</td><td><span class="chip amber">40 / 42 ✓</span> <span class="small">2 drafts (FF-2026-01828, FF-2026-01851)</span></td></tr>
+        <tr><td><b>Tamper-evidence chain</b></td><td>Hash chain verifies across all 42 records</td><td><span class="chip green">CHAIN OK</span> <span class="small">verified 25-Jul 02:00</span></td></tr>
+        <tr><td><b>No sex-determination flags</b></td><td>No record contains prohibited disclosure indicators</td><td><span class="chip green">42 / 42 ✓</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Generation is blocked until every check is 42/42. Validation results are versioned and attached to the submission record.</div>
+    </div>
+    <div>
+      <div class="card">
+        <div class="card-title">Month cutoff</div>
+        <dl class="kv" style="grid-template-columns:110px 1fr">
+          <dt>Basis</dt><dd><b>Scan date</b> (IST)</dd>
+          <dt>Window</dt><dd>01-Jul 00:00 → 31-Jul 23:59</dd>
+          <dt>Late entries</dt><dd>A July scan entered in August still files in the July batch; if July is already acknowledged, it becomes a correction (IR-04)</dd>
+          <dt>Centre</dt><dd>Per-registration — Andheri West files separately from Powai (MH/POW/PNDT/0201)</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <div class="card-title">Due-by-5th countdown</div>
+        <div style="font-size:26px;font-weight:800">11 days <span class="chip teal" style="vertical-align:middle">ON TRACK</span></div>
+        <div class="progress" style="margin-top:8px"><i style="width:64%"></i></div>
+        <div class="small muted" style="margin-top:6px">Statutory: file by 5th of following month. Internal target: 02 Aug (buffer for portal outages / physical delivery).</div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Fix-list with owners <span class="right">3 blocking · 2 watch</span></div>
+    <table>
+      <tr><th>Item</th><th>FF Ref</th><th>Fix required</th><th>Owner</th><th>SLA</th><th>Escalated to</th></tr>
+      <tr><td>1</td><td class="mono">FF-2026-01843</td><td>Capture patient signature on declaration</td><td>D. Nair (front office)</td><td><span class="chip amber">DUE 30-Jul</span></td><td>—</td></tr>
+      <tr><td>2</td><td class="mono">FF-2026-01839</td><td>Record medical indication (col. 9)</td><td>Dr. V. Shetty</td><td><span class="chip amber">DUE 29-Jul</span></td><td>—</td></tr>
+      <tr><td>3</td><td class="mono">FF-2026-01835</td><td>Add referrer name/regn — Dr. Meera Nair</td><td>D. Nair (front office)</td><td><span class="chip red">OVERDUE 2d</span></td><td>K. Verma</td></tr>
+      <tr class="dim"><td>4</td><td class="mono">FF-2026-01828</td><td>Radiologist to sign report (draft)</td><td>Dr. V. Shetty</td><td><span class="chip teal">DUE 01-Aug</span></td><td>—</td></tr>
+      <tr class="dim"><td>5</td><td class="mono">FF-2026-01851</td><td>Radiologist to sign report (draft)</td><td>Dr. S. Iyer</td><td><span class="chip teal">DUE 01-Aug</span></td><td>—</td></tr>
+    </table>
+  </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ALL-READY GREEN (GENERATION UNBLOCKED)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+  <div class="crumb">Regulatory › PC-PNDT › Monthly submission › July 2026</div>
+  <div class="page-title">July 2026 submission prep <span class="actions-right"><span class="btn primary small">Proceed to generate (IR-03)</span></span></div>
+  <div class="banner success"><b>All 44 records ready — July 2026 batch may be generated.</b> Every validation passed at 02-Aug 08:30 IST. Two late-signed drafts joined the batch (scan-date basis). Generation will freeze this validation snapshot into the submission record.</div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">44</div><div class="l">In July batch</div><div class="s">2 late report sign-offs included</div></div>
+    <div class="kpi"><div class="n">44</div><div class="l">Ready</div><div class="s">8/8 checks green</div></div>
+    <div class="kpi"><div class="n">0</div><div class="l">Needs attention</div><div class="s">fix-list cleared 01-Aug</div></div>
+    <div class="kpi"><div class="n">3 days</div><div class="l">To statutory due</div><div class="s">05 Aug · <span class="chip teal">ON TRACK</span></div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Validation panel <span class="right">Run 02-Aug 08:30 IST · snapshot v4</span></div>
+    <table>
+      <tr><th>Check</th><th>Result</th></tr>
+      <tr><td>Patient signature / declaration</td><td><span class="chip green">44 / 44 ✓</span></td></tr>
+      <tr><td>Doctor PNDT registration valid on scan date</td><td><span class="chip green">44 / 44 ✓</span></td></tr>
+      <tr><td>Machine registration on MH/AND/PNDT/0142</td><td><span class="chip green">44 / 44 ✓</span></td></tr>
+      <tr><td>Medical indication · referrer details · report finalised</td><td><span class="chip green">44 / 44 ✓</span></td></tr>
+      <tr><td>Tamper-evidence chain</td><td><span class="chip green">CHAIN OK</span></td></tr>
+    </table>
+    <div style="margin-top:10px"><span class="btn primary">Proceed to generate submission file →</span> <span class="small muted">Requires identity confirmation at submission step (IR-03).</span></div>
+  </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — OVERDUE RED (PAST THE 5TH, ESCALATED)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+  <div class="crumb">Regulatory › PC-PNDT › Monthly submission › July 2026</div>
+  <div class="page-title">July 2026 submission prep <span class="chip red" style="vertical-align:middle">OVERDUE</span></div>
+  <div class="banner danger"><b>Statutory deadline missed — 2 days overdue (due 05 Aug 2026).</b> <span class="chip red">OVERDUE 2d</span> Escalated 05-Aug 18:00 IST to K. Verma (org admin) and Dr. A. Rao (Privacy Officer); daily reminders until filed. Compliance exception CE-2026-0114 opened automatically — closure requires filing evidence plus a reason narrative, reviewed by Dr. A. Rao (four-eyes).</div>
+  <div class="kpi-row">
+    <div class="kpi red"><div class="n">−2d</div><div class="l">Past due</div><div class="s">due 05 Aug · today 07 Aug</div></div>
+    <div class="kpi amber"><div class="n">1</div><div class="l">Blocking item</div><div class="s">FF-2026-01843 signature</div></div>
+    <div class="kpi"><div class="n">43 / 44</div><div class="l">Ready</div><div class="s">generation blocked</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Escalation ladder — CE-2026-0114</div>
+    <div class="ladder">
+      <div class="tier done"><b>T-2 (03 Aug)</b> — daily digest to owner K. Verma · <span class="small muted">sent 03-Aug 08:00</span></div>
+      <div class="tier done"><b>T-0 missed (05 Aug 18:00)</b> — OVERDUE alert to K. Verma + Dr. A. Rao · compliance exception opened</div>
+      <div class="tier cur"><b>T+2 (today)</b> — daily reminder; blocking item owner D. Nair, escalated to K. Verma</div>
+      <div class="tier"><b>T+5</b> — flagged in monthly governance review pack; legal-hold assessment if authority notice received (ref pattern LH-2026-xxx)</div>
+    </div>
+    <div class="small muted">The overdue state, alerts and closure narrative are immutable audit entries; they cannot be deleted or edited after the fact.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">Blocking item</div>
+    <table>
+      <tr><th>FF Ref</th><th>Fix required</th><th>Owner</th><th>SLA</th><th>Escalated to</th></tr>
+      <tr class="hl"><td class="mono">FF-2026-01843</td><td>Patient signature on declaration — revisit booked 08-Aug 10:00</td><td>D. Nair</td><td><span class="chip red">OVERDUE 8d</span></td><td>K. Verma → Dr. A. Rao</td></tr>
+    </table>
+    <div style="margin-top:10px"><span class="btn danger small">File without record (not permitted — disabled)</span> <span class="small muted">Partial filing is not allowed; the batch files whole once the last record clears.</span></div>
+  </div>
+  </div></div>
+</div>
+
+<p class="audit">Validation runs, snapshot versions, countdown state changes, escalation notifications and compliance-exception lifecycle events are all recorded in the access log.</p>
+</section>

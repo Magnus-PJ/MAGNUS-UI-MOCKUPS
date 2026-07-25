@@ -1,0 +1,118 @@
+<section class="screen" id="ad-07">
+<div class="screen-head"><h1><span class="sid">AD-07</span> Referrer directory</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G12 Admin — workspace 'Admin'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office and admins maintain the directory of external referring doctors: registration number, verified phone, report-delivery preferences and referrer-portal account state. New referrers arriving on paper referrals land in a pending queue until verified (registration lookup + proof); duplicates created at the counter are cleaned up with a merge tool that preserves referral history.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Organisation</div>
+    <div class="nav-item">Branches &amp; centres</div>
+    <div class="nav-item">Users &amp; roles</div>
+    <div class="nav-item">Practitioner profiles</div>
+    <div class="nav-item active">Referrer directory <span class="nav-badge">4</span></div>
+    <div class="sec-label">Equipment</div>
+    <div class="nav-item">Modalities &amp; equipment</div>
+    <div class="nav-item">Compliance registry</div>
+    <div class="sec-label">Privacy</div>
+    <div class="nav-item">Consent notices</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Admin › Organisation › Referrer directory</div>
+    <div class="page-title">Referrer directory <span class="actions-right"><span class="btn small">Pending queue (4)</span> <span class="btn small">Find duplicates</span> <span class="btn primary small">+ Add referrer</span></span></div>
+    <div class="page-sub">External referring doctors. Reports are released to a referrer only via their verified channel or portal account — never to unverified numbers.</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">312</div><div class="l">Active referrers</div><div class="s">across all branches</div></div>
+      <div class="kpi"><div class="n">241</div><div class="l">Verified</div><div class="s">reg. no. + phone confirmed</div></div>
+      <div class="kpi amber"><div class="n">4</div><div class="l">Pending verification</div><div class="s">from paper referrals</div></div>
+      <div class="kpi amber"><div class="n">2</div><div class="l">Possible duplicates</div><div class="s">merge suggested</div></div>
+    </div>
+    <div class="card"><div class="card-title">Referrers <span class="right">Search: "nair" · sort: recent referrals</span></div>
+    <table>
+      <tr><th>Referrer</th><th>Reg. no.</th><th>Phone</th><th>Delivery prefs</th><th>Portal account</th><th>Referrals (90d)</th><th>Status</th><th></th></tr>
+      <tr class="hl"><td><b>Dr. Meera Nair</b><br><span class="small muted">Gen. physician · Nair Clinic, Andheri (W)</span></td><td class="mono">MMC 2009/04122 <span class="chip green">verified</span></td><td>+91 98••• ••204 <span class="chip green">verified</span></td><td>Portal + SMS link (DLT tpl <span class="mono">1107-RPTRDY</span>)</td><td><span class="chip green">Active</span> · last login 22-Jul</td><td>64</td><td><span class="chip green">Verified</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr><td><b>Dr. A. Fernandes</b><br><span class="small muted">Orthopaedic · Lifeline Ortho, Vashi</span></td><td class="mono">MMC 2014/11873 <span class="chip green">verified</span></td><td>+91 99••• ••812 <span class="chip green">verified</span></td><td>Portal only (no SMS)</td><td><span class="chip green">Active</span> · last login 24-Jul</td><td>41</td><td><span class="chip green">Verified</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr><td><b>Dr. S. Qureshi</b><br><span class="small muted">Gynaecologist · Noor Clinic, Kurla</span></td><td class="mono">MMC 2011/08541 <span class="chip green">verified</span></td><td>+91 98••• ••377 <span class="chip amber">re-verify due</span></td><td>SMS link + printed copy via patient</td><td><span class="chip grey">Invited 12-Jul · not accepted</span></td><td>28</td><td><span class="chip green">Verified</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr><td><b>Dr. Meera P. Nair</b><br><span class="small muted">— clinic unknown · created at Vashi counter</span></td><td class="mono">— missing</td><td>+91 98••• ••204 <span class="chip grey">unverified</span></td><td>Default (portal invite pending)</td><td><span class="chip grey">None</span></td><td>3</td><td><span class="chip amber">Duplicate? → of Dr. Meera Nair</span></td><td><span class="btn ghost small">Merge…</span></td></tr>
+      <tr><td><b>Dr. H. Deshpande</b><br><span class="small muted">Neurologist · BrainCare Centre, Thane</span></td><td class="mono">MMC 2006/02290 <span class="chip green">verified</span></td><td>+91 97••• ••651 <span class="chip green">verified</span></td><td>Portal + email (report link, no attachment)</td><td><span class="chip green">Active</span> · last login 20-Jul</td><td>22</td><td><span class="chip green">Verified</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr class="dim"><td><b>Dr. B. Salunkhe</b><br><span class="small muted">GP · Salunkhe Clinic, Dombivli</span></td><td class="mono">MMC 2001/00918</td><td>+91 94••• ••110 <span class="chip grey">unverified</span></td><td>—</td><td><span class="chip grey">None</span></td><td>0</td><td><span class="chip grey">Inactive (18m no referral)</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr><td><b>“Dr. Patil” (paper referral)</b><br><span class="small muted">illegible letterhead · scanned slip attached</span></td><td class="mono">— unknown</td><td>— none on file</td><td>— blocked until verified</td><td><span class="chip grey">None</span></td><td>1</td><td><span class="chip amber">Pending verification</span></td><td><span class="btn ghost small">Verify…</span></td></tr>
+    </table>
+    <div class="small muted" style="margin-top:8px">Delivery to a referrer requires: <span class="chip green">verified</span> phone (OTP confirmed) or an active portal account. Referral-fee / incentive fields do not exist in Magnus — Meridian policy and NMC ethics prohibit referral incentives.</div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — Verify referrer modal (registration lookup + proof + phone OTP)</div>
+<div class="modal-wrap"><div class="modal" style="max-width:620px">
+  <h3>Verify referrer — Dr. S. Qureshi</h3>
+  <div class="stepper"><div class="step done"><span class="dot">✓</span> Registration</div><span class="step-line"></span><div class="step cur"><span class="dot">2</span> Proof</div><span class="step-line"></span><div class="step"><span class="dot">3</span> Phone OTP</div><span class="step-line"></span><div class="step"><span class="dot">4</span> Confirm</div></div>
+  <div class="field"><label>Council registration number <span class="req">*</span></label><input class="input" value="MMC 2011/08541">
+  <div class="hint">Checked against NMC/State Medical Council public register on 25-Jul-2026 14:22 IST — name and qualification matched: <b>Dr. Shabana Qureshi, MD (Obst &amp; Gyn), Maharashtra Medical Council</b>. Register lookup is advisory; keep proof on file.</div></div>
+  <div class="field"><label>Proof document <span class="req">*</span></label>
+    <div class="banner success" style="margin-bottom:0"><b>mmc_certificate_qureshi.pdf uploaded</b> 212 KB · SHA-256 recorded · visible to org admins only. Proof documents are retained for the life of the referrer record + 1y.</div>
+  </div>
+  <div class="field"><label>Verified phone</label><input class="input" value="+91 98••• ••377"><div class="hint">An OTP will be sent in step 3 (DLT template <span class="mono">1107-REFVRFY</span>). The number becomes the release channel for report-ready links.</div></div>
+  <div class="check"><span class="box on">✓</span> I confirm the proof matches the registration entry (verifier: K. Verma, org admin)</div>
+  <div class="modal-actions"><span class="btn">Back</span><span class="btn small">Save &amp; verify later</span><span class="btn primary">Send OTP →</span></div>
+</div></div>
+<p class="small muted" style="margin:6px 2px 0">Verification records verifier identity and evidence hash. A referrer verified by front office (D. Nair) still requires org-admin countersign before portal access is enabled.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — Unknown-referrer pending queue (from paper referrals)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Organisation</div>
+    <div class="nav-item active">Referrer directory <span class="nav-badge">4</span></div>
+    <div class="nav-item">Practitioner profiles</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Admin › Referrer directory › Pending verification queue</div>
+    <div class="page-title">Unknown / unverified referrers</div>
+    <div class="page-sub">Created from paper referrals at the counter. Orders proceed, but report delivery to the referrer is held until verification. SLA: resolve within 5 working days.</div>
+    <table>
+      <tr><th>Created</th><th>Name as written</th><th>Source</th><th>Linked orders</th><th>Captured by</th><th>SLA</th><th>Action</th></tr>
+      <tr><td class="mono">25-Jul 09:41</td><td>“Dr. Patil” — illegible letterhead</td><td>Paper slip scan <span class="btn ghost small">view</span> · walk-in Sofia Rossi <span class="mono">MRN-004822</span></td><td>1 (US Abdomen)</td><td>D. Nair (front office)</td><td><span class="chip teal">4d left</span> owner: D. Nair</td><td><span class="btn primary small">Verify…</span> <span class="btn small">Match existing</span></td></tr>
+      <tr><td class="mono">23-Jul 16:05</td><td>Dr. Anil Kotak, Kotak Polyclinic</td><td>Paper slip scan · Mohammed Al-Rashid <span class="mono">MRN-004790</span></td><td>2 (CT KUB, X-ray Chest)</td><td>D. Nair (front office)</td><td><span class="chip teal">2d left</span> owner: D. Nair</td><td><span class="btn primary small">Verify…</span> <span class="btn small">Match existing</span></td></tr>
+      <tr><td class="mono">21-Jul 11:20</td><td>Dr. Meera P. Nair (Vashi counter entry)</td><td>Counter-created record · 3 referrals</td><td>3</td><td>P. D'Souza (cashier)</td><td><span class="chip amber">Due today</span> owner: K. Verma</td><td><span class="btn primary small">Merge into Dr. Meera Nair…</span></td></tr>
+      <tr><td class="mono">17-Jul 10:02</td><td>“Referrer not stated” — self-request flag missing</td><td>Paper slip scan · Ananya Rao <span class="mono">MRN-004819</span></td><td>1 (MRI Knee)</td><td>D. Nair (front office)</td><td><span class="chip red">OVERDUE 3d</span> owner: D. Nair · escalated to: K. Verma</td><td><span class="btn small">Mark self-referred</span> <span class="btn primary small">Verify…</span></td></tr>
+    </table>
+    <div class="banner info" style="margin-top:10px"><b>Why delivery is held.</b> Sending report links to an unverified number risks disclosure to the wrong person (DPDP: purpose limitation, data minimisation). Patients always receive their own report regardless of referrer verification state.</div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE D — Dedupe merge (four-eyes, irreversible)</div>
+<div class="modal-wrap"><div class="modal" style="max-width:640px">
+  <h3>Merge duplicate referrers</h3>
+  <p class="small muted" style="margin-bottom:10px">Merging is irreversible. Referral history, delivery preferences and portal linkage move to the surviving record; the duplicate becomes a tombstone pointer.</p>
+  <div class="row">
+    <div class="grow"><div class="card" style="margin-bottom:0"><div class="card-title">Survivor <span class="chip green">keep</span></div>
+      <dl class="kv" style="grid-template-columns:96px 1fr">
+        <dt>Name</dt><dd><b>Dr. Meera Nair</b></dd>
+        <dt>Reg. no.</dt><dd class="mono">MMC 2009/04122 <span class="chip green">verified</span></dd>
+        <dt>Phone</dt><dd>+91 98••• ••204 <span class="chip green">verified</span></dd>
+        <dt>Portal</dt><dd><span class="chip green">Active</span></dd>
+        <dt>Referrals</dt><dd>64 (90d)</dd>
+      </dl>
+    </div></div>
+    <div class="grow"><div class="card" style="margin-bottom:0"><div class="card-title">Duplicate <span class="chip red">absorb</span></div>
+      <dl class="kv" style="grid-template-columns:96px 1fr">
+        <dt>Name</dt><dd>Dr. Meera P. Nair</dd>
+        <dt>Reg. no.</dt><dd class="mono">— missing</dd>
+        <dt>Phone</dt><dd>+91 98••• ••204 (same number)</dd>
+        <dt>Portal</dt><dd>None</dd>
+        <dt>Referrals</dt><dd>3 (90d) — will re-link to survivor</dd>
+      </dl>
+    </div></div>
+  </div>
+  <div class="banner info" style="margin-top:12px"><b>Match evidence:</b> identical phone number, name similarity 0.92, same clinic locality. 3 referrals (incl. ACC-2026-19102) will re-point to the survivor; the referrer portal will show them after merge.</div>
+  <div class="field"><label>Step-up identity confirmation <span class="req">*</span></label><input class="input" placeholder="Re-enter your Magnus password to confirm (K. Verma)"><div class="hint">Required for irreversible governance actions.</div></div>
+  <div class="field"><label>Second approver (four-eyes) <span class="req">*</span></label><select class="select"><option>Request approval: D. Nair — Front office lead</option></select><div class="hint">Merge executes only after the second approver confirms. Approver cannot be the initiator.</div></div>
+  <div class="modal-actions"><span class="btn">Cancel</span><span class="btn danger">Request merge approval</span></div>
+</div></div>
+<p class="audit">Referrer creation, verification (with evidence hash), delivery-preference changes, pending-queue resolutions and merges (initiator + second approver) are recorded in the access log.</p>
+</section>

@@ -1,0 +1,99 @@
+<section class="screen" id="ad-16">
+<div class="screen-head"><h1><span class="sid">AD-16</span> Number series registry</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G12 Admin — workspace 'Admin'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Central registry of every document numbering series in Magnus — MRN, accession, invoice, receipt, credit note, estimate, Form F, grievance and visit. Admins define format, per-branch prefixes and FY reset rules here; the system enforces a strict no-gap policy for fiscal documents. Retroactive edits to a live series are hard-blocked — the only path is to close the old series (it continues read-only) and start a new one from a cut-over date.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Administration</div>
+      <div class="nav-item">Admin dashboard</div>
+      <div class="nav-item">Users &amp; roles</div>
+      <div class="nav-item">Branch registry</div>
+      <div class="nav-item active">Number series</div>
+      <div class="nav-item">Feature toggles</div>
+      <div class="nav-item">Scheduled jobs <span class="nav-badge red">1</span></div>
+      <div class="nav-item">Announcements</div>
+      <div class="nav-item">Audit log</div>
+      <div class="sec-label">Compliance</div>
+      <div class="nav-item">Retention policies</div>
+      <div class="nav-item">Licence hub</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Admin › Configuration › Number series</div>
+      <div class="page-title">Number series registry <span class="actions-right"><span class="btn small">Export config (read-only)</span> <span class="btn primary small">+ New series</span></span></div>
+      <div class="page-sub">9 active series · 2 closed (read-only) · FY 2026-27 started 01 Apr 2026 · GSTIN 27AAACM1234K1Z5</div>
+      <div class="banner reg"><b>No-gap policy — fiscal documents</b>Invoice (INV), Receipt (RCP) and Credit note (CRN) series are gap-free by law: numbers are issued only at commit, never reserved. Voided documents keep their number and are shown struck-through in registers. GST rule 46(b) — consecutive serial per FY.</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">9</div><div class="l">Active series</div><div class="s">across 4 branches</div></div>
+        <div class="kpi"><div class="n">0</div><div class="l">Gaps detected</div><div class="s">last sweep 25 Jul, 02:00 IST</div></div>
+        <div class="kpi amber"><div class="n">1</div><div class="l">FY reset pending review</div><div class="s">EST — confirm before 31 Mar 2027</div></div>
+        <div class="kpi"><div class="n">2</div><div class="l">Closed (read-only)</div><div class="s">retained per policy — billing 8y</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Document series <span class="right">Next-number shown live · refreshed 10:42 IST</span></div>
+        <table>
+          <tr><th>Series</th><th>Document</th><th>Format preview</th><th>Branch prefix</th><th>FY reset</th><th>Next number</th><th>Gap policy</th><th>Status</th><th></th></tr>
+          <tr><td class="mono bold">MRN</td><td>Medical record no.</td><td class="mono">MRN-006241</td><td class="muted">— (org-wide, lifetime)</td><td>Never</td><td class="mono">MRN-006241</td><td><span class="chip grey">Gaps allowed</span></td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">View</span></td></tr>
+          <tr><td class="mono bold">ACC</td><td>Accession (radiology)</td><td class="mono">AND-CT-26-04471</td><td class="mono">AND / PWA / THN / KLY</td><td>FY (1 Apr)</td><td class="mono">AND-CT-26-04471</td><td><span class="chip grey">Gaps allowed</span></td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">View</span></td></tr>
+          <tr class="hl"><td class="mono bold">INV</td><td>Tax invoice (GST)</td><td class="mono">INV/AND/26-27/09912</td><td class="mono">AND / PWA / THN / KLY</td><td>FY (1 Apr)</td><td class="mono">INV/AND/26-27/09912</td><td><span class="chip red">No-gap enforced</span></td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">View</span></td></tr>
+          <tr><td class="mono bold">RCP</td><td>Payment receipt</td><td class="mono">RCP/AND/26-27/14503</td><td class="mono">AND / PWA / THN / KLY</td><td>FY (1 Apr)</td><td class="mono">RCP/AND/26-27/14503</td><td><span class="chip red">No-gap enforced</span></td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">View</span></td></tr>
+          <tr><td class="mono bold">CRN</td><td>Credit note</td><td class="mono">CRN/AND/26-27/00218</td><td class="mono">AND / PWA / THN / KLY</td><td>FY (1 Apr)</td><td class="mono">CRN/AND/26-27/00218</td><td><span class="chip red">No-gap enforced</span></td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">View</span></td></tr>
+          <tr><td class="mono bold">EST</td><td>Estimate / quote</td><td class="mono">EST-2026-03388</td><td class="muted">— (calendar year)</td><td>Calendar (1 Jan)</td><td class="mono">EST-2026-03388</td><td><span class="chip grey">Gaps allowed</span></td><td><span class="chip amber">Reset rule review</span></td><td><span class="btn ghost small">View</span></td></tr>
+          <tr><td class="mono bold">FF</td><td>Form F (PC-PNDT)</td><td class="mono">FF-2026-01184</td><td class="muted">— (centre reg. on doc)</td><td>Calendar (1 Jan)</td><td class="mono">FF-2026-01184</td><td><span class="chip red">No-gap enforced</span></td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">View</span></td></tr>
+          <tr><td class="mono bold">GRV</td><td>Grievance case</td><td class="mono">GRV-2026-0142</td><td class="muted">—</td><td>Calendar (1 Jan)</td><td class="mono">GRV-2026-0142</td><td><span class="chip grey">Gaps allowed</span></td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">View</span></td></tr>
+          <tr><td class="mono bold">VIS</td><td>Visit / episode</td><td class="mono">VIS-260725-0387</td><td class="muted">— (date-embedded)</td><td>Daily (00:00 IST)</td><td class="mono">VIS-260725-0387</td><td><span class="chip grey">Gaps allowed</span></td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">View</span></td></tr>
+          <tr class="dim"><td class="mono bold">INV-L</td><td>Tax invoice (legacy, pre-GST-split)</td><td class="mono">MI/2024/45610</td><td>—</td><td>FY (1 Apr)</td><td class="mono">closed at MI/2025/48112</td><td><span class="chip red">No-gap enforced</span></td><td><span class="chip grey">Closed · read-only</span></td><td><span class="btn ghost small">View</span></td></tr>
+        </table>
+      </div>
+      <div class="banner warn"><b>Retroactive changes are hard-blocked</b>Format, prefix and reset rules of a series lock permanently after its first document is issued. To change numbering, close the series at a cut-over date and open a successor series — the closed series remains queryable read-only for its full retention period (billing 8y, radiology 10y).</div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE B — ADD NEW SERIES (SUCCESSOR TO EST)</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:620px">
+    <h3>New number series</h3>
+    <div class="stepper">
+      <div class="step done"><span class="dot">✓</span> Document type</div><span class="step-line"></span>
+      <div class="step cur"><span class="dot">2</span> Format &amp; reset</div><span class="step-line"></span>
+      <div class="step"><span class="dot">3</span> Branch prefixes</div><span class="step-line"></span>
+      <div class="step"><span class="dot">4</span> Review &amp; activate</div>
+    </div>
+    <div class="row">
+      <div class="grow">
+        <div class="field"><label>Series code <span class="req">*</span></label><input class="input mono" value="EST2"><div class="hint">Immutable after activation. Successor of: EST (auto-closes 31 Mar 2027 23:59 IST).</div></div>
+        <div class="field"><label>Format mask <span class="req">*</span></label><input class="input mono" value="EST/{BR}/{FY}/{SEQ:5}"><div class="hint">Tokens: {BR} branch, {FY} 26-27, {CY} 2026, {SEQ:n} zero-padded counter.</div></div>
+      </div>
+      <div style="width:220px">
+        <div class="field"><label>Live preview</label><div class="input mono" style="background:#F8FAFC">EST/AND/27-28/00001</div></div>
+        <div class="field"><label>Reset rule <span class="req">*</span></label><select class="select"><option>Fiscal year (1 Apr) — selected</option></select></div>
+      </div>
+    </div>
+    <div class="field"><label>Gap policy</label>
+      <div class="check"><span class="box radio on"></span> Gaps allowed — number reserved at draft (operational documents)</div>
+      <div class="check"><span class="box radio"></span> No-gap enforced — number issued only at commit (fiscal documents: INV/RCP/CRN/FF)</div>
+    </div>
+    <div class="banner info"><b>Cut-over behaviour</b>EST continues issuing until 31 Mar 2027 23:59 IST, then flips to read-only. EST2 starts at 00001 on 1 Apr 2027. No documents are renumbered; cross-references are preserved.</div>
+    <div class="modal-actions"><span class="btn">Back</span><span class="btn">Save draft</span><span class="btn primary">Continue → Branch prefixes</span></div>
+  </div>
+</div>
+<p class="audit">Series draft EST2 created by K. Verma (Org Admin) · 25 Jul 2026 10:47 IST · activation will require a second approver (four-eyes) — recorded in the access log.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — CHANGE-GUARD ERROR: RETROACTIVE EDIT BLOCKED ON LIVE INV SERIES</div>
+<div class="modal-wrap">
+  <div class="modal danger" style="max-width:600px">
+    <h3>⛔ Change blocked — series INV is live</h3>
+    <div class="banner danger"><b>Retroactive change to an issued series is not permitted</b>Series <span class="mono">INV</span> has issued 9,911 documents this FY (last: <span class="mono">INV/AND/26-27/09911</span>, 25 Jul 2026 10:38 IST). Editing its format mask <span class="mono">INV/{BR}/{FY}/{SEQ:5}</span> would break the GST no-gap chain and invalidate filed returns.</div>
+    <div class="kv">
+      <dt>Attempted change</dt><dd>Format mask → <span class="mono">INV/{BR}/{FY}/{SEQ:6}</span> (pad to 6 digits)</dd>
+      <dt>Blocked because</dt><dd>Series locked at first issue (12 Apr 2026) · no-gap policy · GST rule 46(b)</dd>
+      <dt>Permitted path</dt><dd>Close INV at a cut-over date → create successor series (e.g. <span class="mono">INV2</span>). Old series continues read-only for 8y billing retention.</dd>
+      <dt>Approval needed</dt><dd>Successor activation requires four-eyes: K. Verma + one of Finance Controller / DPO Priya Sharma</dd>
+    </div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn ghost">View lock history</span><span class="btn primary">Start successor series instead</span></div>
+  </div>
+</div>
+<p class="audit">Blocked change attempt on series INV by K. Verma · 25 Jul 2026 10:52 IST · attempt, block reason and stack recorded in the access log; no series data was modified.</p>
+</section>

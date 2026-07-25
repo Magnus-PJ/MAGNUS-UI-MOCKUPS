@@ -1,0 +1,138 @@
+<section class="screen" id="gv-10">
+<div class="screen-head"><h1><span class="sid">GV-10</span> Privacy notices &amp; versions</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G14 Governance &amp; Compliance — workspace 'Governance'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single library for every DPDP privacy notice Meridian serves — patient notice, staff notice and outreach-camp notice — with per-language versioning, a side-by-side diff, and a controlled publish workflow (Privacy Officer approval → effective date → re-acknowledgement impact estimate). A where-shown map documents exactly which surfaces render each notice so auditors can trace notice-to-consent lineage.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>GOVERNANCE</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Privacy</div>
+    <div class="nav-item active">Privacy notices</div>
+    <div class="nav-item">Consent registry</div>
+    <div class="nav-item">Rights requests <span class="nav-badge">4</span></div>
+    <div class="sec-label">Risk &amp; vendors</div>
+    <div class="nav-item">DPIA-lite register</div>
+    <div class="nav-item">Processor register</div>
+    <div class="nav-item">Data residency</div>
+    <div class="sec-label">Oversight</div>
+    <div class="nav-item">Compliance calendar <span class="nav-badge red">2</span></div>
+    <div class="nav-item">Incidents</div>
+    <div class="nav-item">Access log</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Governance › Privacy › Notices</div>
+    <div class="page-title">Privacy notice library <span class="actions-right"><span class="btn small">Where-shown map</span> <span class="btn primary small">+ Draft new version</span></span></div>
+    <div class="page-sub">DPDP §5 notice obligations · owner: Dr. A. Rao (Privacy Officer) · escalation: Priya Sharma (DPO)</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">3</div><div class="l">Active notices</div><div class="s">Patient · Staff · Camp</div></div>
+      <div class="kpi"><div class="n">11</div><div class="l">Language variants</div><div class="s">EN · HI · MR · KN across notices</div></div>
+      <div class="kpi amber"><div class="n">1</div><div class="l">Draft pending PO approval</div><div class="s">Patient notice v4 (EN)</div></div>
+      <div class="kpi"><div class="n">92.4%</div><div class="l">Ack coverage (v3)</div><div class="s">Active patients acknowledged</div></div>
+    </div>
+    <div class="card"><div class="card-title">Notice library <span class="right">All versions · IST</span></div>
+      <table>
+        <tr><th>Notice</th><th>Version</th><th>Languages</th><th>Status</th><th>Effective</th><th>Approved by</th><th>Shown at</th><th></th></tr>
+        <tr class="hl"><td><b>Patient privacy notice</b></td><td class="mono">v4 (draft)</td><td>EN ready · HI, MR in translation</td><td><span class="chip amber">PO REVIEW</span></td><td class="muted">proposed 01 Aug 2026</td><td class="muted">—</td><td>Registration, patient portal, consent forms</td><td><span class="btn ghost small">Open diff</span></td></tr>
+        <tr><td>Patient privacy notice</td><td class="mono">v3</td><td>EN · HI · MR · KN</td><td><span class="chip green">ACTIVE</span></td><td>12 Feb 2026</td><td>Dr. A. Rao</td><td>Registration, patient portal, consent forms</td><td><span class="btn ghost small">View</span></td></tr>
+        <tr><td>Patient privacy notice</td><td class="mono">v2</td><td>EN · HI</td><td><span class="chip grey">SUPERSEDED</span></td><td>03 Sep 2025</td><td>Dr. A. Rao</td><td class="muted">archived — retained 10y with linked consents</td><td><span class="btn ghost small">View</span></td></tr>
+        <tr><td><b>Staff privacy notice</b></td><td class="mono">v2</td><td>EN · HI</td><td><span class="chip green">ACTIVE</span></td><td>20 Apr 2026</td><td>Dr. A. Rao</td><td>HR onboarding, staff self-service</td><td><span class="btn ghost small">View</span></td></tr>
+        <tr><td>Staff privacy notice</td><td class="mono">v1</td><td>EN</td><td><span class="chip grey">SUPERSEDED</span></td><td>02 Jan 2025</td><td>Dr. A. Rao</td><td class="muted">archived</td><td><span class="btn ghost small">View</span></td></tr>
+        <tr><td><b>Outreach camp notice</b></td><td class="mono">v1</td><td>EN · HI · MR</td><td><span class="chip green">ACTIVE</span></td><td>05 Jun 2026</td><td>Dr. A. Rao</td><td>Camp registration desk, camp consent slip (print)</td><td><span class="btn ghost small">View</span></td></tr>
+      </table>
+      <p class="small muted" style="margin-top:8px">Superseded versions are immutable and retained for 10 years alongside the consents captured against them (radiology record retention). Deleting a notice version is not supported by design.</p>
+    </div>
+    <div class="card"><div class="card-title">Where-shown map — Patient privacy notice v3 <span class="right">Surface lineage</span></div>
+      <table>
+        <tr><th>Surface</th><th>Module</th><th>Presentation</th><th>Ack captured?</th><th>Last verified</th></tr>
+        <tr><td>New patient registration</td><td>Front office (FO-02)</td><td>Full notice + summary panel, language selector</td><td><span class="chip green">YES — signature/OTP</span></td><td>18 Jul 2026 · D. Nair</td></tr>
+        <tr><td>Patient detail page</td><td>Front office (FO-05)</td><td>Footer link "Privacy notice v3"</td><td><span class="chip grey">VIEW ONLY</span></td><td>18 Jul 2026</td></tr>
+        <tr><td>Consent forms (imaging, contrast)</td><td>Radiology (RD-04)</td><td>Referenced by version ID on each form</td><td><span class="chip green">YES — bundled</span></td><td>15 Jul 2026</td></tr>
+        <tr><td>SMS appointment links (DLT)</td><td>Engage</td><td>Short link to hosted notice, template DLT-1107</td><td><span class="chip grey">VIEW ONLY</span></td><td>10 Jul 2026</td></tr>
+      </table>
+    </div>
+  </div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SIDE-BY-SIDE DIFF · v3 (active) vs v4 (draft), English</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Governance › Privacy › Notices › Patient notice › Diff v3 → v4</div>
+  <div class="page-title">Diff — Patient privacy notice <span class="chip grey">EN</span> <span class="actions-right"><span class="btn small">Switch language ▾</span> <span class="btn primary small">Send to PO approval</span></span></div>
+  <div class="page-sub">Draft v4 by K. Verma · 22 Jul 2026 14:05 IST · 3 sections changed, 1 added, 0 removed</div>
+  <div class="banner info"><b>Material change detected.</b> Section 4 adds a new processing purpose ("teleradiology second reads"). Publishing will require fresh acknowledgement from affected patients — see impact estimate in the publish step.</div>
+  <div class="row">
+    <div class="grow card"><div class="card-title">v3 — ACTIVE since 12 Feb 2026 <span class="right">Left</span></div>
+      <p class="small bold">3. Data we collect</p>
+      <p class="small" style="margin-bottom:10px">Identity and contact details, referral details, imaging and diagnostic records, and payment records (retained 8 years under GST rules).</p>
+      <p class="small bold">4. Purposes</p>
+      <p class="small" style="background:#FEE2E2;padding:6px 8px;border-radius:6px;margin-bottom:10px">We process your data to deliver diagnostic services, share reports with your referring doctor, and meet legal obligations (PC-PNDT, AERB, GST).</p>
+      <p class="small bold">5. Your rights</p>
+      <p class="small">You may access, correct, or ask for erasure of your data, and nominate a representative. We respond within 30 days as required by the DPDP Act.</p>
+      <p class="small muted" style="margin-top:10px">— (no section 6 equivalent) —</p>
+    </div>
+    <div class="grow card"><div class="card-title">v4 — DRAFT <span class="right">Right</span></div>
+      <p class="small bold">3. Data we collect</p>
+      <p class="small" style="margin-bottom:10px">Identity and contact details, referral details, imaging and diagnostic records, and payment records (retained 8 years under GST rules).</p>
+      <p class="small bold">4. Purposes</p>
+      <p class="small" style="background:#DCFCE7;padding:6px 8px;border-radius:6px;margin-bottom:10px">We process your data to deliver diagnostic services, share reports with your referring doctor, obtain <b>teleradiology second reads from our empanelled partner within India</b>, and meet legal obligations (PC-PNDT, AERB, GST).</p>
+      <p class="small bold">5. Your rights</p>
+      <p class="small">You may access, correct, or ask for erasure of your data, and nominate a representative. We respond within 30 days as required by the DPDP Act.</p>
+      <p class="small bold" style="margin-top:10px">6. Grievances <span class="chip green">NEW</span></p>
+      <p class="small" style="background:#DCFCE7;padding:6px 8px;border-radius:6px">Contact our Privacy Officer, Dr. A. Rao (privacy@meridiandx.in). If unresolved, you may complain to the Data Protection Board of India.</p>
+    </div>
+  </div>
+  <div class="card"><div class="card-title">Change summary <span class="right">Auto-generated</span></div>
+    <table>
+      <tr><th>Section</th><th>Change</th><th>Materiality</th><th>Consent impact</th></tr>
+      <tr><td>4. Purposes</td><td>Added purpose: teleradiology second reads (in-India processor)</td><td><span class="chip red">MATERIAL</span></td><td>Fresh ack required; new consent purpose row created in registry</td></tr>
+      <tr><td>6. Grievances</td><td>New section — PO contact + DPB escalation path</td><td><span class="chip amber">MODERATE</span></td><td>No re-consent; ack recommended</td></tr>
+      <tr><td>Footer</td><td>Version stamp v3 → v4, effective-date placeholder</td><td><span class="chip grey">EDITORIAL</span></td><td>None</td></tr>
+    </table>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — PUBLISH WORKFLOW · PO approval &amp; re-ack impact estimate</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Governance › Privacy › Notices › Patient notice v4 › Publish</div>
+  <div class="page-title">Publish — Patient privacy notice v4</div>
+  <div class="page-sub">Publishing replaces v3 on all mapped surfaces at the effective date. This action is versioned and cannot be silently rolled back.</div>
+  <div class="stepper">
+    <div class="step done"><span class="dot">✓</span> Draft &amp; diff</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Translations (HI, MR pending flagged)</div><span class="step-line"></span>
+    <div class="step cur"><span class="dot">3</span> PO approval</div><span class="step-line"></span>
+    <div class="step"><span class="dot">4</span> Effective date</div><span class="step-line"></span>
+    <div class="step"><span class="dot">5</span> Live + re-ack rollout</div>
+  </div>
+  <div class="row">
+    <div class="grow card"><div class="card-title">Re-acknowledgement impact estimate <span class="right">Computed 25 Jul 2026 09:10 IST</span></div>
+      <dl class="kv">
+        <dt>Patients on v3 ack</dt><dd><b>41,286</b> active patients (last visit ≤ 24 months)</dd>
+        <dt>Fresh ack required</dt><dd><b>41,286</b> — material purpose added (teleradiology second reads)</dd>
+        <dt>Rollout channels</dt><dd>Next-visit prompt at registration · patient portal banner · SMS via DLT template <span class="mono">DLT-1107-B</span> (pending DLT approval)</dd>
+        <dt>Estimated 30-day coverage</dt><dd>~64% based on v2→v3 rollout curve</dd>
+        <dt>Until re-ack</dt><dd>New purpose is <b>suppressed per patient</b> — no teleradiology routing until that patient acknowledges v4</dd>
+      </dl>
+      <div class="progress" style="margin-top:8px"><i style="width:64%"></i></div>
+      <p class="small muted" style="margin-top:4px">Projected coverage at day 30 · registry rows auto-created in Consent registry (GV-11)</p>
+    </div>
+    <div style="width:300px">
+      <div class="card"><div class="card-title">Approval</div>
+        <dl class="kv" style="grid-template-columns:110px 1fr">
+          <dt>Drafted by</dt><dd>K. Verma · 22 Jul 2026</dd>
+          <dt>Approver</dt><dd>Dr. A. Rao (Privacy Officer)</dd>
+          <dt>Informed</dt><dd>Priya Sharma (DPO)</dd>
+          <dt>Effective</dt><dd>01 Aug 2026 00:00 IST</dd>
+        </dl>
+        <div class="banner warn" style="margin-top:10px"><b>Translation gate.</b> HI and MR variants must reach "translated + reviewed" before the effective date or publish is blocked for those languages.</div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-wrap"><div class="modal">
+    <h3>Approve &amp; schedule publish — Patient notice v4</h3>
+    <p class="small" style="margin-bottom:10px">You are approving a <b>material</b> notice change affecting 41,286 patients. This creates an immutable version record and schedules go-live for 01 Aug 2026 00:00 IST.</p>
+    <div class="check"><span class="box on">✓</span><span class="small">I have reviewed the full diff v3 → v4 including the new teleradiology purpose.</span></div>
+    <div class="check"><span class="box on">✓</span><span class="small">Re-ack rollout plan and per-patient suppression of the new purpose are configured.</span></div>
+    <div class="field" style="margin-top:8px"><label>Step-up identity confirmation <span class="req">*</span></label><input class="input" placeholder="Enter your Magnus password to confirm (Dr. A. Rao)"><div class="hint">Required for notice publication — a legal-notice action under DPDP §5.</div></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Approve &amp; schedule</span></div>
+  </div></div>
+</div></div></div>
+<p class="audit">Notice drafts, diffs, approvals (with step-up verification), effective dates and every patient acknowledgement are versioned immutably; views of this library are recorded in the access log.</p>
+</section>

@@ -1,0 +1,135 @@
+<section class="screen" id="ad-15">
+<div class="screen-head"><h1><span class="sid">AD-15</span> Document templates registry</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G12 Admin — workspace 'Admin'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Central registry of every printable document template — report header/footer, receipts, token slips, prep instructions, consent forms — with per-language variants, validated placeholders and approval-gated versioning. Editors preview with synthetic data only; a template cannot go live with unresolved placeholders, and each template lists exactly which document series render from it.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Organisation</div>
+      <div class="nav-item">Branches &amp; units</div>
+      <div class="nav-item">Users &amp; roles</div>
+      <div class="nav-item">Org settings</div>
+      <div class="sec-label">Catalogue</div>
+      <div class="nav-item">Service catalogue</div>
+      <div class="nav-item">Terminology &amp; codes</div>
+      <div class="nav-item active">Document templates</div>
+      <div class="sec-label">Data</div>
+      <div class="nav-item">Data import <span class="nav-badge">2</span></div>
+      <div class="nav-item">Operational dashboard</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Access log</div>
+      <div class="nav-item">Approvals <span class="nav-badge red">1</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Admin › Catalogue › Document templates</div>
+      <div class="page-title">Document templates registry <span class="actions-right"><span class="btn small">Placeholder dictionary</span> <span class="btn primary small">＋ New template</span></span></div>
+      <div class="page-sub">Templates render on the active letterhead version (see AD-14). Issued documents are immutable — a new template version affects only documents generated after its effective time.</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">18</div><div class="l">Templates live</div><div class="s">All placeholders validated</div></div>
+        <div class="kpi amber"><div class="n">3</div><div class="l">Drafts in review</div><div class="s">1 with lint errors</div></div>
+        <div class="kpi"><div class="n">3</div><div class="l">Languages</div><div class="s">EN · HI · MR</div></div>
+        <div class="kpi amber"><div class="n">2</div><div class="l">Variant gaps</div><div class="s">MR missing: prep-CT-contrast, consent-MRI</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Registry <span class="right">Filter: all types · all languages</span></div>
+        <table>
+          <tr><th>Template</th><th>Type</th><th>Languages</th><th>Live ver</th><th>Placeholders</th><th>Used by series</th><th>Status</th><th></th></tr>
+          <tr><td class="bold">Radiology report header/footer</td><td>Report chrome</td><td>EN</td><td class="mono">v9 · 01 Apr 2026</td><td><span class="chip green">22/22 VALID</span></td><td><span class="btn ghost small">RPT-* (all modalities) ›</span></td><td><span class="chip green">LIVE</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="bold">Payment receipt</td><td>Billing</td><td>EN · HI · MR</td><td class="mono">v6 · 01 Jul 2026</td><td><span class="chip green">17/17 VALID</span></td><td><span class="btn ghost small">RCPT-AND, RCPT-THN +4 ›</span></td><td><span class="chip green">LIVE</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="bold">Queue token slip</td><td>Front office</td><td>EN · HI · MR</td><td class="mono">v3 · 15 May 2026</td><td><span class="chip green">8/8 VALID</span></td><td><span class="btn ghost small">TKN-* ›</span></td><td><span class="chip green">LIVE</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr class="hl"><td class="bold">Prep instructions — CT contrast</td><td>Patient prep</td><td>EN · HI <span class="chip amber">MR MISSING</span></td><td class="mono">v4 · 10 Jun 2026</td><td><span class="chip green">11/11 VALID</span></td><td><span class="btn ghost small">Bookings: CT w/ contrast ›</span></td><td><span class="chip green">LIVE</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="bold">Consent form — MRI screening</td><td>Consent</td><td>EN · HI</td><td class="mono">v5 · 02 Feb 2026</td><td><span class="chip green">14/14 VALID</span></td><td><span class="btn ghost small">CONS-MRI ›</span></td><td><span class="chip green">LIVE</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="bold">Consent + Form F pack — obstetric USG</td><td>Consent · PC-PNDT</td><td>EN · MR</td><td class="mono">v7 · 05 Mar 2026</td><td><span class="chip green">19/19 VALID</span></td><td><span class="btn ghost small">CONS-OBUS, FF-2026-* ›</span></td><td><span class="chip violet">REGULATED · steward Dr. S. Iyer</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="bold">DPDP notice &amp; acknowledgement</td><td>Privacy</td><td>EN · HI · MR</td><td class="mono">v2 · 01 Jan 2026</td><td><span class="chip green">9/9 VALID</span></td><td><span class="btn ghost small">Check-in flow (legacy patients) ›</span></td><td><span class="chip green">LIVE · owner Priya Sharma</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="bold">Payment receipt (draft v7)</td><td>Billing</td><td>EN</td><td class="mono">draft</td><td><span class="chip red">2 LINT ERRORS</span></td><td>— (draft)</td><td><span class="chip amber">IN REVIEW</span></td><td><span class="btn small">Fix lint</span></td></tr>
+        </table>
+        <p class="small muted" style="margin-top:8px">"Used by series" is authoritative: retiring a template is blocked while any live series references it. PC-PNDT templates require the registered doctor as approver in addition to four-eyes.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — Edit draft with placeholder lint (Payment receipt v7)</div>
+<div class="frame">
+  <div class="body" style="min-height:0">
+    <div class="main">
+      <div class="crumb">Admin › Document templates › Payment receipt › Draft v7 (EN)</div>
+      <div class="page-title">Edit — Payment receipt · draft v7 <span class="actions-right"><span class="chip red">2 LINT ERRORS</span> <span class="btn primary small disabled">Submit for approval (blocked)</span></span></div>
+      <div class="page-sub">Editing EN variant. HI and MR variants must be re-linted after EN changes; variants that drift out of sync are flagged.</div>
+      <div class="split">
+        <div class="card">
+          <div class="card-title">Template body (excerpt)</div>
+          <div class="mono small" style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:12px;line-height:1.7">
+            RECEIPT No. {{receipt.number}} · {{receipt.date_ist}}<br/>
+            Received with thanks from {{patient.full_name}} ({{patient.mrn}})<br/>
+            towards {{invoice.service_summary}}<br/>
+            Amount: ₹{{invoice.amount_inr}} ({{invoice.amount_words}})<br/>
+            Mode: {{payment.mode}} · Ref: {{payment.ref}}<br/>
+            GSTIN: {{org.gstin}} · SAC: {{invoice.sac_code}}<br/>
+            <span style="background:#FEE2E2">Cashier: {{staff.cashier_full_name}}</span><br/>
+            <span style="background:#FEE2E2">Patient Aadhaar: {{patient.aadhaar_full}}</span><br/>
+            {{letterhead.grievance_block}}
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Placeholder lint</div>
+          <table>
+            <tr><th>Line</th><th>Issue</th><th>Severity</th></tr>
+            <tr><td class="mono">7</td><td><span class="mono">{{staff.cashier_full_name}}</span> unknown — dictionary has <span class="mono">staff.cashier_display</span> (initials + ID, per privacy policy)</td><td><span class="chip red">ERROR</span></td></tr>
+            <tr><td class="mono">8</td><td><span class="mono">{{patient.aadhaar_full}}</span> forbidden — only <span class="mono">patient.govt_id_last4</span> may appear on printed documents</td><td><span class="chip red">ERROR · PRIVACY</span></td></tr>
+            <tr><td class="mono">6</td><td><span class="mono">{{invoice.sac_code}}</span> valid but ensure GST invoice series also updated (billing retention 8y)</td><td><span class="chip amber">WARN</span></td></tr>
+            <tr><td class="mono">9</td><td><span class="mono">{{letterhead.grievance_block}}</span> resolves from active letterhead (currently LH-2026-003)</td><td><span class="chip green">OK</span></td></tr>
+          </table>
+          <div class="banner danger" style="margin-top:10px;margin-bottom:0"><b>Submission blocked</b>Templates with lint errors cannot enter approval. The forbidden-placeholder rule (full Aadhaar, full DOB on slips, staff personal mobile) is enforced by the linter and cannot be waived — flagged to DPO Priya Sharma.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — Preview with synthetic data + approval</div>
+<div class="frame">
+  <div class="body" style="min-height:0">
+    <div class="main">
+      <div class="crumb">Admin › Document templates › Prep instructions — CT contrast › v4 › Preview (HI variant)</div>
+      <div class="page-title">Preview — Prep instructions · CT contrast · v4 <span class="actions-right"><span class="chip teal">SYNTHETIC DATA ONLY</span> <span class="btn small">EN</span> <span class="btn small primary">HI</span> <span class="btn small disabled">MR (missing)</span></span></div>
+      <div class="page-sub">Preview always renders with the synthetic patient set — real patient data can never be loaded into the template editor.</div>
+      <div class="card" style="border:1.5px solid #0F766E;background:#FBFDFC;max-width:640px">
+        <div style="border-bottom:3px solid #0F5E63;padding-bottom:8px;margin-bottom:10px"><b style="color:#0F5E63">◈ MERIDIAN DIAGNOSTICS</b> <span class="small muted">· Andheri West · LH-2026-003</span></div>
+        <div class="kv" style="grid-template-columns:130px 1fr">
+          <dt>रोगी</dt><dd>Mohammed Al-Rashid · MRN-004790</dd>
+          <dt>जांच</dt><dd>सीटी एब्डोमेन (कंट्रास्ट सहित) · 28 Jul 2026 · 09:30 IST</dd>
+          <dt>उपवास</dt><dd>जांच से 4 घंटे पहले से कुछ न खाएं; पानी ले सकते हैं</dd>
+          <dt>क्रिएटिनिन</dt><dd>पिछली 30 दिनों की eGFR रिपोर्ट साथ लाएं (कंट्रास्ट सुरक्षा हेतु)</dd>
+          <dt>सूचना</dt><dd>SMS via DLT template <span class="mono">DLT-1107-PREPCT-HI</span> · sender MERIDX</dd>
+        </div>
+        <div class="small muted" style="border-top:1px solid #E2E8F0;margin-top:10px;padding-top:6px">हेल्पलाइन 1800-419-2266 · शिकायत अधिकारी (DPDP): Priya Sharma, dpo@meridiandx.in · Template PREP-CT-CON v4-HI</div>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Version &amp; approval trail — PREP-CT-CON</div>
+          <table>
+            <tr><th>Ver</th><th>Effective</th><th>Change</th><th>Approvals (four-eyes)</th></tr>
+            <tr><td class="mono">v4</td><td>10 Jun 2026</td><td>eGFR window 90→30 days per radiologist policy</td><td>K. Verma + Dr. V. Shetty · step-up ✓✓</td></tr>
+            <tr><td class="mono">v3</td><td>02 Mar 2026</td><td>HI variant added; DLT template ID bound</td><td>K. Verma + D. Nair</td></tr>
+            <tr><td class="mono">v2</td><td>12 Jan 2026</td><td>Fasting 6h → 4h</td><td>K. Verma + Dr. V. Shetty</td></tr>
+          </table>
+        </div>
+        <div class="card" style="width:330px">
+          <div class="card-title">Which series use this template</div>
+          <table>
+            <tr><th>Consumer</th><th>Binding</th></tr>
+            <tr><td>Booking confirmation pack (CT w/ contrast)</td><td>auto-attach on schedule</td></tr>
+            <tr><td>SMS prep reminder (T-24h)</td><td class="mono">DLT-1107-PREPCT-*</td></tr>
+            <tr><td>Patient portal downloads</td><td>current live version</td></tr>
+          </table>
+          <p class="small muted" style="margin-top:8px">Retiring v4 requires all three consumers re-pointed first; the registry blocks retirement otherwise.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Template edits, lint results, previews, approvals and retirements are versioned in the governance log; preview renders use synthetic data only, and any attempt to reference real patient records from the editor is blocked and recorded in the access log.</p>
+</section>
