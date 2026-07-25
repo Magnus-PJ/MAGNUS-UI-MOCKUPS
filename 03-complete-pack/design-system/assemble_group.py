@@ -14,7 +14,7 @@ GROUPS = {
  "G02_Patient_Facing":         ("G2 · Patient-Facing (Secure Links)", "wave2", ["pt-%02d"%i for i in range(1,13)]),
  "G08_Doctor_Desk":            ("G8 · Doctor Desk (Referrers)", "wave2", ["dd-%02d"%i for i in range(1,12)]),
  # wave3
- "G12_Admin_Master_Data":      ("G12 · Admin — Org, People & Master Data", "wave3", ["ad-%02d"%i for i in range(1,21)]),
+ "G12_Admin_Master_Data":      ("G12 · Admin — Org, People & Master Data", "wave3", ["ad-%02d"%i for i in range(1,22)]),
  "G14_Governance_Compliance":  ("G14 · Governance & Compliance", "wave3", ["gv-%02d"%i for i in range(1,19)]),
  "G15_Imaging_Regulatory":     ("G15 · Imaging Regulatory (PC-PNDT / AERB)", "wave3", ["ir-%02d"%i for i in range(1,7)]),
  "G11_Grievance_Support":      ("G11 · Grievance & Support", "wave3", ["gr-%02d"%i for i in range(1,7)]),

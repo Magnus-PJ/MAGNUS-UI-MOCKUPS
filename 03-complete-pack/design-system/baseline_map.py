@@ -83,7 +83,8 @@ M = {
  "ad-13":("EXTENDS","AD-S6 dashboard + governed drill-through"), "ad-14":("EXTENDS","AD-S8 branding + effective-dated letterheads"),
  "ad-15":("EXTENDS","AD-S8 → document templates registry"), "ad-16":("EXTENDS","BL-S8 series → central number registry (C-5c)"),
  "ad-17":("EXTENDS","PL-S3 features → branch-level toggles"), "ad-18":("NET-NEW","scheduled jobs monitor"),
- "ad-19":("NET-NEW","staff announcements (Conditional)"), "ad-20":("EXTENDS","GV-S2 audit stream → branch-admin viewer"),
+ "ad-19":("NET-NEW","staff announcements (Conditional)"), "ad-21":("NET-NEW","pilot ops: centre details & vendor registry (vendor-neutral adapters, D-37)"),
+ "ad-20":("EXTENDS","GV-S2 audit stream → branch-admin viewer"),
  # G14 Governance
  "gv-01":("NET-NEW","compliance calendar (statutory obligations)"), "gv-02":("EXTENDS","GV-S2 access log review"),
  "gv-03":("EXTENDS","GV-S1 emergency access review"), "gv-04":("EXTENDS","GV-S3 deletion pipeline + failure states"),
