@@ -1,0 +1,165 @@
+<section class="screen" id="in-07">
+<div class="screen-head"><h1><span class="sid">IN-07</span> Comms provider connections</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IN-S3 comms providers + expiry alerting</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Org admins manage patient-communication channels: DLT-registered SMS (Jio route), WhatsApp BSP, and transactional email. The screen surfaces credential expiry countdowns, DLT template sync, email domain auth (SPF/DKIM/DMARC), and a drag-order failover chain. Test sends use sandbox numbers with synthetic data only — never real patient contacts.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Connectors</div>
+      <div class="nav-item">Connector health</div>
+      <div class="nav-item">Modality worklist</div>
+      <div class="nav-item">Message browser</div>
+      <div class="nav-item">Retry &amp; replay <span class="nav-badge red">14</span></div>
+      <div class="sec-label">Channels</div>
+      <div class="nav-item active">Comms providers</div>
+      <div class="nav-item">Printers &amp; peripherals</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Mapping tables</div>
+      <div class="nav-item">Access log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Integration › Comms providers</div>
+      <div class="page-title">Comms provider connections <span class="actions-right"><span class="btn small">Delivery analytics</span> <span class="btn primary small">+ Add provider</span></span></div>
+      <div class="page-sub">Patient notifications: appointment, prep, report-ready, payment links · all templates DLT/BSP pre-approved · secrets stored in tenant vault</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">3/3</div><div class="l">Providers healthy</div><div class="s">Last probe 14:30 IST</div></div>
+        <div class="kpi"><div class="n">98.7%</div><div class="l">Delivery · 7 days</div><div class="s">All channels combined</div></div>
+        <div class="kpi"><div class="n">41</div><div class="l">Templates synced</div><div class="s">DLT 24 · WhatsApp 11 · Email 6</div></div>
+        <div class="kpi"><div class="n">142d</div><div class="l">Nearest credential expiry</div><div class="s">WhatsApp BSP token</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">SMS · DLT (Jio route) <span class="chip green">HEALTHY</span> <span class="right">owner: K. Verma</span></div>
+        <div class="row">
+          <div class="grow">
+            <dl class="kv">
+              <dt>DLT entity ID</dt><dd class="mono">110120260078841 · Meridian Diagnostics Pvt Ltd</dd>
+              <dt>Sender header</dt><dd class="mono">MERDIA · transactional route · Jio (primary)</dd>
+              <dt>Template sync</dt><dd><span class="chip green">24/24 IN SYNC</span> · last sync 25 Jul 06:00 IST · next 26 Jul 06:00</dd>
+              <dt>Throughput</dt><dd>1,912 sent / 24h · 99.1% delivered · avg 4.2s</dd>
+              <dt>Credential</dt><dd>API key <span class="mono">jio-****-7f21</span> · rotated 02 Jun 2026 · expires 30 May 2027</dd>
+            </dl>
+          </div>
+          <div style="width:230px">
+            <span class="btn small" style="display:block;margin-bottom:6px;text-align:center">Test send (sandbox)</span>
+            <span class="btn small" style="display:block;margin-bottom:6px;text-align:center">Re-sync DLT templates</span>
+            <span class="btn ghost small" style="display:block;text-align:center">View 24 templates</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">WhatsApp · BSP <span class="chip green">HEALTHY</span> <span class="right">owner: K. Verma</span></div>
+        <div class="row">
+          <div class="grow">
+            <dl class="kv">
+              <dt>WABA</dt><dd class="mono">Meridian Diagnostics · +91 98•• ••• 210 · display verified</dd>
+              <dt>Credential expiry</dt><dd><span class="chip teal">142 days remaining</span> · token expires 14 Dec 2026 · auto-alert at 30/14/7 days to owner + platform ops</dd>
+              <dt>Quality rating</dt><dd><span class="chip green">HIGH</span> · messaging limit tier: 10K/day · 0 policy strikes</dd>
+              <dt>Templates</dt><dd>11 approved · 0 pending · report-ready, prep-instructions, payment-link</dd>
+            </dl>
+          </div>
+          <div style="width:230px">
+            <span class="btn small" style="display:block;margin-bottom:6px;text-align:center">Test send (sandbox)</span>
+            <span class="btn small" style="display:block;margin-bottom:6px;text-align:center">Rotate token…</span>
+            <span class="btn ghost small" style="display:block;text-align:center">Quality history</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Email · transactional <span class="chip green">HEALTHY</span> <span class="right">owner: K. Verma</span></div>
+        <div class="row">
+          <div class="grow">
+            <dl class="kv">
+              <dt>Sending domain</dt><dd class="mono">mail.meridiandiagnostics.in</dd>
+              <dt>Domain auth</dt><dd><span class="chip green">SPF PASS</span> <span class="chip green">DKIM PASS (2048-bit, selector mg1)</span> <span class="chip green">DMARC p=quarantine, 100% aligned</span> · checked 25 Jul 14:00 IST</dd>
+              <dt>Volume</dt><dd>388 sent / 24h · bounce 0.4% · complaint 0.0%</dd>
+            </dl>
+          </div>
+          <div style="width:230px">
+            <span class="btn small" style="display:block;margin-bottom:6px;text-align:center">Test send (sandbox)</span>
+            <span class="btn ghost small" style="display:block;text-align:center">Re-run DNS checks</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Failover order · patient notifications <span class="right">applies per message class</span></div>
+        <table>
+          <tr><th>Priority</th><th>Channel</th><th>Condition to fail over</th><th>Status</th></tr>
+          <tr><td><b>1</b></td><td>WhatsApp BSP</td><td>No delivery receipt in 120s or provider DOWN</td><td><span class="chip green">ACTIVE</span></td></tr>
+          <tr><td><b>2</b></td><td>SMS DLT (Jio route)</td><td>Reject or no DLR in 300s</td><td><span class="chip green">ACTIVE</span></td></tr>
+          <tr><td><b>3</b></td><td>Email transactional</td><td>Final fallback · report-ready &amp; payment classes only</td><td><span class="chip green">ACTIVE</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Reordering the chain requires step-up identity confirmation and takes effect within 60s across all branches. <span class="btn ghost small">Edit failover order…</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — WHATSAPP CREDENTIAL EXPIRING · AMBER COUNTDOWN + AUTO-ALERT</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Integration › Comms providers</div>
+      <div class="page-title">Comms provider connections <span class="chip amber">1 WARNING</span></div>
+      <div class="page-sub">Snapshot: 30 Nov 2026 — WhatsApp BSP token inside 14-day alert window</div>
+      <div class="banner warn"><b>WhatsApp BSP token expires in 14 days (14 Dec 2026)</b>Auto-alerts sent to owner K. Verma and NUMINACORE platform ops at the 30-day mark (14 Nov) and today. If the token lapses, WhatsApp drops out of the failover chain automatically and SMS DLT becomes priority 1 — patients still receive notifications, at higher SMS cost.</div>
+      <div class="card">
+        <div class="card-title">WhatsApp · BSP <span class="chip amber">EXPIRING · 14 DAYS</span> <span class="right">owner: K. Verma</span></div>
+        <div class="row">
+          <div class="grow">
+            <dl class="kv">
+              <dt>Credential expiry</dt><dd><span class="chip amber">14 days remaining</span> · expires 14 Dec 2026 23:59 IST
+                <div class="progress amber" style="max-width:260px"><i style="width:90%"></i></div>
+                <span class="small muted">Alert ladder: 30d ✓ sent · 14d ✓ sent today · 7d pending · daily thereafter</span></dd>
+              <dt>Quality rating</dt><dd><span class="chip green">HIGH</span> · unaffected by token state</dd>
+              <dt>Impact if lapsed</dt><dd>~1,400 msgs/day shift to SMS · est. +₹2,850/day · prep-instruction rich media unavailable</dd>
+            </dl>
+          </div>
+          <div style="width:240px">
+            <span class="btn primary small" style="display:block;margin-bottom:6px;text-align:center">Rotate token now…</span>
+            <span class="btn small" style="display:block;margin-bottom:6px;text-align:center">Snooze alert 24h (logged)</span>
+            <span class="btn ghost small" style="display:block;text-align:center">Escalate to platform ops</span>
+          </div>
+        </div>
+        <div class="banner info" style="margin-bottom:0"><b>Token rotation is step-up protected</b>Pasting a new BSP token requires a fresh passkey/TOTP confirmation (staff realm). The old token stays valid for a 15-minute overlap window to avoid delivery gaps, then is revoked. Both events are audit-logged.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — FAILOVER REORDER + SANDBOX TEST SEND</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Integration › Comms providers › Failover order</div>
+      <div class="page-title">Edit failover order</div>
+      <div class="page-sub">Draft change by K. Verma · 25 Jul 2026 14:41 IST · not yet applied</div>
+      <div class="row">
+        <div class="grow card">
+          <div class="card-title">Reorder channels (drag ↑↓) <span class="right">draft</span></div>
+          <table>
+            <tr><th></th><th>Priority</th><th>Channel</th><th>Change</th></tr>
+            <tr class="hl"><td class="mono">⠿</td><td><b>1</b></td><td>SMS DLT (Jio route)</td><td><span class="chip amber">MOVED UP from #2</span></td></tr>
+            <tr class="hl"><td class="mono">⠿</td><td><b>2</b></td><td>WhatsApp BSP</td><td><span class="chip amber">MOVED DOWN — token expiring</span></td></tr>
+            <tr><td class="mono">⠿</td><td><b>3</b></td><td>Email transactional</td><td>unchanged</td></tr>
+          </table>
+          <div class="banner warn" style="margin-top:10px"><b>Confirm identity to apply</b>Failover order affects patient-facing delivery across all Meridian branches. Step-up required; change propagates within 60s and is reversible.</div>
+          <div style="display:flex;gap:8px;justify-content:flex-end"><span class="btn">Discard draft</span><span class="btn warn-outline">Confirm identity (passkey) &amp; apply</span></div>
+        </div>
+        <div class="card" style="width:330px">
+          <div class="card-title">Test send · sandbox <span class="chip teal">SYNTHETIC DATA ONLY</span></div>
+          <div class="field"><label>Channel</label><div class="select">SMS DLT (Jio route) ▾</div></div>
+          <div class="field"><label>Template</label><div class="select">RPT_READY_EN · "Your report is ready…" ▾</div></div>
+          <div class="field"><label>Sandbox recipient</label><div class="select">+91 90000 00001 (Magnus test SIM) ▾</div><div class="hint">Real patient numbers cannot be selected here. Variables filled with synthetic values (Pt: TEST PATIENT, ACC-TEST-0001).</div></div>
+          <span class="btn primary small" style="display:block;text-align:center;margin-bottom:8px">Send test</span>
+          <div class="banner success" style="margin-bottom:0"><b>Delivered · 3.8s</b>DLR received 14:42:11 IST · DLT template ID matched <span class="mono">1107162026001</span> · route Jio-TXN.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Provider credential views, token rotations, failover changes, alert snoozes and every sandbox test send are recorded in the access log.</p>
+</section>

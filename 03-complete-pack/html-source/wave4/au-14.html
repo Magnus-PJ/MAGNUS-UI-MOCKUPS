@@ -1,0 +1,94 @@
+<section class="screen" id="au-14">
+<div class="screen-head"><h1><span class="sid">AU-14</span> Admin: unlocks &amp; recovery approvals</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G1 Identity &amp; Access — profile + degraded</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · P2 admin unlock & recovery approvals</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Org/branch admins work a single queue of account lockouts, lost-authenticator recovery requests and suspicious-sign-in holds, each with an SLA and owner. Before approving, the admin must complete an identity-verification checklist (callback on the known number, manager confirmation); approval itself requires step-up, and denials require a reason. Every action lands in a tamper-evident register.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>WORKSPACE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Administration</div>
+      <div class="nav-item">Staff &amp; roles</div>
+      <div class="nav-item active">Unlocks &amp; recovery <span class="nav-badge red">4</span></div>
+      <div class="nav-item">Policy register</div>
+      <div class="nav-item">Access log</div>
+      <div class="sec-label">Branch</div>
+      <div class="nav-item">Devices &amp; modalities</div>
+      <div class="nav-item">Break-glass register</div>
+      <div class="sec-label">My account</div>
+      <div class="nav-item">Profile &amp; security</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Home › Administration › Unlocks &amp; recovery approvals</div>
+      <div class="page-title">Unlocks &amp; recovery approvals <span class="actions-right"><span class="btn small">Register of actions</span> <span class="btn small">Filter: All types ▾</span></span></div>
+      <div class="page-sub">Identity recovery is the most-attacked path in any hospital system. Verify first, approve second — approvals require step-up; TOTP resets for admin-role accounts require a second approver (four-eyes).</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">4</div><div class="l">Open requests</div><div class="s">2 lockouts · 1 lost authenticator · 1 suspicious hold</div></div>
+        <div class="kpi amber"><div class="n">1</div><div class="l">Due &lt; 30 min</div><div class="s">SLA: lockout 1 h · recovery 4 h · hold 2 h</div></div>
+        <div class="kpi red"><div class="n">1</div><div class="l">Overdue</div><div class="s">escalated to org admin group</div></div>
+        <div class="kpi"><div class="n">12</div><div class="l">Actioned this week</div><div class="s">10 approved · 2 denied</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Queue <span class="right">Sorted by SLA</span></div>
+        <table>
+          <tr><th>Request</th><th>Account</th><th>Type</th><th>Received (IST)</th><th>SLA · owner</th><th>Verification</th><th></th></tr>
+          <tr><td class="mono">REQ-4187</td><td class="bold">P. D'Souza · Cashier · MD-AW-0287<div class="small muted">Andheri West</div></td><td><span class="chip red">Suspicious-sign-in hold</span><div class="small muted">3 failed TOTP from Nagpur, 23 Jul 02:17</div></td><td class="mono">23 Jul 08:05</td><td><span class="chip red">OVERDUE 26h</span><div class="small">K. Verma</div></td><td><span class="chip amber">Checklist 1/4</span></td><td><span class="btn small primary">Review</span></td></tr>
+          <tr class="hl"><td class="mono">REQ-4192</td><td class="bold">D. Nair · Front Office · MD-AW-0412<div class="small muted">Andheri West</div></td><td><span class="chip amber">Lockout — 5 wrong passwords</span><div class="small muted">workstation FD-05, 25 Jul 09:02</div></td><td class="mono">25 Jul 09:04</td><td><span class="chip amber">Due in 24 min</span><div class="small">K. Verma</div></td><td><span class="chip grey">Not started</span></td><td><span class="btn small primary">Review</span></td></tr>
+          <tr><td class="mono">REQ-4193</td><td class="bold">Dr. V. Shetty · Radiologist · MD-AW-0109<div class="small muted">Andheri West · reporting desk</div></td><td><span class="chip blue">Lost authenticator (phone) — TOTP reset + new passkey</span></td><td class="mono">25 Jul 08:40</td><td><span class="chip teal">Due in 3h 12m</span><div class="small">K. Verma</div></td><td><span class="chip amber">Checklist 2/4</span></td><td><span class="btn small primary">Review</span></td></tr>
+          <tr><td class="mono">REQ-4194</td><td class="bold">T. Okafor · Technologist · MD-AW-0533<div class="small muted">CT-ROOM-1 duty</div></td><td><span class="chip amber">Lockout — expired session loop on console</span></td><td class="mono">25 Jul 09:21</td><td><span class="chip teal">Due in 41 min</span><div class="small">Unassigned · <span class="btn ghost small">Claim</span></div></td><td><span class="chip grey">Not started</span></td><td><span class="btn small">Open</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Requests auto-escalate to the org admin group at 100% SLA. A user on suspicious-sign-in hold keeps read access from verified devices only; unlock without completed verification is not possible in the UI or API.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Register of actions <span class="right">Last 5 · full register retains 400 days</span></div>
+        <table>
+          <tr><th>When (IST)</th><th>Request</th><th>Action</th><th>By</th><th>Step-up</th><th>Second approver</th></tr>
+          <tr><td class="mono">24 Jul 17:32</td><td class="mono">REQ-4181</td><td>Unlock approved (lockout) — Dr. V. Shetty</td><td>K. Verma</td><td>Passkey</td><td class="muted">n/a</td></tr>
+          <tr><td class="mono">24 Jul 11:08</td><td class="mono">REQ-4179</td><td>TOTP reset approved (lost authenticator) — branch admin acct</td><td>K. Verma</td><td>Passkey</td><td>R. Bhatt (org admin, Bandra)</td></tr>
+          <tr><td class="mono">23 Jul 15:44</td><td class="mono">REQ-4176</td><td><span style="color:#B91C1C;font-weight:700">Denied</span> — callback number mismatch; reported to security</td><td>K. Verma</td><td>Passkey</td><td class="muted">n/a</td></tr>
+          <tr><td class="mono">22 Jul 10:19</td><td class="mono">REQ-4171</td><td>Hold released after user dispute cleared — P. D'Souza</td><td>R. Bhatt</td><td>TOTP</td><td class="muted">n/a</td></tr>
+          <tr><td class="mono">21 Jul 09:55</td><td class="mono">REQ-4168</td><td>Unlock approved (lockout) — D. Nair</td><td>K. Verma</td><td>Passkey</td><td class="muted">n/a</td></tr>
+        </table>
+      </div>
+      <p class="audit">Queue views, claims, checklist entries, approvals, denials and escalations are recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — Identity-verification checklist (REQ-4193, lost authenticator) before approval is enabled</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:600px">
+    <h3>Verify identity — REQ-4193 · Dr. V. Shetty · lost authenticator</h3>
+    <div class="banner warn"><b>Complete all four checks before "Approve" unlocks.</b> Lost-authenticator resets replace the account's TOTP secret and revoke all sessions — treat every request as a potential social-engineering attempt.</div>
+    <div class="check"><span class="box on">✓</span><span><b>Callback on known number.</b> Called <span class="mono">+91 98••• ••109</span> (HR master, not a number supplied in the request) at 09:02 IST — answered, voice recognised.</span></div>
+    <div class="check"><span class="box on">✓</span><span><b>Two personal-record challenges.</b> Employee ID + date of last roster shift confirmed against HR master. Never ask for passwords or OTPs.</span></div>
+    <div class="check"><span class="box"></span><span><b>Manager confirmation.</b> Awaiting confirm from Dr. S. Kulkarni (Head of Radiology) — request sent 09:05 IST via Magnus task. <span class="btn ghost small">Nudge</span></span></div>
+    <div class="check"><span class="box"></span><span><b>Recent-activity sanity check.</b> Review last 5 sign-ins for anomalies before reset. <span class="btn ghost small">Open access history</span></span></div>
+    <div class="field" style="margin-top:10px"><label>Verification notes (visible in register) <span class="req">*</span></label><textarea class="textarea">Phone reported lost this morning at reporting desk; device last seen on branch Wi-Fi 24 Jul 19:40. No anomalous sign-ins pending check.</textarea></div>
+    <div class="banner info" style="margin-bottom:0"><b>On approve:</b> TOTP secret reset · all sessions revoked · one-time enrolment link (15 min, known number only) · backup codes invalidated. Radiologist role is non-admin, so no second approver is required; step-up with your passkey is.</div>
+    <div class="modal-actions"><span class="btn">Save &amp; return to queue</span><span class="btn danger">Deny with reason…</span><span class="btn primary disabled">Approve (2 checks pending)</span></div>
+  </div>
+</div>
+<p class="audit">Each checklist item is timestamped individually; the callback number source (HR master) and manager-confirm task ID are recorded in the access log.</p>
+
+<div class="divider-label">state divider</div>
+
+<div class="state-tag">STATE C — Approved with step-up: recovery issued, register entry written</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:600px">
+    <h3>Recovery approved — REQ-4193</h3>
+    <div class="banner success"><b>TOTP reset issued for Dr. V. Shetty at 09:41:07 IST.</b> All sessions revoked; a one-time enrolment link (valid 15 minutes) was sent by SMS to the HR-master number via DLT SMS (Jio route). Backup codes from the old set are now invalid.</div>
+    <dl class="kv">
+      <dt>Request</dt><dd class="mono">REQ-4193 · lost authenticator · SLA met (1h 01m of 4h)</dd>
+      <dt>Verification</dt><dd>4/4 checks · manager confirm by Dr. S. Kulkarni at 09:33 IST (task <span class="mono">TSK-88214</span>)</dd>
+      <dt>Approved by</dt><dd>K. Verma (Org Admin) · step-up: passkey at 09:41:02 IST</dd>
+      <dt>Second approver</dt><dd class="muted">Not required (target account is non-admin role)</dd>
+      <dt>Register entry</dt><dd class="mono">REG-UNL-2026-0725-0006 · hash-chained to previous entry</dd>
+      <dt>User notified</dt><dd>SMS + email: "Your authenticator was reset by your admin. Not you? Call the branch immediately."</dd>
+    </dl>
+    <div class="banner reg" style="margin-top:10px;margin-bottom:0"><b>Follow-up:</b> if Dr. Shetty does not complete enrolment within 15 minutes, the link expires and the request re-opens automatically at position 1 in the queue.</div>
+    <div class="modal-actions"><span class="btn">View register entry</span><span class="btn primary">Back to queue (3 open)</span></div>
+  </div>
+</div>
+<p class="audit">Approval, step-up method, notification dispatch (DLT SMS route) and the hash-chained register entry REG-UNL-2026-0725-0006 are recorded in the access log.</p>
+</section>

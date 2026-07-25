@@ -1,0 +1,566 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DOC-02 · Workflow Orders · Magnus HMS</title>
+<style>
+/* Magnus HMS — NS design pack shared design system */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
+.mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
+.muted{color:#64748B}.small{font-size:12px}.bold{font-weight:700}
+.screen{page-break-after:always;padding:28px 34px;background:#fff;min-height:1000px}
+.screen-head{display:flex;justify-content:space-between;align-items:flex-start;border-left:5px solid #0F766E;padding:6px 0 6px 14px;margin-bottom:6px}
+.screen-head h1{font-size:22px;font-weight:800}
+.screen-head .sid{color:#0F766E;margin-right:10px}
+.screen-head .meta{text-align:right}
+.screen-head .meta .cluster{color:#64748B;font-size:12px;margin-top:3px}
+.gap-note{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:8px 12px;margin:10px 0 16px;font-size:12.5px;color:#7C2D12}
+.gap-note b{color:#9A3412}
+.frame{border:1px solid #CBD5E1;border-radius:10px;overflow:hidden;background:#F4F6F8;box-shadow:0 1px 4px rgba(15,23,42,.08);margin-bottom:22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:2px solid #0F766E;padding:9px 16px}
+.brand{font-weight:800;color:#0F766E}.brand span{color:#1E293B}
+.org{font-size:12.5px;color:#334155;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px}
+.userchip{font-size:12.5px;color:#334155}
+.userchip .av{display:inline-block;background:#CCFBF1;color:#0F766E;font-weight:700;border-radius:5px;padding:2px 6px;margin-right:6px;font-size:11px}
+.body{display:flex;min-height:520px}
+.sidebar{width:196px;background:#fff;border-right:1px solid #E2E8F0;padding:12px 0;flex-shrink:0}
+.sec-label{font-size:10.5px;letter-spacing:.08em;color:#94A3B8;font-weight:700;padding:8px 16px 4px;text-transform:uppercase}
+.nav-item{padding:7px 16px;font-size:13px;color:#334155;display:flex;justify-content:space-between;align-items:center}
+.nav-item.active{background:#F0FDFA;color:#0F766E;font-weight:700;border-left:3px solid #0F766E;padding-left:13px}
+.nav-badge{background:#0F766E;color:#fff;border-radius:9px;font-size:10.5px;padding:1px 7px;font-weight:700}
+.nav-badge.red{background:#B91C1C}
+.main{flex:1;padding:16px 18px;min-width:0}
+.crumb{font-size:12px;color:#64748B;margin-bottom:8px}
+.page-title{font-size:19px;font-weight:800;margin-bottom:2px}
+.page-sub{font-size:12.5px;color:#64748B;margin-bottom:14px}
+.actions-right{float:right}
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card-title{font-weight:800;font-size:14.5px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.card-title .right{font-size:10.5px;letter-spacing:.07em;color:#94A3B8;font-weight:700;text-transform:uppercase}
+.row{display:flex;gap:14px}.row>*{min-width:0}.grow{flex:1}
+.btn{display:inline-block;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:700;border:1px solid #CBD5E1;background:#fff;color:#334155;text-align:center;white-space:nowrap}
+.btn.primary{background:#0F766E;border-color:#0F766E;color:#fff}
+.btn.danger{background:#B91C1C;border-color:#B91C1C;color:#fff}
+.btn.warn-outline{border-color:#F59E0B;color:#92400E;background:#FFFBEB}
+.btn.ghost{border:none;background:none;color:#0F766E;padding:7px 6px}
+.btn.small{padding:4px 10px;font-size:12px}
+.btn.disabled{opacity:.45}
+.chip{display:inline-block;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip.teal{background:#CCFBF1;color:#0F766E}
+.chip.green{background:#DCFCE7;color:#15803D}
+.chip.amber{background:#FEF3C7;color:#92400E}
+.chip.red{background:#FEE2E2;color:#B91C1C}
+.chip.grey{background:#F1F5F9;color:#475569}
+.chip.blue{background:#E0F2FE;color:#0369A1}
+.chip.violet{background:#EDE9FE;color:#6D28D9}
+.chip.outline-red{background:#fff;border:1.5px solid #B91C1C;color:#B91C1C}
+.banner{border-radius:8px;padding:10px 13px;font-size:12.5px;margin-bottom:12px;border:1px solid}
+.banner b{display:block;margin-bottom:2px;font-size:13px}
+.banner.info{background:#E0F2FE;border-color:#7DD3FC;color:#075985}
+.banner.warn{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+.banner.danger{background:#FEE2E2;border-color:#FCA5A5;color:#991B1B}
+.banner.success{background:#DCFCE7;border-color:#86EFAC;color:#166534}
+.banner.reg{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding:7px 9px;border-bottom:2px solid #E2E8F0;background:#F8FAFC}
+td{padding:8px 9px;border-bottom:1px solid #EEF2F6;vertical-align:top}
+tr.hl td{background:#F0FDFA}
+tr.dim td{color:#94A3B8}
+.kv{display:grid;grid-template-columns:150px 1fr;row-gap:6px;column-gap:12px;font-size:12.5px}
+.kv dt{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding-top:2px}
+.kv dd{margin:0}
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+.field label .req{color:#B91C1C}
+.field .hint{font-size:11px;color:#64748B;margin-top:3px}
+.input,.select,.textarea{width:100%;border:1px solid #CBD5E1;border-radius:7px;padding:7px 10px;font-size:13px;background:#fff;color:#1E293B}
+.input.err{border-color:#B91C1C;background:#FEF2F2}
+.textarea{min-height:64px}
+.check{font-size:12.5px;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.box{display:inline-block;width:14px;height:14px;border:1.6px solid #64748B;border-radius:3px;flex-shrink:0;margin-top:1px;text-align:center;line-height:12px;font-size:11px;font-weight:800}
+.box.on{background:#0F766E;border-color:#0F766E;color:#fff}
+.radio{border-radius:50%}
+.radio.on{background:#fff;border-color:#0F766E;box-shadow:inset 0 0 0 3.5px #0F766E;color:transparent}
+.modal-wrap{background:#64748B22;border:1px dashed #94A3B8;border-radius:12px;padding:26px 40px;margin:14px 0}
+.modal{background:#fff;border-radius:12px;border-top:5px solid #0F766E;box-shadow:0 8px 30px rgba(15,23,42,.25);max-width:560px;margin:0 auto;padding:18px 20px}
+.modal.danger{border-top-color:#B91C1C}
+.modal h3{font-size:16px;margin-bottom:8px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+.divider-label{text-align:center;color:#94A3B8;font-size:11.5px;margin:20px 0 14px;position:relative}
+.divider-label:before,.divider-label:after{content:"";display:inline-block;width:24%;border-top:1px dashed #CBD5E1;vertical-align:middle;margin:0 10px}
+.audit{font-size:11px;color:#8A6D1D;margin-top:10px}
+.audit:before{content:"🔒 "}
+.state-tag{font-size:10px;letter-spacing:.08em;font-weight:800;text-transform:uppercase;color:#94A3B8;text-align:right;margin-bottom:4px}
+.kpi-row{display:flex;gap:12px;margin-bottom:14px}
+.kpi{flex:1;background:#fff;border:1px solid #E2E8F0;border-left:4px solid #0F766E;border-radius:9px;padding:10px 13px}
+.kpi.amber{border-left-color:#F59E0B}.kpi.red{border-left-color:#B91C1C}
+.kpi .n{font-size:23px;font-weight:800}.kpi .l{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700}
+.kpi .s{font-size:11px;color:#64748B;margin-top:2px}
+.stepper{display:flex;gap:6px;align-items:center;font-size:12px;color:#64748B;margin-bottom:14px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:6px}
+.step .dot{width:20px;height:20px;border-radius:50%;background:#E2E8F0;color:#475569;font-size:11px;font-weight:800;text-align:center;line-height:20px}
+.step.done .dot{background:#15803D;color:#fff}.step.cur .dot{background:#0F766E;color:#fff}
+.step.cur{color:#0F766E;font-weight:700}
+.step-line{width:26px;border-top:2px solid #CBD5E1}
+.sig-box{border:1.5px dashed #94A3B8;border-radius:8px;min-height:64px;background:#F8FAFC;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:12px;font-style:italic}
+.sig-box.signed{border-style:solid;border-color:#15803D;color:#166534;background:#F0FDF4;font-family:'Segoe Script','Comic Sans MS',cursive;font-size:17px;font-style:normal}
+.ladder{border-left:3px solid #E2E8F0;margin-left:8px;padding-left:16px}
+.ladder .tier{margin-bottom:12px;position:relative}
+.ladder .tier:before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:#CBD5E1}
+.ladder .tier.done:before{background:#15803D}.ladder .tier.cur:before{background:#0F766E;box-shadow:0 0 0 3px #CCFBF1}
+.ladder .tier.fail:before{background:#B91C1C}
+.progress{height:7px;border-radius:4px;background:#E2E8F0;overflow:hidden;margin-top:4px}
+.progress i{display:block;height:100%;background:#0F766E}
+.progress.amber i{background:#F59E0B}.progress.red i{background:#B91C1C}
+.split{display:grid;grid-template-columns:1fr 300px;gap:14px}
+.timeline{font-size:12.5px}
+.timeline .ev{display:flex;gap:10px;margin-bottom:9px}
+.timeline .t{color:#64748B;white-space:nowrap;font-family:Consolas,monospace;font-size:11.5px;padding-top:1px}
+/* ---------- doc overrides ---------- */
+body{background:#F4F6F8;padding:30px}
+.doc{max-width:1100px;margin:0 auto}
+h1{font-size:26px;margin:18px 0 6px}
+h2{font-size:19px;margin:22px 0 8px;color:#0F766E}
+.flow{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:8px 0}
+.fstep{background:#fff;border:1px solid #CBD5E1;border-left:4px solid #0F766E;border-radius:7px;padding:6px 10px;font-size:12.5px}
+.fstep .fid{font-family:Consolas,monospace;font-weight:800;color:#0F766E;font-size:11px;display:block}
+.farr{color:#94A3B8;font-weight:800}
+.fstep.alt{border-left-color:#F59E0B}
+.fstep.crit{border-left-color:#B91C1C}
+ul{margin:6px 0 6px 20px;font-size:12.5px}
+li{margin-bottom:4px}
+h3{font-size:14px;margin:14px 0 6px}
+</style></head><body><div class="doc">
+
+<div class="card" style="border-left:5px solid #0F766E">
+  <div class="mono" style="color:#0F766E;font-weight:800;font-size:12px">DOC-02</div>
+  <h1 style="margin:2px 0 4px">Workflow Orders — the sequence in which screens operate</h1>
+  <div class="muted">Magnus HMS · MVP 1 · Architecture &amp; Workflow Documentation</div>
+  <div style="margin-top:10px">
+    <span class="chip grey">Version 1.0</span> <span class="chip grey">July 2026</span>
+    <span class="chip teal">Audience: NUMINACORE development team</span>
+    <span class="chip blue">Normative sequencing for the 225-screen pack</span>
+  </div>
+  <div class="small muted" style="margin-top:8px">For each major flow: the ORDERED screen chain (build navigation and status machines to this order), the swimlane (which actor touches which screens, in order), and the state handoffs — exactly what data/status one screen must pass to the next, with the DS-03 SLA/timer that governs each hop. Where DOC-01 gives narrative scenarios, this document gives the machine: statuses, payloads, clocks.</div>
+</div>
+
+<div class="card">
+  <div class="card-title">Global sequencing rules <span class="right">apply to every flow below</span></div>
+  <table>
+    <tr><th style="width:220px">Rule</th><th>Consequence for sequencing</th></tr>
+    <tr><td>Safety gates evaluate at TK-01 Perform</td><td>CS-01/CS-02/CS-03/CS-06 may be captured at any earlier point (ordering, check-in, pre-scan) but their <b>satisfied/blocked verdict is re-evaluated exactly at the TK-01 → TK-02 transition</b>. Never trust an earlier green.</td></tr>
+    <tr><td>Step-up AU-09 is an interstitial, not a screen in the business flow</td><td>AU-09 injects before RD-09 sign, BL-06 refund, FO-09 merge commit, GV-04 execute, BL-08 high-value approve. Flows below note "(AU-09)" at the injection point.</td></tr>
+    <tr><td>DS-03 SLA chips are state, not decoration</td><td>Every hop that carries a timer must persist clock-start, target, and breach events; dashboards (RD-17, AD-13, GR-02, RD-11) read these, never recompute from timestamps ad hoc.</td></tr>
+    <tr><td>Async approvals never block the requester's screen</td><td>BL-08 / AD-05 / GV-04 requests park the object in an AWAITING state and free the UI; resolution arrives by push + state change (see flows 7, 11).</td></tr>
+    <tr><td>Audit line everywhere</td><td>Every transition listed in a handoff table is an audit event queryable in AD-20.</td></tr>
+    <tr><td>Offline-first FO</td><td>Flows 1–3 and the cash cycle must run against the edge node (IN-10) with queued sync; screens marked ⛅ in swimlanes are offline-capable.</td></tr>
+  </table>
+</div>
+
+<!-- ================================================== FLOW 1 -->
+<h2 id="f01">Flow 1 — Patient onboarding</h2>
+<div class="card">
+  <div class="flow">
+    <div class="fstep"><span class="fid">FO-02</span>Search-first (mandatory)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-03</span>Register 1: demographics</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-04</span>Register 2: contact + DPDP notice</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-05</span>Register 3: ID + review → MRN issue</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-06</span>Patient record (landing)</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">FO-07</span>Edit + verify (later corrections)</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">FO-08→FO-09</span>Merge queue → resolve (dedupe)</div>
+  </div>
+  <div class="small muted">Variants that join this chain: FO-22 kiosk self-service pre-fills FO-03/04 then hands to counter; FO-15 walk-in fast-track runs a compressed FO-03..05; FO-18 doc intake attaches ID artefacts at FO-05; FO-20 family links immediately after FO-05 for minors (mandatory) and dependents.</div>
+  <table>
+    <tr><th style="width:170px">Actor</th><th>Screens in order</th><th>Notes</th></tr>
+    <tr><td><span class="chip teal">Front office</span></td><td class="mono">FO-02 → FO-03 → FO-04 → FO-05 → FO-06 (→ FO-20)</td><td>⛅ all offline-capable; provisional MRN offline</td></tr>
+    <tr><td><span class="chip grey">Patient / kiosk</span></td><td class="mono">FO-22 → (pre-fill) → PT-11 language pref</td><td>kiosk data is a draft until counter confirms at FO-05</td></tr>
+    <tr><td><span class="chip teal">Data steward</span></td><td class="mono">FO-08 → FO-09 (AU-09, four-eyes)</td><td>asynchronous, 48 h SLA</td></tr>
+  </table>
+  <table style="margin-top:10px">
+    <tr><th style="width:150px">Hop</th><th>State / data passed forward</th><th style="width:210px">SLA / timer (DS-03)</th></tr>
+    <tr><td class="mono">FO-02 → FO-03</td><td>Search evidence (queries run, zero/near matches) — stored so FO-08 can prove dedupe diligence; near-match list carried for the clerk to reject explicitly.</td><td>—</td></tr>
+    <tr><td class="mono">FO-03 → FO-04</td><td>Draft demographics (name, DOB, sex, minor flag). Minor flag forces guardian requirement downstream.</td><td>Draft auto-expires 30 min idle</td></tr>
+    <tr><td class="mono">FO-04 → FO-05</td><td>Contact channels + consent-notice version accepted (→ GV-11 on commit); language preference (→ PT-11 rendering).</td><td>—</td></tr>
+    <tr><td class="mono">FO-05 → FO-06</td><td><b>MRN issued (single-MRN contract)</b>; record status ACTIVE; ID artefacts (FO-18 refs); kiosk drafts consumed.</td><td>Registration counter-time KPI ≤ 5 min (AD-13)</td></tr>
+    <tr><td class="mono">FO-06 → FO-07</td><td>Any later edit of verified fields (name/DOB/phone) enters a verify sub-state — change pending until re-verification (OTP or ID sight); unverified edits never overwrite silently.</td><td>Pending-verify auto-void 7 d</td></tr>
+    <tr><td class="mono">matcher → FO-08 → FO-09</td><td>Candidate pair + score + features → survivorship matrix → merged record; alias tombstone forwards old MRN forever.</td><td>Queue SLA 48 h; snapshot reversible 30 d</td></tr>
+  </table>
+</div>
+
+<!-- ================================================== FLOW 2 -->
+<h2 id="f02">Flow 2 — Appointment lifecycle</h2>
+<div class="card">
+  <div class="flow">
+    <div class="fstep"><span class="fid">SC-01..10</span>Setup: resources, templates, rules (pre-req)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-10</span>Book slot</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">NT-01</span>Confirmation + PT-05 prep link</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">FO-11</span>Reschedule / cancel (any time before check-in)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-12</span>Day list (day of visit)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-13</span>Check-in</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-14</span>Queue control</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-16</span>Visit summary (disposition)</div>
+  </div>
+  <div class="small muted">FO-19 waitlist feeds FO-10 whenever a slot frees (cancel at FO-11 → auto-offer to waitlist head). PT-10 tracking mirrors appointment state to the patient throughout.</div>
+  <table>
+    <tr><th style="width:170px">Actor</th><th>Screens in order</th><th>Notes</th></tr>
+    <tr><td><span class="chip violet">Scheduling admin</span></td><td class="mono">SC screens (setup, ongoing)</td><td>capacity truth; AD-08 equipment + AD-06 practitioner availability constrain slots</td></tr>
+    <tr><td><span class="chip teal">Front office</span></td><td class="mono">FO-10 → FO-11 → FO-12 → FO-13 → FO-14 → FO-16</td><td>⛅ FO-12/13/14 offline-capable</td></tr>
+    <tr><td><span class="chip grey">Patient</span></td><td class="mono">NT msg → PT-05 → PT-10 (→ PT-06 online prepay optional)</td><td>prep compliance feeds the CS gates later</td></tr>
+  </table>
+  <table style="margin-top:10px">
+    <tr><th style="width:150px">Hop</th><th>State / data passed forward</th><th style="width:210px">SLA / timer</th></tr>
+    <tr><td class="mono">FO-10 → NT-01</td><td>Appointment BOOKED {slot, resource, service, prep-profile id}; prep profile selects the PT-05 template.</td><td>Confirmation send ≤ 2 min</td></tr>
+    <tr><td class="mono">NT-01 → PT-05</td><td>Tokenised prep link (TTL = appointment time + 1 d); language from PT-11.</td><td>Reminder cadence T-24 h, T-3 h (NT-07 quiet hours respected)</td></tr>
+    <tr><td class="mono">FO-11 → FO-10/FO-19</td><td>CANCELLED/RESCHEDULED + reason; freed slot offered to FO-19 waitlist head (offer expires → next).</td><td>Waitlist offer TTL 30 min</td></tr>
+    <tr><td class="mono">FO-12 → FO-13</td><td>Day list row EXPECTED; no-show marking at EOD if never checked in (Flow 8 consumes).</td><td>Auto no-show at close (FO-17)</td></tr>
+    <tr><td class="mono">FO-13 → FO-14</td><td>ARRIVED + eligibility/payer snapshot (BL-11) + token number; payment state initialised for BL-01.</td><td>Wait-time clock starts (target 20 min routine)</td></tr>
+    <tr><td class="mono">FO-14 → FO-16</td><td>Disposition (performed / held / cancelled) closes the visit; FO-16 emits the summary artefact to PT links.</td><td>Same-day close (FO-17 blocker)</td></tr>
+  </table>
+</div>
+
+<!-- ================================================== FLOW 3 -->
+<h2 id="f03">Flow 3 — Walk-in fast-track</h2>
+<div class="card">
+  <div class="flow">
+    <div class="fstep"><span class="fid">FO-15</span>Fast-track launcher (search-first embedded)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-03..05</span>Compressed registration</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">OR-01</span>Order</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-02</span>Invoice</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-03</span>Collect</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-14</span>Queue token</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-01</span>Hand-off to imaging spine (Flow 4)</div>
+  </div>
+  <table>
+    <tr><th style="width:150px">Hop</th><th>State / data passed forward</th><th style="width:210px">SLA / timer</th></tr>
+    <tr><td class="mono">FO-15 → FO-03..05</td><td>Fast-track context flag: minimal mandatory field set; deferred fields queued as an FO-07 completion task for later.</td><td>Door-to-token target 8 min (AD-13 KPI)</td></tr>
+    <tr><td class="mono">FO-05 → OR-01</td><td>Fresh MRN in context; OR-01 opens pre-bound to the patient; OR-02 dup-intercept still runs.</td><td>—</td></tr>
+    <tr><td class="mono">OR-01 → BL-02 → BL-03</td><td>Order AWAITING_PAYMENT with priced lines (BL-10 catalog); payment PAID unlocks the TK-01 gate.</td><td>UPI pendings divert to BL-04 (Flow 7)</td></tr>
+    <tr><td class="mono">BL-03 → FO-14 → TK-01</td><td>Queue token + modality routing; TK-01 row appears with gates precomputed, re-evaluated at Perform.</td><td>Wait clock; STAT bypasses queue (OR-07)</td></tr>
+  </table>
+  <div class="small muted">The single deviation from Flow 2: no appointment object exists — SC capacity is consumed from the walk-in reservation pool (SC rules define per-modality walk-in %).</div>
+</div>
+
+<!-- ================================================== FLOW 4 -->
+<h2 id="f04">Flow 4 — Imaging order-to-report (THE SPINE)</h2>
+<div class="card">
+  <div class="flow">
+    <div class="fstep"><span class="fid">OR-01</span>Order entry</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">OR-02</span>Duplicate intercept</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">CS-01/02/03/06</span>Safety &amp; consent capture (as required by modality rules)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">OR-04</span>Modality worklist entry</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-08</span>MWL sync</div><span class="farr">→</span>
+    <div class="fstep crit"><span class="fid">TK-01</span>Gated worklist · PERFORM (all gates re-checked)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-09</span>Prep checklist</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-02</span>Acquisition (+TK-06 contrast, +TK-05 retake)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-10</span>Dose registry</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-11</span>QC</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-01</span>Reading worklist (RD-02 routing)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-03</span>Viewer + priors (RD-05/06)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-07</span>Authoring (RD-18 templates)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-08</span>Pre-sign QC</div><span class="farr">→</span>
+    <div class="fstep crit"><span class="fid">RD-09</span>Sign-off (AU-09)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-13</span>Signed + distribution</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">NT-01</span>Delivery ledger → PT-01/PT-02 · DD-02</div>
+  </div>
+  <table>
+    <tr><th style="width:170px">Actor</th><th>Screens in order</th><th>Notes</th></tr>
+    <tr><td><span class="chip amber">Referrer</span></td><td class="mono">DD-03 (or paper via OR-08) → DD-04 tracking → DD-02 inbox</td><td>external referrers enter via AD-07 registry</td></tr>
+    <tr><td><span class="chip teal">Front office / order desk</span></td><td class="mono">OR-01 → OR-02 → (CS capture) → OR-03 timeline oversight</td><td>OR-05 modify/cancel any time pre-acquisition</td></tr>
+    <tr><td><span class="chip blue">Technician</span></td><td class="mono">TK-08 → TK-01 → TK-09 → TK-02 → TK-06 → TK-10 → TK-11 (→ TK-03/04/05 exceptions)</td><td>TK-07 device board is ambient context</td></tr>
+    <tr><td><span class="chip violet">Radiologist</span></td><td class="mono">RD-01/02 → RD-03 (05/06) → RD-07 → RD-08 → RD-09 → RD-13</td><td>RD-04 degraded path if PACS slow</td></tr>
+    <tr><td><span class="chip grey">Patient</span></td><td class="mono">NT msg → PT-01 → PT-02 (PT-04 receipt)</td><td>guardian substitution per FO-20</td></tr>
+  </table>
+  <table style="margin-top:10px">
+    <tr><th style="width:160px">Hop</th><th>State / data passed forward</th><th style="width:230px">SLA / timer</th></tr>
+    <tr><td class="mono">OR-01 → OR-02</td><td>Draft order {service, laterality, priority, referrer, clinical question}; OR-02 verdict pass / justify / open-existing.</td><td>—</td></tr>
+    <tr><td class="mono">OR-02 → CS-*</td><td>Modality rule pack decides required gates: contrast→CS-01+CS-03; MR→CS-02(+CS-03); OB US→CS-06. Each capture writes a gate verdict object, not a boolean.</td><td>Gate verdicts have validity windows (e.g. eGFR ≤ 90 d)</td></tr>
+    <tr><td class="mono">CS-* → OR-04 → TK-08</td><td>Order SCHEDULED_FOR_ACQ; MWL entry {accession, MRN, protocol from OR-06}. TK-08 confirms modality received it.</td><td>MWL propagation ≤ 60 s; staleness alerts IN-01</td></tr>
+    <tr><td class="mono">TK-01 → TK-02</td><td><b>The gate moment.</b> Re-evaluate: payment (or STAT deferral OR-07), CS verdicts in validity, equipment licence (AD-08/AD-09), practitioner credential (AD-06). Pass → PERFORMING; any fail → blocked row with named gate.</td><td>STAT order→acquire 15 min; urgent 2 h; routine per booking</td></tr>
+    <tr><td class="mono">TK-02 → TK-10/11 → RD-01</td><td>PERFORMED + study-order binding (accession); dose row (paediatric band checks); QC verdict. Study visible to RD-01 only after QC pass or explicit QC-waive.</td><td>Acquire→available ≤ 10 min (else IN-03/IN-01 suspects)</td></tr>
+    <tr><td class="mono">RD-01/02 → RD-03</td><td>Assignment {reader, subspecialty fit, accept deadline}; priors prefetch trigger (allow-and-audit for same-org cross-branch).</td><td>Accept timer 5 min (STAT) / 30 min (routine)</td></tr>
+    <tr><td class="mono">RD-07 → RD-08 → RD-09</td><td>Draft {template id, structured fields, critical-candidate flags}; RD-08 lint verdict must be PASS or overridden-with-reason; RD-09 requires AU-09; output immutable signed v1 + hash.</td><td>Report TAT: STAT 60 min, urgent 4 h, routine 24 h from PERFORMED</td></tr>
+    <tr><td class="mono">RD-09 → RD-13 → NT-01</td><td>Distribution matrix {patient link, referrer channel (AD-07 pref), internal copies}; every send becomes a ledger row with delivery state machine QUEUED→SENT→DELIVERED/FAILED.</td><td>Distribution fire ≤ 2 min after sign; failures → Flow 9</td></tr>
+    <tr><td class="mono">NT-01 → PT-01 → PT-02</td><td>Tokenised link (TTL per policy) + OTP challenge; masked #MRN-••••NN pre-verification; view events flow back to NT-06.</td><td>Link TTL 30 d (then PT-03)</td></tr>
+  </table>
+</div>
+
+<!-- ================================================== FLOW 5 -->
+<h2 id="f05">Flow 5 — Critical result loop</h2>
+<div class="card">
+  <div class="flow">
+    <div class="fstep crit"><span class="fid">RD-03</span>Finding identified during read</div><span class="farr">→</span>
+    <div class="fstep crit"><span class="fid">RD-10</span>Flag tier (RED 15 m / ORANGE 4 h) + send</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">NT-01</span>Multi-channel notify (NT-07 bypass for RED)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">DD-02</span>Referrer inbox — ACKNOWLEDGE + action note</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-11</span>Critical queue — loop closure</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-09→RD-13</span>Full report follows (references the critical event)</div>
+  </div>
+  <table>
+    <tr><th style="width:160px">Hop</th><th>State / data passed forward</th><th style="width:250px">SLA / timer</th></tr>
+    <tr><td class="mono">RD-10 → NT-01</td><td>Critical event {tier, T0, finding summary, advice, target identity}. Preliminary note may precede the signed report (event is independent of report state).</td><td>T0 set at send; RED target T0+15 m, ORANGE T0+4 h</td></tr>
+    <tr><td class="mono">NT-01 → DD-02</td><td>Push+SMS+voice (RED) or push+SMS (ORANGE); DD-02 renders the event with one-tap Acknowledge requiring an action note.</td><td>Per-channel delivery states monitored live on RD-11</td></tr>
+    <tr><td class="mono">DD-02 → RD-11</td><td>Ack {identity, timestamp, action note} closes the clock; RD-11 row → CLOSED with ack latency.</td><td>—</td></tr>
+    <tr><td class="mono">timer → ladder</td><td>No ack: RED — T+15 re-notify + duty doctor, phone-call task (logged outcome); T+30 medical director + GV-08 incident draft. ORANGE — T+4 h re-notify + call task; T+8 h department escalation. "Ack on behalf" allowed with reason → GV-03 review.</td><td>Ladder events are themselves audit rows; breach metrics → RD-17, GV-01</td></tr>
+  </table>
+</div>
+
+<!-- ================================================== FLOW 6 -->
+<h2 id="f06">Flow 6 — Addendum loop</h2>
+<div class="card">
+  <div class="flow">
+    <div class="fstep"><span class="fid">RD-13</span>Signed v1 delivered</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">RD-15 / RD-16 / DD query</span>Trigger for change</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-12</span>Addendum authored (v1 immutable)</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">RD-10</span>Critical flag if actionable (usually ORANGE)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-09</span>Addendum sign (AU-09)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-13</span>Redistribute v1+A1 with supersede banner</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">NT-01</span>Explicit "report updated" notices</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">DD-02 → RD-11</span>Ack if critical</div>
+  </div>
+  <table>
+    <tr><th style="width:160px">Hop</th><th>State / data passed forward</th><th style="width:230px">SLA / timer</th></tr>
+    <tr><td class="mono">RD-12 → RD-09</td><td>Addendum {reason class: missed finding / correction / additional info, body, author (may differ from v1 author — both named)} bound to v1 hash.</td><td>Addendum sign same-day target</td></tr>
+    <tr><td class="mono">RD-09 → RD-13</td><td>Composite artefact v1+A1; recipients = superset of original distribution; existing PT links serve the composite (same URL, new content, change badge).</td><td>Redistribution ≤ 2 min</td></tr>
+    <tr><td class="mono">RD-10 branch</td><td>If actionable: full Flow 5 machinery on the addendum's critical event.</td><td>ORANGE 4 h typical</td></tr>
+    <tr><td class="mono">closure → RD-15</td><td>QA case (if peer-review-triggered) records outcome classification; feeds RD-17 quality metrics and GV-01 review calendar.</td><td>—</td></tr>
+  </table>
+</div>
+
+<!-- ================================================== FLOW 7 -->
+<h2 id="f07">Flow 7 — Billing: collect / refund / credit note</h2>
+<div class="card">
+  <div class="flow">
+    <div class="fstep"><span class="fid">BL-01</span>Billing worklist (uncollected orders)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-02</span>Invoice (GST-exempt healthcare; BL-10 catalog, BL-12 discounts, BL-11 payer split, BL-16 estimate honour, BL-14 advance adjust)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-03</span>Collection (cash/card/UPI)</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">BL-04</span>UPI pending tray</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-05</span>Receipt</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">BL-07</span>Credit note (post-invoice reduction)</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">BL-06</span>Refund (money out, AU-09 + four-eyes)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-08</span>Approvals queue (async, backs 12/06/07/17)</div>
+  </div>
+  <table>
+    <tr><th style="width:170px">Actor</th><th>Screens in order</th><th>Notes</th></tr>
+    <tr><td><span class="chip teal">Billing clerk</span></td><td class="mono">BL-01 → BL-02 → BL-03 (→ BL-04) → BL-05; later BL-07 draft, BL-06 request</td><td>⛅ cash-only offline; provisional series</td></tr>
+    <tr><td><span class="chip blue">Approver</span></td><td class="mono">BL-08 (mobile-capable) with AU-09</td><td>escalation chain from AD-05</td></tr>
+    <tr><td><span class="chip grey">Patient</span></td><td class="mono">PT-06 online payment → PT-04 receipt</td><td>prepay joins at BL-03-equivalent state</td></tr>
+  </table>
+  <table style="margin-top:10px">
+    <tr><th style="width:160px">Hop</th><th>State / data passed forward</th><th style="width:230px">SLA / timer</th></tr>
+    <tr><td class="mono">BL-02 → BL-03</td><td>Invoice FINAL {lines, SAC codes, exemption basis, payer legs, discount refs (BL-08 approval ids)}; number from series (BL-13/AD-16, gap-free).</td><td>Above-limit discount parks AWAITING_APPROVAL (10 min target)</td></tr>
+    <tr><td class="mono">BL-03 → BL-04 → BL-05</td><td>Tender result; UPI no-callback ≥ 90 s → pending tray with poll schedule; SUCCESS (callback or verify) → receipt; payment state PAID unlocks TK-01 gate.</td><td>Poll backoff 30/60/120 s; EOD forces resolution (Flow 8)</td></tr>
+    <tr><td class="mono">BL-07 path</td><td>Credit note references original invoice lines; reasons coded; approval via BL-08 above threshold; GST export (BL-19) carries the linkage.</td><td>Approval 4 h target</td></tr>
+    <tr><td class="mono">BL-06 path</td><td>Refund {original tender preference, credit-note or cancellation basis}; requires AU-09 step-up by requester AND asynchronous four-eyes in BL-08; payout state machine REQUESTED→APPROVED→PAID.</td><td>Refund payout ≤ 48 h (patient-visible on PT-10)</td></tr>
+  </table>
+</div>
+
+<!-- ================================================== FLOW 8 -->
+<h2 id="f08">Flow 8 — Cash day cycle</h2>
+<div class="card">
+  <div class="flow">
+    <div class="fstep"><span class="fid">BL-09</span>Open cash session (float count)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-03/05</span>Day's collections post to session</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-04</span>Resolve all pendings</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-09</span>Close: denomination count, variance + countersign</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-18</span>Day book finalise (immutable)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-17</span>Front-office EOD checklist</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-21</span>Handover</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-19</span>Monthly: GST export from day books</div>
+  </div>
+  <table>
+    <tr><th style="width:160px">Hop</th><th>State / data passed forward</th><th style="width:230px">SLA / timer</th></tr>
+    <tr><td class="mono">BL-09 open → BL-03</td><td>Session id stamped on every tender row; no collection possible without an open session (screen-enforced).</td><td>One session per cashier per day</td></tr>
+    <tr><td class="mono">BL-04 → BL-09 close</td><td>Zero unresolved intents is a close precondition; each pending resolved settled/reversed/disputed-carried.</td><td>Close by 21:30 site policy</td></tr>
+    <tr><td class="mono">BL-09 close → BL-18</td><td>Sealed session {system vs counted, variance + reason + countersign (four-eyes over threshold)}; BL-18 compiles sessions + refunds + credit notes + deferred STAT payments + discount audit.</td><td>Variance &gt; ₹500 → manager review, repeat → GV-08</td></tr>
+    <tr><td class="mono">BL-18 → FO-17 → FO-21</td><td>Financial close feeds the operational checklist (all patients dispositioned, no-shows marked FO-12, unacked RED criticals block sign-out); handover note to next shift.</td><td>FO-17 completion is the site's day boundary</td></tr>
+    <tr><td class="mono">BL-18 → BL-19</td><td>Month's immutable day books → GST export bundle (exempt supplies register, credit-note linkage, series continuity proof).</td><td>Export by the 8th (IR-06/GV-01 calendar)</td></tr>
+  </table>
+</div>
+
+<!-- ================================================== FLOW 9 -->
+<h2 id="f09">Flow 9 — Delivery &amp; failure recovery</h2>
+<div class="card">
+  <div class="flow">
+    <div class="fstep"><span class="fid">RD-13</span>Distribution fires</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">NT-01</span>Ledger rows per channel (NT-03 DLT templates, NT-04 channels)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">NT-06</span>Provider status ingestion</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">NT-02</span>Failure workbench</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">NT-01</span>Retry same/alternate channel</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">NT-02</span>Counter-pickup ticket</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-13</span>ID-verified handover at counter</div>
+  </div>
+  <table>
+    <tr><th style="width:160px">Hop</th><th>State / data passed forward</th><th style="width:230px">SLA / timer</th></tr>
+    <tr><td class="mono">RD-13 → NT-01</td><td>Send jobs {recipient, channel, template id, link token}; state QUEUED→SENT→DELIVERED / FAILED / SUPPRESSED (NT-05 checked before send, always).</td><td>Fire ≤ 2 min post-sign</td></tr>
+    <tr><td class="mono">NT-06 → NT-02</td><td>Late provider callbacks (DLT scrub, DND, dead number) flip rows to FAILED even after the retry window; failures group by cause + template for bulk handling.</td><td>Auto-retry ×2 with backoff; then human queue, 24 h SLA</td></tr>
+    <tr><td class="mono">NT-02 → NT-01 retry</td><td>Alternate-channel decision uses patient channel inventory (voice link, WhatsApp, email) + PT-11 language; each retry is a new ledger row chained to the original.</td><td>—</td></tr>
+    <tr><td class="mono">NT-02 → FO-13</td><td>Pickup ticket {report version binding, TTL 30 d}; counter consumes it after ID sight (masked #MRN-••••NN until verified); print via IN-08.</td><td>Unclaimed ticket expiry → re-contact task</td></tr>
+    <tr><td class="mono">any → GR-01</td><td>Patient complaint joins here (DOC-01 Scenario 19); grievance case links the NT evidence chain.</td><td>Grievance 48 h (GR-02 queue)</td></tr>
+  </table>
+</div>
+
+<!-- ================================================== FLOW 10 -->
+<h2 id="f10">Flow 10 — Consent lifecycle (grant → withdraw → suppression)</h2>
+<div class="card">
+  <div class="flow">
+    <div class="fstep"><span class="fid">AD-10</span>Consent notice authored + versioned</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-04 / PT-07 / CS-03</span>Grant points (registration, portal, procedure)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">GV-11</span>Consent registry (single source of truth)</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">PT-08</span>Withdrawal request</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">GV-11</span>Withdrawal recorded, scope resolved</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">NT-05</span>Suppression list updated</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">NT-01</span>All future sends check NT-05 pre-flight</div>
+  </div>
+  <table>
+    <tr><th style="width:160px">Hop</th><th>State / data passed forward</th><th style="width:230px">SLA / timer</th></tr>
+    <tr><td class="mono">AD-10 → grant points</td><td>Notice {version, language variants, purposes[]}; grant screens must render the exact active version — stale-version grants are invalid.</td><td>New version → re-consent campaign flag</td></tr>
+    <tr><td class="mono">grant → GV-11</td><td>Consent artefact {subject, signer (guardian-aware per FO-20), notice version, purposes granted/refused, channel}; refusals stored as signed negatives (DOC-01 Scenario 22).</td><td>Registry write is part of the grant transaction (no async loss)</td></tr>
+    <tr><td class="mono">PT-08 → GV-11</td><td>Withdrawal {scope: purpose subset or all-optional}; care-necessary processing continues on treatment basis — screens must show the basis distinction.</td><td>Effect ≤ 24 h across all systems</td></tr>
+    <tr><td class="mono">GV-11 → NT-05 → NT-01</td><td>Suppression entries {channel/purpose, reason=withdrawal}; NT-01 pre-flight check is mandatory and logged even when it suppresses (SUPPRESSED ledger rows are evidence).</td><td>—</td></tr>
+  </table>
+</div>
+
+<!-- ================================================== FLOW 11 -->
+<h2 id="f11">Flow 11 — DPDP rights lifecycle</h2>
+<div class="card">
+  <div class="flow">
+    <div class="fstep"><span class="fid">PT-08</span>Rights hub (access / correction / erasure / nomination)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">PT-09</span>Submission + identity re-verify</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">GV-05</span>Rights desk triage + scope</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">GV-06 · GV-07</span>Retention + legal-hold evaluation</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">GV-04</span>Deletion workspace (erasure) / <span class="fid">GV-15</span> export (access)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">AU-09</span>Step-up + four-eyes on execution</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">PT-10</span>Reasoned outcome + tracking</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">GV-16</span>DPO oversight, GV-01 statutory clock board</div>
+  </div>
+  <table>
+    <tr><th style="width:160px">Hop</th><th>State / data passed forward</th><th style="width:230px">SLA / timer</th></tr>
+    <tr><td class="mono">PT-09 → GV-05</td><td>Case {type, scope, identity assurance level}; weak identity → counter-verification sub-flow before any data moves.</td><td>Statutory response clock starts at submission</td></tr>
+    <tr><td class="mono">GV-05 → GV-06/GV-07</td><td>Data map partition per class: erasable now vs retention-held (radiology 10 y, billing 8 y) vs legally held; every class carries its rule citation into the outcome letter.</td><td>Triage 5 working days internal</td></tr>
+    <tr><td class="mono">GV-04/GV-15 → PT-10</td><td>Execution manifest (counts, methods, redactions) or export package (hash, TTL link, download caps); restricted-processing flags + NT-05 entries for retained-but-frozen classes.</td><td>Fulfilment within the DPDP SLA; GV-01 tracks deadline</td></tr>
+    <tr><td class="mono">PT-10 → GR-01</td><td>Dispute path: grievance case referencing the rights case; GV-16 DPO adjudicates; Data Protection Board escalation text included in every outcome letter.</td><td>—</td></tr>
+  </table>
+</div>
+
+<!-- ================================================== FLOW 12 -->
+<h2 id="f12">Flow 12 — Incident / breach lifecycle</h2>
+<div class="card">
+  <div class="flow">
+    <div class="fstep crit"><span class="fid">any → GV-08</span>Incident opened (detection: NT-06, IN-01, GV-02, staff report)</div><span class="farr">→</span>
+    <div class="fstep crit"><span class="fid">GV-09</span>Breach runbook: containment tasks + clock rail (CERT-In 6 h)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">PT-03 / AU-18 / AU-17</span>Containment actions (revoke links, rotate keys, kill sessions)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">GV-10</span>Notices: CERT-In, DPB, affected patients (as assessed)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">GV-08</span>RCA + action items → closure</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">GV-12 · GV-01</span>DPIA update, review calendar</div>
+  </div>
+  <table>
+    <tr><th style="width:160px">Hop</th><th>State / data passed forward</th><th style="width:230px">SLA / timer</th></tr>
+    <tr><td class="mono">detect → GV-08</td><td>Evidence bundle (hash-sealed log excerpts), affected-cohort snapshot, severity classification S1–S4.</td><td>Triage 30 min for S1/S2</td></tr>
+    <tr><td class="mono">GV-08 → GV-09</td><td>Runbook instantiation arms the clocks: <b>CERT-In 6 h from determination</b>, DPB notification assessment, patient notification assessment; every task {owner, DS-03 timer}.</td><td>Clock rail visible at all times; RED at 60% elapsed</td></tr>
+    <tr><td class="mono">GV-09 → containment screens</td><td>Task fan-out with pre-authorised emergency actions (mass PT-03 revoke, AU-18 rotation, AU-17 session kill) — each returns a completion artefact (manifest / certificate) to the runbook.</td><td>Containment before notification where possible</td></tr>
+    <tr><td class="mono">GV-09 → GV-10</td><td>Notices with filing acknowledgements; preliminary-report policy: file known facts rather than breach the 6 h clock, supplement later.</td><td>CERT-In ≤ 6 h; patient notices per harm assessment</td></tr>
+    <tr><td class="mono">GV-08 close → GV-12/GV-01</td><td>RCA, action items tracked to done; DPIA deltas; recurring review scheduled.</td><td>Action items ≤ 30 d default</td></tr>
+  </table>
+</div>
+
+<!-- ================================================== FLOW 13 -->
+<h2 id="f13">Flow 13 — PC-PNDT monthly cycle</h2>
+<div class="card">
+  <div class="flow">
+    <div class="fstep"><span class="fid">CS-06</span>Form F per obstetric scan (continuous, gate at TK-01)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">IR-01</span>Form F register accrues (append-only)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">IR-02</span>Monthly submission prep: completeness check</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">IR-03</span>Submission to appropriate authority + acknowledgement</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">IR-04</span>Corrections (append-only, four-eyes)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">IR-06</span>Compliance calendar closes the month</div>
+  </div>
+  <table>
+    <tr><th style="width:160px">Hop</th><th>State / data passed forward</th><th style="width:230px">SLA / timer</th></tr>
+    <tr><td class="mono">CS-06 → IR-01</td><td>On RD-09 sign of the scan, register row auto-appends {serial, date, indication, referrer (verified — provisional AD-07 referrers are insufficient), sonologist, machine (AD-08 PNDT-registered)}.</td><td>Same-transaction append (no batch lag)</td></tr>
+    <tr><td class="mono">IR-01 → IR-02</td><td>Month slice + completeness lint: missing counter-signatures, unverified referrers, machine/registration mismatches — each lint item is a blocking task.</td><td>Prep window 1st–4th of following month</td></tr>
+    <tr><td class="mono">IR-02 → IR-03</td><td>Submission bundle (register extract + centre registration refs); acknowledgement number stored against the month.</td><td><b>Submit by the 5th</b> (IR-06 + GV-01 hard deadline; T-2 d escalation to centre head)</td></tr>
+    <tr><td class="mono">IR-04 branch</td><td>Post-submission corrections append with reason + four-eyes; original rows never mutate; re-submission reference chains to the ack.</td><td>—</td></tr>
+  </table>
+</div>
+
+<!-- ================================================== FLOW 14 -->
+<h2 id="f14">Flow 14 — Exception / unmatched-study recovery</h2>
+<div class="card">
+  <div class="flow">
+    <div class="fstep crit"><span class="fid">IN-03</span>Quarantine intake (match rules failed)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">IN-05</span>Message browser: evidence</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-08</span>MWL/sync root cause</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">OR-03</span>Candidate order located</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">IN-03</span>Manual match (typed identity confirmation, four-eyes)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">IN-06</span>Coerce + replay to PACS (IN-04)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-01</span>Study available, RECONCILED badge</div>
+  </div>
+  <table>
+    <tr><th style="width:160px">Hop</th><th>State / data passed forward</th><th style="width:230px">SLA / timer</th></tr>
+    <tr><td class="mono">IN-03 intake</td><td>Item {received tags snapshot, source AE (IN-02), failed rule chain}; report clock of the true order is already running — quarantine is on the critical path.</td><td>Reconcile ≤ 2 h; breach → IN-01 alert + PACS-admin escalation</td></tr>
+    <tr><td class="mono">IN-03 → IN-06</td><td>Match decision {evidence cited, DOB typed-not-clicked, matcher + confirmer identities}; coercion record old→new tag values; original object retained immutably.</td><td>—</td></tr>
+    <tr><td class="mono">IN-06 → RD-01</td><td>Replayed study binds to the order; RECONCILED badge propagates to RD-03 banner and signed-report metadata; wrong-match reversal path exists (four-eyes; if signed → Flow 6 retraction + GV-08).</td><td>Reading SLA resumes with annotated gap cause (RD-17)</td></tr>
+    <tr><td class="mono">no-candidate branch</td><td>Retrospective OR-01 (centre-manager role, source "reconciliation") → BL-01 uncaptured-revenue view.</td><td>—</td></tr>
+  </table>
+</div>
+
+<!-- ================================================== FLOW 15 -->
+<h2 id="f15">Flow 15 — Offline → sync cycle</h2>
+<div class="card">
+  <div class="flow">
+    <div class="fstep crit"><span class="fid">IN-01</span>Link down detected → branch OFFLINE</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">FO-01</span>Degraded banner + capability matrix</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-15/13/OR-01/BL-03/TK-02</span>Offline operations queue on edge node</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">IN-10</span>Reconnect: causal-order drain + id exchange</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">IN-10</span>Conflict inbox</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-08 · BL-09</span>Dedupe pass + provisional-receipt reconciliation</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">IN-01</span>Branch ONLINE, backlog metrics archived</div>
+  </div>
+  <table>
+    <tr><th style="width:160px">Hop</th><th>State / data passed forward</th><th style="width:230px">SLA / timer</th></tr>
+    <tr><td class="mono">IN-01 → FO-01</td><td>Capability matrix version: allowed offline (register/check-in/order/cash/scan) vs blocked (FO-09 merge, BL-06 refunds, UPI, distribution); every offline capture tagged "offline-captured" in its audit line.</td><td>Offline &gt; 24 h escalates to PL operator screens</td></tr>
+    <tr><td class="mono">offline ops → IN-10</td><td>Queue entries with vector timestamps; provisional MRN series P-*, provisional receipt series (BL-13/AD-16 dedicated, never reused online).</td><td>Edge disk alert at 80%; unsynced items never evicted</td></tr>
+    <tr><td class="mono">IN-10 drain</td><td>Causal order: patients → orders → payments → studies → consents; id-mapping manifest (provisional→final) is the permanent audit anchor; RED-critical distribution backlog replays first.</td><td>Drain monitored; target &lt; 15 min per offline-hour</td></tr>
+    <tr><td class="mono">IN-10 → FO-08/BL-09</td><td>Conflicts: physical-presence wins slot conflicts (central booking auto-rescheduled via FO-11 + NT-03 apology); offline registrations enter the normal merge pipeline; provisional receipts mapped before BL-18 finalises ("provisional day" until then).</td><td>Conflict inbox clear ≤ 4 h post-reconnect</td></tr>
+  </table>
+</div>
+
+<!-- ================================================== FLOW 16 -->
+<h2 id="f16">Flow 16 — User onboarding → daily sign-in cycle</h2>
+<div class="card">
+  <div class="flow">
+    <div class="fstep"><span class="fid">AD-03</span>User created (role bindings AD-04, approver coverage AD-05)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">AU-07</span>Activation link</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">AU-04</span>MFA enrolment (policy AU-15)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">AU-12</span>Policy gate (terms, training attestations)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">AU-01</span>Daily unified sign-in (Keycloak; AU-16 SSO realm)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">AU-03</span>2FA verify</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">AU-10</span>Workspace chooser (multi-branch/multi-role)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">role home</span>FO-01 / TK-01 / RD-01 / BL-01 / DD-01…</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">AU-08</span>Session lock (shared terminals, idle)</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">AU-09</span>Step-up interstitials during the day</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">AU-11</span>My profile / sessions (self-service)</div>
+  </div>
+  <table>
+    <tr><th style="width:170px">Actor</th><th>Screens in order</th><th>Notes</th></tr>
+    <tr><td><span class="chip violet">IT admin</span></td><td class="mono">AD-03 → AD-04 → AD-05 · AU-14 unlocks · AU-15 MFA policy · AU-16 realms · AU-17 sessions admin · AU-18 service accounts</td><td>admin plane, ongoing</td></tr>
+    <tr><td><span class="chip teal">Every staff user</span></td><td class="mono">AU-07 → AU-04 → AU-12 → AU-01 → AU-03 → AU-10 → role home → AU-08/AU-09 → sign-out</td><td>AU-02 failure states; AU-05 lost authenticator; AU-06 reset</td></tr>
+  </table>
+  <table style="margin-top:10px">
+    <tr><th style="width:160px">Hop</th><th>State / data passed forward</th><th style="width:230px">SLA / timer</th></tr>
+    <tr><td class="mono">AD-03 → AU-07</td><td>Account PENDING_ACTIVATION {roles, branches, approver-chain memberships}; activation token single-use.</td><td>Token TTL 72 h; expiry → re-issue from AD-03</td></tr>
+    <tr><td class="mono">AU-07 → AU-04 → AU-12</td><td>Credential set; MFA factors registered per AU-15 policy (clinical signers require TOTP minimum); policy gate blocks first entry until attestations signed — account ACTIVE only after all three.</td><td>Training attestation re-gate annually</td></tr>
+    <tr><td class="mono">AU-01 → AU-03 → AU-10</td><td>Keycloak session + 2FA claim; workspace choice binds {branch, role} context onto every subsequent audit line and permission check; single-workspace users skip AU-10.</td><td>Failed attempts → AU-02 states; lockout → AU-14 admin unlock</td></tr>
+    <tr><td class="mono">day usage</td><td>AU-08 lock on idle (shared-terminal aggressive profile at FO/TK counters — PIN re-entry, no full re-auth); AU-09 step-up tokens are single-action, never cached; AU-13 IdP-degraded mode allows read-only emergency access with forced GV-03 review.</td><td>Idle lock 3 min shared / 15 min personal; step-up validity 5 min</td></tr>
+    <tr><td class="mono">AU-11 / AU-17</td><td>Self-service session list + remote revoke; admin plane sees all sessions; offboarding kills sessions instantly (DOC-01 Scenario 25).</td><td>Revocation propagation ≤ 60 s</td></tr>
+  </table>
+</div>
+
+<div class="card" style="border-left:5px solid #0F766E">
+  <div class="card-title">Document control <span class="right">DOC-02</span></div>
+  <div class="kv">
+    <dt>Version</dt><dd>1.0 — July 2026</dd>
+    <dt>Owner</dt><dd>NUMINACORE — Magnus HMS architecture group</dd>
+    <dt>Companions</dt><dd>DOC-01 Patient Scenario Walkthroughs (narrative form of these flows), 225-screen design pack, decision log</dd>
+    <dt>Change policy</dt><dd>These chains are the contract for routing, status machines and SLA timers; implementations must not introduce transitions absent from the hop tables without a decision-log entry.</dd>
+  </div>
+</div>
+
+</div></body></html>

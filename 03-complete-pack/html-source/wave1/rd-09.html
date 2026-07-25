@@ -1,5 +1,5 @@
 <section class="screen" id="rd-09">
-<div class="screen-head"><h1><span class="sid">RD-09</span> Report sign-off</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div></div></div>
+<div class="screen-head"><h1><span class="sid">RD-09</span> Report sign-off</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · RR-S4 sign-off + C-3 explicit declaration</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Final legal act of the reading workflow: the radiologist reviews summary rows, explicitly ticks the declaration (never pre-ticked), and confirms identity via the org-policy mechanism (Meridian policy: <b>passkey</b>, password fallback). Signing renders the immutable final PDF; any later change must be an addendum. Critical keywords force a communication decision before signing. A network drop mid-sign is handled idempotently — the system states plainly whether the report is signed or not.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · READING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
@@ -34,6 +34,7 @@
             <dt>Compliance scan</dt><dd><span class="chip green">CLEAN</span> no sex-indicative terms · re-ran at 12:31:44 IST</dd>
             <dt>Signing as</dt><dd>Dr. V. Shetty · RMC MH-44721 · Radiologist</dd>
             <dt>Final render</dt><dd><span class="btn ghost small">Preview final PDF (as it will be issued) ↗</span></dd>
+            <dt>Content hash</dt><dd><span class="mono">SHA-256 e3b1…9c42</span> of the final report body — stored in the immutable audit record with the signature event</dd>
           </div>
           <div class="banner warn"><b>Immutability warning.</b> On signing, the report and its PDF become immutable and are released per the referrer/patient release policy. Corrections after signing are addenda only — the original text is never altered.</div>
           <div class="check"><span class="box"></span> <span><b>Declaration (not pre-ticked — your explicit act):</b> I have personally reviewed the images and this report; findings and impression are mine; foetal sex has not been determined or disclosed (PC-PNDT).</span></div>
@@ -43,7 +44,7 @@
           <div class="modal-actions"><span class="btn">Cancel — back to editor</span><span class="btn primary disabled">Sign report (tick declaration first)</span></div>
         </div>
       </div>
-      <p class="audit">Opening the sign modal, the declaration tick, identity mechanism used and render hash are all recorded in the access log.</p>
+      <p class="audit">Opening the sign modal, the declaration tick, identity mechanism used and render hash are all recorded in the access log; the hash binds the signature to this exact content.</p>
     </div>
   </div>
 </div>

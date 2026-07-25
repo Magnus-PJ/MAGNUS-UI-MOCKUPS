@@ -1,0 +1,129 @@
+<section class="screen" id="pl-07">
+<div class="screen-head"><h1><span class="sid">PL-07</span> Platform audit log</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G16 Platform Operator — operator console</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · platform audit log (tenant-visible mirror)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Immutable, hash-chained stream of every operator action taken against any tenant — who did it, which tenant was affected, and the dual-control reference where one applied. Every operator action on a tenant is mirrored into that tenant's own audit log, so tenant admins see the same record NUMINACORE sees. Filtered exports require a governance reason and are themselves logged.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>Platform</span></span><span class="org">🏢 NUMINACORE Platform Console · operator realm</span></div><div class="userchip"><span class="av">RI</span>R. Iyer (Platform Ops) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Platform</div>
+      <div class="nav-item">Tenant directory</div>
+      <div class="nav-item">Provisioning</div>
+      <div class="nav-item">Support access</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item active">Platform audit log</div>
+      <div class="nav-item">Dual-control queue <span class="nav-badge">2</span></div>
+      <div class="nav-item">Data requests</div>
+      <div class="sec-label">Operations</div>
+      <div class="nav-item">Releases &amp; rings</div>
+      <div class="nav-item">Backup &amp; DR</div>
+      <div class="nav-item">Incidents <span class="nav-badge red">1</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Platform Console › Governance › Platform audit log</div>
+      <div class="page-title">Platform audit log <span class="actions-right"><span class="btn small">⬇ Export (governed)</span> <span class="btn small primary">Verify hash chain</span></span></div>
+      <div class="page-sub">Operator-action stream · append-only · hash-chained hourly · retention 7 years · IST timestamps</div>
+
+      <div class="banner reg"><b>Tenant-visible mirror</b> Every entry that names a tenant is mirrored to that tenant's own audit log within 60 s. Tenant admins (e.g. K. Verma at Meridian Diagnostics) see operator actions on their org — there are no silent operator actions.</div>
+
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">1,482</div><div class="l">Entries · last 30 d</div><div class="s">All operator realms</div></div>
+        <div class="kpi"><div class="n">37</div><div class="l">Dual-control actions</div><div class="s">All with approver refs</div></div>
+        <div class="kpi amber"><div class="n">4</div><div class="l">Support-access sessions</div><div class="s">All tenant-approved</div></div>
+        <div class="kpi"><div class="n">✓</div><div class="l">Chain integrity</div><div class="s">Last check 25 Jul 05:00 IST</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Filters <span class="right">Applied: last 7 days</span></div>
+        <div class="row">
+          <div class="field grow"><label>Actor</label><select class="select"><option>All operators</option><option>R. Iyer</option><option>S. Menon</option><option>A. Bhat</option><option>system (automation)</option></select></div>
+          <div class="field grow"><label>Tenant affected</label><select class="select"><option>All tenants</option><option>Meridian Diagnostics</option><option>Sunrise Imaging (Pune)</option><option>CarePoint Labs (Kochi)</option><option>— platform-wide —</option></select></div>
+          <div class="field grow"><label>Action class</label><select class="select"><option>All</option><option>Tenant lifecycle</option><option>Support access</option><option>Release / config</option><option>Backup / DR</option><option>Data export</option></select></div>
+          <div class="field grow"><label>Date range (IST)</label><input class="input" value="18 Jul 2026 — 25 Jul 2026"></div>
+          <div class="field" style="align-self:flex-end"><span class="btn primary">Apply</span></div>
+        </div>
+      </div>
+
+      <div class="state-tag">STATE A — OPERATOR-ACTION STREAM</div>
+      <div class="card">
+        <div class="card-title">Action stream <span class="right">312 entries · newest first</span></div>
+        <table>
+          <tr><th>Time (IST)</th><th>Actor</th><th>Tenant affected</th><th>Action</th><th>Dual-control ref</th><th>Mirror</th><th></th></tr>
+          <tr class="hl"><td class="mono">25 Jul 11:42</td><td>R. Iyer</td><td>Meridian Diagnostics</td><td>Extended support-access window on branch Andheri West by 2 h (ticket MER-4471)</td><td><span class="chip green">DC-2026-0193</span></td><td><span class="chip teal">MIRRORED</span></td><td><span class="btn small ghost">Detail</span></td></tr>
+          <tr><td class="mono">25 Jul 10:58</td><td>S. Menon</td><td>Sunrise Imaging (Pune)</td><td>Rotated DLT SMS (Jio route) sender credentials</td><td><span class="chip grey">n/a — routine</span></td><td><span class="chip teal">MIRRORED</span></td><td><span class="btn small ghost">Detail</span></td></tr>
+          <tr><td class="mono">25 Jul 09:31</td><td>system (automation)</td><td>— platform-wide —</td><td>Nightly hash-chain checkpoint sealed (block #48,221)</td><td><span class="chip grey">n/a</span></td><td><span class="chip grey">—</span></td><td><span class="btn small ghost">Detail</span></td></tr>
+          <tr><td class="mono">24 Jul 18:07</td><td>A. Bhat</td><td>CarePoint Labs (Kochi)</td><td>Applied storage quota increase 2 TB → 4 TB (PACS tier)</td><td><span class="chip green">DC-2026-0191</span></td><td><span class="chip teal">MIRRORED</span></td><td><span class="btn small ghost">Detail</span></td></tr>
+          <tr><td class="mono">24 Jul 16:44</td><td>R. Iyer</td><td>Meridian Diagnostics</td><td>Read-only support session opened (approved by tenant admin K. Verma, 45 min, no PHI panels)</td><td><span class="chip green">DC-2026-0190</span></td><td><span class="chip teal">MIRRORED</span></td><td><span class="btn small ghost">Detail</span></td></tr>
+          <tr><td class="mono">24 Jul 12:19</td><td>S. Menon</td><td>Sunrise Imaging (Pune)</td><td>Edge agent v2.4.1 pushed to branch Kothrud (wave W-29)</td><td><span class="chip grey">n/a — ring policy</span></td><td><span class="chip teal">MIRRORED</span></td><td><span class="btn small ghost">Detail</span></td></tr>
+          <tr><td class="mono">23 Jul 21:03</td><td>system (automation)</td><td>Meridian Diagnostics</td><td>Backup snapshot verification passed (RPO 15 min met)</td><td><span class="chip grey">n/a</span></td><td><span class="chip teal">MIRRORED</span></td><td><span class="btn small ghost">Detail</span></td></tr>
+          <tr class="dim"><td class="mono">23 Jul 15:38</td><td>A. Bhat</td><td>CarePoint Labs (Kochi)</td><td>Attempted config change rejected — dual-control approver unavailable, action expired</td><td><span class="chip red">DC-2026-0188 EXPIRED</span></td><td><span class="chip teal">MIRRORED</span></td><td><span class="btn small ghost">Detail</span></td></tr>
+        </table>
+        <p class="small muted" style="margin-top:8px">No entry can be edited or deleted. Corrections are appended as compensating entries referencing the original hash.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Governed export <span class="right">Exports are audited</span></div>
+        <div class="row">
+          <div class="grow">
+            <div class="field"><label>Export reason <span class="req">*</span></label><select class="select"><option>Select governance reason…</option><option>Tenant audit request (DPDP)</option><option>Regulator / legal request</option><option>Internal security review</option><option>Incident post-review evidence</option></select></div>
+            <div class="field"><label>Reference (ticket / case no.) <span class="req">*</span></label><input class="input" placeholder="e.g. GOV-2026-0142"></div>
+          </div>
+          <div class="grow">
+            <div class="check"><span class="box on">✓</span>Redact operator personal identifiers where tenant is the recipient</div>
+            <div class="check"><span class="box on">✓</span>Include hash-chain proof segment for exported range</div>
+            <div class="check"><span class="box"></span>Include raw request payload metadata (security review only)</div>
+            <div style="margin-top:8px"><span class="btn primary">Generate signed export (CSV + proof)</span></div>
+            <div class="small muted" style="margin-top:6px">Step-up identity confirmation (passkey, operator realm) required at generation. Export event is written to this log and mirrored to any tenant named in the range.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ENTRY DETAIL WITH DUAL-CONTROL RECORD</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:640px">
+    <h3>Audit entry #48,221-0117 — support-access window extension</h3>
+    <div class="kv">
+      <dt>Recorded</dt><dd class="mono">25 Jul 2026 11:42:08 IST</dd>
+      <dt>Actor</dt><dd>R. Iyer (Platform Ops) · operator realm · passkey step-up verified 11:41:52</dd>
+      <dt>Tenant affected</dt><dd>Meridian Diagnostics · Andheri West branch</dd>
+      <dt>Action</dt><dd>Extend read-only support-access window by 2 h (10:00 → 12:00 additional) for ticket <span class="mono">MER-4471</span>. Scope unchanged: no PHI panels, no report bodies.</dd>
+      <dt>Dual-control ref</dt><dd><span class="chip green">DC-2026-0193</span> — requested by R. Iyer 11:36, approved by S. Menon (second operator) 11:40. Approver saw identical diff before approving.</dd>
+      <dt>Tenant consent</dt><dd>Original session approved in-app by K. Verma (org admin) 24 Jul 16:41; extension notice pushed to tenant admin console.</dd>
+      <dt>Entry hash</dt><dd class="mono">sha256:9f41c2…b8a0 · prev sha256:77d3e6…412c</dd>
+      <dt>Tenant mirror</dt><dd><span class="chip teal">MIRRORED</span> to Meridian audit log 11:42:31 IST (entry MER-AUD-88410)</dd>
+    </div>
+    <div class="modal-actions"><span class="btn">Copy proof segment</span><span class="btn">View tenant mirror entry</span><span class="btn primary">Close</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — HASH-CHAIN INTEGRITY VERIFIED</div>
+<div class="card">
+  <div class="card-title">Hash-chain integrity check <span class="right">Widget · on-demand + nightly</span></div>
+  <div class="banner success"><b>Chain intact — 48,221 blocks verified</b> Range 01 Jan 2024 → 25 Jul 2026 11:45 IST recomputed against sealed checkpoints and offsite anchor. 0 gaps, 0 hash mismatches, 0 timestamp regressions. Run by R. Iyer (on-demand) in 2 m 41 s.</div>
+  <div class="row">
+    <div class="grow">
+      <table>
+        <tr><th>Checkpoint</th><th>Sealed (IST)</th><th>Blocks</th><th>Anchor</th><th>Result</th></tr>
+        <tr><td class="mono">CKP-48200</td><td class="mono">25 Jul 05:00</td><td class="mono">48,001–48,200</td><td>Offsite (Hyderabad DR)</td><td><span class="chip green">MATCH</span></td></tr>
+        <tr><td class="mono">CKP-48000</td><td class="mono">24 Jul 05:00</td><td class="mono">47,801–48,000</td><td>Offsite (Hyderabad DR)</td><td><span class="chip green">MATCH</span></td></tr>
+        <tr><td class="mono">CKP-47800</td><td class="mono">23 Jul 05:00</td><td class="mono">47,601–47,800</td><td>Offsite (Hyderabad DR)</td><td><span class="chip green">MATCH</span></td></tr>
+      </table>
+    </div>
+    <div style="width:280px">
+      <div class="kv" style="grid-template-columns:120px 1fr">
+        <dt>Head hash</dt><dd class="mono">sha256:9f41c2…b8a0</dd>
+        <dt>Anchor copy</dt><dd>Written to WORM bucket · 05:02 IST</dd>
+        <dt>Next auto-run</dt><dd class="mono">26 Jul 05:00 IST</dd>
+      </div>
+      <div style="margin-top:10px"><span class="btn small">Download verification report (PDF)</span></div>
+      <p class="small muted" style="margin-top:6px">A mismatch would raise a SEV-1 platform incident automatically and freeze log exports pending review.</p>
+    </div>
+  </div>
+</div>
+
+<p class="audit">Audit-log views, filters, exports, and integrity-check runs by R. Iyer are themselves appended to the platform audit log, mirrored to affected tenants, and recorded in the access log.</p>
+</section>

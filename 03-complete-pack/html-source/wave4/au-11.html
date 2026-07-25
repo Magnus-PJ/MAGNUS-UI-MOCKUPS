@@ -1,0 +1,128 @@
+<section class="screen" id="au-11">
+<div class="screen-head"><h1><span class="sid">AU-11</span> My profile &amp; security</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G1 Identity &amp; Access — profile + degraded</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · my profile, sessions & access history</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Every staff member can self-serve their authentication factors, review active sessions/devices and audit their own access history without raising a ticket. Personal details remain admin-managed (HR master); the user can only view them and request a correction. Revoking a session and regenerating backup codes are sensitive actions requiring step-up identity confirmation.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>WORKSPACE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Front office</div>
+      <div class="nav-item">Registrations</div>
+      <div class="nav-item">Appointments <span class="nav-badge">14</span></div>
+      <div class="nav-item">Billing queue</div>
+      <div class="sec-label">My account</div>
+      <div class="nav-item active">Profile &amp; security</div>
+      <div class="nav-item">Notification preferences</div>
+      <div class="nav-item">My access history</div>
+      <div class="sec-label">Help</div>
+      <div class="nav-item">Contact branch admin</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Home › My account › Profile &amp; security</div>
+      <div class="page-title">My profile &amp; security <span class="actions-right"><span class="chip green">Account in good standing</span></span></div>
+      <div class="page-sub">Staff realm (Keycloak · meridian-staff) · employee ID MD-AW-0412 · last policy acceptance AUP v3.2 on 04 Jul 2026</div>
+
+      <div class="row">
+        <div class="grow" style="flex:1.4">
+          <div class="card">
+            <div class="card-title">Sign-in factors <span class="right">Staff realm · MFA required</span></div>
+            <table>
+              <tr><th>Factor</th><th>Detail</th><th>Added</th><th>Last used</th><th>Status</th><th></th></tr>
+              <tr><td class="bold">Passkey</td><td>Chrome on Windows · front-desk workstation FD-02<div class="small muted mono">AAGUID …9f27 · platform authenticator</div></td><td>02 Mar 2026</td><td>Today 08:41 IST</td><td><span class="chip green">Primary</span></td><td><span class="btn small ghost">Rename</span> <span class="btn small ghost">Remove</span></td></tr>
+              <tr><td class="bold">TOTP app</td><td>Authenticator app · "D. Nair — Magnus"<div class="small muted mono">RFC 6238 · 30 s window</div></td><td>02 Mar 2026</td><td>21 Jul 2026, 09:12 IST</td><td><span class="chip teal">Backup factor</span></td><td><span class="btn small ghost">Re-pair</span></td></tr>
+              <tr><td class="bold">Backup codes</td><td><span class="chip amber">3 of 10 remaining</span> <span class="small muted">Last code used 18 Jul 2026 (verified on this page)</span></td><td>02 Mar 2026</td><td>18 Jul 2026</td><td><span class="chip amber">Running low</span></td><td><span class="btn small warn-outline">Regenerate set</span></td></tr>
+            </table>
+            <div class="small muted" style="margin-top:8px">Regenerating backup codes invalidates all unused codes immediately and requires step-up confirmation (passkey or TOTP). Adding or removing a factor notifies your branch admin (K. Verma) automatically.</div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Active sessions &amp; devices <span class="right">3 active</span> <span class="btn small danger" style="margin-left:8px">Revoke all other sessions</span></div>
+            <table>
+              <tr><th>Device / client</th><th>Approx. location</th><th>Signed in</th><th>Last active</th><th></th></tr>
+              <tr class="hl"><td class="bold">Chrome 128 · Windows 11 <span class="chip teal">This session</span><div class="small muted mono">Workstation FD-02 · IP 10.24.8.61 (branch LAN)</div></td><td>Andheri West branch, Mumbai</td><td>Today 08:41 IST</td><td>Now</td><td><span class="btn small disabled">Revoke</span></td></tr>
+              <tr><td class="bold">Chrome 128 · Windows 11<div class="small muted mono">Workstation FD-05 · IP 10.24.8.64 (branch LAN)</div></td><td>Andheri West branch, Mumbai</td><td>24 Jul 2026, 14:03 IST</td><td>24 Jul 2026, 18:57 IST</td><td><span class="btn small">Revoke</span></td></tr>
+              <tr><td class="bold">Safari · iPhone (mobile web, read-only)<div class="small muted mono">IP 49.36.112.•• (Jio mobile) — network masked in this view</div></td><td>Mumbai (approx., city-level only)</td><td>22 Jul 2026, 21:14 IST</td><td>23 Jul 2026, 07:32 IST</td><td><span class="btn small">Revoke</span></td></tr>
+            </table>
+            <div class="small muted" style="margin-top:8px">Locations are approximate (city-level) and shown only to you and security admins. Revoking a session signs that device out within 60 seconds; unsaved work on that device is discarded.</div>
+          </div>
+        </div>
+
+        <div class="grow">
+          <div class="card">
+            <div class="card-title">Personal details <span class="right">Admin-managed</span></div>
+            <dl class="kv">
+              <dt>Full name</dt><dd>Deepa Nair</dd>
+              <dt>Role</dt><dd>Front Office Executive</dd>
+              <dt>Branch</dt><dd>Andheri West</dd>
+              <dt>Employee ID</dt><dd class="mono">MD-AW-0412</dd>
+              <dt>Work email</dt><dd class="mono">d.nair@meridiandx.in</dd>
+              <dt>Work mobile</dt><dd class="mono">+91 98••• ••412</dd>
+              <dt>Reporting manager</dt><dd>K. Verma (Org Admin)</dd>
+            </dl>
+            <div class="small muted" style="margin-top:10px">These fields are managed by your organisation from the HR master. To correct a detail, <span style="color:#0F766E;font-weight:700">request a change</span> — your branch admin will review it.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Security posture</div>
+            <div class="check"><span class="box on">✓</span><span>Phishing-resistant primary factor (passkey)</span></div>
+            <div class="check"><span class="box on">✓</span><span>Backup factor paired (TOTP)</span></div>
+            <div class="check"><span class="box">!</span><span>Backup codes low — <b>3 remaining</b>. Regenerate before your next travel/off-site duty.</span></div>
+            <div class="check"><span class="box on">✓</span><span>No flagged sign-ins in the last 30 days requiring your review</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="audit">Viewing this page, every factor change, session revocation and backup-code regeneration is recorded in the access log with actor, device and step-up method used.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — Revoke session confirmation (step-up identity required)</div>
+<div class="modal-wrap">
+  <div class="modal danger">
+    <h3>Revoke session on Workstation FD-05?</h3>
+    <div class="banner warn"><b>This will sign that device out immediately.</b>Chrome 128 · Windows 11 · Andheri West branch LAN · signed in 24 Jul 2026, 14:03 IST · last active 24 Jul 2026, 18:57 IST. Any unsaved work on that device will be lost.</div>
+    <div class="check"><span class="box on">✓</span><span>I do not recognise recent activity on this device, or I no longer use it.</span></div>
+    <div class="field"><label>Confirm it's you <span class="req">*</span></label>
+      <div style="display:flex;gap:10px"><span class="btn primary small">Use passkey</span><span class="btn small">Enter TOTP code instead</span></div>
+      <div class="hint">Step-up confirmation is required for all session revocations. Your admin is notified if you revoke all other sessions.</div>
+    </div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn danger">Revoke this session</span></div>
+  </div>
+</div>
+<p class="audit">Revocation attempts (including cancelled ones) and the step-up method presented are recorded in the access log.</p>
+
+<div class="divider-label">state divider</div>
+
+<div class="state-tag">STATE C — My access history (sign-ins + flagged events, dispute link)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>WORKSPACE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">My account</div>
+      <div class="nav-item">Profile &amp; security</div>
+      <div class="nav-item">Notification preferences</div>
+      <div class="nav-item active">My access history <span class="nav-badge red">1</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Home › My account › My access history</div>
+      <div class="page-title">My access history <span class="actions-right"><span class="btn small">Last 30 days ▾</span> <span class="btn small">Export my log (CSV)</span></span></div>
+      <div class="page-sub">Your own sign-ins and security events. Records what happened to <b>your account</b> — patient-record access is audited separately by compliance.</div>
+      <div class="banner warn"><b>1 event flagged for your review.</b> If you don't recognise a sign-in, dispute it — your account will be protected while security investigates.</div>
+      <div class="card">
+        <table>
+          <tr><th>When (IST)</th><th>Event</th><th>Device / client</th><th>Approx. location</th><th>Result</th><th></th></tr>
+          <tr><td class="mono">25 Jul 08:41</td><td>Sign-in · passkey</td><td>Chrome 128 · Windows 11 · FD-02</td><td>Andheri West, Mumbai</td><td><span class="chip green">Success</span></td><td></td></tr>
+          <tr class="hl"><td class="mono">23 Jul 02:17</td><td class="bold">Sign-in attempt · password + TOTP (3 wrong codes)</td><td>Firefox 127 · Windows 10 · unrecognised</td><td>Nagpur (approx.)</td><td><span class="chip red">Blocked — flagged</span></td><td><span class="btn small warn-outline">Dispute this event</span></td></tr>
+          <tr><td class="mono">22 Jul 21:14</td><td>Sign-in · TOTP (mobile web)</td><td>Safari · iPhone</td><td>Mumbai</td><td><span class="chip green">Success</span></td><td><span class="btn ghost small">Not me?</span></td></tr>
+          <tr><td class="mono">21 Jul 09:12</td><td>Step-up · TOTP (backup-code page)</td><td>Chrome 128 · FD-02</td><td>Andheri West, Mumbai</td><td><span class="chip green">Verified</span></td><td></td></tr>
+          <tr><td class="mono">18 Jul 10:03</td><td>Backup code used (code #7)</td><td>Chrome 128 · FD-05</td><td>Andheri West, Mumbai</td><td><span class="chip amber">Backup factor</span></td><td><span class="btn ghost small">Not me?</span></td></tr>
+          <tr class="dim"><td class="mono">04 Jul 08:55</td><td>Policy acceptance · AUP v3.2</td><td>Chrome 128 · FD-02</td><td>Andheri West, Mumbai</td><td><span class="chip grey">Recorded</span></td><td></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Disputing an event opens a case with the security team and places a temporary hold on new-device sign-ins for your account. You will keep access from your current, verified devices.</div>
+      </div>
+      <p class="audit">Access-history views and dispute submissions are themselves recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<p class="audit">All factor changes, session revocations and disputes on this screen are recorded in the access log with timestamp (IST), actor, device fingerprint and step-up method.</p>
+</section>

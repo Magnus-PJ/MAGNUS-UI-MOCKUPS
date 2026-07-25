@@ -1,0 +1,85 @@
+<section class="screen" id="au-01">
+<div class="screen-head"><h1><span class="sid">AU-01</span> Unified staff sign-in</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G1 IDENTITY &amp; ACCESS — AUTH ENTRY</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · AU-S7…S13 entry doors → one templated sign-in</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single sign-in entry for all staff roles across a tenant's Keycloak staff realm. The workspace-realm context chip makes the tenant explicit before credentials are typed; white-label branding is applied per tenant. On success the user proceeds to two-factor verification (AU-03) or to enrolment (AU-04) if their role mandates a factor they have not registered.</div>
+
+<div class="state-tag">STATE A — DEFAULT (MERIDIAN BRANDING)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>WORKSPACE</span></span><span class="org">🏥 Meridian Diagnostics · staff sign-in</span></div><div class="userchip"><span class="chip grey">Not signed in</span></div></div>
+  <div style="padding:34px 0 26px;background:#F4F6F8">
+    <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
+      <div style="text-align:center;margin-bottom:14px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div class="small muted">Hospital Management System · white-label by NUMINACORE</div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip grey">Region: IN (Mumbai)</span></div>
+      </div>
+      <div class="field"><label>Email or username <span class="req">*</span></label><input class="input" value="d.nair@meridiandx.in" readonly><div class="hint">Use your Meridian staff account. Patient portal sign-in is separate (OTP realm).</div></div>
+      <div class="field"><label>Password <span class="req">*</span></label><input class="input" value="••••••••••••" readonly><div class="hint" style="display:flex;justify-content:space-between"><span>Minimum 12 characters per org policy</span><span style="color:#0F766E;font-weight:700">Show</span></div></div>
+      <div class="check"><span class="box on">✓</span><span>Remember this device for 30 days <span class="muted">— skips 2FA on this browser only. Disabled on shared kiosk profiles per Meridian device policy AUTH-POL-07.</span></span></div>
+      <a class="btn primary" style="width:100%;margin-top:6px">Sign in →</a>
+      <div style="text-align:center;margin:12px 0 4px" class="small muted">— or —</div>
+      <a class="btn" style="width:100%">🔑 Continue with Meridian SSO (Azure AD)</a>
+      <div class="hint" style="margin-top:6px;text-align:center">SSO is enabled for meridiandx.in accounts. Federated via Keycloak identity brokering.</div>
+      <div style="display:flex;justify-content:space-between;margin-top:14px;font-size:12.5px">
+        <span style="color:#0F766E;font-weight:700">Forgot password?</span>
+        <span style="color:#0F766E;font-weight:700">Activate new account</span>
+      </div>
+    </div>
+    <div style="max-width:420px;margin:12px auto 0;text-align:center" class="small muted">Magnus HMS v4.2 · © 2026 NUMINACORE · <span class="mono">staff.meridian</span> realm · Terms · Privacy (DPDP Act 2023) · Sign-in attempts are logged with IP and device fingerprint.</div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — MAINTENANCE-WINDOW BANNER</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>WORKSPACE</span></span><span class="org">🏥 Meridian Diagnostics · staff sign-in</span></div><div class="userchip"><span class="chip grey">Not signed in</span></div></div>
+  <div style="padding:26px 0;background:#F4F6F8">
+    <div style="max-width:420px;margin:0 auto 12px">
+      <div class="banner warn" style="margin-bottom:0"><b>Scheduled maintenance · Sat 26 Jul 2026, 01:30–03:00 IST</b>Sign-in remains available. Report sign-off and payment posting will be read-only during the window. Owner: Platform Ops (R. Iyer) · Change ref <span class="mono">CHG-2026-0714</span>.</div>
+    </div>
+    <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
+      <div style="text-align:center;margin-bottom:14px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip amber">Maintenance scheduled</span></div>
+      </div>
+      <div class="field"><label>Email or username <span class="req">*</span></label><input class="input" placeholder="name@meridiandx.in" readonly></div>
+      <div class="field"><label>Password <span class="req">*</span></label><input class="input" placeholder="Password" readonly></div>
+      <div class="check"><span class="box"></span><span>Remember this device for 30 days</span></div>
+      <a class="btn primary" style="width:100%;margin-top:6px">Sign in →</a>
+      <div style="display:flex;justify-content:space-between;margin-top:14px;font-size:12.5px">
+        <span style="color:#0F766E;font-weight:700">Forgot password?</span>
+        <span style="color:#0F766E;font-weight:700">Activate new account</span>
+      </div>
+    </div>
+    <div style="max-width:420px;margin:12px auto 0;text-align:center" class="small muted">Status page: status.magnus.numinacore.in · Subscribed branch admins were notified 72 h in advance.</div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — TENANT-BRANDED VARIANT (SUNRISE IMAGING, PUNE)</div>
+<div class="frame">
+  <div class="topbar" style="border-bottom-color:#B45309"><div style="display:flex;gap:12px;align-items:center"><span class="brand" style="color:#B45309">☀ Sunrise Imaging <span style="color:#1E293B">WORKSPACE</span></span><span class="org">🏥 Sunrise Imaging · Pune · staff sign-in</span></div><div class="userchip"><span class="chip grey">Not signed in</span></div></div>
+  <div style="padding:26px 0;background:#F4F6F8">
+    <div style="max-width:420px;margin:0 auto 10px">
+      <div class="banner reg" style="margin-bottom:0"><b>White-label note (design annotation)</b>Same AU-01 layout, tenant theme applied from Platform Console branding kit: primary <span class="mono">#B45309</span> (Sunrise amber), logo mark ☀, product name suppressed to footer. Realm chip switches to <span class="mono">staff.sunrise</span>. No layout or copy forks per tenant.</div>
+    </div>
+    <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px;border-top:4px solid #B45309">
+      <div style="text-align:center;margin-bottom:14px">
+        <div style="font-size:20px;font-weight:800;color:#B45309">☀ Sunrise Imaging</div>
+        <div class="small muted">Staff workspace</div>
+        <div style="margin-top:8px"><span class="chip amber">Workspace realm: staff.sunrise</span> <span class="chip grey">Region: IN (Pune)</span></div>
+      </div>
+      <div class="field"><label>Email or username <span class="req">*</span></label><input class="input" placeholder="name@sunriseimaging.in" readonly></div>
+      <div class="field"><label>Password <span class="req">*</span></label><input class="input" placeholder="Password" readonly></div>
+      <div class="check"><span class="box"></span><span>Remember this device for 14 days <span class="muted">— Sunrise policy sets a shorter window than the 30-day platform default.</span></span></div>
+      <a class="btn" style="width:100%;margin-top:6px;background:#B45309;border-color:#B45309;color:#fff">Sign in →</a>
+      <div style="display:flex;justify-content:space-between;margin-top:14px;font-size:12.5px">
+        <span style="color:#B45309;font-weight:700">Forgot password?</span>
+        <span style="color:#B45309;font-weight:700">Activate new account</span>
+      </div>
+    </div>
+    <div style="max-width:420px;margin:12px auto 0;text-align:center" class="small muted">Powered by Magnus HMS · NUMINACORE · <span class="mono">staff.sunrise</span> realm</div>
+  </div>
+</div>
+
+<p class="audit">Every sign-in attempt (success, failure, SSO redirect) is written to the tenant auth log with UTC+IST timestamp, source IP, device fingerprint hash and realm — retained 400 days and recorded in the access log.</p>
+</section>

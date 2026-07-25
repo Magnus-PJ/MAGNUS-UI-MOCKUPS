@@ -1,0 +1,159 @@
+<section class="screen" id="in-01">
+<div class="screen-head"><h1><span class="sid">IN-01</span> Integration overview &amp; health</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IN-S1 → connector health board</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single status board for every external connector the branch depends on — PACS/archive, modality worklist (MWL/MPPS), messaging providers (DLT SMS, WhatsApp BSP, email), payment gateway (UPI) and edge-sync. Org admins and platform ops triage from here: each tile links to the connector detail, the incident queue and the 24-hour error-rate table. Auto-alert rules escalate to the on-call channel when a connector breaches its threshold; no patient data appears on this screen.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Integration</div>
+      <div class="nav-item active">Overview &amp; health</div>
+      <div class="nav-item">Imaging devices &amp; AE</div>
+      <div class="nav-item">Unknown AE quarantine <span class="nav-badge">3</span></div>
+      <div class="nav-item">PACS / archive</div>
+      <div class="nav-item">Messaging providers</div>
+      <div class="nav-item">Payment gateway</div>
+      <div class="nav-item">Edge-sync</div>
+      <div class="sec-label">Operations</div>
+      <div class="nav-item">Incidents <span class="nav-badge red">1</span></div>
+      <div class="nav-item">Alert rules</div>
+      <div class="nav-item">Connector audit log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Integration › Overview &amp; health</div>
+      <div class="page-title">Connector health <span class="actions-right"><span class="chip green">ALL SYSTEMS OPERATIONAL</span> <button class="btn small">Refresh</button> <button class="btn small ghost">Alert rules</button></span></div>
+      <div class="page-sub">Live status across 7 connectors · polled every 60 s · last refresh 25 Jul 2026 · 14:32:10 IST</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">7 / 7</div><div class="l">Connectors up</div><div class="s">0 degraded · 0 down</div></div>
+        <div class="kpi"><div class="n">0.14%</div><div class="l">24h error rate (all)</div><div class="s">threshold 1.0% · SLA <span class="chip teal">OK · owner K. Verma</span></div></div>
+        <div class="kpi"><div class="n">3</div><div class="l">Quarantined studies</div><div class="s">unknown AE titles · see IN-03</div></div>
+        <div class="kpi"><div class="n">1</div><div class="l">Open incident</div><div class="s">INC-2214 · SMS retry backlog (resolved-monitoring)</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Connector status board <span class="right">up / degraded / down · last event age</span></div>
+        <table>
+          <tr><th>Connector</th><th>Provider / endpoint</th><th>Status</th><th>Last event</th><th>24h err%</th><th>24h volume</th><th></th></tr>
+          <tr><td class="bold">PACS / archive (DIMSE + DICOMweb)</td><td class="mono">pacs01.meridian.local:11112 · QIDO/WADO/STOW</td><td><span class="chip green">UP</span></td><td>12 s ago (C-STORE ack)</td><td>0.02%</td><td>1,912 assoc.</td><td><button class="btn small ghost">Detail →</button></td></tr>
+          <tr><td class="bold">Modality worklist (MWL)</td><td class="mono">CT-ROOM-1, US-UNIT-2, MRI-ROOM-2 · C-FIND SCP</td><td><span class="chip green">UP</span></td><td>41 s ago (MWL query, MERIDCT1)</td><td>0.00%</td><td>486 queries</td><td><button class="btn small ghost">Detail →</button></td></tr>
+          <tr><td class="bold">MPPS (procedure step)</td><td class="mono">N-CREATE / N-SET SCP</td><td><span class="chip green">UP</span></td><td>3 m ago (MPPS COMPLETED, MERIDUS2)</td><td>0.31%</td><td>128 msgs</td><td><button class="btn small ghost">Detail →</button></td></tr>
+          <tr><td class="bold">SMS (DLT)</td><td>Jio route · entity ID <span class="mono">1101…8842</span></td><td><span class="chip green">UP</span></td><td>18 s ago (delivery receipt)</td><td>0.42%</td><td>1,204 sent</td><td><button class="btn small ghost">Detail →</button></td></tr>
+          <tr><td class="bold">WhatsApp BSP</td><td>BSP session API · template pack v14</td><td><span class="chip green">UP</span></td><td>55 s ago (template send)</td><td>0.10%</td><td>642 sent</td><td><button class="btn small ghost">Detail →</button></td></tr>
+          <tr><td class="bold">Email (transactional)</td><td class="mono">smtp-relay.meridian.in:587 · TLS</td><td><span class="chip green">UP</span></td><td>2 m ago (report-ready mail)</td><td>0.08%</td><td>318 sent</td><td><button class="btn small ghost">Detail →</button></td></tr>
+          <tr><td class="bold">Payment gateway (UPI)</td><td>PG webhook + status API</td><td><span class="chip green">UP</span></td><td>7 s ago (webhook: payment.success)</td><td>0.19%</td><td>431 txns</td><td><button class="btn small ghost">Detail →</button></td></tr>
+          <tr><td class="bold">Edge-sync (branch ⇄ cloud)</td><td class="mono">edge-gw-andheri-01 · queue depth 0</td><td><span class="chip green">UP</span></td><td>4 s ago (sync batch #88412)</td><td>0.00%</td><td>12,880 records</td><td><button class="btn small ghost">Detail →</button></td></tr>
+        </table>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">24-hour error rate by connector <span class="right">rolling window · IST</span></div>
+          <table>
+            <tr><th>Connector</th><th>Errors</th><th>Total</th><th>Err%</th><th>Trend vs prev 24h</th><th>Top error</th></tr>
+            <tr><td>SMS (DLT · Jio route)</td><td>5</td><td>1,204</td><td>0.42%</td><td><span class="chip green">▼ −0.3 pt</span></td><td class="mono small">DLT template scrub (DND window)</td></tr>
+            <tr><td>MPPS</td><td>4</td><td>128</td><td>0.31%</td><td><span class="chip grey">— flat</span></td><td class="mono small">N-SET duplicate (retried OK)</td></tr>
+            <tr><td>Payment gateway (UPI)</td><td>8</td><td>431</td><td>0.19%</td><td><span class="chip green">▼ −0.1 pt</span></td><td class="mono small">PSP timeout → auto-reconciled</td></tr>
+            <tr><td>PACS / archive</td><td>4</td><td>1,912</td><td>0.02%</td><td><span class="chip grey">— flat</span></td><td class="mono small">assoc. abort (modality reboot)</td></tr>
+          </table>
+        </div>
+        <div class="card" style="width:320px;flex-shrink:0">
+          <div class="card-title">Incident quick-links</div>
+          <div class="timeline">
+            <div class="ev"><span class="t">14:05</span><div><b>INC-2214</b> SMS retry backlog cleared · <span class="chip green">RESOLVED-MONITORING</span><br><span class="muted small">owner K. Verma · review 26 Jul 09:00</span></div></div>
+            <div class="ev"><span class="t">22 Jul</span><div><b>INC-2207</b> MWL slow queries (MRI-ROOM-2) · <span class="chip grey">CLOSED</span></div></div>
+            <div class="ev"><span class="t">19 Jul</span><div><b>INC-2199</b> PG webhook signature rotate · <span class="chip grey">CLOSED</span></div></div>
+          </div>
+          <button class="btn small" style="margin-top:6px">Open incident queue →</button>
+          <div class="banner info" style="margin-top:12px;margin-bottom:0"><b>Auto-alert rules</b>3 rules active: connector DOWN &gt; 2 min → page on-call; err% &gt; 1.0% (15-min window) → notify #integrations; edge-sync queue &gt; 500 → notify org admin. Editing rules requires org-admin role + step-up (TOTP/passkey).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — CONNECTOR DOWN · SMS (DLT) WITH IMPACT PANEL</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Integration</div>
+      <div class="nav-item active">Overview &amp; health</div>
+      <div class="nav-item">Imaging devices &amp; AE</div>
+      <div class="nav-item">Unknown AE quarantine <span class="nav-badge">3</span></div>
+      <div class="nav-item">PACS / archive</div>
+      <div class="nav-item">Messaging providers</div>
+      <div class="nav-item">Payment gateway</div>
+      <div class="nav-item">Edge-sync</div>
+      <div class="sec-label">Operations</div>
+      <div class="nav-item">Incidents <span class="nav-badge red">2</span></div>
+      <div class="nav-item">Alert rules</div>
+      <div class="nav-item">Connector audit log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Integration › Overview &amp; health</div>
+      <div class="page-title">Connector health <span class="actions-right"><span class="chip red">1 CONNECTOR DOWN</span> <button class="btn small">Refresh</button></span></div>
+      <div class="page-sub">Live status across 7 connectors · last refresh 25 Jul 2026 · 15:04:42 IST</div>
+      <div class="banner danger"><b>SMS (DLT · Jio route) is DOWN — since 14:47 IST (17 min)</b>Provider API returning HTTP 503 on submit. Auto-alert fired 14:49 → on-call paged. Incident INC-2216 opened automatically. SLA <span class="chip red">OVERDUE · owner K. Verma</span> — restore target was 15:02 IST (15-min SLA).</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Status board (abridged)</div>
+          <table>
+            <tr><th>Connector</th><th>Status</th><th>Last event</th><th>24h err%</th></tr>
+            <tr class="hl"><td class="bold">SMS (DLT · Jio route)</td><td><span class="chip red">DOWN</span></td><td>17 m ago (last delivery receipt 14:47)</td><td>6.8% ▲</td></tr>
+            <tr><td>WhatsApp BSP</td><td><span class="chip green">UP</span></td><td>22 s ago</td><td>0.10%</td></tr>
+            <tr><td>PACS / archive</td><td><span class="chip green">UP</span></td><td>9 s ago</td><td>0.02%</td></tr>
+            <tr><td>Modality worklist (MWL)</td><td><span class="chip green">UP</span></td><td>30 s ago</td><td>0.00%</td></tr>
+            <tr><td>Payment gateway (UPI)</td><td><span class="chip green">UP</span></td><td>11 s ago</td><td>0.19%</td></tr>
+            <tr><td>Edge-sync</td><td><span class="chip green">UP</span></td><td>6 s ago</td><td>0.00%</td></tr>
+          </table>
+        </div>
+        <div class="card" style="width:340px;flex-shrink:0;border-color:#FCA5A5">
+          <div class="card-title">Impact panel — SMS DOWN <span class="chip red">INC-2216</span></div>
+          <div class="kv">
+            <dt>Queued messages</dt><dd><b>212</b> held in retry queue (auto-flush on recovery)</dd>
+            <dt>Affected flows</dt><dd>Appointment reminders (148), report-ready alerts (41), payment links (23)</dd>
+            <dt>Fallback</dt><dd><span class="chip green">ACTIVE</span> report-ready + payment links re-routed to WhatsApp BSP where consent exists (57 of 64)</dd>
+            <dt>Patient impact</dt><dd>No PHI exposed; message bodies stay queued encrypted at rest</dd>
+            <dt>On-call</dt><dd>K. Verma (org admin) · paged 14:49 · ack 14:51</dd>
+          </div>
+          <div style="margin-top:10px;display:flex;gap:8px"><button class="btn danger small">Open incident INC-2216</button><button class="btn small">Provider status page</button></div>
+          <div class="small muted" style="margin-top:8px">Manual failover to secondary SMS route requires dual-control: second org admin must co-approve within 10 min.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — DEGRADED · PACS LATENCY ELEVATED</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Integration</div>
+      <div class="nav-item active">Overview &amp; health</div>
+      <div class="nav-item">Imaging devices &amp; AE</div>
+      <div class="nav-item">Unknown AE quarantine <span class="nav-badge">3</span></div>
+      <div class="nav-item">PACS / archive</div>
+      <div class="nav-item">Incidents <span class="nav-badge red">1</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Integration › Overview &amp; health</div>
+      <div class="page-title">Connector health <span class="actions-right"><span class="chip amber">1 DEGRADED</span> <button class="btn small">Refresh</button></span></div>
+      <div class="page-sub">Live status · last refresh 25 Jul 2026 · 18:21:05 IST</div>
+      <div class="banner warn"><b>PACS / archive DEGRADED — C-STORE latency elevated since 17:58 IST</b>p95 store-ack latency 4.8 s (baseline 0.6 s, threshold 3.0 s). Studies are still archiving; no data loss. Likely cause: nightly archive compaction started early. SLA <span class="chip amber">AT RISK · owner K. Verma</span> — auto-escalates to incident if degraded &gt; 60 min.</div>
+      <div class="card">
+        <div class="card-title">Latency detail — PACS / archive <span class="right">15-min buckets · IST</span></div>
+        <table>
+          <tr><th>Window</th><th>Assoc.</th><th>p50 ack</th><th>p95 ack</th><th>Timeouts</th><th>Status</th></tr>
+          <tr><td class="mono">17:30–17:45</td><td>96</td><td>0.4 s</td><td>0.7 s</td><td>0</td><td><span class="chip green">NORMAL</span></td></tr>
+          <tr><td class="mono">17:45–18:00</td><td>104</td><td>0.9 s</td><td>2.6 s</td><td>0</td><td><span class="chip amber">RISING</span></td></tr>
+          <tr class="hl"><td class="mono">18:00–18:15</td><td>91</td><td>1.8 s</td><td>4.8 s</td><td>2</td><td><span class="chip amber">DEGRADED</span></td></tr>
+          <tr><td class="mono">18:15–18:21 (partial)</td><td>38</td><td>1.6 s</td><td>4.1 s</td><td>1</td><td><span class="chip amber">DEGRADED</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Modality send queues (CT-ROOM-1, US-UNIT-2) are absorbing the delay — max device queue depth 6. Reporting worklist unaffected; prior fetch (WADO) p95 1.1 s.</div>
+        <div style="margin-top:10px;display:flex;gap:8px"><button class="btn small primary">Acknowledge degradation</button><button class="btn small">Open PACS connection detail (IN-04)</button><button class="btn small ghost">Snooze alert 30 min</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">All connector state changes, acknowledgements, alert-rule edits and failover approvals are recorded in the access log with actor, role, step-up method and timestamp.</p>
+</section>

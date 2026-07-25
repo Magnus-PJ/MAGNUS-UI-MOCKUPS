@@ -1,0 +1,126 @@
+<section class="screen" id="au-17">
+<div class="screen-head"><h1><span class="sid">AU-17</span> Admin: sessions &amp; devices org-wide</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G1 IDENTITY &amp; ACCESS — ADMIN</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · org-wide sessions & devices</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Live view of every active staff session and bound kiosk/display device across all Meridian branches. Admin can filter for shared terminals and after-hours activity, force sign-out (single or bulk, always with a reason and the user notified), re-pair kiosk devices, and act on anomaly chips such as concurrent sign-ins from distant locations. Force sign-out is a step-up action.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org Admin) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Administration</div>
+      <div class="nav-item">Users &amp; roles</div>
+      <div class="nav-item">Password &amp; MFA policy</div>
+      <div class="nav-item">SSO &amp; realm settings</div>
+      <div class="nav-item active">Sessions &amp; devices <span class="nav-badge">41</span></div>
+      <div class="nav-item">Service accounts</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Access review</div>
+      <div class="nav-item">Audit log</div>
+      <div class="nav-item">Consent registry</div>
+      <div class="sec-label">Org</div>
+      <div class="nav-item">Branches</div>
+      <div class="nav-item">Notification providers</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Administration › Identity &amp; access › Sessions &amp; devices</div>
+      <div class="page-title">Active sessions &amp; devices <span class="actions-right"><span class="btn small ghost">Export CSV (audit-stamped)</span> <span class="btn small warn-outline">Bulk force sign-out…</span></span></div>
+      <div class="page-sub">41 active staff sessions · 6 bound kiosk/display devices · refreshed 25 Jul 2026, 21:38 IST (auto every 60 s)</div>
+
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">41</div><div class="l">Active sessions</div><div class="s">Across 6 branches</div></div>
+        <div class="kpi"><div class="n">17</div><div class="l">On shared terminals</div><div class="s">Counters + modality consoles</div></div>
+        <div class="kpi amber"><div class="n">4</div><div class="l">After-hours (&gt;21:00 IST)</div><div class="s">2 expected: night CT shift</div></div>
+        <div class="kpi red"><div class="n">1</div><div class="l">Anomaly flagged</div><div class="s">Concurrent distant sign-ins</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Filters</div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+          <span class="check" style="margin:0"><span class="box on">✓</span> Shared terminals</span>
+          <span class="check" style="margin:0"><span class="box on">✓</span> After-hours (21:00–07:00)</span>
+          <span class="check" style="margin:0"><span class="box">&nbsp;</span> Anomalies only</span>
+          <select class="select" style="width:190px"><option>Branch: All branches</option></select>
+          <select class="select" style="width:170px"><option>Workspace: All</option></select>
+          <input class="input" style="width:200px" value="" placeholder="Search user / device / IP">
+          <span class="btn small">Apply</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Active staff sessions <span class="right">8 of 41 shown</span></div>
+        <table>
+          <tr><th style="width:26px"><span class="box">&nbsp;</span></th><th>User</th><th>Workspace</th><th>Device / terminal</th><th>Branch</th><th>Signed in</th><th>Idle</th><th>Flags</th><th></th></tr>
+          <tr style="background:#FEF2F2"><td><span class="box on">✓</span></td><td class="bold">T. Okafor (Technologist)</td><td>Technologist console</td><td class="mono">CT-CONSOLE-1 (shared)</td><td>Andheri West</td><td>21:12 IST</td><td>2 min</td><td><span class="chip outline-red">ANOMALY — concurrent distant</span></td><td><span class="btn small warn-outline">Force sign-out</span></td></tr>
+          <tr style="background:#FEF2F2"><td><span class="box on">✓</span></td><td class="bold">T. Okafor (Technologist)</td><td>Technologist console</td><td class="mono">Chrome · Android · IP 103.66.79.4</td><td>Geo: Nagpur (≈690 km)</td><td>21:31 IST</td><td>0 min</td><td><span class="chip outline-red">ANOMALY — concurrent distant</span> <span class="chip amber">AFTER-HOURS</span></td><td><span class="btn small warn-outline">Force sign-out</span></td></tr>
+          <tr><td><span class="box">&nbsp;</span></td><td class="bold">Dr. V. Shetty (Radiologist)</td><td>Reading room</td><td class="mono">RAD-WS-03 (personal)</td><td>Andheri West</td><td>20:44 IST</td><td>6 min</td><td><span class="chip amber">AFTER-HOURS</span> <span class="chip grey">expected: night list</span></td><td><span class="btn small warn-outline">Force sign-out</span></td></tr>
+          <tr><td><span class="box">&nbsp;</span></td><td class="bold">D. Nair (Front office)</td><td>Front office counter</td><td class="mono">FO-COUNTER-2 (shared)</td><td>Andheri West</td><td>13:58 IST</td><td>41 min <span class="chip amber">near idle-lock</span></td><td><span class="chip teal">SHARED</span></td><td><span class="btn small warn-outline">Force sign-out</span></td></tr>
+          <tr><td><span class="box">&nbsp;</span></td><td class="bold">P. D'Souza (Cashier)</td><td>Billing counter</td><td class="mono">BILL-COUNTER-1 (shared)</td><td>Andheri West</td><td>14:05 IST</td><td>3 min</td><td><span class="chip teal">SHARED</span></td><td><span class="btn small warn-outline">Force sign-out</span></td></tr>
+          <tr><td><span class="box">&nbsp;</span></td><td class="bold">K. Verma (Org admin)</td><td>Admin console</td><td class="mono">ADM-LT-07 (this session)</td><td>Andheri West</td><td>21:02 IST</td><td>—</td><td><span class="chip green">CURRENT</span> <span class="chip amber">AFTER-HOURS</span></td><td><span class="btn small disabled">Force sign-out</span></td></tr>
+          <tr><td><span class="box">&nbsp;</span></td><td class="bold">S. Kulkarni (Technologist)</td><td>Technologist console</td><td class="mono">US-CONSOLE-2 (shared)</td><td>Bandra</td><td>19:47 IST</td><td>12 min</td><td><span class="chip teal">SHARED</span></td><td><span class="btn small warn-outline">Force sign-out</span></td></tr>
+          <tr class="dim"><td><span class="box">&nbsp;</span></td><td>A. Fernandes (Front office)</td><td>Front office counter</td><td class="mono">FO-COUNTER-1 (shared)</td><td>Powai</td><td>14:22 IST</td><td>58 min — auto-locked</td><td><span class="chip grey">LOCKED (PIN to resume)</span></td><td><span class="btn small ghost">End session</span></td></tr>
+        </table>
+        <div style="display:flex;gap:10px;align-items:center;margin-top:10px"><span class="small muted">2 selected</span><span class="btn small warn-outline">Force sign-out selected…</span><span class="small muted">Reason required · users are notified by app banner + SMS · step-up confirmation applies.</span></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Kiosk &amp; display device bindings <span class="right">device-bound service tokens</span></div>
+        <table>
+          <tr><th>Device</th><th>Type</th><th>Branch / location</th><th>Bound identity</th><th>Token age</th><th>Last heartbeat</th><th></th></tr>
+          <tr><td class="mono bold">KIOSK-AW-01</td><td>Self check-in kiosk</td><td>Andheri West · lobby</td><td class="mono">svc-kiosk@meridian</td><td>6 h (rotates 24 h)</td><td><span class="chip green">38 s ago</span></td><td><span class="btn small ghost">Re-pair</span> <span class="btn small ghost">Unbind</span></td></tr>
+          <tr><td class="mono bold">DISPLAY-AW-02</td><td>Queue display board</td><td>Andheri West · waiting area</td><td class="mono">svc-display@meridian</td><td>11 h</td><td><span class="chip green">12 s ago</span></td><td><span class="btn small ghost">Re-pair</span> <span class="btn small ghost">Unbind</span></td></tr>
+          <tr><td class="mono bold">KIOSK-BND-01</td><td>Self check-in kiosk</td><td>Bandra · lobby</td><td class="mono">svc-kiosk@meridian</td><td>22 h</td><td><span class="chip amber">14 min ago — check network</span></td><td><span class="btn small">Re-pair</span> <span class="btn small ghost">Unbind</span></td></tr>
+          <tr><td class="mono bold">DISPLAY-PWI-01</td><td>Queue display board</td><td>Powai · waiting area</td><td class="mono">svc-display@meridian</td><td>—</td><td><span class="chip red">OFFLINE 3 d — binding expired</span></td><td><span class="btn small primary">Re-pair (QR + admin PIN)</span></td></tr>
+        </table>
+        <div class="hint" style="font-size:11px;color:#64748B;margin-top:6px">Re-pairing shows a one-time QR on this console, scanned at the device within 5 minutes; the old token is revoked at the moment of re-pair. Display boards render token numbers only — never patient names or study details.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — FORCE SIGN-OUT CONFIRM (BULK, WITH REASON + STEP-UP)</div>
+<div class="modal-wrap"><div class="modal danger" style="max-width:620px">
+  <h3>Force sign-out — 2 sessions of T. Okafor</h3>
+  <p class="small muted" style="margin-bottom:10px">Both active sessions will be terminated immediately; unsaved worklist edits are auto-drafted. The user is notified in-app and by SMS, and the account is set to require MFA re-verification at next sign-in.</p>
+  <table>
+    <tr><th>Session</th><th>Device</th><th>Location</th></tr>
+    <tr><td>21:12 IST</td><td class="mono">CT-CONSOLE-1 (shared)</td><td>Andheri West (on-network)</td></tr>
+    <tr><td>21:31 IST</td><td class="mono">Chrome · Android · 103.66.79.4</td><td>Geo: Nagpur — flagged distant</td></tr>
+  </table>
+  <div class="field" style="margin-top:10px"><label>Reason <span class="req">*</span> <span class="muted">(shown to user and stored in audit)</span></label><textarea class="textarea">Concurrent sign-ins ~690 km apart within 19 minutes — possible credential sharing or compromise. Terminating both sessions pending verification with the user and shift supervisor.</textarea></div>
+  <div class="check"><span class="box on">✓</span> Also require password reset before next sign-in</div>
+  <div class="check"><span class="box">&nbsp;</span> Temporarily suspend account (needs second approver — four-eyes)</div>
+  <div class="field"><label>Step-up confirmation <span class="req">*</span></label><span class="btn primary small">Confirm with passkey</span> <span class="btn ghost small">Use TOTP</span></div>
+  <div class="modal-actions"><span class="btn">Cancel</span><span class="btn danger">Force sign-out 2 sessions</span></div>
+</div></div>
+
+<div class="state-tag">STATE C — ANOMALY FLAGGED (DETAIL DRAWER) &amp; POST-ACTION</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner danger"><b>Anomaly ANM-2026-0231 — concurrent distant sign-ins · T. Okafor</b>Session A on-network at Andheri West (21:12 IST) and Session B from IP 103.66.79.4 geolocated ≈690 km away in Nagpur (21:31 IST). Impossible-travel threshold 500 km/2 h exceeded. Owner: K. Verma · <span class="chip amber">SLA: respond within 30 min · 22:08 IST</span></div>
+  <div class="split">
+    <div class="card">
+      <div class="card-title">Signal detail</div>
+      <div class="kv">
+        <dt>Rule</dt><dd>IMPOSSIBLE-TRAVEL v2 (geo-IP + branch network map)</dd>
+        <dt>Confidence</dt><dd>High — session B is a new device fingerprint, first seen tonight, after-hours</dd>
+        <dt>MFA on B</dt><dd>Passed TOTP — consider TOTP secret sharing or phishing relay</dd>
+        <dt>Data touched (B)</dt><dd>Viewed today's CT worklist (12 entries) · no report opens · no exports</dd>
+        <dt>Suggested actions</dt><dd>Force sign-out both → require reset → call shift supervisor (night duty: R. Menon, ext. 4402)</dd>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Response log</div>
+      <div class="timeline">
+        <div class="ev"><span class="t">21:33</span><span>Anomaly raised, admin channel paged</span></div>
+        <div class="ev"><span class="t">21:39</span><span>K. Verma acknowledged · SLA timer running</span></div>
+        <div class="ev"><span class="t">21:41</span><span><b>Both sessions force-signed-out</b> · reason recorded · user notified (app + SMS) · passkey step-up verified</span></div>
+        <div class="ev"><span class="t">21:42</span><span>Password reset required at next sign-in</span></div>
+        <div class="ev"><span class="t">—</span><span class="muted">Pending: supervisor callback · close or escalate to incident</span></div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:8px"><span class="btn small">Close as explained</span><span class="btn small warn-outline">Escalate to incident</span></div>
+    </div>
+  </div>
+  <div class="banner success"><b>Sessions terminated 21:41 IST</b>2 sessions ended · T. Okafor notified · MFA re-verification and password reset enforced at next sign-in. Session B's viewed-worklist access is preserved in the data-access log for review.</div>
+</div></div></div>
+
+<p class="audit">Session listings, filter exports, force sign-outs (with reason and step-up proof), device re-pairs/unbinds and anomaly dispositions are recorded in the access log. Geo-IP is stored at city granularity only; exact coordinates are never retained.</p>
+</section>

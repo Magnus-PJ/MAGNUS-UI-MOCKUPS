@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DOC-06 · Complete Billing Workflows · Magnus HMS</title>
+<style>
+/* Magnus HMS — NS design pack shared design system */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
+.mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
+.muted{color:#64748B}.small{font-size:12px}.bold{font-weight:700}
+/* ---------- page / screen frame ---------- */
+.screen{page-break-after:always;padding:28px 34px;background:#fff;min-height:1000px}
+.screen-head{display:flex;justify-content:space-between;align-items:flex-start;border-left:5px solid #0F766E;padding:6px 0 6px 14px;margin-bottom:6px}
+.screen-head h1{font-size:22px;font-weight:800}
+.screen-head .sid{color:#0F766E;margin-right:10px}
+.screen-head .meta{text-align:right}
+.screen-head .meta .cluster{color:#64748B;font-size:12px;margin-top:3px}
+.gap-note{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:8px 12px;margin:10px 0 16px;font-size:12.5px;color:#7C2D12}
+.gap-note b{color:#9A3412}
+/* ---------- app chrome ---------- */
+.frame{border:1px solid #CBD5E1;border-radius:10px;overflow:hidden;background:#F4F6F8;box-shadow:0 1px 4px rgba(15,23,42,.08);margin-bottom:22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:2px solid #0F766E;padding:9px 16px}
+.brand{font-weight:800;color:#0F766E}.brand span{color:#1E293B}
+.org{font-size:12.5px;color:#334155;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px}
+.userchip{font-size:12.5px;color:#334155}
+.userchip .av{display:inline-block;background:#CCFBF1;color:#0F766E;font-weight:700;border-radius:5px;padding:2px 6px;margin-right:6px;font-size:11px}
+.body{display:flex;min-height:520px}
+.sidebar{width:196px;background:#fff;border-right:1px solid #E2E8F0;padding:12px 0;flex-shrink:0}
+.sec-label{font-size:10.5px;letter-spacing:.08em;color:#94A3B8;font-weight:700;padding:8px 16px 4px;text-transform:uppercase}
+.nav-item{padding:7px 16px;font-size:13px;color:#334155;display:flex;justify-content:space-between;align-items:center}
+.nav-item.active{background:#F0FDFA;color:#0F766E;font-weight:700;border-left:3px solid #0F766E;padding-left:13px}
+.nav-badge{background:#0F766E;color:#fff;border-radius:9px;font-size:10.5px;padding:1px 7px;font-weight:700}
+.nav-badge.red{background:#B91C1C}
+.main{flex:1;padding:16px 18px;min-width:0}
+.crumb{font-size:12px;color:#64748B;margin-bottom:8px}
+.page-title{font-size:19px;font-weight:800;margin-bottom:2px}
+.page-sub{font-size:12.5px;color:#64748B;margin-bottom:14px}
+.actions-right{float:right}
+/* ---------- components ---------- */
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card-title{font-weight:800;font-size:14.5px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.card-title .right{font-size:10.5px;letter-spacing:.07em;color:#94A3B8;font-weight:700;text-transform:uppercase}
+.row{display:flex;gap:14px}.row>*{min-width:0}.grow{flex:1}
+.btn{display:inline-block;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:700;border:1px solid #CBD5E1;background:#fff;color:#334155;text-align:center;white-space:nowrap}
+.btn.primary{background:#0F766E;border-color:#0F766E;color:#fff}
+.btn.danger{background:#B91C1C;border-color:#B91C1C;color:#fff}
+.btn.warn-outline{border-color:#F59E0B;color:#92400E;background:#FFFBEB}
+.btn.ghost{border:none;background:none;color:#0F766E;padding:7px 6px}
+.btn.small{padding:4px 10px;font-size:12px}
+.btn.disabled{opacity:.45}
+.chip{display:inline-block;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip.teal{background:#CCFBF1;color:#0F766E}
+.chip.green{background:#DCFCE7;color:#15803D}
+.chip.amber{background:#FEF3C7;color:#92400E}
+.chip.red{background:#FEE2E2;color:#B91C1C}
+.chip.grey{background:#F1F5F9;color:#475569}
+.chip.blue{background:#E0F2FE;color:#0369A1}
+.chip.violet{background:#EDE9FE;color:#6D28D9}
+.chip.outline-red{background:#fff;border:1.5px solid #B91C1C;color:#B91C1C}
+.banner{border-radius:8px;padding:10px 13px;font-size:12.5px;margin-bottom:12px;border:1px solid}
+.banner b{display:block;margin-bottom:2px;font-size:13px}
+.banner.info{background:#E0F2FE;border-color:#7DD3FC;color:#075985}
+.banner.warn{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+.banner.danger{background:#FEE2E2;border-color:#FCA5A5;color:#991B1B}
+.banner.success{background:#DCFCE7;border-color:#86EFAC;color:#166534}
+.banner.reg{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding:7px 9px;border-bottom:2px solid #E2E8F0;background:#F8FAFC}
+td{padding:8px 9px;border-bottom:1px solid #EEF2F6;vertical-align:top}
+tr.hl td{background:#F0FDFA}
+tr.dim td{color:#94A3B8}
+.kv{display:grid;grid-template-columns:150px 1fr;row-gap:6px;column-gap:12px;font-size:12.5px}
+.kv dt{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding-top:2px}
+.kv dd{margin:0}
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+.field label .req{color:#B91C1C}
+.field .hint{font-size:11px;color:#64748B;margin-top:3px}
+.input,.select,.textarea{width:100%;border:1px solid #CBD5E1;border-radius:7px;padding:7px 10px;font-size:13px;background:#fff;color:#1E293B}
+.input.err{border-color:#B91C1C;background:#FEF2F2}
+.textarea{min-height:64px}
+.check{font-size:12.5px;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.box{display:inline-block;width:14px;height:14px;border:1.6px solid #64748B;border-radius:3px;flex-shrink:0;margin-top:1px;text-align:center;line-height:12px;font-size:11px;font-weight:800}
+.box.on{background:#0F766E;border-color:#0F766E;color:#fff}
+.radio{border-radius:50%}
+.radio.on{background:#fff;border-color:#0F766E;box-shadow:inset 0 0 0 3.5px #0F766E;color:transparent}
+/* modal */
+.modal-wrap{background:#64748B22;border:1px dashed #94A3B8;border-radius:12px;padding:26px 40px;margin:14px 0}
+.modal{background:#fff;border-radius:12px;border-top:5px solid #0F766E;box-shadow:0 8px 30px rgba(15,23,42,.25);max-width:560px;margin:0 auto;padding:18px 20px}
+.modal.danger{border-top-color:#B91C1C}
+.modal h3{font-size:16px;margin-bottom:8px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+/* misc */
+.divider-label{text-align:center;color:#94A3B8;font-size:11.5px;margin:20px 0 14px;position:relative}
+.divider-label:before,.divider-label:after{content:"";display:inline-block;width:24%;border-top:1px dashed #CBD5E1;vertical-align:middle;margin:0 10px}
+.audit{font-size:11px;color:#8A6D1D;margin-top:10px}
+.audit:before{content:"🔒 "}
+.state-tag{font-size:10px;letter-spacing:.08em;font-weight:800;text-transform:uppercase;color:#94A3B8;text-align:right;margin-bottom:4px}
+.kpi-row{display:flex;gap:12px;margin-bottom:14px}
+.kpi{flex:1;background:#fff;border:1px solid #E2E8F0;border-left:4px solid #0F766E;border-radius:9px;padding:10px 13px}
+.kpi.amber{border-left-color:#F59E0B}.kpi.red{border-left-color:#B91C1C}
+.kpi .n{font-size:23px;font-weight:800}.kpi .l{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700}
+.kpi .s{font-size:11px;color:#64748B;margin-top:2px}
+.stepper{display:flex;gap:6px;align-items:center;font-size:12px;color:#64748B;margin-bottom:14px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:6px}
+.step .dot{width:20px;height:20px;border-radius:50%;background:#E2E8F0;color:#475569;font-size:11px;font-weight:800;text-align:center;line-height:20px}
+.step.done .dot{background:#15803D;color:#fff}.step.cur .dot{background:#0F766E;color:#fff}
+.step.cur{color:#0F766E;font-weight:700}
+.step-line{width:26px;border-top:2px solid #CBD5E1}
+.sig-box{border:1.5px dashed #94A3B8;border-radius:8px;min-height:64px;background:#F8FAFC;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:12px;font-style:italic}
+.sig-box.signed{border-style:solid;border-color:#15803D;color:#166534;background:#F0FDF4;font-family:'Segoe Script','Comic Sans MS',cursive;font-size:17px;font-style:normal}
+.ladder{border-left:3px solid #E2E8F0;margin-left:8px;padding-left:16px}
+.ladder .tier{margin-bottom:12px;position:relative}
+.ladder .tier:before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:#CBD5E1}
+.ladder .tier.done:before{background:#15803D}.ladder .tier.cur:before{background:#0F766E;box-shadow:0 0 0 3px #CCFBF1}
+.ladder .tier.fail:before{background:#B91C1C}
+.progress{height:7px;border-radius:4px;background:#E2E8F0;overflow:hidden;margin-top:4px}
+.progress i{display:block;height:100%;background:#0F766E}
+.progress.amber i{background:#F59E0B}.progress.red i{background:#B91C1C}
+.split{display:grid;grid-template-columns:1fr 300px;gap:14px}
+.timeline{font-size:12.5px}
+.timeline .ev{display:flex;gap:10px;margin-bottom:9px}
+.timeline .t{color:#64748B;white-space:nowrap;font-family:Consolas,monospace;font-size:11.5px;padding-top:1px}
+/* ---------- doc overrides ---------- */
+body{background:#F4F6F8;padding:30px}
+.doc{max-width:1100px;margin:0 auto}
+h1{font-size:26px;margin:18px 0 6px}
+h2{font-size:19px;margin:22px 0 8px;color:#0F766E}
+.flow{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:8px 0}
+.fstep{background:#fff;border:1px solid #CBD5E1;border-left:4px solid #0F766E;border-radius:7px;padding:6px 10px;font-size:12.5px}
+.fstep .fid{font-family:Consolas,monospace;font-weight:800;color:#0F766E;font-size:11px;display:block}
+.farr{color:#94A3B8;font-weight:800}
+</style>
+</head>
+<body>
+<div class="doc">
+
+<!-- ============ DOC HEADER ============ -->
+<div class="card" style="border-left:5px solid #0F766E">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start">
+    <div>
+      <div class="mono" style="color:#0F766E;font-weight:800;font-size:13px">DOC-06</div>
+      <h1 style="margin:4px 0 4px">Complete Billing Workflows</h1>
+      <div class="muted">Magnus HMS · MVP 1 · Architecture &amp; Workflow Documentation</div>
+    </div>
+    <div style="text-align:right">
+      <div class="chip teal">Version 1.0</div>
+      <div class="small muted" style="margin-top:6px">July 2026</div>
+      <div class="small muted">Audience: NUMINACORE development team</div>
+      <div class="small muted">Status: Approved for build · 1 open question (Q1, §11)</div>
+    </div>
+  </div>
+  <div class="small muted" style="margin-top:10px">
+    Normative for: billing service (Java/Spring <span class="mono">billing-svc</span>), payment adapters, GST engine, approvals engine. Cross-references: DOC-05 (money-event audit BILL-03xx), BL-01..BL-19, AD-16 number series, BL-08 approvals, GR-01..06 grievance, AU-09 step-up.
+  </div>
+</div>
+
+<div class="banner info"><b>Invariants (apply to every section below)</b>
+① Double-entry: every money movement posts balanced ledger lines (BL-15); no screen writes balances directly. ② Issued statutory documents are immutable — corrections are new documents (credit note, new invoice), never edits (§3). ③ Every money/legal action requires step-up identity AU-09; irreversible actions (refund payout, write-off, period lock, series edit) are four-eyes. ④ All approvals are <b>async</b> (BL-08 queue + notification), never blocking modals — the DS-03 SLA chip pattern shows queue age everywhere. ⑤ Every action emits a DOC-05 BILL-03xx audit event with before/after hashes. ⑥ Billing documents retained 8 years (GV-06); legal holds (GV-07) override.</div>
+
+<!-- ============ 1. MONEY FLOW MAP ============ -->
+<h2>1 · Money-flow map</h2>
+<div class="flow">
+  <div class="fstep"><span class="fid">BL-16</span>Estimate (non-fiscal quote)</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">BL-02</span>Invoice (GST-exempt healthcare)</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">BL-03</span>Collection (cash/card/UPI/payer)</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">BL-05</span>Receipt issued</div><span class="farr">→</span>
+  <div class="fstep" style="border-left-color:#F59E0B"><span class="fid">BL-06 / BL-07</span>Refund / Credit note (exception paths)</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">BL-15</span>Patient &amp; payer ledger</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">BL-18</span>Day book (per branch, per day)</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">BL-19</span>GST export (period file)</div>
+</div>
+<div class="flow">
+  <span class="small muted">Feeders:</span>
+  <div class="fstep"><span class="fid">BL-14</span>Advance deposits</div>
+  <div class="fstep"><span class="fid">BL-11</span>Corporate/payer credit</div>
+  <div class="fstep"><span class="fid">BL-13</span>Tax &amp; period config</div>
+  <div class="fstep"><span class="fid">AD-16</span>Number series</div>
+  <div class="fstep"><span class="fid">BL-09</span>Cash session / EOD</div>
+  <div class="fstep"><span class="fid">BL-08</span>Approvals queue</div>
+  <div class="fstep"><span class="fid">BL-17</span>Write-off</div>
+</div>
+<div class="card">
+<table>
+<tr><th style="width:110px">Stage</th><th style="width:100px">Screen</th><th style="width:150px">Fiscal status</th><th>Rules</th></tr>
+<tr><td class="bold">Estimate</td><td class="mono">BL-16</td><td><span class="chip grey">non-fiscal</span></td><td>Priced from catalog (BL-10) + payer plan (BL-11). Validity 14 days (config). Shareable via patient link (PT-06 shows payable amount). Converting to invoice re-prices at current catalog and diff-warns if changed. No ledger impact.</td></tr>
+<tr><td class="bold">Invoice</td><td class="mono">BL-02</td><td><span class="chip teal">statutory · immutable</span></td><td>One invoice per visit-billing event; line items bound to orders (§11). Issue = number allocation (AD-16) + ledger debit + BILL-0301 with document hash. Draft state exists pre-issue only.</td></tr>
+<tr><td class="bold">Collection</td><td class="mono">BL-03, BL-04</td><td><span class="chip grey">transactional</span></td><td>Split tender allowed (cash + UPI + advance + payer share). Collection posts to ledger only on payment-mode terminal state (§4).</td></tr>
+<tr><td class="bold">Receipt</td><td class="mono">BL-05</td><td><span class="chip teal">statutory · immutable</span></td><td>One receipt per successful tender leg. Reprint allowed (watermarked DUPLICATE, AUTH-0109 audit); never re-issue.</td></tr>
+<tr><td class="bold">Refund</td><td class="mono">BL-06</td><td><span class="chip amber">approval-gated</span></td><td>Money back to patient. Requires linked receipt(s); refund mode follows original tender where possible (UPI→UPI reversal, card→card void/refund, cash→cash from open drawer session). Payout only after BL-08 approval (§5).</td></tr>
+<tr><td class="bold">Credit note</td><td class="mono">BL-07</td><td><span class="chip teal">statutory · immutable</span></td><td>Fiscal negation (full/partial) of an issued invoice. Mandatory before/with any refund of an invoiced amount and for post-issue corrections. References invoice number; GST treatment §6.4.</td></tr>
+<tr><td class="bold">Ledger</td><td class="mono">BL-15</td><td><span class="chip grey">derived, append-only</span></td><td>Double-entry journal; patient, payer, cash/bank, GST-liability control accounts. Screens read balances from here — single source of financial truth.</td></tr>
+<tr><td class="bold">Day book</td><td class="mono">BL-18</td><td><span class="chip grey">derived</span></td><td>All documents + tenders per branch-day; must tie to BL-09 cash session totals before EOD close (§9).</td></tr>
+<tr><td class="bold">GST export</td><td class="mono">BL-19</td><td><span class="chip violet">regulatory</span></td><td>Period file (GSTR-1 format: exempt outward supplies + taxable exceptions + credit notes). Export hash audited (BILL-0305); generation allowed only after all branch-days in period are EOD-closed.</td></tr>
+</table>
+</div>
+
+<!-- ============ 2/3. DOCUMENT CHAIN + NUMBERING ============ -->
+<h2>2 · Document chain &amp; numbering (AD-16)</h2>
+<div class="card">
+<div class="card-title">2.1 · Series catalogue <span class="right">configured on AD-16 · edits are step-up + four-eyes (ADMN-0503)</span></div>
+<table>
+<tr><th style="width:80px">Prefix</th><th style="width:170px">Document</th><th style="width:230px">Format (synthetic example)</th><th style="width:120px">Reset</th><th>Allocation rule</th></tr>
+<tr><td class="mono bold">EST</td><td>Estimate (BL-16)</td><td class="mono small">EST/KOR/26-27/000482</td><td>Financial year</td><td>On save; gaps permitted (non-fiscal).</td></tr>
+<tr><td class="mono bold">INV</td><td>Tax invoice / bill of supply (BL-02)</td><td class="mono small">INV/KOR/26-27/003117</td><td>Financial year</td><td><b>Gapless per branch-series.</b> Allocated inside the issue transaction (DB sequence + serialized allocation row); a failed issue consumes no number.</td></tr>
+<tr><td class="mono bold">RCP</td><td>Receipt (BL-05)</td><td class="mono small">RCP/KOR/26-27/004902</td><td>Financial year</td><td>Gapless; one per tender leg.</td></tr>
+<tr><td class="mono bold">CRN</td><td>Credit note (BL-07)</td><td class="mono small">CRN/KOR/26-27/000078</td><td>Financial year</td><td>Gapless; stores referenced INV number.</td></tr>
+<tr><td class="mono bold">RFD</td><td>Refund voucher (BL-06)</td><td class="mono small">RFD/KOR/26-27/000051</td><td>Financial year</td><td>Gapless; issued at payout, not at request.</td></tr>
+<tr><td class="mono bold">ADV</td><td>Advance receipt (BL-14)</td><td class="mono small">ADV/KOR/26-27/000210</td><td>Financial year</td><td>Gapless; refundable balance tracked in ledger.</td></tr>
+<tr><td class="mono bold">WOF</td><td>Write-off memo (BL-17)</td><td class="mono small">WOF/KOR/26-27/000006</td><td>Financial year</td><td>Sequential; internal document, retained 8 y like fiscal docs.</td></tr>
+<tr><td class="mono bold">PAY</td><td>Payer claim statement (BL-11)</td><td class="mono small">PAY/CORP-TCSL/2026-07/012</td><td>Monthly per payer</td><td>Generated at payer billing-cycle close.</td></tr>
+</table>
+<div class="kv" style="margin-top:10px">
+  <dt>Scope</dt><dd>Series are per branch (<span class="mono">KOR</span> = Koramangala) per financial year (<span class="mono">26-27</span>), matching GST registration (AD-09 registrations). Multi-GSTIN chains get isolated series per GSTIN.</dd>
+  <dt>Offline branches</dt><dd>Edge mode (IN-10) may <b>collect against an already-issued invoice</b> but may <b>not issue</b> INV/CRN numbers offline — gapless allocation is server-only. FO offline fallback: take advance (ADV from a reserved offline sub-series <span class="mono">ADV/KOR-OFF/…</span>), convert on sync.</dd>
+  <dt>Series edits</dt><dd>Changing prefix/format mid-year is blocked; new series start only at FY boundary or new-branch creation. Emergency change = platform-operator action (PL) + ADMN-0503 four-eyes.</dd>
+</div>
+</div>
+
+<div class="card">
+<div class="card-title">2.2 · Immutability rules</div>
+<table>
+<tr><th style="width:190px">Document state</th><th style="width:230px">Allowed operations</th><th>Forbidden (enforced by service + DB grants)</th></tr>
+<tr><td><span class="chip grey">DRAFT invoice</span></td><td>Edit lines, discount request, delete draft</td><td>Print as invoice, collect against, appear in day book.</td></tr>
+<tr class="hl"><td><span class="chip teal">ISSUED (INV/RCP/CRN/RFD/ADV)</span></td><td>View, print duplicate (watermarked), credit-note against (INV), refund against (RCP/ADV), attach dispute note</td><td>Any field mutation, deletion, renumbering, backdating. Document hash recorded at issue (BILL-0301) — the GST export and audit chain make silent edits detectable.</td></tr>
+<tr><td><span class="chip amber">DISPUTED</span></td><td>Same as ISSUED + grievance link (GR)</td><td>Dispute never unlocks editing; resolution is CRN + reissue.</td></tr>
+<tr><td><span class="chip red">PERIOD-LOCKED</span></td><td>View, print duplicate</td><td>New CRN dated into the locked period (§6.5); attempts logged SEC-0604.</td></tr>
+</table>
+</div>
+
+<!-- ============ 4. PAYMENT STATE MACHINES ============ -->
+<h2>3 · Payment-mode state machines</h2>
+
+<div class="card">
+<div class="card-title">3.1 · Cash <span class="right">requires open drawer session (BL-09)</span></div>
+<table>
+<tr><th style="width:170px">From</th><th style="width:190px">Event / guard</th><th style="width:170px">To</th><th>Effects</th></tr>
+<tr><td class="mono">—</td><td>Cashier opens session; declares float</td><td class="mono">SESSION-OPEN</td><td>BL-09 session row; no collections possible without it (BL-03 tender panel disables Cash).</td></tr>
+<tr><td class="mono">TENDER-ENTERED</td><td>Cashier confirms amount + change</td><td class="mono">COLLECTED</td><td>Receipt RCP issued; ledger: Dr Cash-in-drawer / Cr Patient; drawer running total +amount. BILL-0302.</td></tr>
+<tr><td class="mono">COLLECTED</td><td>Refund payout approved (§5), same or later session</td><td class="mono">REFUNDED-CASH</td><td>RFD issued; drawer −amount; refund requires open session with sufficient drawer balance, else queued for next session.</td></tr>
+<tr><td class="mono">SESSION-OPEN</td><td>EOD count entered</td><td class="mono">SESSION-CLOSED</td><td>Variance computed (§9); session immutable after close; BILL-0304.</td></tr>
+</table>
+</div>
+
+<div class="card">
+<div class="card-title">3.2 · Card (POS terminal, IN-07 comms provider)</div>
+<table>
+<tr><th style="width:170px">From</th><th style="width:190px">Event / guard</th><th style="width:170px">To</th><th>Effects</th></tr>
+<tr><td class="mono">INITIATED</td><td>Amount pushed to terminal (IN-07)</td><td class="mono">AWAITING-TERMINAL</td><td>90 s UI timer on BL-03.</td></tr>
+<tr><td class="mono">AWAITING-TERMINAL</td><td>Approval code received</td><td class="mono">CONFIRMED</td><td>RCP issued with auth code + RRN; ledger Dr Card-clearing / Cr Patient.</td></tr>
+<tr><td class="mono">AWAITING-TERMINAL</td><td>Decline / user cancel</td><td class="mono">FAILED</td><td>No receipt; retry allowed; failure reason on BILL-0302.</td></tr>
+<tr><td class="mono">AWAITING-TERMINAL</td><td>Terminal offline / no response 90 s</td><td class="mono">UNCONFIRMED</td><td>Same evidence path as UPI (§3.3 rows E1–E3): charge-slip RRN entry confirms; else cancel.</td></tr>
+<tr><td class="mono">CONFIRMED (same day, pre-settlement)</td><td>Refund approved</td><td class="mono">VOIDED</td><td>Terminal void; RCP stands, RFD issued referencing it.</td></tr>
+<tr><td class="mono">CONFIRMED (post-settlement)</td><td>Refund approved</td><td class="mono">REFUND-SETTLED</td><td>Card refund via provider; settlement tracked in BL-15 clearing account, reconciled at EOD+2.</td></tr>
+</table>
+</div>
+
+<div class="card">
+<div class="card-title">3.3 · UPI <span class="right">the canonical tricky path · BL-04 UPI-pending worklist</span></div>
+<div class="flow">
+  <div class="fstep"><span class="fid">BL-03</span>INITIATED — dynamic QR / collect request created</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">BL-03</span>AWAITING-CONFIRMATION — polling PSP webhook (IN-08)</div><span class="farr">→</span>
+  <div class="fstep" style="border-left-color:#15803D"><span class="fid">BL-05</span>CONFIRMED — receipt issued</div>
+</div>
+<div class="flow">
+  <span class="small muted">timeout branch:</span>
+  <div class="fstep" style="border-left-color:#F59E0B"><span class="fid">BL-04</span>TIMEOUT (180 s) → UNCONFIRMED — lands on UPI-pending worklist</div><span class="farr">→</span>
+  <div class="fstep" style="border-left-color:#15803D"><span class="fid">BL-04</span>EVIDENCE-CONFIRM (UTR verified)</div>
+  <span class="farr">/</span>
+  <div class="fstep" style="border-left-color:#B91C1C"><span class="fid">BL-04</span>CANCELLED</div><span class="farr">→</span>
+  <div class="fstep" style="border-left-color:#F59E0B"><span class="fid">auto</span>Late webhook after cancel ⇒ AUTO-DUPLICATE-REFUND</div>
+</div>
+<table>
+<tr><th style="width:45px">#</th><th style="width:165px">From</th><th style="width:250px">Event / guard</th><th style="width:150px">To</th><th>Effects</th></tr>
+<tr><td class="mono">U1</td><td class="mono">INITIATED</td><td>QR shown / collect sent; <span class="mono">txn_ref</span> allocated</td><td class="mono">AWAITING-CONFIRMATION</td><td>180 s timer; patient may also pay via link (PT-06 → same txn_ref).</td></tr>
+<tr><td class="mono">U2</td><td class="mono">AWAITING-CONFIRMATION</td><td>PSP webhook <span class="mono">SUCCESS</span> (idempotent on txn_ref)</td><td class="mono">CONFIRMED</td><td>RCP issued; ledger Dr UPI-clearing / Cr Patient; BILL-0302.</td></tr>
+<tr><td class="mono">U3</td><td class="mono">AWAITING-CONFIRMATION</td><td>PSP webhook <span class="mono">FAILED</span></td><td class="mono">FAILED</td><td>Retry as new txn_ref.</td></tr>
+<tr class="hl"><td class="mono">U4</td><td class="mono">AWAITING-CONFIRMATION</td><td>180 s elapsed, no webhook</td><td class="mono">UNCONFIRMED</td><td>Appears on BL-04 worklist with age SLA chip (DS-03: amber &gt; 10 min, red &gt; 30 min → metric <span class="mono">upi_unconfirmed_payments</span>, DOC-05 §9.2). Patient may leave; visit is NOT blocked (see Q1 §11 for report release).</td></tr>
+<tr><td class="mono">E1</td><td class="mono">UNCONFIRMED</td><td>Status-check API to PSP returns SUCCESS, or cashier enters patient's UTR and PSP verify matches amount+ref</td><td class="mono">EVIDENCE-CONFIRMED</td><td>Treated as CONFIRMED; receipt issued; evidence (UTR, verifier id) on BILL-0302. Manual UTR entry without PSP match requires supervisor four-eyes.</td></tr>
+<tr><td class="mono">E2</td><td class="mono">UNCONFIRMED</td><td>Cashier cancels (patient pays by other mode or leaves unpaid)</td><td class="mono">CANCELLED</td><td>No receipt; invoice balance unchanged; txn_ref blacklist-armed for U5.</td></tr>
+<tr class="hl"><td class="mono">U5</td><td class="mono">CANCELLED</td><td>Late PSP webhook SUCCESS arrives for a cancelled txn_ref</td><td class="mono">AUTO-DUPLICATE-REFUND</td><td><b>Automatic</b>: system books the receipt (money did arrive), immediately opens a pre-approved refund (policy row §5: system-auto, no human limit needed) back to source VPA, notifies patient (NT-01) and cashier. If the invoice is meanwhile unpaid, BL-04 offers "apply instead of refund" for 24 h before auto-payout.</td></tr>
+<tr><td class="mono">U6</td><td class="mono">CONFIRMED / EVIDENCE-CONFIRMED</td><td>Refund approved (§5)</td><td class="mono">REFUNDED-UPI</td><td>Payout to original VPA via PSP; RFD issued on PSP success callback only.</td></tr>
+</table>
+<div class="audit">Every transition emits BILL-0302 with txn_ref, PSP payload hash, and actor (SYSTEM for U2/U4/U5). BL-04 worklist itself is the operational recovery surface — no UPI state is ever mutated from BL-03 after timeout.</div>
+</div>
+
+<!-- ============ 5. APPROVALS ============ -->
+<h2>4 · Approvals matrix (async, BL-08)</h2>
+<div class="banner warn"><b>Async pattern</b> Requester submits with reason → request lands in BL-08 approvals queue with SLA chip (DS-03: amber &gt; 2 h, red &gt; 8 h) → approver notified (NT-01) → approver acts from BL-08 with step-up AU-09 → requester notified; document/payout unblocks. The requester's screen never blocks; the object shows <span class="chip amber">PENDING APPROVAL</span>. Approver ≠ requester is enforced for all rows (minimum four-eyes); rows marked <b>4-eyes+</b> need a second distinct approver.</div>
+<div class="card">
+<table>
+<tr><th style="width:180px">Action</th><th style="width:190px">Cashier / FO (self-serve)</th><th style="width:190px">Branch billing supervisor</th><th style="width:190px">Branch manager</th><th>Finance controller (org)</th></tr>
+<tr><td class="bold">Discount (BL-12 policies)</td><td>Up to policy auto-discounts only (campaign codes, payer contract rates) — no ad-hoc</td><td>Ad-hoc ≤ 10% or ≤ ₹2,000 per invoice</td><td>≤ 25% or ≤ ₹10,000</td><td>&gt; 25% or &gt; ₹10,000 · <b>4-eyes+</b></td></tr>
+<tr><td class="bold">Refund (BL-06)</td><td>Request only; auto-approved class: same-day full refund of uncollected-service ≤ ₹5,000 &amp; system AUTO-DUPLICATE-REFUND (§3.3 U5)</td><td>≤ ₹5,000</td><td>≤ ₹25,000</td><td>&gt; ₹25,000 · <b>4-eyes+</b></td></tr>
+<tr><td class="bold">Invoice cancel via CRN (BL-07)</td><td>Request only</td><td>Same-day, service not performed</td><td>Cross-day, or service partially performed (§11 rules)</td><td>Post-GST-filing CRN (§6.4) · <b>4-eyes+</b></td></tr>
+<tr><td class="bold">Write-off (BL-17)</td><td>—</td><td>—</td><td>≤ ₹10,000 aged &gt; 90 d</td><td>All others · <b>4-eyes+</b>; quarterly write-off report to audit committee</td></tr>
+<tr><td class="bold">Cash variance acceptance (BL-09)</td><td>—</td><td>≤ ₹200</td><td>≤ ₹2,000 with reason</td><td>&gt; ₹2,000 → incident-style review (§9)</td></tr>
+<tr><td class="bold">Payer credit-limit override (BL-11)</td><td>—</td><td>—</td><td>≤ 10% over limit, 7 days</td><td>All others</td></tr>
+</table>
+<div class="kv" style="margin-top:10px">
+  <dt>Escalation</dt><dd>BL-08 items red-SLA &gt; 8 h auto-escalate one level up the same column and notify both (NT-01). STAT-clinical linked refunds (e.g., cancelled STAT order) jump the queue.</dd>
+  <dt>Delegation</dt><dd>Approver absence handled via DD-10-style delegation configured in AD-03; delegated approvals stamp <span class="mono">on_behalf_of</span> (DOC-05 §3).</dd>
+  <dt>Audit</dt><dd>Request, each decision, and payout are separate BILL-0303 events; the matched limit-rule id is recorded — the matrix above ships as versioned config (AD-17 toggle-gated changes, ADMN-0503).</dd>
+</div>
+</div>
+
+<!-- ============ 6. GST ============ -->
+<h2>5 · GST rules</h2>
+<div class="card">
+<table>
+<tr><th style="width:210px">Topic</th><th>Rule</th><th style="width:190px">Screens</th></tr>
+<tr><td class="bold">Default: exempt healthcare</td><td>Diagnostic and healthcare services by a clinical establishment are GST-exempt (Notification 12/2017, entry 74). Default document type is <b>Bill of Supply / exempt tax invoice</b>: lines carry SAC 9993 + <span class="chip green">EXEMPT</span> label, zero tax, and the mandated exemption remark printed in footer. No ITC implications surface to FO.</td><td class="mono small">BL-02, BL-10 (catalog flag)</td></tr>
+<tr><td class="bold">Taxable exceptions</td><td>Catalog items flagged <span class="chip amber">TAXABLE</span> in BL-10: film/CD/print media copies of studies, courier of reports, non-clinical merchandise, cosmetic/wellness packages not qualifying as healthcare, canteen items at branch, and B2B services to non-establishment clients (e.g., telerad reads sold to another entity, RD-02 context). Mixed invoice = single document, per-line tax treatment; taxable lines force GSTIN block + HSN/SAC print.</td><td class="mono small">BL-10, BL-02</td></tr>
+<tr><td class="bold">CGST/SGST vs IGST</td><td>Place of supply vs branch GSTIN state: same state ⇒ CGST+SGST split; different state ⇒ IGST. For walk-in B2C services place-of-supply is branch state ⇒ effectively always CGST/SGST. IGST paths arise on B2B inter-state (corporate payer with out-of-state GSTIN on BL-11, telerad B2B). Engine input: branch GSTIN (AD-09), payer GSTIN + state (BL-11), item taxability (BL-10), rate table (BL-13).</td><td class="mono small">BL-13, BL-11, AD-09</td></tr>
+<tr><td class="bold">Credit notes &amp; filing</td><td>CRN within the same open period nets in BL-19 export. CRN against an invoice from an <b>already-filed</b> period is allowed (until the statutory cut-off: 30 Nov following FY / annual return, enforced by BL-13 config) but is flagged <span class="chip violet">POST-FILING</span>, requires finance-controller 4-eyes+ (§4), and is exported in the current period's GSTR-1 CDNR section referencing the original invoice date/number. After statutory cut-off: CRN blocked; remedy is write-off (BL-17) or goodwill refund without fiscal negation, per finance policy.</td><td class="mono small">BL-07, BL-19, BL-13</td></tr>
+<tr><td class="bold">Period lock</td><td>BL-13 period lock (per GSTIN, per month) after BL-19 export is generated and marked "filed". Locked period ⇒ no document may be issued with a date in it (all issuance is server-timestamped anyway), no CRN dated into it, day books frozen. Unlock = platform-operator + finance controller 4-eyes+, fully audited (ADMN-0503 + SEC-0604 on attempts).</td><td class="mono small">BL-13, BL-19, BL-18</td></tr>
+<tr><td class="bold">Export file</td><td>BL-19 produces GSTR-1-shaped JSON + CSV: B2C exempt summary, B2B taxable lines, CDNR credit notes, document-number ranges per series (gapless proof from AD-16). File hash logged BILL-0305; export download is AUTH-0109.</td><td class="mono small">BL-19</td></tr>
+</table>
+</div>
+
+<!-- ============ 7. PAYER + ADVANCES ============ -->
+<h2>6 · Corporate / payer credit flow (BL-11)</h2>
+<div class="flow">
+  <div class="fstep"><span class="fid">BL-11</span>Payer master: contract rates, GSTIN, credit limit, billing cycle</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">FO-03..05</span>Visit tagged to payer + eligibility ref (employee ID / TPA auth)</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">BL-02</span>Invoice split: payer share (on credit) + patient co-pay (collected now)</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">BL-15</span>Payer control account debited</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">BL-11</span>Cycle close → PAY claim statement + supporting invoice list</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">BL-03</span>Payer remittance → allocation across statement lines</div><span class="farr">→</span>
+  <div class="fstep" style="border-left-color:#F59E0B"><span class="fid">BL-07/BL-17</span>Shortfall → dispute (deduction) → CRN or write-off per §4</div>
+</div>
+<div class="card">
+<table>
+<tr><th style="width:200px">Rule</th><th>Specification</th></tr>
+<tr><td class="bold">Credit gate at billing</td><td>BL-02 blocks payer-share issuance when payer outstanding + this invoice &gt; credit limit; override per §4 matrix; patient may convert to self-pay on the spot.</td></tr>
+<tr><td class="bold">Contract pricing</td><td>Payer plan rates from BL-11 override catalog list price; discount engine (BL-12) never stacks on contract rates.</td></tr>
+<tr><td class="bold">Remittance allocation</td><td>Oldest-first auto-allocation, manual re-allocation allowed pre-EOD only; TDS deducted by payer posts to a TDS-receivable ledger account, not as a discount.</td></tr>
+<tr><td class="bold">GST on payer invoices</td><td>Healthcare services remain exempt regardless of B2B payer; only genuinely taxable lines (§5) attract IGST/CGST per payer GSTIN state.</td></tr>
+</table>
+</div>
+
+<h2>7 · Advances (BL-14)</h2>
+<div class="card">
+<table>
+<tr><th style="width:210px">Stage</th><th>Rule</th></tr>
+<tr><td class="bold">Take advance</td><td>Any tender mode; ADV receipt issued; ledger Cr Patient-advance liability. Used for scheduled procedures (SC/FO-10 booking deposits), offline-mode fallback (§2.1), and package prepayments.</td></tr>
+<tr><td class="bold">Apply to invoice</td><td>BL-03 tender panel offers available advance balance as a tender leg; application links ADV → INV in ledger; partial application allowed.</td></tr>
+<tr><td class="bold">Refund unused advance</td><td>Standard refund path §4 (it is patient money — approval limits apply above cashier auto-class); RFD references ADV. Unclaimed advances aged &gt; 365 d surface on BL-15 exception view → escheat/write-back policy via finance controller.</td></tr>
+<tr><td class="bold">No negative balances</td><td>Advance application cannot exceed balance; concurrent-use race resolved by ledger serialization, loser re-tenders.</td></tr>
+</table>
+</div>
+
+<!-- ============ 9. EOD ============ -->
+<h2>8 · EOD close &amp; reconciliation (BL-09)</h2>
+<div class="flow">
+  <div class="fstep"><span class="fid">BL-09</span>Close each cash session: blind count → variance calc</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">BL-09</span>Card/UPI clearing vs PSP settlement report (IN-08 webhook / manual file)</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">BL-04</span>UPI-pending queue must be empty or dispositioned</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">BL-18</span>Day book totals tie: documents = tenders + credit + advances applied</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">FO-15</span>FO EOD handshake (visits vs invoices)</div><span class="farr">→</span>
+  <div class="fstep" style="border-left-color:#15803D"><span class="fid">BL-09</span>Branch-day CLOSED (immutable)</div>
+</div>
+<div class="card">
+<table>
+<tr><th style="width:210px">Check</th><th style="width:280px">Rule</th><th>On failure</th></tr>
+<tr><td class="bold">Cash variance</td><td>|counted − expected| — blind count entered before system total is revealed.</td><td>≤ ₹200 supervisor accept; ≤ ₹2,000 manager + reason; &gt; ₹2,000 finance review + GV-08-style incident note; repeat pattern (3 in 30 d per cashier) auto-flags (DOC-05 SEC-0605-style anomaly). All BILL-0304.</td></tr>
+<tr><td class="bold">UPI/card clearing</td><td>Every CONFIRMED tender must appear in PSP settlement within T+2.</td><td>Unmatched at T+2 → BL-04-style reconciliation queue; unresolved at T+7 → finance controller + provider dispute (IN-08 webhook log as evidence).</td></tr>
+<tr><td class="bold">UPI pending empty</td><td>No UNCONFIRMED older than the day remains.</td><td>Day cannot close; items must reach EVIDENCE-CONFIRMED / CANCELLED (§3.3).</td></tr>
+<tr><td class="bold">Visit ↔ invoice tie</td><td>Every completed billable visit (FO-14) has an issued invoice or a documented exception (payer direct, camp/free, §11 cancel rules).</td><td>Exceptions listed on FO-15/BL-18; unexplained gaps block close.</td></tr>
+<tr><td class="bold">Close is terminal</td><td>Closed day is immutable; next-day corrections use current-date CRN/RFD referencing prior documents.</td><td>Reopen impossible; only PL-level period unlock exists (§5 period lock) and does not reopen day books.</td></tr>
+</table>
+</div>
+
+<!-- ============ 10. DISPUTES ============ -->
+<h2>9 · Disputes &amp; grievance links (GR-01..06)</h2>
+<div class="card">
+<table>
+<tr><th style="width:250px">Entry point</th><th>Path</th></tr>
+<tr><td>Patient disputes a charge at desk or via portal (PT-12 help / PT-08 rights)</td><td>GR case opened with invoice ref → invoice flagged <span class="chip amber">DISPUTED</span> (§2.2) → resolution actions are ordinary billing documents (CRN §4, refund §4) linked to the GR case id → GR closure requires the linked financial action to be in terminal state. SLA chips per DS-03 on the GR queue.</td></tr>
+<tr><td>Payer deduction/denial on remittance (BL-11)</td><td>Shortfall line auto-opens GR (payer type) → outcome CRN, re-bill to patient, or write-off per §4 matrix.</td></tr>
+<tr><td>Billing-caused incident (double charge from U5 race, price error affecting a cohort)</td><td>GR mass-case + AD-19 announcement if patient-facing; cohort credit notes executed as a batch job (AD-18) with per-document BILL-0303 audit.</td></tr>
+</table>
+<div class="audit">GR screens show the full financial trail read-only; grievance staff never mutate billing documents directly — they request via BL-08 like everyone else.</div>
+</div>
+
+<!-- ============ 11. CLINICAL LINKS ============ -->
+<h2>10 · Billing ↔ clinical linkage</h2>
+<div class="flow">
+  <div class="fstep"><span class="fid">OR-01</span>Order placed (priced from BL-10 at order time)</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">BL-16</span>Estimate (optional)</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">BL-02</span>Invoice lines bound to order ids</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">TK-01</span>Perform gate: safety gates + payment policy check</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">RD-09</span>Sign-off</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">RD-13</span>Distribution (release policy — Q1)</div>
+</div>
+<div class="card">
+<div class="card-title">10.1 · Cancel-after-acquisition rules</div>
+<table>
+<tr><th style="width:250px">Clinical state at cancellation (OR-05)</th><th style="width:180px">Billing consequence</th><th>Approval / notes</th></tr>
+<tr><td>Ordered, not checked in / not performed</td><td>Full CRN, full refund of collected amount</td><td>Supervisor (same-day self-serve class §4); slot released to waitlist (FO-19).</td></tr>
+<tr><td>Checked in, prep consumed (e.g., contrast drawn, TK-09 prep done) but not acquired</td><td>CRN of service line; retain configurable prep/consumable fee line</td><td>Manager; fee item must exist in BL-10 (no ad-hoc amounts).</td></tr>
+<tr class="hl"><td>Acquired (TK-03 complete) but not reported</td><td><b>No automatic refund.</b> Service was rendered. Exceptions: QC-failed/non-diagnostic study where retake is refused (TK-05/TK-11) → full CRN as service-failure class</td><td>Manager + radiologist confirmation of non-diagnostic status (four-eyes across departments); CLIN + BILL audit pair.</td></tr>
+<tr><td>Reported &amp; signed (RD-09)</td><td>Refund only as goodwill/grievance outcome (§9)</td><td>Finance controller 4-eyes+; never deletes or unsigns the report (report immutability is clinical, not financial).</td></tr>
+</table>
+</div>
+<div class="card">
+<div class="card-title">10.2 · Payment-status gates</div>
+<table>
+<tr><th style="width:230px">Gate</th><th>MVP-1 behaviour</th></tr>
+<tr><td class="bold">TK-01 Perform</td><td>Safety gates (CS-01/02/03) are absolute. Payment check is a <b>soft warning</b> only: unpaid balance shows an amber chip; performing is not blocked (clinical priority; STAT orders OR-07 never payment-gated).</td></tr>
+<tr><td class="bold">RD-13 report release to patient link (PT-02)</td><td>Governed by the org-level policy switch — see Q1 below. Internal clinical visibility (DD-01/DD-02) is <b>never</b> payment-gated; critical results (RD-10/RD-11) always flow regardless of balance.</td></tr>
+</table>
+</div>
+<div class="gap-note"><b>OPEN QUESTION Q1 — report-release-on-payment policy switch.</b> Product decision pending: default position of org toggle <span class="mono">billing.release_requires_settlement</span> (AD-17). Option A: release report to patient link only when invoice balance = 0 (with hardship override via BL-08). Option B: always release; chase balance via ledger/NT reminders. Engineering must build the toggle + override path either way; legal review of Option A against clinical-records access obligations (patient rights PT-08 / GV-05 access right) due <b>15-Aug-2026</b>, owner: Product + DPO. Until decided, environments default to Option B (always release).</div>
+
+<div class="divider-label">END OF DOC-06</div>
+<div class="small muted" style="text-align:center;margin-bottom:8px">Magnus HMS · DOC-06 Complete Billing Workflows · v1.0 · July 2026 · NUMINACORE internal — all names, numbers and amounts synthetic. Related: DOC-05 Audit &amp; Logging (BILL-03xx events), BL-01..19, AD-16, GR-01..06, DS-03 SLA pattern.</div>
+
+</div>
+</body>
+</html>

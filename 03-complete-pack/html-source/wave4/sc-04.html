@@ -1,0 +1,116 @@
+<section class="screen" id="sc-04">
+<div class="screen-head"><h1><span class="sid">SC-04</span> Doctor availability &amp; time off</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling &amp; Resource Setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 doctor availability</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Per-practitioner weekly duty grids control which blocks a doctor is bookable for performing (e.g. USG) and which are reserved for reading. Time-off requests run a coverage check against already-booked slots; conflicts become explicit reassign/reschedule tasks before approval can complete. For radiologists the reading-vs-performing split matters: reading blocks keep report SLAs alive without consuming bookable calendar slots.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Scheduling setup</div>
+      <div class="nav-item">Working hours &amp; breaks</div>
+      <div class="nav-item">Holidays &amp; closures <span class="nav-badge">3</span></div>
+      <div class="nav-item">Slot templates</div>
+      <div class="nav-item active">Doctor availability <span class="nav-badge">2</span></div>
+      <div class="nav-item">Equipment availability <span class="nav-badge red">1</span></div>
+      <div class="sec-label">Reference</div>
+      <div class="nav-item">Rooms &amp; resources</div>
+      <div class="nav-item">Branch settings</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Setup › Scheduling › Doctor availability › Dr. V. Shetty</div>
+      <div class="page-title">Dr. V. Shetty — weekly duty grid <span class="actions-right"><span class="btn small">Switch practitioner ▾</span> <span class="btn small">Time-off requests <b>2</b></span> <span class="btn small primary">Edit grid</span></span></div>
+      <div class="page-sub">Radiologist · RMC <span class="mono">MH-44721</span> · USG performing + CT/MRI reading · grid version <span class="mono">v5</span> effective 01-Jun-2026 · read nightly by slot generation</div>
+
+      <div class="banner info"><b>Reading vs performing split</b>Blocks marked <span class="chip blue">Reading</span> generate no bookable patient slots — they keep Dr. Shetty in the reporting assignment pool so report SLAs stay owned. Only <span class="chip teal">Performing</span> blocks feed USG calendar slots. Time off removes both duty types for the covered dates.</div>
+
+      <div class="card">
+        <div class="card-title">Duty grid <span class="right">blocks: morning 08:00–13:30 · afternoon 14:15–18:00 · evening 18:00–21:00</span></div>
+        <table>
+          <tr><th>Block</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>
+          <tr><td><b>Morning</b></td>
+            <td><span class="chip teal">Performing · USG</span></td>
+            <td><span class="chip teal">Performing · USG</span></td>
+            <td><span class="chip blue">Reading · CT/MRI</span></td>
+            <td><span class="chip teal">Performing · USG</span></td>
+            <td><span class="chip teal">Performing · USG</span></td>
+            <td><span class="chip teal">Performing · USG</span></td>
+            <td><span class="chip grey">Off</span></td></tr>
+          <tr><td><b>Afternoon</b></td>
+            <td><span class="chip blue">Reading · CT/MRI</span></td>
+            <td><span class="chip blue">Reading · CT/MRI</span></td>
+            <td><span class="chip blue">Reading · CT/MRI</span></td>
+            <td><span class="chip blue">Reading · CT/MRI</span></td>
+            <td><span class="chip blue">Reading · CT/MRI</span></td>
+            <td><span class="chip grey">Off</span></td>
+            <td><span class="chip grey">Off</span></td></tr>
+          <tr><td><b>Evening</b></td>
+            <td><span class="chip grey">Off</span></td>
+            <td><span class="chip blue">Reading · on-call</span></td>
+            <td><span class="chip grey">Off</span></td>
+            <td><span class="chip blue">Reading · on-call</span></td>
+            <td><span class="chip grey">Off</span></td>
+            <td><span class="chip grey">Off</span></td>
+            <td><span class="chip grey">Off</span></td></tr>
+        </table>
+        <div class="hint" style="margin-top:6px;font-size:11px;color:#64748B">Grid edits are effective-dated like SC-01. Removing a performing block that already has bookings triggers the same conflict flow as time off below.</div>
+      </div>
+
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Time-off requests — pending <span class="right">2 open</span></div>
+          <table>
+            <tr><th>Practitioner</th><th>Dates</th><th>Type</th><th>Coverage check</th><th>Status</th><th></th></tr>
+            <tr class="hl"><td>Dr. V. Shetty</td><td class="mono">10–14 Aug 2026</td><td>Annual leave</td><td><span class="chip red">9 booked slots conflict</span></td><td><span class="chip amber">Awaiting resolution</span></td><td><span class="btn small ghost">Review</span></td></tr>
+            <tr><td>Dr. A. Rao</td><td class="mono">03-Aug-2026 (half day)</td><td>CME conference</td><td><span class="chip green">No conflicts</span></td><td><span class="chip amber">Awaiting approval</span></td><td><span class="btn small ghost">Review</span></td></tr>
+          </table>
+        </div>
+        <div class="card" style="width:290px;flex-shrink:0">
+          <div class="card-title">Coverage snapshot — Aug</div>
+          <div class="kv">
+            <dt>USG performers</dt><dd>3 (Shetty, Rao, locum Dr. S. Menon Mon/Wed/Fri)</dd>
+            <dt>CT/MRI readers</dt><dd>2 + teleradiology overflow contract</dd>
+            <dt>Min. reader rule</dt><dd>≥1 reader on duty every open block — enforced at approval</dd>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — TIME-OFF REQUEST WITH CONFLICTS (COVERAGE CHECK FAILED)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Time off — Dr. V. Shetty · 10–14 Aug 2026 <span class="chip red">9 conflicts</span></div>
+  <div class="banner danger"><b>Coverage check: 9 booked slots and 1 reading block conflict</b>8 USG appointments are booked in Dr. Shetty's performing blocks and 1 evening on-call reading block has no substitute. Approval stays disabled until every line is resolved into a reassign or reschedule task. Nothing is auto-cancelled.</div>
+  <div class="card">
+    <div class="card-title">Conflict list <span class="right">resolve each line</span></div>
+    <table>
+      <tr><th>Date / time</th><th>Item</th><th>Patient (masked)</th><th>Proposed resolution</th><th>Task</th></tr>
+      <tr><td class="mono">10-Aug 08:30</td><td>USG Abdomen · APPT-2026-52501</td><td>S•••• R. · MRN-00**22</td><td><span class="select" style="width:220px;display:inline-block">Reassign → Dr. A. Rao ▾</span></td><td><span class="chip green">Ready</span></td></tr>
+      <tr><td class="mono">10-Aug 09:15</td><td>USG Obstetric · APPT-2026-52505</td><td>P•••• D. · MRN-00**64</td><td><span class="select" style="width:220px;display:inline-block">Reassign → Dr. A. Rao ▾</span></td><td><span class="chip amber">Form F re-attribution needed</span></td></tr>
+      <tr><td class="mono">11-Aug 10:00</td><td>USG Thyroid · APPT-2026-52530</td><td>K•••• M. · MRN-00**09</td><td><span class="select" style="width:220px;display:inline-block">Reschedule → 17-Aug ▾</span></td><td><span class="chip green">Ready</span></td></tr>
+      <tr><td class="mono">11-Aug evening</td><td>Reading on-call block</td><td>—</td><td><span class="select" style="width:220px;display:inline-block">Cover → teleradiology overflow ▾</span></td><td><span class="chip green">Ready</span></td></tr>
+      <tr><td colspan="5" class="muted small">+ 5 more lines · obstetric reassignments re-run the PC-PNDT Form F attribution check against the covering doctor's registration</td></tr>
+    </table>
+    <div class="modal-actions"><span class="btn">Save draft</span><span class="btn disabled">Approve time off</span><span class="btn primary">Create 9 tasks &amp; continue</span></div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — APPROVED WITH COVERAGE PLAN</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Time off approved — Dr. V. Shetty · 10–14 Aug 2026 <span class="chip green">Approved</span></div>
+  <div class="banner success"><b>Approved 25-Jul-2026 18:20 IST by K. Verma (step-up: passkey)</b>All 9 conflicts resolved: 6 reassigned to Dr. A. Rao / locum Dr. S. Menon, 2 rescheduled with patient confirmation, 1 on-call block covered by teleradiology overflow. Slot generation removes Dr. Shetty's performing slots for 10–14 Aug tonight; reporting auto-assignment excludes her for the same dates.</div>
+  <div class="card">
+    <div class="card-title">Approval record</div>
+    <div class="timeline">
+      <div class="ev"><span class="t">22-Jul 09:02</span><span><b>Requested</b> — by Dr. V. Shetty via staff portal · annual leave</span></div>
+      <div class="ev"><span class="t">22-Jul 09:02</span><span><b>Coverage check</b> — 9 conflicts detected automatically</span></div>
+      <div class="ev"><span class="t">24-Jul 15:40</span><span><b>Tasks resolved</b> — TASK-2026-3340…3348 closed · 2 patients confirmed new slots via WhatsApp BSP</span></div>
+      <div class="ev"><span class="t">25-Jul 18:20</span><span><b>Approved</b> — K. Verma · min-reader rule satisfied for every open block 10–14 Aug</span></div>
+    </div>
+  </div>
+</div></div></div>
+
+<p class="audit">Duty-grid versions, time-off requests, coverage-check results, each conflict resolution and the final approval (actor, step-up method) are recorded in the access log.</p>
+</section>

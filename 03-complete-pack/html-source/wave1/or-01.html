@@ -1,5 +1,5 @@
 <section class="screen" id="or-01">
-<div class="screen-head"><h1><span class="sid">OR-01</span> Order entry — shared path</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety — workspace 'Orders'</div></div></div>
+<div class="screen-head"><h1><span class="sid">OR-01</span> Order entry — shared path</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety — workspace 'Orders'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · RT-S3 + DD-S2 shared order path</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office and clinical staff create imaging/diagnostic orders against a registered patient from the procedure catalog. The form must guarantee a complete, safe order: clinical indication is mandatory, laterality is forced for paired-organ procedures, STAT priority requires justification, and the referrer is resolved from the directory (with registration number) or explicitly marked self-referred. Place-order is idempotent — a retry after a network/service failure reuses the same idempotency reference and can never create a duplicate accession.</div>
 
 <div class="frame">

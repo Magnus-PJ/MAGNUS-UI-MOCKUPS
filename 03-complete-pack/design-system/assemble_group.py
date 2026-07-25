@@ -9,7 +9,7 @@ GROUPS = {
  "G06_Radiology_Technician":   ("G6 · Radiology Technician", "wave1", ["tk-%02d"%i for i in range(1,13)]),
  "G07_Radiologist_Reading":    ("G7 · Radiologist — Reading & Reporting", "wave1", ["rd-%02d"%i for i in range(1,19)]),
  # wave2
- "G09_Billing_Payments":       ("G9 · Billing & Payments", "wave2", ["bl-%02d"%i for i in range(1,20)]),
+ "G09_Billing_Payments":       ("G9 · Billing & Payments", "wave2", ["bl-%02d"%i for i in range(1,21)]),
  "G10_Notifications_Delivery": ("G10 · Notifications & Delivery", "wave2", ["nt-%02d"%i for i in range(1,9)]),
  "G02_Patient_Facing":         ("G2 · Patient-Facing (Secure Links)", "wave2", ["pt-%02d"%i for i in range(1,13)]),
  "G08_Doctor_Desk":            ("G8 · Doctor Desk (Referrers)", "wave2", ["dd-%02d"%i for i in range(1,12)]),
@@ -52,10 +52,10 @@ def build(key):
 <p class="muted small" style="margin-top:14px">Magnus Diagnostics → NUMINACORE · July 2026 · Prototype/reference — not committed product scope.</p></div></section>'''
     html = f'<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Magnus HMS — {title}</title><style>{CSS}\n@page{{size:A4;margin:0}}@media print{{body{{background:#fff}}}}</style></head><body>{cover}{"".join(frags)}</body></html>'
     hf = outdir/f"Magnus_HMS_{key}.html"; hf.write_text(html)
-    pf = outdir/f"Magnus_HMS_{key}.pdf"
-    subprocess.run(["/opt/pw-browsers/chromium","--headless","--disable-gpu","--no-sandbox",f"--print-to-pdf={pf}","--no-pdf-header-footer",str(hf)],capture_output=True)
-    pages = subprocess.run(["pdfinfo",str(pf)],capture_output=True,text=True).stdout
-    n = re.search(r"Pages:\s+(\d+)",pages)
-    print(f"{key}: {len(frags)} screens, missing={missing}, pdf_pages={n.group(1) if n else '?'}, size={pf.stat().st_size//1024}KB")
+    print(f"{key}: {len(frags)} screens, missing={missing}, html={hf.stat().st_size//1024}KB")
+    import os
+    if os.environ.get("MAKE_PDF"):
+        pf = outdir/f"Magnus_HMS_{key}.pdf"
+        subprocess.run(["/opt/pw-browsers/chromium","--headless","--disable-gpu","--no-sandbox",f"--print-to-pdf={pf}","--no-pdf-header-footer",str(hf)],capture_output=True)
 
 for k in sys.argv[1:]: build(k)

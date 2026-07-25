@@ -1,0 +1,101 @@
+<section class="screen" id="au-12">
+<div class="screen-head"><h1><span class="sid">AU-12</span> Policy re-acceptance gate</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G1 Identity &amp; Access — profile + degraded</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · policy re-acceptance gate</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> When the tenant publishes a new version of the Acceptable Use Policy or staff privacy notice, every staff member sees this blocking interstitial at next sign-in. The user must scroll the full text (read-scroll requirement), then accept with identity confirmation; acceptance is recorded per policy version. A defer-N-times policy lets busy shifts postpone up to 3 times within 7 days, after which the gate hard-blocks.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>WORKSPACE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor ▾</div></div>
+  <div style="padding:26px 16px 34px;background:#F4F6F8">
+    <div class="card" style="max-width:620px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:10px"><span class="chip grey">Staff realm · meridian-staff · signed in as T. Okafor (Technologist)</span></div>
+      <div class="page-title" style="text-align:center">Updated policies need your acceptance</div>
+      <div class="page-sub" style="text-align:center">You're signed in, but access to the workspace is paused until you review and accept the updated policies below.</div>
+      <div class="banner info"><b>What changed since you last accepted</b>
+        <div style="margin-top:4px">• <b>AUP v3.3</b> (replaces v3.2, accepted by you on 04 Mar 2026): new section 7 — personal mobile devices may not photograph any screen showing patient data; clarified USB media ban on modality consoles (CT-ROOM-1, US-UNIT-2, MRI-ROOM-2).<br>
+        • <b>Staff privacy notice v2.1</b> (replaces v2.0): adds that approximate sign-in location (city-level) is now shown on your own security page and retained 180 days.</div>
+      </div>
+      <table>
+        <tr><th>Policy</th><th>Version</th><th>Effective</th><th>Your status</th><th></th></tr>
+        <tr><td class="bold">Acceptable Use Policy</td><td class="mono">v3.3</td><td>20 Jul 2026</td><td><span class="chip amber">Acceptance pending</span></td><td><span class="btn ghost small">View full diff</span></td></tr>
+        <tr><td class="bold">Staff privacy notice</td><td class="mono">v2.1</td><td>20 Jul 2026</td><td><span class="chip amber">Acceptance pending</span></td><td><span class="btn ghost small">View full diff</span></td></tr>
+      </table>
+      <div style="border:1px solid #E2E8F0;border-radius:8px;margin:12px 0;background:#F8FAFC">
+        <div style="padding:10px 12px;font-size:12.5px;max-height:120px;overflow:hidden">
+          <b>Acceptable Use Policy — v3.3 (full text, 1 of 2)</b><br>
+          1. Scope. This policy applies to all Meridian Diagnostics staff, contractors and locum radiologists using Magnus HMS…<br>
+          2. Account security. You must not share credentials, passkeys, TOTP secrets or backup codes with any person, including supervisors…<br>
+          3. Patient data. View only the records required for your current task. Bulk export requires…<span class="muted"> (scroll to continue)</span>
+        </div>
+        <div style="border-top:1px solid #E2E8F0;padding:7px 12px;font-size:11.5px;color:#64748B;display:flex;justify-content:space-between;align-items:center">
+          <span>Read progress — you must scroll to the end before accepting</span><span class="mono">34%</span>
+        </div>
+        <div class="progress" style="margin:0;border-radius:0 0 8px 8px"><i style="width:34%"></i></div>
+      </div>
+      <div class="check"><span class="box"></span><span class="muted">I have read and accept AUP v3.3 and Staff privacy notice v2.1 <span class="small">(enabled after full scroll of both documents)</span></span></div>
+      <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:12px;align-items:center">
+        <span class="small muted">Deferrals used: <b>1 of 3</b> (window ends 27 Jul 2026)</span>
+        <span class="btn">Defer until next sign-in</span>
+        <span class="btn primary disabled">Accept &amp; confirm identity</span>
+      </div>
+      <div class="small muted" style="margin-top:10px;text-align:center">Acceptance is confirmed with your passkey or TOTP and recorded per policy version. Questions? Contact your branch admin K. Verma before accepting.</div>
+    </div>
+    <div style="text-align:center;margin-top:14px" class="small muted">Magnus HMS by NUMINACORE · policy documents are served from the tenant's published register (read-only)</div>
+  </div>
+</div>
+<p class="audit">Gate display, scroll completion, each deferral (count + timestamp) and the final acceptance with step-up method are recorded in the access log.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — Diff view (what changed, clause by clause) · deferral limit reached (hard block)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>WORKSPACE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor ▾</div></div>
+  <div style="padding:26px 16px 34px;background:#F4F6F8">
+    <div class="card" style="max-width:620px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:10px"><span class="chip grey">Staff realm · signed in as T. Okafor</span> <span class="chip red">Deferral limit reached — acceptance required to continue</span></div>
+      <div class="banner danger"><b>You have deferred 3 of 3 times.</b> The workspace stays locked until you accept. In an emergency, your branch admin can grant a documented 24-hour clinical exception (recorded and reported to compliance).</div>
+      <div class="card-title">AUP — changes from v3.2 → v3.3 <span class="right">Clause-level diff</span></div>
+      <table>
+        <tr><th style="width:90px">Clause</th><th>Change</th><th>v3.2 (previous)</th><th>v3.3 (new)</th></tr>
+        <tr><td class="mono">§7.1</td><td><span class="chip green">Added</span></td><td class="muted">—</td><td>Personal mobile devices must not be used to photograph, screen-record or mirror any display showing patient data, including modality consoles and viewer workstations.</td></tr>
+        <tr><td class="mono">§7.2</td><td><span class="chip green">Added</span></td><td class="muted">—</td><td>Suspected breaches of §7.1 must be reported to the branch admin within 4 hours.</td></tr>
+        <tr><td class="mono">§5.4</td><td><span class="chip blue">Amended</span></td><td>Removable USB media are discouraged on clinical workstations.</td><td>Removable USB media are <b>prohibited</b> on modality consoles (AE MERIDCT1, MERIDUS2 and all others); read-only exceptions require a logged admin ticket.</td></tr>
+        <tr><td class="mono">§9.2</td><td><span class="chip grey">Removed</span></td><td>Legacy CD burning workflow for outside films.</td><td class="muted">— (replaced by patient portal share links)</td></tr>
+      </table>
+      <div class="card-title" style="margin-top:12px">Staff privacy notice — changes from v2.0 → v2.1</div>
+      <table>
+        <tr><th style="width:90px">Clause</th><th>Change</th><th>Summary</th></tr>
+        <tr><td class="mono">§3.3</td><td><span class="chip green">Added</span></td><td>Approximate (city-level) sign-in location is displayed on your own "My profile &amp; security" page and to security admins; retained 180 days, then deleted.</td></tr>
+        <tr><td class="mono">§4.1</td><td><span class="chip blue">Amended</span></td><td>Access-log retention for staff account events clarified: 400 days (previously "at least 1 year").</td></tr>
+      </table>
+      <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:14px">
+        <span class="btn">Back to full text</span>
+        <span class="btn disabled">Defer (0 remaining)</span>
+        <span class="btn primary">Continue to accept →</span>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Diff views are informational; the acceptance record always references the full published text and its version hash.</p>
+
+<div class="divider-label">state divider</div>
+
+<div class="state-tag">STATE C — Accepted: identity-confirmed, per-policy version record</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>WORKSPACE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor ▾</div></div>
+  <div style="padding:26px 16px 34px;background:#F4F6F8">
+    <div class="card" style="max-width:620px;margin:0 auto">
+      <div class="banner success"><b>Policies accepted — workspace unlocked.</b> Redirecting you to your worklist. A copy of this record is available any time under My account › Policy acceptances.</div>
+      <div class="card-title">Acceptance record <span class="right">Per policy version</span></div>
+      <dl class="kv">
+        <dt>Accepted by</dt><dd>T. Okafor · Technologist · employee ID MD-AW-0533</dd>
+        <dt>Identity confirmed</dt><dd>Passkey (platform authenticator, Chrome on Windows) · step-up at 25 Jul 2026, 08:47:19 IST</dd>
+        <dt>AUP</dt><dd><span class="mono">v3.3</span> · document hash <span class="mono">sha256:41c9…8ae2</span> · read-scroll completed 100%</dd>
+        <dt>Privacy notice</dt><dd><span class="mono">v2.1</span> · document hash <span class="mono">sha256:9b04…d711</span> · read-scroll completed 100%</dd>
+        <dt>Deferrals used</dt><dd>3 of 3 (22 Jul, 23 Jul, 24 Jul) — recorded</dd>
+        <dt>Record ID</dt><dd class="mono">POLACC-2026-07-25-000318</dd>
+      </dl>
+      <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:14px"><span class="btn">Download record (PDF)</span><span class="btn primary">Go to my worklist →</span></div>
+      <div class="small muted" style="margin-top:10px">Your previous acceptance of AUP v3.2 (04 Mar 2026) remains on file; version history is never overwritten.</div>
+    </div>
+  </div>
+</div>
+<p class="audit">Acceptance records (policy version, document hash, step-up method, deferral history) are immutable and recorded in the access log.</p>
+</section>

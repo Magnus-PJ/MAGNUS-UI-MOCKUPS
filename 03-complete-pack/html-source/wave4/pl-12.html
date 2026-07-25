@@ -1,0 +1,186 @@
+<section class="screen" id="pl-12">
+<div class="screen-head"><h1><span class="sid">PL-12</span> Operator break-glass &amp; dual control</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G16 + G17 — OPERATOR CONSOLE / DESIGN SYSTEM DOCS</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · PL-S5 → operator break-glass dual control</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Operators hold zero standing access to tenant clinical data. In an emergency (data-loss recovery, court order, critical incident) an operator requests break-glass access with a reason category; a <b>second operator must approve</b> before any access is granted. Sessions are time-boxed to 4 hours, the tenant is notified immediately, every action is recorded, and an evidence bundle plus mandatory post-review closes each event.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>Platform</span></span><span class="org">🛠 NUMINACORE Platform Console · operator realm</span></div><div class="userchip"><span class="av">RI</span>R. Iyer (Platform Ops) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Tenants</div>
+      <div class="nav-item">Tenant directory</div>
+      <div class="nav-item">Provisioning</div>
+      <div class="nav-item">Usage metering</div>
+      <div class="sec-label">Operations</div>
+      <div class="nav-item">Platform health</div>
+      <div class="nav-item">Provider status</div>
+      <div class="sec-label">Trust</div>
+      <div class="nav-item active">Break-glass register <span class="nav-badge red">1</span></div>
+      <div class="nav-item">Operator audit log</div>
+      <div class="nav-item">Attestations</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Platform Console › Trust › Break-glass register</div>
+      <div class="page-title">Break-glass register <span class="actions-right"><span class="btn danger small">Request break-glass access…</span></span></div>
+      <div class="page-sub">All emergency accesses to tenant data, past 12 months · operator realm · reviewed quarterly by the trust committee</div>
+      <div class="banner success"><b>Zero standing access — attested</b>No operator account holds persistent read or write access to any tenant's clinical data. Last automated attestation: 25 Jul 2026, 04:00 IST — 0 standing grants found across 3 tenants, 11 operator accounts. Attestation report hash <span class="mono">a91f…c2e4</span> published to all tenant trust pages.</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">4</div><div class="l">Events · 12 months</div><div class="s">across 3 tenants</div></div>
+        <div class="kpi red"><div class="n">1</div><div class="l">Active session</div><div class="s">BG-2026-004 · expires 16:42 IST</div></div>
+        <div class="kpi amber"><div class="n">1</div><div class="l">Awaiting post-review</div><div class="s">due within 5 working days</div></div>
+        <div class="kpi"><div class="n">100%</div><div class="l">Dual-approved</div><div class="s">0 sole-operator accesses ever</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">All break-glass events <span class="right">Newest first</span></div>
+        <table>
+          <tr><th>Event</th><th>Tenant</th><th>Reason category</th><th>Requested by</th><th>Approved by</th><th>Window</th><th>Tenant notified</th><th>Review status</th></tr>
+          <tr class="hl">
+            <td class="mono"><b>BG-2026-004</b></td>
+            <td>Meridian Diagnostics</td>
+            <td><span class="chip red">DATA-LOSS RECOVERY</span><div class="small muted">corrupted study index, CT-ROOM-1 batch</div></td>
+            <td>R. Iyer<div class="small muted">25 Jul 12:31 IST</div></td>
+            <td>S. Menon<div class="small muted">25 Jul 12:42 IST</div></td>
+            <td>12:42 → 16:42<div class="small"><span class="chip amber">ACTIVE · 1h 54m LEFT</span></div></td>
+            <td><span class="chip green">SENT 12:42</span><div class="small muted">K. Verma (org admin) ack 12:47</div></td>
+            <td><span class="chip grey">PENDING — after close</span></td>
+          </tr>
+          <tr>
+            <td class="mono">BG-2026-003</td>
+            <td>Sunrise Imaging (Pune)</td>
+            <td><span class="chip amber">CRITICAL INCIDENT</span><div class="small muted">report-delivery outage triage</div></td>
+            <td>A. Fernandes<div class="small muted">03 Jul 21:04 IST</div></td>
+            <td>R. Iyer<div class="small muted">03 Jul 21:11 IST</div></td>
+            <td>21:11 → 23:38<div class="small muted">closed early (2h 27m used)</div></td>
+            <td><span class="chip green">SENT 21:11</span></td>
+            <td><span class="chip amber">REVIEW DUE 28 JUL</span><div class="small muted">owner: S. Menon</div></td>
+          </tr>
+          <tr>
+            <td class="mono">BG-2026-002</td>
+            <td>CarePoint Labs (Kochi)</td>
+            <td><span class="chip blue">LEGAL / COURT ORDER</span><div class="small muted">order ref KL-HC-2026-0871</div></td>
+            <td>S. Menon<div class="small muted">14 May 10:20 IST</div></td>
+            <td>A. Fernandes<div class="small muted">14 May 10:36 IST</div></td>
+            <td>10:36 → 13:12<div class="small muted">closed</div></td>
+            <td><span class="chip green">SENT 10:36</span></td>
+            <td><span class="chip green">REVIEWED — COMPLIANT</span><div class="small muted">evidence bundle EB-0912</div></td>
+          </tr>
+          <tr class="dim">
+            <td class="mono">BG-2025-001</td>
+            <td>Meridian Diagnostics</td>
+            <td><span class="chip red">DATA-LOSS RECOVERY</span></td>
+            <td>R. Iyer · 09 Nov 2025</td>
+            <td>S. Menon</td>
+            <td>3h 40m used</td>
+            <td>SENT · ack same day</td>
+            <td><span class="chip green">REVIEWED — COMPLIANT</span></td>
+          </tr>
+        </table>
+      </div>
+      <div class="banner reg" style="margin-bottom:0"><b>Rules of engagement</b>Break-glass grants are scoped to the minimum dataset named in the request, expire automatically at 4 hours (no extension — a new dual-approved request is required), record every query and screen view, and always end with an evidence bundle delivered to the tenant's org admin within 24 hours.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — NEW REQUEST · SECOND-OPERATOR APPROVAL REQUIRED</div>
+<div class="modal-wrap">
+  <div class="modal danger">
+    <h3>Request break-glass access — Meridian Diagnostics</h3>
+    <div class="banner danger"><b>You are requesting emergency access to tenant clinical data</b>This action cannot proceed without approval from a second operator. The tenant's org admin is notified the moment access begins — not after.</div>
+    <div class="field"><label>Reason category <span class="req">*</span></label>
+      <select class="select"><option>DATA-LOSS RECOVERY — restore corrupted or lost tenant data</option></select>
+      <div class="hint">Other categories: CRITICAL INCIDENT · LEGAL / COURT ORDER · TENANT-AUTHORISED SUPPORT (written consent ref required)</div>
+    </div>
+    <div class="field"><label>Scope of access <span class="req">*</span></label>
+      <input class="input" value="Study index shard mds-07 · CT-ROOM-1 (AE MERIDCT1) studies 24–25 Jul 2026 only"/>
+      <div class="hint">Access is technically enforced to this scope. Patient demographics outside the named studies remain masked.</div>
+    </div>
+    <div class="field"><label>Justification (visible to tenant) <span class="req">*</span></label>
+      <textarea class="textarea">Study index corruption detected 25 Jul 11:58 IST affecting 212 CT studies from CT-ROOM-1. Restore from verified snapshot requires read access to the damaged shard to reconcile study UIDs. No report content will be opened.</textarea>
+    </div>
+    <div class="field"><label>Time box</label>
+      <input class="input" value="4 hours (maximum — auto-expires, no extension)" disabled/>
+    </div>
+    <div class="field"><label>Second operator approver <span class="req">*</span></label>
+      <select class="select"><option>S. Menon — Platform Ops (on-call approver)</option></select>
+      <div class="hint">The approver must independently verify the incident before approving. You cannot approve your own request; approver and requester must be different people.</div>
+    </div>
+    <div class="field"><label>Step-up confirmation <span class="req">*</span></label>
+      <input class="input" placeholder="TOTP code or passkey — confirm your operator identity"/>
+    </div>
+    <div class="check"><span class="box on">✓</span><span>I understand the tenant (K. Verma, org admin, Meridian Diagnostics) is notified immediately when access starts, and that an evidence bundle of every action will be delivered to them within 24 hours.</span></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn danger">Send for second-operator approval</span></div>
+  </div>
+</div>
+<div class="banner warn" style="max-width:760px;margin:12px auto"><b>Awaiting approval — nothing is accessible yet</b>Request BG-2026-004 sent to S. Menon at 12:31 IST. Access remains fully blocked until the approval lands. If not approved within 30 minutes the request lapses automatically.</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — ACTIVE BREAK-GLASS SESSION BANNER (SHOWN ON EVERY OPERATOR SCREEN)</div>
+<div class="frame">
+  <div class="topbar" style="border-bottom-color:#B91C1C"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>Platform</span></span><span class="org">🛠 NUMINACORE Platform Console · operator realm</span></div><div class="userchip"><span class="av" style="background:#FEE2E2;color:#B91C1C">RI</span>R. Iyer (Platform Ops) ▾</div></div>
+  <div class="body">
+    <div class="main">
+      <div class="banner danger"><b>⏱ BREAK-GLASS ACTIVE — BG-2026-004 · Meridian Diagnostics · expires 16:42 IST (1h 54m remaining)</b>Scope: study index shard mds-07, CT-ROOM-1 studies 24–25 Jul only · approved by S. Menon 12:42 · tenant org admin K. Verma notified 12:42, acknowledged 12:47. Every query, view and export in this session is recorded verbatim into evidence bundle EB-1104. <span class="bold">Close session early as soon as work completes.</span></div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Session activity (live) <span class="right">Recorded to EB-1104</span></div>
+          <div class="timeline">
+            <div class="ev"><span class="t">12:42:10</span><span>Session opened · scope lock applied (shard mds-07, date-bounded)</span></div>
+            <div class="ev"><span class="t">12:44:52</span><span>Query: list corrupted study UIDs — 212 rows returned (UIDs only, demographics masked)</span></div>
+            <div class="ev"><span class="t">13:07:18</span><span>Snapshot mds-07-20260724T2300 mounted read-only for reconciliation</span></div>
+            <div class="ev"><span class="t">13:41:03</span><span>UID reconciliation script run — 209/212 matched, 3 flagged for tenant PACS admin</span></div>
+            <div class="ev"><span class="t">14:02:  ·</span><span class="muted">— in progress —</span></div>
+          </div>
+        </div>
+        <div class="card" style="width:320px">
+          <div class="card-title">Session controls</div>
+          <div class="kv">
+            <dt>Time remaining</dt><dd><b>1h 54m</b><div class="progress amber"><i style="width:52%"></i></div></dd>
+            <dt>Extension</dt><dd><span class="chip grey">NOT POSSIBLE</span> new dual-approved request required</dd>
+            <dt>Watcher</dt><dd>S. Menon receives a live mirror of this activity feed</dd>
+          </div>
+          <div style="margin-top:12px"><span class="btn primary" style="width:100%">Close session now &amp; generate evidence bundle</span></div>
+          <div class="hint" style="font-size:11px;color:#64748B;margin-top:6px">Closing is one-way. The evidence bundle is assembled automatically and delivered to K. Verma within 24 hours.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE D — POST-REVIEW COMPLETE (BG-2026-003)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Platform Console › Trust › Break-glass register › BG-2026-003 › Post-review</div>
+      <div class="page-title">Post-review — BG-2026-003 <span class="chip green">REVIEWED — COMPLIANT</span></div>
+      <div class="page-sub">Sunrise Imaging (Pune) · critical incident · reviewed 26 Jul 2026 by S. Menon (reviewer must differ from both requester and approver)</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Review findings</div>
+          <div class="kv">
+            <dt>Scope adherence</dt><dd><span class="chip green">PASS</span> all 47 recorded actions fell within the approved scope; 0 masked-field reveal attempts</dd>
+            <dt>Necessity</dt><dd><span class="chip green">PASS</span> outage could not be triaged from telemetry alone; access was proportionate</dd>
+            <dt>Duration</dt><dd><span class="chip green">PASS</span> closed at 2h 27m of the 4h box — early closure noted favourably</dd>
+            <dt>Tenant notice</dt><dd><span class="chip green">PASS</span> notified at grant time; evidence bundle EB-1042 delivered in 6h 12m (SLA 24h)</dd>
+            <dt>Follow-up</dt><dd>1 action: add report-delivery queue depth to platform telemetry so future triage needs no tenant access — <span class="chip teal">DONE 19 JUL</span></dd>
+          </div>
+        </div>
+        <div class="card" style="width:330px">
+          <div class="card-title">Evidence bundle EB-1042</div>
+          <div class="kv">
+            <dt>Contents</dt><dd>Full action transcript (47 events), scope definition, both approvals, tenant notifications + acks, session recording hashes</dd>
+            <dt>Integrity</dt><dd class="mono">sha256 7bd3…91af · anchored 03 Jul 23:41</dd>
+            <dt>Delivered to</dt><dd>Sunrise Imaging org admin · downloaded 04 Jul 09:15</dd>
+            <dt>Retention</dt><dd>7 years · immutable store</dd>
+          </div>
+          <div style="margin-top:10px"><span class="btn small">View bundle manifest</span></div>
+        </div>
+      </div>
+      <div class="sig-box signed" style="max-width:420px">Reviewed &amp; signed — S. Menon · 26 Jul 2026, 10:18 IST</div>
+    </div>
+  </div>
+</div>
+<p class="audit">Break-glass requests, approvals, every in-session action, early closures, evidence-bundle delivery and post-review sign-offs are recorded in the access log. The full register (metadata) is disclosed to affected tenants and to quarterly trust-committee review — recorded in the access log.</p>
+</section>

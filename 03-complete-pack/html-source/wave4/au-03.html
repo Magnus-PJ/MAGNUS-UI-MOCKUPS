@@ -1,0 +1,105 @@
+<section class="screen" id="au-03">
+<div class="screen-head"><h1><span class="sid">AU-03</span> Two-factor verify</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G1 IDENTITY &amp; ACCESS — AUTH ENTRY</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · AU-S2 → 2FA verify step (P2 auth gap)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Second step after a correct password on AU-01. The screen adapts to the user's strongest enrolled factor — passkey first, TOTP otherwise — with fallbacks to backup codes and the lost-authenticator flow (AU-05). Remember-this-device honours the org policy window (Meridian: 30 days) and is never offered on kiosk profiles.</div>
+
+<div class="state-tag">STATE A — TOTP 6-DIGIT ENTRY</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>WORKSPACE</span></span><span class="org">🏥 Meridian Diagnostics · verifying identity</span></div><div class="userchip"><span class="av">DN</span>D. Nair (step 2 of 2)</div></div>
+  <div style="padding:30px 0 24px;background:#F4F6F8">
+    <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
+      <div style="text-align:center;margin-bottom:14px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip blue">Step 2 of 2 · TOTP</span></div>
+      </div>
+      <div class="page-title" style="font-size:16px;text-align:center">Enter your authenticator code</div>
+      <div class="page-sub" style="text-align:center">Signing in as <b>d.nair@meridiandx.in</b> · <span style="color:#0F766E;font-weight:700">Not you?</span></div>
+      <div style="display:flex;gap:8px;justify-content:center;margin:14px 0">
+        <input class="input mono" style="width:42px;text-align:center;font-size:18px" value="4" readonly><input class="input mono" style="width:42px;text-align:center;font-size:18px" value="8" readonly><input class="input mono" style="width:42px;text-align:center;font-size:18px" value="1" readonly><input class="input mono" style="width:42px;text-align:center;font-size:18px" value="9" readonly><input class="input mono" style="width:42px;text-align:center;font-size:18px" placeholder="•" readonly><input class="input mono" style="width:42px;text-align:center;font-size:18px" placeholder="•" readonly>
+      </div>
+      <div class="hint" style="text-align:center;margin-bottom:10px">Open your authenticator app (Google Authenticator, Aegis, 1Password…) and enter the 6-digit code for “Magnus — staff.meridian”. Codes rotate every 30 s.</div>
+      <div class="check" style="justify-content:center"><span class="box on">✓</span><span>Remember this device for 30 days <span class="muted">(org policy AUTH-POL-07; not offered on shared kiosks)</span></span></div>
+      <a class="btn primary" style="width:100%;margin-top:6px">Verify &amp; continue →</a>
+      <div style="display:flex;justify-content:space-between;margin-top:14px;font-size:12.5px">
+        <span style="color:#0F766E;font-weight:700">Use a backup code instead</span>
+        <span style="color:#0F766E;font-weight:700">Lost your authenticator? → AU-05</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PASSKEY PROMPT (PLATFORM AUTHENTICATOR)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>WORKSPACE</span></span><span class="org">🏥 Meridian Diagnostics · verifying identity</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty (step 2 of 2)</div></div>
+  <div style="padding:30px 0 24px;background:#F4F6F8">
+    <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
+      <div style="text-align:center;margin-bottom:14px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip green">Step 2 of 2 · Passkey</span></div>
+      </div>
+      <div class="page-title" style="font-size:16px;text-align:center">Confirm with your passkey</div>
+      <div class="page-sub" style="text-align:center">Signing in as <b>v.shetty@meridiandx.in</b></div>
+      <div class="card" style="background:#F8FAFC;text-align:center;padding:18px">
+        <div style="font-size:30px">🔐</div>
+        <div class="bold" style="margin:6px 0 2px">Waiting for Windows Hello…</div>
+        <div class="small muted">Your browser is prompting for the platform authenticator on this device (“RIS-WS-07 · Windows Hello face/PIN”). Passkey created 02 Jun 2026.</div>
+        <div class="progress" style="max-width:200px;margin:10px auto 0"><i style="width:55%"></i></div>
+      </div>
+      <a class="btn" style="width:100%;margin-top:10px">Use a different passkey (security key / phone)</a>
+      <a class="btn ghost" style="width:100%">Use authenticator code (TOTP) instead</a>
+      <div style="display:flex;justify-content:space-between;margin-top:10px;font-size:12.5px">
+        <span style="color:#0F766E;font-weight:700">Use a backup code</span>
+        <span style="color:#0F766E;font-weight:700">Lost your authenticator? → AU-05</span>
+      </div>
+      <div class="hint" style="margin-top:10px;text-align:center">Remember-device is implicit with a resident passkey on this workstation; no separate checkbox is shown.</div>
+    </div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — BACKUP-CODE FALLBACK</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>WORKSPACE</span></span><span class="org">🏥 Meridian Diagnostics · verifying identity</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (step 2 of 2)</div></div>
+  <div style="padding:30px 0 24px;background:#F4F6F8">
+    <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
+      <div style="text-align:center;margin-bottom:14px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip amber">Step 2 of 2 · Backup code</span></div>
+      </div>
+      <div class="page-title" style="font-size:16px;text-align:center">Enter a backup code</div>
+      <div class="page-sub" style="text-align:center">Signing in as <b>t.okafor@meridiandx.in</b></div>
+      <div class="banner warn" style="font-size:12px"><b>Each backup code works once</b>You have <b style="display:inline;font-size:12px">6 of 10</b> unused codes remaining. After this sign-in, consider re-enrolling your authenticator from Profile → Security.</div>
+      <div class="field"><label>Backup code <span class="req">*</span></label><input class="input mono" value="QK7F-3MRD-92XT" readonly><div class="hint">Format: XXXX-XXXX-XXXX. Codes were issued at enrolment (AU-04) — printed sheet or downloaded file.</div></div>
+      <a class="btn primary" style="width:100%;margin-top:6px">Verify &amp; continue →</a>
+      <a class="btn ghost" style="width:100%">← Back to authenticator code</a>
+      <div style="text-align:center;margin-top:8px;font-size:12.5px"><span style="color:#0F766E;font-weight:700">Lost codes and authenticator? Start recovery → AU-05</span></div>
+      <div class="hint" style="margin-top:8px;text-align:center">Remember-this-device is not offered when signing in with a backup code (org policy).</div>
+    </div>
+  </div>
+</div>
+
+<div class="state-tag">STATE D — WRONG CODE + RESYNC HINT</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>WORKSPACE</span></span><span class="org">🏥 Meridian Diagnostics · verifying identity</span></div><div class="userchip"><span class="av">DN</span>D. Nair (step 2 of 2)</div></div>
+  <div style="padding:30px 0 24px;background:#F4F6F8">
+    <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
+      <div style="text-align:center;margin-bottom:14px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip red">Code rejected</span></div>
+      </div>
+      <div class="banner danger"><b>That code didn't work (attempt 2 of 5)</b>The code may have expired — TOTP codes rotate every 30 seconds. After 5 wrong codes this challenge locks and you must sign in again from AU-01.</div>
+      <div style="display:flex;gap:8px;justify-content:center;margin:14px 0">
+        <input class="input err mono" style="width:42px;text-align:center;font-size:18px" value="7" readonly><input class="input err mono" style="width:42px;text-align:center;font-size:18px" value="2" readonly><input class="input err mono" style="width:42px;text-align:center;font-size:18px" value="0" readonly><input class="input err mono" style="width:42px;text-align:center;font-size:18px" value="4" readonly><input class="input err mono" style="width:42px;text-align:center;font-size:18px" value="5" readonly><input class="input err mono" style="width:42px;text-align:center;font-size:18px" value="1" readonly>
+      </div>
+      <div class="banner info" style="font-size:12px"><b>Resync hint</b>If codes fail repeatedly, your phone's clock may have drifted. Enable “network-provided time” (Android: Settings → System → Date &amp; time; iOS: Set Automatically), wait for a fresh code, and try again. The server tolerates ±1 code window only.</div>
+      <a class="btn primary" style="width:100%;margin-top:6px">Try a new code →</a>
+      <div style="display:flex;justify-content:space-between;margin-top:14px;font-size:12.5px">
+        <span style="color:#0F766E;font-weight:700">Use a backup code instead</span>
+        <span style="color:#0F766E;font-weight:700">Lost your authenticator? → AU-05</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="audit">Each 2FA challenge outcome (passkey assertion, TOTP accept/reject with attempt counter, backup-code consumption with remaining count) is logged per session with device fingerprint and recorded in the access log.</p>
+</section>

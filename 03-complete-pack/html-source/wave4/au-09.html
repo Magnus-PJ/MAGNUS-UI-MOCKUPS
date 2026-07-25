@@ -1,0 +1,97 @@
+<section class="screen" id="au-09">
+<div class="screen-head"><h1><span class="sid">AU-09</span> Step-up identity confirmation</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G1 Identity &amp; Access — auth entry + session</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · AU-S6 step-up + action matrix</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Sensitive actions (signing a report, approving a refund at/above limit, merging patient records, closing an org) interrupt the flow with a standard step-up modal that names the exact action and the mechanism required by org policy (passkey, TOTP, or password). The confirmation is bound to that single action, expires in 5 minutes, and every attempt — pass or fail — writes a structured audit line.</div>
+
+<!-- STATE A — passkey step-up -->
+<div class="state-tag">STATE A — STEP-UP MODAL · MECHANISM: PASSKEY (SIGN REPORT)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>HMS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div style="padding:6px 16px 12px">
+    <div class="modal-wrap">
+      <div class="modal">
+        <h3>🔐 Confirm it's you — <span style="color:#0F766E">Passkey</span></h3>
+        <div class="banner info" style="margin-bottom:10px"><b>Action being confirmed</b>Sign final report · CT Brain plain · Acc <span class="mono">ACC-2607-0148</span> · patient R. Malhotra (MRN <span class="mono">MRD-88231</span>)</div>
+        <div class="kv" style="margin-bottom:10px">
+          <dt>Signed in as</dt><dd>Dr. V. Shetty (Radiologist) · session started 08:02 IST</dd>
+          <dt>Mechanism</dt><dd><span class="chip teal">Passkey</span> — required by Meridian policy for <b>report signing</b></dd>
+          <dt>Valid for</dt><dd>This action only · confirmation expires in 5:00</dd>
+        </div>
+        <div class="sig-box">Touch your fingerprint sensor or security key to continue…</div>
+        <div class="hint" style="margin-top:6px">Passkey <span class="mono">YubiKey 5C · AAGUID …a2c4</span> registered 12 Mar 2026. No passkey on this workstation? Use the fallback below.</div>
+        <div class="modal-actions"><a class="btn">Cancel — nothing is signed</a><a class="btn ghost small">Fallback: TOTP code</a><a class="btn primary disabled">Waiting for passkey…</a></div>
+      </div>
+    </div>
+    <div class="small muted">Behind the modal: RD-31 Report editor stays read-only until confirmation completes or is cancelled.</div>
+  </div>
+</div>
+<p class="audit">stepup.pass · actor=v.shetty · action=report.sign · target=ACC-2607-0148 · mech=passkey · 25-Jul-2026 11:34:08 IST · term=RD-WS-4 — recorded in the access log.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<!-- STATE B — password step-up + failure/retry -->
+<div class="state-tag">STATE B — STEP-UP MODAL · MECHANISM: PASSWORD (REFUND ≥ LIMIT) · FAILED ATTEMPT + RETRY</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>HMS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av" style="background:#E0F2FE;color:#0369A1">PD</span>P. D'Souza ▾</div></div>
+  <div style="padding:6px 16px 12px">
+    <div class="modal-wrap">
+      <div class="modal danger">
+        <h3>🔐 Confirm it's you — <span style="color:#B91C1C">Password</span></h3>
+        <div class="banner warn" style="margin-bottom:10px"><b>Action being confirmed</b>Approve refund <b>₹4,800</b> (≥ ₹2,000 limit) · invoice <span class="mono">INV-26-11482</span> · UPI reversal via payment gateway · patient S. Kulkarni</div>
+        <div class="banner danger"><b>That password didn't match — attempt 1 of 3.</b>Your session stays active; only this confirmation failed. After 3 failures the action is blocked for 15 minutes and your supervisor is notified.</div>
+        <div class="kv" style="margin-bottom:10px">
+          <dt>Signed in as</dt><dd>P. D'Souza (Cashier)</dd>
+          <dt>Mechanism</dt><dd><span class="chip amber">Password</span> — org policy for <b>refund approval ≥ limit</b> (passkey not enrolled for this user)</dd>
+          <dt>Second control</dt><dd><span class="chip red">Dual-control</span> After your confirmation, K. Verma (Org admin) must counter-approve — four-eyes rule.</dd>
+        </div>
+        <div class="field"><label>Account password for p.dsouza@meridiandiag.in <span class="req">*</span></label><input class="input err mono" type="password" value="••••••••••"></div>
+        <div class="modal-actions"><a class="btn">Cancel — no refund initiated</a><a class="btn danger">Retry confirmation</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">stepup.fail · actor=p.dsouza · action=refund.approve · target=INV-26-11482 · amt=4800INR · mech=password · attempt=1/3 · 25-Jul-2026 12:10:41 IST — recorded in the access log; supervisor alert at 3/3.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<!-- STATE C — action matrix -->
+<div class="state-tag">STATE C — ACTION MATRIX REFERENCE (ADMIN VIEW · WHICH ACTIONS REQUIRE STEP-UP)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>HMS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Admin</div>
+      <div class="nav-item">Staff &amp; roles</div>
+      <div class="nav-item active">Security policy</div>
+      <div class="nav-item">Branches</div>
+      <div class="nav-item">Devices &amp; AE titles</div>
+      <div class="sec-label">Compliance</div>
+      <div class="nav-item">Access log <span class="nav-badge">new</span></div>
+      <div class="nav-item">Consent registry</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Admin › Security policy › Step-up matrix</div>
+      <div class="page-title">Step-up action matrix <span class="chip teal">Policy v4 · effective 01 Jul 2026</span></div>
+      <div class="page-sub">Which actions demand fresh identity confirmation, with which mechanism, and whether a second approver is needed. Changes to this matrix themselves require step-up + dual-control.</div>
+      <table>
+        <tr><th>Action</th><th>Who typically</th><th>Step-up mechanism</th><th>Dual-control</th><th>Freshness window</th></tr>
+        <tr><td><b>Sign final report</b></td><td>Radiologist (Dr. V. Shetty)</td><td><span class="chip teal">Passkey</span> (TOTP fallback)</td><td>—</td><td class="mono">per action</td></tr>
+        <tr><td><b>Amend signed report</b></td><td>Radiologist</td><td><span class="chip teal">Passkey</span></td><td><span class="chip red">Yes</span> lead radiologist</td><td class="mono">per action</td></tr>
+        <tr class="hl"><td><b>Approve refund ≥ ₹2,000</b></td><td>Cashier (P. D'Souza)</td><td><span class="chip amber">Password</span> or passkey</td><td><span class="chip red">Yes</span> org admin</td><td class="mono">per action</td></tr>
+        <tr><td><b>Merge patient records</b></td><td>Front office lead / admin</td><td><span class="chip blue">TOTP</span></td><td><span class="chip red">Yes</span> second admin</td><td class="mono">per action</td></tr>
+        <tr><td><b>Data migration batch approval (AD-12)</b><div class="small muted">irreversible bulk merge</div></td><td>Org admin</td><td><span class="chip blue">TOTP</span> step-up</td><td><span class="chip red">Yes</span> four-eyes</td><td class="mono">per action</td></tr>
+        <tr><td><b>Export &gt; 50 patient records</b></td><td>Org admin</td><td><span class="chip blue">TOTP</span></td><td>—</td><td class="mono">10 min batch</td></tr>
+        <tr><td><b>Change role / permissions</b></td><td>Org admin (K. Verma)</td><td><span class="chip teal">Passkey</span></td><td>—</td><td class="mono">per action</td></tr>
+        <tr><td><b>Deactivate device (AE title)</b></td><td>Org admin</td><td><span class="chip blue">TOTP</span></td><td>—</td><td class="mono">per action</td></tr>
+        <tr><td><b>Org close / tenant offboard</b></td><td>Platform operator (R. Iyer)</td><td><span class="chip teal">Passkey</span> (operator realm)</td><td><span class="chip red">Yes</span> second operator</td><td class="mono">per action</td></tr>
+      </table>
+      <div class="banner info" style="margin-top:12px"><b>Implementation note</b>Step-up issues a short-lived confirmation token bound to the session AND the specific target object (e.g. the report being signed) — prevents CSRF/replay.</div>
+      <div class="card" style="margin-top:12px;background:#F8FAFC">
+        <div class="card-title" style="margin-bottom:6px">Audit line format <span class="right">structured, append-only</span></div>
+        <div class="mono small">stepup.&lt;pass|fail|expired&gt; · actor=&lt;user&gt; · action=&lt;verb.object&gt; · target=&lt;id&gt; · mech=&lt;passkey|totp|password&gt; · attempt=n/N · &lt;ts IST&gt; · term=&lt;terminal&gt;</div>
+        <div class="small muted" style="margin-top:6px">Confirmations are single-use and bound to the exact action payload shown in the modal — a confirmation cannot be replayed for a different target. Expired confirmations (5 min) require a fresh step-up.</div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Viewing the matrix is logged read-only; any edit to a matrix row requires step-up (passkey) plus counter-approval by a second admin, both recorded in the access log.</p>
+</section>

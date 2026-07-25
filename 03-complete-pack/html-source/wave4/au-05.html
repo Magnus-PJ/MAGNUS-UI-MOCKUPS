@@ -1,0 +1,81 @@
+<section class="screen" id="au-05">
+<div class="screen-head"><h1><span class="sid">AU-05</span> Lost authenticator recovery</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G1 IDENTITY &amp; ACCESS — AUTH ENTRY</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · P2 lost-authenticator recovery</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> High-assurance path when a user has lost every second factor (authenticator and backup codes). Identity is re-proven in layers: correct password, then a manager/org-admin approval task (four-eyes), plus an optional cooling period per tenant policy. Access stays denied throughout; on approval all sessions are revoked and the user must re-enrol factors (AU-04) before re-entering the workspace.</div>
+
+<div class="state-tag">STATE A — RECOVERY REQUEST SUBMITTED</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>WORKSPACE</span></span><span class="org">🏥 Meridian Diagnostics · account recovery</span></div><div class="userchip"><span class="av">DN</span>D. Nair (recovery)</div></div>
+  <div style="padding:26px 0 22px;background:#F4F6F8">
+    <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
+      <div style="text-align:center;margin-bottom:12px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip amber">Recovery in progress</span></div>
+      </div>
+      <div class="stepper" style="justify-content:center"><span class="step done"><span class="dot">✓</span>Password</span><span class="step-line"></span><span class="step cur"><span class="dot">2</span>Approval</span><span class="step-line"></span><span class="step"><span class="dot">3</span>Cooling</span><span class="step-line"></span><span class="step"><span class="dot">4</span>Re-enrol</span></div>
+      <div class="banner success" style="font-size:12px"><b>Request RCV-2026-0342 submitted · 25 Jul 2026 09:56 IST</b>Your password was verified. Because your authenticator and all backup codes are unavailable, an administrator must now approve identity re-proofing (four-eyes rule — you cannot approve your own request).</div>
+      <div class="kv" style="margin-bottom:12px">
+        <dt>Requested by</dt><dd>D. Nair · Front office · Andheri West</dd>
+        <dt>Approver task</dt><dd>Sent to K. Verma (org admin) and branch manager queue · SLA <span class="chip teal">4 h · owner: K. Verma</span></dd>
+        <dt>Cooling period</dt><dd>Meridian policy <span class="mono">AUTH-POL-09</span>: 2 h after approval (waivable by a second admin for on-shift clinical staff)</dd>
+        <dt>Meanwhile</dt><dd><span class="chip red">Access denied</span> — no sign-in, no API tokens, until re-enrolment completes</dd>
+      </div>
+      <div class="banner info" style="font-size:12px"><b>Verify in person if possible</b>Fastest route: visit the branch admin desk with your staff ID card. The approver records the ID check method on the approval task.</div>
+      <a class="btn" style="width:100%">← Back to sign-in</a>
+      <div class="hint" style="margin-top:8px;text-align:center">We notified your registered mobile (DLT SMS · Jio route) and email. If you did not raise this request, reply DENY to the SMS — this freezes the request and alerts security.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ADMIN APPROVAL PENDING (SLA VIEW, RETURN VISIT)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>WORKSPACE</span></span><span class="org">🏥 Meridian Diagnostics · account recovery</span></div><div class="userchip"><span class="av">DN</span>D. Nair (recovery)</div></div>
+  <div style="padding:26px 0 22px;background:#F4F6F8">
+    <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
+      <div style="text-align:center;margin-bottom:12px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip amber">Awaiting admin approval</span></div>
+      </div>
+      <div class="page-title" style="font-size:16px;text-align:center">Recovery RCV-2026-0342 — status</div>
+      <div class="page-sub" style="text-align:center">Checked 25 Jul 2026 13:20 IST · refreshes automatically</div>
+      <div class="ladder" style="margin-bottom:12px">
+        <div class="tier done"><b>Password verified</b> <span class="small muted">09:56 IST · from device fingerprint <span class="mono">fp_8c21…</span> (known front-desk PC)</span></div>
+        <div class="tier cur"><b>Manager/admin approval</b> <span class="small muted">Task with K. Verma · <span class="chip amber">SLA 4 h · 39 min left · owner: K. Verma</span> · escalates to regional admin if breached (<span class="chip red">OVERDUE</span> path)</span></div>
+        <div class="tier"><b>Cooling period (2 h)</b> <span class="small muted">Starts on approval · waiver requires a second admin (dual control)</span></div>
+        <div class="tier"><b>Re-enrol factors</b> <span class="small muted">Passkey or TOTP + fresh backup codes (AU-04 flow)</span></div>
+      </div>
+      <div class="banner info" style="font-size:12px"><b>Access remains denied</b>Temporary or partial access is never granted during recovery. Your queues (front-office worklist, cash sessions) have been visibly reassigned to covering staff by the branch manager.</div>
+      <a class="btn" style="width:100%">🔄 Refresh status</a>
+      <a class="btn ghost" style="width:100%">Cancel my recovery request</a>
+      <div class="hint" style="margin-top:8px;text-align:center">Cancelling requires the same password check and notifies the approver. Approvals cannot be actioned from this screen — the approver uses their own authenticated console (four-eyes separation).</div>
+    </div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — APPROVED → RE-ENROL FACTORS (ALL SESSIONS REVOKED)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>WORKSPACE</span></span><span class="org">🏥 Meridian Diagnostics · account recovery</span></div><div class="userchip"><span class="av">DN</span>D. Nair (re-enrolment)</div></div>
+  <div style="padding:26px 0 22px;background:#F4F6F8">
+    <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px;border-top:4px solid #15803D">
+      <div style="text-align:center;margin-bottom:12px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip green">Recovery approved</span></div>
+      </div>
+      <div class="stepper" style="justify-content:center"><span class="step done"><span class="dot">✓</span>Password</span><span class="step-line"></span><span class="step done"><span class="dot">✓</span>Approval</span><span class="step-line"></span><span class="step done"><span class="dot">✓</span>Cooling</span><span class="step-line"></span><span class="step cur"><span class="dot">4</span>Re-enrol</span></div>
+      <div class="banner success" style="font-size:12px"><b>Approved by K. Verma (org admin) · 25 Jul 2026 13:41 IST</b>ID check method recorded: staff ID card verified in person at Andheri West admin desk. Cooling period ended 15:41 IST.</div>
+      <div class="banner danger" style="font-size:12px"><b>All sessions and remembered devices revoked</b>Old authenticator registrations, every backup code, all active sessions (3) and remembered-device grants (2) were invalidated at approval. Any device still signed in was signed out immediately.</div>
+      <div class="kv" style="margin-bottom:12px">
+        <dt>Next step</dt><dd>Set up a new second factor now — you cannot enter the workspace without it.</dd>
+        <dt>Recommended</dt><dd>Passkey on your replacement phone or this workstation, plus fresh backup codes.</dd>
+        <dt>Window</dt><dd>This re-enrolment link is valid for 60 minutes, single use.</dd>
+      </div>
+      <a class="btn primary" style="width:100%">Re-enrol two-factor now (AU-04) →</a>
+      <a class="btn ghost" style="width:100%">Sign out and do this later</a>
+      <div class="hint" style="margin-top:8px;text-align:center">A confirmation SMS + email summarising the full recovery (who approved, when, from where) was sent to your registered contacts.</div>
+    </div>
+  </div>
+</div>
+
+<p class="audit">The complete recovery chain — request, password proof, approver identity and ID-check method, cooling-period timing or dual-control waiver, session/factor revocations and re-enrolment — is written as linked events under RCV-2026-0342 and recorded in the access log.</p>
+</section>

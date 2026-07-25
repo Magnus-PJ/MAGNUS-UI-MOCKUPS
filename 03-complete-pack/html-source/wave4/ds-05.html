@@ -1,0 +1,98 @@
+<section class="screen" id="ds-05">
+<div class="screen-head"><h1><span class="sid">DS-05</span> Empty / Loading / Error Pattern</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM</span><div class="cluster">G17 Design System &amp; Patterns — documentation pages</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · empty/loading/error pattern (review §5 gap)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> In a clinical product, "nothing here" and "we couldn't load it" are safety-different statements and must never look alike. This page defines the five canonical specimens — first-run empty, filtered empty, loading skeleton, error card, and service-down page — plus the copy tone rules every module must follow. The core invariant: Magnus never shows a partial list as if it were complete.</div>
+
+<div class="state-tag">STATE A — THE FIVE SPECIMENS</div>
+<div class="row" style="align-items:stretch">
+  <div class="grow card">
+    <div class="card-title">1 · First-run empty <span class="right">has a CTA</span></div>
+    <div style="border:1.5px dashed #CBD5E1;border-radius:8px;padding:26px 18px;text-align:center;background:#F8FAFC">
+      <div style="font-size:26px">🗓</div>
+      <div class="bold" style="margin:6px 0 2px">No appointment slots defined yet</div>
+      <div class="small muted" style="max-width:340px;margin:0 auto 12px">MRI-ROOM-2 has no schedule template. Create one to start accepting bookings for this room.</div>
+      <span class="btn primary small">Create schedule template</span>
+      <div class="small muted" style="margin-top:8px">or <span style="color:#0F766E;font-weight:700">copy from CT-ROOM-1</span></div>
+    </div>
+    <table style="margin-top:10px">
+      <tr><th style="width:34%">Rule</th><th>Spec</th></tr>
+      <tr><td class="bold">Structure</td><td>Icon → one-line fact → one sentence of context → exactly one primary CTA (+ optional ghost alternative). Never two primary buttons.</td></tr>
+      <tr><td class="bold">Only when truly empty</td><td>Shown only when the unfiltered dataset has zero rows AND the load succeeded. Verified-empty, never assumed-empty.</td></tr>
+    </table>
+  </div>
+  <div class="grow card">
+    <div class="card-title">2 · Filtered empty <span class="right">clear filters, no CTA</span></div>
+    <div style="border:1.5px dashed #CBD5E1;border-radius:8px;padding:26px 18px;text-align:center;background:#F8FAFC">
+      <div style="font-size:26px">🔍</div>
+      <div class="bold" style="margin:6px 0 2px">No studies match these filters</div>
+      <div class="small muted" style="max-width:340px;margin:0 auto 10px">142 studies exist today; your filters (Modality: MRI · Status: unreported · Reader: Dr. V. Shetty) match none.</div>
+      <span class="btn small">Clear all filters</span> <span class="btn ghost small">Edit filters</span>
+    </div>
+    <table style="margin-top:10px">
+      <tr><th style="width:34%">Rule</th><th>Spec</th></tr>
+      <tr><td class="bold">Must differ from #1</td><td>Always states the total that exists ("142 studies exist") and names the active filters, so staff never mistake a filter for an empty worklist.</td></tr>
+      <tr><td class="bold">Primary action</td><td>"Clear all filters" — never a create-CTA; creating data is not the fix for over-filtering.</td></tr>
+    </table>
+  </div>
+</div>
+<div class="row" style="align-items:stretch">
+  <div class="grow card">
+    <div class="card-title">3 · Loading skeleton <span class="right">no spinners &gt; 400ms</span></div>
+    <div style="border:1px solid #E2E8F0;border-radius:8px;padding:12px;background:#fff">
+      <div style="height:12px;width:38%;background:#E2E8F0;border-radius:4px;margin-bottom:10px"></div>
+      <div style="height:9px;width:96%;background:#EEF2F6;border-radius:4px;margin-bottom:7px"></div>
+      <div style="height:9px;width:91%;background:#EEF2F6;border-radius:4px;margin-bottom:7px"></div>
+      <div style="height:9px;width:94%;background:#EEF2F6;border-radius:4px;margin-bottom:7px"></div>
+      <div style="height:9px;width:58%;background:#EEF2F6;border-radius:4px"></div>
+    </div>
+    <table style="margin-top:10px">
+      <tr><th style="width:34%">Rule</th><th>Spec</th></tr>
+      <tr><td class="bold">400ms rule</td><td>&lt;400ms: render nothing (no flash). ≥400ms: skeleton mirroring the real layout (same row count as page size, same column widths). Bare spinners are allowed only inside buttons for in-place actions.</td></tr>
+      <tr><td class="bold">No layout shift</td><td>Skeleton occupies the exact final geometry; counts/KPIs skeleton as blocks, never show 0 while loading — 0 is data.</td></tr>
+      <tr><td class="bold">Timeout</td><td>At 15s the skeleton must resolve to specimen 4 (error card). Skeletons never persist indefinitely.</td></tr>
+    </table>
+  </div>
+  <div class="grow card">
+    <div class="card-title">4 · Error card <span class="right">no partial lists rule</span></div>
+    <div class="banner danger" style="margin-bottom:8px"><b>⛔ Couldn't load today's unreported worklist.</b>
+    What failed: the RIS query timed out at 09:14 IST (request <span class="mono">req_7f3ka9</span>).<br>
+    What we did <u>NOT</u> show: a partial list. 37 of 142 studies had loaded — showing them could hide a STAT study in the missing 105, so we show none.<br>
+    Your work is unaffected; nothing was changed.<br>
+    <span style="display:inline-block;margin-top:8px"><span class="btn small danger">Retry now</span> <span class="btn small">View cached list (as of 09:02 IST)</span></span></div>
+    <table>
+      <tr><th style="width:34%">Rule</th><th>Spec</th></tr>
+      <tr><td class="bold">Three statements, always</td><td>(1) What failed, in task language + request ID; (2) what we did NOT show and why — the no-partial-lists rule is stated to the user, not just enforced; (3) whether any user data/state changed.</td></tr>
+      <tr><td class="bold">No partial lists</td><td>A list either renders complete-as-of-a-timestamp or not at all. Cached fallbacks are allowed but carry <span class="chip grey">cached 09:02 IST</span>.</td></tr>
+      <tr><td class="bold">Retry</td><td>Explicit "Retry now" button + auto-retry with backoff; never silent infinite retry that masks an outage.</td></tr>
+    </table>
+  </div>
+</div>
+<div class="card">
+  <div class="card-title">5 · Service-down page (full takeover) <span class="right">last resort</span></div>
+  <div style="border:1px solid #E2E8F0;border-radius:8px;background:#F8FAFC;padding:30px 20px;text-align:center">
+    <div class="bold" style="color:#0F766E;font-size:16px">◎ Magnus</div>
+    <div class="bold" style="font-size:17px;margin:10px 0 4px">Magnus is temporarily unavailable</div>
+    <div class="small muted" style="max-width:460px;margin:0 auto">Since 09:41 IST · incident <span class="mono">INC-2026-0719</span> · we are on it. Drafts and offline queues on this device are safe and will sync on recovery. For STAT reads during the outage, follow the branch downtime SOP (printed copy at the front desk). Status: <span class="mono">status.magnus.numinacore.in</span></div>
+    <div style="margin-top:12px"><span class="chip amber">Auto-reconnecting · next attempt in 28s</span></div>
+  </div>
+  <div class="small muted" style="margin-top:10px">Rules: used only when the app shell itself cannot load (otherwise use DS-04 banners); must name the incident ID, start time (IST), data-safety statement, the paper-SOP fallback for clinical continuity, and a public status URL. Never a blank page, never a raw HTTP error.</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — COPY TONE RULES</div>
+<div class="card">
+  <div class="card-title">Copy tone rules — apply to every specimen above <span class="right">normative</span></div>
+  <table>
+    <tr><th style="width:22%">Rule</th><th style="width:39%">Do — write like this</th><th>Don't — never like this</th></tr>
+    <tr><td class="bold">Facts before feelings</td><td>"No studies match these filters." / "The RIS query timed out at 09:14 IST."</td><td>"Oops!", "Uh oh!", "Something went wrong 😕" — no interjections, no emoji in body copy, no exclamation marks.</td></tr>
+    <tr><td class="bold">Blame the system, not the user</td><td>"We couldn't load the worklist."</td><td>"You have no permission" phrasing when it's actually a load failure; "Invalid input" without naming the field and the fix.</td></tr>
+    <tr><td class="bold">State data-safety explicitly</td><td>"Nothing was changed." / "Your draft is saved locally and intact."</td><td>Silence about whether the user's work survived — in clinical software, silence reads as loss.</td></tr>
+    <tr><td class="bold">Task language, IDs in mono</td><td>"Couldn't send the SMS reminder (DLT route)" + <span class="mono">req_7f3ka9</span> for support.</td><td>"Error 500: upstream connect error" as the headline; stack traces or vendor names as the primary message.</td></tr>
+    <tr><td class="bold">Time is always absolute IST</td><td>"cached as of 09:02 IST", "since 09:41 IST".</td><td>"a few minutes ago", "recently" — relative time on stale clinical data is unsafe.</td></tr>
+    <tr><td class="bold">One next step</td><td>Exactly one primary action per specimen (Create / Clear filters / Retry).</td><td>Three equal-weight buttons; "Contact your administrator" as the only option when a retry would work.</td></tr>
+    <tr><td class="bold">Empty ≠ error, ever</td><td>Verified-empty says what exists ("142 studies exist today"); errors say what failed.</td><td>Rendering an empty state when the fetch failed — the single most dangerous copy bug in this product.</td></tr>
+    <tr><td class="bold">Privacy in specimens</td><td>Patient identifiers in examples/errors stay masked: "A. K•••••ni · MRD-2026-018851".</td><td>Full patient names or phone numbers echoed into error cards, logs, or support IDs.</td></tr>
+  </table>
+</div>
+<p class="audit">Design-system pages are versioned artefacts (DS-05 v1.1, updated 21 Jul 2026 IST by K. Verma). Error-card render events carry the request ID into telemetry with patient identifiers masked, and cached-fallback views are recorded in the access log.</p>
+</section>

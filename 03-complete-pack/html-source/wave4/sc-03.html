@@ -1,0 +1,101 @@
+<section class="screen" id="sc-03">
+<div class="screen-head"><h1><span class="sid">SC-03</span> Slot templates</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling &amp; Resource Setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 slot templates</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Slot templates define how bookable time is cut per modality: slot length, patients per slot, prep gap between slots, and whether walk-ins or overbooking are allowed. Each template is versioned; the calendars that consume it are listed so an admin can see the blast radius before editing. Templates that are in use by future generated slots cannot be deleted — they are retired with an effective date instead.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Scheduling setup</div>
+      <div class="nav-item">Working hours &amp; breaks</div>
+      <div class="nav-item">Holidays &amp; closures <span class="nav-badge">3</span></div>
+      <div class="nav-item active">Slot templates</div>
+      <div class="nav-item">Doctor availability</div>
+      <div class="nav-item">Equipment availability <span class="nav-badge red">1</span></div>
+      <div class="sec-label">Reference</div>
+      <div class="nav-item">Rooms &amp; resources</div>
+      <div class="nav-item">Branch settings</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Setup › Scheduling › Slot templates</div>
+      <div class="page-title">Slot templates <span class="actions-right"><span class="btn small">Compare versions</span> <span class="btn small primary">+ New template</span></span></div>
+      <div class="page-sub">6 active templates · consumed by slot generation together with working hours (SC-01) and closures (SC-02) · edits apply from a chosen effective date, never retroactively</div>
+
+      <div class="card">
+        <div class="card-title">Active templates <span class="right">branch: Andheri West ▾</span></div>
+        <table>
+          <tr><th>Template</th><th>Modality</th><th>Slot length</th><th>Patients/slot</th><th>Prep gap</th><th>Walk-ins</th><th>Overbook</th><th>Used by</th><th>Ver.</th><th></th></tr>
+          <tr><td><b>CT routine</b> <span class="mono">TPL-CT-R</span></td><td>CT</td><td class="mono">20 min</td><td class="mono">1</td><td class="mono">10 min</td><td><span class="chip green">Allowed</span></td><td><span class="chip grey">No</span></td><td>1 calendar</td><td class="mono">v4</td><td><span class="btn small ghost">Edit</span></td></tr>
+          <tr><td><b>CT contrast</b> <span class="mono">TPL-CT-C</span></td><td>CT</td><td class="mono">30 min</td><td class="mono">1</td><td class="mono">15 min</td><td><span class="chip red">Blocked</span></td><td><span class="chip grey">No</span></td><td>1 calendar</td><td class="mono">v3</td><td><span class="btn small ghost">Edit</span></td></tr>
+          <tr class="hl"><td><b>USG general</b> <span class="mono">TPL-US-G</span></td><td>USG</td><td class="mono">15 min</td><td class="mono">1</td><td class="mono">5 min</td><td><span class="chip green">Allowed</span></td><td><span class="chip amber">Yes · max +2/day</span></td><td>2 calendars</td><td class="mono">v6</td><td><span class="btn small ghost">Edit</span></td></tr>
+          <tr><td><b>USG obstetric</b> <span class="mono">TPL-US-OB</span></td><td>USG</td><td class="mono">25 min</td><td class="mono">1</td><td class="mono">5 min</td><td><span class="chip red">Blocked</span></td><td><span class="chip grey">No</span></td><td>1 calendar</td><td class="mono">v2</td><td><span class="btn small ghost">Edit</span></td></tr>
+          <tr><td><b>MRI standard</b> <span class="mono">TPL-MR-S</span></td><td>MRI</td><td class="mono">45 min</td><td class="mono">1</td><td class="mono">15 min</td><td><span class="chip red">Blocked</span></td><td><span class="chip grey">No</span></td><td>1 calendar</td><td class="mono">v5</td><td><span class="btn small ghost">Edit</span></td></tr>
+          <tr><td><b>X-Ray walk-in</b> <span class="mono">TPL-XR-W</span></td><td>X-Ray</td><td class="mono">10 min</td><td class="mono">2</td><td class="mono">0 min</td><td><span class="chip green">Allowed</span></td><td><span class="chip amber">Yes · max +4/day</span></td><td>1 calendar</td><td class="mono">v3</td><td><span class="btn small ghost">Edit</span></td></tr>
+        </table>
+        <div class="hint" style="margin-top:6px;font-size:11px;color:#64748B">Walk-ins on obstetric USG are always blocked: PC-PNDT requires Form F and identity verification before any scan is scheduled. Overbook flags surface an amber warning at booking time and require a stated reason.</div>
+      </div>
+
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Which calendars use TPL-US-G <span class="right">selected row</span></div>
+          <table>
+            <tr><th>Calendar</th><th>Unit / AE</th><th>Days applied</th><th>Future slots generated</th></tr>
+            <tr><td>USG — Room A</td><td class="mono">US-UNIT-2 · MERIDUS2</td><td>Mon–Sat</td><td class="mono">1,842 (to 08-Sep)</td></tr>
+            <tr><td>USG — Room B (locum)</td><td class="mono">US-UNIT-3 · MERIDUS3</td><td>Mon, Wed, Fri</td><td class="mono">612 (to 08-Sep)</td></tr>
+          </table>
+        </div>
+        <div class="card grow">
+          <div class="card-title">Version history — TPL-US-G <span class="right">append-only</span></div>
+          <div class="timeline">
+            <div class="ev"><span class="t">14-Jul 10:22</span><span><b>v6</b> — overbook cap raised +1 → +2/day · K. Verma · reason: monsoon no-show spike 11%</span></div>
+            <div class="ev"><span class="t">02-May 09:40</span><span><b>v5</b> — prep gap 10 → 5 min after probe-swap workflow change · K. Verma</span></div>
+            <div class="ev"><span class="t">18-Feb 15:03</span><span><b>v4</b> — slot length 20 → 15 min · K. Verma · approved by ops review</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — TEMPLATE EDITOR (TPL-US-G → DRAFT V7)</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Edit template — USG general <span class="mono small">TPL-US-G · draft v7</span></h3>
+    <div class="row">
+      <div class="field grow"><label>Slot length (min) <span class="req">*</span></label><span class="input mono" style="display:block">15</span></div>
+      <div class="field grow"><label>Patients per slot <span class="req">*</span></label><span class="input mono" style="display:block">1</span></div>
+      <div class="field grow"><label>Prep gap (min) <span class="req">*</span></label><span class="input mono" style="display:block">5</span></div>
+    </div>
+    <div class="field"><label>Walk-ins</label><div class="check"><span class="box on">✓</span> Allow walk-ins to fill unbooked slots (front office queue)</div></div>
+    <div class="field"><label>Overbooking</label>
+      <div class="check"><span class="box on">✓</span> Allow overbooking · daily cap <span class="input mono" style="width:60px;display:inline-block">+2</span></div>
+      <div class="hint">Each overbook requires a reason at booking time and is flagged on the day list. Cap is per calendar per day.</div>
+    </div>
+    <div class="banner info"><b>Blast radius</b>This template drives 2 calendars and 2,454 future generated slots. Changes apply only to slots generated on or after the effective date — already-booked appointments are untouched.</div>
+    <div class="field"><label>Effective from <span class="req">*</span></label><span class="input mono" style="display:block">01-Aug-2026</span></div>
+    <div class="field"><label>Change reason <span class="req">*</span></label><span class="input" style="display:block">Align Room B locum days with Room A settings</span></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Save v7 (step-up required)</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — IN-USE GUARD ON DELETE</div>
+<div class="modal-wrap">
+  <div class="modal danger">
+    <h3>Cannot delete — template in use</h3>
+    <div class="banner danger"><b>TPL-MR-S is referenced by 1 calendar and 388 future slots (14 already booked)</b>Deleting a live template would orphan generated slots and break booking search. Templates with any future usage can only be <b>retired</b> with an effective date; slot generation stops using them from that date and history stays intact.</div>
+    <table>
+      <tr><th>Blocking reference</th><th>Detail</th></tr>
+      <tr><td>Calendar</td><td>MRI — MRI-ROOM-2 · Mon–Sat</td></tr>
+      <tr><td>Future booked appts</td><td class="mono">14 (nearest: 27-Jul 08:30, APPT-2026-52190)</td></tr>
+      <tr><td>Replacement required</td><td>Choose successor template before retirement date</td></tr>
+    </table>
+    <div class="field" style="margin-top:10px"><label>Retire on</label><span class="input mono" style="display:block">01-Sep-2026</span></div>
+    <div class="field"><label>Successor template <span class="req">*</span></label><span class="select" style="display:block">select MRI template ▾</span></div>
+    <div class="modal-actions"><span class="btn">Close</span><span class="btn disabled">Delete</span><span class="btn warn-outline">Retire instead…</span></div>
+  </div>
+</div>
+
+<p class="audit">Template creates, edits (field-level before/after), retirements and blocked delete attempts are recorded in the access log with actor, step-up method and effective date.</p>
+</section>

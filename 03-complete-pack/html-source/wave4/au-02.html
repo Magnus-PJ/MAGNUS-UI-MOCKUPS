@@ -1,0 +1,99 @@
+<section class="screen" id="au-02">
+<div class="screen-head"><h1><span class="sid">AU-02</span> Sign-in failures &amp; throttling</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G1 IDENTITY &amp; ACCESS — AUTH ENTRY</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · AU-S1/S4 failure & lockout states</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Defines every failure path off AU-01: wrong password with attempts-remaining counter, progressive throttling with a visible countdown, hard lock after the policy threshold, and a distinct suspended-account message. Copy is written to avoid account enumeration — failure text never confirms whether an email exists, and suspension is only disclosed after a correct password.</div>
+
+<div class="state-tag">STATE A — WRONG PASSWORD (ATTEMPTS REMAINING)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>WORKSPACE</span></span><span class="org">🏥 Meridian Diagnostics · staff sign-in</span></div><div class="userchip"><span class="chip grey">Not signed in</span></div></div>
+  <div style="padding:30px 0 24px;background:#F4F6F8">
+    <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
+      <div style="text-align:center;margin-bottom:14px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span></div>
+      </div>
+      <div class="banner danger"><b>Incorrect email or password</b>Check your credentials and try again. <b style="display:inline;font-size:12.5px">2 attempts remaining</b> before this sign-in is temporarily throttled. If you recently changed your password, older saved passwords in this browser may auto-fill.</div>
+      <div class="field"><label>Email or username <span class="req">*</span></label><input class="input" value="p.dsouza@meridiandx.in" readonly></div>
+      <div class="field"><label>Password <span class="req">*</span></label><input class="input err" value="••••••••" readonly><div class="hint" style="color:#B91C1C">The password entered does not match. Caps Lock appears to be ON.</div></div>
+      <a class="btn primary" style="width:100%;margin-top:6px">Try again</a>
+      <div style="display:flex;justify-content:space-between;margin-top:14px;font-size:12.5px">
+        <span style="color:#0F766E;font-weight:700">Forgot password?</span>
+        <span style="color:#0F766E;font-weight:700">Activate new account</span>
+      </div>
+    </div>
+    <div style="max-width:420px;margin:12px auto 0;text-align:center" class="small muted">For your security the same message is shown whether or not this email exists in the <span class="mono">staff.meridian</span> realm.</div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PROGRESSIVE THROTTLING (30-SECOND COUNTDOWN)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>WORKSPACE</span></span><span class="org">🏥 Meridian Diagnostics · staff sign-in</span></div><div class="userchip"><span class="chip grey">Not signed in</span></div></div>
+  <div style="padding:30px 0 24px;background:#F4F6F8">
+    <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
+      <div style="text-align:center;margin-bottom:14px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip amber">Throttled</span></div>
+      </div>
+      <div class="banner warn"><b>Too many attempts — please wait 30 seconds</b>5 failed attempts detected from this device. Throttling doubles after each further failure (30 s → 60 s → 120 s). This protects your account from password-guessing; waiting does not affect your account status.</div>
+      <div style="text-align:center;margin:14px 0">
+        <div class="mono" style="font-size:30px;font-weight:800;color:#92400E">00:23</div>
+        <div class="small muted">You can try again when the timer ends</div>
+        <div class="progress amber" style="max-width:260px;margin:8px auto 0"><i style="width:76%"></i></div>
+      </div>
+      <div class="field"><label>Email or username</label><input class="input" value="p.dsouza@meridiandx.in" disabled style="opacity:.55" readonly></div>
+      <div class="field"><label>Password</label><input class="input" placeholder="Locked during cooldown" disabled style="opacity:.55" readonly></div>
+      <a class="btn disabled" style="width:100%;margin-top:6px">Try again (waiting…)</a>
+      <div style="display:flex;justify-content:space-between;margin-top:14px;font-size:12.5px">
+        <span style="color:#0F766E;font-weight:700">Forgot password? (not throttled)</span>
+        <span class="muted">Need help? Contact your branch admin</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — ACCOUNT LOCKED (AFTER 8 FAILURES)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>WORKSPACE</span></span><span class="org">🏥 Meridian Diagnostics · staff sign-in</span></div><div class="userchip"><span class="chip grey">Not signed in</span></div></div>
+  <div style="padding:30px 0 24px;background:#F4F6F8">
+    <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px;border-top:4px solid #B91C1C">
+      <div style="text-align:center;margin-bottom:14px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip red">Account locked</span></div>
+      </div>
+      <div class="banner danger"><b>This account is locked</b>8 consecutive failed sign-ins reached the Meridian lockout threshold (policy <span class="mono">AUTH-POL-03</span>) at 10:42 IST, 25 Jul 2026. The account owner has been notified by SMS (DLT · Jio route) and email.</div>
+      <div class="card" style="background:#F8FAFC;margin-bottom:10px">
+        <div class="bold" style="font-size:13px;margin-bottom:6px">Two ways to unlock</div>
+        <div class="check"><span class="box radio on"></span><span><b>Self-recovery</b> — verify by password reset email + your second factor. Fastest if you still hold your authenticator.</span></div>
+        <div class="check"><span class="box radio"></span><span><b>Ask an org admin</b> — K. Verma (org admin) can unlock from User Management after identity check; unlock is logged with reason.</span></div>
+      </div>
+      <a class="btn primary" style="width:100%">Start self-recovery →</a>
+      <a class="btn" style="width:100%;margin-top:8px">I've contacted my admin — back to sign-in</a>
+      <div class="hint" style="margin-top:10px;text-align:center">Lock does not expire automatically. Sessions previously active on other devices remain valid until their normal timeout.</div>
+    </div>
+  </div>
+</div>
+
+<div class="state-tag">STATE D — SUSPENDED ACCOUNT (DISTINCT FROM LOCKED)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>WORKSPACE</span></span><span class="org">🏥 Meridian Diagnostics · staff sign-in</span></div><div class="userchip"><span class="chip grey">Not signed in</span></div></div>
+  <div style="padding:30px 0 24px;background:#F4F6F8">
+    <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px;border-top:4px solid #64748B">
+      <div style="text-align:center;margin-bottom:14px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip grey">Access suspended</span></div>
+      </div>
+      <div class="banner info"><b>Your access to this workspace is currently suspended</b>Your credentials were verified, but an administrator has suspended this account (e.g. role change, leave of absence, or pending review). No further detail is shown here by design.</div>
+      <div class="kv" style="margin-bottom:12px">
+        <dt>What to do</dt><dd>Contact your branch administrator — K. Verma, Andheri West — or your HR point of contact.</dd>
+        <dt>Reference</dt><dd class="mono">SUSP-2026-0219 (quote when contacting admin)</dd>
+        <dt>Self-recovery</dt><dd>Not available for suspended accounts. Password reset will not restore access.</dd>
+      </div>
+      <a class="btn" style="width:100%">← Back to sign-in</a>
+      <div class="hint" style="margin-top:10px;text-align:center">Anti-enumeration note: this message appears only after a correct password, so it never confirms account existence to a third party guessing emails.</div>
+    </div>
+  </div>
+</div>
+
+<p class="audit">Failed attempts, throttling escalations, lockouts (with threshold counter) and suspended-access denials are each written as distinct event types with source IP and device fingerprint, and recorded in the access log.</p>
+</section>

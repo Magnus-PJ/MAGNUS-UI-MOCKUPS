@@ -1,0 +1,106 @@
+<section class="screen" id="au-10">
+<div class="screen-head"><h1><span class="sid">AU-10</span> Workspace chooser &amp; context switch</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G1 Identity &amp; Access — auth entry + session</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · workspace chooser & context switch</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> After sign-in, staff pick a workspace (Front Office, RIS Technician, Reading, Billing, Admin…) filtered to the roles they actually hold, then a branch if they work at more than one. The current role + branch is always shown as a topbar chip and can be switched without signing out. Users with no workspace assignment get a clear contact-your-admin state, never an empty screen.</div>
+
+<!-- STATE A — chooser -->
+<div class="state-tag">STATE A — WORKSPACE CHOOSER (TILES FILTERED BY HELD ROLES)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>HMS</span></span><span class="org">🏥 Meridian Diagnostics · staff realm</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div style="padding:12px 0 4px">
+    <div style="max-width:680px;margin:30px auto">
+      <div style="text-align:center;margin-bottom:14px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div class="page-sub" style="margin-bottom:0">Good morning, K. Verma — where are you working today? <span class="chip grey">25 Jul 2026 · 08:04 IST</span></div>
+      </div>
+      <div class="row" style="flex-wrap:wrap">
+        <div class="card grow" style="min-width:200px;border:2px solid #0F766E;background:#F0FDFA">
+          <div class="card-title" style="margin-bottom:4px">🗂 Admin <span class="chip teal">Default</span></div>
+          <div class="small muted">Staff, roles, branches, devices, security policy.</div>
+          <div style="margin-top:8px"><span class="chip blue">Org admin</span> <span class="chip grey">Last used yesterday</span></div>
+        </div>
+        <div class="card grow" style="min-width:200px">
+          <div class="card-title" style="margin-bottom:4px">🪪 Front Office</div>
+          <div class="small muted">Registration, appointments, order entry, queues.</div>
+          <div style="margin-top:8px"><span class="chip blue">Front office (covering)</span> <span class="chip amber">Queue: 12 waiting</span></div>
+        </div>
+        <div class="card grow" style="min-width:200px">
+          <div class="card-title" style="margin-bottom:4px">💳 Billing</div>
+          <div class="small muted">Invoices, payments (UPI gateway), refunds, day close.</div>
+          <div style="margin-top:8px"><span class="chip blue">Billing supervisor</span></div>
+        </div>
+      </div>
+      <div class="card" style="background:#F8FAFC">
+        <div class="small muted">Not shown for you (role not held): <span class="chip grey">RIS Technician</span> <span class="chip grey">Reading</span> — tiles appear only for roles granted by an admin. Need one? Request via Admin → Staff → Role requests (audited).</div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div class="check" style="margin:0"><span class="box on">✓</span><span class="small">Remember this choice on this device (you can still switch anytime from the topbar)</span></div>
+        <a class="btn primary">Continue to Admin →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Workspace selection and the roles offered/hidden at 08:04 IST were recorded in the access log; workspace choice never widens permissions — it only frames navigation.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<!-- STATE B — branch pick + topbar switch -->
+<div class="state-tag">STATE B — MULTI-BRANCH PICKER (DEFAULT PRESELECTED) + TOPBAR CONTEXT SWITCH</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>HMS</span></span><span class="org">🏥 Meridian Diagnostics · <b>Front Office · Andheri West</b> ▾</span></div><div class="userchip"><span class="av" style="background:#E0F2FE;color:#0369A1">DN</span>D. Nair ▾</div></div>
+  <div style="padding:12px 0 4px">
+    <div style="max-width:640px;margin:26px auto">
+      <div class="card">
+        <div class="card-title">Pick a branch for Front Office <span class="right">D. Nair · 2 branches assigned</span></div>
+        <table>
+          <tr><th></th><th>Branch</th><th>Today</th><th>Your shift</th><th></th></tr>
+          <tr class="hl"><td><span class="box radio on"></span></td><td><b>Andheri West</b> <span class="chip teal">Default</span></td><td>12 waiting · CT-ROOM-1 up · US-UNIT-2 up</td><td>08:00–16:00 (rostered)</td><td><span class="chip green">SLA ok · owner D. Nair</span></td></tr>
+          <tr><td><span class="box radio"></span></td><td>Bandra Kurla</td><td>7 waiting · MRI-ROOM-2 <span class="chip amber">maintenance till 10:30</span></td><td>not rostered today</td><td><span class="chip amber">Reg. backlog 22m · owner S. Rao</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">You see only branches an admin has assigned you. Patient lists, queues and cash sessions are strictly per-branch.</div>
+        <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:10px"><a class="btn">Set Bandra Kurla as default</a><a class="btn primary">Enter Front Office · Andheri West</a></div>
+      </div>
+      <div class="card" style="background:#F8FAFC">
+        <div class="card-title" style="margin-bottom:6px">Context switch from topbar (in-session)</div>
+        <div class="modal" style="max-width:360px;margin:0;box-shadow:0 4px 16px rgba(15,23,42,.15)">
+          <h3 style="font-size:13.5px">Current: Front Office · Andheri West</h3>
+          <div class="nav-item" style="padding-left:8px">→ Front Office · Bandra Kurla</div>
+          <div class="nav-item" style="padding-left:8px;color:#94A3B8">→ Billing · Andheri West <span class="chip grey">role not held</span></div>
+          <div class="nav-item" style="padding-left:8px">↺ Back to workspace chooser</div>
+          <div class="small muted" style="margin-top:6px;border-top:1px solid #EEF2F6;padding-top:6px">Switching closes branch-scoped drafts safely (autosaved) and re-stamps every subsequent action with the new context.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Branch entry and every in-session context switch are recorded in the access log as context.switch · actor=d.nair · from=FO/AndheriWest · to=FO/BandraKurla · ts IST.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<!-- STATE C — no workspace assigned -->
+<div class="state-tag">STATE C — NO WORKSPACE ASSIGNED (CONTACT ADMIN, NO DEAD END)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>HMS</span></span><span class="org">🏥 Meridian Diagnostics · staff realm</span></div><div class="userchip"><span class="av" style="background:#EDE9FE;color:#6D28D9">AG</span>A. Ghosh ▾</div></div>
+  <div style="padding:12px 0 4px">
+    <div class="card" style="max-width:420px;margin:40px auto">
+      <div style="text-align:center;margin-bottom:12px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div style="margin-top:6px"><span class="chip teal">STAFF REALM</span> <span class="chip red">No workspace assigned</span></div>
+      </div>
+      <div class="banner warn"><b>Your account is active, but no workspace has been assigned yet.</b>You signed in successfully as A. Ghosh — there's nothing wrong with your credentials. An admin needs to grant you a role before you can enter a workspace.</div>
+      <div class="card" style="background:#F8FAFC;padding:10px 12px;margin-bottom:12px">
+        <div class="kv">
+          <dt>Account</dt><dd class="mono">a.ghosh@meridiandiag.in</dd>
+          <dt>Activated</dt><dd>25 Jul 2026, 07:52 IST · 2FA enrolled</dd>
+          <dt>Roles held</dt><dd><span class="chip grey">none</span></dd>
+          <dt>Branch admin</dt><dd>K. Verma · Andheri West</dd>
+        </div>
+      </div>
+      <a class="btn primary" style="width:100%">Notify K. Verma that I'm waiting</a>
+      <div class="hint" style="text-align:center;margin-top:6px">Sends one request; duplicates within 24h are suppressed. You'll get an email when access is granted.</div>
+      <a class="btn ghost small" style="width:100%;margin-top:6px">Sign out</a>
+      <div class="small muted" style="text-align:center;margin-top:10px;border-top:1px solid #EEF2F6;padding-top:8px">For security, no patient data is reachable until a role is assigned. Magnus HMS by NUMINACORE.</div>
+    </div>
+  </div>
+</div>
+<p class="audit">Zero-role sign-ins and admin-notify requests are recorded in the access log so idle accounts can be reviewed or deactivated by K. Verma.</p>
+</section>

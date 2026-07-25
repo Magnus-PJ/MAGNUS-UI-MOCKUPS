@@ -1,0 +1,100 @@
+<section class="screen" id="in-09">
+<div class="screen-head"><h1><span class="sid">IN-09</span> Webhooks &amp; API clients</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 + G16 — workspaces 'Integration' / operator</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · webhooks & API clients (Conditional, foundation)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Registry of API clients (future patient portal, partner integrations) with scoped credentials and per-client rate limits, plus webhook subscriptions onto the domain event backbone (OrderPlaced, ReportSigned…). Org admin creates clients in <b>sandbox</b> first; promotion to <b>live</b> and signing-secret rotation are step-up + dual-control actions. Delivery log shows retries with exponential backoff and dead-letter after 8 attempts.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org admin) ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Integration</div>
+    <div class="nav-item">Overview</div>
+    <div class="nav-item">Modality worklist</div>
+    <div class="nav-item">HL7 / FHIR feeds</div>
+    <div class="nav-item">Messaging providers</div>
+    <div class="nav-item">Payment gateway</div>
+    <div class="nav-item active">Webhooks &amp; API clients</div>
+    <div class="nav-item">Edge &amp; offline sync <span class="nav-badge">3</span></div>
+    <div class="sec-label">Governance</div>
+    <div class="nav-item">Event backbone catalogue</div>
+    <div class="nav-item">Access log</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Integration workspace › Webhooks &amp; API clients</div>
+    <div class="page-title">API clients &amp; webhook subscriptions <span class="chip blue">SANDBOX + LIVE</span> <span class="actions-right"><span class="btn small">Event catalogue</span> <span class="btn primary small">+ Register API client</span></span></div>
+    <div class="page-sub">OAuth2 client-credentials clients with least-privilege scopes. Outbound webhooks are HMAC-SHA256 signed; payloads carry event envelopes only — <b>no patient identifiers unless the scope explicitly includes phi:read and the endpoint is allow-listed</b>.</div>
+
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">4</div><div class="l">Active clients</div><div class="s">2 live · 2 sandbox</div></div>
+      <div class="kpi"><div class="n">7</div><div class="l">Webhook subscriptions</div><div class="s">across 11 event types</div></div>
+      <div class="kpi"><div class="n">99.6%</div><div class="l">Delivery success 7d</div><div class="s">1,842 / 1,849 delivered</div></div>
+      <div class="kpi amber"><div class="n">1</div><div class="l">Secret expiring</div><div class="s">partner-crm — rotate by 05 Aug</div></div>
+    </div>
+
+    <div class="card"><div class="card-title">API client registry <span class="right">4 clients · Meridian tenant</span></div>
+    <table>
+      <tr><th>Client</th><th>Client ID</th><th>Env</th><th>Scopes</th><th>Rate limit</th><th>Secret age</th><th>Status</th><th></th></tr>
+      <tr><td><b>Patient Portal (future)</b><div class="small muted">First-party · portal team</div></td><td class="mono">mgs_cli_ptl_7f2a</td><td><span class="chip blue">SANDBOX</span></td><td><span class="chip grey">appointments:read</span> <span class="chip grey">reports:read-own</span> <span class="chip grey">payments:create</span></td><td class="mono">60 rpm / burst 120</td><td>12 d</td><td><span class="chip green">ACTIVE</span></td><td><span class="btn ghost small">Manage</span></td></tr>
+      <tr class="hl"><td><b>Partner CRM — Wellness360</b><div class="small muted">Third-party · DPA #DPA-2026-014 on file</div></td><td class="mono">mgs_cli_crm_91cd</td><td><span class="chip teal">LIVE</span></td><td><span class="chip grey">orders:read</span> <span class="chip grey">webhooks:subscribe</span></td><td class="mono">30 rpm / burst 60</td><td><span class="chip amber">78 d — rotate soon</span></td><td><span class="chip green">ACTIVE</span></td><td><span class="btn ghost small">Manage</span></td></tr>
+      <tr><td><b>Referrer results push</b><div class="small muted">First-party · referring-doctor notify service</div></td><td class="mono">mgs_cli_ref_20b8</td><td><span class="chip teal">LIVE</span></td><td><span class="chip grey">reports:read</span> <span class="chip grey">phi:read</span> <span class="chip red">PHI-SCOPED</span></td><td class="mono">120 rpm / burst 240</td><td>21 d</td><td><span class="chip green">ACTIVE</span></td><td><span class="btn ghost small">Manage</span></td></tr>
+      <tr class="dim"><td><b>Analytics export (pilot)</b><div class="small muted">Sandbox trial ended 30 Jun 2026</div></td><td class="mono">mgs_cli_anx_44e0</td><td><span class="chip blue">SANDBOX</span></td><td><span class="chip grey">events:read-anon</span></td><td class="mono">10 rpm</td><td>92 d</td><td><span class="chip grey">SUSPENDED</span></td><td><span class="btn ghost small">Manage</span></td></tr>
+    </table>
+    <p class="small muted" style="margin-top:8px">PHI-scoped clients require DPO approval and appear in the quarterly access review (SEC-07). Rate limits enforced at the API gateway; 429 responses include Retry-After.</p></div>
+
+    <div class="row">
+      <div class="card grow"><div class="card-title">Webhook subscriptions <span class="right">domain event backbone</span></div>
+      <table>
+        <tr><th>Subscription</th><th>Event types</th><th>Endpoint</th><th>Env</th><th>Health</th></tr>
+        <tr><td class="mono">whk_crm_orders</td><td><span class="chip grey">OrderPlaced</span> <span class="chip grey">OrderCancelled</span></td><td class="mono small">https://api.wellness360.in/hooks/magnus</td><td><span class="chip teal">LIVE</span></td><td><span class="chip green">HEALTHY</span></td></tr>
+        <tr><td class="mono">whk_ref_reports</td><td><span class="chip grey">ReportSigned</span> <span class="chip grey">ReportAmended</span></td><td class="mono small">https://notify.meridian.internal/refpush</td><td><span class="chip teal">LIVE</span></td><td><span class="chip amber">RETRYING ×2</span></td></tr>
+        <tr><td class="mono">whk_ptl_appts</td><td><span class="chip grey">AppointmentBooked</span> <span class="chip grey">AppointmentRescheduled</span> <span class="chip grey">PaymentCaptured</span></td><td class="mono small">https://sandbox.portal.meridian.in/wh</td><td><span class="chip blue">SANDBOX</span></td><td><span class="chip green">HEALTHY</span></td></tr>
+      </table></div>
+      <div class="card" style="width:300px;flex-shrink:0"><div class="card-title">Signing &amp; retry policy</div>
+      <dl class="kv" style="grid-template-columns:118px 1fr">
+        <dt>Signature</dt><dd class="mono small">X-Magnus-Signature: HMAC-SHA256(ts.body)</dd>
+        <dt>Replay window</dt><dd>±5 min timestamp tolerance</dd>
+        <dt>Retries</dt><dd>8 attempts, exp. backoff 1m → 4h</dd>
+        <dt>Dead-letter</dt><dd>parked 7 d, admin replay allowed</dd>
+        <dt>Payload</dt><dd>event envelope; PHI only if scope + allow-list</dd>
+      </dl></div>
+    </div>
+    <div class="banner info"><b>Sandbox vs live isolation</b>Sandbox clients receive synthetic tenant data only and can never reach live PHI endpoints. Promotion to live requires step-up identity confirmation and a second approver.</div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — WEBHOOK DELIVERY LOG (whk_ref_reports · retries + dead-letter)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Integration workspace › Webhooks &amp; API clients › whk_ref_reports › Deliveries</div>
+  <div class="page-title">Delivery log — <span class="mono">whk_ref_reports</span> <span class="chip amber">RETRYING</span> <span class="actions-right"><span class="btn small">Pause subscription</span> <span class="btn small">Send test event</span></span></div>
+  <div class="page-sub">Endpoint <span class="mono">https://notify.meridian.internal/refpush</span> · Events ReportSigned, ReportAmended · Last 24 h IST</div>
+  <table>
+    <tr><th>Delivery ID</th><th>Event</th><th>Event ID</th><th>Attempt</th><th>HTTP</th><th>Latency</th><th>Timestamp (IST)</th><th>Status</th><th></th></tr>
+    <tr><td class="mono">dlv_9a41f2</td><td>ReportSigned</td><td class="mono">evt_rs_20260725_0812</td><td>1 / 8</td><td class="mono">200</td><td class="mono">184 ms</td><td class="mono">25 Jul 14:22:08</td><td><span class="chip green">DELIVERED</span></td><td><span class="btn ghost small">Payload</span></td></tr>
+    <tr class="hl"><td class="mono">dlv_9a40c7</td><td>ReportSigned</td><td class="mono">evt_rs_20260725_0807</td><td>3 / 8</td><td class="mono">503</td><td class="mono">30,001 ms (timeout)</td><td class="mono">25 Jul 14:05:41</td><td><span class="chip amber">RETRY in 8 m</span></td><td><span class="btn ghost small">Payload</span> <span class="btn ghost small">Retry now</span></td></tr>
+    <tr class="hl"><td class="mono">dlv_9a3fe0</td><td>ReportAmended</td><td class="mono">evt_ra_20260725_0031</td><td>3 / 8</td><td class="mono">503</td><td class="mono">30,002 ms (timeout)</td><td class="mono">25 Jul 14:04:19</td><td><span class="chip amber">RETRY in 8 m</span></td><td><span class="btn ghost small">Payload</span> <span class="btn ghost small">Retry now</span></td></tr>
+    <tr><td class="mono">dlv_9a2b11</td><td>ReportSigned</td><td class="mono">evt_rs_20260724_0492</td><td>8 / 8</td><td class="mono">401</td><td class="mono">96 ms</td><td class="mono">24 Jul 22:47:03</td><td><span class="chip red">DEAD-LETTER</span></td><td><span class="btn ghost small">Payload</span> <span class="btn ghost small">Replay…</span></td></tr>
+    <tr><td class="mono">dlv_9a2a58</td><td>ReportSigned</td><td class="mono">evt_rs_20260724_0488</td><td>1 / 8</td><td class="mono">200</td><td class="mono">142 ms</td><td class="mono">24 Jul 18:31:56</td><td><span class="chip green">DELIVERED</span></td><td><span class="btn ghost small">Payload</span></td></tr>
+  </table>
+  <div class="banner warn" style="margin-top:12px"><b>Endpoint responding 503 since 14:04 IST</b>Consumer service refpush appears down. 2 deliveries in retry, next attempt 14:13 IST with backoff doubling. If 8 attempts exhaust, events park in dead-letter for 7 days — replay from here does not re-emit the domain event, it re-sends the same signed payload. Owner: <b>K. Verma</b> · <span class="chip amber">SLA: consumer ack ≤ 4 h</span></div>
+  <div class="card"><div class="card-title">Payload preview — dlv_9a40c7 <span class="right">envelope only · PHI masked in console</span></div>
+  <div class="mono small" style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:7px;padding:10px;white-space:pre-wrap">{ "event":"ReportSigned", "event_id":"evt_rs_20260725_0807", "occurred_at":"2026-07-25T08:35:41Z",
+  "tenant":"meridian", "branch":"andheri-west", "order_ref":"ORD-AW-88121", "report_ref":"RPT-CT-45210",
+  "signed_by_role":"radiologist", "patient_ref":"tok_pat_••••••••", "links":{"fetch":"/v1/reports/RPT-CT-45210"} }</div>
+  <p class="small muted" style="margin-top:6px">Console preview masks tokenised patient reference. Full payload fetch requires phi:read scope and is itself access-logged.</p></div>
+</div></div></div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — SIGNING-SECRET ROTATION (step-up + four-eyes)</div>
+<div class="modal-wrap"><div class="modal">
+  <h3>Rotate signing secret — Partner CRM (Wellness360) <span class="chip teal">LIVE</span></h3>
+  <p class="small muted" style="margin-bottom:10px">Current secret <span class="mono">whsec_••••91cd</span> is 78 days old (policy: rotate ≤ 90 days). Rotation uses a 48-hour dual-secret overlap so the partner can migrate without dropped verifications.</p>
+  <div class="field"><label>Overlap window <span class="req">*</span></label><span class="select" style="display:inline-block;width:220px">48 hours (recommended) ▾</span><div class="hint">Both old and new secrets validate during the overlap; old secret is revoked automatically at 27 Jul 14:30 IST.</div></div>
+  <div class="check"><span class="box on">✓</span><span>Notify partner technical contact (integrations@wellness360.in) with new secret via one-time secure link (expires 24 h, single view)</span></div>
+  <div class="check"><span class="box">&nbsp;</span><span>Revoke old secret immediately (breaks in-flight verification — use only if secret is compromised)</span></div>
+  <div class="banner warn" style="margin-top:10px"><b>Step-up identity confirmation required</b>Re-enter your Keycloak staff-realm passkey or TOTP to proceed. This is a live-environment credential action.</div>
+  <div class="field"><label>TOTP code <span class="req">*</span></label><span class="input mono" style="display:inline-block;width:150px;color:#94A3B8">6-digit code</span></div>
+  <div class="banner reg"><b>Dual-control (four-eyes)</b>A second Integration admin must approve within 4 h or the rotation is cancelled. Pending approver: <b>Dr. V. Shetty is not eligible</b> — eligible: platform-designated org admins only. Request sent to: <span class="chip grey">standby org admin — S. Kulkarni</span></div>
+  <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Confirm &amp; request approval</span></div>
+</div></div>
+<p class="audit">Secret rotations, scope changes, client suspensions, dead-letter replays and every payload view are dual-logged to the Meridian tenant audit trail and the NUMINACORE operator evidence store; each entry (actor K. Verma, approver, step-up method, client ID, timestamp IST) is recorded in the access log.</p>
+</section>

@@ -1,0 +1,92 @@
+<section class="screen" id="sc-02">
+<div class="screen-head"><h1><span class="sid">SC-02</span> Holidays &amp; closures</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling &amp; Resource Setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 holidays & closures</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The org admin maintains the closure calendar per branch: public holidays that repeat yearly and one-off closures, either whole-branch or limited to a modality. Before any closure is saved the system previews existing bookings on that date; if there are conflicts, saving spawns a bulk-reschedule task so no patient is silently dropped. Closures override working hours (SC-01) in slot generation.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Scheduling setup</div>
+      <div class="nav-item">Working hours &amp; breaks</div>
+      <div class="nav-item active">Holidays &amp; closures <span class="nav-badge">3</span></div>
+      <div class="nav-item">Slot templates</div>
+      <div class="nav-item">Doctor availability</div>
+      <div class="nav-item">Equipment availability <span class="nav-badge red">1</span></div>
+      <div class="sec-label">Reference</div>
+      <div class="nav-item">Rooms &amp; resources</div>
+      <div class="nav-item">Branch settings</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Setup › Scheduling › Holidays &amp; closures</div>
+      <div class="page-title">Holidays &amp; closures — Andheri West <span class="actions-right"><span class="btn small">Import national list 2026</span> <span class="btn small primary">+ Add closure</span></span></div>
+      <div class="page-sub">Branch <span class="mono">BR-AND-01</span> · 11 entries in calendar year 2026 · closures override working hours in slot generation · past closures are read-only</div>
+
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">3</div><div class="l">Upcoming (30 days)</div><div class="s">next: 15-Aug Independence Day</div></div>
+        <div class="kpi amber"><div class="n">1</div><div class="l">With open reschedule task</div><div class="s">TASK-2026-3324 · 6 bookings</div></div>
+        <div class="kpi"><div class="n">7</div><div class="l">Repeat yearly</div><div class="s">national + state list</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Closure calendar — 2026 <span class="right">filter: upcoming ▾ · all scopes ▾</span></div>
+        <table>
+          <tr><th>Date</th><th>Name</th><th>Scope</th><th>Repeats</th><th>Bookings on date</th><th>Status</th><th></th></tr>
+          <tr><td class="mono">15-Aug-2026 Sat</td><td><b>Independence Day</b></td><td><span class="chip grey">Whole branch</span></td><td><span class="chip blue">Yearly</span></td><td>0 — date was blocked before booking opened</td><td><span class="chip green">Clean</span></td><td><span class="btn small ghost">Open</span></td></tr>
+          <tr class="hl"><td class="mono">16-Aug-2026 Sun</td><td><b>Janmashtami (observed)</b></td><td><span class="chip grey">Whole branch</span></td><td><span class="chip grey">One-off</span></td><td>0 — branch closed Sundays anyway</td><td><span class="chip green">Clean</span></td><td><span class="btn small ghost">Open</span></td></tr>
+          <tr><td class="mono">27-Aug-2026 Thu</td><td><b>Ganesh Chaturthi</b></td><td><span class="chip grey">Whole branch</span></td><td><span class="chip blue">Yearly</span></td><td><span class="chip amber">6 booked</span> → TASK-2026-3324</td><td><span class="chip amber">Reschedule open</span> <span class="chip amber">SLA 20-Aug</span> owner: D. Nair</td><td><span class="btn small ghost">Open</span></td></tr>
+          <tr><td class="mono">14-Sep-2026 Mon</td><td><b>CT-ROOM-1 tube replacement</b> (from SC-05)</td><td><span class="chip blue">Modality: CT</span></td><td><span class="chip grey">One-off</span></td><td>0 — maintenance window pre-cleared</td><td><span class="chip green">Clean</span></td><td><span class="btn small ghost">Open</span></td></tr>
+          <tr class="dim"><td class="mono">01-May-2026 Fri</td><td><b>Maharashtra Day</b></td><td><span class="chip grey">Whole branch</span></td><td><span class="chip blue">Yearly</span></td><td>past</td><td><span class="chip grey">Elapsed</span></td><td><span class="btn small ghost">Open</span></td></tr>
+          <tr class="dim"><td class="mono">14-Apr-2026 Tue</td><td><b>Ambedkar Jayanti</b></td><td><span class="chip grey">Whole branch</span></td><td><span class="chip blue">Yearly</span></td><td>past</td><td><span class="chip grey">Elapsed</span></td><td><span class="btn small ghost">Open</span></td></tr>
+        </table>
+        <div class="hint" style="margin-top:6px;font-size:11px;color:#64748B">Modality-only closures (e.g. CT maintenance) keep the rest of the branch bookable. Deleting a future closure restores slot generation on the next nightly run; elapsed closures can never be deleted.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ADD CLOSURE WITH IMPACT WARNING</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Add closure — Andheri West</h3>
+    <div class="row">
+      <div class="field grow"><label>Date <span class="req">*</span></label><span class="input mono" style="display:block">27-Aug-2026 (Thu)</span></div>
+      <div class="field grow"><label>Repeats</label><span class="select" style="display:block">Yearly (same calendar date) ▾</span></div>
+    </div>
+    <div class="field"><label>Name <span class="req">*</span></label><span class="input" style="display:block">Ganesh Chaturthi</span></div>
+    <div class="field"><label>Scope <span class="req">*</span></label>
+      <div class="check"><span class="box radio on">●</span> Whole branch — no slots for any modality</div>
+      <div class="check"><span class="box radio"></span> Modality only: <span class="select" style="width:200px;display:inline-block">select modality ▾</span></div>
+    </div>
+    <div class="banner warn"><b>Impact preview: 6 existing bookings on 27-Aug-2026</b>2 CT (CT-ROOM-1), 3 USG (US-UNIT-2), 1 X-Ray — earliest 08:15, latest 17:30 IST. Saving creates one bulk-reschedule task; patients are contacted via DLT SMS (Jio route) / WhatsApp BSP only after front office confirms each new slot. No booking is auto-cancelled.</div>
+    <table>
+      <tr><th>Time</th><th>Appt</th><th>Modality</th><th>Patient (masked)</th></tr>
+      <tr><td class="mono">08:15</td><td class="mono">APPT-2026-52108</td><td>CT</td><td>R•••• S. · MRN-00**41</td></tr>
+      <tr><td class="mono">09:40</td><td class="mono">APPT-2026-52144</td><td>USG</td><td>M•••• K. · MRN-00**87</td></tr>
+      <tr><td class="mono">11:00</td><td class="mono">APPT-2026-52161</td><td>USG</td><td>A•••• P. · MRN-00**12</td></tr>
+      <tr><td colspan="4" class="muted small">+ 3 more · full identities visible only inside the reschedule task with purpose-of-use recorded</td></tr>
+    </table>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Save closure &amp; create reschedule task</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — SAVED · BOOKINGS-CONFLICT TASK CREATED</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Closure saved — Ganesh Chaturthi, 27-Aug-2026 <span class="chip amber">Reschedule open</span></div>
+  <div class="banner success"><b>Closure active in calendar · bulk-reschedule task created</b>Saved by K. Verma 25-Jul-2026 17:05 IST (step-up identity confirmed — TOTP). Task <span class="mono">TASK-2026-3324</span> with 6 bookings assigned to D. Nair (front office) · <span class="chip amber">SLA: complete by 20-Aug</span> owner: D. Nair. Slot generation removes 27-Aug slots on tonight's run; the date shows as "Closed — Ganesh Chaturthi" in booking search immediately.</div>
+  <div class="card">
+    <div class="card-title">TASK-2026-3324 — progress <span class="right">bulk reschedule · 6 items</span></div>
+    <div class="progress"><i style="width:33%"></i></div>
+    <table style="margin-top:8px">
+      <tr><th>Appt</th><th>Original</th><th>New slot</th><th>Patient notified</th><th>Status</th></tr>
+      <tr><td class="mono">APPT-2026-52108</td><td class="mono">27-Aug 08:15 CT</td><td class="mono">26-Aug 08:15 CT-ROOM-1</td><td><span class="chip green">SMS delivered</span></td><td><span class="chip green">Rebooked</span></td></tr>
+      <tr><td class="mono">APPT-2026-52144</td><td class="mono">27-Aug 09:40 USG</td><td class="mono">28-Aug 10:00 US-UNIT-2</td><td><span class="chip green">WhatsApp read</span></td><td><span class="chip green">Rebooked</span></td></tr>
+      <tr><td class="mono">APPT-2026-52161</td><td class="mono">27-Aug 11:00 USG</td><td class="mono">— awaiting patient reply</td><td><span class="chip amber">SMS sent 17:12</span></td><td><span class="chip amber">Pending</span></td></tr>
+      <tr><td colspan="5" class="muted small">+ 3 pending · task auto-escalates to K. Verma if any item remains unresolved 72h before the closure date</td></tr>
+    </table>
+  </div>
+</div></div></div>
+
+<p class="audit">Closure creation and deletion (actor, step-up method, scope, impact count), each reschedule task item transition, and all patient-contact events are recorded in the access log.</p>
+</section>

@@ -1,0 +1,116 @@
+<section class="screen" id="in-10">
+<div class="screen-head"><h1><span class="sid">IN-10</span> Edge &amp; offline sync monitor</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 + G16 — workspaces 'Integration' / operator</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · edge/offline sync monitor (checklist #12–14)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Each branch runs an edge node that keeps front office and modality worklist working when the cloud link drops. This monitor shows per-branch sync freshness, outbound/inbound queues, and a CONFLICTS queue for same-record edits made offline and in cloud — resolved field-by-field (keep-cloud / keep-branch / merge), with four-eyes required when a clinical field is involved. Sync SLA: full catch-up ≤ 15 min after reconnect.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org admin) ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Integration</div>
+    <div class="nav-item">Overview</div>
+    <div class="nav-item">Modality worklist</div>
+    <div class="nav-item">HL7 / FHIR feeds</div>
+    <div class="nav-item">Messaging providers</div>
+    <div class="nav-item">Payment gateway</div>
+    <div class="nav-item">Webhooks &amp; API clients</div>
+    <div class="nav-item active">Edge &amp; offline sync <span class="nav-badge">0</span></div>
+    <div class="sec-label">Governance</div>
+    <div class="nav-item">Event backbone catalogue</div>
+    <div class="nav-item">Access log</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Integration workspace › Edge &amp; offline sync monitor</div>
+    <div class="page-title">Edge &amp; offline sync — all branches <span class="chip green">ALL SYNCED</span> <span class="actions-right"><span class="btn small">Replay log</span> <span class="btn small">Force sync all</span></span></div>
+    <div class="page-sub">Auto-refresh 30 s · Last poll 25 Jul 2026, 14:32:10 IST · Edge agent v2.6.1 on all nodes · <span class="chip teal">SLA: catch-up ≤ 15 min after reconnect</span></div>
+
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">4 / 4</div><div class="l">Branches online</div><div class="s">edge heartbeat &lt; 60 s</div></div>
+      <div class="kpi"><div class="n">0</div><div class="l">Pending outbound</div><div class="s">actions awaiting cloud ack</div></div>
+      <div class="kpi"><div class="n">0</div><div class="l">Open conflicts</div><div class="s">last resolved 22 Jul 09:14</div></div>
+      <div class="kpi"><div class="n">42 s</div><div class="l">Worst sync age</div><div class="s">Thane East · within SLA</div></div>
+    </div>
+
+    <div class="card"><div class="card-title">Per-branch sync status <span class="right">edge nodes · Meridian tenant</span></div>
+    <table>
+      <tr><th>Branch</th><th>Edge node</th><th>Link</th><th>Last sync age</th><th>Pending outbound</th><th>Inbound queue</th><th>Conflicts</th><th>SLA</th><th></th></tr>
+      <tr><td><b>Andheri West</b></td><td class="mono">edge-aw-01</td><td><span class="chip green">ONLINE</span></td><td class="mono">18 s</td><td class="mono">0</td><td class="mono">0</td><td class="mono">0</td><td><span class="chip teal">OK · owner K. Verma</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+      <tr><td><b>Bandra</b></td><td class="mono">edge-bd-01</td><td><span class="chip green">ONLINE</span></td><td class="mono">25 s</td><td class="mono">0</td><td class="mono">0</td><td class="mono">0</td><td><span class="chip teal">OK · owner K. Verma</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+      <tr><td><b>Thane East</b></td><td class="mono">edge-te-01</td><td><span class="chip green">ONLINE</span></td><td class="mono">42 s</td><td class="mono">0</td><td class="mono">0</td><td class="mono">0</td><td><span class="chip teal">OK · owner K. Verma</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+      <tr><td><b>Powai</b></td><td class="mono">edge-pw-01</td><td><span class="chip green">ONLINE</span></td><td class="mono">31 s</td><td class="mono">0</td><td class="mono">0</td><td class="mono">0</td><td><span class="chip teal">OK · owner K. Verma</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+    </table></div>
+
+    <div class="row">
+      <div class="card grow"><div class="card-title">Replay log — last 24 h <span class="right">outbound actions applied to cloud</span></div>
+      <div class="timeline">
+        <div class="ev"><span class="t">14:31:52</span><span><b>edge-te-01</b> batch #58812 — 3 actions (VisitCheckedIn ×2, PaymentCaptured ×1) applied, 0 conflicts · <span class="mono">lag 42 s</span></span></div>
+        <div class="ev"><span class="t">14:29:07</span><span><b>edge-aw-01</b> batch #58811 — 6 actions (OrderPlaced ×3, SlotHeld ×2, PaymentCaptured ×1) applied, 0 conflicts</span></div>
+        <div class="ev"><span class="t">13:58:44</span><span><b>edge-pw-01</b> batch #58796 — 1 action (AppointmentRescheduled) applied · idempotency key de-duplicated 1 retry</span></div>
+        <div class="ev"><span class="t">09:12:03</span><span><b>edge-bd-01</b> reconnect after planned ISP maintenance (11 min offline) — catch-up completed in <b>3 m 40 s</b> <span class="chip teal">WITHIN SLA</span></span></div>
+      </div></div>
+      <div class="card" style="width:300px;flex-shrink:0"><div class="card-title">What stays available offline</div>
+      <dl class="kv" style="grid-template-columns:118px 1fr">
+        <dt>Front office</dt><dd>register walk-in, check-in, cash/UPI-offline receipts (queued)</dd>
+        <dt>Modality</dt><dd>cached MWL for today's confirmed orders (CT-ROOM-1, US-UNIT-2)</dd>
+        <dt>Blocked</dt><dd>report sign-off, refunds, master-data edits — cloud-only by policy</dd>
+        <dt>Data at edge</dt><dd>encrypted at rest; auto-purged 72 h after sync</dd>
+      </dl></div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — BRANCH OFFLINE 2 H (amber · degraded-mode mirror)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Integration workspace › Edge &amp; offline sync monitor › Thane East</div>
+  <div class="page-title">Thane East — <span class="mono">edge-te-01</span> <span class="chip amber">OFFLINE 2 h 08 m</span> <span class="actions-right"><span class="btn small">Ping edge (out-of-band)</span> <span class="btn warn-outline small">Raise incident</span></span></div>
+  <div class="page-sub">Cloud link lost 25 Jul 12:24 IST · edge node itself healthy on branch LAN (last out-of-band heartbeat via SMS channel 14:28 IST) · SLA clock starts at reconnect</div>
+  <div class="banner warn"><b>Degraded mode active at Thane East since 12:24 IST</b>Branch continues on edge node: check-ins, walk-in registrations and offline receipts are queueing locally. Report sign-off and refunds are blocked at branch by policy. Owner: <b>K. Verma</b> · escalation to NUMINACORE platform ops if offline &gt; 4 h. <span class="chip amber">SLA: catch-up ≤ 15 min after reconnect</span></div>
+  <div class="kpi-row">
+    <div class="kpi amber"><div class="n">2 h 08 m</div><div class="l">Last sync age</div><div class="s">since 12:24 IST</div></div>
+    <div class="kpi amber"><div class="n">37</div><div class="l">Pending outbound</div><div class="s">queued at edge (est. from OOB beacon)</div></div>
+    <div class="kpi"><div class="n">5</div><div class="l">Inbound held</div><div class="s">cloud changes awaiting push to branch</div></div>
+    <div class="kpi"><div class="n">est. 2</div><div class="l">Likely conflicts</div><div class="s">same records touched in cloud</div></div>
+  </div>
+  <div class="row">
+    <div class="card grow"><div class="card-title">Queued outbound actions (edge estimate) <span class="right">via out-of-band beacon 14:28 IST</span></div>
+    <table>
+      <tr><th>Type</th><th>Count</th><th>Oldest</th><th>Notes</th></tr>
+      <tr><td>VisitCheckedIn</td><td class="mono">14</td><td class="mono">12:26 IST</td><td>front desk continuing normally</td></tr>
+      <tr><td>OrderPlaced</td><td class="mono">11</td><td class="mono">12:31 IST</td><td>incl. 4 US-UNIT-2 same-day orders</td></tr>
+      <tr><td>PaymentCaptured (cash)</td><td class="mono">9</td><td class="mono">12:29 IST</td><td>offline receipt series TE-OFF-0091…0099</td></tr>
+      <tr class="hl"><td>PatientDemographicsEdited</td><td class="mono">3</td><td class="mono">12:47 IST</td><td>2 records also edited in cloud → conflict likely</td></tr>
+    </table></div>
+    <div class="card" style="width:320px;flex-shrink:0"><div class="card-title">Front-office banner mirror <span class="right">what Thane East staff see</span></div>
+      <div class="banner warn" style="margin-bottom:8px"><b>⚠ Working offline — cloud link down since 12:24</b>Bookings, check-ins and cash receipts continue and will sync automatically. Online payments (UPI), refunds and report delivery are paused. Do not re-enter records after reconnect — the system will catch up on its own.</div>
+      <p class="small muted">Banner is generated by the edge node; wording is centrally managed under Comms templates › System notices (DLT-exempt, internal display only).</p>
+    </div>
+  </div>
+</div></div></div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — CONFLICT RESOLVE MODAL (field-level diff · four-eyes on clinical fields)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Integration workspace › Edge &amp; offline sync monitor › Conflicts</div>
+  <div class="page-title">Conflicts queue <span class="chip red">2 OPEN</span></div>
+  <div class="page-sub">Thane East reconnected 14:41 IST · catch-up applied 35 of 37 actions in 4 m 12 s <span class="chip teal">WITHIN SLA</span> · 2 actions held for manual resolution</div>
+  <table>
+    <tr><th>Conflict</th><th>Record</th><th>Branch edit (offline)</th><th>Cloud edit</th><th>Clinical fields?</th><th>Status</th></tr>
+    <tr class="hl"><td class="mono">cfl_20260725_01</td><td>Patient MRD-TE-30412 · demographics</td><td>D. Nair · 12:47 IST</td><td>D. Nair (Andheri desk assist) · 13:02 IST</td><td><span class="chip grey">NO</span></td><td><span class="chip amber">RESOLVING</span></td></tr>
+    <tr><td class="mono">cfl_20260725_02</td><td>Order ORD-TE-11487 · CT contrast flag</td><td>T. Okafor · 13:10 IST</td><td>Dr. V. Shetty · 13:24 IST</td><td><span class="chip red">YES — allergy/contrast</span></td><td><span class="chip red">FOUR-EYES REQUIRED</span></td></tr>
+  </table>
+</div></div></div>
+<div class="modal-wrap"><div class="modal danger" style="max-width:640px">
+  <h3>Resolve conflict cfl_20260725_02 — ORD-TE-11487 (CT abdomen w/ contrast) <span class="chip red">CLINICAL FIELDS</span></h3>
+  <p class="small muted" style="margin-bottom:10px">Same order edited at Thane East while offline and in cloud. Choose per field. Non-conflicting fields merge automatically.</p>
+  <table>
+    <tr><th>Field</th><th>Branch value (T. Okafor · 13:10 offline)</th><th>Cloud value (Dr. V. Shetty · 13:24)</th><th>Resolution</th></tr>
+    <tr><td><b>Contrast allergy note</b> <span class="chip red">CLINICAL</span></td><td>"No known allergy — verbal confirm"</td><td>"Prior mild iodinated contrast reaction 2024 — premedicate"</td><td><span class="box radio">&nbsp;</span> branch &nbsp;<span class="box radio on">●</span> <b>keep-cloud</b></td></tr>
+    <tr><td><b>Contrast protocol</b> <span class="chip red">CLINICAL</span></td><td class="mono">Std IV 80 ml</td><td class="mono">Premed + IV 80 ml, slow push</td><td><span class="box radio">&nbsp;</span> branch &nbsp;<span class="box radio on">●</span> <b>keep-cloud</b></td></tr>
+    <tr><td>Scheduling remark</td><td>"Patient prefers after 16:00"</td><td>—</td><td><span class="box radio on">●</span> <b>keep-branch</b> &nbsp;<span class="box radio">&nbsp;</span> cloud</td></tr>
+    <tr><td>Billing note</td><td>"Corporate — Tata AIG pre-auth"</td><td>"Pre-auth #PA-88231 approved"</td><td><span class="box radio on">●</span> <b>merge (both kept)</b></td></tr>
+  </table>
+  <div class="banner reg" style="margin-top:10px"><b>Four-eyes required — clinical fields in scope</b>Resolution touching allergy/contrast fields must be countersigned by a radiologist or org admin other than the initiating resolver. Initiator: <b>K. Verma</b> · Countersign requested: <b>Dr. V. Shetty</b> (step-up passkey on their own session). The losing values are retained in record history, never deleted.</div>
+  <div class="modal-actions"><span class="btn">Defer (keep held)</span><span class="btn primary">Apply resolution &amp; request countersign</span></div>
+</div></div>
+<p class="audit">Sync sessions, degraded-mode entry/exit, replay batches and every conflict resolution (initiator, countersigner, per-field choices, prior values, step-up method, timestamps IST) are recorded in the access log.</p>
+</section>

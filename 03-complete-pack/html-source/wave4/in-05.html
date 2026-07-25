@@ -1,0 +1,163 @@
+<section class="screen" id="in-05">
+<div class="screen-head"><h1><span class="sid">IN-05</span> Message browser — HL7 / DICOM events</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · message browser (scope item #103 baseline)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Integration engineers and org admins search the full HL7 (ORM/ORU) and DICOM (MWL/MPPS/C-STORE) event log to trace an order or study end-to-end. Every message is correlated to an accession; raw payloads are PHI-minimised by default and require a reveal reason. Errors carry a taxonomy chip so triage can route failures to IN-06 Retry &amp; replay.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Connectors</div>
+      <div class="nav-item">Connector health</div>
+      <div class="nav-item">Modality worklist</div>
+      <div class="nav-item active">Message browser</div>
+      <div class="nav-item">Retry &amp; replay <span class="nav-badge red">14</span></div>
+      <div class="sec-label">Channels</div>
+      <div class="nav-item">Comms providers</div>
+      <div class="nav-item">Printers &amp; peripherals</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Mapping tables</div>
+      <div class="nav-item">Access log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Integration › Message browser</div>
+      <div class="page-title">Message browser <span class="actions-right"><span class="btn small">⬇ Export filtered (CSV, no PHI)</span> <span class="btn small">⟳ Auto-refresh: 30s</span></span></div>
+      <div class="page-sub">HL7 v2 and DICOM events across all connectors · retention 90 days hot, 7 years cold archive · payloads PHI-minimised at rest</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">4,182</div><div class="l">Messages · last 24h</div><div class="s">Across 6 connectors</div></div>
+        <div class="kpi"><div class="n">99.2%</div><div class="l">Ack success</div><div class="s">AA / total inbound</div></div>
+        <div class="kpi amber"><div class="n">19</div><div class="l">Warnings (AE)</div><div class="s">Mostly mapping fallbacks</div></div>
+        <div class="kpi red"><div class="n">14</div><div class="l">Failed (AR / timeout)</div><div class="s">In retry queues → IN-06</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Search &amp; filters <span class="right">saved view: "CT failures this week"</span></div>
+        <div class="row">
+          <div class="grow field" style="margin-bottom:0"><label>Free text / accession / MRN-hash / correlation ID</label><input class="input mono" value="ACC-2607-0142"></div>
+          <div class="field" style="width:130px;margin-bottom:0"><label>Direction</label><div class="select">All ▾</div></div>
+          <div class="field" style="width:160px;margin-bottom:0"><label>Type</label><div class="select">All (ORM, ORU, MWL…) ▾</div></div>
+          <div class="field" style="width:130px;margin-bottom:0"><label>Status</label><div class="select">All ▾</div></div>
+          <div class="field" style="width:190px;margin-bottom:0"><label>Time range (IST)</label><div class="select">24 Jul 06:00 → now ▾</div></div>
+          <div style="align-self:flex-end"><span class="btn primary">Search</span></div>
+        </div>
+        <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap"><span class="chip grey">Connector: all</span><span class="chip grey">Branch: Andheri West</span><span class="chip teal">Correlated to accession only</span><span class="chip grey">Exclude heartbeats ✓</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Results · 61 messages for ACC-2607-0142 and related <span class="right">newest first · IST</span></div>
+        <table>
+          <tr><th>Time (IST)</th><th>Dir</th><th>Type</th><th>Connector / AE</th><th>Correlation</th><th>Summary (PHI-minimised)</th><th>Status</th><th></th></tr>
+          <tr><td class="mono">25 Jul 14:22:08</td><td><span class="chip blue">IN</span></td><td class="mono">DICOM MPPS N-SET</td><td>CT-ROOM-1 · MERIDCT1</td><td class="mono">ACC-2607-0142</td><td>Study COMPLETED · 342 objects · CT Chest HRCT</td><td><span class="chip green">SUCCESS</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr class="hl"><td class="mono">25 Jul 14:21:44</td><td><span class="chip violet">OUT</span></td><td class="mono">HL7 ORU^R01</td><td>LIS-Bridge · TLS MLLP</td><td class="mono">ACC-2607-0142</td><td>Preliminary result dispatch · pt ▮▮▮▮ (F/62) · ordering Dr. ▮▮▮▮</td><td><span class="chip green">ACK AA</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="mono">25 Jul 13:58:31</td><td><span class="chip blue">IN</span></td><td class="mono">DICOM C-STORE</td><td>CT-ROOM-1 · MERIDCT1</td><td class="mono">ACC-2607-0142</td><td>Store event batch · 342/342 instances · 512 MB</td><td><span class="chip green">SUCCESS</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="mono">25 Jul 13:41:05</td><td><span class="chip blue">IN</span></td><td class="mono">DICOM MWL C-FIND</td><td>CT-ROOM-1 · MERIDCT1</td><td class="mono">ACC-2607-0142</td><td>Worklist query matched 1 entry · scheduled 13:45</td><td><span class="chip green">SUCCESS</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="mono">25 Jul 12:02:47</td><td><span class="chip violet">OUT</span></td><td class="mono">HL7 ORM^O01</td><td>RIS-Core outbound</td><td class="mono">ACC-2607-0142</td><td>New order broadcast · CT Chest HRCT · priority ROUTINE</td><td><span class="chip green">ACK AA</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="mono">25 Jul 11:58:12</td><td><span class="chip blue">IN</span></td><td class="mono">HL7 ORM^O01</td><td>Referrer portal GW</td><td class="mono">ACC-2607-0141</td><td>Order for pt ▮▮▮▮ (M/48) · USG Abdomen · US-UNIT-2</td><td><span class="chip amber">ACK AE</span> <span class="chip amber">MAP-FALLBACK</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="mono">25 Jul 11:31:09</td><td><span class="chip blue">IN</span></td><td class="mono">HL7 ORU^R01</td><td>Partner lab inbound</td><td class="mono">ACC-2607-0137</td><td>External result · segment OBX-5 length exceeds profile</td><td><span class="chip red">ACK AR</span> <span class="chip red">SCHEMA-VIOLATION</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr class="dim"><td class="mono">25 Jul 11:30:52</td><td><span class="chip violet">OUT</span></td><td class="mono">DICOM MPPS N-CREATE</td><td>US-UNIT-2 · MERIDUS2</td><td class="mono">ACC-2607-0139</td><td>Procedure step IN PROGRESS</td><td><span class="chip green">SUCCESS</span></td><td><span class="btn ghost small">Open</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Error taxonomy: <span class="chip red">SCHEMA-VIOLATION</span> <span class="chip red">TIMEOUT</span> <span class="chip red">AUTH-REJECT</span> <span class="chip amber">MAP-FALLBACK</span> <span class="chip amber">DUP-SUPPRESSED</span> <span class="chip grey">HEARTBEAT</span> · Page 1 of 8 · <span class="btn ghost small">Next ›</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — MESSAGE DETAIL · PARSED VIEW (ORU^R01 OUTBOUND, PHI-MINIMISED RAW)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Integration › Message browser › MSG-9F2C-7A11</div>
+      <div class="page-title">HL7 ORU^R01 · MSG-9F2C-7A11 <span class="chip green">ACK AA</span> <span class="actions-right"><span class="btn small">Copy correlation link</span> <span class="btn small">Send to replay console</span></span></div>
+      <div class="page-sub">Outbound · LIS-Bridge (TLS MLLP, mutual auth) · 25 Jul 2026 14:21:44 IST · latency 212 ms</div>
+      <div class="split">
+        <div>
+          <div class="card">
+            <div class="card-title">Parsed summary</div>
+            <dl class="kv">
+              <dt>Correlation</dt><dd class="mono">ACC-2607-0142 · order ORD-88214 · study 1.2.826.0.…4421</dd>
+              <dt>Message control</dt><dd class="mono">MSH-10: MER-20260725-142144-0031 · HL7 v2.5.1</dd>
+              <dt>Patient</dt><dd>▮▮▮▮ ▮▮▮▮ (F/62) · MRN-hash <span class="mono">b7e2…91c4</span> — full identity masked</dd>
+              <dt>Order</dt><dd>CT Chest HRCT · priority ROUTINE · ordering Dr. ▮▮▮▮ (masked)</dd>
+              <dt>Result status</dt><dd>OBR-25 = P (Preliminary) · signed by Dr. V. Shetty</dd>
+              <dt>Segments</dt><dd class="mono">MSH · PID · PV1 · ORC · OBR · OBX×4 · NTE×2</dd>
+              <dt>Ack received</dt><dd class="mono">14:21:44.512 · MSA|AA|MER-20260725-142144-0031</dd>
+            </dl>
+          </div>
+          <div class="card">
+            <div class="card-title">Raw payload · PHI-minimised view <span class="right">masked fields: PID-5, PID-7, PID-11, PID-13, OBR-16</span></div>
+            <div class="mono small" style="background:#0F172A;color:#E2E8F0;border-radius:8px;padding:12px;line-height:1.7;overflow-x:auto">
+MSH|^~\&amp;|MAGNUS|MERIDIAN_AW|LIS|MERIDIAN|20260725142144+0530||ORU^R01|MER-20260725-142144-0031|P|2.5.1<br>
+PID|1||b7e2…91c4^^^MRN||████████^████||████████|F|||████████████████||██████████<br>
+ORC|RE|ORD-88214|ACC-2607-0142||CM<br>
+OBR|1|ORD-88214|ACC-2607-0142|CTHRCT^CT Chest HRCT|||20260725134500+0530||||||||████^██████|…|P<br>
+OBX|1|TX|IMP^Impression||No evidence of acute pulmonary embolism …||||||P
+            </div>
+            <div class="banner warn" style="margin-top:10px;margin-bottom:0"><b>Reveal full payload (step-up required)</b>Unmasking PHI requires a documented reason and a fresh identity confirmation (TOTP/passkey, staff realm). Reveal is time-boxed to 15 minutes and recorded against your user.
+              <div class="row" style="margin-top:8px"><div class="grow field" style="margin-bottom:0"><div class="select">Reason: Order/result mismatch investigation ▾</div></div><span class="btn warn-outline small">Confirm identity &amp; reveal</span></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Transport headers</div>
+            <dl class="kv" style="grid-template-columns:110px 1fr">
+              <dt>Channel</dt><dd>MLLP over TLS 1.3</dd>
+              <dt>Peer</dt><dd class="mono">lis.meridian.local:6661</dd>
+              <dt>Client cert</dt><dd class="mono">CN=magnus-int-aw · exp 02 Mar 2027</dd>
+              <dt>Idempotency</dt><dd class="mono">key ORU:ACC-2607-0142:P:v1</dd>
+              <dt>Attempt</dt><dd>1 of 1 · no retries</dd>
+              <dt>Size</dt><dd>2.9 KB</dd>
+            </dl>
+          </div>
+          <div class="card">
+            <div class="card-title">Correlation timeline</div>
+            <div class="timeline">
+              <div class="ev"><span class="t">12:02:47</span><span>ORM^O01 out → RIS-Core <span class="chip green">AA</span></span></div>
+              <div class="ev"><span class="t">13:41:05</span><span>MWL C-FIND from MERIDCT1</span></div>
+              <div class="ev"><span class="t">13:45:12</span><span>MPPS N-CREATE (in progress)</span></div>
+              <div class="ev"><span class="t">13:58:31</span><span>C-STORE 342 objects</span></div>
+              <div class="ev"><span class="t">14:21:44</span><span><b>ORU^R01 out (this message)</b></span></div>
+              <div class="ev"><span class="t">14:22:08</span><span>MPPS N-SET COMPLETED</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — ERROR DETAIL · INBOUND ORU REJECTED (SCHEMA-VIOLATION)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Integration › Message browser › MSG-4B77-C210</div>
+      <div class="page-title">HL7 ORU^R01 · MSG-4B77-C210 <span class="chip red">ACK AR</span> <span class="chip red">SCHEMA-VIOLATION</span></div>
+      <div class="page-sub">Inbound · Partner lab inbound connector · 25 Jul 2026 11:31:09 IST · rejected in 96 ms, negative ack returned to sender</div>
+      <div class="banner danger"><b>Rejected: OBX-5 exceeds site profile limit (64 KB embedded PDF in text field)</b>Validation rule HL7-PRF-014 · The sender embedded a base64 report inside OBX-5 (TX). Site profile requires ED type with reference pointer. Message parked in the Partner-lab failed queue; correlation ACC-2607-0137 is flagged "external result pending".</div>
+      <div class="row">
+        <div class="grow card">
+          <div class="card-title">Error breakdown</div>
+          <table>
+            <tr><th>Check</th><th>Rule</th><th>Result</th></tr>
+            <tr><td>Structural parse (v2.5.1)</td><td class="mono">HL7-CORE</td><td><span class="chip green">PASS</span></td></tr>
+            <tr><td>Sender auth (facility whitelist)</td><td class="mono">SEC-041</td><td><span class="chip green">PASS</span></td></tr>
+            <tr><td>OBX-5 payload type/size</td><td class="mono">HL7-PRF-014</td><td><span class="chip red">FAIL · 64,112 B &gt; 32,768 B</span></td></tr>
+            <tr><td>Accession correlation</td><td class="mono">COR-002</td><td><span class="chip green">PASS · ACC-2607-0137</span></td></tr>
+            <tr><td>Duplicate control (MSH-10)</td><td class="mono">IDEM-001</td><td><span class="chip green">PASS · first occurrence</span></td></tr>
+          </table>
+          <div class="small muted" style="margin-top:8px">Suggested fix: ask partner lab to switch template LAB-ORU-STD → LAB-ORU-EDREF, or raise site limit via change request (dual approval, org admin + platform operator).</div>
+        </div>
+        <div class="card" style="width:300px">
+          <div class="card-title">Actions</div>
+          <span class="btn primary" style="display:block;margin-bottom:8px">Open in retry console (IN-06)</span>
+          <span class="btn" style="display:block;margin-bottom:8px">Notify partner lab contact</span>
+          <span class="btn" style="display:block;margin-bottom:8px">Create engineer task</span>
+          <span class="btn disabled" style="display:block">Replay now — blocked until rule passes</span>
+          <div class="small muted" style="margin-top:10px">Same taxonomy in last 7 days: 6 messages, all from Partner lab inbound. Pattern alert armed at 10.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Message searches, payload opens and every PHI reveal (with reason, duration and viewer identity) are recorded in the access log.</p>
+</section>

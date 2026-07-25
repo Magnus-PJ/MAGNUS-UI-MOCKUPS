@@ -1,0 +1,194 @@
+<section class="screen" id="ds-02">
+<div class="screen-head"><h1><span class="sid">DS-02</span> Components gallery</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM</span><div class="cluster">G16 + G17 — OPERATOR CONSOLE / DESIGN SYSTEM DOCS</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · component gallery & rules</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Canonical specimens of every reusable component in the MVP-1 pack, each paired with its usage rules. Designers copy from here, never improvise; reviewers reject any screen whose components deviate from these specimens. The anti-patterns row at the bottom shows the exact constructions that fail design review.</div>
+
+<div class="row">
+<div class="card grow">
+  <div class="card-title">Chips — status &amp; category <span class="right">All variants</span></div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
+    <span class="chip teal">MVP1-CORE</span>
+    <span class="chip green">VERIFIED</span>
+    <span class="chip amber">SLA · 38M LEFT · Dr. V. Shetty</span>
+    <span class="chip red">OVERDUE · 2H 14M · T. Okafor</span>
+    <span class="chip grey">DRAFT</span>
+    <span class="chip blue">IN PROGRESS</span>
+    <span class="chip violet">DPDP CONSENT</span>
+    <span class="chip outline-red">BREAK-GLASS</span>
+  </div>
+  <table>
+    <tr><th>Variant</th><th>When to use</th></tr>
+    <tr><td><span class="chip teal">teal</span></td><td>Brand/plan tags, module tags. Never a status.</td></tr>
+    <tr><td><span class="chip green">green</span></td><td>Terminal good states: verified, delivered, paid, pass.</td></tr>
+    <tr><td><span class="chip amber">amber</span></td><td>At-risk SLA (&lt;25% window left), overage, review-due. SLA chips always carry remaining time + owner.</td></tr>
+    <tr><td><span class="chip red">red</span></td><td>Breach/critical only. SLA breach reads "OVERDUE · elapsed · owner" — never a bare "LATE".</td></tr>
+    <tr><td><span class="chip grey">grey</span></td><td>Neutral/inactive: draft, pending, roadmap, disabled.</td></tr>
+    <tr><td><span class="chip blue">blue</span></td><td>Informational in-flight states without urgency.</td></tr>
+    <tr><td><span class="chip violet">violet</span></td><td>Regulatory/governance (DPDP, AERB, PC-PNDT) and design-system labels only.</td></tr>
+    <tr><td><span class="chip outline-red">outline-red</span></td><td>Exceptional privileged contexts (break-glass, impersonation). Max one visible per screen.</td></tr>
+  </table>
+</div>
+<div class="card grow">
+  <div class="card-title">Banners — five intents</div>
+  <div class="banner info"><b>Info</b>Context the user should know; no action required. Example: mirror-sync explanation on metering.</div>
+  <div class="banner warn"><b>Warning</b>Action needed soon; service still working. Example: SMS overage under soft-cap policy.</div>
+  <div class="banner danger"><b>Danger</b>Breach, destructive context or active privileged session. Persistent while the condition holds — never auto-dismisses.</div>
+  <div class="banner success"><b>Success</b>Completed operation with durable evidence (ids, timestamps). Prefer inline over toast for auditability.</div>
+  <div class="banner reg" style="margin-bottom:0"><b>Regulatory</b>Compliance/privacy framing: DPDP notices, retention rules, zero-standing-access attestations, metering accuracy.</div>
+  <div class="small muted" style="margin-top:8px">Rules: one banner intent per condition; max two banners stacked before content; banner <b>b</b> line states the fact, body states the consequence and next step.</div>
+</div>
+</div>
+
+<div class="row">
+<div class="card grow">
+  <div class="card-title">Buttons — hierarchy <span class="right">One primary per view</span></div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:10px">
+    <span class="btn primary">Verify &amp; sign report</span>
+    <span class="btn">Save draft</span>
+    <span class="btn warn-outline">Override SLA target…</span>
+    <span class="btn danger">Delete study…</span>
+    <span class="btn ghost">View audit trail</span>
+    <span class="btn small">Small</span>
+    <span class="btn primary disabled">Disabled primary</span>
+  </div>
+  <table>
+    <tr><th>Level</th><th>Rule</th></tr>
+    <tr><td><b>Primary (teal)</b></td><td>Exactly one per view — the single most likely correct action. Two primaries on one screen is an automatic review failure.</td></tr>
+    <tr><td><b>Secondary (outline)</b></td><td>Safe alternatives: save draft, cancel, back. Unlimited, but ≤3 per action row.</td></tr>
+    <tr><td><b>Warn-outline</b></td><td>Reversible but consequential (overrides, re-sends). Ends with "…" when a confirmation follows.</td></tr>
+    <tr><td><b>Danger (red)</b></td><td>Destructive/irreversible. Always opens a destructive modal — never acts directly. Max one per view.</td></tr>
+    <tr><td><b>Ghost</b></td><td>Tertiary navigation-like actions inside cards/tables.</td></tr>
+    <tr><td><b>Disabled</b></td><td>Only when the enabling condition is stated nearby (e.g. "Complete step-up to enable"). Never disable without telling why.</td></tr>
+  </table>
+</div>
+<div class="card" style="width:360px">
+  <div class="card-title">KPI tiles &amp; steppers</div>
+  <div class="kpi-row" style="margin-bottom:10px">
+    <div class="kpi"><div class="n">41</div><div class="l">Unreported</div><div class="s">within SLA</div></div>
+    <div class="kpi amber"><div class="n">6</div><div class="l">Due &lt;1h</div><div class="s">owner assigned</div></div>
+    <div class="kpi red"><div class="n">2</div><div class="l">Overdue</div><div class="s">escalated</div></div>
+  </div>
+  <div class="stepper">
+    <div class="step done"><span class="dot">✓</span>Registered</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span>Scanned</div><span class="step-line"></span>
+    <div class="step cur"><span class="dot">3</span>Reporting</div><span class="step-line"></span>
+    <div class="step"><span class="dot">4</span>Verified</div>
+  </div>
+  <table>
+    <tr><th>Rule</th></tr>
+    <tr><td>KPI accent colour = worst state it counts (red tile for overdue). 3–5 tiles per row; every tile needs the small context line.</td></tr>
+    <tr><td>Steppers are linear workflows only (≤6 steps); current step teal, done green. Branching flows use the ladder component instead.</td></tr>
+  </table>
+</div>
+</div>
+
+<div class="row">
+<div class="card grow">
+  <div class="card-title">Tables — header, row states, empty</div>
+  <table style="margin-bottom:10px">
+    <tr><th>Accession</th><th>Patient</th><th>Modality</th><th>Status</th><th>SLA</th></tr>
+    <tr><td class="mono">ACC-26-11842</td><td>Ravi S. · M/54 <span class="mono small muted">MRN-2044-8812</span></td><td>CT · CT-ROOM-1</td><td><span class="chip blue">IN PROGRESS</span></td><td><span class="chip teal">3H 20M LEFT</span></td></tr>
+    <tr class="hl"><td class="mono">ACC-26-11845</td><td>Meera K. · F/41</td><td>US · US-UNIT-2</td><td><span class="chip amber">AWAITING VERIFY</span></td><td><span class="chip amber">38M · Dr. V. Shetty</span></td></tr>
+    <tr><td class="mono">ACC-26-11851</td><td>Anil P. · M/67</td><td>MRI · MRI-ROOM-2</td><td><span class="chip red">OVERDUE</span></td><td><span class="chip red">OVERDUE · 2H 14M</span></td></tr>
+    <tr class="dim"><td class="mono">ACC-26-11809</td><td>Sunita D. · F/33</td><td>CT</td><td><span class="chip grey">CANCELLED</span></td><td>—</td></tr>
+  </table>
+  <div style="border:1.5px dashed #CBD5E1;border-radius:8px;padding:18px;text-align:center;color:#64748B;font-size:12.5px;margin-bottom:10px">
+    <b style="color:#334155">No studies match these filters</b><br/>Try widening the date range or clearing the modality filter.<br/><span class="btn small" style="margin-top:8px">Clear filters</span>
+  </div>
+  <table>
+    <tr><th>Rule</th></tr>
+    <tr><td>Headers uppercase 10.5px; <span class="mono">.hl</span> = selected/attention row; <span class="mono">.dim</span> = terminal-inactive. Never colour whole rows red — status lives in chips.</td></tr>
+    <tr><td>Empty states always say why it's empty and offer one recovery action. A bare "No data" never ships.</td></tr>
+    <tr><td>Identifiers (accession, MRN, AE title, hash) always render in <span class="mono">.mono</span>.</td></tr>
+  </table>
+</div>
+<div class="card" style="width:360px">
+  <div class="card-title">KV grids</div>
+  <div class="kv" style="margin-bottom:10px">
+    <dt>Patient</dt><dd>Meera K. · F/41 · <span class="mono">MRN-2044-8812</span></dd>
+    <dt>Consent</dt><dd><span class="chip violet">DPDP · RECORDED 22 JUL</span></dd>
+    <dt>Referrer</dt><dd>Dr. A. Kulkarni · Lilavati Hospital</dd>
+    <dt>Payment</dt><dd>₹4,800 · UPI · <span class="chip green">PAID</span> · P. D'Souza</dd>
+  </div>
+  <table>
+    <tr><th>Rule</th></tr>
+    <tr><td>KV grids for read-only summaries of one entity (≤10 pairs). Keys uppercase-label style; values may embed chips and mono ids.</td></tr>
+    <tr><td>Editable data never appears in a KV grid — use form fields; mixing read-only and inputs in one grid is banned.</td></tr>
+  </table>
+</div>
+</div>
+
+<div class="row">
+<div class="card grow">
+  <div class="card-title">Modals — standard vs destructive <span class="right">Destructive = red top-bar + typed confirm</span></div>
+  <div class="row">
+    <div class="grow">
+      <div class="modal" style="max-width:none;margin:0 0 8px">
+        <h3>Reassign study to Dr. V. Shetty?</h3>
+        <p class="small" style="margin-bottom:4px">ACC-26-11845 moves to Dr. Shetty's verification queue. The current owner is notified.</p>
+        <div class="modal-actions"><span class="btn small">Cancel</span><span class="btn primary small">Reassign</span></div>
+      </div>
+      <div class="small muted">Standard: teal top-bar, one primary, Esc/Cancel always available.</div>
+    </div>
+    <div class="grow">
+      <div class="modal danger" style="max-width:none;margin:0 0 8px">
+        <h3>Delete study ACC-26-11809 permanently?</h3>
+        <div class="banner danger" style="margin-bottom:8px"><b>Irreversible</b>Images and report drafts are destroyed after the 30-day recovery hold.</div>
+        <div class="field" style="margin-bottom:0"><label>Type the accession number to confirm <span class="req">*</span></label><input class="input" placeholder="ACC-26-11809"/><div class="hint">Step-up (TOTP/passkey) required · second-approver required for verified studies.</div></div>
+        <div class="modal-actions"><span class="btn small">Cancel</span><span class="btn danger small disabled">Delete permanently</span></div>
+      </div>
+      <div class="small muted">Destructive: red top-bar, typed confirmation, danger button disabled until the typed value matches, step-up identity check, dual control where policy demands.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE B — ANTI-PATTERNS (WHAT NOT TO DO · ALL FAIL REVIEW)</div>
+<div class="card" style="border-color:#FCA5A5">
+  <div class="card-title" style="color:#991B1B">Anti-patterns — each specimen below is a review blocker</div>
+  <table>
+    <tr><th style="width:34%">✗ Anti-pattern specimen</th><th>Why it fails</th><th>Correct construction</th></tr>
+    <tr>
+      <td><span class="btn primary small">Save</span> <span class="btn primary small">Submit</span> <span class="btn primary small">Send</span></td>
+      <td>Three competing primaries — user cannot tell the intended action.</td>
+      <td>One <span class="btn primary small">Submit</span> + secondaries <span class="btn small">Save draft</span></td>
+    </tr>
+    <tr>
+      <td><span class="btn danger small">Delete tenant</span> <span class="small muted">(acts immediately)</span></td>
+      <td>Destructive action without modal, typed confirm, step-up or dual control.</td>
+      <td>Danger button → destructive modal with typed confirm + second approver.</td>
+    </tr>
+    <tr>
+      <td><span class="chip red">LATE</span></td>
+      <td>Bare breach chip: no elapsed time, no owner — nobody is accountable.</td>
+      <td><span class="chip red">OVERDUE · 2H 14M · Dr. V. Shetty</span></td>
+    </tr>
+    <tr>
+      <td><span style="background:#F59E0B;color:#fff;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700">PENDING</span></td>
+      <td>White on raw amber — 2.2:1, fails WCAG AA (see DS-01 contrast table).</td>
+      <td><span class="chip amber">PENDING</span> — dark amber text on tint.</td>
+    </tr>
+    <tr>
+      <td><span class="chip teal">FAILED</span> <span class="chip violet">50% OFF</span></td>
+      <td>Semantic misuse: brand teal carrying error meaning; regulatory violet used decoratively.</td>
+      <td><span class="chip red">FAILED</span> · promotional chips do not exist in this system.</td>
+    </tr>
+    <tr>
+      <td><div style="border:1px solid #E2E8F0;border-radius:6px;padding:8px;font-size:12px;color:#94A3B8;text-align:center">No data</div></td>
+      <td>Empty state with no explanation and no recovery action.</td>
+      <td>State why + one action ("No studies match these filters" + Clear filters).</td>
+    </tr>
+    <tr>
+      <td><span class="btn small disabled">Export</span> <span class="small muted">(no explanation anywhere)</span></td>
+      <td>Silent disabled control — user cannot learn how to enable it.</td>
+      <td>Disabled + adjacent hint: "Complete TOTP step-up to enable export."</td>
+    </tr>
+    <tr>
+      <td><span class="small" style="color:#15803D">Patient data deleted successfully ✓ (toast, auto-dismiss 3s)</span></td>
+      <td>Privacy-significant outcome shown only as a vanishing toast — no durable evidence.</td>
+      <td>Inline success banner with timestamp, actor and reference id, plus audit-log line.</td>
+    </tr>
+  </table>
+</div>
+<p class="audit">Design-review outcomes referencing these specimens (pass/fail per screen) are versioned with the pack; component deviations approved by exception are recorded in the access log.</p>
+</section>

@@ -1,0 +1,82 @@
+<section class="screen" id="ds-08">
+<div class="screen-head"><h1><span class="sid">DS-08</span> Form Validation &amp; Input Patterns</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM</span><div class="cluster">G17 Design System &amp; Patterns — documentation pages</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · form validation & Indian formats</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single source of truth for validation timing, error tone and India-specific input formats across all Magnus forms. Front-office registration (FO-*), billing (BL-*) and admin screens must import these field components — local format regexes are a review-blocking defect.</div>
+
+<div class="state-tag">STATE A — VALIDATION TIMING &amp; ERROR TONE RULES</div>
+<div class="row">
+<div class="card grow">
+<div class="card-title">Validation timing rules <span class="right">applies to every form, no exceptions</span></div>
+<table>
+<tr><th style="width:170px">Moment</th><th>Rule</th></tr>
+<tr><td><b>On keystroke</b></td><td><span class="chip red">NEVER</span> for names, addresses, free text. Permitted only for hard input filters (digits-only in phone/PIN) and live checksum hint on GSTIN/IFSC after full length reached.</td></tr>
+<tr><td><b>On blur</b></td><td><span class="chip green">DEFAULT</span> — validate the field the user just left. Error appears under the field, focus is not stolen back.</td></tr>
+<tr><td><b>On submit</b></td><td>Full-form pass; render an <b>error summary card</b> at top listing each failed field as a link that scrolls + focuses it. Submit button stays enabled — never silently disable.</td></tr>
+<tr><td><b>Async checks</b></td><td>Duplicate-patient, GSTIN registry, IFSC lookup run on blur with inline spinner ≤ 2 s; on timeout, allow save with <span class="chip amber">UNVERIFIED</span> chip rather than blocking front-desk flow.</td></tr>
+<tr><td><b>Warnings vs errors</b></td><td>Warnings (amber) never block submit — e.g. “age 104, please confirm”. Errors (red) block. A warning acknowledged once is not re-shown on the same visit.</td></tr>
+</table>
+</div>
+<div class="card grow">
+<div class="card-title">Error message tone <span class="right">say what happened &amp; how to fix</span></div>
+<table>
+<tr><th style="width:60px"></th><th>Message</th></tr>
+<tr><td><span class="chip red">DON'T</span></td><td>“Invalid input.” · “Phone number wrong.” · “Error 422.”</td></tr>
+<tr><td><span class="chip green">DO</span></td><td>“Enter a 10-digit mobile number starting 6–9, e.g. 98200 12345.”</td></tr>
+<tr><td><span class="chip green">DO</span></td><td>“GSTIN check digit doesn't match — re-check the last character (entered <span class="mono">…Z<b>4</b></span>, expected <span class="mono">…Z<b>7</b></span>).”</td></tr>
+<tr><td><span class="chip green">DO</span></td><td>“Appointment date is in the past. Pick today (25 Jul 2026) or later.”</td></tr>
+</table>
+<p class="small muted" style="margin-top:8px">Tone rules: no blame (“you entered”), no jargon, no exclamation marks, ≤ 2 sentences, include a valid example where format is the issue. Errors are written in the UI locale (see DS-10); field values are never auto-“corrected” silently.</p>
+<div class="banner info" style="margin-top:10px;margin-bottom:0"><b>Required vs optional</b>Mark <b>required</b> fields with <span class="req" style="color:#B91C1C">*</span> only. Never label fields “(optional)” — anything unstarred is optional. A form where &gt; 70% of fields are required should be re-scoped, not decorated.</div>
+</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — INDIAN FORMATS SPECIFICATION</div>
+<div class="card">
+<div class="card-title">India-specific field formats <span class="right">component library: @magnus/fields-in v2.4</span></div>
+<table>
+<tr><th style="width:130px">Field</th><th style="width:210px">Display format</th><th style="width:170px">Storage</th><th>Validation &amp; notes</th></tr>
+<tr><td><b>Mobile phone</b></td><td><span class="mono">+91 98200 12345</span> (5+5 grouping)</td><td class="mono">E.164 +919820012345</td><td>10 digits, first digit 6–9. Country code fixed +91 prefix chip; paste of “09820012345” or “919820012345” is normalised on blur.</td></tr>
+<tr><td><b>PIN code</b></td><td><span class="mono">400 058</span></td><td class="mono">400058</td><td>6 digits, first digit 1–9. On blur: async lookup fills city/state (editable); mismatch with typed city → amber warning, not error.</td></tr>
+<tr><td><b>GSTIN</b></td><td><span class="mono">27AABCM4520K1Z7</span></td><td class="mono">uppercase, 15 chars</td><td>15-char pattern <span class="mono">NN AAAAA NNNN A N Z C</span>; state code must be a real state; final char validated by GSTIN checksum (mod-36). Live checksum hint at 15th char only.</td></tr>
+<tr><td><b>IFSC</b></td><td><span class="mono">HDFC0000240</span></td><td class="mono">uppercase, 11 chars</td><td>4 letters + <span class="mono">0</span> + 6 alphanumeric. On blur: bank/branch lookup renders below field for user confirmation before refund payout.</td></tr>
+<tr><td><b>Aadhaar</b></td><td><span class="mono">•••• •••• 4271</span> — last 4 only</td><td>last-4 + salted hash only</td><td>Full 12-digit value is Verhoeff-checksum-validated in the browser, then discarded — Magnus stores last-4 and a match hash, never the full number. Field is copy-disabled; no Aadhaar in any export.</td></tr>
+<tr><td><b>Date</b></td><td><span class="mono">25 Jul 2026</span> (DD MMM YYYY)</td><td class="mono">ISO 8601 2026-07-25</td><td>Display always DD MMM YYYY to kill DD/MM vs MM/DD ambiguity. Input accepts 25/07/2026, 25-7-26, “today” — echo back normalised form on blur. Timezone: IST, stored UTC with offset.</td></tr>
+<tr><td><b>Amount ₹</b></td><td><span class="mono">₹ 1,04,250.00</span></td><td class="mono">paise integer 10425000</td><td>Indian digit grouping (3 then 2s) via <span class="mono">en-IN</span> locale. Never float storage. Negative amounts render as <span class="mono" style="color:#B91C1C">− ₹ 500.00</span>, credit notes only.</td></tr>
+<tr><td><b>Name</b></td><td>As typed</td><td>Unicode NFC</td><td>No keystroke validation, no “alphabet-only” regex — must accept Devanagari, apostrophes, single-word names. Only rule: non-empty, ≤ 120 chars, no leading/trailing spaces (trimmed silently).</td></tr>
+</table>
+<div class="banner reg" style="margin-top:10px;margin-bottom:0"><b>Multi-language input</b>All text fields accept any Unicode script; patient name may be captured in Latin + optional Devanagari “name as spoken” secondary field (used on hi/mr printed slips — see DS-10). Never transliterate automatically.</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — SPECIMEN FORM (PATTERNS APPLIED)</div>
+<div class="row">
+<div class="card grow" style="max-width:520px">
+<div class="card-title">Specimen: refund payee details <span class="right">on-submit error summary shown</span></div>
+<div class="banner danger"><b>2 fields need attention</b>1. Mobile number — enter 10 digits starting 6–9 · 2. IFSC — branch lookup failed, re-check code</div>
+<div class="field"><label>Payee name <span class="req">*</span></label><input class="input" value="Ananya Subramanian"></div>
+<div class="row">
+<div class="field grow"><label>Mobile number <span class="req">*</span></label><input class="input err" value="+91 98200 1234"><div class="hint" style="color:#B91C1C">Enter a 10-digit mobile number starting 6–9, e.g. 98200 12345.</div></div>
+<div class="field grow"><label>PIN code</label><input class="input" value="400 058"><div class="hint">Andheri West, Mumbai, Maharashtra ✓</div></div>
+</div>
+<div class="row">
+<div class="field grow"><label>IFSC <span class="req">*</span></label><input class="input err" value="HDFC000024"><div class="hint" style="color:#B91C1C">IFSC is 11 characters (4 letters + 0 + 6 more) — this has 10. Example: HDFC0000240.</div></div>
+<div class="field grow"><label>Aadhaar (identity check)</label><input class="input" value="•••• •••• 4271"><div class="hint">Verified via Verhoeff checksum · only last 4 digits stored.</div></div>
+</div>
+<div class="field"><label>Refund amount</label><input class="input" value="₹ 1,850.00" style="max-width:180px"><div class="hint">Matches credit note CN-2607-0031 · stored in paise.</div></div>
+<div style="display:flex;gap:10px;justify-content:flex-end"><span class="btn">Cancel</span><span class="btn primary">Save payee details</span></div>
+</div>
+<div class="card grow">
+<div class="card-title">Field anatomy checklist <span class="right">review gate</span></div>
+<div class="check"><span class="box on">✓</span><span>Label above field, 12px bold; required star only, no “(optional)”.</span></div>
+<div class="check"><span class="box on">✓</span><span>Hint text below, grey — format example lives here, not in placeholder.</span></div>
+<div class="check"><span class="box on">✓</span><span>Placeholder never carries required information (disappears on type).</span></div>
+<div class="check"><span class="box on">✓</span><span>Error replaces hint, red text + red border; icon optional, colour never the only signal.</span></div>
+<div class="check"><span class="box on">✓</span><span>Error summary links scroll + focus the field; focus order = visual order.</span></div>
+<div class="check"><span class="box on">✓</span><span>Numeric fields get <span class="mono">inputmode="numeric"</span>; phone gets tel keypad on tablets at the front desk.</span></div>
+<div class="check"><span class="box on">✓</span><span>Autofocus only on the first field of single-purpose forms (e.g. OTP entry) — never on dense registration forms.</span></div>
+</div>
+</div>
+<p class="audit">Validation rule changes ship as versioned releases of @magnus/fields-in; the version active at save time is stamped on each record and recorded in the access log.</p>
+</section>

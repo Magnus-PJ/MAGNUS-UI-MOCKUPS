@@ -1,0 +1,1283 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Magnus HMS — G17 · Design System & Patterns</title><style>/* Magnus HMS — NS design pack shared design system */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
+.mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
+.muted{color:#64748B}.small{font-size:12px}.bold{font-weight:700}
+/* ---------- page / screen frame ---------- */
+.screen{page-break-after:always;padding:28px 34px;background:#fff;min-height:1000px}
+.screen-head{display:flex;justify-content:space-between;align-items:flex-start;border-left:5px solid #0F766E;padding:6px 0 6px 14px;margin-bottom:6px}
+.screen-head h1{font-size:22px;font-weight:800}
+.screen-head .sid{color:#0F766E;margin-right:10px}
+.screen-head .meta{text-align:right}
+.screen-head .meta .cluster{color:#64748B;font-size:12px;margin-top:3px}
+.gap-note{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:8px 12px;margin:10px 0 16px;font-size:12.5px;color:#7C2D12}
+.gap-note b{color:#9A3412}
+/* ---------- app chrome ---------- */
+.frame{border:1px solid #CBD5E1;border-radius:10px;overflow:hidden;background:#F4F6F8;box-shadow:0 1px 4px rgba(15,23,42,.08);margin-bottom:22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:2px solid #0F766E;padding:9px 16px}
+.brand{font-weight:800;color:#0F766E}.brand span{color:#1E293B}
+.org{font-size:12.5px;color:#334155;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px}
+.userchip{font-size:12.5px;color:#334155}
+.userchip .av{display:inline-block;background:#CCFBF1;color:#0F766E;font-weight:700;border-radius:5px;padding:2px 6px;margin-right:6px;font-size:11px}
+.body{display:flex;min-height:520px}
+.sidebar{width:196px;background:#fff;border-right:1px solid #E2E8F0;padding:12px 0;flex-shrink:0}
+.sec-label{font-size:10.5px;letter-spacing:.08em;color:#94A3B8;font-weight:700;padding:8px 16px 4px;text-transform:uppercase}
+.nav-item{padding:7px 16px;font-size:13px;color:#334155;display:flex;justify-content:space-between;align-items:center}
+.nav-item.active{background:#F0FDFA;color:#0F766E;font-weight:700;border-left:3px solid #0F766E;padding-left:13px}
+.nav-badge{background:#0F766E;color:#fff;border-radius:9px;font-size:10.5px;padding:1px 7px;font-weight:700}
+.nav-badge.red{background:#B91C1C}
+.main{flex:1;padding:16px 18px;min-width:0}
+.crumb{font-size:12px;color:#64748B;margin-bottom:8px}
+.page-title{font-size:19px;font-weight:800;margin-bottom:2px}
+.page-sub{font-size:12.5px;color:#64748B;margin-bottom:14px}
+.actions-right{float:right}
+/* ---------- components ---------- */
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card-title{font-weight:800;font-size:14.5px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.card-title .right{font-size:10.5px;letter-spacing:.07em;color:#94A3B8;font-weight:700;text-transform:uppercase}
+.row{display:flex;gap:14px}.row>*{min-width:0}.grow{flex:1}
+.btn{display:inline-block;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:700;border:1px solid #CBD5E1;background:#fff;color:#334155;text-align:center;white-space:nowrap}
+.btn.primary{background:#0F766E;border-color:#0F766E;color:#fff}
+.btn.danger{background:#B91C1C;border-color:#B91C1C;color:#fff}
+.btn.warn-outline{border-color:#F59E0B;color:#92400E;background:#FFFBEB}
+.btn.ghost{border:none;background:none;color:#0F766E;padding:7px 6px}
+.btn.small{padding:4px 10px;font-size:12px}
+.btn.disabled{opacity:.45}
+.chip{display:inline-block;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip.teal{background:#CCFBF1;color:#0F766E}
+.chip.green{background:#DCFCE7;color:#15803D}
+.chip.amber{background:#FEF3C7;color:#92400E}
+.chip.red{background:#FEE2E2;color:#B91C1C}
+.chip.grey{background:#F1F5F9;color:#475569}
+.chip.blue{background:#E0F2FE;color:#0369A1}
+.chip.violet{background:#EDE9FE;color:#6D28D9}
+.chip.outline-red{background:#fff;border:1.5px solid #B91C1C;color:#B91C1C}
+.banner{border-radius:8px;padding:10px 13px;font-size:12.5px;margin-bottom:12px;border:1px solid}
+.banner b{display:block;margin-bottom:2px;font-size:13px}
+.banner.info{background:#E0F2FE;border-color:#7DD3FC;color:#075985}
+.banner.warn{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+.banner.danger{background:#FEE2E2;border-color:#FCA5A5;color:#991B1B}
+.banner.success{background:#DCFCE7;border-color:#86EFAC;color:#166534}
+.banner.reg{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding:7px 9px;border-bottom:2px solid #E2E8F0;background:#F8FAFC}
+td{padding:8px 9px;border-bottom:1px solid #EEF2F6;vertical-align:top}
+tr.hl td{background:#F0FDFA}
+tr.dim td{color:#94A3B8}
+.kv{display:grid;grid-template-columns:150px 1fr;row-gap:6px;column-gap:12px;font-size:12.5px}
+.kv dt{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding-top:2px}
+.kv dd{margin:0}
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+.field label .req{color:#B91C1C}
+.field .hint{font-size:11px;color:#64748B;margin-top:3px}
+.input,.select,.textarea{width:100%;border:1px solid #CBD5E1;border-radius:7px;padding:7px 10px;font-size:13px;background:#fff;color:#1E293B}
+.input.err{border-color:#B91C1C;background:#FEF2F2}
+.textarea{min-height:64px}
+.check{font-size:12.5px;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.box{display:inline-block;width:14px;height:14px;border:1.6px solid #64748B;border-radius:3px;flex-shrink:0;margin-top:1px;text-align:center;line-height:12px;font-size:11px;font-weight:800}
+.box.on{background:#0F766E;border-color:#0F766E;color:#fff}
+.radio{border-radius:50%}
+.radio.on{background:#fff;border-color:#0F766E;box-shadow:inset 0 0 0 3.5px #0F766E;color:transparent}
+/* modal */
+.modal-wrap{background:#64748B22;border:1px dashed #94A3B8;border-radius:12px;padding:26px 40px;margin:14px 0}
+.modal{background:#fff;border-radius:12px;border-top:5px solid #0F766E;box-shadow:0 8px 30px rgba(15,23,42,.25);max-width:560px;margin:0 auto;padding:18px 20px}
+.modal.danger{border-top-color:#B91C1C}
+.modal h3{font-size:16px;margin-bottom:8px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+/* misc */
+.divider-label{text-align:center;color:#94A3B8;font-size:11.5px;margin:20px 0 14px;position:relative}
+.divider-label:before,.divider-label:after{content:"";display:inline-block;width:24%;border-top:1px dashed #CBD5E1;vertical-align:middle;margin:0 10px}
+.audit{font-size:11px;color:#8A6D1D;margin-top:10px}
+.audit:before{content:"🔒 "}
+.state-tag{font-size:10px;letter-spacing:.08em;font-weight:800;text-transform:uppercase;color:#94A3B8;text-align:right;margin-bottom:4px}
+.kpi-row{display:flex;gap:12px;margin-bottom:14px}
+.kpi{flex:1;background:#fff;border:1px solid #E2E8F0;border-left:4px solid #0F766E;border-radius:9px;padding:10px 13px}
+.kpi.amber{border-left-color:#F59E0B}.kpi.red{border-left-color:#B91C1C}
+.kpi .n{font-size:23px;font-weight:800}.kpi .l{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700}
+.kpi .s{font-size:11px;color:#64748B;margin-top:2px}
+.stepper{display:flex;gap:6px;align-items:center;font-size:12px;color:#64748B;margin-bottom:14px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:6px}
+.step .dot{width:20px;height:20px;border-radius:50%;background:#E2E8F0;color:#475569;font-size:11px;font-weight:800;text-align:center;line-height:20px}
+.step.done .dot{background:#15803D;color:#fff}.step.cur .dot{background:#0F766E;color:#fff}
+.step.cur{color:#0F766E;font-weight:700}
+.step-line{width:26px;border-top:2px solid #CBD5E1}
+.sig-box{border:1.5px dashed #94A3B8;border-radius:8px;min-height:64px;background:#F8FAFC;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:12px;font-style:italic}
+.sig-box.signed{border-style:solid;border-color:#15803D;color:#166534;background:#F0FDF4;font-family:'Segoe Script','Comic Sans MS',cursive;font-size:17px;font-style:normal}
+.ladder{border-left:3px solid #E2E8F0;margin-left:8px;padding-left:16px}
+.ladder .tier{margin-bottom:12px;position:relative}
+.ladder .tier:before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:#CBD5E1}
+.ladder .tier.done:before{background:#15803D}.ladder .tier.cur:before{background:#0F766E;box-shadow:0 0 0 3px #CCFBF1}
+.ladder .tier.fail:before{background:#B91C1C}
+.progress{height:7px;border-radius:4px;background:#E2E8F0;overflow:hidden;margin-top:4px}
+.progress i{display:block;height:100%;background:#0F766E}
+.progress.amber i{background:#F59E0B}.progress.red i{background:#B91C1C}
+.split{display:grid;grid-template-columns:1fr 300px;gap:14px}
+.timeline{font-size:12.5px}
+.timeline .ev{display:flex;gap:10px;margin-bottom:9px}
+.timeline .t{color:#64748B;white-space:nowrap;font-family:Consolas,monospace;font-size:11.5px;padding-top:1px}
+
+@page{size:A4;margin:0}@media print{body{background:#fff}}</style></head><body><section class="screen" id="cover">
+<div style="padding-top:120px"><div style="border-left:6px solid #0F766E;padding-left:22px">
+<div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">Magnus HMS · MVP 1 Complete Design Pack</div>
+<h1 style="font-size:36px;font-weight:800">G17 · Design System & Patterns</h1>
+<p style="font-size:14px;color:#64748B;margin-top:10px">11 screens · every screen with alternate states · shared design system · synthetic data only (no PHI)</p></div>
+<div class="card" style="max-width:700px;margin-top:26px"><div class="card-title">Screens in this group</div>
+<table><tr><th style="width:70px">ID</th><th>Screen</th></tr><tr><td class="mono bold" style="color:#0F766E">DS-01</td><td>Foundations — tokens</td></tr><tr><td class="mono bold" style="color:#0F766E">DS-02</td><td>Components gallery</td></tr><tr><td class="mono bold" style="color:#0F766E">DS-03</td><td>SLA &amp; Escalation Pattern</td></tr><tr><td class="mono bold" style="color:#0F766E">DS-04</td><td>Offline / Degraded / Sync Pattern</td></tr><tr><td class="mono bold" style="color:#0F766E">DS-05</td><td>Empty / Loading / Error Pattern</td></tr><tr><td class="mono bold" style="color:#0F766E">DS-06</td><td>Audit &amp; Step-up Pattern</td></tr><tr><td class="mono bold" style="color:#0F766E">DS-07</td><td>Masked Identity &amp; Privacy Pattern</td></tr><tr><td class="mono bold" style="color:#0F766E">DS-08</td><td>Form Validation &amp; Input Patterns</td></tr><tr><td class="mono bold" style="color:#0F766E">DS-09</td><td>Print &amp; Document Templates Pattern</td></tr><tr><td class="mono bold" style="color:#0F766E">DS-10</td><td>i18n &amp; Localisation Pattern</td></tr><tr><td class="mono bold" style="color:#0F766E">DS-11</td><td>Navigation &amp; IA Map</td></tr></table></div>
+<p class="muted small" style="margin-top:14px">Magnus Diagnostics → NUMINACORE · July 2026 · Prototype/reference — not committed product scope.</p></div></section><section class="screen" id="ds-01">
+<div class="screen-head"><h1><span class="sid">DS-01</span> Foundations — tokens</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM</span><div class="cluster">G16 + G17 — OPERATOR CONSOLE / DESIGN SYSTEM DOCS</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · codifies the vendor deck's implicit design system — tokens</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single source of truth for the Magnus HMS visual language: colour tokens with strict semantic usage rules, the typography scale, the spacing grid and verified WCAG AA contrast pairings. Every screen in the MVP-1 pack must consume these tokens; hard-coded hex values outside this table are a review blocker. White-label tenants may re-skin only the tokens marked "themeable".</div>
+
+<div class="banner reg"><b>Theme coverage</b><span class="chip green" style="margin-right:6px">LIGHT THEME — SHIPPED (MVP-1)</span><span class="chip grey">DARK THEME — ROADMAP (post-MVP, token-mapped, no screen rework expected)</span> All tokens below are defined for light theme; dark values will map 1:1 onto the same token names.</div>
+
+<div class="row">
+<div class="card grow">
+  <div class="card-title">Colour tokens — brand &amp; semantic <span class="right">Token / hex / usage rule</span></div>
+  <table>
+    <tr><th style="width:120px">Swatch</th><th>Token</th><th>Hex</th><th>Usage rule</th><th>Themeable</th></tr>
+    <tr>
+      <td><span style="display:inline-block;width:90px;height:26px;background:#0F766E;border-radius:5px"></span></td>
+      <td class="mono">color.brand.primary</td><td class="mono">#0F766E</td>
+      <td><b>Teal primary.</b> Primary buttons, active nav, focus ring, brand marks, KPI accents. Never used for status meaning — teal signals "interactive / brand", not "success".</td>
+      <td><span class="chip teal">YES — tenant brand</span></td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block;width:90px;height:26px;background:#CCFBF1;border:1px solid #E2E8F0;border-radius:5px"></span></td>
+      <td class="mono">color.brand.tint</td><td class="mono">#CCFBF1</td>
+      <td>Selected rows, active-nav background, brand chips. Text on this tint must be <span class="mono">#0F766E</span> or darker.</td>
+      <td><span class="chip teal">YES</span></td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block;width:90px;height:26px;background:#F59E0B;border-radius:5px"></span></td>
+      <td class="mono">color.sem.amber</td><td class="mono">#F59E0B <span class="muted">/ text #92400E on #FEF3C7</span></td>
+      <td><b>Warning / at-risk.</b> SLA nearing breach, overage, review-due, degraded provider. Amber always implies "act soon, not broken". Never decorate with amber.</td>
+      <td><span class="chip grey">NO — semantic</span></td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block;width:90px;height:26px;background:#B91C1C;border-radius:5px"></span></td>
+      <td class="mono">color.sem.red</td><td class="mono">#B91C1C <span class="muted">/ text on #FEE2E2</span></td>
+      <td><b>Danger / breach / destructive.</b> OVERDUE SLA chips, critical findings, destructive buttons and modal top-bars, validation errors. Red is reserved — one red action per view maximum.</td>
+      <td><span class="chip grey">NO</span></td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block;width:90px;height:26px;background:#15803D;border-radius:5px"></span></td>
+      <td class="mono">color.sem.green</td><td class="mono">#15803D <span class="muted">/ text on #DCFCE7</span></td>
+      <td><b>Success / verified / within-plan.</b> Completed steps, passing checks, delivered messages. Not for interactive elements.</td>
+      <td><span class="chip grey">NO</span></td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block;width:90px;height:26px;background:#0369A1;border-radius:5px"></span></td>
+      <td class="mono">color.sem.blue</td><td class="mono">#0369A1 <span class="muted">/ text on #E0F2FE</span></td>
+      <td><b>Informational / neutral status.</b> Info banners, legal/court-order categories, in-progress non-urgent states.</td>
+      <td><span class="chip grey">NO</span></td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block;width:90px;height:26px;background:#6D28D9;border-radius:5px"></span></td>
+      <td class="mono">color.sem.violet</td><td class="mono">#6D28D9 <span class="muted">/ text on #EDE9FE</span></td>
+      <td><b>Regulatory / governance / design-system.</b> Compliance banners (DPDP, AERB, PC-PNDT), attestations, policy chips. Never for errors or warnings.</td>
+      <td><span class="chip grey">NO</span></td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block;width:90px;height:26px;background:#1E293B;border-radius:5px"></span></td>
+      <td class="mono">color.text.primary</td><td class="mono">#1E293B</td>
+      <td>Default body text on white / #F4F6F8 surfaces.</td>
+      <td><span class="chip grey">NO</span></td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block;width:90px;height:26px;background:#64748B;border-radius:5px"></span></td>
+      <td class="mono">color.text.muted</td><td class="mono">#64748B</td>
+      <td>Secondary text, timestamps, hints. Minimum size 11px when used — never below.</td>
+      <td><span class="chip grey">NO</span></td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block;width:90px;height:26px;background:#E9EDF1;border:1px solid #CBD5E1;border-radius:5px"></span></td>
+      <td class="mono">color.surface.canvas</td><td class="mono">#E9EDF1 <span class="muted">· card #FFFFFF · frame #F4F6F8</span></td>
+      <td>Page canvas behind frames. Cards are always white with <span class="mono">#E2E8F0</span> borders.</td>
+      <td><span class="chip grey">NO</span></td>
+    </tr>
+  </table>
+</div>
+</div>
+
+<div class="row">
+<div class="card grow">
+  <div class="card-title">Typography scale <span class="right">System stack · -apple-system / Segoe UI / Roboto</span></div>
+  <table>
+    <tr><th>Token</th><th>Spec</th><th>Specimen</th><th>Use</th></tr>
+    <tr><td class="mono">type.h1</td><td class="mono">22px / 800</td><td><span style="font-size:22px;font-weight:800">Radiology worklist</span></td><td>Screen-head titles only (one per screen)</td></tr>
+    <tr><td class="mono">type.page-title</td><td class="mono">19px / 800</td><td><span style="font-size:19px;font-weight:800">Usage metering — July 2026</span></td><td>Page title inside .main (one per page)</td></tr>
+    <tr><td class="mono">type.card-title</td><td class="mono">14.5px / 800</td><td><span style="font-size:14.5px;font-weight:800">Per-tenant consumption</span></td><td>Card headers</td></tr>
+    <tr><td class="mono">type.body</td><td class="mono">14px / 400 · lh 1.45</td><td>Report verified by Dr. V. Shetty at 14:02 IST.</td><td>Default body copy</td></tr>
+    <tr><td class="mono">type.table</td><td class="mono">12.5px / 400</td><td><span style="font-size:12.5px">CT-ROOM-1 · AE MERIDCT1 · 212 studies</span></td><td>Table cells, kv values, banners</td></tr>
+    <tr><td class="mono">type.label</td><td class="mono">10.5px / 700 · caps · +.06em</td><td><span style="font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700">Studies metered</span></td><td>Table headers, kv keys, KPI labels, sec-labels</td></tr>
+    <tr><td class="mono">type.micro</td><td class="mono">11px / 400</td><td><span style="font-size:11px;color:#8A6D1D">🔒 Recorded in the access log.</span></td><td>Audit lines, hints. <b>Absolute floor — nothing smaller ships.</b></td></tr>
+    <tr><td class="mono">type.mono</td><td class="mono">SF Mono / Consolas ·.93em</td><td><span class="mono">MRN-2044-8812 · sha256 7bd3…91af</span></td><td>IDs, AE titles, hashes, timestamps in timelines</td></tr>
+  </table>
+</div>
+<div class="card" style="width:340px">
+  <div class="card-title">Spacing grid <span class="right">Base 4px</span></div>
+  <table>
+    <tr><th>Token</th><th>px</th><th>Use</th></tr>
+    <tr><td class="mono">space.1</td><td>4</td><td>chip padding-y, icon gaps</td></tr>
+    <tr><td class="mono">space.2</td><td>8</td><td>within-group gaps, field label→input</td></tr>
+    <tr><td class="mono">space.3</td><td>12</td><td>row/card internal gaps, banner margins</td></tr>
+    <tr><td class="mono">space.4</td><td>16</td><td>card padding, main padding</td></tr>
+    <tr><td class="mono">space.5</td><td>20–24</td><td>section separation, modal padding</td></tr>
+    <tr><td class="mono">space.7</td><td>28–34</td><td>screen outer padding</td></tr>
+  </table>
+  <div class="small muted" style="margin-top:8px">Radii: 5–7px controls · 8–10px cards/banners · 12px modals · 20px chips (pill). Off-grid values (e.g. 13px) never ship.</div>
+  <div style="margin-top:10px;display:flex;gap:0;align-items:flex-end">
+    <span style="width:4px;height:16px;background:#0F766E;margin-right:6px"></span>
+    <span style="width:8px;height:24px;background:#0F766E;margin-right:6px"></span>
+    <span style="width:12px;height:32px;background:#0F766E;margin-right:6px"></span>
+    <span style="width:16px;height:40px;background:#0F766E;margin-right:6px"></span>
+    <span style="width:24px;height:48px;background:#0F766E"></span>
+  </div>
+</div>
+</div>
+
+<div class="row">
+<div class="card grow">
+  <div class="card-title">WCAG AA contrast — verified pairings <span class="right">AA: ≥4.5:1 text · ≥3:1 large/UI</span></div>
+  <table>
+    <tr><th>Foreground</th><th>Background</th><th>Sample</th><th>Ratio</th><th>AA</th></tr>
+    <tr><td class="mono">#1E293B</td><td class="mono">#FFFFFF</td><td><span style="background:#fff;border:1px solid #E2E8F0;padding:2px 8px;border-radius:4px;color:#1E293B">Body text</span></td><td class="mono">14.9:1</td><td><span class="chip green">PASS</span></td></tr>
+    <tr><td class="mono">#64748B</td><td class="mono">#FFFFFF</td><td><span style="background:#fff;border:1px solid #E2E8F0;padding:2px 8px;border-radius:4px;color:#64748B">Muted text</span></td><td class="mono">4.8:1</td><td><span class="chip green">PASS</span></td></tr>
+    <tr><td class="mono">#FFFFFF</td><td class="mono">#0F766E</td><td><span style="background:#0F766E;padding:2px 8px;border-radius:4px;color:#fff">Primary btn</span></td><td class="mono">5.9:1</td><td><span class="chip green">PASS</span></td></tr>
+    <tr><td class="mono">#0F766E</td><td class="mono">#CCFBF1</td><td><span style="background:#CCFBF1;padding:2px 8px;border-radius:4px;color:#0F766E;font-weight:700">Teal chip</span></td><td class="mono">5.1:1</td><td><span class="chip green">PASS</span></td></tr>
+    <tr><td class="mono">#92400E</td><td class="mono">#FEF3C7</td><td><span style="background:#FEF3C7;padding:2px 8px;border-radius:4px;color:#92400E;font-weight:700">Amber chip</span></td><td class="mono">7.3:1</td><td><span class="chip green">PASS</span></td></tr>
+    <tr><td class="mono">#B91C1C</td><td class="mono">#FEE2E2</td><td><span style="background:#FEE2E2;padding:2px 8px;border-radius:4px;color:#B91C1C;font-weight:700">Red chip</span></td><td class="mono">5.4:1</td><td><span class="chip green">PASS</span></td></tr>
+    <tr><td class="mono">#15803D</td><td class="mono">#DCFCE7</td><td><span style="background:#DCFCE7;padding:2px 8px;border-radius:4px;color:#15803D;font-weight:700">Green chip</span></td><td class="mono">4.6:1</td><td><span class="chip green">PASS</span></td></tr>
+    <tr><td class="mono">#0369A1</td><td class="mono">#E0F2FE</td><td><span style="background:#E0F2FE;padding:2px 8px;border-radius:4px;color:#0369A1;font-weight:700">Blue chip</span></td><td class="mono">5.6:1</td><td><span class="chip green">PASS</span></td></tr>
+    <tr><td class="mono">#6D28D9</td><td class="mono">#EDE9FE</td><td><span style="background:#EDE9FE;padding:2px 8px;border-radius:4px;color:#6D28D9;font-weight:700">Violet chip</span></td><td class="mono">6.2:1</td><td><span class="chip green">PASS</span></td></tr>
+    <tr><td class="mono">#FFFFFF</td><td class="mono">#F59E0B</td><td><span style="background:#F59E0B;padding:2px 8px;border-radius:4px;color:#fff;font-weight:700">White on amber</span></td><td class="mono">2.2:1</td><td><span class="chip red">FAIL — banned</span></td></tr>
+  </table>
+  <div class="small muted" style="margin-top:8px">Rule: white text on raw amber fails AA and is banned everywhere — amber surfaces always carry <span class="mono">#92400E</span> text. Focus indicator: 2px <span class="mono">#0F766E</span> ring, ≥3:1 against adjacent surface.</div>
+</div>
+<div class="card" style="width:340px">
+  <div class="card-title">Do / Don't</div>
+  <table>
+    <tr><th style="width:50%">✓ Do</th><th>✗ Don't</th></tr>
+    <tr>
+      <td><span class="chip red">OVERDUE · 2H 14M</span><div class="small muted" style="margin-top:4px">Red = breached SLA, with elapsed time + owner</div></td>
+      <td><span class="chip teal">OVERDUE</span><div class="small muted" style="margin-top:4px">Never encode status in brand teal</div></td>
+    </tr>
+    <tr>
+      <td><span class="btn primary small">Verify report</span> <span class="btn small">Cancel</span><div class="small muted" style="margin-top:4px">One primary action per view</div></td>
+      <td><span class="btn primary small">Save</span> <span class="btn primary small">Send</span><div class="small muted" style="margin-top:4px">Competing primaries — banned</div></td>
+    </tr>
+    <tr>
+      <td><span style="font-size:11px;color:#64748B">Hint at 11px minimum</span></td>
+      <td><span style="font-size:9px;color:#94A3B8">9px grey-on-grey fine print</span><div class="small muted" style="margin-top:4px">Below floor + fails contrast</div></td>
+    </tr>
+    <tr>
+      <td><span class="chip violet">DPDP CONSENT</span><div class="small muted" style="margin-top:4px">Violet reserved for governance</div></td>
+      <td><span class="chip violet">NEW!</span><div class="small muted" style="margin-top:4px">No decorative use of semantic tokens</div></td>
+    </tr>
+  </table>
+</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE B — THEME MATRIX (LIGHT SHIPPED · DARK ROADMAP)</div>
+<div class="card">
+  <div class="card-title">Theme readiness per token group</div>
+  <table>
+    <tr><th>Token group</th><th>Light (MVP-1)</th><th>Dark</th><th>White-label override</th><th>Note</th></tr>
+    <tr><td>Brand (primary, tint)</td><td><span class="chip green">SHIPPED</span></td><td><span class="chip grey">ROADMAP</span></td><td><span class="chip teal">TENANT-THEMEABLE</span></td><td>Tenant brand colour must pass the AA table above before activation — the console blocks failing hexes.</td></tr>
+    <tr><td>Semantic (amber/red/green/blue/violet)</td><td><span class="chip green">SHIPPED</span></td><td><span class="chip grey">ROADMAP</span></td><td><span class="chip red">LOCKED</span></td><td>Clinical-safety colours are never overridable, on any plan.</td></tr>
+    <tr><td>Surfaces &amp; text</td><td><span class="chip green">SHIPPED</span></td><td><span class="chip grey">ROADMAP</span></td><td><span class="chip red">LOCKED</span></td><td>Dark theme remaps surfaces only; component markup is untouched.</td></tr>
+    <tr><td>Typography &amp; spacing</td><td><span class="chip green">SHIPPED</span></td><td><span class="chip green">THEME-INDEPENDENT</span></td><td><span class="chip red">LOCKED</span></td><td>Scale identical across themes and tenants.</td></tr>
+  </table>
+</div>
+<p class="audit">Token changes are versioned; any tenant brand-colour override and its contrast-check result are recorded in the access log.</p>
+</section>
+<section class="screen" id="ds-02">
+<div class="screen-head"><h1><span class="sid">DS-02</span> Components gallery</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM</span><div class="cluster">G16 + G17 — OPERATOR CONSOLE / DESIGN SYSTEM DOCS</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · component gallery & rules</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Canonical specimens of every reusable component in the MVP-1 pack, each paired with its usage rules. Designers copy from here, never improvise; reviewers reject any screen whose components deviate from these specimens. The anti-patterns row at the bottom shows the exact constructions that fail design review.</div>
+
+<div class="row">
+<div class="card grow">
+  <div class="card-title">Chips — status &amp; category <span class="right">All variants</span></div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
+    <span class="chip teal">MVP1-CORE</span>
+    <span class="chip green">VERIFIED</span>
+    <span class="chip amber">SLA · 38M LEFT · Dr. V. Shetty</span>
+    <span class="chip red">OVERDUE · 2H 14M · T. Okafor</span>
+    <span class="chip grey">DRAFT</span>
+    <span class="chip blue">IN PROGRESS</span>
+    <span class="chip violet">DPDP CONSENT</span>
+    <span class="chip outline-red">BREAK-GLASS</span>
+  </div>
+  <table>
+    <tr><th>Variant</th><th>When to use</th></tr>
+    <tr><td><span class="chip teal">teal</span></td><td>Brand/plan tags, module tags. Never a status.</td></tr>
+    <tr><td><span class="chip green">green</span></td><td>Terminal good states: verified, delivered, paid, pass.</td></tr>
+    <tr><td><span class="chip amber">amber</span></td><td>At-risk SLA (&lt;25% window left), overage, review-due. SLA chips always carry remaining time + owner.</td></tr>
+    <tr><td><span class="chip red">red</span></td><td>Breach/critical only. SLA breach reads "OVERDUE · elapsed · owner" — never a bare "LATE".</td></tr>
+    <tr><td><span class="chip grey">grey</span></td><td>Neutral/inactive: draft, pending, roadmap, disabled.</td></tr>
+    <tr><td><span class="chip blue">blue</span></td><td>Informational in-flight states without urgency.</td></tr>
+    <tr><td><span class="chip violet">violet</span></td><td>Regulatory/governance (DPDP, AERB, PC-PNDT) and design-system labels only.</td></tr>
+    <tr><td><span class="chip outline-red">outline-red</span></td><td>Exceptional privileged contexts (break-glass, impersonation). Max one visible per screen.</td></tr>
+  </table>
+</div>
+<div class="card grow">
+  <div class="card-title">Banners — five intents</div>
+  <div class="banner info"><b>Info</b>Context the user should know; no action required. Example: mirror-sync explanation on metering.</div>
+  <div class="banner warn"><b>Warning</b>Action needed soon; service still working. Example: SMS overage under soft-cap policy.</div>
+  <div class="banner danger"><b>Danger</b>Breach, destructive context or active privileged session. Persistent while the condition holds — never auto-dismisses.</div>
+  <div class="banner success"><b>Success</b>Completed operation with durable evidence (ids, timestamps). Prefer inline over toast for auditability.</div>
+  <div class="banner reg" style="margin-bottom:0"><b>Regulatory</b>Compliance/privacy framing: DPDP notices, retention rules, zero-standing-access attestations, metering accuracy.</div>
+  <div class="small muted" style="margin-top:8px">Rules: one banner intent per condition; max two banners stacked before content; banner <b>b</b> line states the fact, body states the consequence and next step.</div>
+</div>
+</div>
+
+<div class="row">
+<div class="card grow">
+  <div class="card-title">Buttons — hierarchy <span class="right">One primary per view</span></div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:10px">
+    <span class="btn primary">Verify &amp; sign report</span>
+    <span class="btn">Save draft</span>
+    <span class="btn warn-outline">Override SLA target…</span>
+    <span class="btn danger">Delete study…</span>
+    <span class="btn ghost">View audit trail</span>
+    <span class="btn small">Small</span>
+    <span class="btn primary disabled">Disabled primary</span>
+  </div>
+  <table>
+    <tr><th>Level</th><th>Rule</th></tr>
+    <tr><td><b>Primary (teal)</b></td><td>Exactly one per view — the single most likely correct action. Two primaries on one screen is an automatic review failure.</td></tr>
+    <tr><td><b>Secondary (outline)</b></td><td>Safe alternatives: save draft, cancel, back. Unlimited, but ≤3 per action row.</td></tr>
+    <tr><td><b>Warn-outline</b></td><td>Reversible but consequential (overrides, re-sends). Ends with "…" when a confirmation follows.</td></tr>
+    <tr><td><b>Danger (red)</b></td><td>Destructive/irreversible. Always opens a destructive modal — never acts directly. Max one per view.</td></tr>
+    <tr><td><b>Ghost</b></td><td>Tertiary navigation-like actions inside cards/tables.</td></tr>
+    <tr><td><b>Disabled</b></td><td>Only when the enabling condition is stated nearby (e.g. "Complete step-up to enable"). Never disable without telling why.</td></tr>
+  </table>
+</div>
+<div class="card" style="width:360px">
+  <div class="card-title">KPI tiles &amp; steppers</div>
+  <div class="kpi-row" style="margin-bottom:10px">
+    <div class="kpi"><div class="n">41</div><div class="l">Unreported</div><div class="s">within SLA</div></div>
+    <div class="kpi amber"><div class="n">6</div><div class="l">Due &lt;1h</div><div class="s">owner assigned</div></div>
+    <div class="kpi red"><div class="n">2</div><div class="l">Overdue</div><div class="s">escalated</div></div>
+  </div>
+  <div class="stepper">
+    <div class="step done"><span class="dot">✓</span>Registered</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span>Scanned</div><span class="step-line"></span>
+    <div class="step cur"><span class="dot">3</span>Reporting</div><span class="step-line"></span>
+    <div class="step"><span class="dot">4</span>Verified</div>
+  </div>
+  <table>
+    <tr><th>Rule</th></tr>
+    <tr><td>KPI accent colour = worst state it counts (red tile for overdue). 3–5 tiles per row; every tile needs the small context line.</td></tr>
+    <tr><td>Steppers are linear workflows only (≤6 steps); current step teal, done green. Branching flows use the ladder component instead.</td></tr>
+  </table>
+</div>
+</div>
+
+<div class="row">
+<div class="card grow">
+  <div class="card-title">Tables — header, row states, empty</div>
+  <table style="margin-bottom:10px">
+    <tr><th>Accession</th><th>Patient</th><th>Modality</th><th>Status</th><th>SLA</th></tr>
+    <tr><td class="mono">ACC-26-11842</td><td>Ravi S. · M/54 <span class="mono small muted">MRN-2044-8812</span></td><td>CT · CT-ROOM-1</td><td><span class="chip blue">IN PROGRESS</span></td><td><span class="chip teal">3H 20M LEFT</span></td></tr>
+    <tr class="hl"><td class="mono">ACC-26-11845</td><td>Meera K. · F/41</td><td>US · US-UNIT-2</td><td><span class="chip amber">AWAITING VERIFY</span></td><td><span class="chip amber">38M · Dr. V. Shetty</span></td></tr>
+    <tr><td class="mono">ACC-26-11851</td><td>Anil P. · M/67</td><td>MRI · MRI-ROOM-2</td><td><span class="chip red">OVERDUE</span></td><td><span class="chip red">OVERDUE · 2H 14M</span></td></tr>
+    <tr class="dim"><td class="mono">ACC-26-11809</td><td>Sunita D. · F/33</td><td>CT</td><td><span class="chip grey">CANCELLED</span></td><td>—</td></tr>
+  </table>
+  <div style="border:1.5px dashed #CBD5E1;border-radius:8px;padding:18px;text-align:center;color:#64748B;font-size:12.5px;margin-bottom:10px">
+    <b style="color:#334155">No studies match these filters</b><br/>Try widening the date range or clearing the modality filter.<br/><span class="btn small" style="margin-top:8px">Clear filters</span>
+  </div>
+  <table>
+    <tr><th>Rule</th></tr>
+    <tr><td>Headers uppercase 10.5px; <span class="mono">.hl</span> = selected/attention row; <span class="mono">.dim</span> = terminal-inactive. Never colour whole rows red — status lives in chips.</td></tr>
+    <tr><td>Empty states always say why it's empty and offer one recovery action. A bare "No data" never ships.</td></tr>
+    <tr><td>Identifiers (accession, MRN, AE title, hash) always render in <span class="mono">.mono</span>.</td></tr>
+  </table>
+</div>
+<div class="card" style="width:360px">
+  <div class="card-title">KV grids</div>
+  <div class="kv" style="margin-bottom:10px">
+    <dt>Patient</dt><dd>Meera K. · F/41 · <span class="mono">MRN-2044-8812</span></dd>
+    <dt>Consent</dt><dd><span class="chip violet">DPDP · RECORDED 22 JUL</span></dd>
+    <dt>Referrer</dt><dd>Dr. A. Kulkarni · Lilavati Hospital</dd>
+    <dt>Payment</dt><dd>₹4,800 · UPI · <span class="chip green">PAID</span> · P. D'Souza</dd>
+  </div>
+  <table>
+    <tr><th>Rule</th></tr>
+    <tr><td>KV grids for read-only summaries of one entity (≤10 pairs). Keys uppercase-label style; values may embed chips and mono ids.</td></tr>
+    <tr><td>Editable data never appears in a KV grid — use form fields; mixing read-only and inputs in one grid is banned.</td></tr>
+  </table>
+</div>
+</div>
+
+<div class="row">
+<div class="card grow">
+  <div class="card-title">Modals — standard vs destructive <span class="right">Destructive = red top-bar + typed confirm</span></div>
+  <div class="row">
+    <div class="grow">
+      <div class="modal" style="max-width:none;margin:0 0 8px">
+        <h3>Reassign study to Dr. V. Shetty?</h3>
+        <p class="small" style="margin-bottom:4px">ACC-26-11845 moves to Dr. Shetty's verification queue. The current owner is notified.</p>
+        <div class="modal-actions"><span class="btn small">Cancel</span><span class="btn primary small">Reassign</span></div>
+      </div>
+      <div class="small muted">Standard: teal top-bar, one primary, Esc/Cancel always available.</div>
+    </div>
+    <div class="grow">
+      <div class="modal danger" style="max-width:none;margin:0 0 8px">
+        <h3>Delete study ACC-26-11809 permanently?</h3>
+        <div class="banner danger" style="margin-bottom:8px"><b>Irreversible</b>Images and report drafts are destroyed after the 30-day recovery hold.</div>
+        <div class="field" style="margin-bottom:0"><label>Type the accession number to confirm <span class="req">*</span></label><input class="input" placeholder="ACC-26-11809"/><div class="hint">Step-up (TOTP/passkey) required · second-approver required for verified studies.</div></div>
+        <div class="modal-actions"><span class="btn small">Cancel</span><span class="btn danger small disabled">Delete permanently</span></div>
+      </div>
+      <div class="small muted">Destructive: red top-bar, typed confirmation, danger button disabled until the typed value matches, step-up identity check, dual control where policy demands.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE B — ANTI-PATTERNS (WHAT NOT TO DO · ALL FAIL REVIEW)</div>
+<div class="card" style="border-color:#FCA5A5">
+  <div class="card-title" style="color:#991B1B">Anti-patterns — each specimen below is a review blocker</div>
+  <table>
+    <tr><th style="width:34%">✗ Anti-pattern specimen</th><th>Why it fails</th><th>Correct construction</th></tr>
+    <tr>
+      <td><span class="btn primary small">Save</span> <span class="btn primary small">Submit</span> <span class="btn primary small">Send</span></td>
+      <td>Three competing primaries — user cannot tell the intended action.</td>
+      <td>One <span class="btn primary small">Submit</span> + secondaries <span class="btn small">Save draft</span></td>
+    </tr>
+    <tr>
+      <td><span class="btn danger small">Delete tenant</span> <span class="small muted">(acts immediately)</span></td>
+      <td>Destructive action without modal, typed confirm, step-up or dual control.</td>
+      <td>Danger button → destructive modal with typed confirm + second approver.</td>
+    </tr>
+    <tr>
+      <td><span class="chip red">LATE</span></td>
+      <td>Bare breach chip: no elapsed time, no owner — nobody is accountable.</td>
+      <td><span class="chip red">OVERDUE · 2H 14M · Dr. V. Shetty</span></td>
+    </tr>
+    <tr>
+      <td><span style="background:#F59E0B;color:#fff;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700">PENDING</span></td>
+      <td>White on raw amber — 2.2:1, fails WCAG AA (see DS-01 contrast table).</td>
+      <td><span class="chip amber">PENDING</span> — dark amber text on tint.</td>
+    </tr>
+    <tr>
+      <td><span class="chip teal">FAILED</span> <span class="chip violet">50% OFF</span></td>
+      <td>Semantic misuse: brand teal carrying error meaning; regulatory violet used decoratively.</td>
+      <td><span class="chip red">FAILED</span> · promotional chips do not exist in this system.</td>
+    </tr>
+    <tr>
+      <td><div style="border:1px solid #E2E8F0;border-radius:6px;padding:8px;font-size:12px;color:#94A3B8;text-align:center">No data</div></td>
+      <td>Empty state with no explanation and no recovery action.</td>
+      <td>State why + one action ("No studies match these filters" + Clear filters).</td>
+    </tr>
+    <tr>
+      <td><span class="btn small disabled">Export</span> <span class="small muted">(no explanation anywhere)</span></td>
+      <td>Silent disabled control — user cannot learn how to enable it.</td>
+      <td>Disabled + adjacent hint: "Complete TOTP step-up to enable export."</td>
+    </tr>
+    <tr>
+      <td><span class="small" style="color:#15803D">Patient data deleted successfully ✓ (toast, auto-dismiss 3s)</span></td>
+      <td>Privacy-significant outcome shown only as a vanishing toast — no durable evidence.</td>
+      <td>Inline success banner with timestamp, actor and reference id, plus audit-log line.</td>
+    </tr>
+  </table>
+</div>
+<p class="audit">Design-review outcomes referencing these specimens (pass/fail per screen) are versioned with the pack; component deviations approved by exception are recorded in the access log.</p>
+</section>
+<section class="screen" id="ds-03">
+<div class="screen-head"><h1><span class="sid">DS-03</span> SLA &amp; Escalation Pattern</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM</span><div class="cluster">G17 Design System &amp; Patterns — documentation pages</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · NS-16 SLA/escalation pattern (product-wide)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> One countdown pattern for every timed obligation in Magnus — clinical (STAT reads, critical results), operational (unmatched studies, approvals) and regulatory (DPDP data-subject requests). Every SLA surface uses the same four visual states, the same owner chip, and the same escalation ladder so staff never re-learn urgency semantics between modules. This page is normative: product teams configure the schema in Section B; they do not invent new countdown treatments.</div>
+
+<div class="state-tag">STATE A — THE FOUR COUNTDOWN STATES</div>
+<div class="card">
+  <div class="card-title">Countdown chip anatomy — the only four allowed states <span class="right">normative</span></div>
+  <div class="row" style="align-items:stretch">
+    <div class="grow card" style="margin-bottom:0;border-left:4px solid #0F766E">
+      <div class="small bold" style="letter-spacing:.06em;color:#64748B;text-transform:uppercase;margin-bottom:8px">1 · On-track (&lt; warn threshold)</div>
+      <span class="chip teal">⏱ 22m left · STAT read</span>
+      <div class="small muted" style="margin-top:8px">Teal chip. Countdown in minutes. No owner shown — the assigned queue owns it. No pulsing, no sound.</div>
+      <div class="small mono" style="margin-top:6px">chip.teal · "⏱ {remaining} left · {sla-name}"</div>
+    </div>
+    <div class="grow card" style="margin-bottom:0;border-left:4px solid #F59E0B">
+      <div class="small bold" style="letter-spacing:.06em;color:#64748B;text-transform:uppercase;margin-bottom:8px">2 · Warning (≥ warn %, default 75%)</div>
+      <span class="chip amber">⏱ 7m left · STAT read</span> <span class="chip grey">Owner: Dr. V. Shetty</span>
+      <div class="small muted" style="margin-top:8px">Amber chip. Named owner chip becomes <b>mandatory</b> — an SLA in warning always has one accountable human, never just a queue.</div>
+      <div class="small mono" style="margin-top:6px">chip.amber + chip.grey owner · row gains tr.hl</div>
+    </div>
+  </div>
+  <div class="row" style="align-items:stretch;margin-top:14px">
+    <div class="grow card" style="margin-bottom:0;border-left:4px solid #B91C1C">
+      <div class="small bold" style="letter-spacing:.06em;color:#64748B;text-transform:uppercase;margin-bottom:8px">3 · Breached</div>
+      <span class="chip red">OVERDUE +18m · STAT read</span> <span class="chip grey">Owner: Dr. V. Shetty</span>
+      <div class="banner danger" style="margin:10px 0 8px"><b>Escalated 14:42 IST → Radiology lead (K. Verma) notified via DLT SMS (Jio route) + in-app.</b>Tier-2 fires automatically; quiet hours are never applied to clinical SLAs. Escalation line is permanent — it does not clear when the item is resolved.</div>
+      <div style="display:flex;gap:8px"><span class="btn small primary">Reassign now</span><span class="btn small">Add covering reader</span><span class="btn small ghost">View escalation ladder</span></div>
+      <div class="small muted" style="margin-top:8px">Word is always <b>OVERDUE</b> (uppercase) + elapsed overage. Actions render inline on the breached row — the user must never navigate to act.</div>
+    </div>
+    <div class="grow card" style="margin-bottom:0;border-left:4px solid #15803D">
+      <div class="small bold" style="letter-spacing:.06em;color:#64748B;text-transform:uppercase;margin-bottom:8px">4 · Resolved-late</div>
+      <span class="chip green">Resolved · was OVERDUE +18m</span> <span class="chip grey">Closed by Dr. V. Shetty · 15:00 IST</span>
+      <div class="small muted" style="margin-top:8px">Green chip, but the overage is retained in the label forever. Resolved-late items count against SLA attainment reports; the UI must not visually launder a late close into an on-time one.</div>
+      <div class="small mono" style="margin-top:6px">chip.green · "Resolved · was OVERDUE +{overage}"</div>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-title">State usage rules <span class="right">do / don't</span></div>
+  <table>
+    <tr><th style="width:34%">Rule</th><th>Do</th><th>Don't</th></tr>
+    <tr><td class="bold">One clock per obligation</td><td>Show a single countdown chip per SLA per row, sourced from the server clock (IST).</td><td>Never render two clocks for the same obligation, and never compute remaining time client-side from local device time.</td></tr>
+    <tr><td class="bold">Owner appears at warning</td><td>Attach a named owner chip the moment warn % is crossed; auto-assign per config if unassigned.</td><td>Don't show "Unassigned" on a warning/breached row — the escalation engine must assign before render.</td></tr>
+    <tr><td class="bold">Breach vocabulary</td><td>Exactly "OVERDUE +{elapsed}". Red chip.</td><td>No euphemisms ("delayed", "at risk", "past due"), no blinking, no red row backgrounds — chip only.</td></tr>
+    <tr><td class="bold">Late closes stay visible</td><td>Retain "was OVERDUE +18m" in the resolved chip and in exports.</td><td>Don't collapse resolved-late into a plain "Done" state anywhere, including dashboards.</td></tr>
+    <tr><td class="bold">Sorting</td><td>Queues default-sort: BREACHED (by overage desc) → warning (by remaining asc) → on-track.</td><td>Don't let a saved user sort hide breached rows below the fold; breached rows pin above pagination.</td></tr>
+  </table>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ESCALATION CONFIG SCHEMA</div>
+<div class="card">
+  <div class="card-title">SLA definition schema — org-admin editable, versioned <span class="right">config contract</span></div>
+  <table>
+    <tr><th style="width:180px">Field</th><th style="width:120px">Type / default</th><th>Semantics</th></tr>
+    <tr><td class="mono">sla.duration</td><td class="mono">minutes</td><td>Full window from trigger event to breach. Trigger event is defined per SLA (e.g. STAT read starts at study QC-complete, not at order time).</td></tr>
+    <tr><td class="mono">sla.warn_pct</td><td class="mono">int · 75</td><td>Percentage of window elapsed at which state 2 fires. Clinical SLAs may lower this (e.g. 50%) but may never raise it above 80.</td></tr>
+    <tr><td class="mono">sla.breach_owner_role</td><td class="mono">role ref</td><td>Role that becomes accountable at breach if no individual owner exists (e.g. <span class="mono">rad.lead</span>, <span class="mono">branch.manager</span>). Resolved to a named on-duty person at fire time from the roster.</td></tr>
+    <tr><td class="mono">sla.tier2_delay</td><td class="mono">minutes · 15</td><td>Delay after breach before tier-2 escalation (next role up + SMS channel added). Tier-3 = tier-2 delay ×2, capped at org admin.</td></tr>
+    <tr><td class="mono">sla.channels</td><td class="mono">list</td><td>In-app always; tier-2 adds DLT SMS (Jio route); WhatsApp BSP allowed for non-clinical only. Patient-facing channels are never used for staff escalation.</td></tr>
+    <tr><td class="mono">sla.quiet_hours</td><td class="mono">enum</td><td><span class="chip red">never-for-clinical</span> Clinical class SLAs (STAT read, critical ack) hard-ignore quiet hours — this flag is read-only <span class="mono">NONE</span> for them in the admin UI. Operational SLAs may defer tier-2 SMS to 07:00 IST, but the in-app breach state still renders immediately.</td></tr>
+    <tr><td class="mono">sla.pause_rules</td><td class="mono">list</td><td>Only allowed pause: patient-caused hold (e.g. patient left premises), recorded with reason + actor. No silent pauses; paused chips render grey "⏸ paused — {reason}".</td></tr>
+  </table>
+  <div class="banner reg" style="margin-top:12px"><b>Governance.</b> Editing any clinical-class SLA definition requires step-up identity confirmation (TOTP/passkey) and a second approver (four-eyes) with the <span class="mono">clinical.governance</span> role. Config changes are versioned; live countdowns keep the definition version they started under.</div>
+</div>
+<div class="card">
+  <div class="card-title">Escalation ladder — reference rendering <span class="right">component: .ladder</span></div>
+  <div class="ladder">
+    <div class="tier done"><b>Tier 0 · 14:00 IST — SLA started.</b> <span class="small muted">Trigger: CT study MRD-2026-018834 QC-complete on CT-ROOM-1 (AE MERIDCT1), flagged STAT.</span></div>
+    <div class="tier done"><b>Tier 1 · 14:22 IST — warning (75%).</b> <span class="small muted">Owner assigned: Dr. V. Shetty. In-app nudge only.</span></div>
+    <div class="tier cur"><b>Tier 2 · 14:45 IST — breach +15m.</b> <span class="small muted">Radiology lead K. Verma notified: in-app + DLT SMS (Jio route). Quiet hours ignored (clinical class).</span></div>
+    <div class="tier"><b>Tier 3 · 15:15 IST — breach +45m (scheduled).</b> <span class="small muted">Branch manager + org-admin dashboard flag; incident record auto-opened.</span></div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — WORKED EXAMPLES: EVERY PRODUCT SLA MAPPED</div>
+<div class="card">
+  <div class="card-title">Product SLA registry (MVP-1) — all timed obligations use this pattern <span class="right">exhaustive</span></div>
+  <table>
+    <tr><th>SLA</th><th>Class</th><th>Window</th><th>Warn %</th><th>Breach owner role</th><th>Tier-2 delay</th><th>Quiet hours</th><th>Example chip at breach</th></tr>
+    <tr class="hl"><td class="bold">STAT read turnaround</td><td><span class="chip red">clinical</span></td><td>60 min from QC-complete</td><td>50%</td><td class="mono">rad.lead</td><td>15 min</td><td class="mono">NONE</td><td><span class="chip red">OVERDUE +18m · STAT read</span></td></tr>
+    <tr class="hl"><td class="bold">Critical result acknowledgement</td><td><span class="chip red">clinical</span></td><td>30 min from result flagged critical</td><td>50%</td><td class="mono">referring.contact-desk</td><td>10 min</td><td class="mono">NONE</td><td><span class="chip red">OVERDUE +6m · critical ack</span></td></tr>
+    <tr><td class="bold">Unmatched study reconciliation</td><td><span class="chip amber">operational</span></td><td>4 h from receipt (e.g. from US-UNIT-2 / AE MERIDUS2)</td><td>75%</td><td class="mono">tech.supervisor</td><td>30 min</td><td>SMS defers to 07:00 IST</td><td><span class="chip red">OVERDUE +41m · unmatched study</span></td></tr>
+    <tr><td class="bold">Patient complaint first response</td><td><span class="chip amber">operational</span></td><td>48 h from lodgement</td><td>75%</td><td class="mono">branch.manager</td><td>4 h</td><td>SMS defers to 07:00 IST</td><td><span class="chip red">OVERDUE +3h · complaint</span></td></tr>
+    <tr><td class="bold">DSR fulfilment (DPDP)</td><td><span class="chip violet">regulatory</span></td><td>30 days; warning fixed at day 28</td><td>day-28 (fixed)</td><td class="mono">dpo (org)</td><td>24 h</td><td>SMS defers to 07:00 IST</td><td><span class="chip red">OVERDUE +2d · DSR MDS-DSR-0142</span></td></tr>
+    <tr><td class="bold">Approval requests (rate cards, refunds, access grants)</td><td><span class="chip amber">operational</span></td><td>4 h business time</td><td>75%</td><td class="mono">org.admin</td><td>60 min</td><td>SMS defers to 07:00 IST</td><td><span class="chip red">OVERDUE +55m · approval</span></td></tr>
+  </table>
+  <div class="small muted" style="margin-top:10px">Any new timed obligation added to Magnus MUST register here and inherit this pattern. A feature shipping its own bespoke countdown fails design review. Regulatory-class windows (DSR) count calendar days; operational windows count branch business hours; clinical windows count wall-clock minutes.</div>
+</div>
+<p class="audit">Design-system pages are versioned artefacts (DS-03 v1.4, updated 21 Jul 2026 IST by K. Verma). SLA definition edits, escalation fires, reassignments and late closes are each written to the immutable audit trail and recorded in the access log.</p>
+</section>
+<section class="screen" id="ds-04">
+<div class="screen-head"><h1><span class="sid">DS-04</span> Offline / Degraded / Sync Pattern</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM</span><div class="cluster">G17 Design System &amp; Patterns — documentation pages</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · offline/degraded/sync pattern (checklist #13/#14)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Indian diagnostics branches lose connectivity routinely; Magnus degrades predictably instead of failing randomly. This page defines the three-level banner hierarchy every module must use, the action-queue contract for offline-captured work, the sync-conflict resolution modal, and the hard capability matrix that says which modules may work offline at all. The matrix is normative — report signing is NEVER offline, no exceptions.</div>
+
+<div class="state-tag">STATE A — BANNER HIERARCHY (THREE LEVELS, NO OTHERS)</div>
+<div class="card">
+  <div class="card-title">Level 1 · Offline-supported (info blue) <span class="right">banner.info</span></div>
+  <div class="banner info"><b>⬇ Working offline — this module supports it.</b> Front-office registration continues on the branch cache. 6 actions queued locally · original timestamps preserved · will sync automatically when the link returns. Last successful sync 11:42 IST.</div>
+  <table>
+    <tr><th style="width:30%">Rule</th><th>Specification</th></tr>
+    <tr><td class="bold">When shown</td><td>Connection lost AND the current module is marked <b>full</b> or <b>partial</b> in the capability matrix (State C). Pinned below the topbar, non-dismissible, updates queue count live.</td></tr>
+    <tr><td class="bold">Tone</td><td>Reassuring, factual. Always states: queue count, timestamp policy, last successful sync time (IST). Never says "error".</td></tr>
+    <tr><td class="bold">Forbidden</td><td>No modal takeover, no toast spam, no per-keystroke warnings. One pinned banner is the entire treatment.</td></tr>
+  </table>
+</div>
+<div class="card">
+  <div class="card-title">Level 2 · Degraded (amber) <span class="right">banner.warn</span></div>
+  <div class="banner warn"><b>⚠ Degraded — some functions paused.</b> PACS link to CT-ROOM-1 (AE MERIDCT1) is intermittent since 12:03 IST. Worklists show the read-cache as of 12:03 IST and are marked "cached". New study arrivals may be delayed; billing runs in draft-only mode. Owner: T. Okafor (technologist on duty) · auto-retry every 60s.</div>
+  <table>
+    <tr><th style="width:30%">Rule</th><th>Specification</th></tr>
+    <tr><td class="bold">When shown</td><td>Partial failure: one upstream (PACS, payment gateway UPI, DLT SMS, WhatsApp BSP) is down or flapping while the app itself is reachable.</td></tr>
+    <tr><td class="bold">Must state</td><td>(1) which dependency, (2) since when (IST), (3) exactly what is paused vs. still working, (4) a named on-duty owner, (5) retry cadence. Cached data anywhere on screen carries a <span class="chip grey">cached 12:03 IST</span> chip.</td></tr>
+    <tr><td class="bold">Forbidden</td><td>Never show stale data without the cached chip; never let a degraded module silently drop writes — it queues (level 1 behaviour) or blocks (level 3), nothing in between.</td></tr>
+  </table>
+</div>
+<div class="card">
+  <div class="card-title">Level 3 · Blocked (red) <span class="right">banner.danger</span></div>
+  <div class="banner danger"><b>⛔ Report signing is unavailable offline.</b> Signing requires a live server-side identity check and hash-chain write; it cannot be queued. Your draft for study MRD-2026-018834 is saved locally and intact. Signing re-enables automatically when the connection returns — nothing to redo. Why: a queued signature could be replayed against a report edited after you last saw it.</div>
+  <table>
+    <tr><th style="width:30%">Rule</th><th>Specification</th></tr>
+    <tr><td class="bold">When shown</td><td>User attempts an action marked <b>never-offline</b> in the capability matrix. Rendered at the point of action (replaces the primary button area), plus the pinned level-1/2 banner stays.</td></tr>
+    <tr><td class="bold">Must state</td><td>(1) what is blocked, (2) that in-progress work is preserved, (3) that recovery is automatic, (4) one-sentence rationale ("Why:") — users obey rules they understand.</td></tr>
+    <tr><td class="bold">Forbidden</td><td>The blocked action's button renders <span class="btn small disabled">Sign report</span> disabled — never hidden, never enabled-then-erroring.</td></tr>
+  </table>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ACTION QUEUE SPEC + SYNC-CONFLICT MODAL</div>
+<div class="card">
+  <div class="card-title">Offline action-queue table — contract <span class="right">normative</span></div>
+  <table>
+    <tr><th>#</th><th>Queued (device, IST)</th><th>Actor</th><th>Action</th><th>Subject</th><th>Replay order</th><th>Status</th></tr>
+    <tr><td class="mono">1</td><td class="mono">12:04:11</td><td>D. Nair</td><td>Register walk-in patient</td><td>A. Kulkarni (masked: A. K•••••ni)</td><td class="mono">1 of 6</td><td><span class="chip green">Synced 12:31 IST</span></td></tr>
+    <tr><td class="mono">2</td><td class="mono">12:06:47</td><td>D. Nair</td><td>Book USG appointment · US-UNIT-2</td><td>A. K•••••ni</td><td class="mono">2 of 6</td><td><span class="chip green">Synced 12:31 IST</span></td></tr>
+    <tr class="hl"><td class="mono">3</td><td class="mono">12:09:02</td><td>P. D'Souza</td><td>Draft invoice ₹2,850 (UPI pending)</td><td>Enc MRD-2026-018851</td><td class="mono">3 of 6</td><td><span class="chip amber">⚑ Conflict — needs review</span></td></tr>
+    <tr><td class="mono">4</td><td class="mono">12:12:38</td><td>T. Okafor</td><td>Mark patient arrived</td><td>Enc MRD-2026-018852</td><td class="mono">4 of 6</td><td><span class="chip grey">Held (after conflict)</span></td></tr>
+  </table>
+  <table style="margin-top:12px">
+    <tr><th style="width:30%">Contract clause</th><th>Specification</th></tr>
+    <tr><td class="bold">Queued timestamp preserved</td><td>The device capture time is the business timestamp forever — sync time is stored separately as <span class="mono">synced_at</span>. An SLA clock, a token number, an arrival time all use the capture time. The UI shows both when they differ by &gt;5 min.</td></tr>
+    <tr><td class="bold">Replay order</td><td>Strict FIFO per branch per module. A conflicted item <b>holds</b> everything behind it that touches the same subject; unrelated subjects continue. Order is never user-reorderable.</td></tr>
+    <tr><td class="bold">Conflict flag</td><td>⚑ amber chip, row highlighted. Conflicts never auto-resolve for clinical or financial fields; demographic no-ops (identical values) auto-merge silently and are logged.</td></tr>
+    <tr><td class="bold">Visibility</td><td>Queue is always inspectable (nav badge shows pending count). Nothing syncs invisibly except logged no-op merges.</td></tr>
+  </table>
+</div>
+<div class="card">
+  <div class="card-title">Sync-conflict resolution modal — reference spec <span class="right">component: .modal</span></div>
+  <div class="modal-wrap">
+    <div class="modal" style="max-width:640px">
+      <h3>⚑ Sync conflict — Invoice draft, Enc MRD-2026-018851</h3>
+      <p class="small muted" style="margin-bottom:10px">Queued offline by P. D'Souza at 12:09 IST; the server record was changed by K. Verma at 12:14 IST while this branch was offline. Only the differing fields are shown.</p>
+      <table>
+        <tr><th>Field</th><th>Your offline value (12:09)</th><th>Server value (12:14)</th><th>Keep</th></tr>
+        <tr><td class="bold">Discount applied</td><td class="mono">10% (senior citizen)</td><td class="mono">0%</td><td><span class="box radio on"> </span> offline &nbsp; <span class="box radio"> </span> server</td></tr>
+        <tr><td class="bold">Payable amount</td><td class="mono">₹2,565</td><td class="mono">₹2,850</td><td><span class="chip grey">follows discount</span></td></tr>
+      </table>
+      <div class="banner reg" style="margin:12px 0"><b>Clinical-field rule (four-eyes).</b> If any conflicting field is clinical (order, laterality, contrast flag, report content), single-user resolution is disabled: the resolver picks a value <b>and</b> a second qualified user (radiologist or supervisor) must confirm before the merge commits. Financial conflicts above ₹5,000 require cashier + branch manager.</div>
+      <div class="modal-actions"><span class="btn">Keep server value</span><span class="btn primary">Keep my offline value</span></div>
+      <p class="audit" style="margin-top:10px">Both versions, the choice, resolver and (where required) co-signer are stored in the conflict record — recorded in the access log.</p>
+    </div>
+  </div>
+  <div class="small muted">Modal rules: shows <b>only</b> differing fields (never full-record diffs); derived fields render as "follows X", not as choices; "Merge both" is not offered — one side wins per field; dismissing the modal keeps the item flagged and held, it never discards either version.</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — WHICH-MODULES-OFFLINE CAPABILITY MATRIX</div>
+<div class="card">
+  <div class="card-title">Offline capability matrix (MVP-1) — normative, change requires clinical-governance sign-off <span class="right">exhaustive</span></div>
+  <table>
+    <tr><th>Module</th><th>Offline capability</th><th>What works</th><th>What is blocked</th><th>Rationale</th></tr>
+    <tr><td class="bold">Front office (registration, appointments, arrivals)</td><td><span class="chip green">FULL</span></td><td>Register, book, reschedule, mark arrived — all queue with preserved timestamps.</td><td>Cross-branch lookups (cached list only, marked cached).</td><td>Patient flow must never stop for connectivity; identity dedup runs at sync.</td></tr>
+    <tr><td class="bold">Billing &amp; payments</td><td><span class="chip amber">DRAFT-ONLY</span></td><td>Draft invoices, estimates, discount capture pending approval.</td><td>Finalising invoices, UPI collection (payment gateway UPI requires live confirmation), refunds, receipt numbering.</td><td>Fiscal document numbers and payment confirmations must be single-sourced server-side; duplicates are a statutory problem.</td></tr>
+    <tr><td class="bold">RIS worklists</td><td><span class="chip amber">READ-CACHE</span></td><td>View worklist/study status as of last sync, always chip-marked <span class="chip grey">cached 12:03 IST</span>.</td><td>Status transitions, reassignment, priority changes.</td><td>Two branches mutating one worklist offline creates unsafe double-work; reading stale is safe if labelled.</td></tr>
+    <tr><td class="bold">Report drafting</td><td><span class="chip green">FULL (local drafts)</span></td><td>Dictate/type draft, templates, macros — saved to encrypted local store.</td><td>Assigning drafts to other readers.</td><td>Drafting is single-author; no shared state to corrupt.</td></tr>
+    <tr class="hl"><td class="bold">Report signing</td><td><span class="chip red">NEVER</span></td><td>—</td><td>Sign, amend-and-resign, addendum sign.</td><td>Signature = live step-up identity check + server hash-chain append at sign time. A queued signature could be replayed against content changed after the signer last saw it, and the signature timestamp would be unverifiable. No cached credential is ever acceptable. This row cannot be reconfigured per-tenant.</td></tr>
+    <tr><td class="bold">Critical results / STAT comms</td><td><span class="chip red">NEVER</span></td><td>—</td><td>Critical notify, ack recording.</td><td>An unsent "sent" state is a patient-safety lie; the pattern requires live delivery receipts (DLT SMS / WhatsApp BSP).</td></tr>
+    <tr><td class="bold">Admin, config, user management</td><td><span class="chip red">NEVER</span></td><td>—</td><td>All writes.</td><td>Config drift across branches during a partition is unrecoverable by FIFO replay.</td></tr>
+  </table>
+  <div class="small muted" style="margin-top:10px">Legend: <span class="chip green">FULL</span> queue-and-sync · <span class="chip amber">DRAFT-ONLY / READ-CACHE</span> partial with explicit limits · <span class="chip red">NEVER</span> hard-blocked with level-3 banner. Any new module must declare its row here before build; "we'll decide offline behaviour later" fails design review.</div>
+  <div class="banner info" style="margin-top:10px;margin-bottom:0"><b>Implementation note</b>Frontend: global <span class="mono">ConnectionStatusProvider</span> (React); offline actions queue in IndexedDB with client-generated correlation IDs and replay on reconnect. Backend edge service exposes IDEMPOTENT sync endpoints (correlation-ID dedupe). Offline registrations use temporary local UUIDs; the canonical MRN is assigned at sync; collisions route to the merge queue (FO-08).</div>
+</div>
+<p class="audit">Design-system pages are versioned artefacts (DS-04 v1.2, updated 21 Jul 2026 IST by K. Verma). Offline queue replays, conflict resolutions and capability-matrix changes are written to the immutable audit trail and recorded in the access log.</p>
+</section>
+<section class="screen" id="ds-05">
+<div class="screen-head"><h1><span class="sid">DS-05</span> Empty / Loading / Error Pattern</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM</span><div class="cluster">G17 Design System &amp; Patterns — documentation pages</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · empty/loading/error pattern (review §5 gap)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> In a clinical product, "nothing here" and "we couldn't load it" are safety-different statements and must never look alike. This page defines the five canonical specimens — first-run empty, filtered empty, loading skeleton, error card, and service-down page — plus the copy tone rules every module must follow. The core invariant: Magnus never shows a partial list as if it were complete.</div>
+
+<div class="state-tag">STATE A — THE FIVE SPECIMENS</div>
+<div class="row" style="align-items:stretch">
+  <div class="grow card">
+    <div class="card-title">1 · First-run empty <span class="right">has a CTA</span></div>
+    <div style="border:1.5px dashed #CBD5E1;border-radius:8px;padding:26px 18px;text-align:center;background:#F8FAFC">
+      <div style="font-size:26px">🗓</div>
+      <div class="bold" style="margin:6px 0 2px">No appointment slots defined yet</div>
+      <div class="small muted" style="max-width:340px;margin:0 auto 12px">MRI-ROOM-2 has no schedule template. Create one to start accepting bookings for this room.</div>
+      <span class="btn primary small">Create schedule template</span>
+      <div class="small muted" style="margin-top:8px">or <span style="color:#0F766E;font-weight:700">copy from CT-ROOM-1</span></div>
+    </div>
+    <table style="margin-top:10px">
+      <tr><th style="width:34%">Rule</th><th>Spec</th></tr>
+      <tr><td class="bold">Structure</td><td>Icon → one-line fact → one sentence of context → exactly one primary CTA (+ optional ghost alternative). Never two primary buttons.</td></tr>
+      <tr><td class="bold">Only when truly empty</td><td>Shown only when the unfiltered dataset has zero rows AND the load succeeded. Verified-empty, never assumed-empty.</td></tr>
+    </table>
+  </div>
+  <div class="grow card">
+    <div class="card-title">2 · Filtered empty <span class="right">clear filters, no CTA</span></div>
+    <div style="border:1.5px dashed #CBD5E1;border-radius:8px;padding:26px 18px;text-align:center;background:#F8FAFC">
+      <div style="font-size:26px">🔍</div>
+      <div class="bold" style="margin:6px 0 2px">No studies match these filters</div>
+      <div class="small muted" style="max-width:340px;margin:0 auto 10px">142 studies exist today; your filters (Modality: MRI · Status: unreported · Reader: Dr. V. Shetty) match none.</div>
+      <span class="btn small">Clear all filters</span> <span class="btn ghost small">Edit filters</span>
+    </div>
+    <table style="margin-top:10px">
+      <tr><th style="width:34%">Rule</th><th>Spec</th></tr>
+      <tr><td class="bold">Must differ from #1</td><td>Always states the total that exists ("142 studies exist") and names the active filters, so staff never mistake a filter for an empty worklist.</td></tr>
+      <tr><td class="bold">Primary action</td><td>"Clear all filters" — never a create-CTA; creating data is not the fix for over-filtering.</td></tr>
+    </table>
+  </div>
+</div>
+<div class="row" style="align-items:stretch">
+  <div class="grow card">
+    <div class="card-title">3 · Loading skeleton <span class="right">no spinners &gt; 400ms</span></div>
+    <div style="border:1px solid #E2E8F0;border-radius:8px;padding:12px;background:#fff">
+      <div style="height:12px;width:38%;background:#E2E8F0;border-radius:4px;margin-bottom:10px"></div>
+      <div style="height:9px;width:96%;background:#EEF2F6;border-radius:4px;margin-bottom:7px"></div>
+      <div style="height:9px;width:91%;background:#EEF2F6;border-radius:4px;margin-bottom:7px"></div>
+      <div style="height:9px;width:94%;background:#EEF2F6;border-radius:4px;margin-bottom:7px"></div>
+      <div style="height:9px;width:58%;background:#EEF2F6;border-radius:4px"></div>
+    </div>
+    <table style="margin-top:10px">
+      <tr><th style="width:34%">Rule</th><th>Spec</th></tr>
+      <tr><td class="bold">400ms rule</td><td>&lt;400ms: render nothing (no flash). ≥400ms: skeleton mirroring the real layout (same row count as page size, same column widths). Bare spinners are allowed only inside buttons for in-place actions.</td></tr>
+      <tr><td class="bold">No layout shift</td><td>Skeleton occupies the exact final geometry; counts/KPIs skeleton as blocks, never show 0 while loading — 0 is data.</td></tr>
+      <tr><td class="bold">Timeout</td><td>At 15s the skeleton must resolve to specimen 4 (error card). Skeletons never persist indefinitely.</td></tr>
+    </table>
+  </div>
+  <div class="grow card">
+    <div class="card-title">4 · Error card <span class="right">no partial lists rule</span></div>
+    <div class="banner danger" style="margin-bottom:8px"><b>⛔ Couldn't load today's unreported worklist.</b>
+    What failed: the RIS query timed out at 09:14 IST (request <span class="mono">req_7f3ka9</span>).<br>
+    What we did <u>NOT</u> show: a partial list. 37 of 142 studies had loaded — showing them could hide a STAT study in the missing 105, so we show none.<br>
+    Your work is unaffected; nothing was changed.<br>
+    <span style="display:inline-block;margin-top:8px"><span class="btn small danger">Retry now</span> <span class="btn small">View cached list (as of 09:02 IST)</span></span></div>
+    <table>
+      <tr><th style="width:34%">Rule</th><th>Spec</th></tr>
+      <tr><td class="bold">Three statements, always</td><td>(1) What failed, in task language + request ID; (2) what we did NOT show and why — the no-partial-lists rule is stated to the user, not just enforced; (3) whether any user data/state changed.</td></tr>
+      <tr><td class="bold">No partial lists</td><td>A list either renders complete-as-of-a-timestamp or not at all. Cached fallbacks are allowed but carry <span class="chip grey">cached 09:02 IST</span>.</td></tr>
+      <tr><td class="bold">Retry</td><td>Explicit "Retry now" button + auto-retry with backoff; never silent infinite retry that masks an outage.</td></tr>
+    </table>
+  </div>
+</div>
+<div class="card">
+  <div class="card-title">5 · Service-down page (full takeover) <span class="right">last resort</span></div>
+  <div style="border:1px solid #E2E8F0;border-radius:8px;background:#F8FAFC;padding:30px 20px;text-align:center">
+    <div class="bold" style="color:#0F766E;font-size:16px">◎ Magnus</div>
+    <div class="bold" style="font-size:17px;margin:10px 0 4px">Magnus is temporarily unavailable</div>
+    <div class="small muted" style="max-width:460px;margin:0 auto">Since 09:41 IST · incident <span class="mono">INC-2026-0719</span> · we are on it. Drafts and offline queues on this device are safe and will sync on recovery. For STAT reads during the outage, follow the branch downtime SOP (printed copy at the front desk). Status: <span class="mono">status.magnus.numinacore.in</span></div>
+    <div style="margin-top:12px"><span class="chip amber">Auto-reconnecting · next attempt in 28s</span></div>
+  </div>
+  <div class="small muted" style="margin-top:10px">Rules: used only when the app shell itself cannot load (otherwise use DS-04 banners); must name the incident ID, start time (IST), data-safety statement, the paper-SOP fallback for clinical continuity, and a public status URL. Never a blank page, never a raw HTTP error.</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — COPY TONE RULES</div>
+<div class="card">
+  <div class="card-title">Copy tone rules — apply to every specimen above <span class="right">normative</span></div>
+  <table>
+    <tr><th style="width:22%">Rule</th><th style="width:39%">Do — write like this</th><th>Don't — never like this</th></tr>
+    <tr><td class="bold">Facts before feelings</td><td>"No studies match these filters." / "The RIS query timed out at 09:14 IST."</td><td>"Oops!", "Uh oh!", "Something went wrong 😕" — no interjections, no emoji in body copy, no exclamation marks.</td></tr>
+    <tr><td class="bold">Blame the system, not the user</td><td>"We couldn't load the worklist."</td><td>"You have no permission" phrasing when it's actually a load failure; "Invalid input" without naming the field and the fix.</td></tr>
+    <tr><td class="bold">State data-safety explicitly</td><td>"Nothing was changed." / "Your draft is saved locally and intact."</td><td>Silence about whether the user's work survived — in clinical software, silence reads as loss.</td></tr>
+    <tr><td class="bold">Task language, IDs in mono</td><td>"Couldn't send the SMS reminder (DLT route)" + <span class="mono">req_7f3ka9</span> for support.</td><td>"Error 500: upstream connect error" as the headline; stack traces or vendor names as the primary message.</td></tr>
+    <tr><td class="bold">Time is always absolute IST</td><td>"cached as of 09:02 IST", "since 09:41 IST".</td><td>"a few minutes ago", "recently" — relative time on stale clinical data is unsafe.</td></tr>
+    <tr><td class="bold">One next step</td><td>Exactly one primary action per specimen (Create / Clear filters / Retry).</td><td>Three equal-weight buttons; "Contact your administrator" as the only option when a retry would work.</td></tr>
+    <tr><td class="bold">Empty ≠ error, ever</td><td>Verified-empty says what exists ("142 studies exist today"); errors say what failed.</td><td>Rendering an empty state when the fetch failed — the single most dangerous copy bug in this product.</td></tr>
+    <tr><td class="bold">Privacy in specimens</td><td>Patient identifiers in examples/errors stay masked: "A. K•••••ni · MRD-2026-018851".</td><td>Full patient names or phone numbers echoed into error cards, logs, or support IDs.</td></tr>
+  </table>
+</div>
+<p class="audit">Design-system pages are versioned artefacts (DS-05 v1.1, updated 21 Jul 2026 IST by K. Verma). Error-card render events carry the request ID into telemetry with patient identifiers masked, and cached-fallback views are recorded in the access log.</p>
+</section>
+<section class="screen" id="ds-06">
+<div class="screen-head"><h1><span class="sid">DS-06</span> Audit &amp; Step-up Pattern</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM</span><div class="cluster">G17 Design System &amp; Patterns — documentation pages</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · audit & step-up pattern</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Magnus is privacy-first under DPDP: every consequential screen tells the user, in one 🔒 footer line, exactly what is being recorded about their presence there — and every sensitive action re-proves identity before it executes. This page defines the audit footer phrasing per action class, the audit event schema, the step-up modal and its action matrix format, and the hash-chain / tamper-evident chips that make the trail verifiable.</div>
+
+<div class="state-tag">STATE A — AUDIT FOOTER LINE SPECIMENS (🔒 PHRASING PER ACTION CLASS)</div>
+<div class="card">
+  <div class="card-title">The footer line — one per screen, bottom of content, class <span class="mono">.audit</span> <span class="right">specimens</span></div>
+  <table>
+    <tr><th style="width:16%">Action class</th><th style="width:47%">Exact footer specimen</th><th>Phrasing rule</th></tr>
+    <tr><td class="bold">View (PHI read)</td><td><span class="audit" style="margin:0;display:block">Viewing this record (A. K•••••ni · MRD-2026-018851) is itself an access event — your identity, purpose "treatment", and the fields displayed are recorded in the access log.</span></td><td>Present tense, "is itself an access event". Names the masked subject and the purpose basis. Users must know reads are logged, not only writes.</td></tr>
+    <tr><td class="bold">Create / edit</td><td><span class="audit" style="margin:0;display:block">Saving writes a before/after snapshot with your identity and reason; the change is visible to the patient in their DPDP access report and recorded in the access log.</span></td><td>Mentions before/after snapshot and patient visibility — edits to a person's data are disclosable to that person.</td></tr>
+    <tr><td class="bold">Sensitive reveal (unmask)</td><td><span class="audit" style="margin:0;display:block">Revealing the full mobile number requires a stated purpose and is individually logged with a 30-day review flag — recorded in the access log.</span></td><td>Reveal events log per-field, not per-screen, and always carry a purpose picked from a closed list (never free-text only).</td></tr>
+    <tr><td class="bold">Destructive / irreversible</td><td><span class="audit" style="margin:0;display:block">Cancellation is irreversible and requires step-up confirmation and a second approver; the full request, both identities and the reason are chained into the tamper-evident audit record and recorded in the access log.</span></td><td>Says "irreversible" plainly, names both controls (step-up + four-eyes) before the user commits.</td></tr>
+    <tr><td class="bold">Export / bulk</td><td><span class="audit" style="margin:0;display:block">This export (214 rows, PHI masked per your role) is watermarked with your identity and expires in 72 h — generation and every download are recorded in the access log.</span></td><td>States row count, masking level, watermark and expiry — exports are the highest-leak surface.</td></tr>
+    <tr><td class="bold">Operator (platform)</td><td><span class="audit" style="margin:0;display:block">Operator actions on tenant Meridian Diagnostics run under a support-access grant that expires 18:00 IST; the tenant's org admin sees this session in their operator-access report — recorded in the access log.</span></td><td>Operator lines always disclose the grant, its expiry, and tenant-side visibility.</td></tr>
+  </table>
+  <div class="small muted" style="margin-top:10px">Rules: exactly one footer per screen; always ends "…recorded in the access log."; always begins with 🔒 (supplied by the <span class="mono">.audit</span> class); never legal boilerplate — each line is specific to what THIS screen records. A screen with no consequential access (e.g. this documentation page) may omit it.</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — AUDIT EVENT SCHEMA + INTEGRITY CHIPS</div>
+<div class="card">
+  <div class="card-title">Audit event schema — every event, no exceptions <span class="right">data contract</span></div>
+  <table>
+    <tr><th style="width:150px">Field</th><th style="width:210px">Example value</th><th>Rules</th></tr>
+    <tr><td class="mono">event_id / ts</td><td class="mono">evt_01J9M2… · 2026-07-21T14:42:09+05:30</td><td>Server-assigned, monotonic per branch; IST offset stored explicitly.</td></tr>
+    <tr><td class="mono">actor</td><td class="mono">usr_kverma · K. Verma · role org-admin · staff realm (Keycloak) · session sess_88c1 · step-up: passkey@14:41</td><td>Real identity + realm + session + the step-up method/time if one gated this event. Service actions carry the service principal AND the human who triggered them where one exists.</td></tr>
+    <tr><td class="mono">subject (masked)</td><td class="mono">pat_5521 · "A. K•••••ni" · MRD-2026-018851</td><td>Subject is stored as an opaque ID; the display name inside the audit UI itself stays masked — reading the audit log must not become a PHI side-channel. Unmasking within the log is itself a logged reveal event.</td></tr>
+    <tr><td class="mono">action / purpose</td><td class="mono">record.update · purpose: billing-correction</td><td>Action from the closed verb registry; purpose from the closed purpose list (treatment, billing, quality, legal, support), optional free-text amplification.</td></tr>
+    <tr><td class="mono">basis</td><td class="mono">DPDP consent cns_2210 v3 / legitimate-use §7(b)</td><td>The lawful basis pointer — consent record + version, or the statutory clause. No basis, no write: the API rejects basis-less PHI events.</td></tr>
+    <tr><td class="mono">before / after</td><td class="mono">{discount_pct: 0 → 10}</td><td>Field-level diff for writes; reads store the field <i>set</i> displayed. PHI values inside diffs are encrypted at rest separately from the event envelope.</td></tr>
+    <tr><td class="mono">co_signer</td><td class="mono">usr_dnair · approval apr_0931</td><td>Present when four-eyes applied; links to the approval record with its own step-up proof.</td></tr>
+    <tr><td class="mono">prev_hash / hash</td><td class="mono">…9f3a → sha256:4bc1…</td><td>Each event hashes its content + previous event's hash — the chain that makes the chips below meaningful.</td></tr>
+  </table>
+</div>
+<div class="row">
+  <div class="grow card">
+    <div class="card-title">Hash-chain chip <span class="right">list-level</span></div>
+    <span class="chip green">⛓ Chain verified · 14,208 events · anchor #482 · 15:00 IST</span>
+    <div class="small muted" style="margin-top:8px">Shown atop every audit log list. Green = recomputed hashes match through the latest daily anchor (anchor digests are written to write-once storage). Verifying is a read action, available to org admins without any operator involvement.</div>
+    <div style="margin-top:8px"><span class="chip amber">⛓ Verification running · 62%</span> <span class="chip red">⛓ CHAIN MISMATCH at evt 13,551 — incident opened</span></div>
+    <div class="small muted" style="margin-top:6px">Amber while recomputing; red mismatch auto-opens an incident, freezes log exports, and pages the platform operator (R. Iyer). Red is never dismissible.</div>
+  </div>
+  <div class="grow card">
+    <div class="card-title">Tamper-evident record chip <span class="right">row-level</span></div>
+    <span class="chip green">✓ Tamper-evident · sha256:4bc1…9e</span>
+    <div class="small muted" style="margin-top:8px">On each audit event detail: this event's hash re-verified against its neighbours at render time. Copy rule: say "tamper-<b>evident</b>", never "tamper-proof" — we detect, we don't claim to prevent.</div>
+    <div style="margin-top:8px"><span class="chip red">✗ Integrity check failed — do not rely on this record</span></div>
+    <div class="small muted" style="margin-top:6px">A failed row renders with content struck through and its neighbours flagged; the record is still shown (evidence), never silently hidden.</div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — STEP-UP MODAL SPEC + ACTION MATRIX FORMAT</div>
+<div class="card">
+  <div class="card-title">Step-up identity confirmation modal — reference spec <span class="right">component: .modal</span></div>
+  <div class="modal-wrap">
+    <div class="modal">
+      <h3>Confirm it's you — signing report MRD-2026-018834</h3>
+      <p class="small muted" style="margin-bottom:10px">You are about to <b>sign</b> the CT Brain (plain) report for A. K•••••ni as Dr. V. Shetty. Signing is legally attributable to you and cannot be undone (amendments create a new versioned record).</p>
+      <div class="field"><label>Passkey <span class="chip teal" style="margin-left:6px">preferred</span></label><span class="btn primary small">Use passkey on this device</span></div>
+      <div class="field"><label>Or authenticator code (TOTP)</label><div class="input mono" style="max-width:180px;color:#94A3B8">6-digit code</div><div class="hint">Backup codes work here; using one voids it and notifies you by SMS. Staff realm (Keycloak) · session sess_74d2.</div></div>
+      <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary disabled">Confirm &amp; sign</span></div>
+      <p class="audit" style="margin-top:10px">The step-up method, factor age and result are attached to the signing event and recorded in the access log.</p>
+    </div>
+  </div>
+  <table>
+    <tr><th style="width:30%">Modal rule</th><th>Specification</th></tr>
+    <tr><td class="bold">Names the exact action</td><td>Title and body restate the specific action + masked subject ("signing report MRD-2026-018834"), never generic "Confirm your identity". What is confirmed is what executes — the payload is bound to the challenge.</td></tr>
+    <tr><td class="bold">Factor rules</td><td>Passkey preferred, TOTP fallback, backup codes accepted-and-voided. Password re-entry alone is never a valid step-up. Patient OTP realm factors can never satisfy a staff-realm step-up.</td></tr>
+    <tr><td class="bold">Freshness window</td><td>Grade A actions: fresh challenge every time. Grade B: a step-up ≤10 min old may be reused, shown as "verified 14:41 IST · reuse". Window is org-configurable 5–15 min, never longer.</td></tr>
+    <tr><td class="bold">Failure / cancel</td><td>3 failed attempts locks step-up 5 min and notifies the user's other channel; cancel = no action, no partial state, logged as declined challenge.</td></tr>
+    <tr><td class="bold">Four-eyes composition</td><td>When dual-control applies, the second approver completes their <i>own</i> step-up on their own session — one person on two devices is blocked by same-user + same-device checks.</td></tr>
+  </table>
+</div>
+<div class="card">
+  <div class="card-title">Step-up action matrix — required format (excerpt) <span class="right">every module ships one</span></div>
+  <table>
+    <tr><th>Action</th><th>Grade</th><th>Step-up</th><th>Reuse window</th><th>Four-eyes</th><th>Audit class</th></tr>
+    <tr><td>Sign / amend report</td><td><span class="chip red">A</span></td><td>Always, fresh</td><td class="mono">none</td><td>—</td><td>Destructive-equivalent (legal attribution)</td></tr>
+    <tr><td>Reveal full patient contact</td><td><span class="chip red">A</span></td><td>Always, fresh + purpose</td><td class="mono">none</td><td>—</td><td>Sensitive reveal</td></tr>
+    <tr><td>Refund &gt; ₹5,000 / rate-card change</td><td><span class="chip red">A</span></td><td>Always, fresh</td><td class="mono">none</td><td><span class="chip amber">required</span></td><td>Destructive</td></tr>
+    <tr><td>Merge patient records · delete study assignment</td><td><span class="chip red">A</span></td><td>Always, fresh</td><td class="mono">none</td><td><span class="chip amber">required</span></td><td>Destructive</td></tr>
+    <tr><td>Bulk export (PHI)</td><td><span class="chip amber">B</span></td><td>Yes</td><td class="mono">≤10 min</td><td>&gt;1,000 rows: required</td><td>Export</td></tr>
+    <tr><td>Edit demographics / discount ≤ ₹5,000</td><td><span class="chip amber">B</span></td><td>Yes</td><td class="mono">≤10 min</td><td>—</td><td>Create/edit</td></tr>
+    <tr><td>Routine worklist views, drafting</td><td><span class="chip grey">C</span></td><td>No (session auth)</td><td class="mono">—</td><td>—</td><td>View</td></tr>
+    <tr><td>Operator: impersonate tenant user / tenant suspend</td><td><span class="chip red">A</span></td><td>Always, fresh (operator realm)</td><td class="mono">none</td><td><span class="chip amber">required + tenant-visible</span></td><td>Operator</td></tr>
+  </table>
+  <div class="small muted" style="margin-top:10px">Format rules: every module's spec ships this exact six-column matrix covering all its actions; grades are only A (fresh step-up), B (reusable window), C (none). An action absent from the matrix defaults to grade A until classified — the safe default is friction.</div>
+</div>
+<p class="audit">Design-system pages are versioned artefacts (DS-06 v1.5, updated 21 Jul 2026 IST by K. Verma). Changes to footer specimens, the event schema, or any step-up grade require clinical-governance review with four-eyes approval and are recorded in the access log.</p>
+</section>
+<section class="screen" id="ds-07">
+<div class="screen-head"><h1><span class="sid">DS-07</span> Masked Identity &amp; Privacy Pattern</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM</span><div class="cluster">G17 Design System &amp; Patterns — documentation pages</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · masked identity & privacy pattern (C-7)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Canonical rules for how patient identity is masked, tokenised and revealed across every Magnus surface. Every screen that renders a patient must consume the shared <span class="mono">&lt;MaskedIdentity&gt;</span> component — never hand-roll masking. Reveal is always an explicit, reasoned, audited act; masked is the default state everywhere.</div>
+
+<div class="banner reg"><b>Non-negotiable principle</b>Demographics are rendered only when the viewer's role, purpose-of-use and context all pass the policy check. Failing any one of the three yields the token form — silently, with no error state that leaks existence of the record.</div>
+
+<div class="state-tag">STATE A — MASKING RULES TABLE</div>
+<div class="card">
+<div class="card-title">Masking levels by context <span class="right">policy: PRIV-MASK v3.2 · effective 01 Jul 2026</span></div>
+<table>
+<tr><th style="width:190px">Context</th><th style="width:200px">What renders</th><th>Example</th><th style="width:260px">Rule</th></tr>
+<tr><td><b>Denied context</b><br><span class="muted small">role/purpose check failed</span></td><td><span class="chip red">TOKEN ONLY</span> zero demographics</td><td><span class="mono">#MRN-••••30</span> · <span class="mono">Visit V-260718-0412</span></td><td>No name, age, sex, phone, photo, address. No tooltip on hover. Row is selectable only if the workflow itself is permitted (e.g. cashier settling a bill).</td></tr>
+<tr><td><b>Queue public view</b><br><span class="muted small">waiting-area TV, kiosk</span></td><td><span class="chip red">TOKEN ONLY</span></td><td><span class="mono">Token Q-047 · CT · ~15 min</span></td><td>Public displays never show name or MRN — token number and modality only. Called-out announcements use token number, never name.</td></tr>
+<tr><td><b>Staff worklist (default)</b><br><span class="muted small">purpose = Treatment</span></td><td><span class="chip amber">PARTIAL</span> name + masked MRN</td><td>Ananya S. · <span class="mono">#MRN-••••30</span> · F/34</td><td>Surname initialised. Phone masked to <span class="mono">+91 98••• ••412</span>. Full MRN needs reveal-with-reason.</td></tr>
+<tr><td><b>Clinical read context</b><br><span class="muted small">assigned radiologist, open study</span></td><td><span class="chip green">FULL</span> within assignment</td><td>Ananya Subramanian · <span class="mono">MRN-2026-004530</span></td><td>Full identity auto-unmasked only while Dr. V. Shetty holds the active read assignment; collapses back to PARTIAL on release.</td></tr>
+<tr><td><b>Logs &amp; audit exports</b><br><span class="muted small">system + operator surfaces</span></td><td><span class="chip blue">PSEUDONYMISED</span></td><td><span class="mono">subj:pt_9f3a1c · actor:usr_dnair</span></td><td>Logs store stable pseudonyms, never names/phones. Re-identification only via privacy officer console with dual control (four-eyes).</td></tr>
+<tr><td><b>Platform operator (NUMINACORE)</b></td><td><span class="chip red">TOKEN ONLY</span> — always</td><td><span class="mono">tenant:meridian · pt_9f3a1c</span></td><td>Operators never see tenant PHI. No reveal path exists in the operator realm.</td></tr>
+</table>
+<p class="small muted" style="margin-top:8px">Token format: <span class="mono">#MRN-••••NN</span> — last two digits retained for verbal disambiguation at the desk; all other digits suppressed. Never show first digits (they encode registration year/branch).</p>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — REVEAL-WITH-REASON INTERACTION SPEC</div>
+<div class="row">
+<div class="card grow" style="flex:1.2">
+<div class="card-title">Interaction sequence <span class="right">component: &lt;RevealControl&gt;</span></div>
+<table>
+<tr><th style="width:36px">#</th><th>Step</th><th>Spec</th></tr>
+<tr><td>1</td><td>Trigger</td><td>👁 icon-button adjacent to masked field. Label on hover: “Reveal — reason required”. Keyboard: <span class="mono">Enter</span> on focused field.</td></tr>
+<tr><td>2</td><td>Purpose + reason</td><td>Inline popover, not a page nav. Purpose chip is mandatory single-select; free-text reason mandatory when purpose = Support or Audit (min 15 chars).</td></tr>
+<tr><td>3</td><td>Step-up check</td><td>If last identity confirmation &gt; 15 min ago, or purpose ∉ viewer's default purposes → TOTP / passkey step-up before reveal.</td></tr>
+<tr><td>4</td><td>Reveal window</td><td>Field unmasks for <b>5 minutes</b> (session-scoped, this record only). Countdown chip shown: <span class="chip amber">revealed · 4:12 left</span>. No copy-to-clipboard on phone numbers.</td></tr>
+<tr><td>5</td><td>Auto re-mask</td><td>On timer expiry, tab blur &gt; 60 s, or record close — whichever first. Re-reveal requires a fresh reason.</td></tr>
+</table>
+</div>
+<div class="card grow">
+<div class="card-title">Purpose chips vocabulary <span class="right">closed list — no free-form purposes</span></div>
+<table>
+<tr><th>Chip</th><th>When</th><th>Step-up?</th></tr>
+<tr><td><span class="chip teal">TREATMENT</span></td><td>Active clinical care of this patient</td><td>No (if in-role)</td></tr>
+<tr><td><span class="chip blue">BILLING</span></td><td>Invoice, refund, insurer query</td><td>No (cashier role)</td></tr>
+<tr><td><span class="chip violet">AUDIT</span></td><td>Compliance / privacy-officer review</td><td>Yes, always</td></tr>
+<tr><td><span class="chip amber">SUPPORT</span></td><td>Patient-raised issue, callback</td><td>Yes + reason text</td></tr>
+</table>
+<p class="small muted" style="margin-top:8px">Purpose is stamped on the access-log entry and drives retention class. “Curiosity” has no chip by design — no purpose, no reveal.</p>
+</div>
+</div>
+<div class="modal-wrap">
+<div class="modal">
+<h3>Reveal patient contact number</h3>
+<p class="small muted" style="margin-bottom:10px">Record <span class="mono">#MRN-••••30</span> · Meridian Diagnostics · Andheri West branch</p>
+<div class="field"><label>Purpose of access <span class="req">*</span></label>
+<span class="chip teal">TREATMENT</span> <span class="chip blue">BILLING</span> <span class="chip violet">AUDIT</span> <span class="chip amber">SUPPORT ✓</span></div>
+<div class="field"><label>Reason <span class="req">*</span></label><input class="input" value="Patient callback — report delivery SMS failed twice (DLT route error), confirming number."></div>
+<div class="banner warn" style="margin-bottom:0"><b>Step-up required</b>Confirm identity with TOTP or passkey to continue. Reveal lasts 5 minutes and is written to the access log with your name — D. Nair (front office).</div>
+<div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Confirm identity &amp; reveal</span></div>
+</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — COMMUNICATIONS &amp; PRINT PRIVACY RULES</div>
+<div class="row">
+<div class="card grow" style="flex:1.3">
+<div class="card-title">No-PHI-in-SMS rule <span class="right">DLT SMS (Jio route) · WhatsApp BSP</span></div>
+<div class="banner danger" style="margin-bottom:10px"><b>Hard rule</b>Outbound SMS/WhatsApp never contains diagnosis, test name, report content, or full MRN. Links are short-lived tokenised URLs behind patient OTP (separate patient realm).</div>
+<table>
+<tr><th style="width:70px">Verdict</th><th>Template</th></tr>
+<tr><td><span class="chip green">PASS</span></td><td class="mono">Meridian Diagnostics: Your report for visit V-0412 is ready. View securely: mgns.in/r/8kq2 (OTP to this number). Helpdesk 022-4000 1100 — MERIDN</td></tr>
+<tr><td><span class="chip green">PASS</span></td><td class="mono">Meridian Diagnostics: Appointment confirmed 28 Jul 2026, 10:30 AM, Andheri West. Token Q-047. Reschedule: mgns.in/a/3fp9 — MERIDN</td></tr>
+<tr><td><span class="chip red">FAIL</span></td><td class="mono"><s>Your CT Brain report shows no abnormality. MRN-2026-004530…</s> <span class="small" style="color:#B91C1C">✕ test name + finding + full MRN in transit</span></td></tr>
+<tr><td><span class="chip red">FAIL</span></td><td class="mono"><s>Dear Ananya Subramanian, your HIV screening result is available…</s> <span class="small" style="color:#B91C1C">✕ full name + sensitive test category</span></td></tr>
+</table>
+<p class="small muted" style="margin-top:8px">Template linting runs at template-save time in NT admin (NT-04); a template containing a PHI merge-field for SMS channel is rejected at save, not at send.</p>
+</div>
+<div class="card grow">
+<div class="card-title">Print watermark rules <span class="right">see DS-09 for full print spec</span></div>
+<table>
+<tr><th>Condition</th><th>Watermark</th></tr>
+<tr><td>Re-print of any issued document</td><td><span class="mono bold" style="color:#94A3B8">DUPLICATE COPY</span> diagonal, 12% opacity, + reprint counter “Copy 2 of record”</td></tr>
+<tr><td>Report before final sign-off</td><td><span class="mono bold" style="color:#94A3B8">DRAFT — NOT FOR CLINICAL USE</span></td></tr>
+<tr><td>Cancelled / voided document</td><td><span class="mono bold" style="color:#B91C1C">VOID</span></td></tr>
+</table>
+<div class="banner info" style="margin-top:10px;margin-bottom:0"><b>Print = disclosure</b>Every print job stamps footer: printed-by, timestamp IST, branch, and purpose chip. Batch printing of &gt; 20 patient documents requires branch-admin approval (dual control).</div>
+</div>
+</div>
+<p class="audit">Every reveal, print, export and re-identification event — including purpose chip, reason text, step-up result and viewing duration — is recorded in the access log.</p>
+</section>
+<section class="screen" id="ds-08">
+<div class="screen-head"><h1><span class="sid">DS-08</span> Form Validation &amp; Input Patterns</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM</span><div class="cluster">G17 Design System &amp; Patterns — documentation pages</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · form validation & Indian formats</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single source of truth for validation timing, error tone and India-specific input formats across all Magnus forms. Front-office registration (FO-*), billing (BL-*) and admin screens must import these field components — local format regexes are a review-blocking defect.</div>
+
+<div class="state-tag">STATE A — VALIDATION TIMING &amp; ERROR TONE RULES</div>
+<div class="row">
+<div class="card grow">
+<div class="card-title">Validation timing rules <span class="right">applies to every form, no exceptions</span></div>
+<table>
+<tr><th style="width:170px">Moment</th><th>Rule</th></tr>
+<tr><td><b>On keystroke</b></td><td><span class="chip red">NEVER</span> for names, addresses, free text. Permitted only for hard input filters (digits-only in phone/PIN) and live checksum hint on GSTIN/IFSC after full length reached.</td></tr>
+<tr><td><b>On blur</b></td><td><span class="chip green">DEFAULT</span> — validate the field the user just left. Error appears under the field, focus is not stolen back.</td></tr>
+<tr><td><b>On submit</b></td><td>Full-form pass; render an <b>error summary card</b> at top listing each failed field as a link that scrolls + focuses it. Submit button stays enabled — never silently disable.</td></tr>
+<tr><td><b>Async checks</b></td><td>Duplicate-patient, GSTIN registry, IFSC lookup run on blur with inline spinner ≤ 2 s; on timeout, allow save with <span class="chip amber">UNVERIFIED</span> chip rather than blocking front-desk flow.</td></tr>
+<tr><td><b>Warnings vs errors</b></td><td>Warnings (amber) never block submit — e.g. “age 104, please confirm”. Errors (red) block. A warning acknowledged once is not re-shown on the same visit.</td></tr>
+</table>
+</div>
+<div class="card grow">
+<div class="card-title">Error message tone <span class="right">say what happened &amp; how to fix</span></div>
+<table>
+<tr><th style="width:60px"></th><th>Message</th></tr>
+<tr><td><span class="chip red">DON'T</span></td><td>“Invalid input.” · “Phone number wrong.” · “Error 422.”</td></tr>
+<tr><td><span class="chip green">DO</span></td><td>“Enter a 10-digit mobile number starting 6–9, e.g. 98200 12345.”</td></tr>
+<tr><td><span class="chip green">DO</span></td><td>“GSTIN check digit doesn't match — re-check the last character (entered <span class="mono">…Z<b>4</b></span>, expected <span class="mono">…Z<b>7</b></span>).”</td></tr>
+<tr><td><span class="chip green">DO</span></td><td>“Appointment date is in the past. Pick today (25 Jul 2026) or later.”</td></tr>
+</table>
+<p class="small muted" style="margin-top:8px">Tone rules: no blame (“you entered”), no jargon, no exclamation marks, ≤ 2 sentences, include a valid example where format is the issue. Errors are written in the UI locale (see DS-10); field values are never auto-“corrected” silently.</p>
+<div class="banner info" style="margin-top:10px;margin-bottom:0"><b>Required vs optional</b>Mark <b>required</b> fields with <span class="req" style="color:#B91C1C">*</span> only. Never label fields “(optional)” — anything unstarred is optional. A form where &gt; 70% of fields are required should be re-scoped, not decorated.</div>
+</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — INDIAN FORMATS SPECIFICATION</div>
+<div class="card">
+<div class="card-title">India-specific field formats <span class="right">component library: @magnus/fields-in v2.4</span></div>
+<table>
+<tr><th style="width:130px">Field</th><th style="width:210px">Display format</th><th style="width:170px">Storage</th><th>Validation &amp; notes</th></tr>
+<tr><td><b>Mobile phone</b></td><td><span class="mono">+91 98200 12345</span> (5+5 grouping)</td><td class="mono">E.164 +919820012345</td><td>10 digits, first digit 6–9. Country code fixed +91 prefix chip; paste of “09820012345” or “919820012345” is normalised on blur.</td></tr>
+<tr><td><b>PIN code</b></td><td><span class="mono">400 058</span></td><td class="mono">400058</td><td>6 digits, first digit 1–9. On blur: async lookup fills city/state (editable); mismatch with typed city → amber warning, not error.</td></tr>
+<tr><td><b>GSTIN</b></td><td><span class="mono">27AABCM4520K1Z7</span></td><td class="mono">uppercase, 15 chars</td><td>15-char pattern <span class="mono">NN AAAAA NNNN A N Z C</span>; state code must be a real state; final char validated by GSTIN checksum (mod-36). Live checksum hint at 15th char only.</td></tr>
+<tr><td><b>IFSC</b></td><td><span class="mono">HDFC0000240</span></td><td class="mono">uppercase, 11 chars</td><td>4 letters + <span class="mono">0</span> + 6 alphanumeric. On blur: bank/branch lookup renders below field for user confirmation before refund payout.</td></tr>
+<tr><td><b>Aadhaar</b></td><td><span class="mono">•••• •••• 4271</span> — last 4 only</td><td>last-4 + salted hash only</td><td>Full 12-digit value is Verhoeff-checksum-validated in the browser, then discarded — Magnus stores last-4 and a match hash, never the full number. Field is copy-disabled; no Aadhaar in any export.</td></tr>
+<tr><td><b>Date</b></td><td><span class="mono">25 Jul 2026</span> (DD MMM YYYY)</td><td class="mono">ISO 8601 2026-07-25</td><td>Display always DD MMM YYYY to kill DD/MM vs MM/DD ambiguity. Input accepts 25/07/2026, 25-7-26, “today” — echo back normalised form on blur. Timezone: IST, stored UTC with offset.</td></tr>
+<tr><td><b>Amount ₹</b></td><td><span class="mono">₹ 1,04,250.00</span></td><td class="mono">paise integer 10425000</td><td>Indian digit grouping (3 then 2s) via <span class="mono">en-IN</span> locale. Never float storage. Negative amounts render as <span class="mono" style="color:#B91C1C">− ₹ 500.00</span>, credit notes only.</td></tr>
+<tr><td><b>Name</b></td><td>As typed</td><td>Unicode NFC</td><td>No keystroke validation, no “alphabet-only” regex — must accept Devanagari, apostrophes, single-word names. Only rule: non-empty, ≤ 120 chars, no leading/trailing spaces (trimmed silently).</td></tr>
+</table>
+<div class="banner reg" style="margin-top:10px;margin-bottom:0"><b>Multi-language input</b>All text fields accept any Unicode script; patient name may be captured in Latin + optional Devanagari “name as spoken” secondary field (used on hi/mr printed slips — see DS-10). Never transliterate automatically.</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — SPECIMEN FORM (PATTERNS APPLIED)</div>
+<div class="row">
+<div class="card grow" style="max-width:520px">
+<div class="card-title">Specimen: refund payee details <span class="right">on-submit error summary shown</span></div>
+<div class="banner danger"><b>2 fields need attention</b>1. Mobile number — enter 10 digits starting 6–9 · 2. IFSC — branch lookup failed, re-check code</div>
+<div class="field"><label>Payee name <span class="req">*</span></label><input class="input" value="Ananya Subramanian"></div>
+<div class="row">
+<div class="field grow"><label>Mobile number <span class="req">*</span></label><input class="input err" value="+91 98200 1234"><div class="hint" style="color:#B91C1C">Enter a 10-digit mobile number starting 6–9, e.g. 98200 12345.</div></div>
+<div class="field grow"><label>PIN code</label><input class="input" value="400 058"><div class="hint">Andheri West, Mumbai, Maharashtra ✓</div></div>
+</div>
+<div class="row">
+<div class="field grow"><label>IFSC <span class="req">*</span></label><input class="input err" value="HDFC000024"><div class="hint" style="color:#B91C1C">IFSC is 11 characters (4 letters + 0 + 6 more) — this has 10. Example: HDFC0000240.</div></div>
+<div class="field grow"><label>Aadhaar (identity check)</label><input class="input" value="•••• •••• 4271"><div class="hint">Verified via Verhoeff checksum · only last 4 digits stored.</div></div>
+</div>
+<div class="field"><label>Refund amount</label><input class="input" value="₹ 1,850.00" style="max-width:180px"><div class="hint">Matches credit note CN-2607-0031 · stored in paise.</div></div>
+<div style="display:flex;gap:10px;justify-content:flex-end"><span class="btn">Cancel</span><span class="btn primary">Save payee details</span></div>
+</div>
+<div class="card grow">
+<div class="card-title">Field anatomy checklist <span class="right">review gate</span></div>
+<div class="check"><span class="box on">✓</span><span>Label above field, 12px bold; required star only, no “(optional)”.</span></div>
+<div class="check"><span class="box on">✓</span><span>Hint text below, grey — format example lives here, not in placeholder.</span></div>
+<div class="check"><span class="box on">✓</span><span>Placeholder never carries required information (disappears on type).</span></div>
+<div class="check"><span class="box on">✓</span><span>Error replaces hint, red text + red border; icon optional, colour never the only signal.</span></div>
+<div class="check"><span class="box on">✓</span><span>Error summary links scroll + focus the field; focus order = visual order.</span></div>
+<div class="check"><span class="box on">✓</span><span>Numeric fields get <span class="mono">inputmode="numeric"</span>; phone gets tel keypad on tablets at the front desk.</span></div>
+<div class="check"><span class="box on">✓</span><span>Autofocus only on the first field of single-purpose forms (e.g. OTP entry) — never on dense registration forms.</span></div>
+</div>
+</div>
+<p class="audit">Validation rule changes ship as versioned releases of @magnus/fields-in; the version active at save time is stamped on each record and recorded in the access log.</p>
+</section>
+<section class="screen" id="ds-09">
+<div class="screen-head"><h1><span class="sid">DS-09</span> Print &amp; Document Templates Pattern</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM</span><div class="cluster">G17 Design System &amp; Patterns — documentation pages</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · print/document template pattern</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Defines the letterhead zone model, immutability rules and physical output specs for every printed or PDF document Magnus produces — reports, invoices, receipts, consent copies, queue slips. Templates are tenant-brandable (white-label) but zone structure and statutory content are platform-enforced.</div>
+
+<div class="state-tag">STATE A — LETTERHEAD ZONES (SPEC AS TABLE)</div>
+<div class="card">
+<div class="card-title">A4 document zone model <span class="right">template engine: DocRender v5 · zones are fixed, content is tenant-versioned</span></div>
+<table>
+<tr><th style="width:60px">Zone</th><th style="width:180px">Name</th><th style="width:150px">Position / size</th><th>Required content</th><th style="width:210px">Rules</th></tr>
+<tr><td class="mono">Z1</td><td><b>Org identity</b></td><td>Header · 28 mm</td><td>Tenant logo, legal name “Meridian Diagnostics Pvt Ltd”, branch address, phone, NABL/NABH accreditation marks where held</td><td>Logo max 22 mm high; monochrome fallback auto-generated for thermal. Branch line pulled from branch master — never hand-typed in templates.</td></tr>
+<tr><td class="mono">Z2</td><td><b>Document band</b></td><td>Below header · 12 mm</td><td>Document type (RADIOLOGY REPORT / TAX INVOICE / RECEIPT), document no., issue date-time IST, page x of y</td><td>Document numbers are branch-prefixed and gapless per statutory series (INV-AW-2026-07-01184).</td></tr>
+<tr><td class="mono">Z3</td><td><b>Subject block</b></td><td>Left column · flexible</td><td>Patient name, MRN, age/sex, referrer, visit ID; QR code linking to verification URL (token, no PHI in QR payload)</td><td>Identity fields obey DS-07 masking for duplicate copies requested by third parties.</td></tr>
+<tr><td class="mono">Z4</td><td><b>Body</b></td><td>Main flow</td><td>Report narrative / line items / consent text</td><td>Body styles locked to template typography set; no per-user fonts. Tables must not split a line item across pages.</td></tr>
+<tr><td class="mono">Z5</td><td><b>Signature block</b></td><td>Above footer · 30 mm</td><td>See signature spec (State B)</td><td>Never orphaned: if &lt; 40 mm remains, whole block moves to next page with “continued” marker.</td></tr>
+<tr><td class="mono">Z6</td><td><b>Statutory footer</b></td><td>Footer · 16 mm, every page</td><td>GSTIN 27AABCM4520K1Z7 · CIN U85110MH2011PTC214563 · grievance officer name + email (grievance@meridiandx.in) + phone 022-4000 1190 · “This document is electronically generated” line</td><td>Footer content comes from org statutory profile (OR-04); templates cannot edit or remove it. Invoice footers additionally carry SAC code + place of supply.</td></tr>
+</table>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — RENDER RULES · WATERMARKS · SIGNATURE BLOCK</div>
+<div class="row">
+<div class="card grow" style="flex:1.2">
+<div class="card-title">Versioned-immutable render rule <span class="right">core guarantee</span></div>
+<div class="banner reg" style="margin-bottom:10px"><b>A document renders forever exactly as first issued</b>Each issued document pins: letterhead version, statutory footer version, terminology/code-set version, template version and locale pack version. Later rebrands or template edits never alter an already-issued document — reprints re-render from the pinned versions.</div>
+<table>
+<tr><th>Event</th><th>Effect on issued documents</th></tr>
+<tr><td>Tenant uploads new logo (letterhead v8 → v9)</td><td>None. Report RPT-AW-2026-07-0921 issued under v8 reprints with v8 logo, plus DUPLICATE COPY watermark.</td></tr>
+<tr><td>GSTIN or grievance officer changes</td><td>New documents use new footer version; old ones keep the footer that was legally in force at issue.</td></tr>
+<tr><td>Report addendum signed</td><td>New document version v2 issued; v1 remains retrievable, watermarked <span class="mono">SUPERSEDED — SEE ADDENDUM</span>.</td></tr>
+<tr><td>Template deleted by admin</td><td>Soft-retire only; render engine keeps all historical versions. Hard delete does not exist.</td></tr>
+</table>
+</div>
+<div class="card grow">
+<div class="card-title">Watermark matrix</div>
+<table>
+<tr><th>State</th><th>Watermark</th><th>Style</th></tr>
+<tr><td>Pre-sign render</td><td class="mono">DRAFT — NOT FOR CLINICAL USE</td><td>Diagonal 45°, 12% grey, every page</td></tr>
+<tr><td>Any reprint of issued doc</td><td class="mono">DUPLICATE COPY</td><td>Diagonal, 12% grey + footer line “Copy 3 · printed 25 Jul 2026 14:12 IST by P. D'Souza”</td></tr>
+<tr><td>Voided invoice/receipt</td><td class="mono">VOID</td><td>Diagonal, 15% red, doc no. retained (gapless series)</td></tr>
+<tr><td>Superseded report version</td><td class="mono">SUPERSEDED — SEE ADDENDUM</td><td>Diagonal, 12% grey</td></tr>
+</table>
+<div class="card-title" style="margin-top:14px">Signature block spec</div>
+<div style="border:1px solid #E2E8F0;border-radius:8px;padding:10px 12px">
+<div class="sig-box signed" style="min-height:44px">Dr. V. Shetty</div>
+<div class="small" style="margin-top:6px"><b>Dr. Vikram Shetty</b>, MD (Radiodiagnosis)<br>Reg. no. MMC-2009-44182 · Consultant Radiologist</div>
+<div class="small mono muted" style="margin-top:4px">Digitally signed 25 Jul 2026 13:47 IST · cert SN 4F:2A:…:9C · verify at mgns.in/v/RPT-AW-2026-07-0921</div>
+</div>
+<p class="small muted" style="margin-top:6px">Order: signature image/script line → printed name → registration no. → role → digital-signature line. Wet-signature templates keep an empty rule line of 60 mm in place of the script line. Co-signed reports stack blocks, senior last.</p>
+</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — PHYSICAL OUTPUT SPECS (A4 + THERMAL SLIP)</div>
+<div class="row">
+<div class="card grow">
+<div class="card-title">A4 spec <span class="right">reports · invoices · consent copies</span></div>
+<table>
+<tr><th>Property</th><th>Spec</th></tr>
+<tr><td>Page</td><td>A4 210 × 297 mm, portrait; landscape only for image-grid annexes</td></tr>
+<tr><td>Margins</td><td>18 mm left (filing), 12 mm others; printable-area safe zone enforced by renderer</td></tr>
+<tr><td>Typography</td><td>Body 10.5 pt / 1.4; tables 9.5 pt; never below 8 pt (statutory footer 8 pt minimum)</td></tr>
+<tr><td>Colour</td><td>Must survive monochrome laser — colour is never the only signal (matches DS-08 rule)</td></tr>
+<tr><td>PDF profile</td><td>PDF/A-2b archival; fonts embedded incl. Devanagari subset (see DS-10)</td></tr>
+<tr><td>Multi-page</td><td>Z1 compact variant (12 mm) + Z6 repeat on pages 2+; “page x of y” mandatory</td></tr>
+</table>
+</div>
+<div class="card grow">
+<div class="card-title">Thermal slip spec <span class="right">queue tokens · payment receipts · 80 mm</span></div>
+<table>
+<tr><th>Property</th><th>Spec</th></tr>
+<tr><td>Width</td><td>80 mm roll (72 mm printable); 58 mm degraded variant auto-selected by printer profile</td></tr>
+<tr><td>Header</td><td>Text-only org name + branch (no logo raster unless printer ≥ 203 dpi mono bitmap)</td></tr>
+<tr><td>Content</td><td>Token slips: token no. Q-047 in 24 pt, modality, est. wait, kiosk QR. <b>No patient name, no MRN</b> on queue slips (DS-07 public context).</td></tr>
+<tr><td>Receipts</td><td>Receipt no., date-time IST, masked payment ref (UPI ••••7712), amount ₹ Indian grouping, GSTIN, “duplicate” flag on reprint</td></tr>
+<tr><td>Footer</td><td>Grievance phone + “Full tax invoice available at desk / mgns.in/i/…” — statutory footer condensed, never dropped</td></tr>
+</table>
+<div class="banner info" style="margin-top:10px;margin-bottom:0"><b>Printer profiles</b>Branch admin maps each printer (front-desk thermal, report laser) in OR-06; templates declare which profile class they target and refuse mismatched devices instead of mangling output.</div>
+</div>
+</div>
+<p class="audit">Every render, print and reprint — with template version, letterhead version, printer, copy counter and printing user — is recorded in the access log.</p>
+</section>
+<section class="screen" id="ds-10">
+<div class="screen-head"><h1><span class="sid">DS-10</span> i18n &amp; Localisation Pattern</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM</span><div class="cluster">G17 Design System &amp; Patterns — documentation pages</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · i18n & localisation pattern</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Rules for what Magnus translates, how Indic scripts render, and how locale interacts with legal notice versions. MVP-1 ships English (en-IN), Hindi (hi-IN) and Marathi (mr-IN). Staff UI locale is a per-user preference; patient-facing locale is a per-patient communication preference captured at registration.</div>
+
+<div class="state-tag">STATE A — WHAT-IS-TRANSLATED MATRIX</div>
+<div class="card">
+<div class="card-title">Translation scope by surface <span class="right">locales: en + ml (Malayalam — pilot), hi/mr/ta ready</span></div>
+<table>
+<tr><th style="width:210px">Surface</th><th style="width:110px">Translated?</th><th style="width:170px">Method</th><th>Rationale &amp; rules</th></tr>
+<tr><td><b>UI chrome</b> (nav, buttons, labels, errors)</td><td><span class="chip green">YES</span></td><td>Managed string catalogue</td><td>100% key coverage gate in CI; a missing hi/mr key blocks release, falls back per chain (State C) at runtime only for hotfixes.</td></tr>
+<tr><td><b>Patient comms</b> (SMS, WhatsApp, portal)</td><td><span class="chip green">YES</span></td><td>Per-locale approved templates</td><td>Each DLT SMS template is separately registered per language on the Jio route — translation is a new template ID, not a string swap. WhatsApp BSP templates likewise pre-approved per locale.</td></tr>
+<tr><td><b>Consent forms &amp; privacy notices</b></td><td><span class="chip green">YES</span></td><td>Legal-reviewed translations, versioned</td><td>Translations are legal texts, not string files. Each locale rendition carries its own reviewer sign-off and is bound to the notice version (State C). Patient signs the rendition they were shown.</td></tr>
+<tr><td><b>Clinical reports</b> (radiologist narrative)</td><td><span class="chip red">NO</span></td><td>Authored language only (English in MVP-1)</td><td><b>Never auto-translated.</b> Machine translation of clinical findings is a patient-safety risk (negation, laterality, hedging nuance) and creates an unowned legal document — no clinician has signed the translated text. Portal shows a hi/mr help note explaining how to get findings explained, but the report body stays as signed.</td></tr>
+<tr><td><b>Master data</b> (test names, modality names)</td><td><span class="chip amber">PARTIAL</span></td><td>Patient-facing aliases only</td><td>Internal catalogue stays English/coded (CT BRAIN PLAIN). Patient-facing alias per locale (“सीटी स्कैन — मस्तिष्क”) used on slips and portal only; invoices always print the English catalogue name + code beside any alias.</td></tr>
+<tr><td><b>Audit logs, IDs, device names</b></td><td><span class="chip red">NO</span></td><td>—</td><td>Log events, AE titles (MERIDCT1), document numbers are locale-invariant; only rendered timestamps localise.</td></tr>
+</table>
+<div class="banner info" style="margin-top:10px;margin-bottom:0"><b>Implementation note</b>react-i18next integrated from Sprint 1 even while only English strings ship — retrofitting i18n into components is the expensive path.</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SCRIPT RENDERING &amp; NUMBER/DATE LOCALE RULES</div>
+<div class="row">
+<div class="card grow">
+<div class="card-title">Script rendering rules <span class="right">Devanagari (hi, mr)</span></div>
+<table>
+<tr><th style="width:160px">Rule</th><th>Spec</th></tr>
+<tr><td>Line height</td><td>Devanagari needs headroom for matras and conjunct stacks: body line-height <b>1.7</b> (vs 1.45 Latin); buttons/chips min-height +2 px in hi/mr locales — components must not clip शिरोरेखा or descenders.</td></tr>
+<tr><td>Font stack</td><td><span class="mono">"Noto Sans Devanagari", "Mukta", sans-serif</span>; embedded subset in PDF/A output (per DS-09). Never rely on OS fallback for print.</td></tr>
+<tr><td>Type scale</td><td>Devanagari at same pt renders visually smaller — bump 1 px at sizes ≤ 13 px in hi/mr locale packs; never mix scripts mid-word.</td></tr>
+<tr><td>Truncation</td><td>Never ellipsis-truncate inside a conjunct cluster; truncate on word boundaries only. hi/mr strings run ~15–20% longer — layouts must pass the pseudo-locale expansion test in CI.</td></tr>
+<tr><td>Digits</td><td>Always international digits 0–9 (not ०–९) in all locales — clinical/billing safety rule; applies to slips, portal and SMS.</td></tr>
+<tr><td>Bidi</td><td>Not applicable in MVP-1 (no RTL locale); layout stays LTR for hi/mr.</td></tr>
+</table>
+</div>
+<div class="card grow">
+<div class="card-title">Number, currency &amp; date locale rules</div>
+<table>
+<tr><th style="width:140px">Item</th><th>Rule</th><th style="width:170px">Example</th></tr>
+<tr><td>Currency</td><td>₹ with Indian grouping (3, then 2s) in <b>all</b> locales — grouping does not vary by language</td><td class="mono">₹ 12,45,600.00</td></tr>
+<tr><td>Date display</td><td>DD MMM YYYY; month name localises, order never does</td><td class="mono">25 Jul 2026 · 25 जुलाई 2026</td></tr>
+<tr><td>Time</td><td>12-hour with am/pm for patients; 24-hour on clinical worklists; always IST label on printed docs</td><td class="mono">02:15 pm · 14:15 IST</td></tr>
+<tr><td>Storage</td><td>Locale never touches storage: ISO 8601 UTC, paise integers, E.164 — render-time formatting only (per DS-08)</td><td class="mono">2026-07-25T08:45Z</td></tr>
+<tr><td>Units</td><td>Metric only; radiation dose, contrast volume etc. never localised or converted</td><td class="mono">120 kVp · 80 mL</td></tr>
+</table>
+<div class="banner warn" style="margin-top:10px;margin-bottom:0"><b>Mixed-locale sessions</b>A hi-locale front-office user registering an mr-preference patient sees UI in hi while the printed slip and SMS go out in mr. Preview widgets must always render in the <b>recipient's</b> locale, with a chip: <span class="chip blue">PREVIEW · मराठी (mr-IN)</span>.</div>
+</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — FALLBACK CHAIN &amp; NOTICE-VERSION BINDING</div>
+<div class="row">
+<div class="card grow">
+<div class="card-title">Fallback chain <span class="right">runtime resolution order</span></div>
+<div class="ladder" style="margin-top:6px">
+<div class="tier done"><b>1 · Exact locale</b><div class="small muted">mr-IN string / template / notice rendition</div></div>
+<div class="tier done"><b>2 · Language default</b><div class="small muted">mr → hi is <b>not</b> assumed; each language falls back independently to…</div></div>
+<div class="tier cur"><b>3 · en-IN (platform base)</b><div class="small muted">Always complete by CI gate; guaranteed terminal fallback for UI chrome and master-data aliases.</div></div>
+<div class="tier fail"><b>✕ No fallback for legal texts &amp; DLT templates</b><div class="small muted">A consent notice or registered SMS template with no rendition in the patient's preferred locale is <b>not</b> silently swapped to English — the flow surfaces an explicit choice: “Marathi version unavailable for notice v4 — proceed in English?” with staff attestation, logged.</div></div>
+</div>
+<p class="small muted">Fallback events emit telemetry (<span class="mono">i18n.fallback</span> with key + locale) so the localisation backlog is data-driven; &gt; 50 hits/week on one key raises an amber task for the org admin.</p>
+</div>
+<div class="card grow">
+<div class="card-title">Translation version ⇄ notice version <span class="right">consent integrity</span></div>
+<table>
+<tr><th>Notice</th><th>Version</th><th>en</th><th>hi</th><th>mr</th></tr>
+<tr><td>Privacy notice (patients)</td><td class="mono">v4 · eff. 01 Jul 2026</td><td><span class="chip green">v4</span></td><td><span class="chip green">v4</span></td><td><span class="chip amber">v3 pending review</span></td></tr>
+<tr><td>Contrast consent (CT/MRI)</td><td class="mono">v7 · eff. 12 May 2026</td><td><span class="chip green">v7</span></td><td><span class="chip green">v7</span></td><td><span class="chip green">v7</span></td></tr>
+<tr><td>Teleradiology disclosure</td><td class="mono">v2 · eff. 20 Jun 2026</td><td><span class="chip green">v2</span></td><td><span class="chip amber">v1</span></td><td><span class="chip red">missing</span></td></tr>
+</table>
+<div class="banner reg" style="margin-top:10px"><b>Binding rule</b>A translation is valid only for the exact notice version it was reviewed against. Publishing notice v5 automatically demotes all v4 renditions to <span class="chip amber">PENDING REVIEW</span> — the consent flow then applies the no-fallback rule above until each locale is re-approved (legal reviewer + org admin, four-eyes).</div>
+<p class="small muted" style="margin-bottom:0">Consent records store: notice version + locale rendition ID + rendition hash actually displayed — what the patient saw is provable byte-for-byte.</p>
+</div>
+</div>
+<p class="audit">Locale preference changes, fallback attestations and notice-rendition approvals are recorded in the access log.</p>
+</section>
+<section class="screen" id="ds-11">
+<div class="screen-head"><h1><span class="sid">DS-11</span> Navigation &amp; IA Map</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM</span><div class="cluster">G17 Design System &amp; Patterns — documentation pages</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · navigation & IA map of the full product</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The complete MVP-1 information architecture: every screen group with counts and ID ranges, which role sees which workspace, and the cross-group flows that stitch screens into journeys. This page is the routing contract — sidebar order, breadcrumb depth and deep-link shape are all derived from it.</div>
+
+<div class="state-tag">STATE A — FULL PRODUCT MAP (17 GROUPS)</div>
+<div class="card">
+<div class="card-title">MVP-1 screen inventory <span class="right">161 screens · pack freeze 25 Jul 2026</span></div>
+<table>
+<tr><th style="width:44px">Grp</th><th style="width:250px">Group</th><th style="width:56px">Prefix</th><th style="width:46px">Count</th><th style="width:130px">IDs</th><th>Scope note</th></tr>
+<tr><td>G1</td><td>Identity &amp; Access</td><td class="mono">AU</td><td>13</td><td class="mono">AU-01…AU-13</td><td>Staff realm sign-in, TOTP/passkeys, backup codes, patient-OTP realm, session &amp; device management</td></tr>
+<tr><td>G2</td><td>Front Office &amp; Registration</td><td class="mono">FO</td><td>16</td><td class="mono">FO-01…FO-16</td><td>Search, register, duplicate merge, demographics, consent capture, walk-in intake (FO-15)</td></tr>
+<tr><td>G3</td><td>Orders &amp; Scheduling</td><td class="mono">OR</td><td>10</td><td class="mono">OR-01…OR-10</td><td>Order entry (OR-01), slot book, prep instructions, reschedule/cancel</td></tr>
+<tr><td>G4</td><td>Billing, Payments &amp; GST</td><td class="mono">BL</td><td>12</td><td class="mono">BL-01…BL-12</td><td>Estimate, invoice, collect (BL-03: UPI/cash/card), refunds w/ dual control, credit notes, day close</td></tr>
+<tr><td>G5</td><td>Queues &amp; Tokens</td><td class="mono">TK</td><td>6</td><td class="mono">TK-01…TK-06</td><td>Token issue (TK-01), public display (token-only per DS-07), room call, no-show handling</td></tr>
+<tr><td>G6</td><td>Technologist &amp; Modality</td><td class="mono">TG</td><td>9</td><td class="mono">TG-01…TG-09</td><td>Modality worklist, MWL push to CT-ROOM-1/US-UNIT-2, acquisition complete, repeat/reject log</td></tr>
+<tr><td>G7</td><td>Radiology Reading &amp; Reporting</td><td class="mono">RD</td><td>14</td><td class="mono">RD-01…RD-14</td><td>Reading worklist (RD-09), report editor, critical flag (RD-10), notify workflow (RD-11), addenda, peer review</td></tr>
+<tr><td>G8</td><td>Report Delivery &amp; Distribution</td><td class="mono">DD</td><td>6</td><td class="mono">DD-01…DD-06</td><td>Release rules, critical-result delivery &amp; acknowledgement (DD-02), referrer dispatch, portal publish</td></tr>
+<tr><td>G9</td><td>Notifications &amp; Patient Comms</td><td class="mono">NT</td><td>8</td><td class="mono">NT-01…NT-08</td><td>Send events (NT-01), DLT SMS (Jio route) &amp; WhatsApp BSP template admin, delivery ledger, opt-outs</td></tr>
+<tr><td>G10</td><td>Patient Portal</td><td class="mono">PP</td><td>7</td><td class="mono">PP-01…PP-07</td><td>OTP realm entry, report view/download, invoices, appointment self-service</td></tr>
+<tr><td>G11</td><td>Referrer Portal</td><td class="mono">RF</td><td>6</td><td class="mono">RF-01…RF-06</td><td>Referrer worklist, report access (scoped to own referrals), bulk status</td></tr>
+<tr><td>G12</td><td>Org &amp; Branch Administration</td><td class="mono">OA</td><td>11</td><td class="mono">OA-01…OA-11</td><td>Branch master, staff &amp; roles, catalogue &amp; price lists, statutory profile, printer profiles</td></tr>
+<tr><td>G13</td><td>Privacy, Consent &amp; Audit</td><td class="mono">PV</td><td>9</td><td class="mono">PV-01…PV-09</td><td>Access log explorer, reveal-reason review, consent registry, retention jobs, DSR requests</td></tr>
+<tr><td>G14</td><td>Devices &amp; DICOM Integration</td><td class="mono">DV</td><td>7</td><td class="mono">DV-01…DV-07</td><td>AE registry (MERIDCT1, MERIDUS2), MWL health, storage commit, MRI-ROOM-2 onboarding</td></tr>
+<tr><td>G15</td><td>Analytics &amp; MIS</td><td class="mono">AN</td><td>6</td><td class="mono">AN-01…AN-06</td><td>TAT dashboards, revenue day-book, referrer volumes, SLA breach drill-down</td></tr>
+<tr><td>G16</td><td>Platform Operator Console</td><td class="mono">PL</td><td>10</td><td class="mono">PL-01…PL-10</td><td>NUMINACORE operator realm: tenant lifecycle, plans, provider routes, release channels — zero tenant PHI</td></tr>
+<tr><td>G17</td><td>Design System &amp; Patterns</td><td class="mono">DS</td><td>11</td><td class="mono">DS-01…DS-11</td><td>Documentation pages (this group) — not shipped in product navigation</td></tr>
+</table>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ROLE × WORKSPACE ACCESS MATRIX</div>
+<div class="card">
+<div class="card-title">Who sees which workspace <span class="right">✓ full · ◐ scoped subset · — no access</span></div>
+<table>
+<tr><th>Role \ Group</th><th>FO</th><th>OR</th><th>BL</th><th>TK</th><th>TG</th><th>RD</th><th>DD</th><th>NT</th><th>OA</th><th>PV</th><th>DV</th><th>AN</th><th>PL</th></tr>
+<tr><td><b>Front office</b> — D. Nair</td><td>✓</td><td>✓</td><td>◐ <span class="small muted">estimate only</span></td><td>✓</td><td>—</td><td>—</td><td>◐ <span class="small muted">handover</span></td><td>◐ <span class="small muted">resend</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><b>Technologist</b> — T. Okafor</td><td>◐ <span class="small muted">read-only ID</span></td><td>◐</td><td>—</td><td>✓</td><td>✓</td><td>◐ <span class="small muted">status</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>◐ <span class="small muted">own room</span></td><td>—</td><td>—</td></tr>
+<tr><td><b>Radiologist</b> — Dr. V. Shetty</td><td>—</td><td>◐</td><td>—</td><td>—</td><td>◐</td><td>✓</td><td>✓</td><td>—</td><td>—</td><td>—</td><td>—</td><td>◐ <span class="small muted">own TAT</span></td><td>—</td></tr>
+<tr><td><b>Referrer</b> (RF portal)</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>◐ <span class="small muted">own referrals</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><b>Cashier</b> — P. D'Souza</td><td>◐ <span class="small muted">token ID only</span></td><td>—</td><td>✓</td><td>◐</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>◐ <span class="small muted">day-book</span></td><td>—</td></tr>
+<tr><td><b>Branch admin</b></td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>◐ <span class="small muted">no report edit</span></td><td>✓</td><td>✓</td><td>◐ <span class="small muted">own branch</span></td><td>◐ <span class="small muted">branch log</span></td><td>✓</td><td>✓</td><td>—</td></tr>
+<tr><td><b>Org admin</b> — K. Verma</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>◐</td><td>✓</td><td>✓</td><td>✓</td><td>◐ <span class="small muted">no raw log export</span></td><td>✓</td><td>✓</td><td>—</td></tr>
+<tr><td><b>Privacy officer</b></td><td>◐</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>◐ <span class="small muted">opt-outs</span></td><td>—</td><td>✓</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><b>Operator</b> — R. Iyer (NUMINACORE)</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
+</table>
+<div class="banner reg" style="margin-top:10px;margin-bottom:0"><b>Matrix is enforced, not decorative</b>Sidebar items a role cannot use are removed, not greyed. A deep link into a denied group returns the workspace home with “You don't have access to Billing — ask your branch admin”, never a blank 403; the attempt is logged. Operator realm (Keycloak) is a separate trust domain — no role composition can bridge PL into tenant groups.</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — CROSS-GROUP FLOW INDEX &amp; DEEP-LINK RULES</div>
+<div class="row">
+<div class="card grow" style="flex:1.25">
+<div class="card-title">Cross-group flow index <span class="right">happy paths · SLA owner per hop</span></div>
+<table>
+<tr><th style="width:150px">Flow</th><th>Screen path</th><th style="width:170px">SLA &amp; owner</th></tr>
+<tr class="hl"><td><b>Walk-in to report</b></td><td class="mono">FO-15 → OR-01 → BL-03 → TK-01 → RD-09 → NT-01</td><td><span class="chip teal">TAT 4h</span> owner: branch admin</td></tr>
+<tr><td><b>Critical result</b></td><td class="mono">RD-10 → RD-11 → DD-02</td><td><span class="chip red">30 min — OVERDUE alarm</span> owner: Dr. V. Shetty until ack</td></tr>
+<tr><td><b>Booked appointment</b></td><td class="mono">OR-02 → NT-01 → FO-03 → TK-01 → TG-02</td><td><span class="chip teal">on-slot</span> owner: front office</td></tr>
+<tr><td><b>Refund (dual control)</b></td><td class="mono">BL-07 → BL-08 → PV-02</td><td><span class="chip amber">48h</span> owner: cashier → branch admin approve</td></tr>
+<tr><td><b>Consent → order gate</b></td><td class="mono">FO-06 → PV-03 → OR-01</td><td>blocking — no consent, no contrast order</td></tr>
+<tr><td><b>Device onboarding</b></td><td class="mono">DV-01 → DV-03 → TG-01</td><td><span class="chip amber">MRI-ROOM-2 in progress</span> owner: org admin</td></tr>
+<tr><td><b>Tenant onboarding</b></td><td class="mono">PL-02 → PL-04 → AU-01 → OA-01</td><td>operator → tenant handoff, four-eyes at PL-04</td></tr>
+</table>
+<p class="small muted" style="margin-top:8px">Rule: a cross-group hop must carry its context object (visit ID, order ID) in the route — the receiving screen renders pre-scoped, never asks the user to re-search what the previous screen already knew.</p>
+</div>
+<div class="card grow">
+<div class="card-title">Deep-link &amp; breadcrumb rules</div>
+<table>
+<tr><th style="width:120px">Rule</th><th>Spec</th></tr>
+<tr><td>URL shape</td><td class="mono">/w/&lt;workspace&gt;/&lt;group&gt;/&lt;screen&gt;/&lt;entity-id&gt;<br><span class="muted" style="font-family:inherit">e.g. /w/andheri-west/rd/worklist/V-260725-0412</span></td></tr>
+<tr><td>No PHI in URLs</td><td>Entity IDs only (visit, order, token) — never name, phone or MRN fragments; URLs land in browser history and proxy logs (DS-07).</td></tr>
+<tr><td>Breadcrumb depth</td><td>Max 3 levels: <span class="mono">Workspace › Group › Screen</span>. Entity context renders in the page title, not a 4th crumb. Crumbs are the route truth — no “fake” crumbs from arrival path.</td></tr>
+<tr><td>Auth on deep link</td><td>Unauthenticated hit → AU-01 with realm inferred from workspace, then return to the exact link. Step-up-gated screens (PV-*, refunds) re-challenge even inside a live session.</td></tr>
+<tr><td>Branch switch</td><td>Deep link into another permitted branch prompts an explicit switch banner — never silently changes the active branch context.</td></tr>
+<tr><td>Dead links</td><td>Merged/voided entities redirect to the survivor with an info banner (“Visit merged into V-260725-0398”), preserving the audit trail.</td></tr>
+</table>
+</div>
+</div>
+<p class="audit">Denied deep-link attempts, branch context switches and cross-realm navigation events are recorded in the access log.</p>
+</section>
+</body></html>

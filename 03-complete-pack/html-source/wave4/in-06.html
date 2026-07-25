@@ -1,0 +1,138 @@
+<section class="screen" id="in-06">
+<div class="screen-head"><h1><span class="sid">IN-06</span> Retry &amp; replay console</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · retry/replay console (scope item #103)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Failed HL7/DICOM/comms messages land in per-connector queues where staff can replay a single message or a filtered batch. Replays are idempotency-safe: every message carries a stable key, so a duplicate replay is acknowledged but suppressed downstream. Messages that fail repeatedly move to the POISON queue, which auto-raises an engineer task and suppresses further automatic retries.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Connectors</div>
+      <div class="nav-item">Connector health</div>
+      <div class="nav-item">Modality worklist</div>
+      <div class="nav-item">Message browser</div>
+      <div class="nav-item active">Retry &amp; replay <span class="nav-badge red">14</span></div>
+      <div class="sec-label">Channels</div>
+      <div class="nav-item">Comms providers</div>
+      <div class="nav-item">Printers &amp; peripherals</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Mapping tables</div>
+      <div class="nav-item">Access log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Integration › Retry &amp; replay console</div>
+      <div class="page-title">Retry &amp; replay console <span class="actions-right"><span class="btn small">Replay audit trail</span> <span class="btn small">⟳ Refreshed 14:31 IST</span></span></div>
+      <div class="page-sub">Failed-message queues per connector · automatic retry ladder 1m → 5m → 30m → park · manual replay always available</div>
+      <div class="banner info"><b>Idempotency guarantee</b>Every outbound/inbound message carries a stable idempotency key (e.g. <span class="mono">ORU:ACC-2607-0137:P:v1</span>). Replaying an already-applied message returns DUP-SUPPRESSED downstream — replay is safe and cannot double-post results, orders or payments.</div>
+      <div class="kpi-row">
+        <div class="kpi red"><div class="n">14</div><div class="l">Parked failures</div><div class="s">Across 4 connectors</div></div>
+        <div class="kpi amber"><div class="n">3</div><div class="l">In retry ladder</div><div class="s">Next attempt ≤ 30 min</div></div>
+        <div class="kpi red"><div class="n">2</div><div class="l">Poison queue</div><div class="s">Auto-suppressed · engineer task open</div></div>
+        <div class="kpi"><div class="n">37</div><div class="l">Replayed · 7 days</div><div class="s">35 success · 2 → poison</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Failed queues by connector <span class="right">age SLA: teal &lt;2h · amber &lt;6h · red overdue</span></div>
+        <table>
+          <tr><th>Connector</th><th>Queue depth</th><th>Oldest message</th><th>Age SLA</th><th>Owner</th><th>Dominant error</th><th></th></tr>
+          <tr class="hl"><td>Partner lab inbound (HL7 ORU)</td><td><b>7</b></td><td class="mono">MSG-4B77-C210 · 11:31 IST</td><td><span class="chip amber">3h 00m · due 17:31</span></td><td>K. Verma</td><td><span class="chip red">SCHEMA-VIOLATION</span></td><td><span class="btn ghost small">Open queue</span></td></tr>
+          <tr><td>LIS-Bridge outbound (HL7 ORU)</td><td><b>3</b></td><td class="mono">MSG-1D09-EE42 · 13:47 IST</td><td><span class="chip teal">44m · due 15:47</span></td><td>K. Verma</td><td><span class="chip red">TIMEOUT</span></td><td><span class="btn ghost small">Open queue</span></td></tr>
+          <tr><td>DLT SMS (Jio route)</td><td><b>3</b></td><td class="mono">SMS-88welcome-291 · 09:12 IST</td><td><span class="chip red">5h 19m · OVERDUE</span></td><td>D. Nair</td><td><span class="chip red">TEMPLATE-REJECT</span></td><td><span class="btn ghost small">Open queue</span></td></tr>
+          <tr><td>MRI-ROOM-2 MPPS (DICOM)</td><td><b>1</b></td><td class="mono">MPPS-0F31 · 12:55 IST</td><td><span class="chip teal">1h 36m · due 14:55</span></td><td>T. Okafor</td><td><span class="chip red">AUTH-REJECT</span></td><td><span class="btn ghost small">Open queue</span></td></tr>
+          <tr class="dim"><td>Payment gateway UPI webhooks</td><td>0</td><td>—</td><td><span class="chip green">CLEAR</span></td><td>P. D'Souza</td><td>—</td><td></td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">Queue: Partner lab inbound · 7 parked <span class="right">2 selected</span></div>
+        <div style="display:flex;gap:8px;margin-bottom:10px"><span class="btn primary small">Replay selected (2)</span><span class="btn small">Replay all matching filter</span><span class="btn warn-outline small">Move selected to poison</span><span class="btn ghost small">Clear selection</span></div>
+        <table>
+          <tr><th style="width:26px"></th><th>Message</th><th>Correlation</th><th>Error</th><th>Attempts</th><th>Last attempt</th><th>Age SLA</th></tr>
+          <tr class="hl"><td><span class="box on">✓</span></td><td class="mono">MSG-4B77-C210 · ORU^R01</td><td class="mono">ACC-2607-0137</td><td><span class="chip red">SCHEMA-VIOLATION</span></td><td>3 auto + 0 manual</td><td class="mono">12:31 IST</td><td><span class="chip amber">3h 00m</span></td></tr>
+          <tr class="hl"><td><span class="box on">✓</span></td><td class="mono">MSG-4B91-A00F · ORU^R01</td><td class="mono">ACC-2607-0138</td><td><span class="chip red">SCHEMA-VIOLATION</span></td><td>3 auto + 1 manual</td><td class="mono">13:02 IST</td><td><span class="chip amber">2h 41m</span></td></tr>
+          <tr><td><span class="box"></span></td><td class="mono">MSG-4C12-B7D3 · ORU^R01</td><td class="mono">ACC-2607-0140</td><td><span class="chip red">TIMEOUT</span></td><td>2 auto · next 14:45</td><td class="mono">14:15 IST</td><td><span class="chip teal">1h 12m</span></td></tr>
+          <tr><td><span class="box"></span></td><td class="mono">MSG-4C55-90AA · ORU^R01</td><td class="mono">ACC-2607-0143</td><td><span class="chip red">SCHEMA-VIOLATION</span></td><td>3 auto</td><td class="mono">13:44 IST</td><td><span class="chip teal">0h 58m</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Replay uses the original payload and idempotency key unless "edit-and-replay" is chosen — edited replays require a second approver (four-eyes) and are tagged EDITED in the audit trail.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — BULK REPLAY RESULT (2 SELECTED · CONFIRM + OUTCOME)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Integration › Retry &amp; replay › Bulk replay</div>
+      <div class="page-title">Bulk replay · Partner lab inbound</div>
+      <div class="page-sub">Requested by K. Verma · 25 Jul 2026 14:33 IST · run ID <span class="mono">RPL-20260725-0091</span></div>
+      <div class="modal-wrap">
+        <div class="modal">
+          <h3>Confirm bulk replay — 2 messages</h3>
+          <p class="small" style="margin-bottom:8px">Messages will be re-submitted through full validation with their <b>original idempotency keys</b>. Any message already applied downstream will be suppressed as a duplicate, not double-posted.</p>
+          <dl class="kv" style="grid-template-columns:130px 1fr">
+            <dt>Scope</dt><dd class="mono">MSG-4B77-C210, MSG-4B91-A00F</dd>
+            <dt>Reason</dt><dd>Partner lab redeployed template LAB-ORU-EDREF at 14:20 IST</dd>
+            <dt>Identity</dt><dd><span class="chip green">Step-up confirmed · passkey · 14:32 IST</span></dd>
+          </dl>
+          <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Replay 2 messages</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Run result · RPL-20260725-0091 <span class="right">completed 14:33:41 IST · 3.2s</span></div>
+        <div class="kpi-row" style="margin-bottom:10px">
+          <div class="kpi"><div class="n">1</div><div class="l">Succeeded</div><div class="s">Applied downstream</div></div>
+          <div class="kpi"><div class="n">0</div><div class="l">Duplicate-suppressed</div><div class="s">Idempotency key hit</div></div>
+          <div class="kpi red"><div class="n">1</div><div class="l">Failed again</div><div class="s">Attempt count now 5 → poison candidate</div></div>
+        </div>
+        <table>
+          <tr><th>Message</th><th>Correlation</th><th>Idempotency key</th><th>Outcome</th><th>Detail</th></tr>
+          <tr><td class="mono">MSG-4B77-C210</td><td class="mono">ACC-2607-0137</td><td class="mono">ORU:ACC-2607-0137:F:v2</td><td><span class="chip green">SUCCESS</span></td><td>Validated · result posted · accession flag cleared</td></tr>
+          <tr class="hl"><td class="mono">MSG-4B91-A00F</td><td class="mono">ACC-2607-0138</td><td class="mono">ORU:ACC-2607-0138:F:v1</td><td><span class="chip red">FAIL · 5th attempt</span></td><td>Sender still on old template · auto-move to POISON in effect, engineer task <span class="mono">ENG-1147</span> raised</td></tr>
+        </table>
+        <div class="banner success" style="margin-top:10px;margin-bottom:0"><b>1 of 2 applied</b>Successful replay logged with run ID, actor and outcome. The remaining failure is now suppressed from auto-retry and visible in the poison queue below.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Replay audit trail (this connector, last 7 days) <span class="right">who · when · outcome</span></div>
+        <table>
+          <tr><th>Run</th><th>When (IST)</th><th>Actor</th><th>Scope</th><th>Outcome</th></tr>
+          <tr><td class="mono">RPL-20260725-0091</td><td class="mono">25 Jul 14:33</td><td>K. Verma</td><td>2 msgs · bulk</td><td><span class="chip green">1 ok</span> <span class="chip red">1 fail→poison</span></td></tr>
+          <tr><td class="mono">RPL-20260724-0087</td><td class="mono">24 Jul 18:04</td><td>K. Verma</td><td>1 msg · single</td><td><span class="chip green">1 ok</span></td></tr>
+          <tr><td class="mono">RPL-20260723-0080</td><td class="mono">23 Jul 09:52</td><td>R. Iyer (Platform Ops)</td><td>4 msgs · edited replay · co-approved K. Verma</td><td><span class="chip green">4 ok</span> <span class="chip grey">EDITED</span></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — POISON QUEUE · ESCALATED TO ENGINEER TASK &amp; SUPPRESSED</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Integration › Retry &amp; replay › Poison queue</div>
+      <div class="page-title">Poison queue <span class="chip red">3 messages</span></div>
+      <div class="page-sub">Messages that failed ≥5 attempts or matched a poison pattern · auto-retry suppressed · manual replay requires four-eyes approval</div>
+      <div class="banner danger"><b>Auto-escalation active</b>Each poison entry raises an engineer task and notifies the connector owner. Further automatic retries are suppressed to protect downstream systems from repeated bad payloads.</div>
+      <table>
+        <tr><th>Message</th><th>Correlation</th><th>Poisoned at</th><th>Failure history</th><th>Engineer task</th><th>Status</th><th></th></tr>
+        <tr class="hl"><td class="mono">MSG-4B91-A00F · ORU^R01</td><td class="mono">ACC-2607-0138</td><td class="mono">25 Jul 14:33 IST</td><td>5 fails · SCHEMA-VIOLATION ×5</td><td class="mono">ENG-1147 · open · assignee K. Verma</td><td><span class="chip red">SUPPRESSED</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+        <tr><td class="mono">SMS-88welcome-291 · DLT SMS</td><td class="mono">VISIT-2607-0410</td><td class="mono">25 Jul 12:40 IST</td><td>6 fails · TEMPLATE-REJECT (DLT header mismatch)</td><td class="mono">ENG-1145 · in progress · D. Nair</td><td><span class="chip red">SUPPRESSED</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+        <tr><td class="mono">MPPS-0E88 · N-SET · MRI-ROOM-2</td><td class="mono">ACC-2606-0994</td><td class="mono">22 Jul 16:11 IST</td><td>5 fails · AUTH-REJECT (AE title cert rotated)</td><td class="mono">ENG-1139 · resolved · awaiting replay</td><td><span class="chip amber">READY FOR REPLAY</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+      </table>
+      <div class="modal-wrap">
+        <div class="modal danger">
+          <h3>Replay from poison — four-eyes required</h3>
+          <p class="small" style="margin-bottom:8px">Replaying <span class="mono">MPPS-0E88</span> after engineer fix ENG-1139. Poison replays require the requester plus one independent approver; neither can approve their own request.</p>
+          <dl class="kv" style="grid-template-columns:140px 1fr">
+            <dt>Requester</dt><dd>T. Okafor · identity step-up <span class="chip green">TOTP ✓ 14:36 IST</span></dd>
+            <dt>Approver</dt><dd>K. Verma (org admin) · <span class="chip amber">PENDING approval</span></dd>
+            <dt>Idempotency</dt><dd class="mono">MPPS:ACC-2606-0994:COMPLETED:v1 — duplicate-safe</dd>
+          </dl>
+          <div class="modal-actions"><span class="btn">Cancel</span><span class="btn disabled">Replay — awaiting second approval</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Every replay (single, bulk, edited, poison), its approver pair, idempotency outcome and suppression event is recorded in the access log.</p>
+</section>

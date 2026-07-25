@@ -1,0 +1,83 @@
+<section class="screen" id="ds-09">
+<div class="screen-head"><h1><span class="sid">DS-09</span> Print &amp; Document Templates Pattern</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM</span><div class="cluster">G17 Design System &amp; Patterns — documentation pages</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · print/document template pattern</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Defines the letterhead zone model, immutability rules and physical output specs for every printed or PDF document Magnus produces — reports, invoices, receipts, consent copies, queue slips. Templates are tenant-brandable (white-label) but zone structure and statutory content are platform-enforced.</div>
+
+<div class="state-tag">STATE A — LETTERHEAD ZONES (SPEC AS TABLE)</div>
+<div class="card">
+<div class="card-title">A4 document zone model <span class="right">template engine: DocRender v5 · zones are fixed, content is tenant-versioned</span></div>
+<table>
+<tr><th style="width:60px">Zone</th><th style="width:180px">Name</th><th style="width:150px">Position / size</th><th>Required content</th><th style="width:210px">Rules</th></tr>
+<tr><td class="mono">Z1</td><td><b>Org identity</b></td><td>Header · 28 mm</td><td>Tenant logo, legal name “Meridian Diagnostics Pvt Ltd”, branch address, phone, NABL/NABH accreditation marks where held</td><td>Logo max 22 mm high; monochrome fallback auto-generated for thermal. Branch line pulled from branch master — never hand-typed in templates.</td></tr>
+<tr><td class="mono">Z2</td><td><b>Document band</b></td><td>Below header · 12 mm</td><td>Document type (RADIOLOGY REPORT / TAX INVOICE / RECEIPT), document no., issue date-time IST, page x of y</td><td>Document numbers are branch-prefixed and gapless per statutory series (INV-AW-2026-07-01184).</td></tr>
+<tr><td class="mono">Z3</td><td><b>Subject block</b></td><td>Left column · flexible</td><td>Patient name, MRN, age/sex, referrer, visit ID; QR code linking to verification URL (token, no PHI in QR payload)</td><td>Identity fields obey DS-07 masking for duplicate copies requested by third parties.</td></tr>
+<tr><td class="mono">Z4</td><td><b>Body</b></td><td>Main flow</td><td>Report narrative / line items / consent text</td><td>Body styles locked to template typography set; no per-user fonts. Tables must not split a line item across pages.</td></tr>
+<tr><td class="mono">Z5</td><td><b>Signature block</b></td><td>Above footer · 30 mm</td><td>See signature spec (State B)</td><td>Never orphaned: if &lt; 40 mm remains, whole block moves to next page with “continued” marker.</td></tr>
+<tr><td class="mono">Z6</td><td><b>Statutory footer</b></td><td>Footer · 16 mm, every page</td><td>GSTIN 27AABCM4520K1Z7 · CIN U85110MH2011PTC214563 · grievance officer name + email (grievance@meridiandx.in) + phone 022-4000 1190 · “This document is electronically generated” line</td><td>Footer content comes from org statutory profile (OR-04); templates cannot edit or remove it. Invoice footers additionally carry SAC code + place of supply.</td></tr>
+</table>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — RENDER RULES · WATERMARKS · SIGNATURE BLOCK</div>
+<div class="row">
+<div class="card grow" style="flex:1.2">
+<div class="card-title">Versioned-immutable render rule <span class="right">core guarantee</span></div>
+<div class="banner reg" style="margin-bottom:10px"><b>A document renders forever exactly as first issued</b>Each issued document pins: letterhead version, statutory footer version, terminology/code-set version, template version and locale pack version. Later rebrands or template edits never alter an already-issued document — reprints re-render from the pinned versions.</div>
+<table>
+<tr><th>Event</th><th>Effect on issued documents</th></tr>
+<tr><td>Tenant uploads new logo (letterhead v8 → v9)</td><td>None. Report RPT-AW-2026-07-0921 issued under v8 reprints with v8 logo, plus DUPLICATE COPY watermark.</td></tr>
+<tr><td>GSTIN or grievance officer changes</td><td>New documents use new footer version; old ones keep the footer that was legally in force at issue.</td></tr>
+<tr><td>Report addendum signed</td><td>New document version v2 issued; v1 remains retrievable, watermarked <span class="mono">SUPERSEDED — SEE ADDENDUM</span>.</td></tr>
+<tr><td>Template deleted by admin</td><td>Soft-retire only; render engine keeps all historical versions. Hard delete does not exist.</td></tr>
+</table>
+</div>
+<div class="card grow">
+<div class="card-title">Watermark matrix</div>
+<table>
+<tr><th>State</th><th>Watermark</th><th>Style</th></tr>
+<tr><td>Pre-sign render</td><td class="mono">DRAFT — NOT FOR CLINICAL USE</td><td>Diagonal 45°, 12% grey, every page</td></tr>
+<tr><td>Any reprint of issued doc</td><td class="mono">DUPLICATE COPY</td><td>Diagonal, 12% grey + footer line “Copy 3 · printed 25 Jul 2026 14:12 IST by P. D'Souza”</td></tr>
+<tr><td>Voided invoice/receipt</td><td class="mono">VOID</td><td>Diagonal, 15% red, doc no. retained (gapless series)</td></tr>
+<tr><td>Superseded report version</td><td class="mono">SUPERSEDED — SEE ADDENDUM</td><td>Diagonal, 12% grey</td></tr>
+</table>
+<div class="card-title" style="margin-top:14px">Signature block spec</div>
+<div style="border:1px solid #E2E8F0;border-radius:8px;padding:10px 12px">
+<div class="sig-box signed" style="min-height:44px">Dr. V. Shetty</div>
+<div class="small" style="margin-top:6px"><b>Dr. Vikram Shetty</b>, MD (Radiodiagnosis)<br>Reg. no. MMC-2009-44182 · Consultant Radiologist</div>
+<div class="small mono muted" style="margin-top:4px">Digitally signed 25 Jul 2026 13:47 IST · cert SN 4F:2A:…:9C · verify at mgns.in/v/RPT-AW-2026-07-0921</div>
+</div>
+<p class="small muted" style="margin-top:6px">Order: signature image/script line → printed name → registration no. → role → digital-signature line. Wet-signature templates keep an empty rule line of 60 mm in place of the script line. Co-signed reports stack blocks, senior last.</p>
+</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — PHYSICAL OUTPUT SPECS (A4 + THERMAL SLIP)</div>
+<div class="row">
+<div class="card grow">
+<div class="card-title">A4 spec <span class="right">reports · invoices · consent copies</span></div>
+<table>
+<tr><th>Property</th><th>Spec</th></tr>
+<tr><td>Page</td><td>A4 210 × 297 mm, portrait; landscape only for image-grid annexes</td></tr>
+<tr><td>Margins</td><td>18 mm left (filing), 12 mm others; printable-area safe zone enforced by renderer</td></tr>
+<tr><td>Typography</td><td>Body 10.5 pt / 1.4; tables 9.5 pt; never below 8 pt (statutory footer 8 pt minimum)</td></tr>
+<tr><td>Colour</td><td>Must survive monochrome laser — colour is never the only signal (matches DS-08 rule)</td></tr>
+<tr><td>PDF profile</td><td>PDF/A-2b archival; fonts embedded incl. Devanagari subset (see DS-10)</td></tr>
+<tr><td>Multi-page</td><td>Z1 compact variant (12 mm) + Z6 repeat on pages 2+; “page x of y” mandatory</td></tr>
+</table>
+</div>
+<div class="card grow">
+<div class="card-title">Thermal slip spec <span class="right">queue tokens · payment receipts · 80 mm</span></div>
+<table>
+<tr><th>Property</th><th>Spec</th></tr>
+<tr><td>Width</td><td>80 mm roll (72 mm printable); 58 mm degraded variant auto-selected by printer profile</td></tr>
+<tr><td>Header</td><td>Text-only org name + branch (no logo raster unless printer ≥ 203 dpi mono bitmap)</td></tr>
+<tr><td>Content</td><td>Token slips: token no. Q-047 in 24 pt, modality, est. wait, kiosk QR. <b>No patient name, no MRN</b> on queue slips (DS-07 public context).</td></tr>
+<tr><td>Receipts</td><td>Receipt no., date-time IST, masked payment ref (UPI ••••7712), amount ₹ Indian grouping, GSTIN, “duplicate” flag on reprint</td></tr>
+<tr><td>Footer</td><td>Grievance phone + “Full tax invoice available at desk / mgns.in/i/…” — statutory footer condensed, never dropped</td></tr>
+</table>
+<div class="banner info" style="margin-top:10px;margin-bottom:0"><b>Printer profiles</b>Branch admin maps each printer (front-desk thermal, report laser) in OR-06; templates declare which profile class they target and refuse mismatched devices instead of mangling output.</div>
+</div>
+</div>
+<p class="audit">Every render, print and reprint — with template version, letterhead version, printer, copy counter and printing user — is recorded in the access log.</p>
+</section>

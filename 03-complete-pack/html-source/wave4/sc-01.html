@@ -1,0 +1,105 @@
+<section class="screen" id="sc-01">
+<div class="screen-head"><h1><span class="sid">SC-01</span> Working hours &amp; breaks</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling &amp; Resource Setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 working hours</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The org admin defines the weekly open/close and break windows per branch; the slot-generation engine reads this grid nightly to materialise bookable slots 45 days ahead. Changes never rewrite the past — every edit is effective-dated, previewed against existing bookings, and can be copied to other branches with a diff review. Exceptions (holidays, closures from SC-02) always override this grid.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Scheduling setup</div>
+      <div class="nav-item active">Working hours &amp; breaks</div>
+      <div class="nav-item">Holidays &amp; closures <span class="nav-badge">3</span></div>
+      <div class="nav-item">Slot templates</div>
+      <div class="nav-item">Doctor availability</div>
+      <div class="nav-item">Equipment availability <span class="nav-badge red">1</span></div>
+      <div class="sec-label">Reference</div>
+      <div class="nav-item">Rooms &amp; resources</div>
+      <div class="nav-item">Branch settings</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Setup › Scheduling › Working hours &amp; breaks</div>
+      <div class="page-title">Working hours — Andheri West <span class="actions-right"><span class="btn small">Copy to branch…</span> <span class="btn small">View change history</span> <span class="btn small primary">Edit week</span></span></div>
+      <div class="page-sub">Branch <span class="mono">BR-AND-01</span> · timezone Asia/Kolkata (IST) · current version <span class="mono">v7</span> effective since 01-Apr-2026 · read by slot generation nightly at 01:30 IST</div>
+
+      <div class="banner info"><b>Used by slot generation</b>Slots are materialised 45 days ahead from this grid, minus closures (SC-02), minus equipment maintenance windows (SC-05). Next generation run: 26-Jul-2026 01:30 IST. Editing here never deletes already-booked appointments — conflicts become reschedule tasks.</div>
+
+      <div class="card">
+        <div class="card-title">Weekly grid <span class="right">version v7 · effective 01-Apr-2026 → open-ended</span></div>
+        <table>
+          <tr><th>Day</th><th>Status</th><th>Open</th><th>Close</th><th>Break(s)</th><th>Net bookable</th><th></th></tr>
+          <tr><td><b>Monday</b></td><td><span class="chip green">Open</span></td><td class="mono">07:30</td><td class="mono">21:00</td><td class="mono">13:30–14:15 (lunch)</td><td>12h 45m</td><td><span class="btn small ghost">Edit</span></td></tr>
+          <tr><td><b>Tuesday</b></td><td><span class="chip green">Open</span></td><td class="mono">07:30</td><td class="mono">21:00</td><td class="mono">13:30–14:15 (lunch)</td><td>12h 45m</td><td><span class="btn small ghost">Edit</span></td></tr>
+          <tr><td><b>Wednesday</b></td><td><span class="chip green">Open</span></td><td class="mono">07:30</td><td class="mono">21:00</td><td class="mono">13:30–14:15 (lunch) · 17:00–17:20 (CT QA)</td><td>12h 25m</td><td><span class="btn small ghost">Edit</span></td></tr>
+          <tr><td><b>Thursday</b></td><td><span class="chip green">Open</span></td><td class="mono">07:30</td><td class="mono">21:00</td><td class="mono">13:30–14:15 (lunch)</td><td>12h 45m</td><td><span class="btn small ghost">Edit</span></td></tr>
+          <tr><td><b>Friday</b></td><td><span class="chip green">Open</span></td><td class="mono">07:30</td><td class="mono">21:00</td><td class="mono">13:30–14:15 (lunch)</td><td>12h 45m</td><td><span class="btn small ghost">Edit</span></td></tr>
+          <tr><td><b>Saturday</b></td><td><span class="chip green">Open</span></td><td class="mono">08:00</td><td class="mono">18:00</td><td class="mono">13:30–14:00 (lunch)</td><td>9h 30m</td><td><span class="btn small ghost">Edit</span></td></tr>
+          <tr class="dim"><td><b>Sunday</b></td><td><span class="chip grey">Closed</span></td><td class="mono">—</td><td class="mono">—</td><td class="mono">—</td><td>0h</td><td><span class="btn small ghost">Edit</span></td></tr>
+        </table>
+        <div class="hint" style="margin-top:6px;font-size:11px;color:#64748B">Breaks block all modalities at this branch. Modality-specific pauses (e.g. weekly CT QA) can instead be set as recurring equipment windows in SC-05 if only one unit is affected.</div>
+      </div>
+
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Exceptions preview — next 30 days <span class="right">from Holidays &amp; closures (SC-02)</span></div>
+          <table>
+            <tr><th>Date</th><th>Exception</th><th>Scope</th><th>Effect on this grid</th></tr>
+            <tr><td class="mono">15-Aug-2026 (Sat)</td><td>Independence Day</td><td><span class="chip grey">Whole branch</span></td><td>Overrides Saturday hours — 0 slots generated</td></tr>
+            <tr><td class="mono">16-Aug-2026 (Sun)</td><td>Janmashtami (observed)</td><td><span class="chip grey">Whole branch</span></td><td>Already closed on Sunday — no change</td></tr>
+            <tr><td class="mono">02-Aug-2026 (Sun)</td><td>MRI-ROOM-2 coil service</td><td><span class="chip blue">Modality: MRI</span></td><td>No effect — branch closed Sunday; window kept for engineer access</td></tr>
+          </table>
+        </div>
+        <div class="card" style="width:300px;flex-shrink:0">
+          <div class="card-title">Copy to branch</div>
+          <div class="field"><label>Target branch</label><span class="select" style="display:block">Bandra East (BR-BAN-02) ▾</span></div>
+          <div class="check"><span class="box on">✓</span> Copy open/close hours</div>
+          <div class="check"><span class="box on">✓</span> Copy breaks</div>
+          <div class="check"><span class="box"></span> Copy Wednesday CT QA pause</div>
+          <div class="field"><label>Effective from</label><span class="input mono" style="display:block">01-Aug-2026</span><div class="hint">Diff is shown to the target branch admin for approval before it applies — copies are never silent.</div></div>
+          <span class="btn small primary">Preview diff &amp; send</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — EDIT DAY (SATURDAY) WITH VALIDATION &amp; IMPACT PREVIEW</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Edit Saturday hours — Andheri West</h3>
+    <div class="row">
+      <div class="field grow"><label>Open <span class="req">*</span></label><span class="input mono" style="display:block">08:00</span></div>
+      <div class="field grow"><label>Close <span class="req">*</span></label><span class="input err mono" style="display:block">16:00</span></div>
+    </div>
+    <div class="field"><label>Breaks</label>
+      <table>
+        <tr><th>From</th><th>To</th><th>Label</th><th></th></tr>
+        <tr><td class="mono">13:30</td><td class="mono">14:00</td><td>Lunch</td><td><span class="btn small ghost">Remove</span></td></tr>
+      </table>
+      <span class="btn small ghost">+ Add break</span>
+    </div>
+    <div class="banner warn"><b>Impact: 14 future Saturday bookings fall after 16:00</b>Between 01-Aug and 05-Sep-2026, 14 booked appointments (9 USG, 3 CT, 2 X-Ray) sit in the 16:00–18:00 window you are removing. Saving will create a bulk reschedule task assigned to front office — patients are notified only after each rebooking is confirmed.</div>
+    <div class="field"><label>Effective from <span class="req">*</span></label><span class="input mono" style="display:block">01-Aug-2026</span><div class="hint">Must be a future date. Past days keep version v7 for audit and billing accuracy.</div></div>
+    <div class="field"><label>Reason for change <span class="req">*</span></label><span class="input" style="display:block">Reduced Saturday radiologist coverage from August roster</span></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Save as v8 &amp; create reschedule task</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — EFFECTIVE-DATED CHANGE SCHEDULED (V8 PENDING)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Working hours — Andheri West <span class="chip amber">v8 scheduled</span></div>
+  <div class="banner success"><b>Version v8 saved — effective 01-Aug-2026</b>Saturday close moves 18:00 → 16:00. Saved by K. Verma 25-Jul-2026 16:42 IST after step-up identity confirmation (passkey). Slot generation will use v7 up to 31-Jul and v8 from 01-Aug. Reschedule task <span class="mono">TASK-2026-3311</span> (14 bookings) assigned to D. Nair (front office), SLA <span class="chip amber">due 29-Jul</span> owner: D. Nair.</div>
+  <div class="card">
+    <div class="card-title">Version timeline <span class="right">append-only</span></div>
+    <div class="timeline">
+      <div class="ev"><span class="t">25-Jul 16:42</span><span><b>v8 scheduled</b> — Saturday 08:00–16:00 · effective 01-Aug-2026 · by K. Verma · reason: reduced Saturday radiologist coverage · step-up verified</span></div>
+      <div class="ev"><span class="t">28-Mar 11:05</span><span><b>v7 activated</b> — Wednesday CT QA pause 17:00–17:20 added · effective 01-Apr-2026 · by K. Verma</span></div>
+      <div class="ev"><span class="t">04-Jan 09:18</span><span><b>v6 activated</b> — weekday close extended 20:00 → 21:00 · effective 12-Jan-2026 · by K. Verma</span></div>
+    </div>
+    <span class="btn small">Cancel scheduled v8…</span> <span class="hint" style="font-size:11px;color:#64748B">Cancelling a scheduled version before its effective date requires a reason and closes TASK-2026-3311 as void.</span>
+  </div>
+</div></div></div>
+
+<p class="audit">Every view of this grid, each version save (before/after values, actor, step-up method, effective date, reason) and every copy-to-branch send is recorded in the access log.</p>
+</section>

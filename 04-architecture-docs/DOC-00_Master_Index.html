@@ -1,0 +1,127 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Magnus HMS — Master Index</title><style>/* Magnus HMS — NS design pack shared design system */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
+.mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
+.muted{color:#64748B}.small{font-size:12px}.bold{font-weight:700}
+/* ---------- page / screen frame ---------- */
+.screen{page-break-after:always;padding:28px 34px;background:#fff;min-height:1000px}
+.screen-head{display:flex;justify-content:space-between;align-items:flex-start;border-left:5px solid #0F766E;padding:6px 0 6px 14px;margin-bottom:6px}
+.screen-head h1{font-size:22px;font-weight:800}
+.screen-head .sid{color:#0F766E;margin-right:10px}
+.screen-head .meta{text-align:right}
+.screen-head .meta .cluster{color:#64748B;font-size:12px;margin-top:3px}
+.gap-note{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:8px 12px;margin:10px 0 16px;font-size:12.5px;color:#7C2D12}
+.gap-note b{color:#9A3412}
+/* ---------- app chrome ---------- */
+.frame{border:1px solid #CBD5E1;border-radius:10px;overflow:hidden;background:#F4F6F8;box-shadow:0 1px 4px rgba(15,23,42,.08);margin-bottom:22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:2px solid #0F766E;padding:9px 16px}
+.brand{font-weight:800;color:#0F766E}.brand span{color:#1E293B}
+.org{font-size:12.5px;color:#334155;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px}
+.userchip{font-size:12.5px;color:#334155}
+.userchip .av{display:inline-block;background:#CCFBF1;color:#0F766E;font-weight:700;border-radius:5px;padding:2px 6px;margin-right:6px;font-size:11px}
+.body{display:flex;min-height:520px}
+.sidebar{width:196px;background:#fff;border-right:1px solid #E2E8F0;padding:12px 0;flex-shrink:0}
+.sec-label{font-size:10.5px;letter-spacing:.08em;color:#94A3B8;font-weight:700;padding:8px 16px 4px;text-transform:uppercase}
+.nav-item{padding:7px 16px;font-size:13px;color:#334155;display:flex;justify-content:space-between;align-items:center}
+.nav-item.active{background:#F0FDFA;color:#0F766E;font-weight:700;border-left:3px solid #0F766E;padding-left:13px}
+.nav-badge{background:#0F766E;color:#fff;border-radius:9px;font-size:10.5px;padding:1px 7px;font-weight:700}
+.nav-badge.red{background:#B91C1C}
+.main{flex:1;padding:16px 18px;min-width:0}
+.crumb{font-size:12px;color:#64748B;margin-bottom:8px}
+.page-title{font-size:19px;font-weight:800;margin-bottom:2px}
+.page-sub{font-size:12.5px;color:#64748B;margin-bottom:14px}
+.actions-right{float:right}
+/* ---------- components ---------- */
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card-title{font-weight:800;font-size:14.5px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.card-title .right{font-size:10.5px;letter-spacing:.07em;color:#94A3B8;font-weight:700;text-transform:uppercase}
+.row{display:flex;gap:14px}.row>*{min-width:0}.grow{flex:1}
+.btn{display:inline-block;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:700;border:1px solid #CBD5E1;background:#fff;color:#334155;text-align:center;white-space:nowrap}
+.btn.primary{background:#0F766E;border-color:#0F766E;color:#fff}
+.btn.danger{background:#B91C1C;border-color:#B91C1C;color:#fff}
+.btn.warn-outline{border-color:#F59E0B;color:#92400E;background:#FFFBEB}
+.btn.ghost{border:none;background:none;color:#0F766E;padding:7px 6px}
+.btn.small{padding:4px 10px;font-size:12px}
+.btn.disabled{opacity:.45}
+.chip{display:inline-block;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip.teal{background:#CCFBF1;color:#0F766E}
+.chip.green{background:#DCFCE7;color:#15803D}
+.chip.amber{background:#FEF3C7;color:#92400E}
+.chip.red{background:#FEE2E2;color:#B91C1C}
+.chip.grey{background:#F1F5F9;color:#475569}
+.chip.blue{background:#E0F2FE;color:#0369A1}
+.chip.violet{background:#EDE9FE;color:#6D28D9}
+.chip.outline-red{background:#fff;border:1.5px solid #B91C1C;color:#B91C1C}
+.banner{border-radius:8px;padding:10px 13px;font-size:12.5px;margin-bottom:12px;border:1px solid}
+.banner b{display:block;margin-bottom:2px;font-size:13px}
+.banner.info{background:#E0F2FE;border-color:#7DD3FC;color:#075985}
+.banner.warn{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+.banner.danger{background:#FEE2E2;border-color:#FCA5A5;color:#991B1B}
+.banner.success{background:#DCFCE7;border-color:#86EFAC;color:#166534}
+.banner.reg{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding:7px 9px;border-bottom:2px solid #E2E8F0;background:#F8FAFC}
+td{padding:8px 9px;border-bottom:1px solid #EEF2F6;vertical-align:top}
+tr.hl td{background:#F0FDFA}
+tr.dim td{color:#94A3B8}
+.kv{display:grid;grid-template-columns:150px 1fr;row-gap:6px;column-gap:12px;font-size:12.5px}
+.kv dt{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding-top:2px}
+.kv dd{margin:0}
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+.field label .req{color:#B91C1C}
+.field .hint{font-size:11px;color:#64748B;margin-top:3px}
+.input,.select,.textarea{width:100%;border:1px solid #CBD5E1;border-radius:7px;padding:7px 10px;font-size:13px;background:#fff;color:#1E293B}
+.input.err{border-color:#B91C1C;background:#FEF2F2}
+.textarea{min-height:64px}
+.check{font-size:12.5px;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.box{display:inline-block;width:14px;height:14px;border:1.6px solid #64748B;border-radius:3px;flex-shrink:0;margin-top:1px;text-align:center;line-height:12px;font-size:11px;font-weight:800}
+.box.on{background:#0F766E;border-color:#0F766E;color:#fff}
+.radio{border-radius:50%}
+.radio.on{background:#fff;border-color:#0F766E;box-shadow:inset 0 0 0 3.5px #0F766E;color:transparent}
+/* modal */
+.modal-wrap{background:#64748B22;border:1px dashed #94A3B8;border-radius:12px;padding:26px 40px;margin:14px 0}
+.modal{background:#fff;border-radius:12px;border-top:5px solid #0F766E;box-shadow:0 8px 30px rgba(15,23,42,.25);max-width:560px;margin:0 auto;padding:18px 20px}
+.modal.danger{border-top-color:#B91C1C}
+.modal h3{font-size:16px;margin-bottom:8px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+/* misc */
+.divider-label{text-align:center;color:#94A3B8;font-size:11.5px;margin:20px 0 14px;position:relative}
+.divider-label:before,.divider-label:after{content:"";display:inline-block;width:24%;border-top:1px dashed #CBD5E1;vertical-align:middle;margin:0 10px}
+.audit{font-size:11px;color:#8A6D1D;margin-top:10px}
+.audit:before{content:"🔒 "}
+.state-tag{font-size:10px;letter-spacing:.08em;font-weight:800;text-transform:uppercase;color:#94A3B8;text-align:right;margin-bottom:4px}
+.kpi-row{display:flex;gap:12px;margin-bottom:14px}
+.kpi{flex:1;background:#fff;border:1px solid #E2E8F0;border-left:4px solid #0F766E;border-radius:9px;padding:10px 13px}
+.kpi.amber{border-left-color:#F59E0B}.kpi.red{border-left-color:#B91C1C}
+.kpi .n{font-size:23px;font-weight:800}.kpi .l{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700}
+.kpi .s{font-size:11px;color:#64748B;margin-top:2px}
+.stepper{display:flex;gap:6px;align-items:center;font-size:12px;color:#64748B;margin-bottom:14px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:6px}
+.step .dot{width:20px;height:20px;border-radius:50%;background:#E2E8F0;color:#475569;font-size:11px;font-weight:800;text-align:center;line-height:20px}
+.step.done .dot{background:#15803D;color:#fff}.step.cur .dot{background:#0F766E;color:#fff}
+.step.cur{color:#0F766E;font-weight:700}
+.step-line{width:26px;border-top:2px solid #CBD5E1}
+.sig-box{border:1.5px dashed #94A3B8;border-radius:8px;min-height:64px;background:#F8FAFC;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:12px;font-style:italic}
+.sig-box.signed{border-style:solid;border-color:#15803D;color:#166534;background:#F0FDF4;font-family:'Segoe Script','Comic Sans MS',cursive;font-size:17px;font-style:normal}
+.ladder{border-left:3px solid #E2E8F0;margin-left:8px;padding-left:16px}
+.ladder .tier{margin-bottom:12px;position:relative}
+.ladder .tier:before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:#CBD5E1}
+.ladder .tier.done:before{background:#15803D}.ladder .tier.cur:before{background:#0F766E;box-shadow:0 0 0 3px #CCFBF1}
+.ladder .tier.fail:before{background:#B91C1C}
+.progress{height:7px;border-radius:4px;background:#E2E8F0;overflow:hidden;margin-top:4px}
+.progress i{display:block;height:100%;background:#0F766E}
+.progress.amber i{background:#F59E0B}.progress.red i{background:#B91C1C}
+.split{display:grid;grid-template-columns:1fr 300px;gap:14px}
+.timeline{font-size:12.5px}
+.timeline .ev{display:flex;gap:10px;margin-bottom:9px}
+.timeline .t{color:#64748B;white-space:nowrap;font-family:Consolas,monospace;font-size:11.5px;padding-top:1px}
+ body{background:#F4F6F8;padding:30px} .doc{max-width:1000px;margin:0 auto} a{color:#0F766E}</style></head><body><div class="doc">
+<div style="background:#fff;border-left:6px solid #0F766E;border-radius:0 10px 10px 0;padding:16px 18px;margin-bottom:18px">
+<div style="font-size:11px;letter-spacing:.12em;font-weight:800;color:#0F766E;text-transform:uppercase">Magnus HMS · MVP 1</div>
+<h1 style="font-size:26px;margin:6px 0">Master Index — Complete Design &amp; Documentation Pack</h1>
+<p class="muted" style="font-size:13px">226 screens · 17 groups · 10 architecture documents · vendor-baseline synced (140 extend / 86 net-new) · July 2026</p></div>
+<div class="card"><div class="card-title">Architecture &amp; workflow documents (04-architecture-docs/)</div><table><tr><td class="mono bold" style="color:#0F766E">DOC-01</td><td><a href="DOC-01_Patient_Scenarios.html">DOC-01 Patient Scenarios</a></td></tr><tr><td class="mono bold" style="color:#0F766E">DOC-02</td><td><a href="DOC-02_Workflow_Orders.html">DOC-02 Workflow Orders</a></td></tr><tr><td class="mono bold" style="color:#0F766E">DOC-03</td><td><a href="DOC-03_Roles_Hierarchy_Permissions.html">DOC-03 Roles Hierarchy Permissions</a></td></tr><tr><td class="mono bold" style="color:#0F766E">DOC-04</td><td><a href="DOC-04_Security_Architecture.html">DOC-04 Security Architecture</a></td></tr><tr><td class="mono bold" style="color:#0F766E">DOC-05</td><td><a href="DOC-05_Audit_Logging.html">DOC-05 Audit Logging</a></td></tr><tr><td class="mono bold" style="color:#0F766E">DOC-06</td><td><a href="DOC-06_Billing_E2E.html">DOC-06 Billing E2E</a></td></tr><tr><td class="mono bold" style="color:#0F766E">DOC-07</td><td><a href="DOC-07_Auth_MFA_Flows.html">DOC-07 Auth MFA Flows</a></td></tr><tr><td class="mono bold" style="color:#0F766E">DOC-08</td><td><a href="DOC-08_Vendor_Baseline_Crosswalk.html">DOC-08 Vendor Baseline Crosswalk</a></td></tr><tr><td class="mono bold" style="color:#0F766E">DOC-09</td><td><a href="DOC-09_Build_Deployment_Architecture.html">DOC-09 Build Deployment Architecture</a></td></tr><tr><td class="mono bold" style="color:#0F766E">DOC-10</td><td><a href="DOC-10_Test_Traceability_Matrix.html">DOC-10 Test Traceability Matrix</a></td></tr></table></div>
+<div class="card"><div class="card-title">Screen group packs (03-complete-pack/group-html/)</div><table><tr><td><a href="../group-html/Magnus_HMS_G01_Identity_Access.html">G01 Identity Access</a></td></tr><tr><td><a href="../group-html/Magnus_HMS_G02_Patient_Facing.html">G02 Patient Facing</a></td></tr><tr><td><a href="../group-html/Magnus_HMS_G03_Front_Office_Reception.html">G03 Front Office Reception</a></td></tr><tr><td><a href="../group-html/Magnus_HMS_G04_Scheduling_Setup.html">G04 Scheduling Setup</a></td></tr><tr><td><a href="../group-html/Magnus_HMS_G05_Orders_Clinical_Safety.html">G05 Orders Clinical Safety</a></td></tr><tr><td><a href="../group-html/Magnus_HMS_G06_Radiology_Technician.html">G06 Radiology Technician</a></td></tr><tr><td><a href="../group-html/Magnus_HMS_G07_Radiologist_Reading.html">G07 Radiologist Reading</a></td></tr><tr><td><a href="../group-html/Magnus_HMS_G08_Doctor_Desk.html">G08 Doctor Desk</a></td></tr><tr><td><a href="../group-html/Magnus_HMS_G09_Billing_Payments.html">G09 Billing Payments</a></td></tr><tr><td><a href="../group-html/Magnus_HMS_G10_Notifications_Delivery.html">G10 Notifications Delivery</a></td></tr><tr><td><a href="../group-html/Magnus_HMS_G11_Grievance_Support.html">G11 Grievance Support</a></td></tr><tr><td><a href="../group-html/Magnus_HMS_G12_Admin_Master_Data.html">G12 Admin Master Data</a></td></tr><tr><td><a href="../group-html/Magnus_HMS_G13_Integration_Devices.html">G13 Integration Devices</a></td></tr><tr><td><a href="../group-html/Magnus_HMS_G14_Governance_Compliance.html">G14 Governance Compliance</a></td></tr><tr><td><a href="../group-html/Magnus_HMS_G15_Imaging_Regulatory.html">G15 Imaging Regulatory</a></td></tr><tr><td><a href="../group-html/Magnus_HMS_G16_Platform_Operator.html">G16 Platform Operator</a></td></tr><tr><td><a href="../group-html/Magnus_HMS_G17_Design_System_Patterns.html">G17 Design System Patterns</a></td></tr></table></div>
+<div class="banner info"><b>Reading order for the development team</b>docs/VISION → docs/DECISIONS → DOC-09 build blueprint → DOC-08 crosswalk (vendor deck ↔ this pack) → group packs by module → DOC-01/02 scenarios &amp; flows → DOC-10 test traceability for UAT.</div>
+<p class="audit">Synthetic data only — no PHI.</p></div></body></html>

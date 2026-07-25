@@ -24,3 +24,19 @@ Chronological record of every decision taken during the review-and-design engage
 | D-18 | **Org/tenant closure is retention-safe** — never hard-deletes patient data; archive read-only through statutory retention (radiology 10y, billing 8y). | |
 | D-19 | Screens carry scope chips (MVP1-CORE / Conditional / Post-MVP1-Roadmap) consistent with the signed scope checklist. | |
 | D-20 | **All mockup data is synthetic; no PHI**; Aadhaar last-4 only; foetal-sex non-disclosure respected in all obstetric content. | |
+
+## Expert-panel round (post-Wave-4, July 25)
+
+| # | Decision | Detail |
+|---|---|---|
+| D-21 | Report release policy = **Option C** (org-configurable, clinical override, full audit); pilot default withhold-until-payment; critical results ALWAYS bypass the hold. | New screen BL-20; Report status separates signed vs released; `release_without_payment` permission. Resolves open question Q1. |
+| D-22 | Pilot topology = **Option A**: one operational branch + remote radiologists; cloud control-plane / branch edge data-plane (local Docker + Orthanc). | DOC-09 §7. |
+| D-23 | Offline = **Option A practical MVP**: registration/billing-cash/consent/token offline with queued sync; UPI blocked offline; reporting cloud-only. | DS-04 + DOC-09 §8; ConnectionStatusProvider + IndexedDB queue + idempotent sync endpoints. |
+| D-24 | Build = **modular monolith** (Java 21/Spring Boot 3, bounded contexts, transactional outbox, adapters); Kubernetes deferred. | DOC-09 §1–2. |
+| D-25 | External referrers get a **separate partner identity realm** (attribute-restricted), distinct portal pages. | AU-16 updated; DD cluster. |
+| D-26 | Sign-off = **authenticated clinical sign-off** (reg no. + content hash + immutable audit), risk-based step-up (not per-report); migration batch approval added to step-up matrix. | RD-09/AU-09 updated. |
+| D-27 | Patient-facing languages = **English + Malayalam** (Kerala pilot: N. Paravoor / Irinjalakuda / Pullur); react-i18next from Sprint 1. | PT-11, CS-03, DS-10 updated. |
+| D-28 | Migrated patients carry `consent_status=IMPORTED_LEGACY_UNVERIFIED`, visible and restricting external sharing until fresh consent. | AD-12; front-desk prompt at next visit. |
+| D-29 | SLA engine = `sla_deadline`/`sla_status` fields + scheduled sweep with auto-escalation; 99.5% uptime allows planned Sunday-night window. | DOC-09 §11. |
+| D-30 | Viewer = integrate (OHIF embedded / external launch), never build; prior-selection contract: accession + prior UIDs (same patient/modality/24 months) in launch URL. | RD-05 updated; DOC-09 §7. |
+| D-31 | Branding: synthetic tenant names to be replaced with final product name **before UAT** (name TBD by Magnus). | Pending client. |

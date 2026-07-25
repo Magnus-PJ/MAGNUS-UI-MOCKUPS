@@ -1,0 +1,457 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DOC-10 Test Traceability &amp; Safety-Gate Test Suite — Magnus HMS</title>
+<style>/* Magnus HMS — NS design pack shared design system */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
+.mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
+.muted{color:#64748B}.small{font-size:12px}.bold{font-weight:700}
+/* ---------- page / screen frame ---------- */
+.screen{page-break-after:always;padding:28px 34px;background:#fff;min-height:1000px}
+.screen-head{display:flex;justify-content:space-between;align-items:flex-start;border-left:5px solid #0F766E;padding:6px 0 6px 14px;margin-bottom:6px}
+.screen-head h1{font-size:22px;font-weight:800}
+.screen-head .sid{color:#0F766E;margin-right:10px}
+.screen-head .meta{text-align:right}
+.screen-head .meta .cluster{color:#64748B;font-size:12px;margin-top:3px}
+.gap-note{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:8px 12px;margin:10px 0 16px;font-size:12.5px;color:#7C2D12}
+.gap-note b{color:#9A3412}
+/* ---------- app chrome ---------- */
+.frame{border:1px solid #CBD5E1;border-radius:10px;overflow:hidden;background:#F4F6F8;box-shadow:0 1px 4px rgba(15,23,42,.08);margin-bottom:22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:2px solid #0F766E;padding:9px 16px}
+.brand{font-weight:800;color:#0F766E}.brand span{color:#1E293B}
+.org{font-size:12.5px;color:#334155;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px}
+.userchip{font-size:12.5px;color:#334155}
+.userchip .av{display:inline-block;background:#CCFBF1;color:#0F766E;font-weight:700;border-radius:5px;padding:2px 6px;margin-right:6px;font-size:11px}
+.body{display:flex;min-height:520px}
+.sidebar{width:196px;background:#fff;border-right:1px solid #E2E8F0;padding:12px 0;flex-shrink:0}
+.sec-label{font-size:10.5px;letter-spacing:.08em;color:#94A3B8;font-weight:700;padding:8px 16px 4px;text-transform:uppercase}
+.nav-item{padding:7px 16px;font-size:13px;color:#334155;display:flex;justify-content:space-between;align-items:center}
+.nav-item.active{background:#F0FDFA;color:#0F766E;font-weight:700;border-left:3px solid #0F766E;padding-left:13px}
+.nav-badge{background:#0F766E;color:#fff;border-radius:9px;font-size:10.5px;padding:1px 7px;font-weight:700}
+.nav-badge.red{background:#B91C1C}
+.main{flex:1;padding:16px 18px;min-width:0}
+.crumb{font-size:12px;color:#64748B;margin-bottom:8px}
+.page-title{font-size:19px;font-weight:800;margin-bottom:2px}
+.page-sub{font-size:12.5px;color:#64748B;margin-bottom:14px}
+.actions-right{float:right}
+/* ---------- components ---------- */
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card-title{font-weight:800;font-size:14.5px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.card-title .right{font-size:10.5px;letter-spacing:.07em;color:#94A3B8;font-weight:700;text-transform:uppercase}
+.row{display:flex;gap:14px}.row>*{min-width:0}.grow{flex:1}
+.btn{display:inline-block;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:700;border:1px solid #CBD5E1;background:#fff;color:#334155;text-align:center;white-space:nowrap}
+.btn.primary{background:#0F766E;border-color:#0F766E;color:#fff}
+.btn.danger{background:#B91C1C;border-color:#B91C1C;color:#fff}
+.btn.warn-outline{border-color:#F59E0B;color:#92400E;background:#FFFBEB}
+.btn.ghost{border:none;background:none;color:#0F766E;padding:7px 6px}
+.btn.small{padding:4px 10px;font-size:12px}
+.btn.disabled{opacity:.45}
+.chip{display:inline-block;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip.teal{background:#CCFBF1;color:#0F766E}
+.chip.green{background:#DCFCE7;color:#15803D}
+.chip.amber{background:#FEF3C7;color:#92400E}
+.chip.red{background:#FEE2E2;color:#B91C1C}
+.chip.grey{background:#F1F5F9;color:#475569}
+.chip.blue{background:#E0F2FE;color:#0369A1}
+.chip.violet{background:#EDE9FE;color:#6D28D9}
+.chip.outline-red{background:#fff;border:1.5px solid #B91C1C;color:#B91C1C}
+.banner{border-radius:8px;padding:10px 13px;font-size:12.5px;margin-bottom:12px;border:1px solid}
+.banner b{display:block;margin-bottom:2px;font-size:13px}
+.banner.info{background:#E0F2FE;border-color:#7DD3FC;color:#075985}
+.banner.warn{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+.banner.danger{background:#FEE2E2;border-color:#FCA5A5;color:#991B1B}
+.banner.success{background:#DCFCE7;border-color:#86EFAC;color:#166534}
+.banner.reg{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding:7px 9px;border-bottom:2px solid #E2E8F0;background:#F8FAFC}
+td{padding:8px 9px;border-bottom:1px solid #EEF2F6;vertical-align:top}
+tr.hl td{background:#F0FDFA}
+tr.dim td{color:#94A3B8}
+.kv{display:grid;grid-template-columns:150px 1fr;row-gap:6px;column-gap:12px;font-size:12.5px}
+.kv dt{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding-top:2px}
+.kv dd{margin:0}
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+.field label .req{color:#B91C1C}
+.field .hint{font-size:11px;color:#64748B;margin-top:3px}
+.input,.select,.textarea{width:100%;border:1px solid #CBD5E1;border-radius:7px;padding:7px 10px;font-size:13px;background:#fff;color:#1E293B}
+.input.err{border-color:#B91C1C;background:#FEF2F2}
+.textarea{min-height:64px}
+.check{font-size:12.5px;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.box{display:inline-block;width:14px;height:14px;border:1.6px solid #64748B;border-radius:3px;flex-shrink:0;margin-top:1px;text-align:center;line-height:12px;font-size:11px;font-weight:800}
+.box.on{background:#0F766E;border-color:#0F766E;color:#fff}
+.radio{border-radius:50%}
+.radio.on{background:#fff;border-color:#0F766E;box-shadow:inset 0 0 0 3.5px #0F766E;color:transparent}
+/* modal */
+.modal-wrap{background:#64748B22;border:1px dashed #94A3B8;border-radius:12px;padding:26px 40px;margin:14px 0}
+.modal{background:#fff;border-radius:12px;border-top:5px solid #0F766E;box-shadow:0 8px 30px rgba(15,23,42,.25);max-width:560px;margin:0 auto;padding:18px 20px}
+.modal.danger{border-top-color:#B91C1C}
+.modal h3{font-size:16px;margin-bottom:8px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+/* misc */
+.divider-label{text-align:center;color:#94A3B8;font-size:11.5px;margin:20px 0 14px;position:relative}
+.divider-label:before,.divider-label:after{content:"";display:inline-block;width:24%;border-top:1px dashed #CBD5E1;vertical-align:middle;margin:0 10px}
+.audit{font-size:11px;color:#8A6D1D;margin-top:10px}
+.audit:before{content:"🔒 "}
+.state-tag{font-size:10px;letter-spacing:.08em;font-weight:800;text-transform:uppercase;color:#94A3B8;text-align:right;margin-bottom:4px}
+.kpi-row{display:flex;gap:12px;margin-bottom:14px}
+.kpi{flex:1;background:#fff;border:1px solid #E2E8F0;border-left:4px solid #0F766E;border-radius:9px;padding:10px 13px}
+.kpi.amber{border-left-color:#F59E0B}.kpi.red{border-left-color:#B91C1C}
+.kpi .n{font-size:23px;font-weight:800}.kpi .l{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700}
+.kpi .s{font-size:11px;color:#64748B;margin-top:2px}
+.stepper{display:flex;gap:6px;align-items:center;font-size:12px;color:#64748B;margin-bottom:14px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:6px}
+.step .dot{width:20px;height:20px;border-radius:50%;background:#E2E8F0;color:#475569;font-size:11px;font-weight:800;text-align:center;line-height:20px}
+.step.done .dot{background:#15803D;color:#fff}.step.cur .dot{background:#0F766E;color:#fff}
+.step.cur{color:#0F766E;font-weight:700}
+.step-line{width:26px;border-top:2px solid #CBD5E1}
+.sig-box{border:1.5px dashed #94A3B8;border-radius:8px;min-height:64px;background:#F8FAFC;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:12px;font-style:italic}
+.sig-box.signed{border-style:solid;border-color:#15803D;color:#166534;background:#F0FDF4;font-family:'Segoe Script','Comic Sans MS',cursive;font-size:17px;font-style:normal}
+.ladder{border-left:3px solid #E2E8F0;margin-left:8px;padding-left:16px}
+.ladder .tier{margin-bottom:12px;position:relative}
+.ladder .tier:before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:#CBD5E1}
+.ladder .tier.done:before{background:#15803D}.ladder .tier.cur:before{background:#0F766E;box-shadow:0 0 0 3px #CCFBF1}
+.ladder .tier.fail:before{background:#B91C1C}
+.progress{height:7px;border-radius:4px;background:#E2E8F0;overflow:hidden;margin-top:4px}
+.progress i{display:block;height:100%;background:#0F766E}
+.progress.amber i{background:#F59E0B}.progress.red i{background:#B91C1C}
+.split{display:grid;grid-template-columns:1fr 300px;gap:14px}
+.timeline{font-size:12.5px}
+.timeline .ev{display:flex;gap:10px;margin-bottom:9px}
+.timeline .t{color:#64748B;white-space:nowrap;font-family:Consolas,monospace;font-size:11.5px;padding-top:1px}
+ body{background:#F4F6F8;padding:30px} .doc{max-width:1240px;margin:0 auto} h2{font-size:19px;margin:22px 0 8px;color:#0F766E}
+ /* DOC-10 additions */
+ .chain{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:11.5px;color:#0F766E;font-weight:700;line-height:1.7}
+ .chain i{font-style:normal;color:#94A3B8;font-weight:400;padding:0 2px}
+ .tc{margin-bottom:5px;font-size:12px}
+ .tc .id{font-family:"SF Mono",Consolas,monospace;font-weight:800;color:#0369A1;margin-right:5px;white-space:nowrap}
+ .refs{font-family:"SF Mono",Consolas,monospace;font-size:11.5px;color:#6D28D9;white-space:nowrap}
+ .owner-blank{border-bottom:1.5px dashed #CBD5E1;display:block;min-width:88px;min-height:16px}
+ .card.gate{border:1.5px solid #B91C1C;box-shadow:0 1px 6px rgba(185,28,28,.12)}
+ .card.gate .card-title{color:#B91C1C}
+ .gate-band{background:#B91C1C;color:#fff;border-radius:8px 8px 0 0;margin:-14px -16px 12px;padding:9px 16px;font-weight:800;font-size:13px;letter-spacing:.05em;text-transform:uppercase}
+ .gwt b{color:#334155;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;display:inline-block;width:46px}
+ .gwt div{margin-bottom:3px}
+ .sgid{font-family:"SF Mono",Consolas,monospace;font-weight:800;color:#B91C1C;white-space:nowrap}
+ .stid{font-family:"SF Mono",Consolas,monospace;font-weight:800;color:#6D28D9;white-space:nowrap}
+</style></head><body><div class="doc">
+
+<div style="border-left:6px solid #0F766E;padding-left:18px;margin-bottom:18px;background:#fff;border-radius:0 10px 10px 0;padding:16px 18px 16px 18px">
+<div style="font-size:11px;letter-spacing:.12em;font-weight:800;color:#0F766E;text-transform:uppercase">Magnus HMS · MVP 1 · Architecture &amp; Workflow Documentation</div>
+<h1 style="font-size:26px;margin:6px 0">DOC-10 — Test Traceability &amp; Safety-Gate Test Suite</h1>
+<p class="muted" style="font-size:13px">Proves that <b>no workflow dead-end is missed</b> across the 225-screen complete pack: every end-to-end scenario from DOC-01 is decomposed into an ordered screen chain, tied back to the signed scope-checklist features, and covered by numbered test cases. UAT scripts derive directly from this matrix — a scenario row here becomes a UAT script; a safety-gate row becomes a mandatory pass/fail gate before sign-off. Version 1.0 · July 2026.</p></div>
+
+<!-- ============ 1 · METHOD ============ -->
+<div class="card"><div class="card-title">1 · Method — how traceability works<span class="right">Read first</span></div>
+<table>
+<tr><th style="width:170px">Element</th><th>Rule</th></tr>
+<tr><td class="bold">Scenario</td><td>One of the 25 end-to-end patient/operational journeys from <b>DOC-01 Patient Scenarios</b> (same numbering S01–S25). A scenario is the unit of UAT: it starts at a real-world trigger and must end in a terminal state on a real screen — never in a dead-end.</td></tr>
+<tr><td class="bold">Ordered screen chain</td><td>The exact screens crossed, in order, using pack screen IDs (e.g. <span class="mono bold" style="color:#0F766E">FO-02 → FO-03 → …</span>). Every chain implicitly begins at <span class="mono">AU-01</span> sign-in (or <span class="mono">PT-01</span> OTP for patient-side steps); these entry screens are not repeated in each row. Branch points are shown with the screen that resolves them.</td></tr>
+<tr><td class="bold">Checklist refs</td><td>Feature items from the signed scope checklist (<span class="refs">#50–#78</span> workflow features, plus <span class="refs">#12–#16</span> platform/offline and <span class="refs">#103</span> integration items) that the scenario exercises. Every checklist item claimed as “in scope” must appear in at least one scenario row.</td></tr>
+<tr><td class="bold">Test case IDs</td><td>Numbered <span class="mono bold" style="color:#0369A1">TC-<i>NNk</i></span> where <i>NN</i> = scenario number, <i>k</i> = case sequence (e.g. TC-021 is the first test of Scenario 02). Each carries a one-line assertion; the full UAT script (data, steps, expected screenshots) is generated from this ID.</td></tr>
+<tr><td class="bold">Severity</td><td><span class="chip red">safety-critical</span> patient-safety consequence if it fails · <span class="chip violet">statutory</span> legal/regulatory consequence (PC-PNDT, DPDP, GST, AERB) · <span class="chip grey">operational</span> revenue/ops consequence.</td></tr>
+<tr><td class="bold">Acceptance owner</td><td>Left <b>blank for the client</b> to fill during UAT planning — name of the person who signs off that scenario. A scenario without a named owner cannot enter UAT.</td></tr>
+</table>
+<div class="banner info" style="margin-top:10px"><b>Pass rule</b>A scenario passes only when every TC in its row passes <i>and</i> every safety gate (Section 3) whose screens appear in its chain passes. Safety gates are absolute: one failed SG blocks UAT sign-off for the whole release, regardless of scenario-level results.</div>
+</div>
+
+<!-- ============ 2 · TRACEABILITY MATRIX ============ -->
+<div class="card"><div class="card-title">2 · Traceability matrix — 25 end-to-end scenarios<span class="right">S01–S25 · TC-011–TC-254</span></div>
+<table>
+<tr><th style="width:34px">#</th><th style="width:150px">Scenario</th><th style="width:230px">Ordered screen chain</th><th style="width:86px">Checklist refs</th><th>Test cases (ID — assertion)</th><th style="width:92px">Severity</th><th style="width:96px">Acceptance owner</th></tr>
+
+<tr><td class="mono bold">S01</td><td class="bold">Walk-in X-ray, cash, same-day report</td>
+<td class="chain">FO-15<i>→</i>FO-02<i>→</i>FO-03<i>→</i>FO-05<i>→</i>FO-16<i>→</i>OR-01<i>→</i>BL-02<i>→</i>BL-03<i>→</i>BL-05<i>→</i>TK-01<i>→</i>TK-02<i>→</i>RD-01<i>→</i>RD-07<i>→</i>RD-08<i>→</i>RD-09<i>→</i>RD-13<i>→</i>NT-01<i>→</i>PT-01<i>→</i>PT-02</td>
+<td class="refs">#51 #15/#16 #54 #64 #70</td>
+<td><div class="tc"><span class="id">TC-011</span>Walk-in fast-track creates MRN + visit spine in ≤4 screens, no re-keying of demographics.</div>
+<div class="tc"><span class="id">TC-012</span>Cash payment issues a serially-numbered GST receipt and posts to the open cash session (BL-09).</div>
+<div class="tc"><span class="id">TC-013</span>Signed report is deliverable to PT-01/PT-02 the same day; NT-01 shows delivered status.</div>
+<div class="tc"><span class="id">TC-014</span>Every screen in the chain offers a forward action to the next — zero dead-ends on the happy path.</div></td>
+<td><span class="chip grey">operational</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S02</td><td class="bold">Booked contrast CT, eGFR unavailable</td>
+<td class="chain">FO-13<i>→</i>OR-01<i>→</i>OR-02<i>→</i>CS-01<i>→</i>CS-04<i>→</i>TK-01<i>→</i>TK-09<i>→</i>TK-02<i>→</i>TK-06<i>→</i>RD-07<i>→</i>RD-09<i>→</i>RD-13</td>
+<td class="refs">#55 #58 #61/#63</td>
+<td><div class="tc"><span class="id">TC-021</span>CS-01 blocks Perform when no creatinine/eGFR result exists within 30 days (see SG-01).</div>
+<div class="tc"><span class="id">TC-022</span>CS-04 records physician risk-acceptance with reason and step-up auth; technologist route stays blocked.</div>
+<div class="tc"><span class="id">TC-023</span>TK-06 captures contrast agent, lot and volume before the study can be marked complete.</div>
+<div class="tc"><span class="id">TC-024</span>The override decision and screening values are visible in RD-07 report context at reading time.</div></td>
+<td><span class="chip red">safety-critical</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S03</td><td class="bold">Obstetric US with Form F (PC-PNDT)</td>
+<td class="chain">FO-13<i>→</i>OR-01<i>→</i>CS-06<i>→</i>IR-01<i>→</i>TK-01<i>→</i>TK-02<i>→</i>RD-07<i>→</i>RD-18<i>→</i>RD-09<i>→</i>IR-02</td>
+<td class="refs">#56 #78</td>
+<td><div class="tc"><span class="id">TC-031</span>With Form F incomplete, TK-01 shows the study Blocked and Perform is disabled (see SG-04).</div>
+<div class="tc"><span class="id">TC-032</span>Patient signature is captured on CS-06 before acquisition can start; unsigned form cannot register.</div>
+<div class="tc"><span class="id">TC-033</span>Completed Form F auto-appears in IR-01 register with serial number, feeding IR-02 monthly prep.</div>
+<div class="tc"><span class="id">TC-034</span>RD-18 statutory declaration sections are locked and present in the signed report.</div></td>
+<td><span class="chip violet">statutory</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S04</td><td class="bold">STAT head CT 02:10, critical bleed, closed loop</td>
+<td class="chain">OR-01<i>→</i>OR-07<i>→</i>TK-01<i>→</i>TK-02<i>→</i>RD-01<i>→</i>RD-03<i>→</i>RD-07<i>→</i>RD-09<i>→</i>RD-10<i>→</i>RD-11<i>→</i>DD-02<i>→</i>RD-13</td>
+<td class="refs">#54 #59 #62</td>
+<td><div class="tc"><span class="id">TC-041</span>STAT priority is justified via OR-07 governance and jumps RD-01 worklist ranking.</div>
+<div class="tc"><span class="id">TC-042</span>RD-10 critical send creates an RD-11 queue entry with named owner and countdown timer.</div>
+<div class="tc"><span class="id">TC-043</span>DD-02 acknowledgement closes the loop and stamps who/when in the audit trail (see SG-07).</div>
+<div class="tc"><span class="id">TC-044</span>With no acknowledgement, the escalation ladder fires tier-by-tier until exhausted, each attempt logged.</div></td>
+<td><span class="chip red">safety-critical</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S05</td><td class="bold">Child patient (7 y) with guardian</td>
+<td class="chain">FO-02<i>→</i>FO-03<i>→</i>FO-20<i>→</i>FO-05<i>→</i>OR-01<i>→</i>CS-03<i>→</i>TK-01<i>→</i>TK-02<i>→</i>TK-10<i>→</i>RD-09<i>→</i>RD-13<i>→</i>PT-01</td>
+<td class="refs">#52 #57</td>
+<td><div class="tc"><span class="id">TC-051</span>Guardian is recorded in FO-20 and consent on FO-05/CS-03 is signed by the guardian, not the minor.</div>
+<div class="tc"><span class="id">TC-052</span>TK-10 applies paediatric dose reference levels and flags any exceedance.</div>
+<div class="tc"><span class="id">TC-053</span>Report delivery (PT-01) goes only to the guardian contact on record; minor has no direct channel.</div></td>
+<td><span class="chip violet">statutory</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S06</td><td class="bold">Duplicate registration → merge</td>
+<td class="chain">FO-02<i>→</i>FO-04<i>→</i>FO-08<i>→</i>FO-09<i>→</i>FO-06<i>→</i>BL-15</td>
+<td class="refs">#53</td>
+<td><div class="tc"><span class="id">TC-061</span>FO-04 surfaces the duplicate candidate with match score before a second MRN can be created.</div>
+<div class="tc"><span class="id">TC-062</span>FO-08→FO-09 merge preserves both audit trails and requires field-level survivor choices.</div>
+<div class="tc"><span class="id">TC-063</span>Post-merge, BL-15 ledger and FO-06 record show a single MRN with combined history.</div>
+<div class="tc"><span class="id">TC-064</span>The losing MRN becomes an alias — old links, receipts and reports still resolve to the survivor.</div></td>
+<td><span class="chip grey">operational</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S07</td><td class="bold">Unmatched study (wrong accession)</td>
+<td class="chain">TK-03<i>→</i>IN-03<i>→</i>IN-05<i>→</i>IN-06<i>→</i>RD-01</td>
+<td class="refs">#66 #103</td>
+<td><div class="tc"><span class="id">TC-071</span>A study with an unknown accession lands in IN-03 quarantine and never appears on RD-01.</div>
+<div class="tc"><span class="id">TC-072</span>IN-06 re-association to the correct order writes a correction audit entry with before/after values.</div>
+<div class="tc"><span class="id">TC-073</span>After reconciliation the study appears exactly once on RD-01 — no duplicate worklist rows.</div></td>
+<td><span class="chip red">safety-critical</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S08</td><td class="bold">Radiologist off sick, queue rebalance</td>
+<td class="chain">SC-04<i>→</i>RD-01<i>→</i>RD-02<i>→</i>RD-11<i>→</i>AD-13</td>
+<td class="refs">#60</td>
+<td><div class="tc"><span class="id">TC-081</span>Marking absence in SC-04 removes the radiologist from new-study routing immediately.</div>
+<div class="tc"><span class="id">TC-082</span>Unread studies are rebalanced or sent to teleradiology (RD-02) without manual re-entry.</div>
+<div class="tc"><span class="id">TC-083</span>Open RD-11 critical-queue ownership transfers to the covering radiologist, timers intact.</div></td>
+<td><span class="chip grey">operational</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S09</td><td class="bold">Branch offline for 3 hours</td>
+<td class="chain">DS-04<i>→</i>FO-15<i>→</i>FO-03<i>→</i>BL-03<i>→</i>TK-01<i>→</i>TK-02<i>→</i>IN-10<i>→</i>FO-02<i>→</i>BL-01</td>
+<td class="refs">#12–#14</td>
+<td><div class="tc"><span class="id">TC-091</span>All FO/BL/TK screens show the DS-04 offline banner and disable online-only actions.</div>
+<div class="tc"><span class="id">TC-092</span>Offline registrations and payments queue locally with temporary IDs; acquisition continues.</div>
+<div class="tc"><span class="id">TC-093</span>IN-10 replay after reconnect creates zero duplicate MRNs or invoices (see SG-11).</div>
+<div class="tc"><span class="id">TC-094</span>Offline cash receipts reconcile into BL-09 and BL-01 worklist with correct timestamps.</div></td>
+<td><span class="chip grey">operational</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S10</td><td class="bold">UPI payment stuck in pending</td>
+<td class="chain">BL-03<i>→</i>BL-04<i>→</i>PT-06<i>→</i>BL-05<i>→</i>BL-09</td>
+<td class="refs">#69</td>
+<td><div class="tc"><span class="id">TC-101</span>A pending UPI intent appears in BL-04 with live status polling and age indicator.</div>
+<div class="tc"><span class="id">TC-102</span>While pending, the invoice is locked against a second collection attempt — no double charge.</div>
+<div class="tc"><span class="id">TC-103</span>Both auto-confirm and manual-reconcile paths end in exactly one receipt (BL-05) and one ledger entry.</div></td>
+<td><span class="chip grey">operational</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S11</td><td class="bold">Corporate / TPA credit patient</td>
+<td class="chain">FO-03<i>→</i>BL-11<i>→</i>BL-02<i>→</i>BL-03<i>→</i>BL-15<i>→</i>BL-18</td>
+<td class="refs">#68</td>
+<td><div class="tc"><span class="id">TC-111</span>Payer/scheme from BL-11 attaches at invoicing with eligibility and cap shown on BL-02.</div>
+<div class="tc"><span class="id">TC-112</span>Credit portion bypasses counter payment and posts to the payer ledger, visible in BL-18.</div>
+<div class="tc"><span class="id">TC-113</span>Patient co-pay split is computed, collected and receipted separately in the same visit.</div></td>
+<td><span class="chip grey">operational</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S12</td><td class="bold">DPDP deletion — partial, retention-held</td>
+<td class="chain">PT-08<i>→</i>PT-09<i>→</i>GV-04<i>→</i>GV-06<i>→</i>GV-07<i>→</i>GV-05<i>→</i>NT-01</td>
+<td class="refs">#72</td>
+<td><div class="tc"><span class="id">TC-121</span>PT-09 request creates a GV-04 case with the 30-day statutory clock started (see ST-02).</div>
+<div class="tc"><span class="id">TC-122</span>Retention-held clinical data is excluded from deletion with the specific GV-06 rule cited per item.</div>
+<div class="tc"><span class="id">TC-123</span>A refusal-of-part letter is generated, delivered (NT-01) and stored on the case.</div>
+<div class="tc"><span class="id">TC-124</span>Deleted attributes no longer surface in FO-02 search or any report export.</div></td>
+<td><span class="chip violet">statutory</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S13</td><td class="bold">Suspected breach — exposed report links</td>
+<td class="chain">NT-06<i>→</i>GV-08<i>→</i>GV-09<i>→</i>PT-03<i>→</i>GV-15</td>
+<td class="refs">#73</td>
+<td><div class="tc"><span class="id">TC-131</span>GV-08 intake classifies severity and starts GV-09 notification clocks automatically (see ST-03).</div>
+<div class="tc"><span class="id">TC-132</span>Affected patient links are bulk-revoked; PT-03 shows the expired/renew state, not the report.</div>
+<div class="tc"><span class="id">TC-133</span>DPB/patient notification drafts are produced inside the statutory window with evidence attached.</div>
+<div class="tc"><span class="id">TC-134</span>GV-15 exports a sealed evidence bundle of the incident timeline.</div></td>
+<td><span class="chip violet">statutory</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S14</td><td class="bold">Addendum with new actionable finding</td>
+<td class="chain">RD-13<i>→</i>RD-12<i>→</i>RD-10<i>→</i>RD-11<i>→</i>DD-02<i>→</i>RD-15<i>→</i>NT-01</td>
+<td class="refs">#59 #60</td>
+<td><div class="tc"><span class="id">TC-141</span>RD-12 addendum on a signed report leaves v1 byte-identical and readable (see SG-08).</div>
+<div class="tc"><span class="id">TC-142</span>An addendum flagged critical re-enters RD-10/RD-11 and re-notifies the referrer as a new loop.</div>
+<div class="tc"><span class="id">TC-143</span>DD-02 shows a new-version badge until the addendum is acknowledged; RD-15 diff shows the change.</div></td>
+<td><span class="chip red">safety-critical</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S15</td><td class="bold">Cross-branch prior needed mid-read</td>
+<td class="chain">RD-01<i>→</i>RD-03<i>→</i>RD-05<i>→</i>RD-07<i>→</i>RD-09</td>
+<td class="refs">#60 #66</td>
+<td><div class="tc"><span class="id">TC-151</span>RD-05 lists same-organisation priors from other branches without a support ticket.</div>
+<div class="tc"><span class="id">TC-152</span>Each cross-branch fetch is logged with purpose and reader identity.</div>
+<div class="tc"><span class="id">TC-153</span>Prior series load into the comparison layout without re-import or duplication.</div></td>
+<td><span class="chip grey">operational</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S16</td><td class="bold">AERB licence expiry blocks modality</td>
+<td class="chain">AD-09<i>→</i>IR-05<i>→</i>AD-08<i>→</i>SC-05<i>→</i>FO-10<i>→</i>TK-01<i>→</i>IR-06</td>
+<td class="refs">#77</td>
+<td><div class="tc"><span class="id">TC-161</span>AD-09 expiry flips the machine to Blocked across scheduling, acquisition and signing (see SG-09).</div>
+<div class="tc"><span class="id">TC-162</span>FO-10 refuses new bookings and TK-01 refuses acquisition on the blocked machine, with reason shown.</div>
+<div class="tc"><span class="id">TC-163</span>Renewal recorded in IR-05 restores availability from the certificate's effective date, audited.</div>
+<div class="tc"><span class="id">TC-164</span>IR-06 calendar fires expiry warnings at T-60/T-30/T-7 to the compliance owner.</div></td>
+<td><span class="chip violet">statutory</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S17</td><td class="bold">Over-limit discount, async approval</td>
+<td class="chain">BL-02<i>→</i>BL-12<i>→</i>BL-08<i>→</i>BL-03<i>→</i>BL-05</td>
+<td class="refs">#65</td>
+<td><div class="tc"><span class="id">TC-171</span>A discount above the BL-12 limit routes to BL-08 and the invoice holds in a visible pending state.</div>
+<div class="tc"><span class="id">TC-172</span>Remote approval releases the invoice to payment without re-entering line items.</div>
+<div class="tc"><span class="id">TC-173</span>Rejection returns the invoice to an editable state with the reason shown — not a dead-end.</div></td>
+<td><span class="chip grey">operational</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S18</td><td class="bold">End-of-day close — no-shows and cash</td>
+<td class="chain">FO-17<i>→</i>BL-04<i>→</i>BL-09<i>→</i>BL-18<i>→</i>AD-13</td>
+<td class="refs">#67</td>
+<td><div class="tc"><span class="id">TC-181</span>FO-17 forces disposition of every unresolved appointment before branch close.</div>
+<div class="tc"><span class="id">TC-182</span>BL-09 refuses to close the cash session while BL-04 pending payments are unreconciled.</div>
+<div class="tc"><span class="id">TC-183</span>Cash variance requires a typed reason and supervisor countersign; day book (BL-18) balances to receipts.</div></td>
+<td><span class="chip grey">operational</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S19</td><td class="bold">Failed delivery → counter pickup</td>
+<td class="chain">GR-02<i>→</i>NT-06<i>→</i>NT-02<i>→</i>FO-07<i>→</i>RD-13</td>
+<td class="refs">#70 #71</td>
+<td><div class="tc"><span class="id">TC-191</span>Every failed delivery appears in the NT-02 recovery worklist with failure cause and retry history.</div>
+<div class="tc"><span class="id">TC-192</span>Counter pickup enforces the FO-07 identity/authorised-representative check before handover.</div>
+<div class="tc"><span class="id">TC-193</span>Pickup is logged as a delivery completion — closes the NT-02 item and the GR case together.</div></td>
+<td><span class="chip grey">operational</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S20</td><td class="bold">Copy of all records (DPDP access)</td>
+<td class="chain">PT-08<i>→</i>PT-09<i>→</i>GV-05<i>→</i>GV-15<i>→</i>NT-01<i>→</i>PT-01</td>
+<td class="refs">#72</td>
+<td><div class="tc"><span class="id">TC-201</span>PT-09 copy request creates a GV-05 rights case with the statutory clock visible.</div>
+<div class="tc"><span class="id">TC-202</span>The compiled bundle covers reports, image references, invoices and consent records — nothing outside scope.</div>
+<div class="tc"><span class="id">TC-203</span>Delivery is via OTP-secured PT-01 link only; the bundle is never emailed in the clear.</div>
+<div class="tc"><span class="id">TC-204</span>Fulfilment date is logged against the window; late cases escalate on the GV dashboard.</div></td>
+<td><span class="chip violet">statutory</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S21</td><td class="bold">Pacemaker caught at ordering</td>
+<td class="chain">OR-01<i>→</i>OR-02<i>→</i>CS-02<i>→</i>OR-05<i>→</i>NT-01<i>→</i>FO-10</td>
+<td class="refs">#55</td>
+<td><div class="tc"><span class="id">TC-211</span>OR-02 intercepts the MRI order the moment the implant flag is set — before any payment.</div>
+<div class="tc"><span class="id">TC-212</span>CS-02 hard-stop holds until radiologist countersign; no other role can clear it (see SG-02).</div>
+<div class="tc"><span class="id">TC-213</span>The blocked path offers reschedule to an alternative modality via FO-10 — the patient is never stranded.</div></td>
+<td><span class="chip red">safety-critical</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S22</td><td class="bold">Consent refusal at consent step</td>
+<td class="chain">FO-13<i>→</i>CS-03<i>→</i>TK-04<i>→</i>OR-05<i>→</i>BL-07<i>→</i>BL-06</td>
+<td class="refs">#52 #64</td>
+<td><div class="tc"><span class="id">TC-221</span>CS-03 records the refusal with reason and vernacular form; the record is retained, not discarded.</div>
+<div class="tc"><span class="id">TC-222</span>The procedure auto-holds (TK-04) and the cancellation is visible to the orderer via OR-05.</div>
+<div class="tc"><span class="id">TC-223</span>Paid amounts resolve via BL-07 credit note or BL-06 refund — money never left dangling.</div></td>
+<td><span class="chip violet">statutory</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S23</td><td class="bold">Adverse contrast reaction mid-procedure</td>
+<td class="chain">TK-02<i>→</i>TK-06<i>→</i>CS-05<i>→</i>GV-08<i>→</i>RD-07<i>→</i>RD-09</td>
+<td class="refs">#58</td>
+<td><div class="tc"><span class="id">TC-231</span>CS-05 reaction record pre-fills agent, lot and volume from TK-06 — no transcription.</div>
+<div class="tc"><span class="id">TC-232</span>Severity at or above the threshold auto-opens a GV-08 incident case.</div>
+<div class="tc"><span class="id">TC-233</span>The reaction posts to the patient's alert band so future CS-01 screenings show it prominently.</div>
+<div class="tc"><span class="id">TC-234</span>The event is documented in the signed report (RD-07/RD-09).</div></td>
+<td><span class="chip red">safety-critical</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S24</td><td class="bold">Paper referral digitisation</td>
+<td class="chain">FO-18<i>→</i>OR-08<i>→</i>OR-01<i>→</i>OR-03<i>→</i>AD-07</td>
+<td class="refs">#51 #54</td>
+<td><div class="tc"><span class="id">TC-241</span>FO-18 scan attaches the referral image to the order; the original is traceable end-to-end.</div>
+<div class="tc"><span class="id">TC-242</span>OR-08 captures the referring doctor into AD-07 directory (or matches an existing entry).</div>
+<div class="tc"><span class="id">TC-243</span>An unverifiable referrer is flagged but the order proceeds as walk-in — no dead-end at intake.</div></td>
+<td><span class="chip grey">operational</span></td><td><span class="owner-blank"></span></td></tr>
+
+<tr><td class="mono bold">S25</td><td class="bold">Staff exit + branch decommission</td>
+<td class="chain">AD-03<i>→</i>AU-17<i>→</i>AD-05<i>→</i>AD-01<i>→</i>PL-03<i>→</i>GV-06</td>
+<td class="refs">#15/#16</td>
+<td><div class="tc"><span class="id">TC-251</span>AD-03 deactivation revokes all active sessions and devices (AU-17) within one minute.</div>
+<div class="tc"><span class="id">TC-252</span>Deactivation is blocked until the user's open work items are reassigned via AD-05 dependency guard.</div>
+<div class="tc"><span class="id">TC-253</span>PL-03 branch decommission preserves statutory-retention data per GV-06 while blocking new activity.</div>
+<div class="tc"><span class="id">TC-254</span>A decommissioned branch is invisible to booking/registration but still reachable in historical reports.</div></td>
+<td><span class="chip grey">operational</span></td><td><span class="owner-blank"></span></td></tr>
+</table>
+<p class="small muted" style="margin-top:8px">Severity totals: <span class="chip red">safety-critical × 6</span> <span class="chip violet">statutory × 7</span> <span class="chip grey">operational × 12</span> · 84 test cases TC-011…TC-254.</p>
+</div>
+
+<!-- ============ 3 · SAFETY GATES ============ -->
+<div class="card gate"><div class="gate-band">3 · Mandatory safety-gate test suite — must pass before UAT sign-off</div>
+<div class="banner danger"><b>Hard rule</b>These 12 gates are pass/fail for the release, not for a scenario. A single failing SG blocks UAT sign-off even if all 25 scenario rows pass. Each gate is re-run on every release candidate; results are attached to the sign-off certificate.</div>
+<table>
+<tr><th style="width:52px">ID</th><th>Given / When / Then</th><th style="width:120px">Screens</th><th style="width:250px">Expected block behaviour</th></tr>
+
+<tr><td class="sgid">SG-01</td><td class="gwt"><div><b>Given</b> a contrast CT order for a patient with no creatinine/eGFR result within 30 days and no physician risk-acceptance on file</div><div><b>When</b> any user attempts to move the study to Perform</div><div><b>Then</b> the order is blocked at screening with the missing-lab reason displayed</div></td><td class="chain">CS-01<i>·</i>OR-02</td><td>Perform action disabled with inline reason; only two exits offered — record a lab result, or route to physician risk-acceptance (CS-04). No silent bypass, no free-text waiver.</td></tr>
+
+<tr><td class="sgid">SG-02</td><td class="gwt"><div><b>Given</b> an MRI order whose MR-safety screening has any metallic-implant answer of YES</div><div><b>When</b> the study is scheduled or sent for acquisition</div><div><b>Then</b> a hard-stop holds the study until a radiologist countersigns the safety decision</div></td><td class="chain">CS-02</td><td>Status locked at “MR safety hold”; TK-01 shows Blocked; countersign control is visible only to the radiologist role; all other roles see a read-only hold banner.</td></tr>
+
+<tr><td class="sgid">SG-03</td><td class="gwt"><div><b>Given</b> a radiology order for a female patient of childbearing age</div><div><b>When</b> the order is submitted without LMP / pregnancy status captured</div><div><b>Then</b> submission is refused until the field is completed (including “unable to determine” with reason)</div></td><td class="chain">OR-01<i>·</i>CS-01</td><td>Order form validation blocks submit; the pregnancy-status field is mandatory-highlighted; the captured value travels with the order and is shown at TK-01 and RD-07.</td></tr>
+
+<tr><td class="sgid">SG-04</td><td class="gwt"><div><b>Given</b> an obstetric ultrasound order</div><div><b>When</b> the technologist attempts to start acquisition with Form F incomplete or missing the patient signature</div><div><b>Then</b> the study cannot reach Perform</div></td><td class="chain">CS-06<i>·</i>TK-01</td><td>TK-01 row shows “Form F pending”; Perform disabled; the only forward action deep-links to CS-06. Signature pad state (unsigned) is itself a blocker, not just form fields.</td></tr>
+
+<tr><td class="sgid">SG-05</td><td class="gwt"><div><b>Given</b> a screening outcome of Blocked on any safety checklist</div><div><b>When</b> the technologist attempts to override it themselves</div><div><b>Then</b> no self-override path exists — override is physician-only via CS-04 with step-up auth</div></td><td class="chain">CS-04<i>·</i>TK-01</td><td>Technologist role sees no override control anywhere in the flow; CS-04 requires physician credentials + step-up re-auth + typed clinical justification; the override is attributed and audit-logged.</td></tr>
+
+<tr><td class="sgid">SG-06</td><td class="gwt"><div><b>Given</b> an acquisition where fewer series were received than the protocol expects</div><div><b>When</b> the study is pushed toward the reading worklist</div><div><b>Then</b> release to reading is blocked until a partial-study override is recorded</div></td><td class="chain">TK-02<i>·</i>RD-01</td><td>TK-02 shows the series-count mismatch; “Send to reading” disabled until an override with reason is recorded; RD-01 displays a partial-study badge so the reader knows what is missing.</td></tr>
+
+<tr><td class="sgid">SG-07</td><td class="gwt"><div><b>Given</b> a result flagged critical</div><div><b>When</b> any user attempts to close the critical-result item</div><div><b>Then</b> closure requires referrer acknowledgement or a fully exhausted escalation ladder — nothing else</div></td><td class="chain">RD-11<i>·</i>DD-02</td><td>Close action disabled while unacknowledged and ladder tiers remain; each tier attempt (call/SMS/covering physician) is logged; “exhausted” state requires the final-tier outcome recorded before close is enabled.</td></tr>
+
+<tr><td class="sgid">SG-08</td><td class="gwt"><div><b>Given</b> a signed report</div><div><b>When</b> any user (including the author) attempts to edit it</div><div><b>Then</b> the signed version is immutable — correction is possible only through a versioned addendum</div></td><td class="chain">RD-09<i>·</i>RD-12</td><td>No edit control on a signed report anywhere in the product; RD-12 creates v2 linked to v1; v1 remains retrievable byte-identical; distribution always carries the latest version plus history.</td></tr>
+
+<tr><td class="sgid">SG-09</td><td class="gwt"><div><b>Given</b> an equipment AERB (or PNDT) registration that has expired</div><div><b>When</b> anyone attempts to schedule, acquire on, or sign a report from that machine</div><div><b>Then</b> all three actions are blocked until a valid registration is recorded</div></td><td class="chain">AD-09</td><td>Expiry flips the machine to Blocked in SC-05/FO-10 (no slots), TK-01 (no acquire), and RD-09 (no sign for studies acquired after expiry); each refusal names the registration and expiry date.</td></tr>
+
+<tr><td class="sgid">SG-10</td><td class="gwt"><div><b>Given</b> an unpaid or partially-paid invoice with a report flagged critical</div><div><b>When</b> the release queue evaluates the payment-hold policy</div><div><b>Then</b> the critical report bypasses the payment hold and is released/delivered immediately</div></td><td class="chain">BL-20</td><td>BL-20 policy engine shows the bypass rule as non-configurable-off for critical results; the release is logged with “critical bypass” reason; billing follow-up continues separately without delaying care.</td></tr>
+
+<tr><td class="sgid">SG-11</td><td class="gwt"><div><b>Given</b> a branch that worked offline and queued registrations, invoices and payments</div><div><b>When</b> connectivity returns and the queue replays — including a forced double replay</div><div><b>Then</b> replay is idempotent: zero duplicate MRNs, invoice numbers or receipts</div></td><td class="chain">DS-04<i>·</i>IN-10</td><td>IN-10 shows each queued item exactly once with a terminal state; re-running replay produces “already applied” results, not new records; series numbering (AD-16) has no gaps or repeats.</td></tr>
+
+<tr><td class="sgid">SG-12</td><td class="gwt"><div><b>Given</b> a user without access to a patient record</div><div><b>When</b> they hit an access-denied state via search, deep link, or access request</div><div><b>Then</b> the denial screen leaks zero demographics — no name, age, sex, contact, or study detail</div></td><td class="chain">DD-06<i>·</i>DS-07</td><td>Denial views render only the masked identifier pattern from DS-07; page title, breadcrumb, URL preview and notification text are all checked for leakage; the denied attempt itself is audit-logged.</td></tr>
+</table>
+</div>
+
+<!-- ============ 3b · STATUTORY TEST SET ============ -->
+<div class="card"><div class="card-title">3b · Statutory test set — regulator-facing evidence<span class="right">Run with compliance owner present</span></div>
+<table>
+<tr><th style="width:52px">ID</th><th>Statutory obligation &amp; test</th><th style="width:120px">Screens</th><th style="width:230px">Pass evidence</th></tr>
+<tr><td class="stid">ST-01</td><td><b>PC-PNDT monthly filing.</b> Given a month of completed Form F records, when the monthly submission is prepared and filed, then IR-02 validation catches incomplete forms before the cutoff and IR-03 stores the acknowledgement immutably; a late or missing form routes to the corrections path (IR-04), never silent omission.</td><td class="chain">IR-02<i>·</i>IR-03</td><td>Filed register matches IR-01 count exactly; acknowledgement receipt stored and non-editable; correction trail visible.</td></tr>
+<tr><td class="stid">ST-02</td><td><b>DPDP deletion within 30 days.</b> Given a deletion request, when the pipeline completes, then deletable data is erased and confirmed within 30 days, and every retained item carries a cited retention basis plus a generated refusal-of-part letter delivered to the patient.</td><td class="chain">GV-04</td><td>Case closed ≤ 30 days with completion certificate; refusal letter on file citing GV-06 rules per retained category.</td></tr>
+<tr><td class="stid">ST-03</td><td><b>Breach notification clocks.</b> Given a confirmed breach, when the runbook runs, then the DPB and affected-patient notification clocks start from confirmation, show live countdowns, and overdue states escalate automatically to the DPO.</td><td class="chain">GV-09</td><td>Clock start/stop timestamps in audit; notification artefacts generated inside the window; overdue path demonstrated on a test case.</td></tr>
+<tr><td class="stid">ST-04</td><td><b>GST credit note on post-filing cancellation.</b> Given an invoice cancelled after its GST period is filed, when cancellation is processed, then the system refuses hard-delete and issues a serially-numbered credit note that reconciles in the GST summary export (BL-19).</td><td class="chain">BL-07</td><td>Original invoice intact; credit note in the same series registry (AD-16); BL-19 export nets correctly.</td></tr>
+</table>
+</div>
+
+<!-- ============ 4 · COVERAGE SUMMARY ============ -->
+<div class="card"><div class="card-title">4 · Coverage summary — 17 screen groups<span class="right">Scenario × safety-gate reach</span></div>
+<table>
+<tr><th style="width:56px">Group</th><th>Cluster</th><th style="width:90px">Scenarios touching</th><th style="width:200px">Scenario IDs</th><th style="width:80px">Safety gates</th><th style="width:130px">Gate IDs</th></tr>
+<tr><td class="mono bold">G01</td><td>Identity &amp; Access (AU)</td><td>1</td><td class="mono small">S25 (+ every chain enters via AU-01)</td><td>—</td><td class="mono small">—</td></tr>
+<tr><td class="mono bold">G02</td><td>Patient-Facing (PT)</td><td>6</td><td class="mono small">S01 S05 S10 S12 S13 S20</td><td>—</td><td class="mono small">—</td></tr>
+<tr><td class="mono bold">G03</td><td>Front Office &amp; Reception (FO)</td><td>13</td><td class="mono small">S01 S02 S03 S05 S06 S09 S11 S16 S18 S19 S21 S22 S24</td><td>—</td><td class="mono small">—</td></tr>
+<tr><td class="mono bold">G04</td><td>Scheduling Setup (SC)</td><td>2</td><td class="mono small">S08 S16</td><td>—</td><td class="mono small">—</td></tr>
+<tr class="hl"><td class="mono bold">G05</td><td>Orders &amp; Clinical Safety (OR + CS)</td><td>9</td><td class="mono small">S01 S02 S03 S04 S05 S21 S22 S23 S24</td><td class="bold">5</td><td class="mono small">SG-01 02 03 04 05</td></tr>
+<tr class="hl"><td class="mono bold">G06</td><td>Radiology Technician (TK)</td><td>10</td><td class="mono small">S01 S02 S03 S04 S05 S07 S09 S16 S22 S23</td><td class="bold">3</td><td class="mono small">SG-04 05 06</td></tr>
+<tr class="hl"><td class="mono bold">G07</td><td>Radiologist Reading (RD)</td><td>11</td><td class="mono small">S01 S02 S03 S04 S05 S07 S08 S14 S15 S19 S23</td><td class="bold">3</td><td class="mono small">SG-06 07 08</td></tr>
+<tr><td class="mono bold">G08</td><td>Doctor Desk (DD)</td><td>2</td><td class="mono small">S04 S14</td><td class="bold">2</td><td class="mono small">SG-07 12</td></tr>
+<tr><td class="mono bold">G09</td><td>Billing &amp; Payments (BL)</td><td>8</td><td class="mono small">S01 S06 S09 S10 S11 S17 S18 S22</td><td class="bold">1</td><td class="mono small">SG-10</td></tr>
+<tr><td class="mono bold">G10</td><td>Notifications &amp; Delivery (NT)</td><td>7</td><td class="mono small">S01 S12 S13 S14 S19 S20 S21</td><td>—</td><td class="mono small">—</td></tr>
+<tr><td class="mono bold">G11</td><td>Grievance &amp; Support (GR)</td><td>1</td><td class="mono small">S19</td><td>—</td><td class="mono small">—</td></tr>
+<tr><td class="mono bold">G12</td><td>Admin &amp; Master Data (AD)</td><td>5</td><td class="mono small">S08 S16 S18 S24 S25</td><td class="bold">1</td><td class="mono small">SG-09</td></tr>
+<tr><td class="mono bold">G13</td><td>Integration &amp; Devices (IN)</td><td>2</td><td class="mono small">S07 S09</td><td class="bold">1</td><td class="mono small">SG-11</td></tr>
+<tr><td class="mono bold">G14</td><td>Governance &amp; Compliance (GV)</td><td>5</td><td class="mono small">S12 S13 S20 S23 S25</td><td>—</td><td class="mono small">— (ST-02/03)</td></tr>
+<tr><td class="mono bold">G15</td><td>Imaging Regulatory (IR)</td><td>2</td><td class="mono small">S03 S16</td><td>—</td><td class="mono small">— (ST-01)</td></tr>
+<tr><td class="mono bold">G16</td><td>Platform Operator (PL)</td><td>1</td><td class="mono small">S25</td><td>—</td><td class="mono small">—</td></tr>
+<tr><td class="mono bold">G17</td><td>Design System &amp; Patterns (DS)</td><td>1</td><td class="mono small">S09 (patterns apply product-wide)</td><td class="bold">2</td><td class="mono small">SG-11 12</td></tr>
+<tr style="background:#F8FAFC"><td class="bold" colspan="2">Total</td><td class="bold">25 scenarios</td><td></td><td class="bold">12 gates</td><td class="mono small">+ 4 statutory tests</td></tr>
+</table>
+<div class="banner success" style="margin-top:10px"><b>Completeness claim</b>Every screen in the 225-screen pack either appears in at least one scenario chain above, or is a setup/admin dependency of one — e.g. SC-01…SC-03 slot templates enable the bookings tested in S01/S16; AD-14…AD-16 branding, templates and number series are exercised by every receipt and report in S01/S17/S18; AU-02…AU-16 are entry/recovery dependencies of the AU-01 sign-in that opens every chain; DS-01…DS-11 patterns govern every screen and are asserted directly by SG-11/SG-12. The generator (design-system/baseline_map.py) fails the build if a screen ID is neither referenced in a chain nor tagged as a dependency.</div>
+</div>
+
+<!-- ============ 5 · HOW TO EXTEND ============ -->
+<div class="card"><div class="card-title">5 · How to extend this matrix<span class="right">Keep the no-dead-end guarantee alive</span></div>
+<table>
+<tr><th style="width:44px">Step</th><th>Action</th><th style="width:340px">Rule that keeps the guarantee</th></tr>
+<tr><td class="bold">1</td><td><b>New screen → add to a chain.</b> When a screen is added to the pack (new ID in a cluster), insert it into the ordered chain of at least one existing scenario, or write a new scenario row if it opens a genuinely new journey.</td><td>A screen that fits no chain and is not a setup/admin dependency is a design smell — it is either a dead-end or unnecessary. Do not merge it.</td></tr>
+<tr><td class="bold">2</td><td><b>Add test cases.</b> Give the screen 1+ new TCs under the scenario's numbering (next free <span class="mono">TC-NNk</span>), each a single-line assertion covering the screen's forward action and its failure exit.</td><td>Every TC must assert both “it works” and “when it can't, the user still has a way out.”</td></tr>
+<tr><td class="bold">3</td><td><b>Check the gate list.</b> If the screen touches ordering, screening, acquisition, signing, critical results, statutory filing, offline replay, or access denial, decide whether an existing SG covers it or a new SG-13+ is needed — with the compliance owner's sign-off.</td><td>Safety gates only ever grow. Removing or weakening an SG requires a documented risk acceptance from the client's clinical lead.</td></tr>
+<tr><td class="bold">4</td><td><b>Update the coverage table.</b> Re-run the generator so Section 4 counts refresh, and fill the acceptance-owner cell for any new scenario before it enters UAT.</td><td>The build fails on an unreferenced screen ID — so the matrix can never silently fall behind the pack.</td></tr>
+</table>
+</div>
+
+<p class="audit">Synthetic data only. DOC-10 v1.0 · July 2026 · derives from DOC-01 (scenarios), DOC-08 (screen inventory) and the signed scope checklist — regenerate after any screen addition.</p>
+</div></body></html>

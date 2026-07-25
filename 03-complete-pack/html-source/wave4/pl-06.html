@@ -1,0 +1,142 @@
+<section class="screen" id="pl-06">
+<div class="screen-head"><h1><span class="sid">PL-06</span> Support access</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G16 Platform Operator — operator console</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · PL-S5/S7 support access + revoke</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Operators never have standing access to tenant data. To assist with a ticket, an operator requests a <b>tenant-approved support session</b> with explicit scope and duration; the tenant admin approves, a banner appears in the tenant UI for the whole session, and every action is tagged. The tenant (or the operator) can <b>revoke mid-session with immediate effect</b>, and an evidence bundle of all actions is auto-shared to the tenant when the session ends.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>Platform</span></span><span class="org">🛰 NUMINACORE Platform Console · operator realm</span></div><div class="userchip"><span class="av">RI</span>R. Iyer (Platform Ops) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Tenants</div>
+      <div class="nav-item">Tenant directory</div>
+      <div class="nav-item">Provisioning</div>
+      <div class="nav-item">Suspend &amp; closure</div>
+      <div class="nav-item">Plans &amp; entitlements</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Regional rulebook</div>
+      <div class="nav-item active">Support access <span class="nav-badge">1</span></div>
+      <div class="nav-item">Operator audit</div>
+      <div class="sec-label">Operations</div>
+      <div class="nav-item">Platform health</div>
+      <div class="nav-item">Provider routes</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Platform › Governance › Support access › New request</div>
+      <div class="page-title">Request support session — Meridian Diagnostics</div>
+      <div class="page-sub">Linked ticket <span class="mono">SUP-4821</span> — "UPI gateway settlement report mismatch, Andheri West" · requester R. Iyer (Platform Ops)</div>
+
+      <div class="banner reg"><b>Standing access is impossible by design</b>There is no operator role that can open tenant data without a tenant-approved, time-boxed session. Sessions are scoped, banner-visible to tenant staff, fully action-tagged, and revocable at any second by the tenant admin. This is enforced in the operator realm (Keycloak), not by convention.</div>
+
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Session request</div>
+          <div class="field"><label>Tenant <span class="req">*</span></label><span class="select" style="display:block">Meridian Diagnostics (TEN-MERI-01) ▾</span></div>
+          <div class="field"><label>Scope — modules visible <span class="req">*</span></label>
+            <div class="check"><span class="box on">✓</span> Billing &amp; payments (invoices, UPI gateway settlement view)</div>
+            <div class="check"><span class="box on">✓</span> Payment provider configuration (read-only)</div>
+            <div class="check"><span class="box"></span> Scheduling &amp; front office</div>
+            <div class="check"><span class="box"></span> Radiology worklist / studies <span class="chip red">PHI-heavy — requires clinical justification field if selected</span></div>
+            <div class="hint">Scope is a hard boundary: screens outside scope render as "not in session scope" for the operator, and patient identifiers are masked unless the scope explicitly includes them.</div>
+          </div>
+          <div class="field"><label>Duration <span class="req">*</span></label><span class="select" style="display:inline-block;width:180px">4 hours ▾</span> <span class="small muted">max 8h; extensions need a fresh tenant approval</span></div>
+          <div class="field"><label>Reason shown to tenant <span class="req">*</span></label><span class="textarea" style="display:block">Investigate settlement mismatch of ₹18,340 between UPI gateway report (24-Jul) and Magnus day-book, per ticket SUP-4821 raised by P. D'Souza (cashier).</span></div>
+          <div class="field"><label>Access mode</label>
+            <div class="check"><span class="box radio on">•</span> Read-only (default)</div>
+            <div class="check"><span class="box radio"></span> Read + config edit <span class="small muted">— edits require tenant admin co-approval per action (four-eyes across org boundary)</span></div>
+          </div>
+        </div>
+        <div style="width:320px;flex-shrink:0">
+          <div class="card">
+            <div class="card-title">Approval path</div>
+            <div class="ladder">
+              <div class="tier done"><b>Operator step-up</b><div class="small muted">R. Iyer — passkey verified 15:22 IST (valid 10 min)</div></div>
+              <div class="tier cur"><b>Tenant admin approval</b><div class="small muted">Goes to K. Verma (Meridian org admin); can narrow scope or shorten duration before approving</div></div>
+              <div class="tier"><b>Session starts</b><div class="small muted">Banner appears tenant-wide; timer starts on first access, not on approval</div></div>
+            </div>
+            <span class="btn small primary">Send request to tenant admin</span>
+          </div>
+          <div class="card">
+            <div class="card-title">What Meridian will see</div>
+            <div class="banner info" style="margin-bottom:6px"><b>ℹ NUMINACORE support session active</b>R. Iyer is viewing Billing &amp; payments (read-only) until 19:30 IST · ticket SUP-4821 · <u>Revoke now</u></div>
+            <div class="small muted">Shown to all Meridian staff in the affected modules for the entire session.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ACTIVE SESSION WITH LIVE ACTION TAGGING + IMMEDIATE REVOKE</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Platform › Support access › Session SA-2026-097</div>
+      <div class="page-title">Active session — Meridian Diagnostics <span class="chip green">LIVE · 2h 41m remaining</span> <span class="actions-right"><span class="btn small danger">End session now</span></span></div>
+      <div class="page-sub">Session <span class="mono">SA-2026-097</span> · approved by K. Verma 25-Jul 15:31 IST (scope unchanged, duration trimmed 4h → 3h30m) · read-only · ticket SUP-4821</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">17</div><div class="l">Actions tagged</div><div class="s">all streamed to tenant log live</div></div>
+        <div class="kpi"><div class="n">0</div><div class="l">Out-of-scope attempts</div><div class="s">would hard-block + alert tenant</div></div>
+        <div class="kpi"><div class="n">2</div><div class="l">PHI fields masked</div><div class="s">patient names hidden — not in scope</div></div>
+        <div class="kpi amber"><div class="n">1</div><div class="l">Watcher</div><div class="s">K. Verma is viewing this session live</div></div>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Action stream <span class="right">tagged SA-2026-097 · immutable</span></div>
+          <div class="timeline">
+            <div class="ev"><span class="t">15:34:02</span><div>Opened Billing › UPI settlement report 24-Jul-2026 (Andheri West) — <span class="chip grey">read</span></div></div>
+            <div class="ev"><span class="t">15:36:47</span><div>Filtered day-book to gateway ref <span class="mono">UTR-511…</span> — <span class="chip grey">read</span></div></div>
+            <div class="ev"><span class="t">15:41:10</span><div>Compared 3 unmatched transactions; exported reconciliation view (numbers only, no patient identifiers) — <span class="chip blue">export · shared into ticket SUP-4821, visible to tenant</span></div></div>
+            <div class="ev"><span class="t">15:52:33</span><div>Viewed payment provider config (UPI gateway, read-only) — webhook retry setting noted — <span class="chip grey">read</span></div></div>
+            <div class="ev"><span class="t">16:03:15</span><div>Attempted to open invoice INV-8817 patient panel → <span class="chip amber">PHI masked (out of scope)</span> — no data shown</div></div>
+          </div>
+        </div>
+        <div class="card" style="width:320px;flex-shrink:0">
+          <div class="card-title">Revoke — tenant side (mirror)</div>
+          <div class="banner danger" style="margin-bottom:8px"><b>Revoke support session?</b>Access for R. Iyer ends immediately — mid-page, mid-query. Nothing further is visible after revoke; the evidence bundle is generated as of this second.</div>
+          <div style="display:flex;gap:8px"><span class="btn small danger">Revoke now</span><span class="btn small">Keep session</span></div>
+          <div class="small muted" style="margin-top:8px">Any Meridian org admin can revoke; no reason required, no operator veto. Revocation takes effect in &lt;1s (session token invalidated in Keycloak operator realm).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">·</div>
+
+<div class="state-tag">STATE C — SESSION ENDED · EVIDENCE BUNDLE AUTO-SHARED</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Platform › Support access › Session SA-2026-097 › Evidence</div>
+      <div class="page-title">Evidence bundle — SA-2026-097 <span class="chip grey">SESSION ENDED 18:47 IST</span></div>
+      <div class="page-sub">Ended by: operator (work complete, 43 min early) · bundle auto-shared to K. Verma and Meridian compliance mailbox at 18:47:09 IST — sharing is automatic, not optional</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Bundle contents <span class="right">EVB-2026-097 · SHA-256 c41d…8b6e</span></div>
+          <table>
+            <tr><th>Artefact</th><th>Detail</th><th></th></tr>
+            <tr><td><b>Session record</b></td><td>Request, tenant approval (scope trim by K. Verma), start/end, duration 3h 13m, mode read-only</td><td><span class="btn small ghost">View</span></td></tr>
+            <tr><td><b>Full action log</b></td><td>17 actions · 16 read, 1 export · 1 out-of-scope PHI mask event · every action tagged SA-2026-097</td><td><span class="btn small ghost">View</span></td></tr>
+            <tr><td><b>Data touched summary</b></td><td>Settlement report 24-Jul, 214 day-book rows, provider config (read) · 0 patient identifiers viewed</td><td><span class="btn small ghost">View</span></td></tr>
+            <tr><td><b>Exports</b></td><td>1 file: reconciliation view (numeric only) → attached to SUP-4821, copy in bundle</td><td><span class="btn small ghost">View</span></td></tr>
+            <tr><td><b>Outcome note</b></td><td>Root cause: gateway webhook retries double-posted 3 UPI credits; fix proposed via change ENT path, no tenant data modified</td><td><span class="btn small ghost">View</span></td></tr>
+          </table>
+          <div class="small muted" style="margin-top:6px">Bundle is hash-sealed and retained 10 years alongside tenant audit data. The tenant's copy is identical to the operator's — there is no operator-only view of a support session.</div>
+        </div>
+        <div class="card" style="width:320px;flex-shrink:0">
+          <div class="card-title">Delivery receipts</div>
+          <div class="timeline">
+            <div class="ev"><span class="t">18:47:09</span><div>Bundle sealed + shared to Meridian tenant console</div></div>
+            <div class="ev"><span class="t">18:47:11</span><div>Email receipt → K. Verma (org admin) ✓ delivered</div></div>
+            <div class="ev"><span class="t">18:52:40</span><div>Opened by K. Verma from tenant console ✓</div></div>
+          </div>
+          <div class="banner success" style="margin-top:6px"><b>Closed clean</b>No out-of-scope data access; ticket SUP-4821 moved to "fix proposed".</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="audit">Session requests, tenant approvals and scope trims, every tagged action, revocations, and evidence-bundle delivery receipts are written to both the operator audit trail and the tenant's own access log in real time — this page view is recorded in the access log.</p>
+</section>

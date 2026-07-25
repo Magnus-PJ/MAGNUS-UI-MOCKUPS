@@ -1,0 +1,975 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DOC-01 · Patient Scenario Walkthroughs · Magnus HMS</title><style>
+/* Magnus HMS — NS design pack shared design system */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
+.mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
+.muted{color:#64748B}.small{font-size:12px}.bold{font-weight:700}
+.screen{page-break-after:always;padding:28px 34px;background:#fff;min-height:1000px}
+.screen-head{display:flex;justify-content:space-between;align-items:flex-start;border-left:5px solid #0F766E;padding:6px 0 6px 14px;margin-bottom:6px}
+.screen-head h1{font-size:22px;font-weight:800}
+.screen-head .sid{color:#0F766E;margin-right:10px}
+.screen-head .meta{text-align:right}
+.screen-head .meta .cluster{color:#64748B;font-size:12px;margin-top:3px}
+.gap-note{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:8px 12px;margin:10px 0 16px;font-size:12.5px;color:#7C2D12}
+.gap-note b{color:#9A3412}
+.frame{border:1px solid #CBD5E1;border-radius:10px;overflow:hidden;background:#F4F6F8;box-shadow:0 1px 4px rgba(15,23,42,.08);margin-bottom:22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:2px solid #0F766E;padding:9px 16px}
+.brand{font-weight:800;color:#0F766E}.brand span{color:#1E293B}
+.org{font-size:12.5px;color:#334155;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px}
+.userchip{font-size:12.5px;color:#334155}
+.userchip .av{display:inline-block;background:#CCFBF1;color:#0F766E;font-weight:700;border-radius:5px;padding:2px 6px;margin-right:6px;font-size:11px}
+.body{display:flex;min-height:520px}
+.sidebar{width:196px;background:#fff;border-right:1px solid #E2E8F0;padding:12px 0;flex-shrink:0}
+.sec-label{font-size:10.5px;letter-spacing:.08em;color:#94A3B8;font-weight:700;padding:8px 16px 4px;text-transform:uppercase}
+.nav-item{padding:7px 16px;font-size:13px;color:#334155;display:flex;justify-content:space-between;align-items:center}
+.nav-item.active{background:#F0FDFA;color:#0F766E;font-weight:700;border-left:3px solid #0F766E;padding-left:13px}
+.nav-badge{background:#0F766E;color:#fff;border-radius:9px;font-size:10.5px;padding:1px 7px;font-weight:700}
+.nav-badge.red{background:#B91C1C}
+.main{flex:1;padding:16px 18px;min-width:0}
+.crumb{font-size:12px;color:#64748B;margin-bottom:8px}
+.page-title{font-size:19px;font-weight:800;margin-bottom:2px}
+.page-sub{font-size:12.5px;color:#64748B;margin-bottom:14px}
+.actions-right{float:right}
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card-title{font-weight:800;font-size:14.5px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.card-title .right{font-size:10.5px;letter-spacing:.07em;color:#94A3B8;font-weight:700;text-transform:uppercase}
+.row{display:flex;gap:14px}.row>*{min-width:0}.grow{flex:1}
+.btn{display:inline-block;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:700;border:1px solid #CBD5E1;background:#fff;color:#334155;text-align:center;white-space:nowrap}
+.btn.primary{background:#0F766E;border-color:#0F766E;color:#fff}
+.btn.danger{background:#B91C1C;border-color:#B91C1C;color:#fff}
+.btn.warn-outline{border-color:#F59E0B;color:#92400E;background:#FFFBEB}
+.btn.ghost{border:none;background:none;color:#0F766E;padding:7px 6px}
+.btn.small{padding:4px 10px;font-size:12px}
+.btn.disabled{opacity:.45}
+.chip{display:inline-block;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip.teal{background:#CCFBF1;color:#0F766E}
+.chip.green{background:#DCFCE7;color:#15803D}
+.chip.amber{background:#FEF3C7;color:#92400E}
+.chip.red{background:#FEE2E2;color:#B91C1C}
+.chip.grey{background:#F1F5F9;color:#475569}
+.chip.blue{background:#E0F2FE;color:#0369A1}
+.chip.violet{background:#EDE9FE;color:#6D28D9}
+.chip.outline-red{background:#fff;border:1.5px solid #B91C1C;color:#B91C1C}
+.banner{border-radius:8px;padding:10px 13px;font-size:12.5px;margin-bottom:12px;border:1px solid}
+.banner b{display:block;margin-bottom:2px;font-size:13px}
+.banner.info{background:#E0F2FE;border-color:#7DD3FC;color:#075985}
+.banner.warn{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+.banner.danger{background:#FEE2E2;border-color:#FCA5A5;color:#991B1B}
+.banner.success{background:#DCFCE7;border-color:#86EFAC;color:#166534}
+.banner.reg{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding:7px 9px;border-bottom:2px solid #E2E8F0;background:#F8FAFC}
+td{padding:8px 9px;border-bottom:1px solid #EEF2F6;vertical-align:top}
+tr.hl td{background:#F0FDFA}
+tr.dim td{color:#94A3B8}
+.kv{display:grid;grid-template-columns:150px 1fr;row-gap:6px;column-gap:12px;font-size:12.5px}
+.kv dt{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding-top:2px}
+.kv dd{margin:0}
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+.field label .req{color:#B91C1C}
+.field .hint{font-size:11px;color:#64748B;margin-top:3px}
+.input,.select,.textarea{width:100%;border:1px solid #CBD5E1;border-radius:7px;padding:7px 10px;font-size:13px;background:#fff;color:#1E293B}
+.input.err{border-color:#B91C1C;background:#FEF2F2}
+.textarea{min-height:64px}
+.check{font-size:12.5px;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.box{display:inline-block;width:14px;height:14px;border:1.6px solid #64748B;border-radius:3px;flex-shrink:0;margin-top:1px;text-align:center;line-height:12px;font-size:11px;font-weight:800}
+.box.on{background:#0F766E;border-color:#0F766E;color:#fff}
+.radio{border-radius:50%}
+.radio.on{background:#fff;border-color:#0F766E;box-shadow:inset 0 0 0 3.5px #0F766E;color:transparent}
+.modal-wrap{background:#64748B22;border:1px dashed #94A3B8;border-radius:12px;padding:26px 40px;margin:14px 0}
+.modal{background:#fff;border-radius:12px;border-top:5px solid #0F766E;box-shadow:0 8px 30px rgba(15,23,42,.25);max-width:560px;margin:0 auto;padding:18px 20px}
+.modal.danger{border-top-color:#B91C1C}
+.modal h3{font-size:16px;margin-bottom:8px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+.divider-label{text-align:center;color:#94A3B8;font-size:11.5px;margin:20px 0 14px;position:relative}
+.divider-label:before,.divider-label:after{content:"";display:inline-block;width:24%;border-top:1px dashed #CBD5E1;vertical-align:middle;margin:0 10px}
+.audit{font-size:11px;color:#8A6D1D;margin-top:10px}
+.audit:before{content:"🔒 "}
+.state-tag{font-size:10px;letter-spacing:.08em;font-weight:800;text-transform:uppercase;color:#94A3B8;text-align:right;margin-bottom:4px}
+.kpi-row{display:flex;gap:12px;margin-bottom:14px}
+.kpi{flex:1;background:#fff;border:1px solid #E2E8F0;border-left:4px solid #0F766E;border-radius:9px;padding:10px 13px}
+.kpi.amber{border-left-color:#F59E0B}.kpi.red{border-left-color:#B91C1C}
+.kpi .n{font-size:23px;font-weight:800}.kpi .l{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700}
+.kpi .s{font-size:11px;color:#64748B;margin-top:2px}
+.stepper{display:flex;gap:6px;align-items:center;font-size:12px;color:#64748B;margin-bottom:14px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:6px}
+.step .dot{width:20px;height:20px;border-radius:50%;background:#E2E8F0;color:#475569;font-size:11px;font-weight:800;text-align:center;line-height:20px}
+.step.done .dot{background:#15803D;color:#fff}.step.cur .dot{background:#0F766E;color:#fff}
+.step.cur{color:#0F766E;font-weight:700}
+.step-line{width:26px;border-top:2px solid #CBD5E1}
+.sig-box{border:1.5px dashed #94A3B8;border-radius:8px;min-height:64px;background:#F8FAFC;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:12px;font-style:italic}
+.sig-box.signed{border-style:solid;border-color:#15803D;color:#166534;background:#F0FDF4;font-family:'Segoe Script','Comic Sans MS',cursive;font-size:17px;font-style:normal}
+.ladder{border-left:3px solid #E2E8F0;margin-left:8px;padding-left:16px}
+.ladder .tier{margin-bottom:12px;position:relative}
+.ladder .tier:before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:#CBD5E1}
+.ladder .tier.done:before{background:#15803D}.ladder .tier.cur:before{background:#0F766E;box-shadow:0 0 0 3px #CCFBF1}
+.ladder .tier.fail:before{background:#B91C1C}
+.progress{height:7px;border-radius:4px;background:#E2E8F0;overflow:hidden;margin-top:4px}
+.progress i{display:block;height:100%;background:#0F766E}
+.progress.amber i{background:#F59E0B}.progress.red i{background:#B91C1C}
+.split{display:grid;grid-template-columns:1fr 300px;gap:14px}
+.timeline{font-size:12.5px}
+.timeline .ev{display:flex;gap:10px;margin-bottom:9px}
+.timeline .t{color:#64748B;white-space:nowrap;font-family:Consolas,monospace;font-size:11.5px;padding-top:1px}
+/* ---------- doc overrides ---------- */
+body{background:#F4F6F8;padding:30px}
+.doc{max-width:1100px;margin:0 auto}
+h1{font-size:26px;margin:18px 0 6px}
+h2{font-size:19px;margin:22px 0 8px;color:#0F766E}
+.flow{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:8px 0}
+.fstep{background:#fff;border:1px solid #CBD5E1;border-left:4px solid #0F766E;border-radius:7px;padding:6px 10px;font-size:12.5px}
+.fstep .fid{font-family:Consolas,monospace;font-weight:800;color:#0F766E;font-size:11px;display:block}
+.farr{color:#94A3B8;font-weight:800}
+.fstep.alt{border-left-color:#F59E0B}
+.fstep.crit{border-left-color:#B91C1C}
+ul{margin:6px 0 6px 20px;font-size:12.5px}
+li{margin-bottom:4px}
+h3{font-size:14px;margin:14px 0 6px}
+</style></head><body><div class="doc">
+
+<div class="card" style="border-left:5px solid #0F766E">
+  <div class="mono" style="color:#0F766E;font-weight:800;font-size:12px">DOC-01</div>
+  <h1 style="margin:2px 0 4px">Patient Scenario Walkthroughs (25 end-to-end scenarios)</h1>
+  <div class="muted">Magnus HMS · MVP 1 · Architecture &amp; Workflow Documentation</div>
+  <div style="margin-top:10px">
+    <span class="chip grey">Version 1.0</span> <span class="chip grey">July 2026</span>
+    <span class="chip teal">Audience: NUMINACORE development team</span>
+    <span class="chip blue">References the 225-screen design pack (AU/PT/FO/SC/OR/CS/TK/RD/DD/BL/NT/GR/AD/IN/GV/IR/PL/DS)</span>
+  </div>
+  <div class="small muted" style="margin-top:8px">Each scenario is normative: the flow chain is the exact screen order for the happy path; the step table defines what must be persisted at each hop; edge branches define the mandated behaviour when a gate fails. All data below is synthetic. Every screen carries the audit line pattern; every SLA chip follows DS-03; every sign / money / legal action requires step-up (AU-09).</div>
+</div>
+
+<div class="card">
+  <div class="card-title">Reading conventions <span class="right">applies to all 25 scenarios</span></div>
+  <table>
+    <tr><th>Convention</th><th>Meaning</th></tr>
+    <tr><td><span class="chip red">RED</span> / <span class="chip amber">ORANGE</span></td><td>Tiered critical results: RED = referrer acknowledgement within 15 min, ORANGE = 4 h, with the escalation ladder (RD-10 → NT-01 → DD-02 → RD-11).</td></tr>
+    <tr><td><span class="chip teal">Gate</span></td><td>Hard safety gates (CS-01 contrast, CS-02 MR, CS-03 consent, CS-06 Form F, payment state) are enforced at TK-01 "Perform" — the button is disabled until every gate is green.</td></tr>
+    <tr><td><span class="chip violet">Step-up</span></td><td>AU-09 re-authentication interstitial. Required before RD-09 sign-off, BL-06 refunds, FO-09 merge commit, GV-04 deletion execution, etc.</td></tr>
+    <tr><td><span class="chip blue">Four-eyes</span></td><td>Irreversible actions (merge, refund, deletion, write-off) need a second identity; asynchronous via the relevant approvals queue (BL-08, AD-05, GV-04).</td></tr>
+    <tr><td><span class="chip grey">#MRN-••••30</span></td><td>Masked identity pattern shown whenever access is denied or unauthenticated (PT-01, DD-06).</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 1 -->
+<h2 id="s01">Scenario 1 — Walk-in X-ray, cash payment, same-day report</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip teal">Front office</span> <span class="chip teal">Billing</span> <span class="chip blue">Technician</span> <span class="chip violet">Radiologist</span> <span class="chip grey">Patient (Ravi Kumar, new, no MRN)</span> · <b>Entry condition:</b> patient walks in at 10:05 with a GP slip for Chest X-ray PA; pays cash; expects report same day. <b>Target:</b> registered→report link &lt; 4 h (DS-03 routine SLA).</div>
+  <div class="flow">
+    <div class="fstep"><span class="fid">FO-15</span>Walk-in fast-track</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-03/04/05</span>Register (3 steps, minimal set)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">OR-01</span>Order entry: XR Chest PA</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-02</span>Invoice (GST-exempt)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-03</span>Cash collection</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-14</span>Queue control</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-01</span>Gated worklist · Perform</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-02</span>Acquisition + complete</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-01</span>Reading worklist</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-03</span>Viewer + priors</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-07</span>Authoring</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-08</span>Pre-sign QC</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-09</span>Sign-off (AU-09)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-13</span>Signed + distribution</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">NT-01</span>Notification ledger</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">PT-01</span>OTP link</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">PT-02</span>Report view</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:110px">Actor</th><th style="width:70px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>Front office</td><td class="mono">FO-15</td><td>Fast-track tile chosen; FO-02 search-first runs inline (phone 98•••• 21430) — no match, so registration opens with the fast-track minimal field set.</td><td>Search attempt logged (dedupe evidence for FO-08).</td></tr>
+    <tr><td>2</td><td>Front office</td><td class="mono">FO-03/04/05</td><td>Demographics, contact + DPDP consent notice version, ID capture. Single MRN issued.</td><td>Patient MRN-100042; consent notice v3.2 acceptance → GV-11 registry; audit line.</td></tr>
+    <tr><td>3</td><td>Front office</td><td class="mono">OR-01</td><td>Order XR Chest PA, priority Routine, referrer "Dr. S. Menon (external)" from AD-07 registry. OR-02 duplicate-intercept checks 72 h window — clean.</td><td>Order ORD-2607-0113 status <span class="chip grey">ORDERED</span>; referrer link; protocol default from OR-06.</td></tr>
+    <tr><td>4</td><td>Billing</td><td class="mono">BL-02 → BL-03</td><td>Invoice ₹450, GST-exempt healthcare service (SAC 9993); cash tendered; receipt printed.</td><td>Invoice INV-BLR1-26-04471, receipt RCT-…; payment state <span class="chip green">PAID</span> unlocks the TK-01 payment gate; posted to open cash session (BL-09).</td></tr>
+    <tr><td>5</td><td>Front office</td><td class="mono">FO-14</td><td>Patient enters XR queue; token 24 displayed.</td><td>Queue event; wait-time SLA timer starts (DS-03).</td></tr>
+    <tr><td>6</td><td>Technician</td><td class="mono">TK-01 → TK-02</td><td>Gates all green (payment ✓, no safety questionnaires required for plain XR, consent implicit per policy matrix). Perform → acquisition; MWL entry consumed (TK-08); images to PACS (IN-04); study completed.</td><td>Study-order link (accession ACC-88213); exposure record → dose registry TK-10; status <span class="chip grey">PERFORMED</span>.</td></tr>
+    <tr><td>7</td><td>Radiologist</td><td class="mono">RD-01 → RD-03 → RD-07</td><td>Study appears in worklist with routine SLA chip; opened in viewer (no priors); report authored from RD-18 chest template.</td><td>Draft report, author, template id, time-to-open metric (RD-17).</td></tr>
+    <tr><td>8</td><td>Radiologist</td><td class="mono">RD-08 → RD-09</td><td>Pre-sign QC (laterality, patient banner, referrer present); sign-off requires AU-09 step-up.</td><td>Signed report v1, signature event, hash; status <span class="chip green">SIGNED</span>.</td></tr>
+    <tr><td>9</td><td>System</td><td class="mono">RD-13 → NT-01</td><td>Distribution matrix fires: SMS (DLT template, NT-03) with secure link to patient; copy notice to referrer.</td><td>Notification ledger rows with channel, template id, delivery state.</td></tr>
+    <tr><td>10</td><td>Patient</td><td class="mono">PT-01 → PT-02</td><td>Opens link, sees masked identity #MRN-••••42, verifies via OTP; views/downloads report + receipt (PT-04).</td><td>Link access event (IP, time) in NT-06 and the patient-access audit trail.</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Gate / point of failure</th><th>Mandated behaviour</th></tr>
+    <tr><td>Cash not tendered at step 4</td><td>Order stays <span class="chip amber">AWAITING PAYMENT</span>; TK-01 Perform stays disabled; FO-14 keeps patient out of the modality queue. BL-01 worklist shows it as uncollected.</td></tr>
+    <tr><td>Duplicate found by OR-02</td><td>Duplicate-intercept modal blocks; front office must justify-and-continue or open the existing order (see Scenario 6 for identity duplicates).</td></tr>
+    <tr><td>Image QC failure in TK-11</td><td>Retake flow TK-05 with reason code; extra exposure appended to TK-10 dose registry; report clock keeps running (DS-03 chip goes amber).</td></tr>
+    <tr><td>OTP fails 5× at PT-01</td><td>Link locked (PT-03 behaviour), event to NT-06; patient routed to PT-12 help / counter pickup per NT-02.</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 2 -->
+<h2 id="s02">Scenario 2 — Booked contrast CT with eGFR unavailable</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip teal">Front office</span> <span class="chip blue">Technician</span> <span class="chip amber">Referring physician (Dr. Nair)</span> <span class="chip violet">Radiologist</span> <span class="chip grey">Patient (Meera Shah, MRN-100311, 61 y, diabetic)</span> · <b>Entry condition:</b> CT Abdomen with IV contrast booked 3 days ahead via FO-10; on arrival no recent creatinine/eGFR result is available.</div>
+  <div class="flow">
+    <div class="fstep"><span class="fid">FO-10</span>Booking</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">PT-05</span>Prep instructions (fasting, hydration, eGFR advice)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-13</span>Check-in</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-02/03</span>Invoice + collect</div><span class="farr">→</span>
+    <div class="fstep crit"><span class="fid">CS-01</span>Contrast screening — eGFR missing</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">CS-01</span>POC creatinine entered OR</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">CS-04</span>Physician override</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">CS-03</span>Contrast consent</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-01</span>Gates green · Perform</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-09</span>Prep checklist</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-02</span>Acquisition</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-06</span>Contrast administration record</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-07→RD-09→RD-13</span>Report + distribute</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:110px">Actor</th><th style="width:80px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>Front office</td><td class="mono">FO-10 · PT-05</td><td>Slot booked on CT-01 (SC-01 resource calendar); prep link auto-sent (NT-01) telling patient to bring a &lt;90-day eGFR.</td><td>Appointment APT-…; prep-link delivery state.</td></tr>
+    <tr><td>2</td><td>Front office</td><td class="mono">FO-13 → BL-03</td><td>Check-in; invoice collected (contrast study price incl. consumable line).</td><td>Payment gate green.</td></tr>
+    <tr><td>3</td><td>Technician</td><td class="mono">CS-01</td><td>Contrast screening questionnaire: diabetes ✓, metformin ✓, <b>eGFR field empty</b> → screening state <span class="chip red">BLOCKED — renal function required</span>. TK-01 Perform disabled.</td><td>Screening record v1 with blocking rule id (renal-check), timestamp.</td></tr>
+    <tr><td>4a</td><td>Technician</td><td class="mono">CS-01</td><td><b>Branch A (preferred):</b> point-of-care creatinine done on site; value 1.1 mg/dL → computed eGFR 58 entered with source "POC device", method CKD-EPI.</td><td>Result value, source, device id; screening re-evaluates to <span class="chip green">CLEARED</span>.</td></tr>
+    <tr><td>4b</td><td>Physician</td><td class="mono">CS-04</td><td><b>Branch B:</b> no POC available. Radiologist/physician reviews risk and records a physician override: clinical justification, alternatives considered, hydration protocol ordered. AU-09 step-up required.</td><td>Override record (who, why, expiry = this study only) — visible later on RD-03 banner and in AD-20 audit; GV-03-style review feed.</td></tr>
+    <tr><td>5</td><td>Patient + Tech</td><td class="mono">CS-03</td><td>Contrast consent in Kannada (PT-11 language preference) captured on tablet; risks incl. CIN and extravasation.</td><td>Consent artefact (version, language, signature, witness) → GV-11.</td></tr>
+    <tr><td>6</td><td>Technician</td><td class="mono">TK-01 → TK-09 → TK-02 → TK-06</td><td>All gates green (payment ✓, CS-01 ✓, CS-03 ✓). Prep checklist (IV line, fasting confirmed); scan; contrast batch/lot, volume 80 ml Iohexol 350, injector rate recorded.</td><td>TK-06 administration record linked to order; dose to TK-10; batch/lot for pharmacovigilance.</td></tr>
+    <tr><td>7</td><td>Radiologist</td><td class="mono">RD-07 → RD-09 → RD-13</td><td>Report authored (override banner shown if branch B), signed, distributed.</td><td>Signed report; distribution ledger NT-01.</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Gate / point of failure</th><th>Mandated behaviour</th></tr>
+    <tr><td>eGFR &lt; 30 after POC test</td><td>CS-01 hard-blocks contrast; only options are non-contrast protocol (OR-05 modify with referrer note) or nephrology clearance attached as a document (FO-18) plus CS-04 override. Absolute block cannot be overridden by a technician role.</td></tr>
+    <tr><td>Physician unavailable for CS-04</td><td>Study moved to TK-04 hold with reason "awaiting renal clearance"; slot released back to FO-10; patient rebooked; NT-01 sends new prep message.</td></tr>
+    <tr><td>Patient refuses POC test fee</td><td>BL-02 line voided pre-payment or BL-07 credit note post-payment; order modified to non-contrast via OR-05 with referrer notification.</td></tr>
+    <tr><td>Metformin + contrast given</td><td>TK-06 forces the post-procedure instruction block (48 h metformin pause) onto PT-05 discharge instructions; recorded in the administration record.</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 3 -->
+<h2 id="s03">Scenario 3 — Pregnant patient, obstetric ultrasound with Form F (PC-PNDT)</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip teal">Front office</span> <span class="chip violet">Sonologist (Dr. Rao, PNDT-registered)</span> <span class="chip grey">Patient (Anita Verma, MRN-100518, G2P1, 19 weeks)</span> · <b>Entry condition:</b> referred obstetric anomaly scan; PC-PNDT applies — no scan without a completed Form F, and sex determination/communication is prohibited.</div>
+  <div class="flow">
+    <div class="fstep"><span class="fid">FO-13</span>Check-in</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">OR-01</span>Order: OB anomaly scan</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-02/03</span>Invoice + collect</div><span class="farr">→</span>
+    <div class="fstep crit"><span class="fid">CS-06</span>Form F — declaration + indication</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">CS-03</span>Procedure consent</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-01</span>Gate check (Form F ✓)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-02</span>Scan performed by registered sonologist</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-07→RD-09</span>Report (sex fields suppressed)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-13</span>Distribution</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">IR-01</span>Form F register entry (auto)</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:120px">Actor</th><th style="width:75px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>Front office</td><td class="mono">OR-01</td><td>Procedure code OB-ANOM triggers the PC-PNDT rule pack: order cannot reach the worklist without CS-06. Performing practitioner must be PNDT-registered at this centre (AD-06 credential check against AD-09 registrations).</td><td>Order with regulatory flag <span class="chip violet">PC-PNDT</span>.</td></tr>
+    <tr><td>2</td><td>Patient + FO</td><td class="mono">CS-06</td><td>Form F captured: full declaration ("I do not want to know the sex of my foetus"), indication (anomaly screening), referring doctor details, previous children, patient thumb/e-sign, sonologist counter-sign section pending.</td><td>Form F draft FF-2607-091 linked to order; language of declaration; ID proof reference.</td></tr>
+    <tr><td>3</td><td>Sonologist</td><td class="mono">TK-01 → TK-02</td><td>Gate row shows Form F ✓, consent ✓, payment ✓. Sonologist counter-signs Form F (AU-09) at Perform; scan executed.</td><td>Counter-signature; performer identity bound to study; machine id (AD-08, PNDT-registered device).</td></tr>
+    <tr><td>4</td><td>Sonologist</td><td class="mono">RD-07 → RD-09</td><td>Structured OB template (RD-18) — foetal sex fields do not exist in the template; free-text lint in RD-08 flags sex-revealing terms before sign.</td><td>Signed report; RD-08 lint result stored.</td></tr>
+    <tr><td>5</td><td>System</td><td class="mono">IR-01</td><td>On sign, the study auto-appends to the Form F register for the month, keyed to the centre's PNDT registration.</td><td>Register row (serial, date, indication, sonologist, machine) feeding IR-02 monthly submission prep (Scenario is continued monthly in DOC-02 §13).</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Gate / point of failure</th><th>Mandated behaviour</th></tr>
+    <tr><td>Form F incomplete / unsigned</td><td>TK-01 Perform hard-blocked with reason "Form F pending"; no override exists for this gate (statutory). CS-04 explicitly excludes PC-PNDT gates.</td></tr>
+    <tr><td>Sonologist not PNDT-registered here</td><td>TK-01 refuses assignment; RD-01/TK-01 show <span class="chip red">NOT AUTHORISED — PNDT</span>; AD-09 expiry dashboard is the fix path (see Scenario 16 for the AERB analogue).</td></tr>
+    <tr><td>Patient asks for foetal sex</td><td>Scripted refusal note recorded on TK-02; repeated requests escalate to GR-01 grievance intake with the statutory notice text (GV-10).</td></tr>
+    <tr><td>Register correction needed later</td><td>IR-04 corrections flow with reason + four-eyes; original row never edited in place (append-only, audit AD-20).</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 4 -->
+<h2 id="s04">Scenario 4 — STAT head CT at 02:10, critical bleed, full critical-result loop</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip amber">ED physician (Dr. Kulkarni, referrer)</span> <span class="chip blue">Night technician</span> <span class="chip violet">On-call radiologist (telerad, Dr. Bose)</span> <span class="chip red">Escalation: dept head, medical director</span> · <b>Entry condition:</b> 02:10, ED patient with head injury; STAT non-contrast head CT; result is an acute subdural haematoma → <span class="chip red">RED critical — referrer acknowledgement within 15 min</span>.</div>
+  <div class="flow">
+    <div class="fstep"><span class="fid">DD-03</span>ED physician orders STAT</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">OR-07</span>STAT governance (auto-approve rule)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-01</span>STAT jumps queue (payment gate deferred)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-02</span>Acquisition 02:19</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-02</span>Telerad routing</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-03</span>Viewer — bleed identified</div><span class="farr">→</span>
+    <div class="fstep crit"><span class="fid">RD-10</span>Critical flag RED + send</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">NT-01</span>Multi-channel blast (quiet hours bypassed)</div><span class="farr">→</span>
+    <div class="fstep crit"><span class="fid">DD-02</span>Referrer ack (T+6 min)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-11</span>Critical queue closes loop</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-07→RD-09</span>Full report signed 02:41</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-13</span>Distribution</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:130px">Actor</th><th style="width:80px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>ED physician</td><td class="mono">DD-03 · OR-07</td><td>STAT order placed; OR-07 governance rules auto-approve (head trauma is on the STAT whitelist), payment gate set to "post-hoc" per emergency policy; abuse metrics tracked on OR-07 dashboard.</td><td>Order with priority <span class="chip red">STAT</span>, governance rule id, deferred-payment flag → BL-01 for later settlement.</td></tr>
+    <tr><td>2</td><td>Technician</td><td class="mono">TK-01 → TK-02</td><td>STAT row pinned to top with red DS-03 chip (acquisition SLA 15 min); safety gates evaluated — non-contrast head CT needs none beyond identity check; performed 02:19.</td><td>Time order→acquire = 9 min; dose to TK-10.</td></tr>
+    <tr><td>3</td><td>System</td><td class="mono">RD-02</td><td>Night routing rule assigns to on-call telerad pool; Dr. Bose accepts (accept/decline timer 5 min, else auto-reassign).</td><td>Assignment event, accept latency (feeds RD-17).</td></tr>
+    <tr><td>4</td><td>Radiologist</td><td class="mono">RD-03 → RD-10</td><td>Acute subdural with midline shift → flags <span class="chip red">RED critical</span>; RD-10 composes the critical message (finding, advice "immediate neurosurgical review") and fires send. Preliminary critical note is delivered before the full report.</td><td>Critical event CRIT-2607-004: tier RED, T0 = 02:27, target ack 02:42; finding summary snapshot.</td></tr>
+    <tr><td>5</td><td>System</td><td class="mono">NT-01 · NT-07</td><td>Simultaneous app push + SMS + voice call to referrer. NT-07 quiet hours are bypassed for RED tier by contract.</td><td>Per-channel delivery states in NT-01/NT-06.</td></tr>
+    <tr><td>6</td><td>ED physician</td><td class="mono">DD-02</td><td>Opens results inbox, reads preliminary note, taps <b>Acknowledge</b> at T+6 min with action note "taken to neurosurgery".</td><td>Ack identity, timestamp, action note — closes the RED clock.</td></tr>
+    <tr><td>7</td><td>Radiologist</td><td class="mono">RD-11</td><td>Critical queue shows CRIT-2607-004 <span class="chip green">CLOSED · ack 6 min</span>. Loop audit complete.</td><td>Closure record; compliance metric for RD-17 and GV-01.</td></tr>
+    <tr><td>8</td><td>Radiologist</td><td class="mono">RD-07 → RD-09 → RD-13</td><td>Full report signed 02:41 (AU-09); distribution to ED, patient link suppressed until discharge per ED policy.</td><td>Signed report references the critical event id.</td></tr>
+  </table>
+  <h3>Edge branches — the escalation ladder (mandatory behaviour)</h3>
+  <table>
+    <tr><th style="width:210px">Condition</th><th>Mandated behaviour</th></tr>
+    <tr><td>No ack at T+15 min</td><td>Ladder tier 2: NT-01 re-fires to referrer + department duty doctor; RD-11 row turns <span class="chip red">BREACHED</span>; radiologist prompted to attempt a recorded phone call (call outcome logged on RD-11).</td></tr>
+    <tr><td>No ack at T+30 min</td><td>Tier 3: medical director + site manager notified; incident candidate auto-drafted in GV-08. Manual "ack on behalf" allowed only with reason + identity (four-eyes review in GV-03 later).</td></tr>
+    <tr><td>Telerad accept timer expires</td><td>RD-02 auto-reassigns to next pool member; after 2 failures pages the backup radiologist and flags RD-17 dashboard (see Scenario 8).</td></tr>
+    <tr><td>Referrer unreachable / number dead</td><td>NT-02 failure path: escalate to ED charge nurse role; delivery failure recorded against the referrer record AD-07 for data-quality follow-up.</td></tr>
+    <tr><td>Payment never settled</td><td>Deferred-payment order surfaces in BL-01 exceptions and FO-17 EOD; write-off requires BL-17 with approval via BL-08.</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 5 -->
+<h2 id="s05">Scenario 5 — Child patient (7 y) with guardian</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip teal">Front office</span> <span class="chip blue">Technician</span> <span class="chip grey">Patient (Aarav Joshi, 7 y) + guardian (father, Nitin Joshi)</span> · <b>Entry condition:</b> paediatric wrist X-ray after a fall; child has no phone; all links, consents and legal acts route to the guardian.</div>
+  <div class="flow">
+    <div class="fstep"><span class="fid">FO-02</span>Search (child + guardian)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-03/04/05</span>Register child, guardian mandatory</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-20</span>Family linkage (guardian-of)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">OR-01</span>Order XR wrist</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">CS-03</span>Consent signed by guardian</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-03</span>Collection (payer = guardian)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-01→TK-02</span>Paediatric protocol</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-10</span>Dose registry (paediatric band)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-07→RD-13</span>Report → guardian link</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">PT-01/02</span>Guardian views on own OTP</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:110px">Actor</th><th style="width:80px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>Front office</td><td class="mono">FO-03/04/05 · FO-20</td><td>Child registered with own single MRN (never shares the guardian's). DOB drives minor status; registration cannot complete without a linked guardian with verified mobile. FO-20 stores relationship "father", authority "full guardian".</td><td>MRN-100777 (child), link edge to MRN-98104 (father), relationship + authority level, ID proof of guardian.</td></tr>
+    <tr><td>2</td><td>Guardian</td><td class="mono">CS-03</td><td>Consent captured with signer = guardian, on-behalf-of = child; screen shows both identities and blocks self-consent for minors.</td><td>Consent artefact (signer ≠ subject) → GV-11.</td></tr>
+    <tr><td>3</td><td>Technician</td><td class="mono">TK-01 → TK-02 → TK-10</td><td>Worklist row carries <span class="chip blue">PAED</span> badge; OR-06 paediatric protocol auto-selected (low-dose); immobilisation note; dose entry validated against the paediatric DRL band — out-of-band values force a reason.</td><td>Protocol id, dose value + band check result, comforter/holder presence if any.</td></tr>
+    <tr><td>4</td><td>System</td><td class="mono">RD-13 → PT-01</td><td>All patient-facing links address the guardian's mobile; OTP is verified against the guardian's number; PT screens show "viewing as guardian of Aarav J. (#MRN-••••77)".</td><td>Link recipient = guardian identity; every access logged with the acting-as relationship.</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Condition</th><th>Mandated behaviour</th></tr>
+    <tr><td>Guardian cannot prove authority</td><td>Registration proceeds with authority "accompanying adult"; CS-03 blocked for non-emergency consent; site policy escalation to centre manager; emergencies use CS-04 physician override with GV-03 review.</td></tr>
+    <tr><td>Parents separated, both claim access</td><td>PT link stays with the registered guardian; second parent must file a PT-08 rights request → GV-05 adjudication; FO-20 records disputes as a flag that blocks silent re-pointing of links.</td></tr>
+    <tr><td>Child turns 18 later</td><td>Scheduled job (AD-18) flips minor status; guardian link demoted to "emergency contact"; existing links expire (PT-03); patient must enrol own mobile via FO-07 verify.</td></tr>
+    <tr><td>Guardian requests deletion of child data</td><td>Routed to GV-04/GV-06 — radiology retention 10 y applies from majority age per retention policy; see Scenario 12 mechanics.</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 6 -->
+<h2 id="s06">Scenario 6 — Duplicate registration discovered → merge</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip teal">Front office (creator)</span> <span class="chip teal">MRD/data steward (resolver)</span> <span class="chip blue">Second approver</span> · <b>Entry condition:</b> "Sunita Devi" registered today as MRN-101202; nightly matcher (and a sharp-eyed clerk) find existing MRN-99870 — same person, name spelled differently, same Aadhaar-last-4 and DOB. Single-MRN identity contract requires merge.</div>
+  <div class="flow">
+    <div class="fstep"><span class="fid">FO-03</span>Second registration created</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">FO-08</span>Merge queue — candidate pair scored 0.94</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-09</span>Merge resolve — field-level survivorship</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">AU-09</span>Step-up + second approver (four-eyes)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-06</span>Surviving record MRN-99870</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">AD-20</span>Audit trail of merge</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:130px">Actor</th><th style="width:75px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>System</td><td class="mono">FO-08</td><td>Matcher emits candidate pair (name-fuzzy + DOB exact + phone exact) score 0.94 → queue with SLA chip (resolve within 48 h, DS-03).</td><td>Candidate pair, score, contributing features.</td></tr>
+    <tr><td>2</td><td>Data steward</td><td class="mono">FO-09</td><td>Side-by-side compare; chooses survivor MRN-99870 (older, richer history); field survivorship per attribute (keep new phone, keep old address after confirmation); preview shows 2 orders, 1 invoice, 3 reports that will re-point.</td><td>Survivorship decision matrix; pre-merge snapshots of both records (reversible for 30 days).</td></tr>
+    <tr><td>3</td><td>Steward + approver</td><td class="mono">AU-09 · FO-09</td><td>Merge is irreversible-class → step-up for the initiator and asynchronous four-eyes approval by a second identity (AD-05 approvals feed). On approval, merge executes.</td><td>Both identities, approval latency; MRN-101202 becomes a permanent alias/tombstone that forwards to 99870.</td></tr>
+    <tr><td>4</td><td>System</td><td class="mono">FO-06 · AD-20</td><td>All orders, invoices, reports, PT links, consents re-key to survivor. Old links keep working via alias resolution. Notifications ledger re-binds the contact channel.</td><td>Re-pointing manifest (counts per entity type) in the audit event; visible on FO-06 history tab.</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Condition</th><th>Mandated behaviour</th></tr>
+    <tr><td>Pair is actually two people (twins, father/son)</td><td>FO-09 "Not a duplicate" verdict stores a suppression edge so the matcher never re-proposes the pair; both records get a "verified distinct" badge on FO-06.</td></tr>
+    <tr><td>Merge while an order is mid-acquisition</td><td>FO-09 blocks commit if either MRN has a study in TK-02 in-progress state; queue row parks with reason "active study"; retry after completion.</td></tr>
+    <tr><td>Wrong merge discovered later</td><td>Unmerge from the 30-day snapshot via FO-09 reverse path — itself four-eyes + step-up; entities created post-merge are re-assigned interactively; GV-08 incident if any report was delivered to the wrong identity.</td></tr>
+    <tr><td>Approver rejects</td><td>Queue row returns to FO-08 with rejection reason; SLA clock continues; three rejections escalate to MRD lead.</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 7 -->
+<h2 id="s07">Scenario 7 — Unmatched study reconciliation (modality sent wrong accession)</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip blue">Technician</span> <span class="chip violet">PACS admin / integration operator</span> · <b>Entry condition:</b> CR unit was operated with a manually typed patient (MWL not refreshed after TK-08 sync hiccup); study arrives at PACS with accession "TEMP-004" and misspelled name → cannot auto-bind to any order.</div>
+  <div class="flow">
+    <div class="fstep crit"><span class="fid">IN-03</span>Quarantine — unmatched study</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">IN-05</span>Message browser (DICOM/HL7 evidence)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-08</span>MWL sync check (root cause)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">OR-03</span>Order timeline — candidate order located</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">IN-03</span>Manual match + justify</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">IN-06</span>Retry/replay to PACS with corrected tags</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-01</span>Study reaches reading worklist</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:130px">Actor</th><th style="width:75px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>System</td><td class="mono">IN-03</td><td>Inbound study fails the match rule chain (accession → MRN+date → fuzzy name). Parked in quarantine with reason "no matching order"; DS-03 SLA chip: reconcile within 2 h (report clock is already running against the real order).</td><td>Quarantine item Q-1183 with received tags snapshot, source AE title (IN-02 registry).</td></tr>
+    <tr><td>2</td><td>Operator</td><td class="mono">IN-05 · TK-08</td><td>Message browser shows the C-STORE metadata; TK-08 reveals the MWL sync gap 09:12–09:31 — root cause noted on the quarantine item.</td><td>Root-cause tag "MWL-stale" (feeds IN-01 health analytics).</td></tr>
+    <tr><td>3</td><td>Technician</td><td class="mono">OR-03 · IN-03</td><td>Candidate order found by modality+time+body part; technician who performed confirms identity from positioning and requisition; manual match requires reason + confirmation of patient identity fields (DOB check typed, not clicked).</td><td>Match decision: who matched, evidence cited; irreversible-class → second confirmation by PACS admin (four-eyes).</td></tr>
+    <tr><td>4</td><td>System</td><td class="mono">IN-06 → RD-01</td><td>Study coerced (accession, MRN, name corrected) and replayed to PACS; original object retained; study lands on RD-01 with a <span class="chip amber">RECONCILED</span> badge visible in RD-03 banner.</td><td>Coercion record (old→new tag values); replay outcome; badge travels to the signed report metadata.</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Condition</th><th>Mandated behaviour</th></tr>
+    <tr><td>No candidate order exists</td><td>Create retrospective order via OR-01 with source "reconciliation" (requires centre-manager role); billing follows via BL-01 uncaptured-revenue view.</td></tr>
+    <tr><td>Wrong match committed</td><td>Un-match from IN-03 history (four-eyes); if a report was already signed against the wrong patient → RD-12 addendum retraction + GV-08 incident, patient notification decision via GV-09.</td></tr>
+    <tr><td>Quarantine SLA breached (&gt;2 h)</td><td>IN-01 health raises operational alert; item escalates to PACS admin group; RD-17 shows the study as "acquired, not available" so reading SLA breaches are explainable.</td></tr>
+    <tr><td>Repeated MWL staleness from same modality</td><td>IN-02 AE registry marks the device degraded; TK-07 device board shows warning; AD-08 equipment record gets a maintenance ticket reference.</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 8 -->
+<h2 id="s08">Scenario 8 — Radiologist off sick, queue rebalance</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip violet">Lead radiologist</span> <span class="chip teal">Site manager</span> <span class="chip violet">Telerad pool</span> · <b>Entry condition:</b> 08:40, Dr. Sen (reads all MRI at Branch Indiranagar) calls in sick; 23 studies assigned to her, 4 already amber on the DS-03 report-TAT chip.</div>
+  <div class="flow">
+    <div class="fstep"><span class="fid">RD-17</span>Dashboard — SLA risk spike</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">AD-06</span>Practitioner marked unavailable</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-01</span>Bulk reassign (lead role)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-02</span>Telerad routing for overflow</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-06</span>Hanging/subspecialty fit check</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-17</span>Dashboard back to green</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:130px">Actor</th><th style="width:75px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>Site manager</td><td class="mono">AD-06</td><td>Availability toggled off (sick, today+tomorrow); this removes Dr. Sen from RD-02 routing targets and freezes auto-assignment to her queue; scheduled sessions in SC screens release capacity.</td><td>Unavailability window, reason class; effective-from timestamp.</td></tr>
+    <tr><td>2</td><td>Lead radiologist</td><td class="mono">RD-01</td><td>Filters worklist by assignee=Sen; bulk-selects 23 studies; reassignment honours subspecialty tags (MSK MRI only to MSK-qualified readers) and current load shown per reader.</td><td>Reassignment events (from, to, by, reason "sick cover"); SLA clocks unaffected (they belong to the study, not the reader).</td></tr>
+    <tr><td>3</td><td>System</td><td class="mono">RD-02</td><td>11 studies exceed in-house capacity → routed to the telerad partner pool with the same-org priors policy attached (allow-and-audit, Scenario 15); accept timers running.</td><td>Routing decisions; partner SLA contract id; accept/decline latencies.</td></tr>
+    <tr><td>4</td><td>Lead radiologist</td><td class="mono">RD-17</td><td>Dashboard: amber count drops as reads complete; 1 study breaches TAT → auto-annotated with cause "reader unavailable — rebalanced 08:55" for the monthly quality review (GV-01).</td><td>Breach cause code; rebalance latency KPI.</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Condition</th><th>Mandated behaviour</th></tr>
+    <tr><td>STAT study assigned to sick reader</td><td>RD-02 accept-timer expiry auto-reassigns within 5 min regardless of manual rebalance (same mechanism as Scenario 4).</td></tr>
+    <tr><td>No qualified reader for a subspecialty study</td><td>RD-16 second-opinion/external routing with medical-director approval; else order holds with referrer notification via NT-01 and OR-03 status note.</td></tr>
+    <tr><td>Draft reports in Sen's name</td><td>Drafts are personal: reassignee starts fresh or explicitly adopts the draft with provenance banner; adopted drafts recorded as co-authored in RD-07 history.</td></tr>
+    <tr><td>Sick leave extends</td><td>AD-06 window extended; SC-templates regenerate future capacity; FO-10 booking grid reflects reduced MRI reporting capacity via slot throttling (SC rules).</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 9 -->
+<h2 id="s09">Scenario 9 — Branch offline for 3 hours (queued sync)</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip teal">Front office (Branch Whitefield)</span> <span class="chip blue">Technician</span> <span class="chip violet">Integration operator (HQ)</span> · <b>Entry condition:</b> fibre cut 11:20–14:25. Offline-first FO contract applies: registration, check-in, ordering and cash continue locally; everything queues through the edge node (IN-10).</div>
+  <div class="flow">
+    <div class="fstep crit"><span class="fid">IN-01</span>Health: branch link DOWN 11:20</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">FO-01</span>Offline banner + degraded-mode rules</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-15/FO-13</span>Local registrations &amp; check-ins (provisional MRNs)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-03</span>Cash with provisional receipt series</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-01/02</span>Imaging continues, PACS local cache</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">IN-10</span>Edge sync: queue drains 14:25</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-08</span>Conflict/dedupe pass on provisional MRNs</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-09</span>Cash session reconciles provisional receipts</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:130px">Actor</th><th style="width:80px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>System</td><td class="mono">IN-01 · FO-01</td><td>Health monitor flips the branch to OFFLINE; FO-01 shows the amber degraded banner listing what is allowed offline (register, check-in, order, cash) and what is blocked (merge FO-09, refunds BL-06, report distribution, UPI).</td><td>Outage window start; capability matrix version in force.</td></tr>
+    <tr><td>2</td><td>Front office</td><td class="mono">FO-15 · FO-13 · OR-01</td><td>6 walk-ins registered with provisional MRNs (prefix P-WF-…); check-ins and orders queue locally with vector timestamps.</td><td>Local queue entries; each screen's audit line marked "offline-captured".</td></tr>
+    <tr><td>3</td><td>Billing</td><td class="mono">BL-03</td><td>Cash only (card/UPI disabled offline); provisional receipt series WF-OFF-0001… as configured in BL-13/AD-16 numbering (separate series, never reused online).</td><td>Provisional receipts with device id; cash drawer running total.</td></tr>
+    <tr><td>4</td><td>Technician</td><td class="mono">TK-01 → TK-02</td><td>Gates evaluate against locally cached state (payments made offline count; CS forms captured on tablet sync-later). Studies stored on local PACS cache node.</td><td>Study objects queued for central PACS push (IN-04) on reconnect.</td></tr>
+    <tr><td>5</td><td>System</td><td class="mono">IN-10</td><td>Reconnect 14:25: queue drains in causal order (patients → orders → payments → studies → consents). Provisional MRNs exchanged for real MRNs; provisional receipts mapped to final numbers with a printed mapping annexure.</td><td>Sync manifest (counts, failures=0), per-entity id mapping table, drain duration 4 m 12 s.</td></tr>
+    <tr><td>6</td><td>Data steward</td><td class="mono">FO-08</td><td>Dedupe pass: 1 offline registration matches an existing MRN → normal merge path (Scenario 6).</td><td>Merge queue item sourced "offline-sync".</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Condition</th><th>Mandated behaviour</th></tr>
+    <tr><td>Sync conflict (same slot double-booked centrally and offline)</td><td>IN-10 conflict inbox: offline booking wins the physical slot (patient was actually there); central booking auto-rescheduled via FO-11 with apology template NT-03.</td></tr>
+    <tr><td>Edge node disk nearly full during outage</td><td>IN-10 raises local alert at 80%; imaging continues, but TK-02 warns; oldest already-synced cache evicted only, never unsynced queue items.</td></tr>
+    <tr><td>Outage &gt; 24 h</td><td>Escalation to PL operator screens; report distribution backlog is prioritised RED-critical first when the link returns (NT-01 replay ordering).</td></tr>
+    <tr><td>Offline cash receipt disputed later</td><td>Mapping annexure (provisional→final) is the audit anchor; BL-05 receipt reprint shows both numbers.</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 10 -->
+<h2 id="s10">Scenario 10 — UPI payment stuck in pending</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip teal">Billing clerk</span> <span class="chip grey">Patient (Farhan Ali, MRN-100655)</span> · <b>Entry condition:</b> ₹3,800 CT invoice; patient scans the dynamic UPI QR; money debited from his bank but PSP callback never arrives — transaction sits in <span class="chip amber">PENDING</span>.</div>
+  <div class="flow">
+    <div class="fstep"><span class="fid">BL-02</span>Invoice</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-03</span>UPI intent created</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">BL-04</span>UPI pending tray — auto status polls</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-04</span>Manual "verify with PSP" at T+3 min</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-05</span>Receipt on SUCCESS</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-01</span>Payment gate green</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:120px">Actor</th><th style="width:75px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>Billing</td><td class="mono">BL-03 → BL-04</td><td>Intent UPI-2607-3321 created; no callback in 90 s → row moves to the BL-04 pending tray with a DS-03 timer; system polls PSP status API at 30 s / 60 s / 120 s backoff. Counter is told: never take a second payment while a pending exists for the same invoice (screen enforces — Collect is disabled).</td><td>Intent id, poll attempts + responses; invoice payment state <span class="chip amber">PENDING</span>.</td></tr>
+    <tr><td>2</td><td>Billing</td><td class="mono">BL-04</td><td>T+3 min: clerk hits "Verify with PSP" — synchronous status check returns SUCCESS (bank UTR 4177…); row resolves.</td><td>UTR, resolution path "manual-verify", latency 3 m 40 s.</td></tr>
+    <tr><td>3</td><td>System</td><td class="mono">BL-05 · TK-01</td><td>Receipt issued (SMS via NT-01 + PT-04 link); payment gate on the order flips green; patient proceeds to modality queue.</td><td>Receipt number in the normal series; gate transition event.</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Condition</th><th>Mandated behaviour</th></tr>
+    <tr><td>PSP says FAILED but patient shows debit</td><td>BL-04 marks "disputed"; patient may pay by cash to proceed (both recorded against the invoice); if the UPI later auto-reverses, nothing to do; if it settles, the surplus becomes an advance (BL-14) or refund (BL-06, four-eyes + AU-09).</td></tr>
+    <tr><td>Still PENDING at end of day</td><td>BL-09 cash-session close lists unresolved intents; they cannot silently disappear — each needs a resolution (settled / reversed / disputed) before BL-18 day book finalises, or is carried with reason.</td></tr>
+    <tr><td>Duplicate payment (UPI succeeded after cash taken)</td><td>Auto-detected on callback; surplus auto-parked as advance BL-14 with patient notification; refund path BL-06 from there.</td></tr>
+    <tr><td>PSP outage (IN-07 comms provider red)</td><td>BL-03 hides UPI as a tender option while IN-07 marks the provider down; banner cites the provider incident id.</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 11 -->
+<h2 id="s11">Scenario 11 — Corporate / TPA credit patient</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip teal">Front office</span> <span class="chip teal">Billing</span> <span class="chip blue">Corporate desk (back office)</span> <span class="chip grey">Patient (Deepa Iyer, MRN-100918, employee of Zentrix Ltd)</span> · <b>Entry condition:</b> annual-health-check CT + labs covered by employer contract; nothing to collect from the patient except non-covered add-ons.</div>
+  <div class="flow">
+    <div class="fstep"><span class="fid">BL-11</span>Payer master: Zentrix contract (pre-configured)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-13</span>Check-in with payer selection + eligibility check</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">OR-01</span>Orders under the corporate package</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-02</span>Split invoice: credit lines + patient lines</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-03</span>Collect patient share only</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK→RD</span>Normal imaging spine</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-15</span>Payer ledger accrues</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-15/BL-19</span>Monthly statement + GST export</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:120px">Actor</th><th style="width:80px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>Front office</td><td class="mono">FO-13</td><td>Payer "Zentrix / MediAssist TPA" selected; eligibility check against the BL-11 contract: employee id EMP-4471 valid, package "AHC-Gold", cap ₹8,000 remaining ₹8,000. Authorisation letter uploaded via FO-18 if the contract demands one.</td><td>Eligibility snapshot (cap, validity, package) frozen on the visit.</td></tr>
+    <tr><td>2</td><td>Billing</td><td class="mono">BL-02</td><td>Invoice splits automatically: covered services → credit account (contracted rates from BL-11 rate card, GST-exempt healthcare); patient adds a wellness add-on ₹600 → patient-payable line.</td><td>Two settlement legs on one invoice; contracted-rate provenance; cap decremented.</td></tr>
+    <tr><td>3</td><td>Billing</td><td class="mono">BL-03</td><td>Collect ₹600 from patient only; TK-01 payment gate counts the credit leg as satisfied by authorisation.</td><td>Receipt for patient share; credit leg state <span class="chip blue">ACCRUED</span>.</td></tr>
+    <tr><td>4</td><td>Corporate desk</td><td class="mono">BL-15</td><td>Month-end: payer ledger shows Zentrix balance ₹1,84,300 across 47 visits; statement generated with report-access links governed by consent (employer gets financials, never clinical content — DPDP purpose limitation).</td><td>Statement id, ageing buckets; dunning schedule.</td></tr>
+    <tr><td>5</td><td>Corporate desk</td><td class="mono">BL-15 · BL-07</td><td>TPA disallows 2 line items (non-covered variant) → credit note BL-07 against the payer leg via BL-08 approval, re-billed to patient or written off BL-17.</td><td>Credit note linkage to original invoice lines; approval trail.</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Condition</th><th>Mandated behaviour</th></tr>
+    <tr><td>Eligibility check fails / cap exhausted</td><td>FO-13 offers cash conversion; patient decides before any service; partial cover splits at BL-02 line level.</td></tr>
+    <tr><td>Contract expired mid-visit</td><td>Eligibility snapshot at check-in governs the whole visit — later expiry does not retro-block; BL-11 blocks only new visits.</td></tr>
+    <tr><td>Payer 90+ days overdue</td><td>BL-15 ageing triggers credit-hold flag on BL-11; new eligibility checks warn and require centre-manager acceptance.</td></tr>
+    <tr><td>Employee leaves company</td><td>Next eligibility check fails; historical invoices unaffected; patient contact data unchanged (payer is a billing construct, not identity).</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 12 -->
+<h2 id="s12">Scenario 12 — DPDP deletion request: partial deletion, retention-held clinical data</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip grey">Patient (Rohit Malhotra, MRN-99231)</span> <span class="chip violet">DPO office</span> <span class="chip blue">Second approver</span> · <b>Entry condition:</b> patient submits "delete all my data" via the portal. Radiology records carry a 10-year retention mandate and billing 8-year (tax law) — so the outcome is a <b>partial</b> deletion with a reasoned response inside the DPDP SLA.</div>
+  <div class="flow">
+    <div class="fstep"><span class="fid">PT-08</span>Rights hub — erasure selected</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">PT-09</span>Rights submission + identity re-verify</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">GV-05</span>Rights desk triage</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">GV-06</span>Retention rules evaluation</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">GV-07</span>Legal-hold check</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">GV-04</span>Deletion workspace — scoped plan</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">AU-09</span>Step-up + four-eyes execute</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">PT-10</span>Tracking — reasoned outcome to patient</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:120px">Actor</th><th style="width:80px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>Patient</td><td class="mono">PT-08 → PT-09</td><td>Chooses "erase my data"; OTP re-verification; free-text scope ("everything"). Receives case id and statutory-clock statement.</td><td>Rights case RGT-2607-018, clock start, channel.</td></tr>
+    <tr><td>2</td><td>DPO office</td><td class="mono">GV-05 → GV-06 → GV-07</td><td>Triage classifies as erasure; retention engine partitions the data map: <b>must retain</b> — reports/images (10 y, latest study 2025), invoices/receipts (8 y GST); <b>erasable now</b> — marketing preferences, secondary contact, uploaded non-clinical documents, portal analytics. GV-07 confirms no legal hold on this MRN.</td><td>Partition result with rule ids per data class; hold check outcome.</td></tr>
+    <tr><td>3</td><td>DPO office</td><td class="mono">GV-04</td><td>Deletion plan drafted from the partition; preview lists exact record counts; communication draft explains retained classes with legal basis and their future auto-purge dates.</td><td>Plan version, reviewer comments.</td></tr>
+    <tr><td>4</td><td>DPO + approver</td><td class="mono">AU-09 · GV-04</td><td>Execution is irreversible → step-up + asynchronous four-eyes; crypto-shred/hard-delete for erasable classes; retained classes get flags: <b>restricted-processing</b> (no marketing NT-05 suppression, no analytics) until purge date.</td><td>Execution manifest (counts, methods), suppression entries in NT-05, restricted flags visible to any screen touching the MRN.</td></tr>
+    <tr><td>5</td><td>Patient</td><td class="mono">PT-10</td><td>Outcome letter in tracking: what was deleted, what is retained and why, purge dates, escalation route to the Data Protection Board.</td><td>Delivery proof; case closed within SLA (GV-01 calendar tracks the statutory deadline).</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Condition</th><th>Mandated behaviour</th></tr>
+    <tr><td>Legal hold exists (GV-07)</td><td>Entire deletion parked; patient informed that a legal proceeding suspends erasure; case auto-reopens on hold release.</td></tr>
+    <tr><td>Patient disputes the retention reasoning</td><td>GR-01 grievance path + GV-16 DPO review; retention rule citations exported for the response.</td></tr>
+    <tr><td>Retention period lapses later</td><td>GV-06 scheduled purge (AD-18 job) completes the deletion automatically and appends a final note to the rights case — no new request needed.</td></tr>
+    <tr><td>Identity verification fails at PT-09</td><td>Case not created; masked screen shows #MRN-••••31 only; counter-based identity proof route via FO with the DPO desk.</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 13 -->
+<h2 id="s13">Scenario 13 — Suspected breach: report links exposed</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip red">Security/incident manager</span> <span class="chip violet">DPO</span> <span class="chip blue">Platform operator</span> · <b>Entry condition:</b> 16:05 — NT-06 anomaly: 240 report-link opens in 20 min from one ASN, geographically implausible. Working hypothesis: a batch of PT links leaked (forwarded scraping). CERT-In 6-hour reporting clock is assumed to start at determination.</div>
+  <div class="flow">
+    <div class="fstep crit"><span class="fid">NT-06</span>Message log anomaly detected</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">GV-08</span>Incident opened, severity S2</div><span class="farr">→</span>
+    <div class="fstep crit"><span class="fid">GV-09</span>Breach runbook — clocks armed (CERT-In 6 h)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">PT-03</span>Mass link revocation (force-expire cohort)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">AU-18</span>Token/key rotation</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">NT-01</span>Re-issue fresh links to affected patients</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">GV-10</span>Notices (CERT-In / DPB / patients as assessed)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">GV-08</span>Post-incident review + actions</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:130px">Actor</th><th style="width:80px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>System / Sec</td><td class="mono">NT-06 → GV-08</td><td>Anomaly rule (opens-per-ASN threshold) pages the on-call; incident INC-2607-07 opened, severity S2, category "confidentiality — patient links". Impact query: 240 opens map to 61 distinct links / 58 patients.</td><td>Detection evidence bundle (log excerpt hash-sealed), affected-cohort snapshot.</td></tr>
+    <tr><td>2</td><td>Incident mgr</td><td class="mono">GV-09</td><td>Runbook instantiates: containment tasks, decision log, and the clock rail — CERT-In 6 h (armed at determination 16:32), DPB notification assessment, patient notification assessment. Every task has an owner + DS-03 timer.</td><td>Clock timestamps; runbook version; decision log entries.</td></tr>
+    <tr><td>3</td><td>Platform op</td><td class="mono">PT-03 · AU-18</td><td>Containment: force-expire the exposed link cohort (all 61 → PT-03 "revoked by security event" page); rotate the link-signing key in AU-18 so unexposed links re-validate; rate-limit rule deployed at the edge.</td><td>Revocation manifest; key rotation event (old kid retired); block rule id.</td></tr>
+    <tr><td>4</td><td>System</td><td class="mono">NT-01</td><td>Fresh links re-issued to the 58 patients with a plain-language notice template (NT-03, DLT-approved); counter pickup offered via NT-02 for anyone uneasy with links.</td><td>Re-issue ledger rows tied to INC id.</td></tr>
+    <tr><td>5</td><td>DPO</td><td class="mono">GV-10 · GV-16</td><td>CERT-In report filed at T+3 h 40 m (inside 6 h); DPB/patient notification assessed with harm analysis (links were OTP-gated — opens ≠ report views; 3 confirmed OTP successes → those 3 patients individually notified).</td><td>Filed notices with acknowledgements; harm assessment document; DPO sign-off.</td></tr>
+    <tr><td>6</td><td>All</td><td class="mono">GV-08</td><td>Post-incident review: action items (shorten link TTL, per-device binding) tracked to closure; incident feeds the GV-12 DPIA update.</td><td>RCA, action items with owners/dates; closure state.</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Condition</th><th>Mandated behaviour</th></tr>
+    <tr><td>OTP layer confirmed bypassed</td><td>Severity → S1; patient notification mandatory for all 58; GV-09 adds regulator-facing chronology export (GV-15 export governance controls who can pull it).</td></tr>
+    <tr><td>6 h clock at risk</td><td>GV-09 shows the clock RED at T+4 h with unfinished prerequisites; policy: file a preliminary CERT-In report with known facts rather than miss the deadline; supplement later.</td></tr>
+    <tr><td>False positive (CDN prefetch)</td><td>Incident downgraded, not deleted; detection rule tuned; decision log keeps the reasoning (audit AD-20).</td></tr>
+    <tr><td>Media inquiry</td><td>Comms task in GV-09 routes to the designated spokesperson; screens carry no public-statement function by design.</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 14 -->
+<h2 id="s14">Scenario 14 — Addendum with a new actionable finding</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip violet">Radiologist (Dr. Bose)</span> <span class="chip amber">Referrer (Dr. Nair)</span> · <b>Entry condition:</b> chest CT signed yesterday (RD-13, delivered). During today's RD-15 diff/peer review, a 9 mm pulmonary nodule is noticed that was not reported → addendum required, and it is actionable → <span class="chip amber">ORANGE critical, 4 h ack</span>.</div>
+  <div class="flow">
+    <div class="fstep"><span class="fid">RD-15</span>Peer review flags miss</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-12</span>Addendum authored on signed report</div><span class="farr">→</span>
+    <div class="fstep crit"><span class="fid">RD-10</span>Critical flag ORANGE + send</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-09</span>Addendum sign (AU-09)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-13</span>Redistribution (v1+A1, supersede banner)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">NT-01</span>Referrer + patient re-notified</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">DD-02</span>Referrer ack (T+1 h 20 m)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-11</span>Loop closed</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:120px">Actor</th><th style="width:80px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>Radiologist</td><td class="mono">RD-12</td><td>Addendum editor opens the immutable signed v1 read-only; addendum A1 states the finding, why it is being added, and the recommendation (CT follow-up per Fleischner). Original text is never edited.</td><td>Addendum draft linked to report v1 hash; reason class "missed finding — peer review".</td></tr>
+    <tr><td>2</td><td>Radiologist</td><td class="mono">RD-10</td><td>Actionable → ORANGE tier selected (guideline chip on RD-10 shows tier definitions); critical message drafted from the addendum summary.</td><td>Critical event tier ORANGE, T0, 4 h target; link to addendum.</td></tr>
+    <tr><td>3</td><td>Radiologist</td><td class="mono">RD-09 → RD-13</td><td>Addendum signed with step-up; distribution re-fires to every original recipient — report now renders as v1 + A1 with a top banner "Addendum added 26 Jul — see below"; old PT links show the updated composite (same link, new content, PT-02).</td><td>A1 signature; redistribution ledger; supersede banner state.</td></tr>
+    <tr><td>4</td><td>Referrer</td><td class="mono">DD-02 → RD-11</td><td>Inbox shows <span class="chip amber">ADDENDUM · ORANGE</span> distinct from a new report; acknowledges at T+1 h 20 m with action "patient recalled to clinic".</td><td>Ack + action note; RD-11 closure; RD-15 review case cross-references the outcome.</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Condition</th><th>Mandated behaviour</th></tr>
+    <tr><td>No ack at 4 h</td><td>Same ladder as RED but at ORANGE cadence: re-notify + phone-call task at 4 h, department escalation at 8 h; RD-11 breach row.</td></tr>
+    <tr><td>Patient already viewed v1</td><td>NT-01 sends an explicit "your report was updated" message (not just a silent content change); PT-02 shows a change badge with the addendum date.</td></tr>
+    <tr><td>Addendum retracts a finding (over-call)</td><td>Same RD-12 mechanics with reason class "correction"; criticality usually none; RD-15 records the QA classification either way.</td></tr>
+    <tr><td>Original author unavailable</td><td>Another radiologist may author the addendum; RD-12 banner names both; original author notified via NT-01.</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 15 -->
+<h2 id="s15">Scenario 15 — Prior study from another branch needed mid-read</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip violet">Radiologist (Branch Koramangala)</span> · <b>Entry condition:</b> reading a thyroid US; RD-03 priors rail shows a 2024 US performed at Branch Whitefield (same organisation, different branch). Same-org priors contract: <b>allow-and-audit</b> — no blocking consent prompt, but a mandatory audited access with purpose.</div>
+  <div class="flow">
+    <div class="fstep"><span class="fid">RD-01</span>Study opened</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-03</span>Priors rail lists cross-branch study</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">RD-03</span>Allow-and-audit interstitial (purpose auto-filled)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">IN-04</span>PACS cross-branch fetch</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-05</span>Compare mode, measurements vs 2024</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-07→RD-09</span>Report cites prior</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">AD-20</span>Access visible in audit viewer + patient-facing log</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:120px">Actor</th><th style="width:80px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>Radiologist</td><td class="mono">RD-03</td><td>Priors rail queries the org-wide index (single MRN makes this trivial); cross-branch prior badged <span class="chip blue">WHITEFIELD · 2024</span>. Clicking it shows a one-line allow-and-audit notice — "This access is recorded with your identity and clinical purpose" — purpose defaults to "comparison for current read", editable, never blocking.</td><td>Access event: who, role, purpose, patient, source branch, study UID.</td></tr>
+    <tr><td>2</td><td>System</td><td class="mono">IN-04</td><td>PACS federation fetch (C-MOVE/DICOMweb per config); prefetch had already warmed relevant priors at assignment time when possible.</td><td>Transfer metrics (feeds IN-01); cache state.</td></tr>
+    <tr><td>3</td><td>Radiologist</td><td class="mono">RD-05 → RD-07</td><td>Side-by-side compare via RD-06 hanging protocol; nodule growth measured 8→13 mm; report references the prior accession explicitly.</td><td>Prior citation embedded in structured report; comparison measurements.</td></tr>
+    <tr><td>4</td><td>Governance</td><td class="mono">AD-20 · GV-02</td><td>Access appears in the audit viewer and in the periodic access-review sample; the patient can see "your 2024 study was accessed by a radiologist for comparison" in their access log (PT-08 transparency view).</td><td>Review sampling tag; patient-visible entry.</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Condition</th><th>Mandated behaviour</th></tr>
+    <tr><td>Prior is from a different organisation</td><td>Allow-and-audit does NOT apply; requires patient-mediated import (PT upload / FO-18 intake) or a documented DD-05-style break-glass in emergencies with GV-03 review.</td></tr>
+    <tr><td>Cross-branch fetch fails (link down)</td><td>RD-04 degraded-mode: read proceeds with "prior unavailable" attestation recorded in the report; retry task queued via IN-06.</td></tr>
+    <tr><td>Access pattern abnormal (radiologist pulling many unrelated priors)</td><td>GV-02 access review flags volume outliers; allow-and-audit is permissive at point-of-care but aggressively reviewed after the fact.</td></tr>
+    <tr><td>Patient has restricted-processing flag (Scenario 12)</td><td>Clinical care access remains permitted (treatment basis); the flag suppresses only non-care processing; interstitial states the basis.</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 16 -->
+<h2 id="s16">Scenario 16 — AERB licence expiry blocks a modality</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip teal">Site manager</span> <span class="chip blue">RSO (radiation safety officer)</span> <span class="chip teal">Front office</span> · <b>Entry condition:</b> CT-02's AERB operating licence expires 31 Jul; renewal wasn't completed. On 01 Aug the equipment gate engages: no new acquisitions on CT-02 until a valid licence is on file.</div>
+  <div class="flow">
+    <div class="fstep"><span class="fid">AD-09</span>Registrations expiry: T-60/T-30/T-7 warnings</div><span class="farr">→</span>
+    <div class="fstep crit"><span class="fid">AD-08</span>Equipment record: licence LAPSED 01 Aug</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-01</span>Perform blocked for CT-02 studies</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">SC/FO-10</span>Slots auto-rerouted to CT-01</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">IR-05</span>AERB workspace: renewal submission + eLORA ref</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">AD-08</span>Licence uploaded, gate releases</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:120px">Actor</th><th style="width:75px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>System</td><td class="mono">AD-09</td><td>Expiry dashboard escalated at T-60 (email), T-30 (site manager task), T-7 (daily banner on FO-01 and TK-07 + IR-06 compliance calendar entry). All three fired; renewal stalled at the regulator.</td><td>Escalation trail — proves the org's diligence posture.</td></tr>
+    <tr><td>2</td><td>System</td><td class="mono">AD-08 → TK-01</td><td>At 00:00 on 01 Aug the licence state flips LAPSED; TK-01 rows targeting CT-02 show <span class="chip red">BLOCKED — AERB licence lapsed</span>; Perform disabled; no role can override (statutory gate, same class as Form F).</td><td>Gate engagement event; every blocked attempt logged with user id.</td></tr>
+    <tr><td>3</td><td>Front office</td><td class="mono">SC · FO-10 · FO-11</td><td>Scheduling templates for CT-02 suspended; existing bookings auto-proposed onto CT-01 slots; overflow patients contacted for reschedule via FO-11 + NT-03 template.</td><td>Rebooking manifest; patient comms ledger.</td></tr>
+    <tr><td>4</td><td>RSO</td><td class="mono">IR-05</td><td>AERB workspace tracks the renewal: eLORA application no., RSO attestation, QA test certificate (TK-11 QC history attached), regulator correspondence.</td><td>Submission bundle + acknowledgement; expected-approval date drives the FO capacity forecast.</td></tr>
+    <tr><td>5</td><td>Site manager</td><td class="mono">AD-08</td><td>New licence certificate uploaded with validity dates; four-eyes verification (RSO confirms); gate releases; TK-01 unblocks; AD-09 next-expiry countdown restarts.</td><td>Licence document hash, validity window, verifier identities.</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Condition</th><th>Mandated behaviour</th></tr>
+    <tr><td>STAT patient and only CT-02 available</td><td>Gate still holds — clinical urgency cannot cure a statutory lapse; patient diverted to nearest licensed unit; incident note in GV-08 if care was delayed.</td></tr>
+    <tr><td>Licence valid but not uploaded</td><td>Same block (system knows only what's on file); AD-08 upload is the release path; backdated validity restores from upload time forward, never retro-legitimises blocked-period scans (there are none — gate held).</td></tr>
+    <tr><td>Technician tries repeated overrides</td><td>Attempts logged; 3+ attempts alert the RSO; pattern feeds GV-02 access review.</td></tr>
+    <tr><td>Same pattern for PNDT registration</td><td>Identical machinery: AD-09 → AD-08/AD-06 → TK-01 gate; register impact shows in IR-01/IR-06 (see Scenario 3).</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 17 -->
+<h2 id="s17">Scenario 17 — Discount above limit on a single-staff shift (async approval)</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip teal">Billing clerk (only staff on Sunday evening)</span> <span class="chip blue">Centre manager (remote, on phone)</span> <span class="chip grey">Patient (senior citizen, requests 25% off MRI)</span> · <b>Entry condition:</b> BL-12 policy caps clerk-level discount at 10%; 25% needs manager approval — but no manager is on site. Async approvals contract: the request travels to the approver's device; the patient does not need to wait at the counter blocked.</div>
+  <div class="flow">
+    <div class="fstep"><span class="fid">BL-02</span>Invoice, discount 25% attempted</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">BL-12</span>Policy check: above limit</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-08</span>Approval request queued (async)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">NT-01</span>Push to approver's phone</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">AU-09</span>Manager approves remotely with step-up</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-02</span>Invoice finalises at 25%</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-03</span>Collect</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:120px">Actor</th><th style="width:75px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>Billing clerk</td><td class="mono">BL-02 · BL-12</td><td>Discount field accepts 25% but the policy engine intercepts: reason code required ("senior citizen — camp rate"), request routed instead of denied. Invoice parks in <span class="chip amber">AWAITING APPROVAL</span>; patient can sit, not stand at the counter — queue position held in FO-14.</td><td>Discount request: amount, %, reason code, requester, invoice snapshot.</td></tr>
+    <tr><td>2</td><td>System</td><td class="mono">BL-08 · NT-01</td><td>Approvals queue entry with DS-03 timer (target 10 min for in-day requests); push + SMS to the rostered approver; if unanswered in 10 min auto-escalates to the backup approver chain defined in AD-05.</td><td>Approver targeting, escalation hops.</td></tr>
+    <tr><td>3</td><td>Manager</td><td class="mono">BL-08 (mobile) · AU-09</td><td>Opens the request: sees invoice lines, requested vs policy discount, patient category, clerk's reason, this clerk's discount history for the month (pattern guard). Approves with step-up.</td><td>Decision, identity, device, latency 4 m; monthly discount analytics feed BL-12 review.</td></tr>
+    <tr><td>4</td><td>Billing clerk</td><td class="mono">BL-02 → BL-03</td><td>Counter screen live-updates; invoice finalises with the approved discount line showing the approver's name; cash collected; receipt notes "approved concession".</td><td>Final invoice with embedded approval reference; TK-01 gate green.</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Condition</th><th>Mandated behaviour</th></tr>
+    <tr><td>No approver responds (both tiers)</td><td>Patient offered choices: pay at 10% clerk-level discount now and receive a BL-07 credit note if approval lands later, or wait/return; nothing silently defaults to the higher discount.</td></tr>
+    <tr><td>Manager rejects</td><td>Request closes with reason shown to clerk; clerk may re-request only with a different reason code (duplicate-request guard on BL-08).</td></tr>
+    <tr><td>Clerk splits invoice to dodge the cap</td><td>BL-12 pattern rule detects same-patient-same-day split discounts; flags to BL-08 review queue and the clerk's monthly report.</td></tr>
+    <tr><td>Emergency price override at night</td><td>Same async path — there is deliberately no "offline discount override"; if connectivity is down (Scenario 9), offline policy caps at clerk level, full stop.</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 18 -->
+<h2 id="s18">Scenario 18 — End-of-day close: no-shows and cash</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip teal">Front office lead</span> <span class="chip teal">Billing/cashier</span> <span class="chip blue">Site manager</span> · <b>Entry condition:</b> 20:30 at Branch Jayanagar; 3 no-shows on the day list, one UPI still pending, drawer to be counted; day cannot roll over with unresolved states.</div>
+  <div class="flow">
+    <div class="fstep"><span class="fid">FO-12</span>Day list sweep: mark no-shows</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-19</span>Waitlist backfill review</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-04</span>Resolve pending tenders</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-09</span>Cash session close: count + variance</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-18</span>Day book finalise</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-17</span>Front-office EOD checklist</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-21</span>Shift handover note</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:120px">Actor</th><th style="width:75px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>Front office</td><td class="mono">FO-12 · FO-11</td><td>Day list filtered to "arrived=no": 3 appointments marked NO-SHOW with reason unknown/contacted; policy triggers the no-show comms template (NT-03) offering rebook links (FO-11); repeat no-show counter increments on the patient record.</td><td>Status transitions with actor; no-show analytics for SC utilisation tuning.</td></tr>
+    <tr><td>2</td><td>Front office</td><td class="mono">FO-19</td><td>Waitlist entries that could have backfilled are reviewed — one was auto-offered at 16:10 and accepted (audit shows the offer→accept chain); tomorrow's gaps get offers queued.</td><td>Offer ledger; conversion metric.</td></tr>
+    <tr><td>3</td><td>Cashier</td><td class="mono">BL-04 → BL-09</td><td>Pending UPI resolved (verify → reversed by bank; patient had paid cash — no action). Cash session close: system total ₹47,250 vs counted ₹47,200 → variance −₹50 requires reason ("torn note rejected by counter") and manager countersign (four-eyes).</td><td>Denomination sheet, variance + reason + countersign; session sealed (no further postings).</td></tr>
+    <tr><td>4</td><td>Cashier</td><td class="mono">BL-18</td><td>Day book compiles: collections by tender, refunds, credit notes, deferred-payment (STAT) orders outstanding, discounts granted (with approval refs from BL-08). Locks after review.</td><td>Immutable day-book snapshot feeding BL-19 GST export at month end.</td></tr>
+    <tr><td>5</td><td>Front office</td><td class="mono">FO-17 · FO-21</td><td>EOD checklist: all checked-in patients dispositioned, kiosk FO-22 closed, document intake FO-18 basket empty, printer queue (IN-08) clear. Handover note for the morning shift (pending recalls, VIP booking).</td><td>Checklist attestation; handover note versioned.</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Condition</th><th>Mandated behaviour</th></tr>
+    <tr><td>Patient checked in but never performed</td><td>FO-17 blocks close until dispositioned: rebook (FO-11), cancel with refund path (BL-06), or hold with reason (TK-04).</td></tr>
+    <tr><td>Variance above threshold (₹500)</td><td>BL-09 escalates to site manager mandatory review + GV-08 incident candidate if repeated for the same cashier.</td></tr>
+    <tr><td>Unsigned reports at EOD</td><td>Not a close blocker (clinical flow is 24×7), but FO-17 surfaces the count and RD-17 carries the ageing; RED criticals unacked DO block the site-manager sign-out of the checklist.</td></tr>
+    <tr><td>Offline day (Scenario 9)</td><td>EOD runs on provisional numbers; final close deferred until sync completes; BL-18 marks the day "provisional" until then.</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 19 -->
+<h2 id="s19">Scenario 19 — "Report never arrived" complaint → failed delivery → counter pickup</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip teal">Front office</span> <span class="chip grey">Patient (Lakshmi N., MRN-100230, feature phone)</span> <span class="chip blue">Grievance officer</span> · <b>Entry condition:</b> patient phones: "my scan was 4 days ago, no report". Report was signed day 1; SMS failed silently (DND/DLT scrub). Recovery must both deliver the report and close the complaint.</div>
+  <div class="flow">
+    <div class="fstep"><span class="fid">GR-01</span>Complaint intake</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">NT-06</span>Message log: SMS FAILED (DLT scrub)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">NT-02</span>Failure workbench: choose recovery</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">NT-01</span>Retry alt channel (voice OTP / WhatsApp)</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">NT-02</span>Counter pickup ticket (fallback)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-13</span>Identity verify at counter, print</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">GR-04</span>Grievance resolution + root cause</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:120px">Actor</th><th style="width:75px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>Front office</td><td class="mono">GR-01</td><td>Complaint logged, category "report not received", severity routine, linked to MRN and the study; DS-03 resolution SLA 48 h starts.</td><td>Case GRV-2607-042 with study linkage.</td></tr>
+    <tr><td>2</td><td>Grievance officer</td><td class="mono">NT-06 · NT-01</td><td>Message log shows: report link SMS day 1 → provider status DELIVERED-TO-OPERATOR then FAILED (DLT template/consent scrub); no retry had fired because failure arrived after the retry window — a known gap now visible.</td><td>Failure evidence attached to the case; systemic-issue tag (feeds NT-03 template review).</td></tr>
+    <tr><td>3</td><td>Grievance officer</td><td class="mono">NT-02</td><td>Recovery options: (a) re-send via alternate channel — patient has no smartphone, voice-OTP link unusable; (b) counter pickup — selected. Pickup ticket generated with validity 30 days.</td><td>Recovery decision + reason; pickup ticket PKP-1187 bound to the report version.</td></tr>
+    <tr><td>4</td><td>Front office</td><td class="mono">FO-13 · NT-02</td><td>Patient arrives; identity verified (govt ID vs record — masked screen shows #MRN-••••30 until verification passes); report + receipt printed (IN-08 printer route); pickup ticket consumed.</td><td>Who verified, ID type sighted, print event; NT-02 marks DELIVERED-COUNTER.</td></tr>
+    <tr><td>5</td><td>Grievance officer</td><td class="mono">GR-04</td><td>Resolution recorded with root cause "DLT consent scrub — retry window too short"; corrective action ticket to NT-03/NT-04 config owners; patient satisfaction note.</td><td>Closure inside SLA; corrective-action reference (tracked on GR-05 escalation board if it slips).</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Condition</th><th>Mandated behaviour</th></tr>
+    <tr><td>Someone else tries to collect</td><td>Counter pickup requires ID match or a signed authorisation letter + collector ID (both scanned via FO-18); refusal logged on the ticket.</td></tr>
+    <tr><td>Patient's number belongs to someone else now</td><td>NT-05 suppression on the stale number; FO-07 contact re-verification flow; GV-08 incident if PHI reached the wrong person.</td></tr>
+    <tr><td>Complaint reveals bulk failure (template rejected by DLT)</td><td>NT-02 bulk view groups failures by template; mass re-send after NT-03 fix; proactive comms rather than waiting for more complaints.</td></tr>
+    <tr><td>SLA breach on the grievance</td><td>GR-05 escalation to centre manager; ageing visible on GR-02 queue and the AD-13 admin dashboard.</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 20 -->
+<h2 id="s20">Scenario 20 — Patient requests a copy of all their records (DPDP access right)</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip grey">Patient (Vikram Rao, MRN-98455)</span> <span class="chip violet">DPO office</span> · <b>Entry condition:</b> patient wants everything — reports, images, invoices, consents — for a second opinion abroad. Access right under DPDP; export must pass export governance (GV-15).</div>
+  <div class="flow">
+    <div class="fstep"><span class="fid">PT-08</span>Rights hub — access/copy selected</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">PT-09</span>Submission + OTP identity verify</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">GV-05</span>Rights desk: scope confirmation</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">GV-15</span>Export governance: package rules</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">NT-01</span>Secure download link issued</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">PT-02</span>Download (OTP-gated, watermarked)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">PT-10</span>Case closed, audit trail</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:120px">Actor</th><th style="width:75px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>Patient</td><td class="mono">PT-08 → PT-09</td><td>Access request with scope picker (reports / images / billing / consents / access-log); picks all; OTP verify; case created with the DPDP response SLA visible.</td><td>Case RGT-2607-025, scope, clock.</td></tr>
+    <tr><td>2</td><td>DPO office</td><td class="mono">GV-05</td><td>Triage: identity already strong (OTP on registered number); scope check for third-party data (a guardian note referencing another person is redacted per rule); no legal hold conflict (GV-07 auto-check).</td><td>Redaction decisions with rule citations.</td></tr>
+    <tr><td>3</td><td>System</td><td class="mono">GV-15</td><td>Export package assembled: PDFs of signed reports (with version/addendum banners), DICOM as downloadable studies + viewer-ready format, invoices/receipts, consent artefacts, access log. Package watermarked "supplied to data principal 26-07-2026", integrity hash, size 1.9 GB; residency rules (GV-14) checked — patient-directed export is permitted.</td><td>Package manifest + hash; approver identity (four-eyes if package &gt; policy size or includes another subject's data).</td></tr>
+    <tr><td>4</td><td>Patient</td><td class="mono">NT-01 → PT-02</td><td>Secure link (7-day TTL, OTP-gated, 3 downloads max); download completes; PT-10 shows fulfilled state.</td><td>Every download event (time, IP); link auto-expiry (PT-03).</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Condition</th><th>Mandated behaviour</th></tr>
+    <tr><td>Package too large for link delivery</td><td>GV-15 media-handover path: encrypted drive prepared, counter collection with ID verify (same discipline as Scenario 19 pickup).</td></tr>
+    <tr><td>Request repeats excessively (5th this month)</td><td>DPDP allows reasonable-frequency handling: GV-05 may consolidate/decline with reasons; decision recorded and communicated via PT-10.</td></tr>
+    <tr><td>Third party (insurer) asks instead of patient</td><td>Not a rights request — routed to disclosure workflow needing explicit patient consent (GV-11) or legal basis (GV-07); GV-15 refuses patient-scoped export to non-principals.</td></tr>
+    <tr><td>Images requested for a specific foreign hospital</td><td>Patient-directed transfer is fine under residency policy GV-14; org-initiated transfer abroad would need the processor/transfer checks in GV-13.</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 21 -->
+<h2 id="s21">Scenario 21 — MR-unsafe pacemaker caught at ordering</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip amber">Referring physician</span> <span class="chip teal">Front office</span> <span class="chip violet">Radiologist (protocol review)</span> <span class="chip grey">Patient (Gopal Krishnan, MRN-99012, legacy pacemaker 2011)</span> · <b>Entry condition:</b> lumbar MRI ordered; the MR safety screen fires at ordering time — before any money or slot is committed — and the device is non-conditional → absolute contraindication.</div>
+  <div class="flow">
+    <div class="fstep"><span class="fid">OR-01</span>MRI order started</div><span class="farr">→</span>
+    <div class="fstep crit"><span class="fid">CS-02</span>MR safety screening: implant declared</div><span class="farr">→</span>
+    <div class="fstep crit"><span class="fid">CS-02</span>Device lookup: NON-CONDITIONAL → hard stop</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-16</span>Radiologist consult on alternative</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">OR-05</span>Order converted to CT myelogram-protocol</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">NT-01</span>Referrer informed of substitution</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-10</span>CT slot booked</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:120px">Actor</th><th style="width:75px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>Front office</td><td class="mono">OR-01 → CS-02</td><td>Modality=MR forces the CS-02 pre-screen at order entry (first line of defence; TK-01 gate re-verifies later as the second). Questionnaire: pacemaker YES, model card photographed via FO-18.</td><td>Screening v1 with implant details, photo evidence.</td></tr>
+    <tr><td>2</td><td>System</td><td class="mono">CS-02</td><td>Device checked against the terminology/device list (AD-11): "non-conditional, MR-unsafe" → <span class="chip red">ABSOLUTE CONTRAINDICATION</span>. Order cannot proceed to MR; CS-04 override explicitly unavailable for absolute class (only relative contraindications are overridable).</td><td>Block event with device id + rule id; patient safety flag pinned to the record (fires on every future MR order).</td></tr>
+    <tr><td>3</td><td>Radiologist</td><td class="mono">RD-16</td><td>Substitution consult (async): recommends CT with appropriate protocol as the diagnostic alternative; note addressed to referrer.</td><td>Consult note linked to the blocked order.</td></tr>
+    <tr><td>4</td><td>Front office</td><td class="mono">OR-05 → NT-01 → FO-10</td><td>Order modified to CT (modality change keeps the clinical question text; new price quoted via BL-16 estimate); referrer notified with the safety rationale; CT booked.</td><td>OR-03 timeline shows MR-blocked → CT-substituted chain; estimate reference.</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Condition</th><th>Mandated behaviour</th></tr>
+    <tr><td>Device is MR-conditional</td><td>CS-02 outputs conditions (field strength, SAR limits, cardiology programming before/after); order proceeds flagged; TK-01 gate demands the conditions checklist (TK-09) signed before Perform; cardiology attendance recorded.</td></tr>
+    <tr><td>Patient declares implant only at the scanner door</td><td>TK-01's re-verification catches it (zone questionnaire); study held TK-04; same substitution path; near-miss recorded in GV-08 as a safety learning event.</td></tr>
+    <tr><td>Referrer insists on MRI</td><td>Insistence cannot unlock an absolute block; disagreement documented on RD-16; escalation is clinical governance, not a system override.</td></tr>
+    <tr><td>Implant status uncertain (no card, old surgery)</td><td>CS-02 "unverified device" path: order parks pending device identification (cardiology letter / X-ray device ID protocol); nothing proceeds on assumption.</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 22 -->
+<h2 id="s22">Scenario 22 — Consent refusal at the consent step</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip blue">Technician</span> <span class="chip teal">Billing</span> <span class="chip grey">Patient (Sameera Khan, MRN-100801)</span> · <b>Entry condition:</b> contrast MRI paid and prepped; at CS-03 the patient reads the contrast risks and refuses consent. Refusal is a first-class outcome — recorded, not merely abandoned — and money must unwind cleanly.</div>
+  <div class="flow">
+    <div class="fstep"><span class="fid">CS-03</span>Consent presented — patient REFUSES</div><span class="farr">→</span>
+    <div class="fstep alt"><span class="fid">CS-03</span>Refusal captured as artefact</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-04</span>Study hold → options</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">OR-05</span>Convert to non-contrast OR cancel</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-06/BL-07</span>Refund / credit note for the delta</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">GV-11</span>Consent registry: refusal on record</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:120px">Actor</th><th style="width:75px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>Patient + Tech</td><td class="mono">CS-03</td><td>Consent shown in Hindi (PT-11 preference); patient declines gadolinium after reading risks. Screen offers "Refuse" as an explicit action — with an optional reason field and a confirmation that refusing contrast does not forfeit care.</td><td>Refusal artefact: notice version, language, timestamp, witness; NOT a null — a signed negative.</td></tr>
+    <tr><td>2</td><td>Technician</td><td class="mono">TK-04</td><td>Study placed on hold, reason "consent refused — contrast"; radiologist pinged (RD-16 quick consult) on whether non-contrast still answers the clinical question. Answer: partially — referrer should decide.</td><td>Hold record; consult outcome.</td></tr>
+    <tr><td>3</td><td>Front office</td><td class="mono">OR-05 · NT-01</td><td>Patient chooses non-contrast MRI after the referrer (reached by phone, noted) agrees. Order modified; protocol swapped (OR-06).</td><td>Modification chain on OR-03 timeline with referrer-contact note.</td></tr>
+    <tr><td>4</td><td>Billing</td><td class="mono">BL-07 → BL-06</td><td>Price delta ₹2,500 (contrast + consumables): credit note against the invoice, refunded to original tender (UPI) — refund needs AU-09 step-up + four-eyes via BL-08.</td><td>Credit note + refund linked to invoice; approval trail; BL-18 day book reflects both.</td></tr>
+    <tr><td>5</td><td>System</td><td class="mono">GV-11</td><td>Refusal filed in the consent registry: future contrast orders for this patient show an advisory chip "previously refused contrast (26-07-2026)" — informative, never auto-blocking.</td><td>Registry entry with scope "gadolinium contrast".</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Condition</th><th>Mandated behaviour</th></tr>
+    <tr><td>Patient refuses the procedure entirely</td><td>OR-05 full cancel; BL-06 full refund (minus policy-published cancellation fee if applicable — shown before confirming); FO-16 visit summary still issued.</td></tr>
+    <tr><td>Patient refuses data-processing consent (not procedure)</td><td>Care-necessary processing proceeds on treatment basis; optional purposes (marketing, research) suppressed via NT-05 + GV-11; screens must separate the two consents — bundling is a defect.</td></tr>
+    <tr><td>Refusal after contrast partially administered</td><td>Withdrawal mid-procedure: stop, record volume given on TK-06, clinical safety steps; report notes limited study; billing per administered-consumables policy.</td></tr>
+    <tr><td>Guardian refuses for a minor against clinical urgency</td><td>Documented on CS-03; emergency exception only via CS-04 physician override with GV-03 emergency review after the fact.</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 23 -->
+<h2 id="s23">Scenario 23 — Adverse contrast reaction mid-procedure</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip blue">Technician</span> <span class="chip violet">Radiologist on site</span> <span class="chip red">Emergency response</span> <span class="chip grey">Patient (Mohan Das, MRN-99770)</span> · <b>Entry condition:</b> CT contrast injection underway; at ~40 ml patient develops urticaria and hypotension — moderate reaction. Clinical response first; documentation immediately after; permanent allergy flag; incident review.</div>
+  <div class="flow">
+    <div class="fstep crit"><span class="fid">TK-02</span>Acquisition interrupted — emergency response</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">CS-05</span>Adverse reaction record</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-06</span>Contrast record: volume, batch/lot frozen</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">TK-04</span>Study hold with clinical reason</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">FO-06</span>Permanent allergy flag on record</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">GV-08</span>Incident (severity by reaction grade)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-07</span>Report on acquired images + reaction note</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:120px">Actor</th><th style="width:75px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>Technician</td><td class="mono">TK-02</td><td>Injection stopped, scanner table out, emergency call button — the software imposes nothing here; care first. The panic action on TK-02 pre-fills CS-05 with study context so later typing is minimal.</td><td>One-tap "reaction event" timestamp anchor.</td></tr>
+    <tr><td>2</td><td>Radiologist</td><td class="mono">CS-05</td><td>Reaction documented: grade MODERATE (hypotension + urticaria), timeline of interventions (O2, IV fluids, hydrocortisone per protocol), vitals series, outcome "stabilised, observed 2 h, discharged with advice". Countersigned by treating doctor.</td><td>Structured reaction record; drugs given; observation period; countersignature (AU-09).</td></tr>
+    <tr><td>3</td><td>Technician</td><td class="mono">TK-06 · TK-04</td><td>Contrast record finalised: agent, volume actually given (40/80 ml), batch + lot (pharmacovigilance chain); study held "adverse reaction — partial acquisition".</td><td>Batch/lot searchable across patients (same-lot query for cluster detection).</td></tr>
+    <tr><td>4</td><td>System</td><td class="mono">FO-06 · GV-11</td><td>Permanent allergy flag "iodinated contrast — moderate reaction 26-07-2026" pinned; every future CS-01 screening auto-fails to premedication-required path; flag can only be modified by physician role with reason.</td><td>Flag with provenance link to CS-05 record.</td></tr>
+    <tr><td>5</td><td>Site manager</td><td class="mono">GV-08</td><td>Incident logged (moderate = reportable internally; severe would add external reporting tasks with clocks per GV-09); pharmacovigilance form generated for the marketing-authorisation holder.</td><td>Incident with CS-05 linkage; PvPI form reference.</td></tr>
+    <tr><td>6</td><td>Radiologist</td><td class="mono">RD-07 → RD-09</td><td>Diagnostic question partially answerable from acquired phases; report issued noting the limitation and the reaction; referrer sees the full context.</td><td>Signed report referencing the reaction record.</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Condition</th><th>Mandated behaviour</th></tr>
+    <tr><td>Severe reaction / transfer to hospital</td><td>CS-05 grade SEVERE arms external-notification tasks in GV-08/GV-09; transfer documentation printed (FO-16 emergency variant); follow-up call task next day.</td></tr>
+    <tr><td>Same-lot cluster (2nd reaction, same batch)</td><td>TK-06 lot query triggers quarantine of remaining stock (inventory note on AD-08/consumables), supplier notification, incident severity uplift.</td></tr>
+    <tr><td>Reaction after patient left (delayed)</td><td>Patient calls in → GR-01 or direct clinical line; CS-05 record created retrospectively with source "reported by patient"; same flag mechanics.</td></tr>
+    <tr><td>Billing dispute over aborted study</td><td>Policy: no charge for undelivered diagnostic value beyond consumables actually used — BL-07 credit note, patient informed proactively (NT-01), not on complaint.</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 24 -->
+<h2 id="s24">Scenario 24 — Paper referral digitisation</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip teal">Front office</span> <span class="chip grey">Patient (carrying a handwritten slip from Dr. Prakash, Hosur Rd clinic)</span> · <b>Entry condition:</b> ~40% of referrals arrive on paper. The slip must become a structured, attributable referral: scanned, transcribed, linked to a registered referrer, and attached to the order — original preserved.</div>
+  <div class="flow">
+    <div class="fstep"><span class="fid">FO-18</span>Document intake: scan slip</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">OR-08</span>Paper referral digitisation form</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">AD-07</span>Referrer match / provisional create</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">OR-01</span>Order created citing the referral</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">OR-03</span>Timeline shows scan + transcription provenance</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">RD-13</span>Report copy routed to referrer per preference</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:120px">Actor</th><th style="width:75px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>Front office</td><td class="mono">FO-18</td><td>Slip scanned at the counter (or photographed at FO-22 kiosk); document classified "referral"; image quality check (reject-and-rescan if illegible).</td><td>Document id DOC-…, capture device, quality score.</td></tr>
+    <tr><td>2</td><td>Front office</td><td class="mono">OR-08</td><td>Transcription form beside the image: requested investigation ("MRI L-S spine"), clinical note ("LBP 3 months, radiating left"), referrer name/clinic as written. Ambiguities marked ("illegible word" checkbox) rather than guessed.</td><td>Transcribed fields with per-field "as-written vs interpreted" provenance; transcriber identity.</td></tr>
+    <tr><td>3</td><td>Front office</td><td class="mono">AD-07</td><td>Referrer lookup: fuzzy match on name+locality → Dr. K. Prakash (registered, preference: WhatsApp report copies). If no match: provisional referrer record created, flagged for the referrer-desk to verify/enrich later.</td><td>Match confidence; provisional flag if created; dedupe candidate feed for AD-07 hygiene.</td></tr>
+    <tr><td>4</td><td>Front office</td><td class="mono">OR-01 → OR-03</td><td>Order created with referral source "paper", document attached; OR-02 duplicate check runs as usual; OR-03 timeline permanently shows scan → transcription → order lineage.</td><td>Referral linkage; the original image is the legal artefact, transcription is convenience.</td></tr>
+    <tr><td>5</td><td>System</td><td class="mono">RD-13</td><td>On sign-off, report copy flows to the referrer channel from AD-07 (WhatsApp DLT-templated via NT-04 channels); referral-source analytics credit the referring clinic (DD-08/AD-13 dashboards).</td><td>Referrer delivery ledger entry.</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Condition</th><th>Mandated behaviour</th></tr>
+    <tr><td>Slip illegible on the critical field (investigation)</td><td>OR-08 blocks order creation on that field; front office phones the clinic (call noted) or asks the patient's understanding recorded as "patient-stated"; radiologist protocol review (OR-06) flags mismatch risk.</td></tr>
+    <tr><td>Suspected forged/self-written referral</td><td>Order may proceed where self-referral is permitted for the modality; otherwise flagged to centre manager; document retains chain of custody either way.</td></tr>
+    <tr><td>Provisional referrer never verified</td><td>AD-07 hygiene queue ages provisional records; 30-day unverified → report copies stop (patient copies unaffected); analytics excluded.</td></tr>
+    <tr><td>PC-PNDT procedure on paper referral</td><td>CS-06 Form F still requires full referrer details verified — provisional referrer is not sufficient for Form F; verification becomes a blocking prerequisite.</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ SCENARIO 25 -->
+<h2 id="s25">Scenario 25 — Staff exit and branch decommission</h2>
+<div class="card">
+  <div class="small"><b>Actors:</b> <span class="chip teal">HR/site manager</span> <span class="chip violet">IT admin</span> <span class="chip blue">DPO</span> <span class="chip violet">Platform operator</span> · <b>Entry condition:</b> Branch Hosur closes 31 Aug; 6 staff exit (2 transfer). Two intertwined lifecycles: identity offboarding (immediate, per person) and branch decommission (staged, data never deleted early — retention 10 y/8 y continues org-side).</div>
+  <div class="flow">
+    <div class="fstep"><span class="fid">AD-03</span>User deactivation (leaver set)</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">AU-17</span>Kill active sessions</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">AU-18</span>Revoke personal API keys / service bindings</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">GV-02</span>Exit access review + attestation</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">AD-02</span>Service points wound down</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">AD-08</span>Equipment transferred / AERB decommission via IR-05</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">BL-13/AD-16</span>Number series closed</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">IN-10</span>Edge node drained + wiped</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">GV-06/GV-07</span>Retention custody transferred to org archive</div><span class="farr">→</span>
+    <div class="fstep"><span class="fid">AD-01</span>Branch state: DECOMMISSIONED</div>
+  </div>
+  <table>
+    <tr><th style="width:34px">#</th><th style="width:130px">Actor</th><th style="width:85px">Screen</th><th>What happens</th><th>What is recorded</th></tr>
+    <tr><td>1</td><td>IT admin</td><td class="mono">AD-03 · AU-17 · AU-18</td><td>Each leaver: account disabled effective last working day 18:00 (scheduled, not manual-at-midnight); AU-17 terminates live sessions instantly at cutover; AU-18 revokes any personal API keys; shared-terminal PINs rotated (AU-08 policy). Transfers get role re-scoping to their new branch instead (AD-04 role bindings).</td><td>Per-user offboarding checklist with timestamps; access ends provably (feeds GV-02).</td></tr>
+    <tr><td>2</td><td>DPO</td><td class="mono">GV-02</td><td>Exit access review: last-90-day access sample per leaver (any bulk export? any GV-15 pulls?); attestation signed. Anomalies would open GV-08.</td><td>Review outcome per person; attestation artefacts.</td></tr>
+    <tr><td>3</td><td>Site manager</td><td class="mono">AD-02 · FO-10 · FO-19</td><td>Service points set "no new bookings after 20 Aug"; future appointments migrated to Branch Koramangala with patient consent messages (NT-03 template with opt-out to refund via BL-06); waitlist FO-19 drained.</td><td>Migration manifest; per-patient comms + choices.</td></tr>
+    <tr><td>4</td><td>RSO / admin</td><td class="mono">AD-08 · IR-05 · AD-09</td><td>CT unit transferred to another branch: AERB decommission-at-site + recommission-at-destination filings tracked in IR-05; AD-08 equipment record moves with full QC history (TK-11); AD-09 stops expiry tracking at the old site.</td><td>Regulatory filing refs; equipment custody chain.</td></tr>
+    <tr><td>5</td><td>Billing admin</td><td class="mono">BL-13 · AD-16 · BL-09/BL-18</td><td>Final cash session closed; day book finalised; branch invoice/receipt number series closed with a terminal marker (gap-free proof for GST audit); BL-19 export includes the closure attestation.</td><td>Series closure records; final GST export.</td></tr>
+    <tr><td>6</td><td>Platform op</td><td class="mono">IN-10 · IN-02 · IN-08</td><td>Edge node: final sync verified (zero queue depth), then cryptographic wipe with certificate; AE titles retired from IN-02; printers removed from IN-08; webhooks for the branch disabled (IN-09).</td><td>Sync-zero proof, wipe certificate, registry removals.</td></tr>
+    <tr><td>7</td><td>DPO</td><td class="mono">GV-06 · GV-07 · AD-01</td><td>All branch clinical data (10 y) and financial data (8 y) formally re-homed to the org archive tier — retention clocks unchanged; legal holds re-checked; AD-01 org tree marks the branch DECOMMISSIONED (read-only forever, never deleted — MRNs and reports remain resolvable org-wide).</td><td>Custody-transfer record; the branch remains queryable in AD-20 audit and patient history (Scenario 15 priors still work).</td></tr>
+  </table>
+  <h3>Edge branches</h3>
+  <table>
+    <tr><th style="width:210px">Condition</th><th>Mandated behaviour</th></tr>
+    <tr><td>Leaver had sole knowledge of an approval role</td><td>AD-05 role-coverage check blocks deactivation until the approval chain (e.g. BL-08 approver tier) is re-staffed — prevents orphaning async approvals.</td></tr>
+    <tr><td>Ex-staff tries to sign in later</td><td>AU-01 → AU-02 failure path; disabled-account attempts alerted after threshold; AU-14 admin unlock explicitly cannot resurrect an offboarded account without HR re-onboarding (AU-07).</td></tr>
+    <tr><td>Patient turns up at the closed branch</td><td>Signage + FO-22 kiosk at partner branch handle redirects; PT-12 help page and NT-03 comms carried the move notice; grievances via GR-01 tracked under a "branch closure" tag.</td></tr>
+    <tr><td>Regulator audits the closed branch next year</td><td>Everything is read-only but complete: AD-20 audit, IR registers, BL-18 day books, wipe certificates; GV-15 governs the export to the auditor.</td></tr>
+  </table>
+</div>
+
+<div class="card" style="border-left:5px solid #0F766E">
+  <div class="card-title">Document control <span class="right">DOC-01</span></div>
+  <div class="kv">
+    <dt>Version</dt><dd>1.0 — July 2026</dd>
+    <dt>Owner</dt><dd>NUMINACORE — Magnus HMS architecture group</dd>
+    <dt>Companions</dt><dd>DOC-02 Workflow Orders (screen sequencing), 225-screen design pack (AU…DS), decision log (design contracts)</dd>
+    <dt>Change policy</dt><dd>Scenario flows are contractual: any screen re-sequencing requires a decision-log entry and a matching update here.</dd>
+  </div>
+</div>
+
+</div></body></html>

@@ -1,0 +1,168 @@
+<section class="screen" id="ds-01">
+<div class="screen-head"><h1><span class="sid">DS-01</span> Foundations — tokens</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM</span><div class="cluster">G16 + G17 — OPERATOR CONSOLE / DESIGN SYSTEM DOCS</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · codifies the vendor deck's implicit design system — tokens</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single source of truth for the Magnus HMS visual language: colour tokens with strict semantic usage rules, the typography scale, the spacing grid and verified WCAG AA contrast pairings. Every screen in the MVP-1 pack must consume these tokens; hard-coded hex values outside this table are a review blocker. White-label tenants may re-skin only the tokens marked "themeable".</div>
+
+<div class="banner reg"><b>Theme coverage</b><span class="chip green" style="margin-right:6px">LIGHT THEME — SHIPPED (MVP-1)</span><span class="chip grey">DARK THEME — ROADMAP (post-MVP, token-mapped, no screen rework expected)</span> All tokens below are defined for light theme; dark values will map 1:1 onto the same token names.</div>
+
+<div class="row">
+<div class="card grow">
+  <div class="card-title">Colour tokens — brand &amp; semantic <span class="right">Token / hex / usage rule</span></div>
+  <table>
+    <tr><th style="width:120px">Swatch</th><th>Token</th><th>Hex</th><th>Usage rule</th><th>Themeable</th></tr>
+    <tr>
+      <td><span style="display:inline-block;width:90px;height:26px;background:#0F766E;border-radius:5px"></span></td>
+      <td class="mono">color.brand.primary</td><td class="mono">#0F766E</td>
+      <td><b>Teal primary.</b> Primary buttons, active nav, focus ring, brand marks, KPI accents. Never used for status meaning — teal signals "interactive / brand", not "success".</td>
+      <td><span class="chip teal">YES — tenant brand</span></td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block;width:90px;height:26px;background:#CCFBF1;border:1px solid #E2E8F0;border-radius:5px"></span></td>
+      <td class="mono">color.brand.tint</td><td class="mono">#CCFBF1</td>
+      <td>Selected rows, active-nav background, brand chips. Text on this tint must be <span class="mono">#0F766E</span> or darker.</td>
+      <td><span class="chip teal">YES</span></td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block;width:90px;height:26px;background:#F59E0B;border-radius:5px"></span></td>
+      <td class="mono">color.sem.amber</td><td class="mono">#F59E0B <span class="muted">/ text #92400E on #FEF3C7</span></td>
+      <td><b>Warning / at-risk.</b> SLA nearing breach, overage, review-due, degraded provider. Amber always implies "act soon, not broken". Never decorate with amber.</td>
+      <td><span class="chip grey">NO — semantic</span></td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block;width:90px;height:26px;background:#B91C1C;border-radius:5px"></span></td>
+      <td class="mono">color.sem.red</td><td class="mono">#B91C1C <span class="muted">/ text on #FEE2E2</span></td>
+      <td><b>Danger / breach / destructive.</b> OVERDUE SLA chips, critical findings, destructive buttons and modal top-bars, validation errors. Red is reserved — one red action per view maximum.</td>
+      <td><span class="chip grey">NO</span></td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block;width:90px;height:26px;background:#15803D;border-radius:5px"></span></td>
+      <td class="mono">color.sem.green</td><td class="mono">#15803D <span class="muted">/ text on #DCFCE7</span></td>
+      <td><b>Success / verified / within-plan.</b> Completed steps, passing checks, delivered messages. Not for interactive elements.</td>
+      <td><span class="chip grey">NO</span></td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block;width:90px;height:26px;background:#0369A1;border-radius:5px"></span></td>
+      <td class="mono">color.sem.blue</td><td class="mono">#0369A1 <span class="muted">/ text on #E0F2FE</span></td>
+      <td><b>Informational / neutral status.</b> Info banners, legal/court-order categories, in-progress non-urgent states.</td>
+      <td><span class="chip grey">NO</span></td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block;width:90px;height:26px;background:#6D28D9;border-radius:5px"></span></td>
+      <td class="mono">color.sem.violet</td><td class="mono">#6D28D9 <span class="muted">/ text on #EDE9FE</span></td>
+      <td><b>Regulatory / governance / design-system.</b> Compliance banners (DPDP, AERB, PC-PNDT), attestations, policy chips. Never for errors or warnings.</td>
+      <td><span class="chip grey">NO</span></td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block;width:90px;height:26px;background:#1E293B;border-radius:5px"></span></td>
+      <td class="mono">color.text.primary</td><td class="mono">#1E293B</td>
+      <td>Default body text on white / #F4F6F8 surfaces.</td>
+      <td><span class="chip grey">NO</span></td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block;width:90px;height:26px;background:#64748B;border-radius:5px"></span></td>
+      <td class="mono">color.text.muted</td><td class="mono">#64748B</td>
+      <td>Secondary text, timestamps, hints. Minimum size 11px when used — never below.</td>
+      <td><span class="chip grey">NO</span></td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block;width:90px;height:26px;background:#E9EDF1;border:1px solid #CBD5E1;border-radius:5px"></span></td>
+      <td class="mono">color.surface.canvas</td><td class="mono">#E9EDF1 <span class="muted">· card #FFFFFF · frame #F4F6F8</span></td>
+      <td>Page canvas behind frames. Cards are always white with <span class="mono">#E2E8F0</span> borders.</td>
+      <td><span class="chip grey">NO</span></td>
+    </tr>
+  </table>
+</div>
+</div>
+
+<div class="row">
+<div class="card grow">
+  <div class="card-title">Typography scale <span class="right">System stack · -apple-system / Segoe UI / Roboto</span></div>
+  <table>
+    <tr><th>Token</th><th>Spec</th><th>Specimen</th><th>Use</th></tr>
+    <tr><td class="mono">type.h1</td><td class="mono">22px / 800</td><td><span style="font-size:22px;font-weight:800">Radiology worklist</span></td><td>Screen-head titles only (one per screen)</td></tr>
+    <tr><td class="mono">type.page-title</td><td class="mono">19px / 800</td><td><span style="font-size:19px;font-weight:800">Usage metering — July 2026</span></td><td>Page title inside .main (one per page)</td></tr>
+    <tr><td class="mono">type.card-title</td><td class="mono">14.5px / 800</td><td><span style="font-size:14.5px;font-weight:800">Per-tenant consumption</span></td><td>Card headers</td></tr>
+    <tr><td class="mono">type.body</td><td class="mono">14px / 400 · lh 1.45</td><td>Report verified by Dr. V. Shetty at 14:02 IST.</td><td>Default body copy</td></tr>
+    <tr><td class="mono">type.table</td><td class="mono">12.5px / 400</td><td><span style="font-size:12.5px">CT-ROOM-1 · AE MERIDCT1 · 212 studies</span></td><td>Table cells, kv values, banners</td></tr>
+    <tr><td class="mono">type.label</td><td class="mono">10.5px / 700 · caps · +.06em</td><td><span style="font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700">Studies metered</span></td><td>Table headers, kv keys, KPI labels, sec-labels</td></tr>
+    <tr><td class="mono">type.micro</td><td class="mono">11px / 400</td><td><span style="font-size:11px;color:#8A6D1D">🔒 Recorded in the access log.</span></td><td>Audit lines, hints. <b>Absolute floor — nothing smaller ships.</b></td></tr>
+    <tr><td class="mono">type.mono</td><td class="mono">SF Mono / Consolas ·.93em</td><td><span class="mono">MRN-2044-8812 · sha256 7bd3…91af</span></td><td>IDs, AE titles, hashes, timestamps in timelines</td></tr>
+  </table>
+</div>
+<div class="card" style="width:340px">
+  <div class="card-title">Spacing grid <span class="right">Base 4px</span></div>
+  <table>
+    <tr><th>Token</th><th>px</th><th>Use</th></tr>
+    <tr><td class="mono">space.1</td><td>4</td><td>chip padding-y, icon gaps</td></tr>
+    <tr><td class="mono">space.2</td><td>8</td><td>within-group gaps, field label→input</td></tr>
+    <tr><td class="mono">space.3</td><td>12</td><td>row/card internal gaps, banner margins</td></tr>
+    <tr><td class="mono">space.4</td><td>16</td><td>card padding, main padding</td></tr>
+    <tr><td class="mono">space.5</td><td>20–24</td><td>section separation, modal padding</td></tr>
+    <tr><td class="mono">space.7</td><td>28–34</td><td>screen outer padding</td></tr>
+  </table>
+  <div class="small muted" style="margin-top:8px">Radii: 5–7px controls · 8–10px cards/banners · 12px modals · 20px chips (pill). Off-grid values (e.g. 13px) never ship.</div>
+  <div style="margin-top:10px;display:flex;gap:0;align-items:flex-end">
+    <span style="width:4px;height:16px;background:#0F766E;margin-right:6px"></span>
+    <span style="width:8px;height:24px;background:#0F766E;margin-right:6px"></span>
+    <span style="width:12px;height:32px;background:#0F766E;margin-right:6px"></span>
+    <span style="width:16px;height:40px;background:#0F766E;margin-right:6px"></span>
+    <span style="width:24px;height:48px;background:#0F766E"></span>
+  </div>
+</div>
+</div>
+
+<div class="row">
+<div class="card grow">
+  <div class="card-title">WCAG AA contrast — verified pairings <span class="right">AA: ≥4.5:1 text · ≥3:1 large/UI</span></div>
+  <table>
+    <tr><th>Foreground</th><th>Background</th><th>Sample</th><th>Ratio</th><th>AA</th></tr>
+    <tr><td class="mono">#1E293B</td><td class="mono">#FFFFFF</td><td><span style="background:#fff;border:1px solid #E2E8F0;padding:2px 8px;border-radius:4px;color:#1E293B">Body text</span></td><td class="mono">14.9:1</td><td><span class="chip green">PASS</span></td></tr>
+    <tr><td class="mono">#64748B</td><td class="mono">#FFFFFF</td><td><span style="background:#fff;border:1px solid #E2E8F0;padding:2px 8px;border-radius:4px;color:#64748B">Muted text</span></td><td class="mono">4.8:1</td><td><span class="chip green">PASS</span></td></tr>
+    <tr><td class="mono">#FFFFFF</td><td class="mono">#0F766E</td><td><span style="background:#0F766E;padding:2px 8px;border-radius:4px;color:#fff">Primary btn</span></td><td class="mono">5.9:1</td><td><span class="chip green">PASS</span></td></tr>
+    <tr><td class="mono">#0F766E</td><td class="mono">#CCFBF1</td><td><span style="background:#CCFBF1;padding:2px 8px;border-radius:4px;color:#0F766E;font-weight:700">Teal chip</span></td><td class="mono">5.1:1</td><td><span class="chip green">PASS</span></td></tr>
+    <tr><td class="mono">#92400E</td><td class="mono">#FEF3C7</td><td><span style="background:#FEF3C7;padding:2px 8px;border-radius:4px;color:#92400E;font-weight:700">Amber chip</span></td><td class="mono">7.3:1</td><td><span class="chip green">PASS</span></td></tr>
+    <tr><td class="mono">#B91C1C</td><td class="mono">#FEE2E2</td><td><span style="background:#FEE2E2;padding:2px 8px;border-radius:4px;color:#B91C1C;font-weight:700">Red chip</span></td><td class="mono">5.4:1</td><td><span class="chip green">PASS</span></td></tr>
+    <tr><td class="mono">#15803D</td><td class="mono">#DCFCE7</td><td><span style="background:#DCFCE7;padding:2px 8px;border-radius:4px;color:#15803D;font-weight:700">Green chip</span></td><td class="mono">4.6:1</td><td><span class="chip green">PASS</span></td></tr>
+    <tr><td class="mono">#0369A1</td><td class="mono">#E0F2FE</td><td><span style="background:#E0F2FE;padding:2px 8px;border-radius:4px;color:#0369A1;font-weight:700">Blue chip</span></td><td class="mono">5.6:1</td><td><span class="chip green">PASS</span></td></tr>
+    <tr><td class="mono">#6D28D9</td><td class="mono">#EDE9FE</td><td><span style="background:#EDE9FE;padding:2px 8px;border-radius:4px;color:#6D28D9;font-weight:700">Violet chip</span></td><td class="mono">6.2:1</td><td><span class="chip green">PASS</span></td></tr>
+    <tr><td class="mono">#FFFFFF</td><td class="mono">#F59E0B</td><td><span style="background:#F59E0B;padding:2px 8px;border-radius:4px;color:#fff;font-weight:700">White on amber</span></td><td class="mono">2.2:1</td><td><span class="chip red">FAIL — banned</span></td></tr>
+  </table>
+  <div class="small muted" style="margin-top:8px">Rule: white text on raw amber fails AA and is banned everywhere — amber surfaces always carry <span class="mono">#92400E</span> text. Focus indicator: 2px <span class="mono">#0F766E</span> ring, ≥3:1 against adjacent surface.</div>
+</div>
+<div class="card" style="width:340px">
+  <div class="card-title">Do / Don't</div>
+  <table>
+    <tr><th style="width:50%">✓ Do</th><th>✗ Don't</th></tr>
+    <tr>
+      <td><span class="chip red">OVERDUE · 2H 14M</span><div class="small muted" style="margin-top:4px">Red = breached SLA, with elapsed time + owner</div></td>
+      <td><span class="chip teal">OVERDUE</span><div class="small muted" style="margin-top:4px">Never encode status in brand teal</div></td>
+    </tr>
+    <tr>
+      <td><span class="btn primary small">Verify report</span> <span class="btn small">Cancel</span><div class="small muted" style="margin-top:4px">One primary action per view</div></td>
+      <td><span class="btn primary small">Save</span> <span class="btn primary small">Send</span><div class="small muted" style="margin-top:4px">Competing primaries — banned</div></td>
+    </tr>
+    <tr>
+      <td><span style="font-size:11px;color:#64748B">Hint at 11px minimum</span></td>
+      <td><span style="font-size:9px;color:#94A3B8">9px grey-on-grey fine print</span><div class="small muted" style="margin-top:4px">Below floor + fails contrast</div></td>
+    </tr>
+    <tr>
+      <td><span class="chip violet">DPDP CONSENT</span><div class="small muted" style="margin-top:4px">Violet reserved for governance</div></td>
+      <td><span class="chip violet">NEW!</span><div class="small muted" style="margin-top:4px">No decorative use of semantic tokens</div></td>
+    </tr>
+  </table>
+</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE B — THEME MATRIX (LIGHT SHIPPED · DARK ROADMAP)</div>
+<div class="card">
+  <div class="card-title">Theme readiness per token group</div>
+  <table>
+    <tr><th>Token group</th><th>Light (MVP-1)</th><th>Dark</th><th>White-label override</th><th>Note</th></tr>
+    <tr><td>Brand (primary, tint)</td><td><span class="chip green">SHIPPED</span></td><td><span class="chip grey">ROADMAP</span></td><td><span class="chip teal">TENANT-THEMEABLE</span></td><td>Tenant brand colour must pass the AA table above before activation — the console blocks failing hexes.</td></tr>
+    <tr><td>Semantic (amber/red/green/blue/violet)</td><td><span class="chip green">SHIPPED</span></td><td><span class="chip grey">ROADMAP</span></td><td><span class="chip red">LOCKED</span></td><td>Clinical-safety colours are never overridable, on any plan.</td></tr>
+    <tr><td>Surfaces &amp; text</td><td><span class="chip green">SHIPPED</span></td><td><span class="chip grey">ROADMAP</span></td><td><span class="chip red">LOCKED</span></td><td>Dark theme remaps surfaces only; component markup is untouched.</td></tr>
+    <tr><td>Typography &amp; spacing</td><td><span class="chip green">SHIPPED</span></td><td><span class="chip green">THEME-INDEPENDENT</span></td><td><span class="chip red">LOCKED</span></td><td>Scale identical across themes and tenants.</td></tr>
+  </table>
+</div>
+<p class="audit">Token changes are versioned; any tenant brand-colour override and its contrast-check result are recorded in the access log.</p>
+</section>

@@ -1,0 +1,77 @@
+<section class="screen" id="ds-10">
+<div class="screen-head"><h1><span class="sid">DS-10</span> i18n &amp; Localisation Pattern</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM</span><div class="cluster">G17 Design System &amp; Patterns — documentation pages</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · i18n & localisation pattern</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Rules for what Magnus translates, how Indic scripts render, and how locale interacts with legal notice versions. MVP-1 ships English (en-IN), Hindi (hi-IN) and Marathi (mr-IN). Staff UI locale is a per-user preference; patient-facing locale is a per-patient communication preference captured at registration.</div>
+
+<div class="state-tag">STATE A — WHAT-IS-TRANSLATED MATRIX</div>
+<div class="card">
+<div class="card-title">Translation scope by surface <span class="right">locales: en + ml (Malayalam — pilot), hi/mr/ta ready</span></div>
+<table>
+<tr><th style="width:210px">Surface</th><th style="width:110px">Translated?</th><th style="width:170px">Method</th><th>Rationale &amp; rules</th></tr>
+<tr><td><b>UI chrome</b> (nav, buttons, labels, errors)</td><td><span class="chip green">YES</span></td><td>Managed string catalogue</td><td>100% key coverage gate in CI; a missing hi/mr key blocks release, falls back per chain (State C) at runtime only for hotfixes.</td></tr>
+<tr><td><b>Patient comms</b> (SMS, WhatsApp, portal)</td><td><span class="chip green">YES</span></td><td>Per-locale approved templates</td><td>Each DLT SMS template is separately registered per language on the Jio route — translation is a new template ID, not a string swap. WhatsApp BSP templates likewise pre-approved per locale.</td></tr>
+<tr><td><b>Consent forms &amp; privacy notices</b></td><td><span class="chip green">YES</span></td><td>Legal-reviewed translations, versioned</td><td>Translations are legal texts, not string files. Each locale rendition carries its own reviewer sign-off and is bound to the notice version (State C). Patient signs the rendition they were shown.</td></tr>
+<tr><td><b>Clinical reports</b> (radiologist narrative)</td><td><span class="chip red">NO</span></td><td>Authored language only (English in MVP-1)</td><td><b>Never auto-translated.</b> Machine translation of clinical findings is a patient-safety risk (negation, laterality, hedging nuance) and creates an unowned legal document — no clinician has signed the translated text. Portal shows a hi/mr help note explaining how to get findings explained, but the report body stays as signed.</td></tr>
+<tr><td><b>Master data</b> (test names, modality names)</td><td><span class="chip amber">PARTIAL</span></td><td>Patient-facing aliases only</td><td>Internal catalogue stays English/coded (CT BRAIN PLAIN). Patient-facing alias per locale (“सीटी स्कैन — मस्तिष्क”) used on slips and portal only; invoices always print the English catalogue name + code beside any alias.</td></tr>
+<tr><td><b>Audit logs, IDs, device names</b></td><td><span class="chip red">NO</span></td><td>—</td><td>Log events, AE titles (MERIDCT1), document numbers are locale-invariant; only rendered timestamps localise.</td></tr>
+</table>
+<div class="banner info" style="margin-top:10px;margin-bottom:0"><b>Implementation note</b>react-i18next integrated from Sprint 1 even while only English strings ship — retrofitting i18n into components is the expensive path.</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SCRIPT RENDERING &amp; NUMBER/DATE LOCALE RULES</div>
+<div class="row">
+<div class="card grow">
+<div class="card-title">Script rendering rules <span class="right">Devanagari (hi, mr)</span></div>
+<table>
+<tr><th style="width:160px">Rule</th><th>Spec</th></tr>
+<tr><td>Line height</td><td>Devanagari needs headroom for matras and conjunct stacks: body line-height <b>1.7</b> (vs 1.45 Latin); buttons/chips min-height +2 px in hi/mr locales — components must not clip शिरोरेखा or descenders.</td></tr>
+<tr><td>Font stack</td><td><span class="mono">"Noto Sans Devanagari", "Mukta", sans-serif</span>; embedded subset in PDF/A output (per DS-09). Never rely on OS fallback for print.</td></tr>
+<tr><td>Type scale</td><td>Devanagari at same pt renders visually smaller — bump 1 px at sizes ≤ 13 px in hi/mr locale packs; never mix scripts mid-word.</td></tr>
+<tr><td>Truncation</td><td>Never ellipsis-truncate inside a conjunct cluster; truncate on word boundaries only. hi/mr strings run ~15–20% longer — layouts must pass the pseudo-locale expansion test in CI.</td></tr>
+<tr><td>Digits</td><td>Always international digits 0–9 (not ०–९) in all locales — clinical/billing safety rule; applies to slips, portal and SMS.</td></tr>
+<tr><td>Bidi</td><td>Not applicable in MVP-1 (no RTL locale); layout stays LTR for hi/mr.</td></tr>
+</table>
+</div>
+<div class="card grow">
+<div class="card-title">Number, currency &amp; date locale rules</div>
+<table>
+<tr><th style="width:140px">Item</th><th>Rule</th><th style="width:170px">Example</th></tr>
+<tr><td>Currency</td><td>₹ with Indian grouping (3, then 2s) in <b>all</b> locales — grouping does not vary by language</td><td class="mono">₹ 12,45,600.00</td></tr>
+<tr><td>Date display</td><td>DD MMM YYYY; month name localises, order never does</td><td class="mono">25 Jul 2026 · 25 जुलाई 2026</td></tr>
+<tr><td>Time</td><td>12-hour with am/pm for patients; 24-hour on clinical worklists; always IST label on printed docs</td><td class="mono">02:15 pm · 14:15 IST</td></tr>
+<tr><td>Storage</td><td>Locale never touches storage: ISO 8601 UTC, paise integers, E.164 — render-time formatting only (per DS-08)</td><td class="mono">2026-07-25T08:45Z</td></tr>
+<tr><td>Units</td><td>Metric only; radiation dose, contrast volume etc. never localised or converted</td><td class="mono">120 kVp · 80 mL</td></tr>
+</table>
+<div class="banner warn" style="margin-top:10px;margin-bottom:0"><b>Mixed-locale sessions</b>A hi-locale front-office user registering an mr-preference patient sees UI in hi while the printed slip and SMS go out in mr. Preview widgets must always render in the <b>recipient's</b> locale, with a chip: <span class="chip blue">PREVIEW · मराठी (mr-IN)</span>.</div>
+</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — FALLBACK CHAIN &amp; NOTICE-VERSION BINDING</div>
+<div class="row">
+<div class="card grow">
+<div class="card-title">Fallback chain <span class="right">runtime resolution order</span></div>
+<div class="ladder" style="margin-top:6px">
+<div class="tier done"><b>1 · Exact locale</b><div class="small muted">mr-IN string / template / notice rendition</div></div>
+<div class="tier done"><b>2 · Language default</b><div class="small muted">mr → hi is <b>not</b> assumed; each language falls back independently to…</div></div>
+<div class="tier cur"><b>3 · en-IN (platform base)</b><div class="small muted">Always complete by CI gate; guaranteed terminal fallback for UI chrome and master-data aliases.</div></div>
+<div class="tier fail"><b>✕ No fallback for legal texts &amp; DLT templates</b><div class="small muted">A consent notice or registered SMS template with no rendition in the patient's preferred locale is <b>not</b> silently swapped to English — the flow surfaces an explicit choice: “Marathi version unavailable for notice v4 — proceed in English?” with staff attestation, logged.</div></div>
+</div>
+<p class="small muted">Fallback events emit telemetry (<span class="mono">i18n.fallback</span> with key + locale) so the localisation backlog is data-driven; &gt; 50 hits/week on one key raises an amber task for the org admin.</p>
+</div>
+<div class="card grow">
+<div class="card-title">Translation version ⇄ notice version <span class="right">consent integrity</span></div>
+<table>
+<tr><th>Notice</th><th>Version</th><th>en</th><th>hi</th><th>mr</th></tr>
+<tr><td>Privacy notice (patients)</td><td class="mono">v4 · eff. 01 Jul 2026</td><td><span class="chip green">v4</span></td><td><span class="chip green">v4</span></td><td><span class="chip amber">v3 pending review</span></td></tr>
+<tr><td>Contrast consent (CT/MRI)</td><td class="mono">v7 · eff. 12 May 2026</td><td><span class="chip green">v7</span></td><td><span class="chip green">v7</span></td><td><span class="chip green">v7</span></td></tr>
+<tr><td>Teleradiology disclosure</td><td class="mono">v2 · eff. 20 Jun 2026</td><td><span class="chip green">v2</span></td><td><span class="chip amber">v1</span></td><td><span class="chip red">missing</span></td></tr>
+</table>
+<div class="banner reg" style="margin-top:10px"><b>Binding rule</b>A translation is valid only for the exact notice version it was reviewed against. Publishing notice v5 automatically demotes all v4 renditions to <span class="chip amber">PENDING REVIEW</span> — the consent flow then applies the no-fallback rule above until each locale is re-approved (legal reviewer + org admin, four-eyes).</div>
+<p class="small muted" style="margin-bottom:0">Consent records store: notice version + locale rendition ID + rendition hash actually displayed — what the patient saw is provable byte-for-byte.</p>
+</div>
+</div>
+<p class="audit">Locale preference changes, fallback attestations and notice-rendition approvals are recorded in the access log.</p>
+</section>

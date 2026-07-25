@@ -1,0 +1,97 @@
+<section class="screen" id="au-04">
+<div class="screen-head"><h1><span class="sid">AU-04</span> Two-factor enrolment</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G1 IDENTITY &amp; ACCESS — AUTH ENTRY</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · AU-S2 enrolment + backup codes</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Forced interstitial after first sign-in (or when an admin resets factors). The user chooses passkey (recommended), TOTP, or both; must verify a first code before the factor is saved; then receives 10 single-use backup codes shown exactly once. Enrolment is mandatory before workspace entry for privileged roles (org admin, radiologist sign-off, cashier refunds) per policy AUTH-POL-05.</div>
+
+<div class="state-tag">STATE A — CHOOSE A FACTOR</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>WORKSPACE</span></span><span class="org">🏥 Meridian Diagnostics · security setup</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (setup required)</div></div>
+  <div style="padding:26px 0 22px;background:#F4F6F8">
+    <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
+      <div style="text-align:center;margin-bottom:12px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span></div>
+      </div>
+      <div class="stepper" style="justify-content:center"><span class="step cur"><span class="dot">1</span>Choose</span><span class="step-line"></span><span class="step"><span class="dot">2</span>Verify</span><span class="step-line"></span><span class="step"><span class="dot">3</span>Backup codes</span></div>
+      <div class="banner reg" style="font-size:12px"><b>Two-factor is mandatory for your role</b>Technologist accounts operate modalities (CT-ROOM-1, US-UNIT-2) and access patient studies — Meridian policy AUTH-POL-05 requires a second factor before first workspace entry. You cannot skip this step.</div>
+      <div class="card" style="border:2px solid #0F766E;background:#F0FDFA;margin-bottom:10px">
+        <div class="check" style="margin:0"><span class="box radio on"></span><span><b>Passkey</b> <span class="chip green">Recommended</span><br><span class="small muted">Fingerprint, face or device PIN. Phishing-resistant; nothing to type. Works with Windows Hello, Android/iOS, or a FIDO2 security key.</span></span></div>
+      </div>
+      <div class="card" style="margin-bottom:10px">
+        <div class="check" style="margin:0"><span class="box radio"></span><span><b>Authenticator app (TOTP)</b><br><span class="small muted">Scan a QR in Google Authenticator, Aegis or 1Password. Works offline; codes rotate every 30 s.</span></span></div>
+      </div>
+      <div class="card" style="margin-bottom:12px">
+        <div class="check" style="margin:0"><span class="box radio"></span><span><b>Both (passkey + TOTP)</b><br><span class="small muted">Strongest option — TOTP acts as fallback if this device is unavailable. Required for org admins.</span></span></div>
+      </div>
+      <a class="btn primary" style="width:100%">Continue →</a>
+      <div class="hint" style="margin-top:8px;text-align:center">SMS OTP is not offered for staff accounts (SIM-swap risk). Patient portal uses a separate OTP realm.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — TOTP QR + VERIFY FIRST CODE</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>WORKSPACE</span></span><span class="org">🏥 Meridian Diagnostics · security setup</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (setup required)</div></div>
+  <div style="padding:26px 0 22px;background:#F4F6F8">
+    <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
+      <div style="text-align:center;margin-bottom:12px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip blue">TOTP setup</span></div>
+      </div>
+      <div class="stepper" style="justify-content:center"><span class="step done"><span class="dot">✓</span>Choose</span><span class="step-line"></span><span class="step cur"><span class="dot">2</span>Verify</span><span class="step-line"></span><span class="step"><span class="dot">3</span>Backup codes</span></div>
+      <div style="text-align:center;margin-bottom:10px">
+        <div style="width:150px;height:150px;margin:0 auto;border:1.5px solid #CBD5E1;border-radius:8px;background:repeating-conic-gradient(#1E293B 0% 25%, #fff 0% 50%) 0 0/16px 16px;display:flex;align-items:center;justify-content:center"><span style="background:#fff;padding:2px 6px;font-size:10px;font-weight:800;border:1px solid #CBD5E1;border-radius:4px">QR CODE</span></div>
+        <div class="small muted" style="margin-top:6px">Scan with your authenticator app · account label <span class="mono">Magnus (staff.meridian) — t.okafor</span></div>
+      </div>
+      <div class="card" style="background:#F8FAFC;padding:10px 12px;margin-bottom:10px">
+        <div class="small bold" style="margin-bottom:4px">Can't scan? Enter the secret manually</div>
+        <div class="mono" style="font-size:13px;letter-spacing:.06em">JBSW Y3DP EHPK 3PXP 7Q4R K2LM</div>
+        <div class="small muted" style="margin-top:4px">Type: time-based (TOTP) · digits: 6 · period: 30 s · algorithm: SHA-1. Treat this secret like a password — it is shown only during setup.</div>
+      </div>
+      <div class="field"><label>Enter the first code from your app <span class="req">*</span></label>
+        <div style="display:flex;gap:8px">
+          <input class="input mono" style="width:42px;text-align:center" value="3" readonly><input class="input mono" style="width:42px;text-align:center" value="0" readonly><input class="input mono" style="width:42px;text-align:center" value="6" readonly><input class="input mono" style="width:42px;text-align:center" value="6" readonly><input class="input mono" style="width:42px;text-align:center" value="1" readonly><input class="input mono" style="width:42px;text-align:center" value="7" readonly>
+        </div>
+        <div class="hint">Verifying a live code proves the app is set up correctly before we save the factor.</div>
+      </div>
+      <a class="btn primary" style="width:100%">Verify code &amp; enable TOTP →</a>
+      <a class="btn ghost" style="width:100%">← Choose a different factor</a>
+    </div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — BACKUP CODES ISSUED (SHOWN ONCE)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>WORKSPACE</span></span><span class="org">🏥 Meridian Diagnostics · security setup</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (setup required)</div></div>
+  <div style="padding:26px 0 22px;background:#F4F6F8">
+    <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
+      <div style="text-align:center;margin-bottom:12px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip green">TOTP enabled ✓</span></div>
+      </div>
+      <div class="stepper" style="justify-content:center"><span class="step done"><span class="dot">✓</span>Choose</span><span class="step-line"></span><span class="step done"><span class="dot">✓</span>Verify</span><span class="step-line"></span><span class="step cur"><span class="dot">3</span>Backup codes</span></div>
+      <div class="banner warn" style="font-size:12px"><b>Save these 10 backup codes now — shown only once</b>Each code signs you in once if you lose your authenticator. Store them offline (printed, sealed). They will never be displayed again; regenerating invalidates this set.</div>
+      <div class="card" style="background:#F8FAFC;padding:12px 14px;margin-bottom:10px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 18px" class="mono small">
+          <span>QK7F-3MRD-92XT</span><span>HN2P-8VWL-04QA</span>
+          <span>ZD5R-1KMB-77JE</span><span>XT9C-4PLN-38UF</span>
+          <span>MB6W-2QRD-51KO</span><span>PV3J-9XTF-66HD</span>
+          <span>RL8A-5NCE-20WS</span><span>GY4K-7BMH-93VP</span>
+          <span>CW1T-6DJQ-45NZ</span><span>FS0E-3HYU-82RB</span>
+        </div>
+        <div class="small muted" style="margin-top:8px">Issued 25 Jul 2026 14:08 IST · set ID <span class="mono">BC-TOK-7741</span> · unused 10/10</div>
+      </div>
+      <div class="row" style="margin-bottom:10px">
+        <a class="btn grow">⬇ Download .txt</a>
+        <a class="btn grow">🖨 Print sheet</a>
+      </div>
+      <div class="check"><span class="box on">✓</span><span>I have stored these codes in a safe place and understand they will not be shown again.</span></div>
+      <a class="btn primary" style="width:100%;margin-top:4px">Finish setup &amp; enter workspace →</a>
+      <div class="hint" style="margin-top:8px;text-align:center">Download/print actions are watermarked with your name and timestamp. Codes are stored server-side only as salted hashes.</div>
+    </div>
+  </div>
+</div>
+
+<p class="audit">Factor enrolments (type, device, verification result), backup-code issuance (set ID, no plaintext) and the confirm-stored acknowledgement are timestamped and recorded in the access log.</p>
+</section>

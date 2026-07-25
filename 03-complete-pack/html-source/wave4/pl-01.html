@@ -1,0 +1,107 @@
+<section class="screen" id="pl-01">
+<div class="screen-head"><h1><span class="sid">PL-01</span> Operator console home</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 + G16 — workspaces 'Integration' / operator</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · PL cluster → operator home & tenant health</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Landing page for NUMINACORE platform operators (separate Keycloak operator realm, hardware-key MFA mandatory). Shows tenant health at a glance (uptime, sync lag, error rate, incidents, plan), platform-wide KPIs, and incident quick-create. Operators never see tenant PHI here; every operator action is dual-logged and visible to the affected tenant's admins.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>Platform</span></span><span class="org">🛠 NUMINACORE Platform Console · operator realm</span></div><div class="userchip"><span class="av">RI</span>R. Iyer (Platform Ops) ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Platform</div>
+    <div class="nav-item active">Console home</div>
+    <div class="nav-item">Organisations &amp; onboarding</div>
+    <div class="nav-item">Incidents <span class="nav-badge">0</span></div>
+    <div class="nav-item">Release channels</div>
+    <div class="nav-item">Provider health (DLT/BSP/UPI)</div>
+    <div class="sec-label">Governance</div>
+    <div class="nav-item">Operator actions log</div>
+    <div class="nav-item">Break-glass requests</div>
+    <div class="nav-item">Realm admin (Keycloak)</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Platform console › Home</div>
+    <div class="page-title">Platform overview <span class="chip green">ALL TENANTS HEALTHY</span> <span class="actions-right"><span class="btn warn-outline small">⚡ Quick-create incident</span></span></div>
+    <div class="page-sub">25 Jul 2026, 14:35 IST · Region: ap-south-1 (Mumbai) — data residency pinned India · Operator session expires in 42 m (re-auth with hardware key)</div>
+    <div class="banner reg"><b>All operator actions are dual-logged</b>Every read and write from this console is written to the platform evidence store <i>and</i> to the affected tenant's own audit trail, where it is visible to that tenant's org admins. Tenant-data access requires a break-glass request with tenant consent except during a declared SEV-1.</div>
+
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">3</div><div class="l">Active tenants</div><div class="s">+1 in onboarding (CarePoint)</div></div>
+      <div class="kpi"><div class="n">99.97%</div><div class="l">Platform uptime 30d</div><div class="s">SLO 99.9% · error budget 78% left</div></div>
+      <div class="kpi"><div class="n">0</div><div class="l">Open incidents</div><div class="s">last SEV-2 closed 18 Jul</div></div>
+      <div class="kpi"><div class="n">1.2 m</div><div class="l">Events / day</div><div class="s">domain event backbone, all tenants</div></div>
+      <div class="kpi"><div class="n">2</div><div class="l">Pending approvals</div><div class="s">four-eyes queue (ops changes)</div></div>
+    </div>
+
+    <div class="card"><div class="card-title">Tenant health <span class="right">auto-refresh 60 s</span></div>
+    <table>
+      <tr><th>Tenant</th><th>Plan</th><th>Branches</th><th>Uptime 30d</th><th>Worst sync lag</th><th>API error rate 1h</th><th>Open incidents</th><th>Release channel</th><th></th></tr>
+      <tr><td><b>Meridian Diagnostics</b><div class="small muted">Mumbai · live since Mar 2026</div></td><td><span class="chip blue">Enterprise</span></td><td class="mono">4</td><td class="mono">99.98%</td><td class="mono">42 s <span class="chip green">OK</span></td><td class="mono">0.14%</td><td class="mono">0</td><td><span class="chip grey">stable r2026.7.2</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr><td><b>Sunrise Imaging</b><div class="small muted">Pune · live since Jun 2026</div></td><td><span class="chip blue">Standard</span></td><td class="mono">2</td><td class="mono">99.95%</td><td class="mono">18 s <span class="chip green">OK</span></td><td class="mono">0.09%</td><td class="mono">0</td><td><span class="chip grey">stable r2026.7.2</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr><td><b>CarePoint Labs</b><div class="small muted">Kochi · onboarding · sandbox tenant</div></td><td><span class="chip grey">Pilot</span></td><td class="mono">1</td><td class="mono">— <span class="chip grey">PRE-LIVE</span></td><td class="mono">n/a</td><td class="mono">0.00%</td><td class="mono">0</td><td><span class="chip grey">candidate r2026.8.0-rc1</span></td><td><span class="btn ghost small">Open</span></td></tr>
+    </table></div>
+
+    <div class="row">
+      <div class="card grow"><div class="card-title">Shared provider health <span class="right">platform-managed integrations</span></div>
+      <table>
+        <tr><th>Provider</th><th>Scope</th><th>Status</th><th>1h p95</th><th>Note</th></tr>
+        <tr><td>DLT SMS (Jio route)</td><td>all tenants</td><td><span class="chip green">HEALTHY</span></td><td class="mono">2.1 s</td><td>template throughput normal</td></tr>
+        <tr><td>WhatsApp BSP</td><td>all tenants</td><td><span class="chip green">HEALTHY</span></td><td class="mono">1.4 s</td><td>—</td></tr>
+        <tr><td>Payment gateway (UPI)</td><td>Meridian, Sunrise</td><td><span class="chip green">HEALTHY</span></td><td class="mono">3.0 s</td><td>settlement file T+1 on time</td></tr>
+      </table></div>
+      <div class="card" style="width:310px;flex-shrink:0"><div class="card-title">Four-eyes approval queue <span class="right">2 pending</span></div>
+        <div class="timeline">
+          <div class="ev"><span class="t">13:58</span><span><b>Rate-limit raise</b> Meridian API gateway 120→180 rpm · requested by A. Menon · <span class="btn small">Review</span></span></div>
+          <div class="ev"><span class="t">11:12</span><span><b>Release promote</b> r2026.8.0-rc1 → early channel · requested by R. Iyer (you — <i>cannot self-approve</i>)</span></div>
+        </div>
+        <p class="small muted">Destructive or tenant-affecting operator actions require a second operator's approval within 4 h.</p>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ONE TENANT DEGRADED (Sunrise Imaging · sync lag amber)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Platform console › Home</div>
+  <div class="page-title">Platform overview <span class="chip amber">1 TENANT DEGRADED</span> <span class="actions-right"><span class="btn warn-outline small">⚡ Quick-create incident</span></span></div>
+  <div class="page-sub">25 Jul 2026, 16:04 IST · alert fired 15:52 IST by sync-lag monitor</div>
+  <div class="banner warn"><b>Sunrise Imaging — Hinjawadi branch sync lag breaching threshold</b>edge-hj-01 last synced 22 m ago (threshold 15 m); outbound queue 61 actions and growing. Probable cause: tenant-side ISP outage (BGP flap seen from Pune PoP). No platform fault detected. Owner: <b>R. Iyer</b> · <span class="chip amber">ACK SLA 15 m — acked 15:55</span> · Next: notify tenant org admin, open incident if lag &gt; 60 m.</div>
+  <table>
+    <tr><th>Tenant</th><th>Uptime 30d</th><th>Worst sync lag</th><th>API error rate 1h</th><th>Open incidents</th><th>State</th><th></th></tr>
+    <tr><td><b>Meridian Diagnostics</b></td><td class="mono">99.98%</td><td class="mono">38 s</td><td class="mono">0.12%</td><td class="mono">0</td><td><span class="chip green">HEALTHY</span></td><td><span class="btn ghost small">Open</span></td></tr>
+    <tr class="hl"><td><b>Sunrise Imaging</b></td><td class="mono">99.95%</td><td class="mono">22 m 14 s</td><td class="mono">0.41%</td><td class="mono">0</td><td><span class="chip amber">DEGRADED — sync lag</span></td><td><span class="btn ghost small">Open</span> <span class="btn ghost small">Notify tenant admin</span></td></tr>
+    <tr><td><b>CarePoint Labs</b></td><td class="mono">—</td><td class="mono">n/a</td><td class="mono">0.00%</td><td class="mono">0</td><td><span class="chip grey">PRE-LIVE</span></td><td><span class="btn ghost small">Open</span></td></tr>
+  </table>
+  <div class="card" style="margin-top:12px"><div class="card-title">Degradation timeline — Sunrise Imaging</div>
+  <div class="timeline">
+    <div class="ev"><span class="t">15:52:11</span><span>Monitor <span class="mono">sync-lag-p95</span> crossed 15 m for edge-hj-01 → amber alert, paged on-call (R. Iyer)</span></div>
+    <div class="ev"><span class="t">15:55:38</span><span>R. Iyer acknowledged · triage note: "tenant ISP flap, edge OOB heartbeat healthy, queue draining not started"</span></div>
+    <div class="ev"><span class="t">15:58:02</span><span>Tenant status banner auto-published to Sunrise org-admin console (no operator access to tenant data taken)</span></div>
+    <div class="ev"><span class="t">16:03:47</span><span>Watching: auto-escalates to incident at 16:52 if lag exceeds 60 m</span></div>
+  </div></div>
+</div></div></div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — INCIDENT OPEN (SEV-2 · quick-create completed)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Platform console › Home › Incidents › INC-2026-041</div>
+  <div class="page-title">INC-2026-041 — UPI gateway callbacks delayed <span class="chip red">SEV-2 · OPEN</span> <span class="actions-right"><span class="btn small">Post update</span> <span class="btn primary small">Publish to tenant status</span></span></div>
+  <div class="page-sub">Opened 25 Jul 17:21 IST by R. Iyer · Commander: R. Iyer · Affected: Meridian, Sunrise (UPI reconciliation) · CarePoint not affected (pre-live)</div>
+  <div class="banner danger"><b>Impact</b>UPI payment <i>captures succeed</i> but gateway webhooks arriving 8–12 min late → receipts show "payment pending" at front desk; cashiers advised via tenant banner to use "Re-check payment status" instead of retrying charge. No double-charge detected. <span class="chip red">UPDATE SLA 30 m — next due 18:05 · owner R. Iyer</span></div>
+  <div class="row">
+    <div class="card grow"><div class="card-title">Incident log</div>
+    <div class="timeline">
+      <div class="ev"><span class="t">17:21:05</span><span>Quick-create from console home: severity SEV-2, provider "Payment gateway UPI", tenants auto-linked from dependency map</span></div>
+      <div class="ev"><span class="t">17:24:30</span><span>Tenant status banners published to Meridian + Sunrise admin consoles and cashier workstations (P. D'Souza's queue shows advisory)</span></div>
+      <div class="ev"><span class="t">17:35:12</span><span>Gateway TAM confirms degradation in their callback dispatcher; ETA 60–90 m · reconciliation job scheduled to re-poll pending intents every 5 m</span></div>
+    </div></div>
+    <div class="card" style="width:300px;flex-shrink:0"><div class="card-title">Quick-create incident <span class="right">form snapshot</span></div>
+      <div class="field"><label>Severity <span class="req">*</span></label><span class="select">SEV-2 — partial degradation ▾</span></div>
+      <div class="field"><label>Affected scope <span class="req">*</span></label><span class="select">Provider: Payment gateway (UPI) ▾</span><div class="hint">Tenants auto-linked: Meridian, Sunrise</div></div>
+      <div class="field"><label>Tenant-visible summary <span class="req">*</span></label><span class="textarea" style="display:block;color:#334155;font-size:12px">UPI confirmations delayed; payments are safe, do not retry charges. Use "Re-check payment status".</span></div>
+      <div class="check"><span class="box on">✓</span><span class="small">Publish to affected tenants' status banners</span></div>
+      <p class="small muted">SEV-1 declaration additionally requires a second operator's concurrence (four-eyes).</p>
+    </div>
+  </div>
+</div></div></div>
+<p class="audit">Operator sign-ins (operator realm, hardware-key MFA), tenant console opens, alert acks, incident lifecycle events and all four-eyes approvals are dual-logged to the platform evidence store and mirrored to affected tenants' audit trails; each entry is recorded in the access log.</p>
+</section>

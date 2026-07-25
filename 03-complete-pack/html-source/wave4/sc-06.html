@@ -1,0 +1,112 @@
+<section class="screen" id="sc-06">
+<div class="screen-head"><h1><span class="sid">SC-06</span> Modality calendar admin &amp; publishing</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · calendar publish/versioning</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Admin generates the bookable slot calendar per modality from working hours + slot templates + device availability, previews the diff against the currently published version, then publishes with an effective date and version tag. Booked slots are never silently dropped — a regenerate that would remove a slot with an active booking is blocked until the booking is moved. Rollback restores a prior version under the same guard, with dual-control sign-off.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org Admin) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Setup workspace</div>
+      <div class="nav-item">Org &amp; branches</div>
+      <div class="nav-item">Users &amp; roles</div>
+      <div class="nav-item">Services &amp; price lists</div>
+      <div class="sec-label">Scheduling</div>
+      <div class="nav-item">Working hours</div>
+      <div class="nav-item">Slot templates</div>
+      <div class="nav-item active">Modality calendar <span class="nav-badge">DRAFT</span></div>
+      <div class="nav-item">Overbooking &amp; walk-in</div>
+      <div class="nav-item">Camps &amp; blocks</div>
+      <div class="nav-item">Token &amp; queue</div>
+      <div class="nav-item">Public displays</div>
+      <div class="sec-label">Compliance</div>
+      <div class="nav-item">Change audit</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Setup › Scheduling › Modality calendar</div>
+      <div class="actions-right"><span class="btn small">↻ Regenerate draft</span> <span class="btn primary small">Publish draft…</span></div>
+      <div class="page-title">Modality calendar — CT-ROOM-1 (AE MERIDCT1)</div>
+      <div class="page-sub">Published version <b class="mono">v2026.07.18-03</b> · draft <b class="mono">v2026.07.25-01 (unpublished)</b> · generated from Working hours v14 + Template "CT weekday 15-min" v6 + device availability feed</div>
+
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">412</div><div class="l">Slots in draft (wk 27 Jul–01 Aug)</div><div class="s">vs 398 in published v-03</div></div>
+        <div class="kpi"><div class="n">+22</div><div class="l">Slots added</div><div class="s">Sat evening extension 17:00–19:00</div></div>
+        <div class="kpi amber"><div class="n">−8</div><div class="l">Slots removed</div><div class="s">PM window Tue 29 Jul 13:00–15:00</div></div>
+        <div class="kpi"><div class="n">0</div><div class="l">Booked slots affected</div><div class="s">Guard: publish allowed</div></div>
+      </div>
+
+      <div class="banner success"><b>Booked-slot guard passed — affected bookings: NONE</b>All 8 slots removed by this draft are unbooked. A draft that removes a slot holding an active booking cannot be published until each booking is rescheduled or cancelled with patient notice.</div>
+
+      <div class="card">
+        <div class="card-title">Generated-slots preview · Tue 29 Jul 2026 <span class="right">Draft v2026.07.25-01 vs published v2026.07.18-03</span></div>
+        <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">
+          <span class="chip teal">Mon 27 · 68 slots</span><span class="chip grey">Tue 29 · 60 slots (−8)</span><span class="chip grey">Wed 30 · 68</span><span class="chip grey">Thu 31 · 68</span><span class="chip grey">Fri 31 · 68</span><span class="chip green">Sat 01 Aug · 80 (+22)</span><span class="chip grey">Sun · closed</span>
+        </div>
+        <table>
+          <tr><th>Slot (IST)</th><th>Source rule</th><th>Duration</th><th>Diff</th><th>Booking</th><th>Guard</th></tr>
+          <tr><td class="mono">08:00–08:15</td><td>Template "CT weekday 15-min" v6</td><td>15 min</td><td><span class="chip grey">unchanged</span></td><td class="muted">—</td><td class="muted">—</td></tr>
+          <tr><td class="mono">08:15–08:30</td><td>Template "CT weekday 15-min" v6</td><td>15 min</td><td><span class="chip grey">unchanged</span></td><td>MRD-26-04412 · 08:15 booked</td><td><span class="chip green">retained</span></td></tr>
+          <tr class="hl"><td class="mono">13:00–13:15</td><td>Working hours v14 — Tue PM window closed (engineer PM visit, CT-ROOM-1)</td><td>15 min</td><td><span class="chip red">removed</span></td><td class="muted">— (unbooked)</td><td><span class="chip green">safe to drop</span></td></tr>
+          <tr class="hl"><td class="mono">13:15–13:30</td><td>Working hours v14 — Tue PM window closed</td><td>15 min</td><td><span class="chip red">removed</span></td><td class="muted">— (unbooked)</td><td><span class="chip green">safe to drop</span></td></tr>
+          <tr><td class="mono">15:00–15:15</td><td>Template "CT weekday 15-min" v6</td><td>15 min</td><td><span class="chip grey">unchanged</span></td><td>MRD-26-04437 · contrast CT</td><td><span class="chip green">retained</span></td></tr>
+          <tr><td class="mono">18:30–18:45 <span class="chip amber">STAT reserve</span></td><td>Overbooking rules SC-07 — 2 STAT holds/day</td><td>15 min</td><td><span class="chip grey">unchanged</span></td><td class="muted">held for STAT</td><td class="muted">—</td></tr>
+        </table>
+        <div class="hint muted small" style="margin-top:8px">Preview shows patient references as booking IDs only — no names on setup screens. Full booking detail requires the Front-office workspace with its own access-log entry.</div>
+      </div>
+
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Regenerate inputs</div>
+          <dl class="kv">
+            <dt>Working hours</dt><dd>v14 · Andheri West · effective 20 Jul 2026 <span class="chip green">current</span></dd>
+            <dt>Slot template</dt><dd>"CT weekday 15-min" v6 · 15-min grid, 2 contrast super-slots/day</dd>
+            <dt>Availability feed</dt><dd>CT-ROOM-1 planned maintenance: Tue 29 Jul 13:00–15:00 (engineer PM visit)</dd>
+            <dt>Horizon</dt><dd>Rolling 42 days (27 Jul → 06 Sep 2026)</dd>
+          </dl>
+        </div>
+        <div class="card" style="width:300px">
+          <div class="card-title">Version history</div>
+          <div class="ladder">
+            <div class="tier cur"><b class="mono">v2026.07.25-01</b> <span class="chip amber">DRAFT</span><div class="small muted">Regenerated 25 Jul 10:42 by K. Verma</div></div>
+            <div class="tier done"><b class="mono">v2026.07.18-03</b> <span class="chip green">PUBLISHED</span><div class="small muted">Effective 20 Jul · by K. Verma, approved D. Nair</div></div>
+            <div class="tier done"><b class="mono">v2026.07.11-02</b> <span class="chip grey">superseded</span><div class="small muted">Effective 13 Jul</div></div>
+          </div>
+          <span class="btn small">Rollback to v-03…</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PUBLISH DRAFT (EFFECTIVE DATE + VERSION TAG + STEP-UP)</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Publish calendar draft — CT-ROOM-1</h3>
+    <p class="small muted" style="margin-bottom:10px">Publishing replaces the bookable calendar for CT-ROOM-1 from the effective date onward. Existing bookings are re-attached to identical slots; the guard has verified <b>0 affected bookings</b>.</p>
+    <div class="field"><label>Version tag</label><input class="input mono" value="v2026.07.25-01"><div class="hint">Auto-generated; suffix editable for audit clarity.</div></div>
+    <div class="field"><label>Effective from <span class="req">*</span></label><input class="input" value="Mon 27 Jul 2026, 00:00 IST"><div class="hint">Must be a future date. Days before the effective date keep serving v2026.07.18-03.</div></div>
+    <div class="field"><label>Publish note (visible in change audit)</label><textarea class="textarea">Sat evening extension 17:00–19:00 per branch head approval; Tue 29 Jul PM window blocked for CT engineer visit.</textarea></div>
+    <div class="banner info"><b>Step-up identity confirmation required</b>Publishing a live calendar is a sensitive change. Confirm with your TOTP or passkey (staff realm) to proceed.</div>
+    <div class="field"><label>TOTP code</label><input class="input mono" style="max-width:160px" value="••• •••" placeholder="6-digit code"><div class="hint">Or use passkey · backup codes accepted with security-officer alert.</div></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Verify &amp; publish v2026.07.25-01</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — ROLLBACK GUARD: PRIOR VERSION CONFLICTS WITH LIVE BOOKINGS</div>
+<div class="modal-wrap">
+  <div class="modal danger">
+    <h3>Rollback blocked — 3 bookings sit on slots that v2026.07.18-03 does not contain</h3>
+    <div class="banner danger"><b>Booked slots are never silently dropped.</b>Rolling back to <span class="mono">v2026.07.18-03</span> would remove the Saturday 01 Aug evening slots that already hold confirmed bookings. Resolve each booking first, or keep the current version.</div>
+    <table>
+      <tr><th>Slot (IST)</th><th>Booking ref</th><th>Status</th><th>Resolution</th></tr>
+      <tr><td class="mono">Sat 01 Aug 17:15</td><td class="mono">MRD-26-04502</td><td><span class="chip teal">confirmed</span></td><td><span class="btn ghost small">Reschedule…</span></td></tr>
+      <tr><td class="mono">Sat 01 Aug 17:45</td><td class="mono">MRD-26-04508</td><td><span class="chip teal">confirmed</span></td><td><span class="btn ghost small">Reschedule…</span></td></tr>
+      <tr><td class="mono">Sat 01 Aug 18:30</td><td class="mono">MRD-26-04511</td><td><span class="chip amber">payment pending</span></td><td><span class="btn ghost small">Reschedule…</span></td></tr>
+    </table>
+    <div class="banner warn" style="margin-top:10px"><b>Dual control (four-eyes) on rollback</b>Even after bookings are resolved, rollback requires a second approver with the <b>Scheduling Admin</b> role. Requested approver: <b>D. Nair (Front office lead)</b> — approval pending.</div>
+    <div class="modal-actions"><span class="btn">Close</span><span class="btn danger disabled">Rollback to v2026.07.18-03 (blocked)</span></div>
+  </div>
+</div>
+
+<p class="audit">Calendar regeneration, diff preview, publish (with TOTP step-up result), rollback attempts and the booked-slot guard outcome are versioned and recorded in the access log. Viewing booking references from this setup screen is also recorded in the access log.</p>
+</section>

@@ -1,0 +1,118 @@
+<section class="screen" id="pl-08">
+<div class="screen-head"><h1><span class="sid">PL-08</span> Release &amp; ring management</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G16 Platform Operator — operator console</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · release & ring management (scope item #143)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Operators promote Magnus platform versions through rings (sandbox → pilot → GA) with a mandatory checklist, and manage edge-agent versions per branch. Rollbacks pass through a data-migration guard: if a migration is not reversible, rollback is blocked and a forward-fix is required. Edge upgrades roll out in waves, with offline branches automatically deferred until they reconnect.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>Platform</span></span><span class="org">🏢 NUMINACORE Platform Console · operator realm</span></div><div class="userchip"><span class="av">RI</span>R. Iyer (Platform Ops) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Platform</div>
+      <div class="nav-item">Tenant directory</div>
+      <div class="nav-item">Provisioning</div>
+      <div class="nav-item">Support access</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Platform audit log</div>
+      <div class="nav-item">Dual-control queue <span class="nav-badge">2</span></div>
+      <div class="sec-label">Operations</div>
+      <div class="nav-item active">Releases &amp; rings</div>
+      <div class="nav-item">Edge agents</div>
+      <div class="nav-item">Backup &amp; DR</div>
+      <div class="nav-item">Incidents <span class="nav-badge red">1</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Platform Console › Operations › Releases &amp; rings</div>
+      <div class="page-title">Release &amp; ring management <span class="actions-right"><span class="btn small">Release notes</span> <span class="btn small primary">Promote a version…</span></span></div>
+      <div class="page-sub">Rings: sandbox → pilot → GA · edge agents per branch · all promotions and rollbacks are dual-controlled and tenant-mirrored</div>
+
+      <div class="state-tag">STATE A — RING OVERVIEW</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">v3.9.0</div><div class="l">GA ring</div><div class="s">3 tenants · stable 11 d</div></div>
+        <div class="kpi"><div class="n">v3.10.0-rc2</div><div class="l">Pilot ring</div><div class="s">Sunrise Imaging · 4 d soak</div></div>
+        <div class="kpi"><div class="n">v3.11.0-dev</div><div class="l">Sandbox ring</div><div class="s">Internal only</div></div>
+        <div class="kpi amber"><div class="n">2 / 9</div><div class="l">Edge branches behind</div><div class="s">1 deferred (offline)</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Current version per ring <span class="right">Core platform</span></div>
+        <table>
+          <tr><th>Ring</th><th>Version</th><th>Tenants / scope</th><th>Since (IST)</th><th>Health (7 d)</th><th>Migrations pending</th><th></th></tr>
+          <tr><td><span class="chip grey">SANDBOX</span></td><td class="mono">v3.11.0-dev.214</td><td>NUMINACORE internal sandbox tenant</td><td class="mono">24 Jul 09:10</td><td><span class="chip amber">2 known issues</span></td><td class="mono">M-311a, M-311b (draft)</td><td><span class="btn small ghost">Detail</span></td></tr>
+          <tr class="hl"><td><span class="chip blue">PILOT</span></td><td class="mono">v3.10.0-rc2</td><td>Sunrise Imaging (Pune) — opted-in pilot</td><td class="mono">21 Jul 07:30</td><td><span class="chip green">Clean · 0 regressions</span></td><td class="mono">M-310 applied ✓</td><td><span class="btn small primary">Promote to GA…</span></td></tr>
+          <tr><td><span class="chip teal">GA</span></td><td class="mono">v3.9.0</td><td>Meridian Diagnostics · Sunrise Imaging · CarePoint Labs</td><td class="mono">14 Jul 06:00</td><td><span class="chip green">Stable</span></td><td class="mono">none</td><td><span class="btn small warn-outline">Rollback…</span></td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Edge-agent versions per branch <span class="right">Target: v2.4.1</span></div>
+        <table>
+          <tr><th>Tenant</th><th>Branch</th><th>Edge agent</th><th>Devices bridged</th><th>Last seen (IST)</th><th>Upgrade state</th></tr>
+          <tr><td>Meridian Diagnostics</td><td>Andheri West</td><td class="mono">v2.4.1</td><td class="mono">CT-ROOM-1 (MERIDCT1) · US-UNIT-2 (MERIDUS2) · MRI-ROOM-2</td><td class="mono">25 Jul 11:58</td><td><span class="chip green">CURRENT</span></td></tr>
+          <tr><td>Meridian Diagnostics</td><td>Bandra</td><td class="mono">v2.4.1</td><td class="mono">2 modalities</td><td class="mono">25 Jul 11:57</td><td><span class="chip green">CURRENT</span></td></tr>
+          <tr><td>Sunrise Imaging (Pune)</td><td>Kothrud</td><td class="mono">v2.4.1</td><td class="mono">3 modalities</td><td class="mono">25 Jul 11:55</td><td><span class="chip green">CURRENT · wave W-29</span></td></tr>
+          <tr class="hl"><td>Sunrise Imaging (Pune)</td><td>Baner</td><td class="mono">v2.4.0</td><td class="mono">2 modalities</td><td class="mono">25 Jul 11:54</td><td><span class="chip amber">QUEUED · wave W-30</span></td></tr>
+          <tr class="dim"><td>CarePoint Labs (Kochi)</td><td>Edappally</td><td class="mono">v2.3.7</td><td class="mono">2 modalities</td><td class="mono">24 Jul 22:12</td><td><span class="chip red">DEFERRED — branch offline</span></td></tr>
+        </table>
+        <p class="small muted" style="margin-top:8px">Edge agents never auto-upgrade while a branch is offline or mid-study: the agent completes queued DICOM forwards first, then upgrades in its wave window.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PROMOTE TO GA WITH CHECKLIST (DUAL-CONTROL)</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:620px">
+    <h3>Promote v3.10.0-rc2 · pilot → GA</h3>
+    <p class="small muted" style="margin-bottom:10px">Applies to all GA tenants (Meridian Diagnostics, Sunrise Imaging, CarePoint Labs) in the 26 Jul 02:00–04:00 IST maintenance window. Tenants were notified 22 Jul (≥ 72 h lead time).</p>
+    <div class="check"><span class="box on">✓</span><span><b>Migrations reviewed</b> — M-310 (adds report-addendum index) reviewed by A. Bhat, 20 Jul. Reversibility: <span class="chip green">REVERSIBLE</span> (down-migration tested on pilot clone).</span></div>
+    <div class="check"><span class="box on">✓</span><span><b>Rollback tested</b> — v3.10.0-rc2 → v3.9.0 rehearsed on pilot clone 23 Jul, completed in 14 min, data verified.</span></div>
+    <div class="check"><span class="box on">✓</span><span><b>Pilot soak ≥ 72 h</b> — 4 d 6 h on Sunrise Imaging, 0 SEV incidents, error budget intact.</span></div>
+    <div class="check"><span class="box on">✓</span><span><b>Tenant notice sent</b> — status-page maintenance entry + tenant-admin email, 22 Jul 10:00 IST.</span></div>
+    <div class="check"><span class="box"></span><span><b>DR replica upgraded first</b> — pending: scheduled 25 Jul 23:00 IST (blocks promotion until green).</span></div>
+    <div class="banner warn"><b>Dual control required</b> Promotion needs a second operator's approval on the identical checklist. Requesting approval opens DC ref for S. Menon; it expires in 4 h if unapproved.</div>
+    <div class="field"><label>Step-up identity confirmation <span class="req">*</span></label><input class="input" placeholder="Touch passkey to confirm — R. Iyer, operator realm"><div class="hint">Passkey (operator realm) required; TOTP fallback with backup code allowed.</div></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn disabled">Request dual-control approval (1 item pending)</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — ROLLBACK BLOCKED BY DATA-MIGRATION GUARD</div>
+<div class="modal-wrap">
+  <div class="modal danger" style="max-width:620px">
+    <h3>Rollback v3.9.0 → v3.8.2 — blocked</h3>
+    <div class="banner danger"><b>Data-migration guard: irreversible migration in path</b> Migration <span class="mono">M-309</span> (v3.9.0) merged duplicate patient-contact rows and dropped the legacy column. It has <b>no safe down-migration</b> — rolling back would orphan 11,204 merged records across 3 tenants.</div>
+    <div class="kv">
+      <dt>Requested by</dt><dd>R. Iyer · 25 Jul 12:04 IST · reason: “report-editor latency regression, ticket PLT-902”</dd>
+      <dt>Guard verdict</dt><dd><span class="chip red">ROLLBACK BLOCKED</span> — reversible? NO (M-309 destructive)</dd>
+      <dt>Forward-fix note</dt><dd>Ship hotfix <span class="mono">v3.9.1</span> reverting only the report-editor bundle (no schema change). Draft branch <span class="mono">hotfix/plt-902</span> ready; sandbox validation ETA 4 h. Approved pattern per runbook RB-REL-04.</dd>
+      <dt>Override</dt><dd>No override path exists for irreversible migrations. Emergency data restore would instead go through Backup &amp; DR (PL-09) with its own dual control.</dd>
+    </div>
+    <div class="modal-actions"><span class="btn">Close</span><span class="btn primary">Create forward-fix release v3.9.1…</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE D — EDGE UPGRADE WAVE WITH OFFLINE-BRANCH DEFERRAL</div>
+<div class="card">
+  <div class="card-title">Edge upgrade wave W-30 · agent v2.4.0 → v2.4.1 <span class="right">Window 26 Jul 01:00–05:00 IST</span></div>
+  <div class="row">
+    <div class="grow">
+      <table>
+        <tr><th>Branch</th><th>Pre-checks</th><th>Queued DICOM forwards</th><th>Status</th><th>Owner</th></tr>
+        <tr><td>Sunrise Imaging · Baner</td><td><span class="chip green">PASSED</span></td><td class="mono">0</td><td><span class="chip teal">SCHEDULED 01:10 IST</span></td><td>S. Menon</td></tr>
+        <tr><td>Meridian · Andheri West (re-verify only)</td><td><span class="chip green">PASSED</span></td><td class="mono">0</td><td><span class="chip green">ALREADY CURRENT</span></td><td>—</td></tr>
+        <tr class="dim"><td>CarePoint Labs · Edappally</td><td><span class="chip grey">SKIPPED</span></td><td class="mono">14 pending on-device</td><td><span class="chip red">DEFERRED — offline since 24 Jul 22:12</span></td><td>A. Bhat</td></tr>
+      </table>
+      <div class="banner info" style="margin-top:10px"><b>Offline-branch deferral rule</b> Edappally stays on v2.3.7 until its edge agent reconnects, flushes the 14 queued forwards, and passes pre-checks. It then auto-joins the next wave (W-31) — never mid-day upgrades. CarePoint's tenant admin is notified of the deferral.</div>
+    </div>
+    <div style="width:270px">
+      <div class="kv" style="grid-template-columns:120px 1fr">
+        <dt>Wave policy</dt><dd>Max 1 branch per tenant per wave · auto-halt on first failure</dd>
+        <dt>Rollback</dt><dd>Agent keeps previous binary; auto-revert if post-upgrade echo to CT-ROOM-1-class devices fails twice</dd>
+        <dt>SLA</dt><dd><span class="chip teal">ON TRACK</span> owner: S. Menon</dd>
+      </div>
+      <div style="margin-top:10px"><span class="btn small warn-outline">Pause wave</span> <span class="btn small">Wave history</span></div>
+    </div>
+  </div>
+</div>
+
+<p class="audit">Every promotion request, checklist state, rollback attempt (including blocked ones), and wave change is hash-chained in the platform audit log, mirrored to affected tenants, and recorded in the access log.</p>
+</section>

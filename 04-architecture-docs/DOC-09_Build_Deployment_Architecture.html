@@ -1,0 +1,296 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DOC-09 Build &amp; Deployment Architecture Blueprint — Magnus HMS</title>
+<style>/* Magnus HMS — NS design pack shared design system */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
+.mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
+.muted{color:#64748B}.small{font-size:12px}.bold{font-weight:700}
+/* ---------- page / screen frame ---------- */
+.screen{page-break-after:always;padding:28px 34px;background:#fff;min-height:1000px}
+.screen-head{display:flex;justify-content:space-between;align-items:flex-start;border-left:5px solid #0F766E;padding:6px 0 6px 14px;margin-bottom:6px}
+.screen-head h1{font-size:22px;font-weight:800}
+.screen-head .sid{color:#0F766E;margin-right:10px}
+.screen-head .meta{text-align:right}
+.screen-head .meta .cluster{color:#64748B;font-size:12px;margin-top:3px}
+.gap-note{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:8px 12px;margin:10px 0 16px;font-size:12.5px;color:#7C2D12}
+.gap-note b{color:#9A3412}
+/* ---------- app chrome ---------- */
+.frame{border:1px solid #CBD5E1;border-radius:10px;overflow:hidden;background:#F4F6F8;box-shadow:0 1px 4px rgba(15,23,42,.08);margin-bottom:22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:2px solid #0F766E;padding:9px 16px}
+.brand{font-weight:800;color:#0F766E}.brand span{color:#1E293B}
+.org{font-size:12.5px;color:#334155;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px}
+.userchip{font-size:12.5px;color:#334155}
+.userchip .av{display:inline-block;background:#CCFBF1;color:#0F766E;font-weight:700;border-radius:5px;padding:2px 6px;margin-right:6px;font-size:11px}
+.body{display:flex;min-height:520px}
+.sidebar{width:196px;background:#fff;border-right:1px solid #E2E8F0;padding:12px 0;flex-shrink:0}
+.sec-label{font-size:10.5px;letter-spacing:.08em;color:#94A3B8;font-weight:700;padding:8px 16px 4px;text-transform:uppercase}
+.nav-item{padding:7px 16px;font-size:13px;color:#334155;display:flex;justify-content:space-between;align-items:center}
+.nav-item.active{background:#F0FDFA;color:#0F766E;font-weight:700;border-left:3px solid #0F766E;padding-left:13px}
+.nav-badge{background:#0F766E;color:#fff;border-radius:9px;font-size:10.5px;padding:1px 7px;font-weight:700}
+.nav-badge.red{background:#B91C1C}
+.main{flex:1;padding:16px 18px;min-width:0}
+.crumb{font-size:12px;color:#64748B;margin-bottom:8px}
+.page-title{font-size:19px;font-weight:800;margin-bottom:2px}
+.page-sub{font-size:12.5px;color:#64748B;margin-bottom:14px}
+.actions-right{float:right}
+/* ---------- components ---------- */
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card-title{font-weight:800;font-size:14.5px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.card-title .right{font-size:10.5px;letter-spacing:.07em;color:#94A3B8;font-weight:700;text-transform:uppercase}
+.row{display:flex;gap:14px}.row>*{min-width:0}.grow{flex:1}
+.btn{display:inline-block;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:700;border:1px solid #CBD5E1;background:#fff;color:#334155;text-align:center;white-space:nowrap}
+.btn.primary{background:#0F766E;border-color:#0F766E;color:#fff}
+.btn.danger{background:#B91C1C;border-color:#B91C1C;color:#fff}
+.btn.warn-outline{border-color:#F59E0B;color:#92400E;background:#FFFBEB}
+.btn.ghost{border:none;background:none;color:#0F766E;padding:7px 6px}
+.btn.small{padding:4px 10px;font-size:12px}
+.btn.disabled{opacity:.45}
+.chip{display:inline-block;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip.teal{background:#CCFBF1;color:#0F766E}
+.chip.green{background:#DCFCE7;color:#15803D}
+.chip.amber{background:#FEF3C7;color:#92400E}
+.chip.red{background:#FEE2E2;color:#B91C1C}
+.chip.grey{background:#F1F5F9;color:#475569}
+.chip.blue{background:#E0F2FE;color:#0369A1}
+.chip.violet{background:#EDE9FE;color:#6D28D9}
+.chip.outline-red{background:#fff;border:1.5px solid #B91C1C;color:#B91C1C}
+.banner{border-radius:8px;padding:10px 13px;font-size:12.5px;margin-bottom:12px;border:1px solid}
+.banner b{display:block;margin-bottom:2px;font-size:13px}
+.banner.info{background:#E0F2FE;border-color:#7DD3FC;color:#075985}
+.banner.warn{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+.banner.danger{background:#FEE2E2;border-color:#FCA5A5;color:#991B1B}
+.banner.success{background:#DCFCE7;border-color:#86EFAC;color:#166534}
+.banner.reg{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding:7px 9px;border-bottom:2px solid #E2E8F0;background:#F8FAFC}
+td{padding:8px 9px;border-bottom:1px solid #EEF2F6;vertical-align:top}
+tr.hl td{background:#F0FDFA}
+tr.dim td{color:#94A3B8}
+.kv{display:grid;grid-template-columns:150px 1fr;row-gap:6px;column-gap:12px;font-size:12.5px}
+.kv dt{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding-top:2px}
+.kv dd{margin:0}
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+.field label .req{color:#B91C1C}
+.field .hint{font-size:11px;color:#64748B;margin-top:3px}
+.input,.select,.textarea{width:100%;border:1px solid #CBD5E1;border-radius:7px;padding:7px 10px;font-size:13px;background:#fff;color:#1E293B}
+.input.err{border-color:#B91C1C;background:#FEF2F2}
+.textarea{min-height:64px}
+.check{font-size:12.5px;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.box{display:inline-block;width:14px;height:14px;border:1.6px solid #64748B;border-radius:3px;flex-shrink:0;margin-top:1px;text-align:center;line-height:12px;font-size:11px;font-weight:800}
+.box.on{background:#0F766E;border-color:#0F766E;color:#fff}
+.radio{border-radius:50%}
+.radio.on{background:#fff;border-color:#0F766E;box-shadow:inset 0 0 0 3.5px #0F766E;color:transparent}
+/* modal */
+.modal-wrap{background:#64748B22;border:1px dashed #94A3B8;border-radius:12px;padding:26px 40px;margin:14px 0}
+.modal{background:#fff;border-radius:12px;border-top:5px solid #0F766E;box-shadow:0 8px 30px rgba(15,23,42,.25);max-width:560px;margin:0 auto;padding:18px 20px}
+.modal.danger{border-top-color:#B91C1C}
+.modal h3{font-size:16px;margin-bottom:8px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+/* misc */
+.divider-label{text-align:center;color:#94A3B8;font-size:11.5px;margin:20px 0 14px;position:relative}
+.divider-label:before,.divider-label:after{content:"";display:inline-block;width:24%;border-top:1px dashed #CBD5E1;vertical-align:middle;margin:0 10px}
+.audit{font-size:11px;color:#8A6D1D;margin-top:10px}
+.audit:before{content:"🔒 "}
+.state-tag{font-size:10px;letter-spacing:.08em;font-weight:800;text-transform:uppercase;color:#94A3B8;text-align:right;margin-bottom:4px}
+.kpi-row{display:flex;gap:12px;margin-bottom:14px}
+.kpi{flex:1;background:#fff;border:1px solid #E2E8F0;border-left:4px solid #0F766E;border-radius:9px;padding:10px 13px}
+.kpi.amber{border-left-color:#F59E0B}.kpi.red{border-left-color:#B91C1C}
+.kpi .n{font-size:23px;font-weight:800}.kpi .l{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700}
+.kpi .s{font-size:11px;color:#64748B;margin-top:2px}
+.stepper{display:flex;gap:6px;align-items:center;font-size:12px;color:#64748B;margin-bottom:14px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:6px}
+.step .dot{width:20px;height:20px;border-radius:50%;background:#E2E8F0;color:#475569;font-size:11px;font-weight:800;text-align:center;line-height:20px}
+.step.done .dot{background:#15803D;color:#fff}.step.cur .dot{background:#0F766E;color:#fff}
+.step.cur{color:#0F766E;font-weight:700}
+.step-line{width:26px;border-top:2px solid #CBD5E1}
+.sig-box{border:1.5px dashed #94A3B8;border-radius:8px;min-height:64px;background:#F8FAFC;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:12px;font-style:italic}
+.sig-box.signed{border-style:solid;border-color:#15803D;color:#166534;background:#F0FDF4;font-family:'Segoe Script','Comic Sans MS',cursive;font-size:17px;font-style:normal}
+.ladder{border-left:3px solid #E2E8F0;margin-left:8px;padding-left:16px}
+.ladder .tier{margin-bottom:12px;position:relative}
+.ladder .tier:before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:#CBD5E1}
+.ladder .tier.done:before{background:#15803D}.ladder .tier.cur:before{background:#0F766E;box-shadow:0 0 0 3px #CCFBF1}
+.ladder .tier.fail:before{background:#B91C1C}
+.progress{height:7px;border-radius:4px;background:#E2E8F0;overflow:hidden;margin-top:4px}
+.progress i{display:block;height:100%;background:#0F766E}
+.progress.amber i{background:#F59E0B}.progress.red i{background:#B91C1C}
+.split{display:grid;grid-template-columns:1fr 300px;gap:14px}
+.timeline{font-size:12.5px}
+.timeline .ev{display:flex;gap:10px;margin-bottom:9px}
+.timeline .t{color:#64748B;white-space:nowrap;font-family:Consolas,monospace;font-size:11.5px;padding-top:1px}
+ body{background:#F4F6F8;padding:30px} .doc{max-width:1180px;margin:0 auto} h2{font-size:19px;margin:22px 0 8px;color:#0F766E}
+ .flow{font-size:12px;color:#475569;line-height:2.1}
+ .flow .arr{color:#94A3B8;font-weight:800;padding:0 4px}
+ code{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em;background:#F1F5F9;border-radius:4px;padding:1px 5px;color:#0F766E}
+ code.ev{color:#6D28D9;background:#EDE9FE}</style></head><body><div class="doc">
+
+<div style="border-left:6px solid #0F766E;padding-left:18px;margin-bottom:18px;background:#fff;border-radius:0 10px 10px 0;padding:16px 18px 16px 18px">
+<div style="font-size:11px;letter-spacing:.12em;font-weight:800;color:#0F766E;text-transform:uppercase">Magnus HMS · MVP 1 · Architecture &amp; Workflow Documentation</div>
+<h1 style="font-size:26px;margin:6px 0">DOC-09 — Build &amp; Deployment Architecture Blueprint (Java/React)</h1>
+<p class="muted" style="font-size:13px">The agreed expert-panel architecture for Magnus HMS MVP 1, written so the development team starts Sprint 1 with <b>zero ambiguity</b>: modular monolith on Java 21 / Spring Boot 3, React front-end, one operational branch + remote radiologists (pilot Option A), edge sync as a core MVP 1 service. Every rule below traces to a screen ID in the 225-screen pack (DOC-08 crosswalk) or a design-system pattern (DS-01…DS-11). Version 1.0 · July 2026.</p></div>
+
+<div class="banner reg"><b>How to read this document</b>Sections 1–5 are code-structure law (module boundaries, events, FHIR naming, data conventions) — violations fail code review. Sections 6–9 are runtime contracts (identity, topology, sync, adapters). Sections 10–11 are ops commitments the pilot SLA depends on. "Screen IDs" refer to the NS design pack (e.g. FO-03 = registration demographics, RD-09 = sign-off, IN-10 = edge sync monitor).</div>
+
+<!-- ============ 1 ============ -->
+<h2>1 · Architecture style — modular monolith (Java 21, Spring Boot 3)</h2>
+<div class="card"><div class="card-title">Decision &amp; rationale <span class="right">Panel-agreed · binding</span></div>
+<table><tr><th style="width:190px">Aspect</th><th>Decision</th><th style="width:340px">Rationale</th></tr>
+<tr><td class="bold">Style</td><td>Single deployable Spring Boot 3 application (<span class="mono">com.magnus.hms</span>) composed of strictly-bounded modules, verified by ArchUnit rules in CI.</td><td>One pilot branch, ~15 concurrent staff users: microservices would multiply deployment, sync and debugging cost with zero scaling benefit. No premature microservices.</td></tr>
+<tr><td class="bold">Runtime</td><td>Java 21 (LTS, virtual threads enabled for I/O-bound adapter work), Spring Boot 3.x, Spring Modulith conventions; React 18 + TypeScript SPA front-end.</td><td>Virtual threads absorb DICOM/HL7/notification I/O without reactive complexity; team skill match.</td></tr>
+<tr><td class="bold">Extraction path</td><td>Each module = own package root, own service interfaces, own events, optionally own DB schema (§2). A module that must scale (first candidates: <span class="mono">notification</span>, <span class="mono">imaging</span> adapters, <span class="mono">sync</span>) can be lifted to a separate service by re-pointing its API interface at an HTTP/AMQP client — <b>no domain-code rewrite</b>.</td><td>Clean extraction path is the insurance policy that makes the monolith safe to commit to.</td></tr>
+<tr><td class="bold">Front-end</td><td>One React app, route-level code splitting per screen cluster (FO / TK / RD / BL / AD / GV / PL …); patient links (PT-01…PT-12) served as a separate lightweight bundle (no staff chrome, OTP auth only).</td><td>Patient pages must load fast on low-end phones and must never ship staff code.</td></tr></table></div>
+
+<div class="card"><div class="card-title">Bounded-context module table <span class="right">Package · entities · screens · interfaces · events</span></div>
+<table><tr><th style="width:170px">Module (package)</th><th style="width:225px">Owned entities (aggregates)</th><th style="width:170px">Owned screens</th><th style="width:230px">Exposed service interfaces (<span class="mono">…api</span>)</th><th>Emitted events</th></tr>
+<tr><td class="mono bold">com.magnus.hms<br>.patient</td><td>Patient, PatientIdentifier (MRN, ABHA-ready), Representative, DuplicateCandidate, MergeCase</td><td class="mono">FO-02…FO-09, FO-20</td><td class="mono">PatientLookupService, PatientRegistrationService, MergeService, DemographicsMaskingService (DS-07)</td><td><code class="ev">PatientRegistered</code> <code class="ev">PatientMerged</code></td></tr>
+<tr><td class="mono bold">.encounter</td><td>Encounter (visit spine FO-16), Appointment, Token/QueueEntry, ScheduleTemplate, CalendarVersion</td><td class="mono">FO-01, FO-10…FO-19, FO-21, FO-22, SC-01…SC-10</td><td class="mono">AppointmentService, CheckInService, QueueService, ScheduleQueryService</td><td class="mono muted">EncounterOpened, EncounterClosed (internal)</td></tr>
+<tr><td class="mono bold">.order</td><td>ServiceRequest (imaging order), OrderTimeline, PrepProtocol, PaperReferral</td><td class="mono">OR-01…OR-08, DD-03, DD-04</td><td class="mono">OrderPlacementService, OrderStatusService, DuplicateCheckService (S-5/N-9)</td><td><code class="ev">OrderPlaced</code>, <span class="mono muted">OrderCancelled</span></td></tr>
+<tr><td class="mono bold">.imaging</td><td>Study, Series, DoseRecord (TK-10), Report + ReportVersion, CriticalResultCase, SafetyScreening (contrast/MR), AdverseReaction</td><td class="mono">TK-01…TK-12, RD-01…RD-18, CS-01, CS-02, CS-04, CS-05, DD-01, DD-02</td><td class="mono">WorklistService, StudyService, ReportService, CriticalResultService, ViewerLaunchService (§7)</td><td><code class="ev">StudyAcquired</code> <code class="ev">ReportSigned</code> <code class="ev">ReportReleased</code> <code class="ev">CriticalFlagged</code> <code class="ev">CriticalAcknowledged</code></td></tr>
+<tr><td class="mono bold">.billing</td><td>Invoice, InvoiceLine, Payment, Receipt, Refund, CreditNote, CashSession (BL-09), Advance/Deposit, Estimate, WriteOff</td><td class="mono">BL-01…BL-19, PT-04, PT-06</td><td class="mono">ChargeCaptureService, PaymentService, RefundService, LedgerQueryService, GstExportService</td><td><code class="ev">PaymentCaptured</code> <code class="ev">RefundProcessed</code></td></tr>
+<tr><td class="mono bold">.consent</td><td>ConsentRecord, NoticeVersion, ConsentWithdrawal, PrivacyRightRequest (DPDP copy/correct/erase), RefusalRecord</td><td class="mono">FO-05, CS-03, AD-10, GV-04, GV-05, GV-10, GV-11, PT-07…PT-09</td><td class="mono">ConsentCaptureService, ConsentStatusService (checked by order/imaging/notification), RightsRequestService</td><td><code class="ev">ConsentWithdrawn</code>, <span class="mono muted">ConsentCaptured</span></td></tr>
+<tr><td class="mono bold">.notification</td><td>DeliveryAttempt (ledger NT-01), MessageTemplate, SuppressionEntry, SecureLink (TTL D-12), QuietHoursPolicy</td><td class="mono">NT-01…NT-08, PT-01, PT-03, NT-06, DD-09</td><td class="mono">NotificationDispatchService, SecureLinkService, TemplateService, SuppressionService</td><td><code class="ev">DeliveryFailed</code>, <span class="mono muted">DeliverySucceeded</span></td></tr>
+<tr><td class="mono bold">.identity</td><td>UserAccount (Keycloak mirror), RoleBinding, Session, StepUpToken (AU-09), BreakGlassGrant (DD-05), ServiceAccount (AU-18)</td><td class="mono">AU-01…AU-18, AD-03, AD-04, AD-05, DD-05, DD-06</td><td class="mono">AuthorizationService, StepUpService, BreakGlassService, SessionAdminService</td><td class="mono muted">BreakGlassOpened, AccessDenied (feeds audit)</td></tr>
+<tr><td class="mono bold">.audit</td><td>AuditEvent (append-only, §5), AccessLogEntry, ExportGrant (GV-15)</td><td class="mono">AD-20, GV-02, GV-03, GV-15, PL-07</td><td class="mono">AuditWriteService (fire-and-forget, never blocks caller), AuditQueryService (governed)</td><td>— (terminal sink; consumes everything)</td></tr>
+<tr><td class="mono bold">.sync</td><td>OutboxEntry, SyncBatch, ConflictCase (four-eyes IN-10), EdgeNodeState, TempIdentityMap (UUID→MRN)</td><td class="mono">IN-10 (+ DS-04 pattern)</td><td class="mono">OutboxService, IngestionService (cloud side), ConflictQueueService</td><td><code class="ev">MigrationBatchAccepted</code>, <span class="mono muted">SyncBatchApplied</span></td></tr>
+<tr><td class="mono bold">.regulatory</td><td>FormFRecord (immutable IR-03), PndtSubmission, AerbComplianceItem, RegulatoryCalendarEntry, CorrectionCase (IR-04)</td><td class="mono">IR-01…IR-06, CS-06</td><td class="mono">FormFService, RegulatoryRegisterService, SubmissionService</td><td class="mono muted">FormFFiled, SubmissionOverdue (internal → SLA)</td></tr>
+<tr><td class="mono bold">.platform</td><td>Organisation/Branch, ServicePoint, Practitioner, Equipment, NumberSeries (AD-16), FeatureFlag, Terminology, ImportBatch (AD-12), ScheduledJob (AD-18), Tenant/Plan (PL), Grievance (GR), IntegrationConfig (IN)</td><td class="mono">AD-01, AD-02, AD-06…AD-19, PL-01…PL-12, IN-01…IN-09, GV-01, GV-06…GV-09, GV-12…GV-14, GV-16, GR-01…GR-06, DD-07, DD-08, DD-10, DD-11</td><td class="mono">MasterDataService, NumberSeriesService, FeatureFlagService, JobSchedulerService, GrievanceService</td><td class="mono muted">MasterDataChanged, JobFailed</td></tr></table>
+<p class="small muted" style="margin-top:8px">Portal clusters (DD referrer desk, PT patient pages) are <b>composed UIs</b>: each screen is owned by exactly one module above; a portal page may call several modules' read APIs but writes only through the owning module. Design-system screens DS-01…DS-11 are patterns, not runtime modules.</p></div>
+
+<!-- ============ 2 ============ -->
+<h2>2 · Module boundary rules</h2>
+<div class="card"><div class="card-title">The five laws <span class="right">Enforced by ArchUnit in CI</span></div>
+<table><tr><th style="width:36px">#</th><th style="width:230px">Rule</th><th>Detail</th></tr>
+<tr><td class="bold">B1</td><td class="bold">Interfaces or events — nothing else</td><td>A module may reference another module <b>only</b> via (a) service interfaces published in that module's <span class="mono">…api</span> package, or (b) domain events. Direct access to another module's entities, repositories, or <span class="mono">internal</span> packages is a build failure. No shared "common domain" grab-bag; only <span class="mono">com.magnus.hms.shared</span> holds pure value types (Money, Mrn, AccessionNo, AuditRef) with zero JPA annotations.</td></tr>
+<tr><td class="bold">B2</td><td class="bold">Transactional outbox</td><td>Domain events are published inside the producing transaction via Spring <span class="mono">ApplicationEventPublisher</span> and written to the module's <span class="mono">outbox_event</span> table in the same commit. A relay (Spring Modulith event externalisation) forwards committed events to <b>RabbitMQ</b> for external consumers (notification workers, sync, analytics feed). Internal consumers use <span class="mono">@ApplicationModuleListener</span> (async, after-commit). Never dual-write: no direct AMQP publish from request threads.</td></tr>
+<tr><td class="bold">B3</td><td class="bold">One PostgreSQL, schema-per-domain optional</td><td>Single PostgreSQL 16 instance per plane (cloud + branch edge). Modules default to one schema; a module may opt into its own schema (<span class="mono">billing.*</span>, <span class="mono">audit.*</span> do so from Sprint 1 — money and audit isolation). <b>No cross-module joins, ever</b> — even inside one schema; cross-context reads go through the owning module's query service. Flyway migrations are namespaced per module.</td></tr>
+<tr><td class="bold">B4</td><td class="bold">Redis where justified only</td><td>Redis is approved for: OTP + secure-link token store (PT-01/PT-03 TTL), queue-display fan-out (FO-14/SC-10), rate limiting, idempotency-key cache on ingestion (§8). It is <b>not</b> a system of record; anything needed after restart lives in PostgreSQL.</td></tr>
+<tr><td class="bold">B5</td><td class="bold">Synchronous chains stay short</td><td>A request handler may call at most its own module + read-only queries on others. Anything with side effects in a second module goes through an event (e.g. BL charge on <code class="ev">OrderPlaced</code>, NT dispatch on <code class="ev">ReportReleased</code>) — this is also what makes the edge/cloud split (§7–8) tractable.</td></tr></table></div>
+
+<!-- ============ 3 ============ -->
+<h2>3 · Domain event catalogue</h2>
+<div class="card"><div class="card-title">MVP 1 published events <span class="right">Envelope: eventId · type · v1 · occurredAt(UTC) · branchId · correlationId · actor</span></div>
+<table><tr><th style="width:165px">Event</th><th style="width:150px">Producer</th><th>Payload sketch (beyond envelope)</th><th style="width:265px">Consumers</th></tr>
+<tr><td class="mono bold" style="color:#6D28D9">PatientRegistered</td><td class="mono">patient (FO-03…05)</td><td class="mono small">patientId, mrn, branchId, source(DESK|EDGE_OFFLINE|MIGRATION), consentSnapshotId, tempUuid?</td><td>billing (open ledger), notification (welcome/prep), sync (edge↔cloud), audit</td></tr>
+<tr><td class="mono bold" style="color:#6D28D9">PatientMerged</td><td class="mono">patient (FO-08/09)</td><td class="mono small">survivorId, mergedId, retiredMrn, mergeCaseId, fieldResolutions[]</td><td>order, imaging (re-link studies/priors), billing (ledger merge), notification (re-point links), audit, sync</td></tr>
+<tr><td class="mono bold" style="color:#6D28D9">OrderPlaced</td><td class="mono">order (OR-01, DD-03)</td><td class="mono small">orderId, accessionNo (AD-16 series), patientId, encounterId, procedureCode, laterality, priority, referrerId, prepProtocolId</td><td>imaging (MWL entry → modality), billing (charge capture), notification (prep instructions PT-05), SLA engine, audit</td></tr>
+<tr><td class="mono bold" style="color:#6D28D9">StudyAcquired</td><td class="mono">imaging (edge, TK-02)</td><td class="mono small">studyUid, accessionNo, modality, stationAet, seriesCount, imageCount, doseSummary, acquiredAt</td><td>order (status→ACQUIRED), sync (replicate to cloud Orthanc), regulatory (dose registry TK-10), SLA engine (start read clock), audit</td></tr>
+<tr><td class="mono bold" style="color:#6D28D9">ReportSigned</td><td class="mono">imaging (RD-09)</td><td class="mono small">reportId, reportVersion, studyUid, accessionNo, signerId, declarationRef (C-3), criticalFlag, signedAt</td><td>notification (release pipeline), regulatory (statutory sections), SLA engine (stop read clock), audit</td></tr>
+<tr><td class="mono bold" style="color:#6D28D9">ReportReleased</td><td class="mono">imaging (RD-13)</td><td class="mono small">reportId, releaseChannels[], secureLinkId, recipients[] (patient / referrer per DD-09 prefs)</td><td>notification (dispatch NT-01), patient/referrer portals (PT-02, DD-02), audit</td></tr>
+<tr><td class="mono bold" style="color:#6D28D9">CriticalFlagged</td><td class="mono">imaging (RD-10)</td><td class="mono small">criticalCaseId, reportId, tier, flaggedBy, targetClinicianId, slaDeadline (DS-03)</td><td>notification (tiered send NS-01), SLA engine (ack clock), RD-11 queue projection, audit</td></tr>
+<tr><td class="mono bold" style="color:#6D28D9">CriticalAcknowledged</td><td class="mono">imaging (RD-11)</td><td class="mono small">criticalCaseId, ackBy, ackChannel(CALL|APP|PORTAL), ackAt, elapsedMinutes</td><td>SLA engine (stop clock / cancel escalation), audit</td></tr>
+<tr><td class="mono bold" style="color:#6D28D9">PaymentCaptured</td><td class="mono">billing (BL-03/04)</td><td class="mono small">paymentId, invoiceId, mode(CASH|UPI|CARD), amountMinor, currency, receiptNo, cashSessionId?, gatewayRef?</td><td>encounter (unblock check-in gates), order (paid status), notification (receipt PT-04), audit, sync (edge cash)</td></tr>
+<tr><td class="mono bold" style="color:#6D28D9">RefundProcessed</td><td class="mono">billing (BL-06)</td><td class="mono small">refundId, invoiceId, amountMinor, mode, approvalRef (BL-08 queue), creditNoteNo?</td><td>notification (confirmation), audit</td></tr>
+<tr><td class="mono bold" style="color:#6D28D9">ConsentWithdrawn</td><td class="mono">consent (PT-07, GV-11)</td><td class="mono small">consentId, patientId, scope[], channel, effectiveAt, capturedBy</td><td>notification (suppression NT-05 — immediate), order/imaging (processing checks), regulatory, audit</td></tr>
+<tr><td class="mono bold" style="color:#6D28D9">DeliveryFailed</td><td class="mono">notification (NT-02)</td><td class="mono small">deliveryId, channel(SMS|WA|EMAIL), templateId, failCode, retryCount, terminal(bool), patientId?</td><td>front-office recovery worklist (NT-02/NS-07), SLA engine (critical-result path only), audit</td></tr>
+<tr><td class="mono bold" style="color:#6D28D9">MigrationBatchAccepted</td><td class="mono">sync / platform (AD-12)</td><td class="mono small">batchId, sourceSystem, entityCounts{}, rejectCount, acceptedBy, rollbackToken</td><td>patient/billing (activate rows), audit (MIGRATION_BATCH_ACCEPT), IN-10 monitor</td></tr></table>
+<p class="small muted" style="margin-top:8px">Payloads carry IDs + facts, never full clinical documents. Events are versioned (<span class="mono">type.v1</span>); additive changes only within a version. Every consumer must be idempotent on <span class="mono">eventId</span>.</p></div>
+
+<!-- ============ 4 ============ -->
+<h2>4 · FHIR R4 alignment — name it right on day one</h2>
+<div class="card"><div class="card-title">Internal entity ↔ FHIR R4 resource map <span class="right">JPA-mapped · adapters, not remodels</span></div>
+<div class="banner info"><b>Principle</b>We do not run a FHIR server in MVP 1 — but every core entity is <b>named and structured</b> after its FHIR R4 resource, so future LIS integration, ABDM/ABHA linkage and HIE participation are <b>adapter work</b> (mapping at the edge), never a data-model remodel.</div>
+<table><tr><th style="width:170px">Internal entity (module)</th><th style="width:150px">FHIR R4 resource</th><th>Alignment notes (fields we keep FHIR-shaped)</th></tr>
+<tr><td class="mono">Patient <span class="muted">(patient)</span></td><td class="mono bold">Patient</td><td>identifier[] (MRN system-scoped, ABHA slot reserved), name/telecom/address structures, link[] used by merge (FO-08/09) exactly as FHIR replaces/replaced-by.</td></tr>
+<tr><td class="mono">Encounter <span class="muted">(encounter)</span></td><td class="mono bold">Encounter</td><td>status machine (planned→arrived→in-progress→finished/cancelled) = FO-16 visit spine; serviceProvider→Organization, participant→Practitioner.</td></tr>
+<tr><td class="mono">ServiceRequest <span class="muted">(order)</span></td><td class="mono bold">ServiceRequest</td><td>intent=order, priority (routine|urgent|stat — OR-07 governs stat), code (terminology AD-11 pinned versions), bodySite+laterality (OR-02), requester→Practitioner (referrer AD-07).</td></tr>
+<tr><td class="mono">Observation <span class="muted">(imaging)</span></td><td class="mono bold">Observation</td><td>Dose records (TK-10), contrast administration (TK-06), safety-screening answers (CS-01/02) stored as coded observations with effective[x] UTC.</td></tr>
+<tr><td class="mono">DiagnosticReport <span class="muted">(imaging)</span></td><td class="mono bold">DiagnosticReport</td><td>status (partial→final→amended per RD-12/RD-15 chain), resultsInterpreter→Practitioner, presentedForm = rendered PDF, imagingStudy→Study UIDs.</td></tr>
+<tr><td class="mono">ConsentRecord <span class="muted">(consent)</span></td><td class="mono bold">Consent</td><td>scope/category coding, policy = notice version (GV-10), provision.type deny for refusals (R-02), verification block for OTP-verified patient actions.</td></tr>
+<tr><td class="mono">Invoice <span class="muted">(billing)</span></td><td class="mono bold">Invoice</td><td>lineItem.priceComponent (base / discount BL-12 / GST C-5), totalNet/totalGross in minor units; receipts and credit notes reference Invoice.</td></tr>
+<tr><td class="mono">Practitioner <span class="muted">(platform)</span></td><td class="mono bold">Practitioner + PractitionerRole</td><td>qualification[] carries mandatory registrations (C-6, AD-06); PractitionerRole binds branch + specialty + referrer relationship.</td></tr>
+<tr><td class="mono">Organisation / Branch / ServicePoint <span class="muted">(platform)</span></td><td class="mono bold">Organization / Location</td><td>Branch = Location under Organization (AD-01); modality rooms and service points (AD-02) = child Locations with mode=instance.</td></tr></table>
+<p class="small muted" style="margin-top:8px">Rule for reviewers: if a new column has an obvious FHIR home, use the FHIR name (<span class="mono">issued</span>, not <span class="mono">report_date</span>). ImagingStudy metadata mirrors DICOM (study/series/instance UIDs) and maps trivially to FHIR ImagingStudy when needed.</p></div>
+
+<!-- ============ 5 ============ -->
+<h2>5 · Data conventions</h2>
+<div class="card"><div class="card-title">Non-negotiable data rules <span class="right">Apply from first migration</span></div>
+<table><tr><th style="width:200px">Convention</th><th>Rule</th></tr>
+<tr><td class="bold">Optimistic locking + freshness</td><td>Every clinical entity carries <span class="mono">@Version version BIGINT</span> and <span class="mono">last_modified TIMESTAMPTZ</span> + <span class="mono">last_modified_by</span>. Stale-write → 409 with DS-05 conflict UI. These columns also drive sync change-detection (§8).</td></tr>
+<tr><td class="bold">API versioning</td><td>All REST under <span class="mono">/api/v1/…</span> from day one. Breaking change = new <span class="mono">/api/v2</span> resource, never mutation of v1. Patient-link endpoints live under <span class="mono">/link/v1/…</span> (separate gateway policy, OTP auth).</td></tr>
+<tr><td class="bold">Audit event catalogue</td><td>Immutable append-only <span class="mono">audit.audit_event</span> (INSERT-only role; no UPDATE/DELETE grants). Typed catalogue, extended only via PR to <span class="mono">AuditEventType</span> enum: <span class="mono">PATIENT_CREATE, PATIENT_VIEW, PATIENT_MERGE, ORDER_PLACE, ORDER_CANCEL, STUDY_ACQUIRE, REPORT_SIGN, REPORT_AMEND, REPORT_RELEASE, CRITICAL_RESULT_FLAG, CRITICAL_RESULT_ACK, CRITICAL_ESCALATE, PAYMENT_CAPTURE, REFUND_PROCESS, CONSENT_CAPTURE, CONSENT_WITHDRAW, BREAK_GLASS_OPEN, STEP_UP_CONFIRM, ACCESS_DENIED_MASKED, FORM_F_FILE, MIGRATION_BATCH_ACCEPT, SYNC_CONFLICT_RESOLVE, EXPORT_GRANT, JOB_ESCALATION</span>. Viewers: AD-20 (branch), GV-02 (governance), PL-07 (platform mirror).</td></tr>
+<tr><td class="bold">Number series (AD-16)</td><td>Single formats, one registry, gap-tracked: MRN <span class="mono">MG-{branch}-{YYYY}-{seq6}</span> · accession <span class="mono">AC{branch}{YYMMDD}{seq4}</span> · invoice <span class="mono">INV/{branch}/{FY}/{seq6}</span> (GST-compliant, C-5c) · receipt <span class="mono">RC/{branch}/{FY}/{seq6}</span> · credit note <span class="mono">CN/{branch}/{FY}/{seq4}</span>. Edge nodes draw pre-allocated ranges from the registry so offline issuance never collides (§8).</td></tr>
+<tr><td class="bold">Money</td><td><span class="mono">amount_minor BIGINT</span> (paise) + <span class="mono">currency CHAR(3)</span> = 'INR' everywhere. No floats, no BigDecimal columns. Rounding rules live in one <span class="mono">shared.Money</span> type; GST computed line-wise then totalled (C-5).</td></tr>
+<tr><td class="bold">Time</td><td>Storage/UTC (<span class="mono">TIMESTAMPTZ</span>), display/IST (Asia/Kolkata) applied in the React layer only. Business dates (cash session day BL-09, Form F cutoff IR-02, regulatory calendar) are explicit <span class="mono">DATE</span> columns computed in branch timezone, never derived ad hoc from timestamps.</td></tr>
+<tr><td class="bold">Identifiers</td><td>Primary keys = UUIDv7 (time-ordered). Human identifiers (MRN/accession/invoice) are unique business keys, never PKs, never recycled — merges retire, they don't delete (FO-09).</td></tr></table></div>
+
+<!-- ============ 6 ============ -->
+<h2>6 · Identity &amp; access — Keycloak + OTP links</h2>
+<div class="card"><div class="card-title">Realms, tokens, step-up <span class="right">AU cluster · DS-06</span></div>
+<table><tr><th style="width:190px">Concern</th><th>Design</th></tr>
+<tr><td class="bold">Keycloak realms</td><td>Three realms: <span class="mono">magnus-staff</span> (all branch/HQ roles; 2FA per AU-03/04, lockout AU-02, recovery AU-05/AU-14), <span class="mono">magnus-referrer</span> (referring doctors DD-01…DD-11; <b>attribute-restricted</b> — token carries <span class="mono">referrer_id</span>, and every query is forcibly scoped to that referrer's own patients, DD-07), <span class="mono">magnus-operator</span> (platform PL-01…PL-12; hardware-key 2FA, dual-control break-glass PL-12). Realm settings surfaced in AU-15/AU-16.</td></tr>
+<tr><td class="bold">Patient side</td><td><b>No patient accounts in MVP 1.</b> Patients receive secure links (PT-01) and authenticate with OTP per link session; tokens are short-lived, link-scoped, stored in Redis with TTL (PT-03 renewal, D-12 standardised TTL). Rate limits + resend rules per DS-08.</td></tr>
+<tr><td class="bold">React auth</td><td>SPA uses <span class="mono">oidc-client-ts</span> with Authorization Code + <b>PKCE</b>; no implicit flow, no tokens in localStorage (in-memory + silent renew). Workspace/branch context switch (AU-10) re-mints the token with the selected branch claim.</td></tr>
+<tr><td class="bold">Roles → authorities</td><td>Keycloak realm/client roles map 1:1 to Spring Security authorities (<span class="mono">ROLE_RECEPTION, ROLE_TECHNICIAN, ROLE_RADIOLOGIST, ROLE_BRANCH_ADMIN, ROLE_PO_DPO, …</span> per AD-04). Method security (<span class="mono">@PreAuthorize</span>) at every module API interface — module boundary is also the authz boundary. Masked-denial responses (C-7/NS-14, DD-06) implemented in <span class="mono">identity</span>, not per screen.</td></tr>
+<tr><td class="bold">Step-up (AU-09)</td><td>Sensitive actions (report sign RD-09, refund BL-06, merge FO-09, break-glass DD-05, migration accept AD-12) require a fresh confirmation: backend issues a <b>short-lived step-up token (≤5 min) bound to the session AND the target object ID</b>; the mutating endpoint accepts the action only with a valid matching token. One token, one action, one object — replay across objects is impossible. Every issuance + use → <span class="mono">STEP_UP_CONFIRM</span> audit.</td></tr></table></div>
+
+<!-- ============ 7 ============ -->
+<h2>7 · Pilot deployment topology — Option A (one branch + remote radiologists)</h2>
+<div class="card"><div class="card-title">Planes <span class="right">Cloud control · branch edge · remote reading</span></div>
+<table><tr><th style="width:150px">Plane</th><th style="width:330px">Runs</th><th>Owns / serves</th><th style="width:220px">Fails how</th></tr>
+<tr class="hl"><td class="bold">CLOUD control plane<br><span class="small muted">India-region VPC (GV-14 residency)</span></td><td class="mono small">hms-app (monolith, cloud profile) · Keycloak · PostgreSQL 16 (primary) · RabbitMQ · Redis · cloud Orthanc + OHIF · object storage (reports/docs)</td><td>Identity (all realms), master data &amp; number-series registry (AD-16), reporting &amp; sign-off (RD-01…18), referrer portal (DD), patient links (PT), governance/platform (GV/PL), analytics (AD-13), notification dispatch (NT)</td><td>Branch keeps working offline for the DS-04 action set; reading pauses; deliveries queue.</td></tr>
+<tr><td class="bold">BRANCH edge data plane<br><span class="small muted">one Docker host at the pilot branch</span></td><td class="mono small">hms-edge (same codebase, edge profile: patient/encounter/order/billing-cash/consent capture) · local Orthanc PACS · PostgreSQL (edge) · outbox relay · local cache of masters</td><td>Registration &amp; queueing (FO/SC), technician workflow (TK-01…12), MWL to modalities, local image archive, cash billing + receipts, consent capture, offline continuity (DS-04, IN-10)</td><td>If WAN drops: full local operation per offline matrix (§8); images and outbox drain on reconnect.</td></tr>
+<tr><td class="bold">REMOTE reading<br><span class="small muted">radiologists, anywhere</span></td><td class="mono small">Browser only: React app + OHIF served from cloud; cloud Orthanc DICOMweb backend</td><td>Reading worklist (RD-01), viewer (RD-03…05), authoring/sign (RD-07…09), critical flow (RD-10…12)</td><td>Depends wholly on cloud plane; RD-04 defines degraded viewer states.</td></tr></table></div>
+
+<div class="card"><div class="card-title">Data flows <span class="right">Structured flow table — no diagrams needed</span></div>
+<table><tr><th style="width:170px">Flow</th><th>Path</th><th>Contract</th></tr>
+<tr><td class="bold">Modality worklist</td><td class="flow"><span class="chip teal">order OrderPlaced</span><span class="arr">→</span><span class="chip grey">edge MWL SCP (dcm4che)</span><span class="arr">→</span><span class="chip blue">modality query</span></td><td>MWL entry keyed by accession (AD-16); demographics from edge patient cache; stat priority honoured (OR-07).</td></tr>
+<tr><td class="bold">Image acquisition &amp; replication</td><td class="flow"><span class="chip blue">modality C-STORE</span><span class="arr">→</span><span class="chip grey">local Orthanc</span><span class="arr">→</span><span class="chip teal">StudyAcquired</span><span class="arr">→</span><span class="chip violet">async replicate → cloud Orthanc</span></td><td>Local Orthanc is the branch archive of record for the pilot; replication is resumable, verified by instance counts; TK-08/IN-10 show lag.</td></tr>
+<tr><td class="bold">Viewer launch (remote read)</td><td class="flow"><span class="chip teal">RD-01 open study</span><span class="arr">→</span><span class="chip grey">ViewerLaunchService</span><span class="arr">→</span><span class="chip blue">OHIF (cloud Orthanc)</span></td><td>Launch contract: accession + study UID <b>+ prior study UIDs</b> auto-attached by rule — same patient, same modality, last 24 months (S-4 fix, RD-05). Signed launch URL, expiring, audit <span class="mono">PATIENT_VIEW</span>.</td></tr>
+<tr><td class="bold">Report sign &amp; release</td><td class="flow"><span class="chip teal">RD-09 sign (cloud)</span><span class="arr">→</span><span class="chip violet">ReportSigned</span><span class="arr">→</span><span class="chip teal">RD-13 release</span><span class="arr">→</span><span class="chip violet">ReportReleased</span></td><td>Signing happens only in cloud (single source of report truth); C-3 declaration + step-up token required; version chain per RD-15.</td></tr>
+<tr><td class="bold">Delivery</td><td class="flow"><span class="chip violet">ReportReleased</span><span class="arr">→</span><span class="chip grey">NT dispatch</span><span class="arr">→</span><span class="chip green">SMS/WA/email secure link (PT-01)</span></td><td>Channel prefs per DD-09/patient consent; failures → <code class="ev">DeliveryFailed</code> → NT-02 recovery worklist; suppressions honoured before send (NT-05).</td></tr>
+<tr><td class="bold">Cash &amp; ops upstream</td><td class="flow"><span class="chip grey">edge outbox</span><span class="arr">→</span><span class="chip teal">sync push (§8)</span><span class="arr">→</span><span class="chip grey">cloud ingestion</span></td><td>Registrations, encounters, cash payments, consent captures, dose records flow up in order; IN-10 monitors backlog and conflicts.</td></tr></table></div>
+
+<!-- ============ 8 ============ -->
+<h2>8 · Edge sync module — core MVP 1 service, not deferred</h2>
+<div class="card"><div class="card-title">Sync mechanics <span class="right">com.magnus.hms.sync · DS-04 · IN-10</span></div>
+<table><tr><th style="width:200px">Mechanism</th><th>Design</th></tr>
+<tr><td class="bold">Edge outbox</td><td>Every edge-side committed transaction that must reach cloud writes an <span class="mono">outbox_entry</span> (same transaction, per B2): entity snapshot ref, event type, <span class="mono">correlation_id</span> (UUIDv7), sequence per aggregate.</td></tr>
+<tr><td class="bold">Batched push</td><td>Relay ships ordered batches (≤500 entries or 30 s, whichever first) over mTLS HTTPS to <span class="mono">/api/v1/sync/batches</span>. Backpressure-aware; resumes from last acked sequence after outage.</td></tr>
+<tr><td class="bold">Idempotent ingestion</td><td>Cloud ingestion dedupes on <span class="mono">correlation_id</span> (Redis idempotency cache + unique constraint). Replaying a whole batch is always safe; partial-batch failure returns per-entry status.</td></tr>
+<tr><td class="bold">Conflict routing</td><td>Version check on apply (§5 version column). Non-clinical, non-overlapping fields → last-writer-wins with audit note. <b>Clinical fields → never auto-merged</b>: conflict lands in the four-eyes queue (IN-10), resolved by an authorised reviewer, resolution audited as <span class="mono">SYNC_CONFLICT_RESOLVE</span>.</td></tr>
+<tr><td class="bold">Master data downstream</td><td>Cloud→edge: masters (catalog, price lists, templates, schedules, terminology) versioned snapshots pulled on change + on reconnect; edge reads masters only from local cache, never live from cloud in request path.</td></tr></table>
+<div class="banner warn"><b>Offline capability matrix is law</b>The per-action offline behaviour below summarises the agreed matrix — full state machines in DS-04; live monitoring in IN-10. Anything not listed is <b>blocked offline</b> with the DS-05 degraded-state banner.</div>
+<table><tr><th style="width:190px">Action (screens)</th><th style="width:120px">Offline?</th><th>State machine summary</th></tr>
+<tr><td class="bold">Registration (FO-03…05)</td><td><span class="chip green">ALLOWED</span></td><td>Create with <span class="mono">temp-UUID</span> + edge-range MRN → sync → cloud confirms / dedupe check (FO-04 rules re-run) → temp-UUID mapped, potential duplicate → merge queue (FO-08).</td></tr>
+<tr><td class="bold">Cash billing (BL-02/03/05)</td><td><span class="chip green">ALLOWED</span></td><td>Invoice + payment from pre-allocated edge number ranges; local printed receipt marked branch-issued; syncs to ledger; EOD close (BL-09) reconciles.</td></tr>
+<tr><td class="bold">UPI / online payment (BL-04, PT-06)</td><td><span class="chip red">BLOCKED</span></td><td>Requires gateway → hard-blocked offline with cash fallback prompt; pending intents recover via NS-09 flow on reconnect.</td></tr>
+<tr><td class="bold">Consent capture (FO-05, CS-03)</td><td><span class="chip green">ALLOWED</span></td><td>Captured against locally-cached notice version; flagged <span class="mono">PENDING_SYNC</span>; if notice version changed while offline → re-affirm task, never silent upgrade.</td></tr>
+<tr><td class="bold">RIS worklist &amp; acquisition (TK-01/02)</td><td><span class="chip amber">LOCAL-ONLY READS</span></td><td>Worklist from edge DB; acquisition fully local (modality + local Orthanc); status events queue in outbox; no cloud reads attempted.</td></tr>
+<tr><td class="bold">Reporting / sign (RD-*)</td><td><span class="chip red">CLOUD-ONLY</span></td><td>Never on edge — single signing authority in cloud prevents forked report versions.</td></tr></table></div>
+
+<!-- ============ 9 ============ -->
+<h2>9 · Integration adapters</h2>
+<div class="card"><div class="card-title">Adapter layer <span class="right">Replaceable · independently scalable</span></div>
+<p class="small" style="margin-bottom:8px">All external touchpoints implement <span class="mono">IntegrationAdapter</span> (lifecycle: <span class="mono">healthCheck() / send() / callbacks</span>, config from IN screens, status → IN-01 connector health board). Each adapter is a separate Spring component behind its module's port interface — swapping a vendor or extracting an adapter to its own process touches nothing in domain code.</p>
+<table><tr><th style="width:170px">Adapter</th><th style="width:200px">Tech</th><th>Scope (MVP 1)</th><th style="width:170px">Config / monitor screens</th></tr>
+<tr><td class="mono bold">DicomAdapter</td><td>dcm4che 5</td><td>MWL SCP, MPPS, C-STORE SCP/SCU, DICOMweb (QIDO/WADO/STOW) to Orthanc; unknown-AE quarantine (IN-03)</td><td class="mono">IN-02, IN-03, IN-04, TK-08</td></tr>
+<tr><td class="mono bold">Hl7Adapter</td><td>HAPI HL7v2</td><td>Foundation only in MVP 1 (ADT/ORM/ORU scaffolding for future LIS); message browser + replay</td><td class="mono">IN-05, IN-06</td></tr>
+<tr><td class="mono bold">SmsAdapter</td><td>DLT-registered gateway</td><td>Templated transactional SMS, DLT template IDs mandatory (NT-03), quiet hours/TRAI rules (NT-07)</td><td class="mono">NT-03, NT-04, IN-07</td></tr>
+<tr><td class="mono bold">WhatsAppAdapter</td><td>BSP (Business Solution Provider) API</td><td>Approved HSM templates, delivery receipts → NT-01 ledger</td><td class="mono">NT-04, IN-07</td></tr>
+<tr><td class="mono bold">EmailAdapter</td><td>SMTP / transactional API</td><td>Reports (as secure link, never attachment by default), receipts, governance notices</td><td class="mono">NT-04</td></tr>
+<tr><td class="mono bold">PaymentGatewayAdapter</td><td>UPI/card aggregator</td><td>Payment intents, webhooks, refund API; pending-recovery (BL-04/NS-09); reconciliation feed to BL-18</td><td class="mono">BL-04, PT-06, IN-01</td></tr>
+<tr><td class="mono bold">WebhookPublisher</td><td>Signed HTTPS POST</td><td>Outbound events to registered API clients (foundation, Conditional)</td><td class="mono">IN-09, AU-18</td></tr></table></div>
+
+<!-- ============ 10 ============ -->
+<h2>10 · Delivery &amp; operations</h2>
+<div class="card"><div class="card-title">Build, environments, run <span class="right">Checklist #21 · pilot SLA</span></div>
+<table><tr><th style="width:190px">Area</th><th>Commitment</th></tr>
+<tr><td class="bold">Packaging</td><td>Docker Compose for MVP 1 — two compose stacks: <span class="mono">cloud/</span> (app, Keycloak, Postgres, RabbitMQ, Redis, Orthanc, OHIF, reverse proxy) and <span class="mono">edge/</span> (hms-edge, Postgres, Orthanc, relay). <b>Kubernetes explicitly deferred</b> — revisit at multi-branch rollout, not before.</td></tr>
+<tr><td class="bold">Environments</td><td>Five, per scope checklist #21: <span class="mono">dev</span> (shared, auto-deploy on merge) · <span class="mono">QA</span> (tested builds, synthetic data) · <span class="mono">staging</span> (prod-shaped incl. one simulated edge node + modality emulator) · <span class="mono">prod</span> · <span class="mono">demo</span> (sales/training, synthetic patients only, plainly watermarked). No real patient data outside prod, ever.</td></tr>
+<tr><td class="bold">CI/CD</td><td>Pipeline: build → unit + ArchUnit boundary tests (§2) → Testcontainers integration (Postgres/RabbitMQ/Orthanc) → image build (SBOM + vulnerability scan) → auto-deploy dev → gated promote QA→staging→prod. DB changes are Flyway-only, backward-compatible (expand→migrate→contract) so edge and cloud can run one version apart during rollout.</td></tr>
+<tr><td class="bold">Observability (Sprint 1, not later)</td><td>Structured JSON logs with <b>no PII</b> (IDs only — MRN/name/phone forbidden in log lines, lint-checked); metrics via Micrometer → Prometheus/Grafana (queue depths, outbox lag, sync backlog, SLA sweeps, adapter health); OpenTelemetry traces with <span class="mono">correlationId</span> propagated edge→cloud→RabbitMQ. IN-01/IN-10/AD-18 are UIs over these signals.</td></tr>
+<tr><td class="bold">Backup / DR</td><td><b>RPO 15 min</b> (WAL archiving + streaming replica for cloud Postgres; edge Postgres + Orthanc snapshot to cloud), <b>RTO 4 h</b>. Quarterly restore drill; evidence recorded on PL-09.</td></tr>
+<tr><td class="bold">Planned downtime</td><td>Maintenance window <b>Sunday 23:00–03:00 IST</b>, announced via AD-19/PL-10. Window sits <b>outside branch operating hours</b>, so it does not consume the <b>99.5% uptime SLA measured over branch operating hours</b>. Edge node keeps the branch operational during cloud maintenance regardless (§8).</td></tr></table></div>
+
+<!-- ============ 11 ============ -->
+<h2>11 · SLA engine</h2>
+<div class="card"><div class="card-title">Deadlines, sweeps, escalations <span class="right">DS-03 pattern · AD-18 jobs</span></div>
+<table><tr><th style="width:190px">Element</th><th>Design</th></tr>
+<tr><td class="bold">Columns</td><td>Every SLA-bearing row (Study read, critical-result ack, delivery recovery task, grievance, privacy-rights request, Form F filing) carries <span class="mono">sla_deadline TIMESTAMPTZ</span> + <span class="mono">sla_status (ON_TRACK | AT_RISK | BREACHED | ESCALATED | STOPPED)</span>, set at creation from the DS-03 configuration (per priority tier, per branch hours where configured).</td></tr>
+<tr><td class="bold">Sweep job</td><td>Scheduled sweep (registered + monitored in AD-18) runs every 60 s: flips AT_RISK at the configured warning fraction, BREACHED at deadline, and fires the configured escalation action per DS-03 — notify owner → notify supervisor → escalate tier (e.g. critical-result ladder RD-11/NS-01). Sweep is idempotent and safe to re-run; missed runs surface as AD-18 job alerts.</td></tr>
+<tr><td class="bold">Clock stops</td><td>Terminal events stop clocks via the event stream, not polling: <code class="ev">ReportSigned</code> stops the read clock, <code class="ev">CriticalAcknowledged</code> stops the ack clock and cancels pending escalations, resolution states stop grievance/recovery clocks.</td></tr>
+<tr><td class="bold">Audit</td><td><b>Every</b> auto-escalation writes <span class="mono">JOB_ESCALATION</span> (and critical-path ones additionally <span class="mono">CRITICAL_ESCALATE</span>) to the append-only audit stream with the rule version applied — SLA behaviour is fully reconstructible for governance review (GV-02) and pilot reporting (AD-13).</td></tr></table></div>
+
+<div class="banner success"><b>Sprint 1 definition of ready — architecture side</b>Module skeletons + ArchUnit rules committed · Flyway baseline with §5 conventions · outbox + RabbitMQ relay wired · Keycloak realms scripted · Docker Compose (cloud + edge) boots on a laptop · audit sink and <span class="mono">/api/v1</span> gateway live · SLA columns on Study from the first migration. Everything above is the agreed contract; deviations go through the panel as an ADR.</div>
+
+<p class="audit">Synthetic data only. DOC-09 v1.0 · July 2026 · Companion to DOC-08 (vendor crosswalk), DS-03 (SLA pattern), DS-04 (offline pattern), DS-06 (audit &amp; step-up), DS-07 (masked identity).</p>
+</div></body></html>

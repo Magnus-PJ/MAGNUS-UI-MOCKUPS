@@ -1,0 +1,113 @@
+<section class="screen" id="sc-08">
+<div class="screen-head"><h1><span class="sid">SC-08</span> Block booking &amp; camps</h1><div class="meta"><span class="chip amber">CONDITIONAL</span><div class="cluster">G4 Scheduling setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · block booking & camps (Conditional)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Create a camp or corporate block booking: date range, modality capacity allocation, expected volume, a camp price-list link and the camp-variant consent notice. A carve-out preview shows exactly which public slots the camp will absorb (booked slots are never carved out), a roster can be imported ahead of camp day, and a close-out report reconciles attended vs no-show and releases unused carve-outs.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org Admin) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Setup workspace</div>
+      <div class="nav-item">Org &amp; branches</div>
+      <div class="nav-item">Users &amp; roles</div>
+      <div class="nav-item">Services &amp; price lists</div>
+      <div class="sec-label">Scheduling</div>
+      <div class="nav-item">Working hours</div>
+      <div class="nav-item">Slot templates</div>
+      <div class="nav-item">Modality calendar</div>
+      <div class="nav-item">Overbooking &amp; walk-in</div>
+      <div class="nav-item active">Camps &amp; blocks <span class="nav-badge">2</span></div>
+      <div class="nav-item">Token &amp; queue</div>
+      <div class="nav-item">Public displays</div>
+      <div class="sec-label">Compliance</div>
+      <div class="nav-item">Change audit</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Setup › Scheduling › Camps &amp; block bookings › New camp</div>
+      <div class="page-title">New camp / block booking</div>
+      <div class="page-sub">Active: <b>TechNova Corporate Screening</b> (block, 27–31 Jul) · <b>Sunday Health Camp — Versova</b> (draft, this form)</div>
+
+      <div class="stepper">
+        <div class="step cur"><span class="dot">1</span>Details</div><span class="step-line"></span>
+        <div class="step"><span class="dot">2</span>Carve-out preview</div><span class="step-line"></span>
+        <div class="step"><span class="dot">3</span>Approve &amp; publish</div><span class="step-line"></span>
+        <div class="step"><span class="dot">4</span>Roster</div><span class="step-line"></span>
+        <div class="step"><span class="dot">5</span>Close-out</div>
+      </div>
+
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Camp details</div>
+          <div class="field"><label>Camp name <span class="req">*</span></label><input class="input" value="Sunday Health Camp — Versova Residents' Assn"></div>
+          <div class="row">
+            <div class="field grow"><label>Type</label><select class="select"><option>Community camp (on-site at branch)</option></select></div>
+            <div class="field grow"><label>Sponsor / payer</label><select class="select"><option>Versova Residents' Association (invoice to sponsor)</option></select></div>
+          </div>
+          <div class="row">
+            <div class="field grow"><label>Date range <span class="req">*</span></label><input class="input" value="Sun 02 Aug 2026 → Sun 02 Aug 2026"></div>
+            <div class="field grow"><label>Window</label><input class="input" value="08:00 – 14:00 IST"></div>
+            <div class="field grow"><label>Expected volume</label><input class="input mono" value="120 participants"></div>
+          </div>
+          <div class="field"><label>Modality allocation <span class="req">*</span></label>
+            <table>
+              <tr><th>Modality</th><th>Slots carved out</th><th>% of day's capacity</th><th>Services</th></tr>
+              <tr><td>US-UNIT-2 (AE MERIDUS2)</td><td class="mono">36 × 10-min</td><td class="mono">50%</td><td>USG abdomen screening</td></tr>
+              <tr><td>X-RAY-1</td><td class="mono">48 × 5-min</td><td class="mono">40%</td><td>Chest X-ray PA</td></tr>
+              <tr><td>CT-ROOM-1</td><td class="mono">0</td><td class="mono">0%</td><td class="muted">not offered at camp rates</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="card" style="width:320px">
+          <div class="card-title">Commercial &amp; consent links</div>
+          <div class="field"><label>Camp price list <span class="req">*</span></label><select class="select"><option>PL-CAMP-2026-07 "Community camp rates" (v3, approved)</option></select><div class="hint">Camp bookings can only bill against this list; standard list is blocked for camp visits.</div></div>
+          <div class="field"><label>Consent notice — camp variant <span class="req">*</span></label><select class="select"><option>CN-CAMP-v2 (EN/HI/MR) — sponsor data-sharing clause</option></select><div class="hint">Camp variant discloses that summary results (de-identified counts only) go to the sponsor. Individual reports go to the participant alone.</div></div>
+          <div class="banner reg"><b>Privacy rule</b>Sponsor receives attendance counts and aggregate findings only. No participant-level report, image or identifier is shared with the sponsor under any setting.</div>
+          <div class="modal-actions" style="margin-top:6px"><span class="btn">Save draft</span><span class="btn primary">Preview carve-out →</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SLOT CARVE-OUT PREVIEW + ROSTER IMPORT NOTE</div>
+<div class="card">
+  <div class="card-title">Carve-out preview · Sun 02 Aug 2026 <span class="right">draft — nothing reserved until approved</span></div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">84</div><div class="l">Slots to carve out</div><div class="s">36 US + 48 X-ray</div></div>
+    <div class="kpi"><div class="n">3</div><div class="l">Public slots already booked in window</div><div class="s">skipped — carve-out flows around them</div></div>
+    <div class="kpi amber"><div class="n">70%</div><div class="l">Sunday US capacity consumed</div><div class="s">above 60% policy line — needs branch-head approval</div></div>
+  </div>
+  <table>
+    <tr><th>Window (IST)</th><th>Modality</th><th>Public slots today</th><th>Carved for camp</th><th>Remains public</th><th>Conflicts</th></tr>
+    <tr><td class="mono">08:00–10:00</td><td>US-UNIT-2</td><td class="mono">12</td><td class="mono">12</td><td class="mono">0</td><td class="muted">none</td></tr>
+    <tr class="hl"><td class="mono">10:00–12:00</td><td>US-UNIT-2</td><td class="mono">12</td><td class="mono">10</td><td class="mono">2</td><td>2 booked (MRD-26-04519, MRD-26-04521) — <span class="chip green">kept, not carved</span></td></tr>
+    <tr><td class="mono">12:00–14:00</td><td>US-UNIT-2</td><td class="mono">14</td><td class="mono">14</td><td class="mono">0</td><td class="muted">none</td></tr>
+    <tr><td class="mono">08:00–14:00</td><td>X-RAY-1</td><td class="mono">54</td><td class="mono">48</td><td class="mono">5</td><td>1 booked — <span class="chip green">kept</span></td></tr>
+  </table>
+  <div class="banner warn" style="margin-top:10px"><b>Approval required before publish</b>Carve-out exceeds 60% of Sunday capacity on US-UNIT-2. Publish requires branch-head co-approval (four-eyes): request sent to A. Kulkarni. Step-up (TOTP/passkey) required from both parties.</div>
+  <div class="banner info"><b>Roster import (optional, recommended)</b>Upload the sponsor's participant roster (CSV: name, age band, mobile) up to camp day. Rosters land in a quarantined staging area, are validated for duplicates against existing MRNs, and are purged automatically 30 days after close-out. No roster row becomes a patient record until the participant registers on camp day with the CN-CAMP-v2 consent. <span class="btn small">Upload roster CSV…</span> <span class="small muted">Last import: none</span></div>
+</div>
+
+<div class="state-tag">STATE C — CLOSE-OUT REPORT (CAMP COMPLETED)</div>
+<div class="card">
+  <div class="card-title">Close-out — TechNova Corporate Screening · block 27–31 Jul 2026 <span class="right">closed 31 Jul 19:10 IST by K. Verma</span></div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">184 / 210</div><div class="l">Attended / rostered</div><div class="s">87.6% show rate</div></div>
+    <div class="kpi amber"><div class="n">26</div><div class="l">No-shows</div><div class="s">22 released to walk-in same day, 4 expired unused</div></div>
+    <div class="kpi"><div class="n">₹ 3,12,800</div><div class="l">Invoiced to sponsor</div><div class="s">PL-CORP-TECHNOVA v2 · invoice INV-26-0733</div></div>
+    <div class="kpi"><div class="n">184</div><div class="l">Consents captured (CN-CAMP-v2)</div><div class="s">100% of attended — 0 exceptions</div></div>
+  </div>
+  <table>
+    <tr><th>Day</th><th>Modality</th><th>Carved</th><th>Attended</th><th>No-show</th><th>Released to walk-in</th><th>Notes</th></tr>
+    <tr><td class="mono">Mon 27 Jul</td><td>US-UNIT-2</td><td class="mono">20</td><td class="mono">19</td><td class="mono">1</td><td class="mono">1</td><td class="muted">—</td></tr>
+    <tr><td class="mono">Tue 28 Jul</td><td>US-UNIT-2</td><td class="mono">20</td><td class="mono">16</td><td class="mono">4</td><td class="mono">4</td><td class="muted">—</td></tr>
+    <tr class="hl"><td class="mono">Wed 29 Jul</td><td>X-RAY-1</td><td class="mono">50</td><td class="mono">41</td><td class="mono">9</td><td class="mono">7</td><td>2 expired — release cutoff 30 min missed</td></tr>
+    <tr><td class="mono">Thu 30 Jul</td><td>X-RAY-1</td><td class="mono">50</td><td class="mono">46</td><td class="mono">4</td><td class="mono">4</td><td class="muted">—</td></tr>
+    <tr><td class="mono">Fri 31 Jul</td><td>US-UNIT-2 + X-RAY-1</td><td class="mono">70</td><td class="mono">62</td><td class="mono">8</td><td class="mono">6</td><td class="muted">—</td></tr>
+  </table>
+  <div class="banner success" style="margin-top:10px"><b>Sponsor summary generated (de-identified)</b>Aggregate counts and abnormal-finding rate bands only. Sent to TechNova HR contact via the WhatsApp BSP business channel after branch-head review. Participant-level reports delivered individually via patient portal / DLT SMS (Jio route) link.</div>
+  <div style="margin-top:8px"><span class="btn small">Download close-out PDF</span> <span class="btn ghost small">Archive camp</span> <span class="small muted">Roster staging data purges automatically on 30 Aug 2026.</span></div>
+</div>
+
+<p class="audit">Camp creation, carve-out approvals (both four-eyes identities), roster imports and purges, releases of unused slots, and sponsor-summary dispatch are recorded in the access log.</p>
+</section>

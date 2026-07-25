@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DOC-04 · Security Architecture — Layers — Magnus HMS</title>
+<style>
+/* Magnus HMS — NS design pack shared design system */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
+.mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
+.muted{color:#64748B}.small{font-size:12px}.bold{font-weight:700}
+/* ---------- page / screen frame ---------- */
+.screen{page-break-after:always;padding:28px 34px;background:#fff;min-height:1000px}
+.screen-head{display:flex;justify-content:space-between;align-items:flex-start;border-left:5px solid #0F766E;padding:6px 0 6px 14px;margin-bottom:6px}
+.screen-head h1{font-size:22px;font-weight:800}
+.screen-head .sid{color:#0F766E;margin-right:10px}
+.screen-head .meta{text-align:right}
+.screen-head .meta .cluster{color:#64748B;font-size:12px;margin-top:3px}
+.gap-note{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:8px 12px;margin:10px 0 16px;font-size:12.5px;color:#7C2D12}
+.gap-note b{color:#9A3412}
+/* ---------- app chrome ---------- */
+.frame{border:1px solid #CBD5E1;border-radius:10px;overflow:hidden;background:#F4F6F8;box-shadow:0 1px 4px rgba(15,23,42,.08);margin-bottom:22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:2px solid #0F766E;padding:9px 16px}
+.brand{font-weight:800;color:#0F766E}.brand span{color:#1E293B}
+.org{font-size:12.5px;color:#334155;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px}
+.userchip{font-size:12.5px;color:#334155}
+.userchip .av{display:inline-block;background:#CCFBF1;color:#0F766E;font-weight:700;border-radius:5px;padding:2px 6px;margin-right:6px;font-size:11px}
+.body{display:flex;min-height:520px}
+.sidebar{width:196px;background:#fff;border-right:1px solid #E2E8F0;padding:12px 0;flex-shrink:0}
+.sec-label{font-size:10.5px;letter-spacing:.08em;color:#94A3B8;font-weight:700;padding:8px 16px 4px;text-transform:uppercase}
+.nav-item{padding:7px 16px;font-size:13px;color:#334155;display:flex;justify-content:space-between;align-items:center}
+.nav-item.active{background:#F0FDFA;color:#0F766E;font-weight:700;border-left:3px solid #0F766E;padding-left:13px}
+.nav-badge{background:#0F766E;color:#fff;border-radius:9px;font-size:10.5px;padding:1px 7px;font-weight:700}
+.nav-badge.red{background:#B91C1C}
+.main{flex:1;padding:16px 18px;min-width:0}
+.crumb{font-size:12px;color:#64748B;margin-bottom:8px}
+.page-title{font-size:19px;font-weight:800;margin-bottom:2px}
+.page-sub{font-size:12.5px;color:#64748B;margin-bottom:14px}
+.actions-right{float:right}
+/* ---------- components ---------- */
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card-title{font-weight:800;font-size:14.5px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.card-title .right{font-size:10.5px;letter-spacing:.07em;color:#94A3B8;font-weight:700;text-transform:uppercase}
+.row{display:flex;gap:14px}.row>*{min-width:0}.grow{flex:1}
+.btn{display:inline-block;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:700;border:1px solid #CBD5E1;background:#fff;color:#334155;text-align:center;white-space:nowrap}
+.btn.primary{background:#0F766E;border-color:#0F766E;color:#fff}
+.btn.danger{background:#B91C1C;border-color:#B91C1C;color:#fff}
+.btn.warn-outline{border-color:#F59E0B;color:#92400E;background:#FFFBEB}
+.btn.ghost{border:none;background:none;color:#0F766E;padding:7px 6px}
+.btn.small{padding:4px 10px;font-size:12px}
+.btn.disabled{opacity:.45}
+.chip{display:inline-block;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip.teal{background:#CCFBF1;color:#0F766E}
+.chip.green{background:#DCFCE7;color:#15803D}
+.chip.amber{background:#FEF3C7;color:#92400E}
+.chip.red{background:#FEE2E2;color:#B91C1C}
+.chip.grey{background:#F1F5F9;color:#475569}
+.chip.blue{background:#E0F2FE;color:#0369A1}
+.chip.violet{background:#EDE9FE;color:#6D28D9}
+.chip.outline-red{background:#fff;border:1.5px solid #B91C1C;color:#B91C1C}
+.banner{border-radius:8px;padding:10px 13px;font-size:12.5px;margin-bottom:12px;border:1px solid}
+.banner b{display:block;margin-bottom:2px;font-size:13px}
+.banner.info{background:#E0F2FE;border-color:#7DD3FC;color:#075985}
+.banner.warn{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+.banner.danger{background:#FEE2E2;border-color:#FCA5A5;color:#991B1B}
+.banner.success{background:#DCFCE7;border-color:#86EFAC;color:#166534}
+.banner.reg{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding:7px 9px;border-bottom:2px solid #E2E8F0;background:#F8FAFC}
+td{padding:8px 9px;border-bottom:1px solid #EEF2F6;vertical-align:top}
+tr.hl td{background:#F0FDFA}
+tr.dim td{color:#94A3B8}
+.kv{display:grid;grid-template-columns:150px 1fr;row-gap:6px;column-gap:12px;font-size:12.5px}
+.kv dt{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding-top:2px}
+.kv dd{margin:0}
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+.field label .req{color:#B91C1C}
+.field .hint{font-size:11px;color:#64748B;margin-top:3px}
+.input,.select,.textarea{width:100%;border:1px solid #CBD5E1;border-radius:7px;padding:7px 10px;font-size:13px;background:#fff;color:#1E293B}
+.input.err{border-color:#B91C1C;background:#FEF2F2}
+.textarea{min-height:64px}
+.check{font-size:12.5px;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.box{display:inline-block;width:14px;height:14px;border:1.6px solid #64748B;border-radius:3px;flex-shrink:0;margin-top:1px;text-align:center;line-height:12px;font-size:11px;font-weight:800}
+.box.on{background:#0F766E;border-color:#0F766E;color:#fff}
+.radio{border-radius:50%}
+.radio.on{background:#fff;border-color:#0F766E;box-shadow:inset 0 0 0 3.5px #0F766E;color:transparent}
+/* modal */
+.modal-wrap{background:#64748B22;border:1px dashed #94A3B8;border-radius:12px;padding:26px 40px;margin:14px 0}
+.modal{background:#fff;border-radius:12px;border-top:5px solid #0F766E;box-shadow:0 8px 30px rgba(15,23,42,.25);max-width:560px;margin:0 auto;padding:18px 20px}
+.modal.danger{border-top-color:#B91C1C}
+.modal h3{font-size:16px;margin-bottom:8px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+/* misc */
+.divider-label{text-align:center;color:#94A3B8;font-size:11.5px;margin:20px 0 14px;position:relative}
+.divider-label:before,.divider-label:after{content:"";display:inline-block;width:24%;border-top:1px dashed #CBD5E1;vertical-align:middle;margin:0 10px}
+.audit{font-size:11px;color:#8A6D1D;margin-top:10px}
+.audit:before{content:"🔒 "}
+.state-tag{font-size:10px;letter-spacing:.08em;font-weight:800;text-transform:uppercase;color:#94A3B8;text-align:right;margin-bottom:4px}
+.kpi-row{display:flex;gap:12px;margin-bottom:14px}
+.kpi{flex:1;background:#fff;border:1px solid #E2E8F0;border-left:4px solid #0F766E;border-radius:9px;padding:10px 13px}
+.kpi.amber{border-left-color:#F59E0B}.kpi.red{border-left-color:#B91C1C}
+.kpi .n{font-size:23px;font-weight:800}.kpi .l{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700}
+.kpi .s{font-size:11px;color:#64748B;margin-top:2px}
+.stepper{display:flex;gap:6px;align-items:center;font-size:12px;color:#64748B;margin-bottom:14px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:6px}
+.step .dot{width:20px;height:20px;border-radius:50%;background:#E2E8F0;color:#475569;font-size:11px;font-weight:800;text-align:center;line-height:20px}
+.step.done .dot{background:#15803D;color:#fff}.step.cur .dot{background:#0F766E;color:#fff}
+.step.cur{color:#0F766E;font-weight:700}
+.step-line{width:26px;border-top:2px solid #CBD5E1}
+.sig-box{border:1.5px dashed #94A3B8;border-radius:8px;min-height:64px;background:#F8FAFC;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:12px;font-style:italic}
+.sig-box.signed{border-style:solid;border-color:#15803D;color:#166534;background:#F0FDF4;font-family:'Segoe Script','Comic Sans MS',cursive;font-size:17px;font-style:normal}
+.ladder{border-left:3px solid #E2E8F0;margin-left:8px;padding-left:16px}
+.ladder .tier{margin-bottom:12px;position:relative}
+.ladder .tier:before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:#CBD5E1}
+.ladder .tier.done:before{background:#15803D}.ladder .tier.cur:before{background:#0F766E;box-shadow:0 0 0 3px #CCFBF1}
+.ladder .tier.fail:before{background:#B91C1C}
+.progress{height:7px;border-radius:4px;background:#E2E8F0;overflow:hidden;margin-top:4px}
+.progress i{display:block;height:100%;background:#0F766E}
+.progress.amber i{background:#F59E0B}.progress.red i{background:#B91C1C}
+.split{display:grid;grid-template-columns:1fr 300px;gap:14px}
+.timeline{font-size:12.5px}
+.timeline .ev{display:flex;gap:10px;margin-bottom:9px}
+.timeline .t{color:#64748B;white-space:nowrap;font-family:Consolas,monospace;font-size:11.5px;padding-top:1px}
+/* ---------- doc additions ---------- */
+body{background:#F4F6F8;padding:30px}
+.doc{max-width:1100px;margin:0 auto}
+h1{font-size:26px;margin:18px 0 6px}
+h2{font-size:19px;margin:22px 0 8px;color:#0F766E}
+.flow{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:8px 0}
+.fstep{background:#fff;border:1px solid #CBD5E1;border-left:4px solid #0F766E;border-radius:7px;padding:6px 10px;font-size:12.5px}
+.fstep .fid{font-family:Consolas,monospace;font-weight:800;color:#0F766E;font-size:11px;display:block}
+.farr{color:#94A3B8;font-weight:800}
+.lyr{font-family:Consolas,monospace;font-weight:800;color:#0F766E;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="doc">
+
+<!-- ================= DOC HEADER ================= -->
+<div class="card" style="border-left:5px solid #0F766E">
+  <div class="kv" style="grid-template-columns:170px 1fr">
+    <dt>Document ID</dt><dd class="mono bold">DOC-04</dd>
+    <dt>Title</dt><dd><h1 style="margin:0">Security Architecture — Layers</h1></dd>
+    <dt>Series</dt><dd>Magnus HMS · MVP 1 · Architecture &amp; Workflow Documentation</dd>
+    <dt>Date / Version</dt><dd>July 2026 · <span class="chip teal">v1.0</span></dd>
+    <dt>Audience</dt><dd>NUMINACORE development team — backend (Java 21 / Spring Boot 3, Keycloak 25), frontend (React 18), SRE, security review</dd>
+    <dt>Related docs</dt><dd class="mono">DOC-02 (Identity &amp; Session), DOC-03 (Roles &amp; Permissions), DOC-09 (Governance &amp; DPDP), DOC-11 (Edge &amp; Offline)</dd>
+  </div>
+</div>
+
+<div class="banner info"><b>Model</b>Eight layers, defence-in-depth. Each layer assumes the layers above it can fail. Every control lists where it is <i>visible in the UI</i> (screen IDs from the 225-screen pack) and the <i>build requirement</i> for the Java/Spring + React stack. Compliance anchors: DPDP Act 2023, CERT-In 6h breach clock (GV-09), PC-PNDT (IR-01..04), AERB (IR-05), GST (BL-19). All data below is synthetic.</div>
+
+<!-- ================= LAYER SUMMARY ================= -->
+<h2>1. Layered model — summary</h2>
+<div class="card">
+<table>
+  <tr><th style="width:60px">Layer</th><th style="width:190px">Name</th><th>One-line contract</th><th style="width:230px">Primary UI surfaces</th></tr>
+  <tr><td class="lyr">L1</td><td><b>Network &amp; transport</b></td><td>Nothing but TLS 1.3 reaches the platform; modality/branch traffic rides private links; no public DB or PACS endpoint.</td><td class="mono">IN-01, IN-04, PL-07, IN-10</td></tr>
+  <tr><td class="lyr">L2</td><td><b>Identity (Keycloak)</b></td><td>Three isolated realms — <span class="mono">magnus-staff</span>, <span class="mono">magnus-patient-otp</span>, <span class="mono">magnus-operator</span> — no cross-realm tokens, per-tenant orgs.</td><td class="mono">AU-01, AU-10, AU-16, PT-01</td></tr>
+  <tr><td class="lyr">L3</td><td><b>Authentication</b></td><td>MFA/passkeys for staff, OTP for patient links, session policies incl. shared-terminal lock and IdP-degraded mode.</td><td class="mono">AU-02..09, AU-13..15, PT-01/PT-03</td></tr>
+  <tr><td class="lyr">L4</td><td><b>Authorization</b></td><td>Central policy service: RBAC matrix + ABAC conditions (DOC-03 §3–4), deny-by-default, masked denial.</td><td class="mono">AD-04, AD-05, DD-05/DD-06, AD-20</td></tr>
+  <tr><td class="lyr">L5</td><td><b>Application controls</b></td><td>Step-up, four-eyes, field masking, idempotency keys, safety gates, no-PHI-in-SMS.</td><td class="mono">AU-09, BL-08, TK-01, NT-03, DS-03</td></tr>
+  <tr><td class="lyr">L6</td><td><b>Data protection</b></td><td>Encryption at rest/in transit, envelope key management, India region pinning, backups RPO 15m / RTO 4h, retention 10y/8y, legal holds.</td><td class="mono">GV-06, GV-07, GV-13, GV-14, PL-08</td></tr>
+  <tr><td class="lyr">L7</td><td><b>Audit &amp; monitoring</b></td><td>Hash-chained append-only audit log, audit line on every screen, anomaly review GV-02, break-glass review GV-03, breach runbook GV-09.</td><td class="mono">AD-20, GV-02, GV-03, GV-08, GV-09</td></tr>
+  <tr><td class="lyr">L8</td><td><b>Physical &amp; edge</b></td><td>Branch edge servers with encrypted, signed offline queues (offline-first FO); tamper-evident sync; kiosk/terminal hardening.</td><td class="mono">IN-10, FO-22, AU-08, PL-07, TK-07</td></tr>
+</table>
+<div class="flow">
+  <div class="fstep"><span class="fid">L1</span>TLS / private links</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">L2</span>Realm isolation</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">L3</span>MFA / session</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">L4</span>RBAC + ABAC</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">L5</span>App controls</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">L6</span>Data protection</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">L7</span>Audit / monitor</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">L8</span>Physical / edge</div>
+</div>
+</div>
+
+<!-- ================= L1 ================= -->
+<h2>2. L1 — Network &amp; transport</h2>
+<div class="card">
+<table>
+  <tr><th style="width:250px">Control</th><th style="width:190px">Visible in UI</th><th>Build requirement (Java/React)</th></tr>
+  <tr><td>TLS 1.3 only at the public edge; HSTS + certificate pinning for the edge-sync agent; TLS 1.2 floor for legacy modality vendors on private segment only.</td><td class="mono">IN-01 health (cert expiry tiles), PL-07 fleet</td><td>Terminate at ingress (NGINX/ALB); Spring services listen on mTLS mesh internally; cert expiry exported as metric feeding IN-01; edge agent pins the tenant CA.</td></tr>
+  <tr><td>Private links for DICOM/HL7: modality ↔ edge ↔ PACS over branch VPN/WireGuard; DICOM AE calling-station allow-list.</td><td class="mono">IN-02 AE registry, IN-04 PACS, IN-03 quarantine</td><td>dcm4che listener binds to VPN interface only; unknown AE title → association reject + IN-03 quarantine entry, never silent drop.</td></tr>
+  <tr><td>Network segmentation: modality VLAN, staff VLAN, kiosk VLAN (FO-22) with no lateral routes; egress allow-list from edge (sync endpoint, NTP, provider APIs).</td><td class="mono">IN-10 edge sync status, IN-07 providers</td><td>Edge appliance ships with nftables baseline profile; segment health surfaced as IN-10 checks; provider endpoints (SMS/UPI) declared in IN-07 config, not code.</td></tr>
+  <tr><td>WAF + rate limiting on patient-link endpoints (PT-*) and auth endpoints; per-token and per-IP buckets.</td><td class="mono">PT-03 expiry page, AU-02 failure states</td><td>Bucket4j/Redis rate limiter in the Spring gateway; PT-01 OTP: 5 attempts / 15 min per link, then hard PT-03 expiry; 429s logged to L7.</td></tr>
+</table>
+</div>
+
+<!-- ================= L2 ================= -->
+<h2>3. L2 — Identity: Keycloak realms</h2>
+<div class="card">
+<table>
+  <tr><th style="width:250px">Control</th><th style="width:190px">Visible in UI</th><th>Build requirement (Java/React)</th></tr>
+  <tr><td>Realm <span class="mono">magnus-staff</span>: all 12 human staff roles (DOC-03 §2), per-tenant organisation, optional tenant SSO federation (SAML/OIDC).</td><td class="mono">AU-01 unified sign-in, AU-10 workspace chooser, AU-16 SSO realms</td><td>One Keycloak org per tenant; roles as realm roles <span class="mono">mhms:*</span>; scope-node bindings kept in the app DB (not Keycloak) and stamped into the JWT via protocol mapper at token issue.</td></tr>
+  <tr><td>Realm <span class="mono">magnus-patient-otp</span>: patients never get passwords — short-lived OTP-bound link tokens only (PT-01), single purpose per token (report view PT-02, payment PT-06, consent PT-07, rights PT-08/09).</td><td class="mono">PT-01..12</td><td>Custom Keycloak authenticator SPI: token = signed JWT {link_id, purpose, mrn_ref, exp ≤ 72h}; OTP to registered mobile; per-purpose audience claims so a report token cannot call payment APIs.</td></tr>
+  <tr><td>Realm <span class="mono">magnus-operator</span>: NUMINACORE staff, hardware-key MFA mandatory, no tenant roles ever; tenant access solely via PL-12 grants.</td><td class="mono">PL-01..12, AU-16</td><td>Separate realm + separate client set; operator JWTs rejected by tenant APIs unless accompanied by an active PL-12 grant claim resolved server-side.</td></tr>
+  <tr><td>Service accounts: OAuth2 client-credentials clients per integration, key rotation ≤ 90 days, immediate revocation.</td><td class="mono">AU-18 service accounts / API keys, IN-05 message browser</td><td>Keycloak confidential clients; rotation job in AD-18 scheduler; every service JWT carries <span class="mono">integration_id</span> for L4 allow-list checks and L7 attribution.</td></tr>
+  <tr><td>IdP-degraded mode: if Keycloak is unreachable at a branch, edge validates cached signed sessions read-only, new sign-ins limited to pre-provisioned emergency operational accounts.</td><td class="mono">AU-13 IdP-degraded, IN-10</td><td>Edge caches JWKS + short-TTL session attestations; degraded state banner (AU-13) forced on all screens; all degraded-mode actions double-logged and reconciled at IN-10 sync.</td></tr>
+</table>
+</div>
+
+<!-- ================= L3 ================= -->
+<h2>4. L3 — Authentication &amp; sessions</h2>
+<div class="card">
+<table>
+  <tr><th style="width:250px">Control</th><th style="width:190px">Visible in UI</th><th>Build requirement (Java/React)</th></tr>
+  <tr><td>MFA for all staff: TOTP or FIDO2 passkey; enrolment at first activation; lost-authenticator recovery is admin-mediated, never self-service.</td><td class="mono">AU-03 verify, AU-04 enrol, AU-05 lost-authenticator, AU-06 reset, AU-07 activation, AU-15 MFA policy</td><td>Keycloak required-action flow; AU-15 policy object {roles→methods, grace days} evaluated at login; recovery requires AU-14 admin unlock + identity attestation, four-eyes for admin accounts (DOC-03 §5).</td></tr>
+  <tr><td>Session policy: idle lock 5 min on shared terminals / 15 min personal; absolute session 12h; concurrent session cap 2 with device list.</td><td class="mono">AU-08 session lock / shared terminal, AU-12 my sessions, AU-17 sessions admin</td><td>React idle-timer → lock overlay (AU-08) requiring PIN/passkey re-entry without losing form state (draft persisted to IndexedDB, encrypted); server-side session registry backs AU-12/AU-17 revocation within ≤ 30s via token introspection.</td></tr>
+  <tr><td>Shared-terminal mode: registration counters and modality consoles run badge-tap fast user switching; no browser password persistence; masking forced (DOC-03 §4).</td><td class="mono">AU-08, FO-22 kiosk, TK-01</td><td>Terminal flag provisioned per device (AD-02 service point); React app reads flag from device claim and disables autofill, clipboard export of PHI fields, and long-lived refresh tokens.</td></tr>
+  <tr><td>Step-up authentication for sign / money / legal actions.</td><td class="mono">AU-09; consumed by RD-09, RD-12, CS-04, BL-06..08, BL-17, BL-19, FO-08, GV-04, GV-07, GV-15, PL-12</td><td>Keycloak ACR/AMR step-up flow: action APIs demand <span class="mono">acr=mhms-stepup</span> issued ≤ 5 min ago; React interceptor catches 401 <span class="mono">STEP_UP_REQUIRED</span> and opens the AU-09 modal inline, then replays the request (idempotency key, L5).</td></tr>
+  <tr><td>Patient-link auth: OTP over SMS/WhatsApp to registered number, 5-attempt lockout, link single-purpose and time-boxed.</td><td class="mono">PT-01 OTP, PT-03 expiry, PT-11 language</td><td>OTP 6-digit, 10-min validity, hashed at rest; resend max 3, cooldown 60s; all messages via DLT-registered templates (NT-03) with zero PHI (L5).</td></tr>
+</table>
+</div>
+
+<!-- ================= L4 ================= -->
+<h2>5. L4 — Authorization (policy service)</h2>
+<div class="card">
+<div class="flow">
+  <div class="fstep"><span class="fid">JWT</span>role + scope node + purpose (AU-10)</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">PEP</span>Spring filter per service</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">PDP</span>RBAC matrix (DOC-03 §3) + ABAC (§4)</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">OBLG</span>mask / step-up / audit obligations</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">L7</span>decision event appended</div>
+</div>
+<table>
+  <tr><th style="width:250px">Control</th><th style="width:190px">Visible in UI</th><th>Build requirement (Java/React)</th></tr>
+  <tr><td>Deny-by-default PDP; decisions cached ≤ 60s per (subject, resource-group, scope); policy bundles versioned and signed.</td><td class="mono">AD-04 roles, AD-05 approvals, AD-17 feature toggles</td><td>PDP as a Spring library embedded in each service (no network hop on hot paths) fed by signed policy bundles from the admin service; bundle version stamped into every L7 decision event.</td></tr>
+  <tr><td>Masked denial: any deny that referenced a patient record returns the masked handle <span class="mono">#MRN-••••30</span> plus reason code — never leaks name/demographics, never a blank 404 (existence is acknowledged to clinical roles to enable break-glass).</td><td class="mono">DD-05 break-glass, DD-06 access requests, DS patterns</td><td>Standard error envelope <span class="mono">{code:"ACCESS_MASKED", handle, reasons[], escapes:["DD-05","DD-06"]}</span>; React renders the shared MaskedDenial component from the DS library.</td></tr>
+  <tr><td>Front-end reflection only: nav items, buttons and columns hidden/disabled from the same policy bundle, but every API re-checks.</td><td class="mono">All workspaces; AU-10 chooser builds nav</td><td>React receives a compiled UI-capability map at session start; capability map is advisory — E2E tests assert that direct API calls without capability still 403.</td></tr>
+  <tr><td>Grant engine: time-boxed grants (DD-05/DD-10/PL-12/GV-15/AD-05 temp roles) evaluated as ABAC attributes with hard expiry.</td><td class="mono">DD-05, DD-10, PL-12, GV-03, GV-15</td><td>Grants table with <span class="mono">expires_at</span> indexed; PDP joins active grants at decision time; expiry sweep job (AD-18) emits L7 events; no cache TTL may exceed remaining grant lifetime.</td></tr>
+</table>
+</div>
+
+<!-- ================= L5 ================= -->
+<h2>6. L5 — Application controls</h2>
+<div class="card">
+<table>
+  <tr><th style="width:250px">Control</th><th style="width:190px">Visible in UI</th><th>Build requirement (Java/React)</th></tr>
+  <tr><td>Step-up (AU-09) on sign / money / legal — full trigger list in DOC-03 §2.</td><td class="mono">AU-09 + RD-09, BL-08, GV-07 et al.</td><td>Server-side ACR check (L3); UI shows lock glyph on step-up actions per DS pattern.</td></tr>
+  <tr><td>Four-eyes on irreversible: merge (FO-08), financial exceptions (BL-08), role grants (AD-05), exports (GV-15), operator access (PL-12).</td><td class="mono">FO-08, BL-08, AD-05, GV-15, PL-12</td><td>Async approval engine (design contract): request → PENDING → decision by different principal (SoD, DOC-03 §5); state machine persisted, no synchronous blocking UI; SLA chips per DS-03.</td></tr>
+  <tr><td>Clinical safety gates enforced at TK-01 Perform: contrast screening CS-01, MR safety CS-02, consent CS-03, PC-PNDT Form F CS-06 where applicable — server rejects acquisition start if any gate open; only CS-04 physician override unblocks.</td><td class="mono">TK-01, CS-01..06, TK-09 prep checklist</td><td>Gate evaluation service returns gate vector per order; TK-01 Perform button disabled with per-gate chips; API <span class="mono">POST /acquisitions</span> re-validates gates atomically (no TOCTOU between screen load and perform).</td></tr>
+  <tr><td>Idempotency keys on all mutating money/clinical endpoints — payments (BL-03/BL-04 UPI callbacks), order creation (OR-01), sign-off (RD-09), offline replays (IN-10).</td><td class="mono">BL-04 UPI pending, IN-06 retry/replay</td><td>Client-generated UUID header <span class="mono">Idempotency-Key</span>; Spring interceptor + unique index on (key, endpoint); replay returns original result; mandatory for the edge sync replayer and IN-06 manual replays.</td></tr>
+  <tr><td>No PHI in SMS/WhatsApp/email: notifications carry only masked handle + secure link (PT-01 flow); DLT template linting blocks PHI placeholders.</td><td class="mono">NT-03 templates DLT, NT-06 message log, NT-08 test harness</td><td>Template compiler whitelist of variables (no name/diagnosis fields in SMS channel); NT-08 harness renders every template against synthetic data in CI; message log NT-06 stores rendered body hash, not body, for SMS channel.</td></tr>
+  <tr><td>Duplicate-order intercept and STAT governance to prevent order abuse.</td><td class="mono">OR-02 duplicate-intercept, OR-07 STAT governance</td><td>Server-side duplicate window check (same code + patient + 48h) with justified-override path logged to L7; STAT rate per referrer monitored on OR-07.</td></tr>
+  <tr><td>Critical-results integrity: tiered RED 15m / ORANGE 4h with escalation ladder; ack identity captured; unacked escalation automatic.</td><td class="mono">RD-10/RD-11 flag &amp; queue, DD-02 ack, NT-01 ledger</td><td>Escalation scheduler (Quartz) walks ladder tiers; ack API requires authenticated principal (delegate rules DOC-03 §6.1); timers rendered via DS-03 SLA pattern.</td></tr>
+</table>
+</div>
+
+<!-- ================= L6 ================= -->
+<h2>7. L6 — Data protection</h2>
+<div class="card">
+<table>
+  <tr><th style="width:250px">Control</th><th style="width:190px">Visible in UI</th><th>Build requirement (Java/React)</th></tr>
+  <tr><td>Encryption at rest: AES-256 for DB volumes, object store (reports/PDFs), PACS archive, edge disks; field-level encryption for government-ID fields.</td><td class="mono">GV-13 residency, PL-08 (platform config), GV-12 DPIA</td><td>Cloud KMS-backed storage encryption; field-level via Spring converter with per-tenant DEK; ID fields additionally hashed for search (HMAC index).</td></tr>
+  <tr><td>Key management: envelope model — per-tenant DEKs wrapped by KMS master keys in India region; rotation yearly + on-compromise; report-signature keys separate from storage keys.</td><td class="mono">PL-08, GV-14 residency &amp; export governance</td><td>Key IDs recorded on each encrypted object for rotation-in-place; signature keys (RD-09 hash binding, L7) held in HSM/KMS asymmetric keys, never exportable.</td></tr>
+  <tr><td>Region pinning: all PHI, backups, logs and telemetry stored in Indian regions (DPDP + MeitY expectations); processor list and transfer register maintained.</td><td class="mono">GV-13 processors, GV-14 residency, GV-15 export governance</td><td>Infra-as-code region guardrails; CI policy check rejects non-India resources; any cross-border need routes through GV-15 approval (DOC-03 §5).</td></tr>
+  <tr><td>Backups &amp; recovery: RPO 15 min (WAL shipping) / RTO 4h; quarterly restore drills; backup encryption keys separate from primary.</td><td class="mono">PL-08 (platform ops), IN-01 health, GV-09 runbook references</td><td>PITR-enabled Postgres; object-store versioning; restore drill produces evidence artefact linked from GV-12 DPIA; edge queues excluded (re-syncable, L8).</td></tr>
+  <tr><td>Retention &amp; deletion: radiology 10y, billing 8y (design contract); deletion requests (GV-04) honour retention floors and legal holds (GV-07) — hold always wins; expiry actions proposed by calendar GV-01.</td><td class="mono">GV-01 calendar, GV-04 deletion, GV-06 retention, GV-07 legal holds</td><td>Retention class stamped at write time; deletion executor performs crypto-erase (drop per-record key) where hard delete is infeasible (PACS); every deletion emits L7 event + GV-04 certificate.</td></tr>
+</table>
+</div>
+
+<!-- ================= L7 ================= -->
+<h2>8. L7 — Audit &amp; monitoring</h2>
+<div class="card">
+<table>
+  <tr><th style="width:250px">Control</th><th style="width:190px">Visible in UI</th><th>Build requirement (Java/React)</th></tr>
+  <tr><td>Hash-chained append-only audit log: every event carries <span class="mono">prev_hash</span>; daily anchor hash notarised to WORM object storage; covers reads (with purpose), writes, decisions, grants, sign-offs.</td><td class="mono">AD-20 audit viewer; audit line rendered on every screen (design contract)</td><td>Audit service consumes a transactional outbox from each Spring service (no lost events on crash); chain verification job runs hourly, discrepancy → GV-08 incident automatically; AD-20 supports facet search (actor, patient handle, purpose, screen ID).</td></tr>
+  <tr><td>Report signature binding: RD-09 sign-off stores SHA-256 of report body + signer + timestamp signed with the org signature key; addenda (RD-12) chain to the original hash.</td><td class="mono">RD-08 pre-sign QC, RD-09, RD-12, RD-13 distribution</td><td>Signature verified on every render/distribution (PT-02, DD-02, RD-13); verification failure blocks distribution and raises GV-08.</td></tr>
+  <tr><td>Anomaly &amp; access review: quarterly campaigns; automated signals — after-hours bulk reads, unmask spikes, cross-branch prior access sampling (allow-and-audit), purpose mismatches.</td><td class="mono">GV-02 access review, AD-20, GV-16 DPO dashboard</td><td>Nightly Spark/SQL jobs compute per-user baselines; findings queue into GV-02 with attest/revoke actions writing back to AD-03/AD-05.</td></tr>
+  <tr><td>Break-glass / override review ≤ 72h: DD-05 events, CS-04 safety overrides, PL-12 operator grants.</td><td class="mono">GV-03 emergency review, GV-08 incident</td><td>Review SLA timers per DS-03; overdue reviews escalate to DPO; verdicts (justified / coached / escalated) immutable.</td></tr>
+  <tr><td>Breach clocks: incident intake GV-08 starts CERT-In 6h reporting timer and DPDP notification track; runbook GV-09 with pre-drafted notices GV-10.</td><td class="mono">GV-08, GV-09, GV-10, NT-01</td><td>Incident record carries statutory clocks as first-class fields; GV-09 checklist state machine; notification dispatch through NT with template freeze on legal review.</td></tr>
+</table>
+</div>
+
+<!-- ================= L8 ================= -->
+<h2>9. L8 — Physical &amp; edge</h2>
+<div class="card">
+<table>
+  <tr><th style="width:250px">Control</th><th style="width:190px">Visible in UI</th><th>Build requirement (Java/React)</th></tr>
+  <tr><td>Branch edge server: full-disk encryption, TPM-sealed keys, remote attestation at enrolment and on boot; auto-lock on chassis intrusion signal.</td><td class="mono">IN-10 edge sync, PL-07 fleet, IN-01</td><td>Edge agent (Java) enrols via one-time token issued in PL-07; attestation failure quarantines the node (sync suspended, banner on branch screens).</td></tr>
+  <tr><td>Offline-first FO queue integrity: queued mutations (registrations FO-03..05, check-ins FO-12, receipts) stored as an append-only log, each entry signed by the edge key and carrying the client idempotency key.</td><td class="mono">IN-10, FO-01 (offline banner), FO-16 EOD reconciliation</td><td>SQLite WAL + per-entry Ed25519 signature; server replay verifies signature + monotonic sequence; gap or signature failure → entries quarantined to IN-03-style review, never silently applied; conflicts resolved per DOC-11 rules and surfaced at FO-16.</td></tr>
+  <tr><td>Terminal &amp; kiosk hardening: kiosks (FO-22) in browser lockdown, no local storage of PHI, session wipe on inactivity; modality consoles bind TK screens to device identity.</td><td class="mono">FO-22, AU-08, TK-07 device board</td><td>Device registration in AD-02/AD-08 issues device certificates; React app refuses PHI-bearing routes on unregistered devices; print jobs routed only to registered printers (IN-08).</td></tr>
+  <tr><td>Media &amp; hardcopy: report prints watermarked with requester + timestamp; film/CD export logged as export events (GV-15 threshold rules apply to bulk).</td><td class="mono">RD-13 distribution, BL-05 receipts, IN-08 printers</td><td>Print service stamps watermark server-side (PDF layer); export counters aggregated to GV-16.</td></tr>
+</table>
+</div>
+
+<!-- ================= THREATS ================= -->
+<h2>10. Threat scenarios → mitigations</h2>
+<div class="card">
+<table>
+  <tr><th style="width:170px">Threat scenario</th><th>Attack path (synthetic example)</th><th>Mitigating layers &amp; screens</th><th style="width:170px">Residual detection</th></tr>
+  <tr>
+    <td><b>Report-link hijack</b> <span class="chip red">external</span></td>
+    <td>Patient forwards / attacker intercepts a PT link SMS for <span class="mono">#MRN-••••30</span> and tries to open the report.</td>
+    <td>L3: OTP to registered number only (PT-01), 5-attempt lockout, 10-min OTP; L2: single-purpose audience-scoped token, exp ≤ 72h (PT-03); L1: rate limiting per link/IP; L5: no PHI in the SMS itself (NT-03); re-issue only via FO with identity check (FO-06).</td>
+    <td class="mono small">Failed-OTP burst alert → NT-01/GV-02; link access geo/device anomaly flag</td>
+  </tr>
+  <tr>
+    <td><b>Insider bulk export</b> <span class="chip red">insider</span></td>
+    <td>Billing supervisor scripts 5,000 record reads at 02:00 intending to sell referrer/patient lists.</td>
+    <td>L4: purpose-of-use PAYMENT blocks report bodies; masked-by-default fields (DOC-03 §4); L5: bulk export only through governed jobs GV-15 / BL-19 / AD-12 with four-eyes DPO approval (DOC-03 §5) and watermarked output; L3: session cap; API pagination + per-principal read-rate quotas.</td>
+    <td class="mono small">L7 after-hours volume anomaly → GV-02 finding → AD-05 revoke; unmask-event spike on GV-16</td>
+  </tr>
+  <tr>
+    <td><b>Wrong-patient rebind</b> <span class="chip amber">safety</span></td>
+    <td>Two patients named "R. Sharma"; tech risks acquiring under the wrong order, or a bad FO-08 merge fuses two MRNs.</td>
+    <td>L5: single-MRN identity + FO-08 merge four-eyes with pre-merge snapshot; TK-01 gated worklist requires patient re-confirmation (ID + DOB) before Perform; OR-02 duplicate intercept; MWL sync TK-08 pushes patient context to the modality so no manual re-key; RD-08 pre-sign QC shows demographics against images.</td>
+    <td class="mono small">Unmerge runbook from snapshot; RD-15 discrepancy (diff) flow; GR intake if patient-reported</td>
+  </tr>
+  <tr>
+    <td><b>Token theft</b> <span class="chip red">external</span></td>
+    <td>Staff JWT/refresh token exfiltrated via malware on a counter PC; attacker replays from outside.</td>
+    <td>L3: short access-token TTL (5 min) + rotating refresh tokens with reuse detection (reuse → whole session family revoked); sender-binding (DPoP/mTLS for edge and service clients); shared-terminal mode disables long-lived refresh (AU-08); step-up AU-09 required for damaging actions even with a live session; L4: scope pinned to branch — off-network replay hits IP/context checks.</td>
+    <td class="mono small">AU-12/AU-17 concurrent-session + impossible-travel alert; revoke ≤ 30s via AU-17</td>
+  </tr>
+  <tr>
+    <td><b>Offline queue tamper</b> <span class="chip amber">insider/physical</span></td>
+    <td>Actor with edge-box access edits the queued offline log to alter a cash receipt amount before sync (IN-10).</td>
+    <td>L8: per-entry Ed25519 signatures + monotonic sequence — any edit breaks the chain and quarantines the batch; TPM-sealed signing key not extractable; L5: idempotency keys prevent replay duplication; L6: disk encryption; BL/FO reconciliation (FO-16, BL-09, BL-18 day book) cross-checks totals against payment-gateway records (BL-04).</td>
+    <td class="mono small">Chain-verification failure → GV-08 incident auto-open; EOD variance flag FO-16/BL-09</td>
+  </tr>
+</table>
+<div class="audit">Each scenario has a mapped test suite in the security regression pack (CI stage <span class="mono">sec-regression</span>); scenario drills scheduled on the compliance calendar GV-01 and evidenced in GV-12 DPIA.</div>
+</div>
+
+<div class="divider-label">END DOC-04</div>
+<p class="small muted" style="text-align:center">Magnus HMS · MVP 1 · Architecture &amp; Workflow Documentation · DOC-04 v1.0 · July 2026 · Synthetic data only — no real patient or staff identities.</p>
+
+</div>
+</body>
+</html>

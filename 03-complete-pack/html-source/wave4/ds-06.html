@@ -1,0 +1,94 @@
+<section class="screen" id="ds-06">
+<div class="screen-head"><h1><span class="sid">DS-06</span> Audit &amp; Step-up Pattern</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM</span><div class="cluster">G17 Design System &amp; Patterns — documentation pages</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · audit & step-up pattern</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Magnus is privacy-first under DPDP: every consequential screen tells the user, in one 🔒 footer line, exactly what is being recorded about their presence there — and every sensitive action re-proves identity before it executes. This page defines the audit footer phrasing per action class, the audit event schema, the step-up modal and its action matrix format, and the hash-chain / tamper-evident chips that make the trail verifiable.</div>
+
+<div class="state-tag">STATE A — AUDIT FOOTER LINE SPECIMENS (🔒 PHRASING PER ACTION CLASS)</div>
+<div class="card">
+  <div class="card-title">The footer line — one per screen, bottom of content, class <span class="mono">.audit</span> <span class="right">specimens</span></div>
+  <table>
+    <tr><th style="width:16%">Action class</th><th style="width:47%">Exact footer specimen</th><th>Phrasing rule</th></tr>
+    <tr><td class="bold">View (PHI read)</td><td><span class="audit" style="margin:0;display:block">Viewing this record (A. K•••••ni · MRD-2026-018851) is itself an access event — your identity, purpose "treatment", and the fields displayed are recorded in the access log.</span></td><td>Present tense, "is itself an access event". Names the masked subject and the purpose basis. Users must know reads are logged, not only writes.</td></tr>
+    <tr><td class="bold">Create / edit</td><td><span class="audit" style="margin:0;display:block">Saving writes a before/after snapshot with your identity and reason; the change is visible to the patient in their DPDP access report and recorded in the access log.</span></td><td>Mentions before/after snapshot and patient visibility — edits to a person's data are disclosable to that person.</td></tr>
+    <tr><td class="bold">Sensitive reveal (unmask)</td><td><span class="audit" style="margin:0;display:block">Revealing the full mobile number requires a stated purpose and is individually logged with a 30-day review flag — recorded in the access log.</span></td><td>Reveal events log per-field, not per-screen, and always carry a purpose picked from a closed list (never free-text only).</td></tr>
+    <tr><td class="bold">Destructive / irreversible</td><td><span class="audit" style="margin:0;display:block">Cancellation is irreversible and requires step-up confirmation and a second approver; the full request, both identities and the reason are chained into the tamper-evident audit record and recorded in the access log.</span></td><td>Says "irreversible" plainly, names both controls (step-up + four-eyes) before the user commits.</td></tr>
+    <tr><td class="bold">Export / bulk</td><td><span class="audit" style="margin:0;display:block">This export (214 rows, PHI masked per your role) is watermarked with your identity and expires in 72 h — generation and every download are recorded in the access log.</span></td><td>States row count, masking level, watermark and expiry — exports are the highest-leak surface.</td></tr>
+    <tr><td class="bold">Operator (platform)</td><td><span class="audit" style="margin:0;display:block">Operator actions on tenant Meridian Diagnostics run under a support-access grant that expires 18:00 IST; the tenant's org admin sees this session in their operator-access report — recorded in the access log.</span></td><td>Operator lines always disclose the grant, its expiry, and tenant-side visibility.</td></tr>
+  </table>
+  <div class="small muted" style="margin-top:10px">Rules: exactly one footer per screen; always ends "…recorded in the access log."; always begins with 🔒 (supplied by the <span class="mono">.audit</span> class); never legal boilerplate — each line is specific to what THIS screen records. A screen with no consequential access (e.g. this documentation page) may omit it.</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — AUDIT EVENT SCHEMA + INTEGRITY CHIPS</div>
+<div class="card">
+  <div class="card-title">Audit event schema — every event, no exceptions <span class="right">data contract</span></div>
+  <table>
+    <tr><th style="width:150px">Field</th><th style="width:210px">Example value</th><th>Rules</th></tr>
+    <tr><td class="mono">event_id / ts</td><td class="mono">evt_01J9M2… · 2026-07-21T14:42:09+05:30</td><td>Server-assigned, monotonic per branch; IST offset stored explicitly.</td></tr>
+    <tr><td class="mono">actor</td><td class="mono">usr_kverma · K. Verma · role org-admin · staff realm (Keycloak) · session sess_88c1 · step-up: passkey@14:41</td><td>Real identity + realm + session + the step-up method/time if one gated this event. Service actions carry the service principal AND the human who triggered them where one exists.</td></tr>
+    <tr><td class="mono">subject (masked)</td><td class="mono">pat_5521 · "A. K•••••ni" · MRD-2026-018851</td><td>Subject is stored as an opaque ID; the display name inside the audit UI itself stays masked — reading the audit log must not become a PHI side-channel. Unmasking within the log is itself a logged reveal event.</td></tr>
+    <tr><td class="mono">action / purpose</td><td class="mono">record.update · purpose: billing-correction</td><td>Action from the closed verb registry; purpose from the closed purpose list (treatment, billing, quality, legal, support), optional free-text amplification.</td></tr>
+    <tr><td class="mono">basis</td><td class="mono">DPDP consent cns_2210 v3 / legitimate-use §7(b)</td><td>The lawful basis pointer — consent record + version, or the statutory clause. No basis, no write: the API rejects basis-less PHI events.</td></tr>
+    <tr><td class="mono">before / after</td><td class="mono">{discount_pct: 0 → 10}</td><td>Field-level diff for writes; reads store the field <i>set</i> displayed. PHI values inside diffs are encrypted at rest separately from the event envelope.</td></tr>
+    <tr><td class="mono">co_signer</td><td class="mono">usr_dnair · approval apr_0931</td><td>Present when four-eyes applied; links to the approval record with its own step-up proof.</td></tr>
+    <tr><td class="mono">prev_hash / hash</td><td class="mono">…9f3a → sha256:4bc1…</td><td>Each event hashes its content + previous event's hash — the chain that makes the chips below meaningful.</td></tr>
+  </table>
+</div>
+<div class="row">
+  <div class="grow card">
+    <div class="card-title">Hash-chain chip <span class="right">list-level</span></div>
+    <span class="chip green">⛓ Chain verified · 14,208 events · anchor #482 · 15:00 IST</span>
+    <div class="small muted" style="margin-top:8px">Shown atop every audit log list. Green = recomputed hashes match through the latest daily anchor (anchor digests are written to write-once storage). Verifying is a read action, available to org admins without any operator involvement.</div>
+    <div style="margin-top:8px"><span class="chip amber">⛓ Verification running · 62%</span> <span class="chip red">⛓ CHAIN MISMATCH at evt 13,551 — incident opened</span></div>
+    <div class="small muted" style="margin-top:6px">Amber while recomputing; red mismatch auto-opens an incident, freezes log exports, and pages the platform operator (R. Iyer). Red is never dismissible.</div>
+  </div>
+  <div class="grow card">
+    <div class="card-title">Tamper-evident record chip <span class="right">row-level</span></div>
+    <span class="chip green">✓ Tamper-evident · sha256:4bc1…9e</span>
+    <div class="small muted" style="margin-top:8px">On each audit event detail: this event's hash re-verified against its neighbours at render time. Copy rule: say "tamper-<b>evident</b>", never "tamper-proof" — we detect, we don't claim to prevent.</div>
+    <div style="margin-top:8px"><span class="chip red">✗ Integrity check failed — do not rely on this record</span></div>
+    <div class="small muted" style="margin-top:6px">A failed row renders with content struck through and its neighbours flagged; the record is still shown (evidence), never silently hidden.</div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — STEP-UP MODAL SPEC + ACTION MATRIX FORMAT</div>
+<div class="card">
+  <div class="card-title">Step-up identity confirmation modal — reference spec <span class="right">component: .modal</span></div>
+  <div class="modal-wrap">
+    <div class="modal">
+      <h3>Confirm it's you — signing report MRD-2026-018834</h3>
+      <p class="small muted" style="margin-bottom:10px">You are about to <b>sign</b> the CT Brain (plain) report for A. K•••••ni as Dr. V. Shetty. Signing is legally attributable to you and cannot be undone (amendments create a new versioned record).</p>
+      <div class="field"><label>Passkey <span class="chip teal" style="margin-left:6px">preferred</span></label><span class="btn primary small">Use passkey on this device</span></div>
+      <div class="field"><label>Or authenticator code (TOTP)</label><div class="input mono" style="max-width:180px;color:#94A3B8">6-digit code</div><div class="hint">Backup codes work here; using one voids it and notifies you by SMS. Staff realm (Keycloak) · session sess_74d2.</div></div>
+      <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary disabled">Confirm &amp; sign</span></div>
+      <p class="audit" style="margin-top:10px">The step-up method, factor age and result are attached to the signing event and recorded in the access log.</p>
+    </div>
+  </div>
+  <table>
+    <tr><th style="width:30%">Modal rule</th><th>Specification</th></tr>
+    <tr><td class="bold">Names the exact action</td><td>Title and body restate the specific action + masked subject ("signing report MRD-2026-018834"), never generic "Confirm your identity". What is confirmed is what executes — the payload is bound to the challenge.</td></tr>
+    <tr><td class="bold">Factor rules</td><td>Passkey preferred, TOTP fallback, backup codes accepted-and-voided. Password re-entry alone is never a valid step-up. Patient OTP realm factors can never satisfy a staff-realm step-up.</td></tr>
+    <tr><td class="bold">Freshness window</td><td>Grade A actions: fresh challenge every time. Grade B: a step-up ≤10 min old may be reused, shown as "verified 14:41 IST · reuse". Window is org-configurable 5–15 min, never longer.</td></tr>
+    <tr><td class="bold">Failure / cancel</td><td>3 failed attempts locks step-up 5 min and notifies the user's other channel; cancel = no action, no partial state, logged as declined challenge.</td></tr>
+    <tr><td class="bold">Four-eyes composition</td><td>When dual-control applies, the second approver completes their <i>own</i> step-up on their own session — one person on two devices is blocked by same-user + same-device checks.</td></tr>
+  </table>
+</div>
+<div class="card">
+  <div class="card-title">Step-up action matrix — required format (excerpt) <span class="right">every module ships one</span></div>
+  <table>
+    <tr><th>Action</th><th>Grade</th><th>Step-up</th><th>Reuse window</th><th>Four-eyes</th><th>Audit class</th></tr>
+    <tr><td>Sign / amend report</td><td><span class="chip red">A</span></td><td>Always, fresh</td><td class="mono">none</td><td>—</td><td>Destructive-equivalent (legal attribution)</td></tr>
+    <tr><td>Reveal full patient contact</td><td><span class="chip red">A</span></td><td>Always, fresh + purpose</td><td class="mono">none</td><td>—</td><td>Sensitive reveal</td></tr>
+    <tr><td>Refund &gt; ₹5,000 / rate-card change</td><td><span class="chip red">A</span></td><td>Always, fresh</td><td class="mono">none</td><td><span class="chip amber">required</span></td><td>Destructive</td></tr>
+    <tr><td>Merge patient records · delete study assignment</td><td><span class="chip red">A</span></td><td>Always, fresh</td><td class="mono">none</td><td><span class="chip amber">required</span></td><td>Destructive</td></tr>
+    <tr><td>Bulk export (PHI)</td><td><span class="chip amber">B</span></td><td>Yes</td><td class="mono">≤10 min</td><td>&gt;1,000 rows: required</td><td>Export</td></tr>
+    <tr><td>Edit demographics / discount ≤ ₹5,000</td><td><span class="chip amber">B</span></td><td>Yes</td><td class="mono">≤10 min</td><td>—</td><td>Create/edit</td></tr>
+    <tr><td>Routine worklist views, drafting</td><td><span class="chip grey">C</span></td><td>No (session auth)</td><td class="mono">—</td><td>—</td><td>View</td></tr>
+    <tr><td>Operator: impersonate tenant user / tenant suspend</td><td><span class="chip red">A</span></td><td>Always, fresh (operator realm)</td><td class="mono">none</td><td><span class="chip amber">required + tenant-visible</span></td><td>Operator</td></tr>
+  </table>
+  <div class="small muted" style="margin-top:10px">Format rules: every module's spec ships this exact six-column matrix covering all its actions; grades are only A (fresh step-up), B (reusable window), C (none). An action absent from the matrix defaults to grade A until classified — the safe default is friction.</div>
+</div>
+<p class="audit">Design-system pages are versioned artefacts (DS-06 v1.5, updated 21 Jul 2026 IST by K. Verma). Changes to footer specimens, the event schema, or any step-up grade require clinical-governance review with four-eyes approval and are recorded in the access log.</p>
+</section>

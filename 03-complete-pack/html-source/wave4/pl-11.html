@@ -1,0 +1,153 @@
+<section class="screen" id="pl-11">
+<div class="screen-head"><h1><span class="sid">PL-11</span> Usage metering</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G16 + G17 — OPERATOR CONSOLE / DESIGN SYSTEM DOCS</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · usage metering (scope item #123 minimal)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Platform operators review per-tenant monthly consumption — imaging studies, storage, SMS/WhatsApp messages, API calls and licensed seats — against plan limits. Overage flags feed the billing cycle; a signed export is handed to finance on the 1st of each month. Every tenant sees an identical mirror of its own meter inside its admin console, so numbers here are never a surprise to the customer.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>Platform</span></span><span class="org">🛠 NUMINACORE Platform Console · operator realm</span></div><div class="userchip"><span class="av">RI</span>R. Iyer (Platform Ops) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Tenants</div>
+      <div class="nav-item">Tenant directory</div>
+      <div class="nav-item">Provisioning</div>
+      <div class="nav-item">Plans &amp; entitlements</div>
+      <div class="nav-item active">Usage metering</div>
+      <div class="sec-label">Operations</div>
+      <div class="nav-item">Platform health</div>
+      <div class="nav-item">Provider status <span class="nav-badge">3</span></div>
+      <div class="nav-item">Release channels</div>
+      <div class="sec-label">Trust</div>
+      <div class="nav-item">Break-glass register</div>
+      <div class="nav-item">Operator audit log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Platform Console › Tenants › Usage metering</div>
+      <div class="page-title">Usage metering — July 2026 <span class="actions-right"><span class="btn small">◀ Jun 2026</span> <span class="btn small disabled">Aug 2026 ▶</span> <span class="btn primary small">Export for billing</span></span></div>
+      <div class="page-sub">Metering window 01 Jul – 25 Jul 2026 (month to date, IST) · meters refreshed 25 Jul 2026, 06:00 IST · all counters are read-only in this console</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">3</div><div class="l">Active tenants</div><div class="s">0 suspended this month</div></div>
+        <div class="kpi"><div class="n">41,236</div><div class="l">Studies metered</div><div class="s">+8.2% vs Jun MTD</div></div>
+        <div class="kpi amber"><div class="n">1</div><div class="l">Tenants in overage</div><div class="s">Sunrise Imaging — SMS</div></div>
+        <div class="kpi"><div class="n">₹ 0</div><div class="l">Unbilled adjustments</div><div class="s">no manual credits pending</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Per-tenant consumption vs plan <span class="right">Month to date · Jul 2026</span></div>
+        <table>
+          <tr><th>Tenant</th><th>Plan</th><th style="width:170px">Studies</th><th style="width:170px">Storage (GB)</th><th style="width:150px">SMS / WhatsApp</th><th style="width:130px">API calls</th><th>Seats</th><th>Status</th></tr>
+          <tr>
+            <td><b>Meridian Diagnostics</b><div class="small muted mono">tn-meridian-01 · 4 branches</div></td>
+            <td>Enterprise<div class="small muted">annual · renews 01 Apr 2027</div></td>
+            <td>28,412 / 40,000<div class="progress"><i style="width:71%"></i></div><div class="small muted">71% of plan</div></td>
+            <td>3,940 / 6,000<div class="progress"><i style="width:66%"></i></div><div class="small muted">66% · PACS tier hot</div></td>
+            <td>61,204 / 100,000<div class="progress"><i style="width:61%"></i></div><div class="small muted">DLT Jio route · WA BSP</div></td>
+            <td>2.1M / 5M<div class="progress"><i style="width:42%"></i></div></td>
+            <td>184 / 200</td>
+            <td><span class="chip green">WITHIN PLAN</span></td>
+          </tr>
+          <tr class="hl">
+            <td><b>Sunrise Imaging (Pune)</b><div class="small muted mono">tn-sunrise-04 · 2 branches</div></td>
+            <td>Growth<div class="small muted">monthly · renews 01 Aug 2026</div></td>
+            <td>9,318 / 12,000<div class="progress"><i style="width:78%"></i></div><div class="small muted">78% of plan</div></td>
+            <td>1,270 / 1,500<div class="progress amber"><i style="width:85%"></i></div><div class="small muted">85% — watch</div></td>
+            <td>27,940 / 25,000<div class="progress red"><i style="width:100%"></i></div><div class="small muted">112% — overage</div></td>
+            <td>640K / 1M<div class="progress"><i style="width:64%"></i></div></td>
+            <td>52 / 60</td>
+            <td><span class="chip amber">OVERAGE — SMS</span></td>
+          </tr>
+          <tr>
+            <td><b>CarePoint Labs (Kochi)</b><div class="small muted mono">tn-carepoint-09 · 1 branch</div></td>
+            <td>Starter<div class="small muted">monthly · renews 01 Aug 2026</div></td>
+            <td>3,506 / 5,000<div class="progress"><i style="width:70%"></i></div><div class="small muted">70% of plan</div></td>
+            <td>410 / 750<div class="progress"><i style="width:55%"></i></div></td>
+            <td>8,112 / 15,000<div class="progress"><i style="width:54%"></i></div></td>
+            <td>190K / 500K<div class="progress"><i style="width:38%"></i></div></td>
+            <td>18 / 25</td>
+            <td><span class="chip green">WITHIN PLAN</span></td>
+          </tr>
+        </table>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Meter definitions <span class="right">Billing glossary</span></div>
+          <div class="kv">
+            <dt>Study</dt><dd>One DICOM study registered and stored, counted at first C-STORE acceptance. Rejected/QC-discarded studies are excluded within 72h.</dd>
+            <dt>Storage GB</dt><dd>Peak stored volume during the month (hot + nearline PACS tiers), sampled daily at 02:00 IST.</dd>
+            <dt>SMS / WhatsApp</dt><dd>Provider-confirmed deliveries only (DLT Jio route, WhatsApp BSP). Failed/undelivered messages are not billed.</dd>
+            <dt>API call</dt><dd>Authenticated external API requests (HL7/FHIR + partner API). Internal service traffic is never metered.</dd>
+            <dt>Seat</dt><dd>Distinct staff account active in the billing month (≥1 sign-in). Patient OTP identities are never seats.</dd>
+          </div>
+        </div>
+        <div class="card" style="width:340px">
+          <div class="card-title">Tenant-visible mirror</div>
+          <div class="banner info"><b>Same numbers, both sides</b>Each tenant admin sees this exact meter under Settings › Subscription &amp; usage in their own console. Mirrors update from the same metering pipeline within 15 minutes — operators cannot show a tenant different figures.</div>
+          <div class="kv">
+            <dt>Mirror sync</dt><dd><span class="chip green">IN SYNC</span> last verified 06:00 IST</dd>
+            <dt>Discrepancies</dt><dd>0 open · 1 resolved in Jun (SMS retry double-count, credited)</dd>
+          </div>
+        </div>
+      </div>
+      <div class="banner reg" style="margin-bottom:0"><b>Metering accuracy</b>Counters are derived from immutable event streams and reconciled nightly against provider invoices (DLT SMS, WhatsApp BSP, storage layer). Reconciliation drift &gt; 0.5% opens a metering incident automatically and freezes billing export for the affected tenant until resolved. Last reconciliation: 25 Jul 2026, 03:12 IST — drift 0.04%.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — OVERAGE DETAIL (SUNRISE IMAGING · SMS METER)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Platform Console › Usage metering › Sunrise Imaging (Pune) › SMS / WhatsApp</div>
+      <div class="page-title">Sunrise Imaging — SMS overage <span class="chip amber">OVERAGE — 2,940 msgs</span></div>
+      <div class="page-sub">Plan Growth · 25,000 messages included · 27,940 delivered MTD · overage began 21 Jul 2026, 14:38 IST</div>
+      <div class="banner warn"><b>Soft-cap policy in effect — service NOT interrupted</b>Patient-facing messages (report-ready, appointment, OTP) continue to send during overage; only marketing-category templates are paused. Overage bills at ₹0.22/SMS per the Growth plan schedule. Tenant admin was notified automatically on 21 Jul (crossing 100%) and again at 110%.</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Daily delivery trend <span class="right">Jul 2026</span></div>
+          <table>
+            <tr><th>Date</th><th>SMS (DLT Jio)</th><th>WhatsApp BSP</th><th>Cumulative</th><th>Note</th></tr>
+            <tr><td class="mono">18 Jul</td><td>1,104</td><td>412</td><td>22,180</td><td class="muted">normal</td></tr>
+            <tr><td class="mono">19 Jul</td><td>1,190</td><td>388</td><td>23,758</td><td class="muted">normal</td></tr>
+            <tr><td class="mono">20 Jul</td><td>1,082</td><td>402</td><td>25,242</td><td><span class="chip amber">CROSSED 100%</span></td></tr>
+            <tr class="hl"><td class="mono">21 Jul</td><td><b>2,610</b></td><td>396</td><td>28,248*</td><td>bulk recall campaign — health-camp follow-ups</td></tr>
+            <tr><td class="mono">22–25 Jul</td><td>avg 940/day</td><td>avg 380/day</td><td>27,940 net</td><td class="muted">*308 undelivered, auto-credited</td></tr>
+          </table>
+          <div class="small muted" style="margin-top:8px">Spike attributed to tenant-initiated recall campaign (template TPL-RECALL-07, DLT approved). No platform anomaly detected.</div>
+        </div>
+        <div class="card" style="width:330px">
+          <div class="card-title">Billing treatment</div>
+          <div class="kv">
+            <dt>Overage qty</dt><dd>2,940 msgs (projected 5,600 by 31 Jul)</dd>
+            <dt>Rate</dt><dd>₹0.22 / SMS · WA within bundle</dd>
+            <dt>Projected charge</dt><dd><b>₹1,232.00</b> (est. month-end)</dd>
+            <dt>Tenant notified</dt><dd>21 Jul 14:41 IST · admin ack 21 Jul 15:02</dd>
+            <dt>Action</dt><dd><span class="btn small">Suggest plan upgrade</span> <span class="btn small">Apply courtesy credit…</span></dd>
+          </div>
+          <div class="banner reg small" style="margin-top:10px;margin-bottom:0"><b>Dual control</b>Courtesy credits above ₹5,000 require a second operator approval before they reach the invoice.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — EXPORT FOR BILLING (SIGNED SNAPSHOT)</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Export usage snapshot — July 2026</h3>
+    <div class="banner info"><b>Immutable snapshot</b>The export freezes all meters as of the moment of generation and is checksummed. Finance systems ingest only signed snapshots; ad-hoc CSVs are not accepted for invoicing.</div>
+    <div class="kv">
+      <dt>Scope</dt><dd>All tenants (3) · full meter set · Jul 2026 MTD</dd>
+      <dt>Format</dt><dd>CSV + JSON manifest · SHA-256 checksum · operator signature</dd>
+      <dt>Includes</dt><dd>Overage lines, auto-credits (308 undelivered SMS), reconciliation report drift 0.04%</dd>
+      <dt>Excludes</dt><dd>Any patient data or message content — counters only, verified by export filter</dd>
+      <dt>Delivered to</dt><dd>billing@numinacore.example (finance workspace) · tenant mirrors updated simultaneously</dd>
+    </div>
+    <div class="field" style="margin-top:12px"><label>Step-up confirmation <span class="req">*</span></label>
+      <input class="input" placeholder="Enter TOTP code from your authenticator to sign this export"/>
+      <div class="hint">Exports are signed with your operator identity (R. Iyer, operator realm). Passkey step-up also accepted.</div>
+    </div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Sign &amp; export snapshot</span></div>
+  </div>
+</div>
+<p class="audit">Meter views, overage drill-downs, courtesy-credit drafts and every signed billing export (with checksum and TOTP step-up result) are recorded in the access log. Tenants can request the metering evidence trail for any invoiced month.</p>
+</section>

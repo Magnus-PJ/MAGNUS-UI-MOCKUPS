@@ -1,0 +1,135 @@
+<section class="screen" id="in-08">
+<div class="screen-head"><h1><span class="sid">IN-08</span> Printers &amp; peripherals</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IN-S2 printers & peripherals</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Registry of every service-point peripheral — token slip and label printers, wristband printers, public queue displays and signature pads — with live status pings and driver/queue diagnostics. Test prints use synthetic data only. When a device is down, the screen surfaces the front-office fallback (reprint at another desk) so patient flow never stalls.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Connectors</div>
+      <div class="nav-item">Connector health</div>
+      <div class="nav-item">Modality worklist</div>
+      <div class="nav-item">Message browser</div>
+      <div class="nav-item">Retry &amp; replay <span class="nav-badge red">14</span></div>
+      <div class="sec-label">Channels</div>
+      <div class="nav-item">Comms providers</div>
+      <div class="nav-item active">Printers &amp; peripherals <span class="nav-badge red">1</span></div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Mapping tables</div>
+      <div class="nav-item">Access log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Integration › Printers &amp; peripherals</div>
+      <div class="page-title">Printers &amp; peripherals <span class="actions-right"><span class="btn small">Ping all now</span> <span class="btn primary small">+ Register device</span></span></div>
+      <div class="page-sub">12 devices across 5 service points · Andheri West branch · agent heartbeat every 60s</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">10</div><div class="l">Online</div><div class="s">Heartbeat &lt; 2 min</div></div>
+        <div class="kpi amber"><div class="n">1</div><div class="l">Degraded</div><div class="s">Label printer low ribbon</div></div>
+        <div class="kpi red"><div class="n">1</div><div class="l">Down</div><div class="s">Front desk 2 token printer</div></div>
+        <div class="kpi"><div class="n">1,204</div><div class="l">Jobs today</div><div class="s">0.6% reprint rate</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Device registry <span class="right">grouped by service point</span></div>
+        <table>
+          <tr><th>Device</th><th>Type</th><th>Service point</th><th>Agent / driver</th><th>Last ping (IST)</th><th>Queue</th><th>Status</th><th></th></tr>
+          <tr><td class="mono">TKN-FD1</td><td>Token slip printer (thermal 80mm)</td><td>Front desk 1 · D. Nair</td><td class="mono">magnus-agent 2.4.1 · ESC/POS</td><td class="mono">14:44:02</td><td>0 jobs</td><td><span class="chip green">ONLINE</span></td><td><span class="btn ghost small">Test print</span></td></tr>
+          <tr class="hl"><td class="mono">TKN-FD2</td><td>Token slip printer (thermal 80mm)</td><td>Front desk 2 · D. Nair</td><td class="mono">magnus-agent 2.4.1 · ESC/POS</td><td class="mono">14:19:47 · stale</td><td><b>6 stuck</b></td><td><span class="chip red">DOWN · 24m</span></td><td><span class="btn ghost small">Diagnose</span></td></tr>
+          <tr><td class="mono">LBL-PHLEB1</td><td>Label printer (barcode, 2-up)</td><td>Phlebotomy · T. Okafor</td><td class="mono">magnus-agent 2.4.1 · ZPL</td><td class="mono">14:44:10</td><td>1 job</td><td><span class="chip amber">LOW RIBBON ~120 labels</span></td><td><span class="btn ghost small">Test print</span></td></tr>
+          <tr><td class="mono">LBL-CT1</td><td>Label printer (barcode)</td><td>CT-ROOM-1 console</td><td class="mono">magnus-agent 2.4.1 · ZPL</td><td class="mono">14:43:55</td><td>0 jobs</td><td><span class="chip green">ONLINE</span></td><td><span class="btn ghost small">Test print</span></td></tr>
+          <tr><td class="mono">WRB-DAYCARE</td><td>Wristband printer</td><td>Daycare / contrast bay</td><td class="mono">magnus-agent 2.4.1 · ZPL-W</td><td class="mono">14:44:01</td><td>0 jobs</td><td><span class="chip green">ONLINE</span></td><td><span class="btn ghost small">Test print</span></td></tr>
+          <tr><td class="mono">DSP-LOBBY</td><td>Public queue display (55")</td><td>Lobby</td><td class="mono">display-agent 1.9 · HDMI-CEC</td><td class="mono">14:44:12</td><td>—</td><td><span class="chip green">ONLINE · privacy mode: token-only</span></td><td><span class="btn ghost small">Preview</span></td></tr>
+          <tr><td class="mono">DSP-RADWAIT</td><td>Public queue display (43")</td><td>Radiology waiting</td><td class="mono">display-agent 1.9</td><td class="mono">14:43:58</td><td>—</td><td><span class="chip green">ONLINE · privacy mode: token-only</span></td><td><span class="btn ghost small">Preview</span></td></tr>
+          <tr><td class="mono">SIG-FD1</td><td>Signature pad (consent capture)</td><td>Front desk 1</td><td class="mono">magnus-agent 2.4.1 · HID</td><td class="mono">14:44:05</td><td>—</td><td><span class="chip green">ONLINE</span></td><td><span class="btn ghost small">Test stroke</span></td></tr>
+          <tr><td class="mono">SIG-BILL1</td><td>Signature pad</td><td>Billing counter · P. D'Souza</td><td class="mono">magnus-agent 2.4.1 · HID</td><td class="mono">14:44:07</td><td>—</td><td><span class="chip green">ONLINE</span></td><td><span class="btn ghost small">Test stroke</span></td></tr>
+          <tr><td class="mono">RCP-BILL1</td><td>Receipt printer (thermal 80mm)</td><td>Billing counter</td><td class="mono">magnus-agent 2.4.1 · ESC/POS</td><td class="mono">14:44:03</td><td>0 jobs</td><td><span class="chip green">ONLINE</span></td><td><span class="btn ghost small">Test print</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Public displays never show patient names — token number and room only (privacy mode enforced at template level). Device registration and removal require org-admin role with step-up confirmation.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — TEST PRINT · SYNTHETIC DATA ONLY</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Integration › Printers &amp; peripherals › LBL-PHLEB1 › Test print</div>
+      <div class="page-title">Test print · LBL-PHLEB1 <span class="chip teal">SYNTHETIC DATA ONLY</span></div>
+      <div class="page-sub">Phlebotomy label printer · ZPL · 2-up barcode stock 50×25mm</div>
+      <div class="modal-wrap">
+        <div class="modal">
+          <h3>Send test label</h3>
+          <p class="small" style="margin-bottom:10px">Test jobs are generated from fixed synthetic fixtures — real patient data can never be selected into a test print. Each test is tagged TEST in bold on the physical output.</p>
+          <div class="field"><label>Template</label><div class="select">SAMPLE-LBL-STD · barcode + accession + tube type ▾</div></div>
+          <div class="field"><label>Fixture</label><div class="select">TEST PATIENT ONE · ACC-TEST-0001 · EDTA ▾</div></div>
+          <div class="field"><label>Copies</label><input class="input" style="width:80px" value="1"></div>
+          <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Print test label</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="grow card">
+          <div class="card-title">Label preview (rendered)</div>
+          <div style="border:1.5px dashed #94A3B8;border-radius:8px;background:#F8FAFC;padding:14px;max-width:340px">
+            <div class="mono small" style="letter-spacing:.3em">▐║▌║█║▌│║▐║█▌║│▐</div>
+            <div class="mono bold">ACC-TEST-0001 · ** TEST **</div>
+            <div class="small">TEST PATIENT ONE · 01 Jan 1990 · EDTA (lavender)</div>
+            <div class="small muted">Andheri West · 25 Jul 2026 14:47 IST · printed by T. Okafor</div>
+          </div>
+        </div>
+        <div class="card" style="width:320px">
+          <div class="card-title">Result</div>
+          <div class="banner success" style="margin-bottom:8px"><b>Test label printed · 1.1s</b>Job <span class="mono">PRJ-20260725-1088</span> rendered and confirmed by agent. Ribbon estimate updated: ~119 labels remaining.</div>
+          <div class="banner warn" style="margin-bottom:0"><b>Low ribbon</b>Consumable alert already open for LBL-PHLEB1 — supplies task <span class="mono">FAC-0223</span> assigned to facilities, due today 18:00 IST.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — PRINTER DOWN · DRIVER/QUEUE ERROR + FRONT-OFFICE FALLBACK</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Integration › Printers &amp; peripherals › TKN-FD2 › Diagnose</div>
+      <div class="page-title">TKN-FD2 · Token slip printer <span class="chip red">DOWN · 26 min</span> <span class="chip red">SLA 30m · D. Nair</span></div>
+      <div class="page-sub">Front desk 2 · last successful job 14:17:31 IST · 6 jobs stuck in queue</div>
+      <div class="banner danger"><b>Driver error: USB endpoint not responding (agent code PRN-E-104)</b>Agent heartbeat is healthy but the spooler reports the device unreachable — most often a cable/power fault or paper jam with the cutter engaged. Auto-recovery attempted twice (spooler restart 14:22, 14:32) without success.</div>
+      <div class="row">
+        <div class="grow card">
+          <div class="card-title">Stuck queue · 6 jobs</div>
+          <table>
+            <tr><th>Job</th><th>Type</th><th>Queued (IST)</th><th>Token</th><th>State</th></tr>
+            <tr><td class="mono">PRJ-1091</td><td>Token slip</td><td class="mono">14:19:02</td><td class="mono">A-118</td><td><span class="chip amber">HELD</span></td></tr>
+            <tr><td class="mono">PRJ-1092</td><td>Token slip</td><td class="mono">14:21:44</td><td class="mono">A-119</td><td><span class="chip amber">HELD</span></td></tr>
+            <tr><td class="mono">PRJ-1094</td><td>Token slip</td><td class="mono">14:26:10</td><td class="mono">A-120</td><td><span class="chip amber">HELD</span></td></tr>
+            <tr><td class="mono">PRJ-1096</td><td>Token slip</td><td class="mono">14:31:37</td><td class="mono">A-121</td><td><span class="chip amber">HELD</span></td></tr>
+            <tr><td class="mono">PRJ-1099</td><td>Token slip</td><td class="mono">14:38:15</td><td class="mono">A-122</td><td><span class="chip amber">HELD</span></td></tr>
+            <tr><td class="mono">PRJ-1101</td><td>Token slip</td><td class="mono">14:42:50</td><td class="mono">A-123</td><td><span class="chip amber">HELD</span></td></tr>
+          </table>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <span class="btn primary small">Reroute all 6 → TKN-FD1</span>
+            <span class="btn small">Retry on TKN-FD2</span>
+            <span class="btn warn-outline small">Purge queue (requires reason)</span>
+          </div>
+          <div class="small muted" style="margin-top:8px">Rerouted slips print with "issued at Desk 1" footer; queue-display token order is unaffected because tokens are already allocated server-side.</div>
+        </div>
+        <div class="card" style="width:330px">
+          <div class="card-title">Front-office fallback</div>
+          <div class="banner info" style="margin-bottom:10px"><b>Fallback active for Desk 2</b>D. Nair's registration screen now shows: "Token printer offline — slips reprint automatically at <b>Front desk 1 (TKN-FD1)</b>. Verbally direct patients to collect there, or read out the token number." Patients on WhatsApp/SMS also receive their token digitally as usual.</div>
+          <div class="card-title" style="font-size:13px">Recovery checklist</div>
+          <div class="check"><span class="box on">✓</span>Spooler restart attempted (auto ×2)</div>
+          <div class="check"><span class="box"></span>Check power &amp; USB cable at Desk 2</div>
+          <div class="check"><span class="box"></span>Clear paper path / cutter jam</div>
+          <div class="check"><span class="box"></span>Power-cycle printer, wait for agent re-ping</div>
+          <div class="check"><span class="box"></span>Still down? Escalate: task to facilities + notify K. Verma</div>
+          <span class="btn small" style="display:block;text-align:center;margin-top:8px">Create facilities task (pre-filled)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Device registrations, test prints (synthetic fixtures), queue reroutes, purges with reason, and fallback activations are recorded in the access log.</p>
+</section>

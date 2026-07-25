@@ -1,0 +1,127 @@
+<section class="screen" id="pl-02">
+<div class="screen-head"><h1><span class="sid">PL-02</span> Organisations &amp; onboarding</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 + G16 — workspaces 'Integration' / operator</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · PL-S1 orgs & onboarding</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Platform operators provision new tenant organisations through a gated checklist: legal entity, region pin, Keycloak realm creation, branding, seed masters, pilot branch, and a go-live gate that requires sign-offs from both the tenant and NUMINACORE. Every step writes to the onboarding evidence log; sandbox tenants are flagged and can never hold real patient data.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>Platform</span></span><span class="org">🛠 NUMINACORE Platform Console · operator realm</span></div><div class="userchip"><span class="av">RI</span>R. Iyer (Platform Ops) ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Platform</div>
+    <div class="nav-item">Console home</div>
+    <div class="nav-item active">Organisations &amp; onboarding</div>
+    <div class="nav-item">Incidents <span class="nav-badge">0</span></div>
+    <div class="nav-item">Release channels</div>
+    <div class="nav-item">Provider health (DLT/BSP/UPI)</div>
+    <div class="sec-label">Governance</div>
+    <div class="nav-item">Operator actions log</div>
+    <div class="nav-item">Break-glass requests</div>
+    <div class="nav-item">Realm admin (Keycloak)</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Platform console › Organisations &amp; onboarding</div>
+    <div class="page-title">Organisations <span class="actions-right"><span class="btn primary small">+ Provision new organisation</span></span></div>
+    <div class="page-sub">3 organisations · region ap-south-1 (Mumbai) — data residency pinned India for all tenants · Provisioning requires four-eyes at realm creation and go-live</div>
+
+    <div class="card"><div class="card-title">Tenant list <span class="right">sorted by status</span></div>
+    <table>
+      <tr><th>Organisation</th><th>Region pin</th><th>Realms</th><th>Branches</th><th>Plan</th><th>Sandbox flag</th><th>Status</th><th>Onboarding</th><th></th></tr>
+      <tr><td><b>Meridian Diagnostics</b><div class="small muted">Meridian Healthcare Pvt Ltd · CIN U85110MH2019PTC322114</div></td><td class="mono">ap-south-1 🔒</td><td class="mono small">meridian-staff · meridian-patient-otp</td><td class="mono">4</td><td><span class="chip blue">Enterprise</span></td><td><span class="chip grey">NO — LIVE DATA</span></td><td><span class="chip green">LIVE</span></td><td>completed 02 Mar 2026</td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr><td><b>Sunrise Imaging</b><div class="small muted">Sunrise Imaging LLP, Pune · LLPIN AAX-1204</div></td><td class="mono">ap-south-1 🔒</td><td class="mono small">sunrise-staff · sunrise-patient-otp</td><td class="mono">2</td><td><span class="chip blue">Standard</span></td><td><span class="chip grey">NO — LIVE DATA</span></td><td><span class="chip green">LIVE</span></td><td>completed 08 Jun 2026</td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr class="hl"><td><b>CarePoint Labs</b><div class="small muted">CarePoint Diagnostics Pvt Ltd, Kochi · CIN U85195KL2021PTC07088</div></td><td class="mono">ap-south-1 🔒</td><td class="mono small">carepoint-staff · (patient-otp pending)</td><td class="mono">1 (pilot)</td><td><span class="chip grey">Pilot</span></td><td><span class="chip amber">SANDBOX — synthetic data only</span></td><td><span class="chip amber">ONBOARDING 5/7</span></td><td>started 06 Jul 2026 · owner R. Iyer</td><td><span class="btn ghost small">Resume</span></td></tr>
+    </table>
+    <p class="small muted" style="margin-top:8px">Region pin is immutable after realm creation — moving a tenant's data out of the pinned region is not supported by design. Sandbox flag blocks real-patient registration, DLT/WhatsApp sends to non-whitelisted numbers, and live payment capture.</p></div>
+
+    <div class="row">
+      <div class="card grow"><div class="card-title">Onboarding evidence log — CarePoint Labs <span class="right">immutable · exportable for audit</span></div>
+      <div class="timeline">
+        <div class="ev"><span class="t">06 Jul 10:02</span><span><b>Step 1 Legal entity</b> verified — CIN + GSTIN + signed MSA v3.1 attached (SHA-256 <span class="mono">e3b0…9b24</span>) · by R. Iyer</span></div>
+        <div class="ev"><span class="t">06 Jul 10:15</span><span><b>Step 2 Region pin</b> ap-south-1 confirmed; residency clause §4.2 referenced · by R. Iyer</span></div>
+        <div class="ev"><span class="t">07 Jul 11:40</span><span><b>Step 3 Realm creation</b> carepoint-staff created in Keycloak (TOTP+passkeys enforced, backup codes on) · initiated R. Iyer, <b>approved A. Menon (four-eyes)</b></span></div>
+        <div class="ev"><span class="t">10 Jul 16:22</span><span><b>Step 4 Branding</b> white-label theme "CarePoint Coral" uploaded; SMS sender header registration (DLT) submitted, pending TRAI approval</span></div>
+        <div class="ev"><span class="t">18 Jul 09:05</span><span><b>Step 5 Seed masters</b> modality list, test catalogue (212 items), tariff v1 imported from template pack IN-KL-01 · checksum verified</span></div>
+        <div class="ev"><span class="t">— pending</span><span class="muted"><b>Step 6 Pilot branch</b> Kochi Panampilly Nagar — device enrolment (US unit) and edge node install scheduled 28 Jul</span></div>
+        <div class="ev"><span class="t">— pending</span><span class="muted"><b>Step 7 Go-live gate</b> blocked until steps 4 (DLT approval) and 6 complete</span></div>
+      </div></div>
+      <div class="card" style="width:300px;flex-shrink:0"><div class="card-title">Provisioning guardrails</div>
+        <dl class="kv" style="grid-template-columns:120px 1fr">
+          <dt>Four-eyes</dt><dd>realm creation, sandbox→live flip, go-live approval, tenant deletion</dd>
+          <dt>Step-up</dt><dd>hardware key re-auth before any realm or residency step</dd>
+          <dt>Sandbox</dt><dd>synthetic patients only; purge on live-flip is mandatory + evidenced</dd>
+          <dt>Evidence</dt><dd>every step hashed and timestamped; export as signed PDF for tenant DPO</dd>
+        </dl>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PROVISIONING STEPPER (CarePoint Labs · step 6 of 7)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Platform console › Organisations &amp; onboarding › CarePoint Labs › Provisioning</div>
+  <div class="page-title">Provision organisation — CarePoint Labs <span class="chip amber">SANDBOX — synthetic data only</span></div>
+  <div class="page-sub">Checklist is sequential; a step locks once evidenced. Re-opening a completed step requires four-eyes and is itself evidenced.</div>
+  <div class="stepper">
+    <span class="step done"><span class="dot">✓</span>Legal entity</span><span class="step-line"></span>
+    <span class="step done"><span class="dot">✓</span>Region pin</span><span class="step-line"></span>
+    <span class="step done"><span class="dot">✓</span>Realm creation</span><span class="step-line"></span>
+    <span class="step done"><span class="dot">✓</span>Branding</span><span class="step-line"></span>
+    <span class="step done"><span class="dot">✓</span>Seed masters</span><span class="step-line"></span>
+    <span class="step cur"><span class="dot">6</span>Pilot branch</span><span class="step-line"></span>
+    <span class="step"><span class="dot">7</span>Go-live gate</span>
+  </div>
+  <div class="row">
+    <div class="card grow"><div class="card-title">Step 6 — Pilot branch: Kochi Panampilly Nagar</div>
+      <div class="field"><label>Branch code <span class="req">*</span></label><span class="input mono" style="display:inline-block;width:200px">CPL-KPN-01</span></div>
+      <div class="check"><span class="box on">✓</span><span>Branch address &amp; clinical registration certificate uploaded (KL Clinical Establishments Act) — verified 21 Jul</span></div>
+      <div class="check"><span class="box on">✓</span><span>First org admin invited: <b>M. Thomas</b> (carepoint-staff realm) — enrolled passkey + backup codes 22 Jul</span></div>
+      <div class="check"><span class="box">&nbsp;</span><span>Enrol modality device: US-KPN-1 (AE title <span class="mono">CPLUS1</span>) — engineer visit 28 Jul 10:00 IST</span></div>
+      <div class="check"><span class="box">&nbsp;</span><span>Install edge node <span class="mono">edge-kpn-01</span> and pass offline drill (30 min disconnect + auto catch-up ≤ 15 min)</span></div>
+      <div class="check"><span class="box">&nbsp;</span><span>Patient OTP realm <span class="mono">carepoint-patient-otp</span> creation (kept separate from staff realm) — auto-created on step completion</span></div>
+      <div class="modal-actions" style="justify-content:flex-start"><span class="btn primary">Mark step complete</span><span class="btn">Save draft</span></div>
+      <p class="small muted">"Mark step complete" requires hardware-key step-up; incomplete checklist items block completion.</p>
+    </div>
+    <div class="card" style="width:300px;flex-shrink:0"><div class="card-title">Blocking items <span class="right">2</span></div>
+      <table>
+        <tr><th>Item</th><th>Owner</th><th>SLA</th></tr>
+        <tr><td>DLT sender header approval (step 4 carry-over)</td><td>R. Iyer</td><td><span class="chip amber">DUE 27 JUL</span></td></tr>
+        <tr><td>Edge offline drill report</td><td>Field engg.</td><td><span class="chip teal">DUE 29 JUL</span></td></tr>
+      </table>
+      <div class="banner info" style="margin-top:10px"><b>Sandbox tenant</b>All flows run against synthetic patients (dataset SYN-KL-100). Live-flip in step 7 purges synthetic data and evidences the purge.</div>
+    </div>
+  </div>
+</div></div></div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — GO-LIVE GATE (sign-offs · sandbox→live flip)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Platform console › Organisations &amp; onboarding › CarePoint Labs › Go-live gate</div>
+  <div class="page-title">Step 7 — Go-live gate <span class="chip amber">AWAITING SIGN-OFFS 2/4</span></div>
+  <div class="page-sub">Target go-live 03 Aug 2026, 06:00 IST · Gate auto-expires if not signed by 10 Aug (restart step 7)</div>
+  <div class="row">
+    <div class="card grow"><div class="card-title">Readiness checks <span class="right">auto-evaluated 25 Jul 14:40 IST</span></div>
+      <table>
+        <tr><th>Check</th><th>Result</th><th>Evidence</th></tr>
+        <tr><td>All 6 prior steps evidenced &amp; locked</td><td><span class="chip green">PASS</span></td><td class="mono small">EVD-CPL-0001…0034</td></tr>
+        <tr><td>Offline drill: catch-up 7 m 51 s (≤ 15 m)</td><td><span class="chip green">PASS</span></td><td class="mono small">EVD-CPL-0031</td></tr>
+        <tr><td>DLT sender header approved (TRAI)</td><td><span class="chip green">PASS</span></td><td class="mono small">EVD-CPL-0033</td></tr>
+        <tr><td>Synthetic-data purge dry-run</td><td><span class="chip green">PASS</span></td><td class="mono small">EVD-CPL-0034</td></tr>
+        <tr class="hl"><td>Tenant DPO privacy sign-off</td><td><span class="chip amber">PENDING</span></td><td class="small muted">sent 23 Jul to dpo@carepointlabs.in</td></tr>
+      </table></div>
+    <div class="card" style="width:320px;flex-shrink:0"><div class="card-title">Sign-offs <span class="right">all four required</span></div>
+      <div class="sig-box signed" style="margin-bottom:8px">M. Thomas — CarePoint org admin · 24 Jul</div>
+      <div class="sig-box signed" style="margin-bottom:8px">R. Iyer — NUMINACORE ops · 24 Jul</div>
+      <div class="sig-box" style="margin-bottom:8px">CarePoint DPO — pending</div>
+      <div class="sig-box">NUMINACORE second operator (four-eyes) — pending, cannot be R. Iyer</div>
+    </div>
+  </div>
+</div></div></div>
+<div class="modal-wrap"><div class="modal danger">
+  <h3>Flip sandbox → LIVE — CarePoint Labs</h3>
+  <p class="small muted" style="margin-bottom:10px">Enabled only after all four sign-offs. This action purges synthetic dataset SYN-KL-100 (2,148 records), enables real-patient registration, live DLT/WhatsApp sends and live UPI capture, and permanently clears the sandbox flag.</p>
+  <div class="check"><span class="box on">✓</span><span>I confirm the synthetic-data purge report will be attached to the evidence log automatically</span></div>
+  <div class="field"><label>Type organisation slug to confirm <span class="req">*</span></label><span class="input mono" style="display:inline-block;width:220px;color:#94A3B8">carepoint-labs</span></div>
+  <div class="banner warn"><b>Step-up + four-eyes</b>Hardware-key re-authentication required now; a second operator (not R. Iyer) must countersign within 4 h. The flip is irreversible — reverting to sandbox requires a new provisioning cycle.</div>
+  <div class="modal-actions"><span class="btn">Cancel</span><span class="btn danger disabled">Flip to LIVE (blocked — 2 sign-offs pending)</span></div>
+</div></div>
+<p class="audit">Every provisioning step, sign-off, re-opened step, sandbox flip attempt and evidence export is hashed into the onboarding evidence log, dual-logged to the platform evidence store, mirrored to the tenant's audit trail, and recorded in the access log.</p>
+</section>

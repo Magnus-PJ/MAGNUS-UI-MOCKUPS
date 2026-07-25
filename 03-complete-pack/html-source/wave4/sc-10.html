@@ -1,0 +1,106 @@
+<section class="screen" id="sc-10">
+<div class="screen-head"><h1><span class="sid">SC-10</span> Public display settings</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S9 public display settings</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Governs what waiting-area displays show. Token-only is the privacy default; switching any display to token+first-name is a privacy-relevant change that must pass an approval workflow (privacy officer sign-off). Admin also sets chime, language rotation, per-display room layout, and can push a test broadcast to verify a physical screen before go-live.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org Admin) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Setup workspace</div>
+      <div class="nav-item">Org &amp; branches</div>
+      <div class="nav-item">Users &amp; roles</div>
+      <div class="nav-item">Services &amp; price lists</div>
+      <div class="sec-label">Scheduling</div>
+      <div class="nav-item">Working hours</div>
+      <div class="nav-item">Slot templates</div>
+      <div class="nav-item">Modality calendar</div>
+      <div class="nav-item">Overbooking &amp; walk-in</div>
+      <div class="nav-item">Camps &amp; blocks</div>
+      <div class="nav-item">Token &amp; queue</div>
+      <div class="nav-item active">Public displays <span class="nav-badge red">1</span></div>
+      <div class="sec-label">Compliance</div>
+      <div class="nav-item">Change audit</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Setup › Scheduling › Public display settings</div>
+      <div class="actions-right"><span class="btn small">Send test broadcast</span> <span class="btn primary small">Save display settings</span></div>
+      <div class="page-title">Public display settings — Andheri West</div>
+      <div class="page-sub">2 displays online · settings <b class="mono">v7</b> · privacy mode changes require privacy-officer approval</div>
+
+      <div class="card">
+        <div class="card-title">Displays &amp; privacy mode <span class="right">token-only is the platform default</span></div>
+        <table>
+          <tr><th>Display</th><th>Location</th><th>Privacy mode</th><th>Rooms shown</th><th>Health</th></tr>
+          <tr><td class="mono"><b>LOBBY-DISP-1</b></td><td>Ground-floor lobby</td><td><span class="chip teal">Token only (default)</span></td><td>Registration, Cash counter</td><td><span class="chip green">online · seen 11:52 IST</span></td></tr>
+          <tr class="hl"><td class="mono"><b>IMG-DISP-2</b></td><td>Imaging corridor, 1st floor</td><td><span class="chip amber">Token + first name — approval pending</span> <span class="small muted">requested by K. Verma 25 Jul</span></td><td>CT-ROOM-1, US-UNIT-2, MRI-ROOM-2</td><td><span class="chip green">online · seen 11:53 IST</span></td></tr>
+          <tr class="dim"><td class="mono">LOBBY-DISP-2</td><td>First-floor waiting (decommissioned)</td><td><span class="chip grey">—</span></td><td class="muted">—</td><td><span class="chip red">offline 14 days</span></td></tr>
+        </table>
+        <div class="banner reg" style="margin-top:10px"><b>Privacy approval chip</b>"Token + first name" exposes personal data in a public area. It never activates on save alone — it enters the approval workflow below and displays keep running token-only until the privacy officer approves. Full names, MRNs and clinical context are never displayable options.</div>
+      </div>
+
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Chime &amp; language rotation</div>
+          <div class="field"><label>Call chime</label><select class="select" style="max-width:260px"><option>Two-tone (soft) · volume 60%</option></select><div class="hint">Chime plays once per call; repeat announcements are visual-only to keep the waiting area calm.</div></div>
+          <div class="field"><label>Announcement languages (rotation order)</label>
+            <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip teal">1 · English</span><span class="chip teal">2 · हिन्दी (Hindi)</span><span class="chip teal">3 · मराठी (Marathi)</span><span class="chip grey">+ Add language</span></div>
+            <div class="hint">Each token call cycles the on-screen call strip through the rotation; text-to-speech uses language 1 only.</div>
+          </div>
+          <div class="field"><label>Ticker message (optional)</label><input class="input" value="Please keep your token slip ready. Reports are delivered via SMS link within 4 working hours."><div class="hint">Reviewed content only — free-text ticker changes are versioned in the change audit.</div></div>
+        </div>
+        <div class="card" style="width:330px">
+          <div class="card-title">Per-display layout · IMG-DISP-2</div>
+          <dl class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Layout</dt><dd>3-room grid + call strip</dd>
+            <dt>Rooms</dt><dd>CT-ROOM-1 · US-UNIT-2 · MRI-ROOM-2</dd>
+            <dt>Now-serving</dt><dd>Current token + last 2 called per room</dd>
+            <dt>Wait estimate</dt><dd><span class="chip grey">hidden</span> (branch policy)</dd>
+          </dl>
+          <div class="sig-box" style="min-height:88px;flex-direction:column;font-style:normal">
+            <div class="mono" style="color:#334155;font-size:13px">CT-ROOM-1&nbsp;&nbsp;▶ CT-018&nbsp;&nbsp;·&nbsp;&nbsp;US-UNIT-2&nbsp;&nbsp;▶ US-131</div>
+            <div class="small" style="color:#94A3B8">layout preview — token-only mode</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PRIVACY-APPROVAL WORKFLOW PENDING (NAME-DISPLAY CHANGE)</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Approval request PRV-0142 — enable "Token + first name" on IMG-DISP-2</h3>
+    <dl class="kv">
+      <dt>Requested by</dt><dd>K. Verma (Org Admin) · 25 Jul 2026 11:20 IST · step-up TOTP ✓</dd>
+      <dt>Justification</dt><dd>"Corridor display is behind the imaging access door; only called patients and escorts present. First name reduces missed calls for hearing-impaired patients."</dd>
+      <dt>Scope</dt><dd>IMG-DISP-2 only · first name + token · no surname, no MRN, no service name</dd>
+      <dt>Approver</dt><dd>Privacy officer — S. Menon <span class="chip amber">PENDING · SLA 2 working days · due 28 Jul</span></dd>
+    </dl>
+    <div class="banner warn" style="margin-top:10px"><b>Until approved</b>IMG-DISP-2 continues in token-only mode. The requester cannot approve their own request (four-eyes enforced by role separation, Keycloak staff realm).</div>
+    <div class="ladder" style="margin-top:10px">
+      <div class="tier done"><b>Requested</b> <span class="small muted">25 Jul 11:20 · K. Verma</span></div>
+      <div class="tier cur"><b>Privacy officer review</b> <span class="small muted">S. Menon notified · reminder at 24 h</span></div>
+      <div class="tier"><b>Activation</b> <span class="small muted">auto-applies at next display refresh after approval; reverts require the same workflow</span></div>
+    </div>
+    <div class="modal-actions"><span class="btn">Withdraw request</span><span class="btn disabled">Approve (privacy officer only)</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — TEST BROADCAST SENT TO DISPLAY</div>
+<div class="card">
+  <div class="card-title">Test broadcast · LOBBY-DISP-1 <span class="right">sent 25 Jul 11:56 IST by K. Verma</span></div>
+  <div class="banner success"><b>Test frame acknowledged by display in 1.8 s</b>LOBBY-DISP-1 rendered the synthetic call <span class="mono">TEST-R-999 → Registration</span> with chime at 60% and cycled EN → HI → MR captions. No real queue data was interrupted; the live queue resumed automatically after 10 seconds.</div>
+  <table>
+    <tr><th>Check</th><th>Result</th><th>Detail</th></tr>
+    <tr><td>Render latency</td><td><span class="chip green">PASS</span></td><td class="mono">1.8 s (threshold 5 s)</td></tr>
+    <tr><td>Chime playback</td><td><span class="chip green">PASS</span></td><td>two-tone soft · 60%</td></tr>
+    <tr><td>Language rotation</td><td><span class="chip green">PASS</span></td><td>EN / HI / MR · 3 s each</td></tr>
+    <tr class="hl"><td>Privacy mode banner</td><td><span class="chip green">PASS</span></td><td>Display self-reported mode: token-only · matches config v7</td></tr>
+    <tr><td>Clock sync</td><td><span class="chip amber">WARN</span></td><td>Display clock +41 s vs server — schedule NTP resync tonight</td></tr>
+  </table>
+  <div style="margin-top:8px"><span class="btn small">Re-run test</span> <span class="btn ghost small">Send test to IMG-DISP-2</span> <span class="small muted">Test broadcasts use synthetic tokens only; no patient data is ever included in a test frame.</span></div>
+</div>
+
+<p class="audit">Display setting changes, privacy-mode approval requests and decisions (with both identities), test broadcasts and display health events are recorded in the access log.</p>
+</section>

@@ -1,0 +1,1169 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Magnus HMS — G4 · Scheduling & Resource Setup</title><style>/* Magnus HMS — NS design pack shared design system */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
+.mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
+.muted{color:#64748B}.small{font-size:12px}.bold{font-weight:700}
+/* ---------- page / screen frame ---------- */
+.screen{page-break-after:always;padding:28px 34px;background:#fff;min-height:1000px}
+.screen-head{display:flex;justify-content:space-between;align-items:flex-start;border-left:5px solid #0F766E;padding:6px 0 6px 14px;margin-bottom:6px}
+.screen-head h1{font-size:22px;font-weight:800}
+.screen-head .sid{color:#0F766E;margin-right:10px}
+.screen-head .meta{text-align:right}
+.screen-head .meta .cluster{color:#64748B;font-size:12px;margin-top:3px}
+.gap-note{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:8px 12px;margin:10px 0 16px;font-size:12.5px;color:#7C2D12}
+.gap-note b{color:#9A3412}
+/* ---------- app chrome ---------- */
+.frame{border:1px solid #CBD5E1;border-radius:10px;overflow:hidden;background:#F4F6F8;box-shadow:0 1px 4px rgba(15,23,42,.08);margin-bottom:22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:2px solid #0F766E;padding:9px 16px}
+.brand{font-weight:800;color:#0F766E}.brand span{color:#1E293B}
+.org{font-size:12.5px;color:#334155;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px}
+.userchip{font-size:12.5px;color:#334155}
+.userchip .av{display:inline-block;background:#CCFBF1;color:#0F766E;font-weight:700;border-radius:5px;padding:2px 6px;margin-right:6px;font-size:11px}
+.body{display:flex;min-height:520px}
+.sidebar{width:196px;background:#fff;border-right:1px solid #E2E8F0;padding:12px 0;flex-shrink:0}
+.sec-label{font-size:10.5px;letter-spacing:.08em;color:#94A3B8;font-weight:700;padding:8px 16px 4px;text-transform:uppercase}
+.nav-item{padding:7px 16px;font-size:13px;color:#334155;display:flex;justify-content:space-between;align-items:center}
+.nav-item.active{background:#F0FDFA;color:#0F766E;font-weight:700;border-left:3px solid #0F766E;padding-left:13px}
+.nav-badge{background:#0F766E;color:#fff;border-radius:9px;font-size:10.5px;padding:1px 7px;font-weight:700}
+.nav-badge.red{background:#B91C1C}
+.main{flex:1;padding:16px 18px;min-width:0}
+.crumb{font-size:12px;color:#64748B;margin-bottom:8px}
+.page-title{font-size:19px;font-weight:800;margin-bottom:2px}
+.page-sub{font-size:12.5px;color:#64748B;margin-bottom:14px}
+.actions-right{float:right}
+/* ---------- components ---------- */
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card-title{font-weight:800;font-size:14.5px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.card-title .right{font-size:10.5px;letter-spacing:.07em;color:#94A3B8;font-weight:700;text-transform:uppercase}
+.row{display:flex;gap:14px}.row>*{min-width:0}.grow{flex:1}
+.btn{display:inline-block;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:700;border:1px solid #CBD5E1;background:#fff;color:#334155;text-align:center;white-space:nowrap}
+.btn.primary{background:#0F766E;border-color:#0F766E;color:#fff}
+.btn.danger{background:#B91C1C;border-color:#B91C1C;color:#fff}
+.btn.warn-outline{border-color:#F59E0B;color:#92400E;background:#FFFBEB}
+.btn.ghost{border:none;background:none;color:#0F766E;padding:7px 6px}
+.btn.small{padding:4px 10px;font-size:12px}
+.btn.disabled{opacity:.45}
+.chip{display:inline-block;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip.teal{background:#CCFBF1;color:#0F766E}
+.chip.green{background:#DCFCE7;color:#15803D}
+.chip.amber{background:#FEF3C7;color:#92400E}
+.chip.red{background:#FEE2E2;color:#B91C1C}
+.chip.grey{background:#F1F5F9;color:#475569}
+.chip.blue{background:#E0F2FE;color:#0369A1}
+.chip.violet{background:#EDE9FE;color:#6D28D9}
+.chip.outline-red{background:#fff;border:1.5px solid #B91C1C;color:#B91C1C}
+.banner{border-radius:8px;padding:10px 13px;font-size:12.5px;margin-bottom:12px;border:1px solid}
+.banner b{display:block;margin-bottom:2px;font-size:13px}
+.banner.info{background:#E0F2FE;border-color:#7DD3FC;color:#075985}
+.banner.warn{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+.banner.danger{background:#FEE2E2;border-color:#FCA5A5;color:#991B1B}
+.banner.success{background:#DCFCE7;border-color:#86EFAC;color:#166534}
+.banner.reg{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding:7px 9px;border-bottom:2px solid #E2E8F0;background:#F8FAFC}
+td{padding:8px 9px;border-bottom:1px solid #EEF2F6;vertical-align:top}
+tr.hl td{background:#F0FDFA}
+tr.dim td{color:#94A3B8}
+.kv{display:grid;grid-template-columns:150px 1fr;row-gap:6px;column-gap:12px;font-size:12.5px}
+.kv dt{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding-top:2px}
+.kv dd{margin:0}
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+.field label .req{color:#B91C1C}
+.field .hint{font-size:11px;color:#64748B;margin-top:3px}
+.input,.select,.textarea{width:100%;border:1px solid #CBD5E1;border-radius:7px;padding:7px 10px;font-size:13px;background:#fff;color:#1E293B}
+.input.err{border-color:#B91C1C;background:#FEF2F2}
+.textarea{min-height:64px}
+.check{font-size:12.5px;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.box{display:inline-block;width:14px;height:14px;border:1.6px solid #64748B;border-radius:3px;flex-shrink:0;margin-top:1px;text-align:center;line-height:12px;font-size:11px;font-weight:800}
+.box.on{background:#0F766E;border-color:#0F766E;color:#fff}
+.radio{border-radius:50%}
+.radio.on{background:#fff;border-color:#0F766E;box-shadow:inset 0 0 0 3.5px #0F766E;color:transparent}
+/* modal */
+.modal-wrap{background:#64748B22;border:1px dashed #94A3B8;border-radius:12px;padding:26px 40px;margin:14px 0}
+.modal{background:#fff;border-radius:12px;border-top:5px solid #0F766E;box-shadow:0 8px 30px rgba(15,23,42,.25);max-width:560px;margin:0 auto;padding:18px 20px}
+.modal.danger{border-top-color:#B91C1C}
+.modal h3{font-size:16px;margin-bottom:8px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+/* misc */
+.divider-label{text-align:center;color:#94A3B8;font-size:11.5px;margin:20px 0 14px;position:relative}
+.divider-label:before,.divider-label:after{content:"";display:inline-block;width:24%;border-top:1px dashed #CBD5E1;vertical-align:middle;margin:0 10px}
+.audit{font-size:11px;color:#8A6D1D;margin-top:10px}
+.audit:before{content:"🔒 "}
+.state-tag{font-size:10px;letter-spacing:.08em;font-weight:800;text-transform:uppercase;color:#94A3B8;text-align:right;margin-bottom:4px}
+.kpi-row{display:flex;gap:12px;margin-bottom:14px}
+.kpi{flex:1;background:#fff;border:1px solid #E2E8F0;border-left:4px solid #0F766E;border-radius:9px;padding:10px 13px}
+.kpi.amber{border-left-color:#F59E0B}.kpi.red{border-left-color:#B91C1C}
+.kpi .n{font-size:23px;font-weight:800}.kpi .l{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700}
+.kpi .s{font-size:11px;color:#64748B;margin-top:2px}
+.stepper{display:flex;gap:6px;align-items:center;font-size:12px;color:#64748B;margin-bottom:14px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:6px}
+.step .dot{width:20px;height:20px;border-radius:50%;background:#E2E8F0;color:#475569;font-size:11px;font-weight:800;text-align:center;line-height:20px}
+.step.done .dot{background:#15803D;color:#fff}.step.cur .dot{background:#0F766E;color:#fff}
+.step.cur{color:#0F766E;font-weight:700}
+.step-line{width:26px;border-top:2px solid #CBD5E1}
+.sig-box{border:1.5px dashed #94A3B8;border-radius:8px;min-height:64px;background:#F8FAFC;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:12px;font-style:italic}
+.sig-box.signed{border-style:solid;border-color:#15803D;color:#166534;background:#F0FDF4;font-family:'Segoe Script','Comic Sans MS',cursive;font-size:17px;font-style:normal}
+.ladder{border-left:3px solid #E2E8F0;margin-left:8px;padding-left:16px}
+.ladder .tier{margin-bottom:12px;position:relative}
+.ladder .tier:before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:#CBD5E1}
+.ladder .tier.done:before{background:#15803D}.ladder .tier.cur:before{background:#0F766E;box-shadow:0 0 0 3px #CCFBF1}
+.ladder .tier.fail:before{background:#B91C1C}
+.progress{height:7px;border-radius:4px;background:#E2E8F0;overflow:hidden;margin-top:4px}
+.progress i{display:block;height:100%;background:#0F766E}
+.progress.amber i{background:#F59E0B}.progress.red i{background:#B91C1C}
+.split{display:grid;grid-template-columns:1fr 300px;gap:14px}
+.timeline{font-size:12.5px}
+.timeline .ev{display:flex;gap:10px;margin-bottom:9px}
+.timeline .t{color:#64748B;white-space:nowrap;font-family:Consolas,monospace;font-size:11.5px;padding-top:1px}
+
+@page{size:A4;margin:0}@media print{body{background:#fff}}</style></head><body><section class="screen" id="cover">
+<div style="padding-top:120px"><div style="border-left:6px solid #0F766E;padding-left:22px">
+<div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">Magnus HMS · MVP 1 Complete Design Pack</div>
+<h1 style="font-size:36px;font-weight:800">G4 · Scheduling & Resource Setup</h1>
+<p style="font-size:14px;color:#64748B;margin-top:10px">10 screens · every screen with alternate states · shared design system · synthetic data only (no PHI)</p></div>
+<div class="card" style="max-width:700px;margin-top:26px"><div class="card-title">Screens in this group</div>
+<table><tr><th style="width:70px">ID</th><th>Screen</th></tr><tr><td class="mono bold" style="color:#0F766E">SC-01</td><td>Working hours &amp; breaks</td></tr><tr><td class="mono bold" style="color:#0F766E">SC-02</td><td>Holidays &amp; closures</td></tr><tr><td class="mono bold" style="color:#0F766E">SC-03</td><td>Slot templates</td></tr><tr><td class="mono bold" style="color:#0F766E">SC-04</td><td>Doctor availability &amp; time off</td></tr><tr><td class="mono bold" style="color:#0F766E">SC-05</td><td>Equipment availability &amp; maintenance</td></tr><tr><td class="mono bold" style="color:#0F766E">SC-06</td><td>Modality calendar admin &amp; publishing</td></tr><tr><td class="mono bold" style="color:#0F766E">SC-07</td><td>Overbooking &amp; walk-in rules</td></tr><tr><td class="mono bold" style="color:#0F766E">SC-08</td><td>Block booking &amp; camps</td></tr><tr><td class="mono bold" style="color:#0F766E">SC-09</td><td>Token &amp; queue rules</td></tr><tr><td class="mono bold" style="color:#0F766E">SC-10</td><td>Public display settings</td></tr></table></div>
+<p class="muted small" style="margin-top:14px">Magnus Diagnostics → NUMINACORE · July 2026 · Prototype/reference — not committed product scope.</p></div></section><section class="screen" id="sc-01">
+<div class="screen-head"><h1><span class="sid">SC-01</span> Working hours &amp; breaks</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling &amp; Resource Setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 working hours</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The org admin defines the weekly open/close and break windows per branch; the slot-generation engine reads this grid nightly to materialise bookable slots 45 days ahead. Changes never rewrite the past — every edit is effective-dated, previewed against existing bookings, and can be copied to other branches with a diff review. Exceptions (holidays, closures from SC-02) always override this grid.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Scheduling setup</div>
+      <div class="nav-item active">Working hours &amp; breaks</div>
+      <div class="nav-item">Holidays &amp; closures <span class="nav-badge">3</span></div>
+      <div class="nav-item">Slot templates</div>
+      <div class="nav-item">Doctor availability</div>
+      <div class="nav-item">Equipment availability <span class="nav-badge red">1</span></div>
+      <div class="sec-label">Reference</div>
+      <div class="nav-item">Rooms &amp; resources</div>
+      <div class="nav-item">Branch settings</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Setup › Scheduling › Working hours &amp; breaks</div>
+      <div class="page-title">Working hours — Andheri West <span class="actions-right"><span class="btn small">Copy to branch…</span> <span class="btn small">View change history</span> <span class="btn small primary">Edit week</span></span></div>
+      <div class="page-sub">Branch <span class="mono">BR-AND-01</span> · timezone Asia/Kolkata (IST) · current version <span class="mono">v7</span> effective since 01-Apr-2026 · read by slot generation nightly at 01:30 IST</div>
+
+      <div class="banner info"><b>Used by slot generation</b>Slots are materialised 45 days ahead from this grid, minus closures (SC-02), minus equipment maintenance windows (SC-05). Next generation run: 26-Jul-2026 01:30 IST. Editing here never deletes already-booked appointments — conflicts become reschedule tasks.</div>
+
+      <div class="card">
+        <div class="card-title">Weekly grid <span class="right">version v7 · effective 01-Apr-2026 → open-ended</span></div>
+        <table>
+          <tr><th>Day</th><th>Status</th><th>Open</th><th>Close</th><th>Break(s)</th><th>Net bookable</th><th></th></tr>
+          <tr><td><b>Monday</b></td><td><span class="chip green">Open</span></td><td class="mono">07:30</td><td class="mono">21:00</td><td class="mono">13:30–14:15 (lunch)</td><td>12h 45m</td><td><span class="btn small ghost">Edit</span></td></tr>
+          <tr><td><b>Tuesday</b></td><td><span class="chip green">Open</span></td><td class="mono">07:30</td><td class="mono">21:00</td><td class="mono">13:30–14:15 (lunch)</td><td>12h 45m</td><td><span class="btn small ghost">Edit</span></td></tr>
+          <tr><td><b>Wednesday</b></td><td><span class="chip green">Open</span></td><td class="mono">07:30</td><td class="mono">21:00</td><td class="mono">13:30–14:15 (lunch) · 17:00–17:20 (CT QA)</td><td>12h 25m</td><td><span class="btn small ghost">Edit</span></td></tr>
+          <tr><td><b>Thursday</b></td><td><span class="chip green">Open</span></td><td class="mono">07:30</td><td class="mono">21:00</td><td class="mono">13:30–14:15 (lunch)</td><td>12h 45m</td><td><span class="btn small ghost">Edit</span></td></tr>
+          <tr><td><b>Friday</b></td><td><span class="chip green">Open</span></td><td class="mono">07:30</td><td class="mono">21:00</td><td class="mono">13:30–14:15 (lunch)</td><td>12h 45m</td><td><span class="btn small ghost">Edit</span></td></tr>
+          <tr><td><b>Saturday</b></td><td><span class="chip green">Open</span></td><td class="mono">08:00</td><td class="mono">18:00</td><td class="mono">13:30–14:00 (lunch)</td><td>9h 30m</td><td><span class="btn small ghost">Edit</span></td></tr>
+          <tr class="dim"><td><b>Sunday</b></td><td><span class="chip grey">Closed</span></td><td class="mono">—</td><td class="mono">—</td><td class="mono">—</td><td>0h</td><td><span class="btn small ghost">Edit</span></td></tr>
+        </table>
+        <div class="hint" style="margin-top:6px;font-size:11px;color:#64748B">Breaks block all modalities at this branch. Modality-specific pauses (e.g. weekly CT QA) can instead be set as recurring equipment windows in SC-05 if only one unit is affected.</div>
+      </div>
+
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Exceptions preview — next 30 days <span class="right">from Holidays &amp; closures (SC-02)</span></div>
+          <table>
+            <tr><th>Date</th><th>Exception</th><th>Scope</th><th>Effect on this grid</th></tr>
+            <tr><td class="mono">15-Aug-2026 (Sat)</td><td>Independence Day</td><td><span class="chip grey">Whole branch</span></td><td>Overrides Saturday hours — 0 slots generated</td></tr>
+            <tr><td class="mono">16-Aug-2026 (Sun)</td><td>Janmashtami (observed)</td><td><span class="chip grey">Whole branch</span></td><td>Already closed on Sunday — no change</td></tr>
+            <tr><td class="mono">02-Aug-2026 (Sun)</td><td>MRI-ROOM-2 coil service</td><td><span class="chip blue">Modality: MRI</span></td><td>No effect — branch closed Sunday; window kept for engineer access</td></tr>
+          </table>
+        </div>
+        <div class="card" style="width:300px;flex-shrink:0">
+          <div class="card-title">Copy to branch</div>
+          <div class="field"><label>Target branch</label><span class="select" style="display:block">Bandra East (BR-BAN-02) ▾</span></div>
+          <div class="check"><span class="box on">✓</span> Copy open/close hours</div>
+          <div class="check"><span class="box on">✓</span> Copy breaks</div>
+          <div class="check"><span class="box"></span> Copy Wednesday CT QA pause</div>
+          <div class="field"><label>Effective from</label><span class="input mono" style="display:block">01-Aug-2026</span><div class="hint">Diff is shown to the target branch admin for approval before it applies — copies are never silent.</div></div>
+          <span class="btn small primary">Preview diff &amp; send</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — EDIT DAY (SATURDAY) WITH VALIDATION &amp; IMPACT PREVIEW</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Edit Saturday hours — Andheri West</h3>
+    <div class="row">
+      <div class="field grow"><label>Open <span class="req">*</span></label><span class="input mono" style="display:block">08:00</span></div>
+      <div class="field grow"><label>Close <span class="req">*</span></label><span class="input err mono" style="display:block">16:00</span></div>
+    </div>
+    <div class="field"><label>Breaks</label>
+      <table>
+        <tr><th>From</th><th>To</th><th>Label</th><th></th></tr>
+        <tr><td class="mono">13:30</td><td class="mono">14:00</td><td>Lunch</td><td><span class="btn small ghost">Remove</span></td></tr>
+      </table>
+      <span class="btn small ghost">+ Add break</span>
+    </div>
+    <div class="banner warn"><b>Impact: 14 future Saturday bookings fall after 16:00</b>Between 01-Aug and 05-Sep-2026, 14 booked appointments (9 USG, 3 CT, 2 X-Ray) sit in the 16:00–18:00 window you are removing. Saving will create a bulk reschedule task assigned to front office — patients are notified only after each rebooking is confirmed.</div>
+    <div class="field"><label>Effective from <span class="req">*</span></label><span class="input mono" style="display:block">01-Aug-2026</span><div class="hint">Must be a future date. Past days keep version v7 for audit and billing accuracy.</div></div>
+    <div class="field"><label>Reason for change <span class="req">*</span></label><span class="input" style="display:block">Reduced Saturday radiologist coverage from August roster</span></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Save as v8 &amp; create reschedule task</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — EFFECTIVE-DATED CHANGE SCHEDULED (V8 PENDING)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Working hours — Andheri West <span class="chip amber">v8 scheduled</span></div>
+  <div class="banner success"><b>Version v8 saved — effective 01-Aug-2026</b>Saturday close moves 18:00 → 16:00. Saved by K. Verma 25-Jul-2026 16:42 IST after step-up identity confirmation (passkey). Slot generation will use v7 up to 31-Jul and v8 from 01-Aug. Reschedule task <span class="mono">TASK-2026-3311</span> (14 bookings) assigned to D. Nair (front office), SLA <span class="chip amber">due 29-Jul</span> owner: D. Nair.</div>
+  <div class="card">
+    <div class="card-title">Version timeline <span class="right">append-only</span></div>
+    <div class="timeline">
+      <div class="ev"><span class="t">25-Jul 16:42</span><span><b>v8 scheduled</b> — Saturday 08:00–16:00 · effective 01-Aug-2026 · by K. Verma · reason: reduced Saturday radiologist coverage · step-up verified</span></div>
+      <div class="ev"><span class="t">28-Mar 11:05</span><span><b>v7 activated</b> — Wednesday CT QA pause 17:00–17:20 added · effective 01-Apr-2026 · by K. Verma</span></div>
+      <div class="ev"><span class="t">04-Jan 09:18</span><span><b>v6 activated</b> — weekday close extended 20:00 → 21:00 · effective 12-Jan-2026 · by K. Verma</span></div>
+    </div>
+    <span class="btn small">Cancel scheduled v8…</span> <span class="hint" style="font-size:11px;color:#64748B">Cancelling a scheduled version before its effective date requires a reason and closes TASK-2026-3311 as void.</span>
+  </div>
+</div></div></div>
+
+<p class="audit">Every view of this grid, each version save (before/after values, actor, step-up method, effective date, reason) and every copy-to-branch send is recorded in the access log.</p>
+</section>
+<section class="screen" id="sc-02">
+<div class="screen-head"><h1><span class="sid">SC-02</span> Holidays &amp; closures</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling &amp; Resource Setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 holidays & closures</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The org admin maintains the closure calendar per branch: public holidays that repeat yearly and one-off closures, either whole-branch or limited to a modality. Before any closure is saved the system previews existing bookings on that date; if there are conflicts, saving spawns a bulk-reschedule task so no patient is silently dropped. Closures override working hours (SC-01) in slot generation.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Scheduling setup</div>
+      <div class="nav-item">Working hours &amp; breaks</div>
+      <div class="nav-item active">Holidays &amp; closures <span class="nav-badge">3</span></div>
+      <div class="nav-item">Slot templates</div>
+      <div class="nav-item">Doctor availability</div>
+      <div class="nav-item">Equipment availability <span class="nav-badge red">1</span></div>
+      <div class="sec-label">Reference</div>
+      <div class="nav-item">Rooms &amp; resources</div>
+      <div class="nav-item">Branch settings</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Setup › Scheduling › Holidays &amp; closures</div>
+      <div class="page-title">Holidays &amp; closures — Andheri West <span class="actions-right"><span class="btn small">Import national list 2026</span> <span class="btn small primary">+ Add closure</span></span></div>
+      <div class="page-sub">Branch <span class="mono">BR-AND-01</span> · 11 entries in calendar year 2026 · closures override working hours in slot generation · past closures are read-only</div>
+
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">3</div><div class="l">Upcoming (30 days)</div><div class="s">next: 15-Aug Independence Day</div></div>
+        <div class="kpi amber"><div class="n">1</div><div class="l">With open reschedule task</div><div class="s">TASK-2026-3324 · 6 bookings</div></div>
+        <div class="kpi"><div class="n">7</div><div class="l">Repeat yearly</div><div class="s">national + state list</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Closure calendar — 2026 <span class="right">filter: upcoming ▾ · all scopes ▾</span></div>
+        <table>
+          <tr><th>Date</th><th>Name</th><th>Scope</th><th>Repeats</th><th>Bookings on date</th><th>Status</th><th></th></tr>
+          <tr><td class="mono">15-Aug-2026 Sat</td><td><b>Independence Day</b></td><td><span class="chip grey">Whole branch</span></td><td><span class="chip blue">Yearly</span></td><td>0 — date was blocked before booking opened</td><td><span class="chip green">Clean</span></td><td><span class="btn small ghost">Open</span></td></tr>
+          <tr class="hl"><td class="mono">16-Aug-2026 Sun</td><td><b>Janmashtami (observed)</b></td><td><span class="chip grey">Whole branch</span></td><td><span class="chip grey">One-off</span></td><td>0 — branch closed Sundays anyway</td><td><span class="chip green">Clean</span></td><td><span class="btn small ghost">Open</span></td></tr>
+          <tr><td class="mono">27-Aug-2026 Thu</td><td><b>Ganesh Chaturthi</b></td><td><span class="chip grey">Whole branch</span></td><td><span class="chip blue">Yearly</span></td><td><span class="chip amber">6 booked</span> → TASK-2026-3324</td><td><span class="chip amber">Reschedule open</span> <span class="chip amber">SLA 20-Aug</span> owner: D. Nair</td><td><span class="btn small ghost">Open</span></td></tr>
+          <tr><td class="mono">14-Sep-2026 Mon</td><td><b>CT-ROOM-1 tube replacement</b> (from SC-05)</td><td><span class="chip blue">Modality: CT</span></td><td><span class="chip grey">One-off</span></td><td>0 — maintenance window pre-cleared</td><td><span class="chip green">Clean</span></td><td><span class="btn small ghost">Open</span></td></tr>
+          <tr class="dim"><td class="mono">01-May-2026 Fri</td><td><b>Maharashtra Day</b></td><td><span class="chip grey">Whole branch</span></td><td><span class="chip blue">Yearly</span></td><td>past</td><td><span class="chip grey">Elapsed</span></td><td><span class="btn small ghost">Open</span></td></tr>
+          <tr class="dim"><td class="mono">14-Apr-2026 Tue</td><td><b>Ambedkar Jayanti</b></td><td><span class="chip grey">Whole branch</span></td><td><span class="chip blue">Yearly</span></td><td>past</td><td><span class="chip grey">Elapsed</span></td><td><span class="btn small ghost">Open</span></td></tr>
+        </table>
+        <div class="hint" style="margin-top:6px;font-size:11px;color:#64748B">Modality-only closures (e.g. CT maintenance) keep the rest of the branch bookable. Deleting a future closure restores slot generation on the next nightly run; elapsed closures can never be deleted.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ADD CLOSURE WITH IMPACT WARNING</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Add closure — Andheri West</h3>
+    <div class="row">
+      <div class="field grow"><label>Date <span class="req">*</span></label><span class="input mono" style="display:block">27-Aug-2026 (Thu)</span></div>
+      <div class="field grow"><label>Repeats</label><span class="select" style="display:block">Yearly (same calendar date) ▾</span></div>
+    </div>
+    <div class="field"><label>Name <span class="req">*</span></label><span class="input" style="display:block">Ganesh Chaturthi</span></div>
+    <div class="field"><label>Scope <span class="req">*</span></label>
+      <div class="check"><span class="box radio on">●</span> Whole branch — no slots for any modality</div>
+      <div class="check"><span class="box radio"></span> Modality only: <span class="select" style="width:200px;display:inline-block">select modality ▾</span></div>
+    </div>
+    <div class="banner warn"><b>Impact preview: 6 existing bookings on 27-Aug-2026</b>2 CT (CT-ROOM-1), 3 USG (US-UNIT-2), 1 X-Ray — earliest 08:15, latest 17:30 IST. Saving creates one bulk-reschedule task; patients are contacted via DLT SMS (Jio route) / WhatsApp BSP only after front office confirms each new slot. No booking is auto-cancelled.</div>
+    <table>
+      <tr><th>Time</th><th>Appt</th><th>Modality</th><th>Patient (masked)</th></tr>
+      <tr><td class="mono">08:15</td><td class="mono">APPT-2026-52108</td><td>CT</td><td>R•••• S. · MRN-00**41</td></tr>
+      <tr><td class="mono">09:40</td><td class="mono">APPT-2026-52144</td><td>USG</td><td>M•••• K. · MRN-00**87</td></tr>
+      <tr><td class="mono">11:00</td><td class="mono">APPT-2026-52161</td><td>USG</td><td>A•••• P. · MRN-00**12</td></tr>
+      <tr><td colspan="4" class="muted small">+ 3 more · full identities visible only inside the reschedule task with purpose-of-use recorded</td></tr>
+    </table>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Save closure &amp; create reschedule task</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — SAVED · BOOKINGS-CONFLICT TASK CREATED</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Closure saved — Ganesh Chaturthi, 27-Aug-2026 <span class="chip amber">Reschedule open</span></div>
+  <div class="banner success"><b>Closure active in calendar · bulk-reschedule task created</b>Saved by K. Verma 25-Jul-2026 17:05 IST (step-up identity confirmed — TOTP). Task <span class="mono">TASK-2026-3324</span> with 6 bookings assigned to D. Nair (front office) · <span class="chip amber">SLA: complete by 20-Aug</span> owner: D. Nair. Slot generation removes 27-Aug slots on tonight's run; the date shows as "Closed — Ganesh Chaturthi" in booking search immediately.</div>
+  <div class="card">
+    <div class="card-title">TASK-2026-3324 — progress <span class="right">bulk reschedule · 6 items</span></div>
+    <div class="progress"><i style="width:33%"></i></div>
+    <table style="margin-top:8px">
+      <tr><th>Appt</th><th>Original</th><th>New slot</th><th>Patient notified</th><th>Status</th></tr>
+      <tr><td class="mono">APPT-2026-52108</td><td class="mono">27-Aug 08:15 CT</td><td class="mono">26-Aug 08:15 CT-ROOM-1</td><td><span class="chip green">SMS delivered</span></td><td><span class="chip green">Rebooked</span></td></tr>
+      <tr><td class="mono">APPT-2026-52144</td><td class="mono">27-Aug 09:40 USG</td><td class="mono">28-Aug 10:00 US-UNIT-2</td><td><span class="chip green">WhatsApp read</span></td><td><span class="chip green">Rebooked</span></td></tr>
+      <tr><td class="mono">APPT-2026-52161</td><td class="mono">27-Aug 11:00 USG</td><td class="mono">— awaiting patient reply</td><td><span class="chip amber">SMS sent 17:12</span></td><td><span class="chip amber">Pending</span></td></tr>
+      <tr><td colspan="5" class="muted small">+ 3 pending · task auto-escalates to K. Verma if any item remains unresolved 72h before the closure date</td></tr>
+    </table>
+  </div>
+</div></div></div>
+
+<p class="audit">Closure creation and deletion (actor, step-up method, scope, impact count), each reschedule task item transition, and all patient-contact events are recorded in the access log.</p>
+</section>
+<section class="screen" id="sc-03">
+<div class="screen-head"><h1><span class="sid">SC-03</span> Slot templates</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling &amp; Resource Setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 slot templates</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Slot templates define how bookable time is cut per modality: slot length, patients per slot, prep gap between slots, and whether walk-ins or overbooking are allowed. Each template is versioned; the calendars that consume it are listed so an admin can see the blast radius before editing. Templates that are in use by future generated slots cannot be deleted — they are retired with an effective date instead.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Scheduling setup</div>
+      <div class="nav-item">Working hours &amp; breaks</div>
+      <div class="nav-item">Holidays &amp; closures <span class="nav-badge">3</span></div>
+      <div class="nav-item active">Slot templates</div>
+      <div class="nav-item">Doctor availability</div>
+      <div class="nav-item">Equipment availability <span class="nav-badge red">1</span></div>
+      <div class="sec-label">Reference</div>
+      <div class="nav-item">Rooms &amp; resources</div>
+      <div class="nav-item">Branch settings</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Setup › Scheduling › Slot templates</div>
+      <div class="page-title">Slot templates <span class="actions-right"><span class="btn small">Compare versions</span> <span class="btn small primary">+ New template</span></span></div>
+      <div class="page-sub">6 active templates · consumed by slot generation together with working hours (SC-01) and closures (SC-02) · edits apply from a chosen effective date, never retroactively</div>
+
+      <div class="card">
+        <div class="card-title">Active templates <span class="right">branch: Andheri West ▾</span></div>
+        <table>
+          <tr><th>Template</th><th>Modality</th><th>Slot length</th><th>Patients/slot</th><th>Prep gap</th><th>Walk-ins</th><th>Overbook</th><th>Used by</th><th>Ver.</th><th></th></tr>
+          <tr><td><b>CT routine</b> <span class="mono">TPL-CT-R</span></td><td>CT</td><td class="mono">20 min</td><td class="mono">1</td><td class="mono">10 min</td><td><span class="chip green">Allowed</span></td><td><span class="chip grey">No</span></td><td>1 calendar</td><td class="mono">v4</td><td><span class="btn small ghost">Edit</span></td></tr>
+          <tr><td><b>CT contrast</b> <span class="mono">TPL-CT-C</span></td><td>CT</td><td class="mono">30 min</td><td class="mono">1</td><td class="mono">15 min</td><td><span class="chip red">Blocked</span></td><td><span class="chip grey">No</span></td><td>1 calendar</td><td class="mono">v3</td><td><span class="btn small ghost">Edit</span></td></tr>
+          <tr class="hl"><td><b>USG general</b> <span class="mono">TPL-US-G</span></td><td>USG</td><td class="mono">15 min</td><td class="mono">1</td><td class="mono">5 min</td><td><span class="chip green">Allowed</span></td><td><span class="chip amber">Yes · max +2/day</span></td><td>2 calendars</td><td class="mono">v6</td><td><span class="btn small ghost">Edit</span></td></tr>
+          <tr><td><b>USG obstetric</b> <span class="mono">TPL-US-OB</span></td><td>USG</td><td class="mono">25 min</td><td class="mono">1</td><td class="mono">5 min</td><td><span class="chip red">Blocked</span></td><td><span class="chip grey">No</span></td><td>1 calendar</td><td class="mono">v2</td><td><span class="btn small ghost">Edit</span></td></tr>
+          <tr><td><b>MRI standard</b> <span class="mono">TPL-MR-S</span></td><td>MRI</td><td class="mono">45 min</td><td class="mono">1</td><td class="mono">15 min</td><td><span class="chip red">Blocked</span></td><td><span class="chip grey">No</span></td><td>1 calendar</td><td class="mono">v5</td><td><span class="btn small ghost">Edit</span></td></tr>
+          <tr><td><b>X-Ray walk-in</b> <span class="mono">TPL-XR-W</span></td><td>X-Ray</td><td class="mono">10 min</td><td class="mono">2</td><td class="mono">0 min</td><td><span class="chip green">Allowed</span></td><td><span class="chip amber">Yes · max +4/day</span></td><td>1 calendar</td><td class="mono">v3</td><td><span class="btn small ghost">Edit</span></td></tr>
+        </table>
+        <div class="hint" style="margin-top:6px;font-size:11px;color:#64748B">Walk-ins on obstetric USG are always blocked: PC-PNDT requires Form F and identity verification before any scan is scheduled. Overbook flags surface an amber warning at booking time and require a stated reason.</div>
+      </div>
+
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Which calendars use TPL-US-G <span class="right">selected row</span></div>
+          <table>
+            <tr><th>Calendar</th><th>Unit / AE</th><th>Days applied</th><th>Future slots generated</th></tr>
+            <tr><td>USG — Room A</td><td class="mono">US-UNIT-2 · MERIDUS2</td><td>Mon–Sat</td><td class="mono">1,842 (to 08-Sep)</td></tr>
+            <tr><td>USG — Room B (locum)</td><td class="mono">US-UNIT-3 · MERIDUS3</td><td>Mon, Wed, Fri</td><td class="mono">612 (to 08-Sep)</td></tr>
+          </table>
+        </div>
+        <div class="card grow">
+          <div class="card-title">Version history — TPL-US-G <span class="right">append-only</span></div>
+          <div class="timeline">
+            <div class="ev"><span class="t">14-Jul 10:22</span><span><b>v6</b> — overbook cap raised +1 → +2/day · K. Verma · reason: monsoon no-show spike 11%</span></div>
+            <div class="ev"><span class="t">02-May 09:40</span><span><b>v5</b> — prep gap 10 → 5 min after probe-swap workflow change · K. Verma</span></div>
+            <div class="ev"><span class="t">18-Feb 15:03</span><span><b>v4</b> — slot length 20 → 15 min · K. Verma · approved by ops review</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — TEMPLATE EDITOR (TPL-US-G → DRAFT V7)</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Edit template — USG general <span class="mono small">TPL-US-G · draft v7</span></h3>
+    <div class="row">
+      <div class="field grow"><label>Slot length (min) <span class="req">*</span></label><span class="input mono" style="display:block">15</span></div>
+      <div class="field grow"><label>Patients per slot <span class="req">*</span></label><span class="input mono" style="display:block">1</span></div>
+      <div class="field grow"><label>Prep gap (min) <span class="req">*</span></label><span class="input mono" style="display:block">5</span></div>
+    </div>
+    <div class="field"><label>Walk-ins</label><div class="check"><span class="box on">✓</span> Allow walk-ins to fill unbooked slots (front office queue)</div></div>
+    <div class="field"><label>Overbooking</label>
+      <div class="check"><span class="box on">✓</span> Allow overbooking · daily cap <span class="input mono" style="width:60px;display:inline-block">+2</span></div>
+      <div class="hint">Each overbook requires a reason at booking time and is flagged on the day list. Cap is per calendar per day.</div>
+    </div>
+    <div class="banner info"><b>Blast radius</b>This template drives 2 calendars and 2,454 future generated slots. Changes apply only to slots generated on or after the effective date — already-booked appointments are untouched.</div>
+    <div class="field"><label>Effective from <span class="req">*</span></label><span class="input mono" style="display:block">01-Aug-2026</span></div>
+    <div class="field"><label>Change reason <span class="req">*</span></label><span class="input" style="display:block">Align Room B locum days with Room A settings</span></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Save v7 (step-up required)</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — IN-USE GUARD ON DELETE</div>
+<div class="modal-wrap">
+  <div class="modal danger">
+    <h3>Cannot delete — template in use</h3>
+    <div class="banner danger"><b>TPL-MR-S is referenced by 1 calendar and 388 future slots (14 already booked)</b>Deleting a live template would orphan generated slots and break booking search. Templates with any future usage can only be <b>retired</b> with an effective date; slot generation stops using them from that date and history stays intact.</div>
+    <table>
+      <tr><th>Blocking reference</th><th>Detail</th></tr>
+      <tr><td>Calendar</td><td>MRI — MRI-ROOM-2 · Mon–Sat</td></tr>
+      <tr><td>Future booked appts</td><td class="mono">14 (nearest: 27-Jul 08:30, APPT-2026-52190)</td></tr>
+      <tr><td>Replacement required</td><td>Choose successor template before retirement date</td></tr>
+    </table>
+    <div class="field" style="margin-top:10px"><label>Retire on</label><span class="input mono" style="display:block">01-Sep-2026</span></div>
+    <div class="field"><label>Successor template <span class="req">*</span></label><span class="select" style="display:block">select MRI template ▾</span></div>
+    <div class="modal-actions"><span class="btn">Close</span><span class="btn disabled">Delete</span><span class="btn warn-outline">Retire instead…</span></div>
+  </div>
+</div>
+
+<p class="audit">Template creates, edits (field-level before/after), retirements and blocked delete attempts are recorded in the access log with actor, step-up method and effective date.</p>
+</section>
+<section class="screen" id="sc-04">
+<div class="screen-head"><h1><span class="sid">SC-04</span> Doctor availability &amp; time off</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling &amp; Resource Setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 doctor availability</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Per-practitioner weekly duty grids control which blocks a doctor is bookable for performing (e.g. USG) and which are reserved for reading. Time-off requests run a coverage check against already-booked slots; conflicts become explicit reassign/reschedule tasks before approval can complete. For radiologists the reading-vs-performing split matters: reading blocks keep report SLAs alive without consuming bookable calendar slots.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Scheduling setup</div>
+      <div class="nav-item">Working hours &amp; breaks</div>
+      <div class="nav-item">Holidays &amp; closures <span class="nav-badge">3</span></div>
+      <div class="nav-item">Slot templates</div>
+      <div class="nav-item active">Doctor availability <span class="nav-badge">2</span></div>
+      <div class="nav-item">Equipment availability <span class="nav-badge red">1</span></div>
+      <div class="sec-label">Reference</div>
+      <div class="nav-item">Rooms &amp; resources</div>
+      <div class="nav-item">Branch settings</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Setup › Scheduling › Doctor availability › Dr. V. Shetty</div>
+      <div class="page-title">Dr. V. Shetty — weekly duty grid <span class="actions-right"><span class="btn small">Switch practitioner ▾</span> <span class="btn small">Time-off requests <b>2</b></span> <span class="btn small primary">Edit grid</span></span></div>
+      <div class="page-sub">Radiologist · RMC <span class="mono">MH-44721</span> · USG performing + CT/MRI reading · grid version <span class="mono">v5</span> effective 01-Jun-2026 · read nightly by slot generation</div>
+
+      <div class="banner info"><b>Reading vs performing split</b>Blocks marked <span class="chip blue">Reading</span> generate no bookable patient slots — they keep Dr. Shetty in the reporting assignment pool so report SLAs stay owned. Only <span class="chip teal">Performing</span> blocks feed USG calendar slots. Time off removes both duty types for the covered dates.</div>
+
+      <div class="card">
+        <div class="card-title">Duty grid <span class="right">blocks: morning 08:00–13:30 · afternoon 14:15–18:00 · evening 18:00–21:00</span></div>
+        <table>
+          <tr><th>Block</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>
+          <tr><td><b>Morning</b></td>
+            <td><span class="chip teal">Performing · USG</span></td>
+            <td><span class="chip teal">Performing · USG</span></td>
+            <td><span class="chip blue">Reading · CT/MRI</span></td>
+            <td><span class="chip teal">Performing · USG</span></td>
+            <td><span class="chip teal">Performing · USG</span></td>
+            <td><span class="chip teal">Performing · USG</span></td>
+            <td><span class="chip grey">Off</span></td></tr>
+          <tr><td><b>Afternoon</b></td>
+            <td><span class="chip blue">Reading · CT/MRI</span></td>
+            <td><span class="chip blue">Reading · CT/MRI</span></td>
+            <td><span class="chip blue">Reading · CT/MRI</span></td>
+            <td><span class="chip blue">Reading · CT/MRI</span></td>
+            <td><span class="chip blue">Reading · CT/MRI</span></td>
+            <td><span class="chip grey">Off</span></td>
+            <td><span class="chip grey">Off</span></td></tr>
+          <tr><td><b>Evening</b></td>
+            <td><span class="chip grey">Off</span></td>
+            <td><span class="chip blue">Reading · on-call</span></td>
+            <td><span class="chip grey">Off</span></td>
+            <td><span class="chip blue">Reading · on-call</span></td>
+            <td><span class="chip grey">Off</span></td>
+            <td><span class="chip grey">Off</span></td>
+            <td><span class="chip grey">Off</span></td></tr>
+        </table>
+        <div class="hint" style="margin-top:6px;font-size:11px;color:#64748B">Grid edits are effective-dated like SC-01. Removing a performing block that already has bookings triggers the same conflict flow as time off below.</div>
+      </div>
+
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Time-off requests — pending <span class="right">2 open</span></div>
+          <table>
+            <tr><th>Practitioner</th><th>Dates</th><th>Type</th><th>Coverage check</th><th>Status</th><th></th></tr>
+            <tr class="hl"><td>Dr. V. Shetty</td><td class="mono">10–14 Aug 2026</td><td>Annual leave</td><td><span class="chip red">9 booked slots conflict</span></td><td><span class="chip amber">Awaiting resolution</span></td><td><span class="btn small ghost">Review</span></td></tr>
+            <tr><td>Dr. A. Rao</td><td class="mono">03-Aug-2026 (half day)</td><td>CME conference</td><td><span class="chip green">No conflicts</span></td><td><span class="chip amber">Awaiting approval</span></td><td><span class="btn small ghost">Review</span></td></tr>
+          </table>
+        </div>
+        <div class="card" style="width:290px;flex-shrink:0">
+          <div class="card-title">Coverage snapshot — Aug</div>
+          <div class="kv">
+            <dt>USG performers</dt><dd>3 (Shetty, Rao, locum Dr. S. Menon Mon/Wed/Fri)</dd>
+            <dt>CT/MRI readers</dt><dd>2 + teleradiology overflow contract</dd>
+            <dt>Min. reader rule</dt><dd>≥1 reader on duty every open block — enforced at approval</dd>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — TIME-OFF REQUEST WITH CONFLICTS (COVERAGE CHECK FAILED)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Time off — Dr. V. Shetty · 10–14 Aug 2026 <span class="chip red">9 conflicts</span></div>
+  <div class="banner danger"><b>Coverage check: 9 booked slots and 1 reading block conflict</b>8 USG appointments are booked in Dr. Shetty's performing blocks and 1 evening on-call reading block has no substitute. Approval stays disabled until every line is resolved into a reassign or reschedule task. Nothing is auto-cancelled.</div>
+  <div class="card">
+    <div class="card-title">Conflict list <span class="right">resolve each line</span></div>
+    <table>
+      <tr><th>Date / time</th><th>Item</th><th>Patient (masked)</th><th>Proposed resolution</th><th>Task</th></tr>
+      <tr><td class="mono">10-Aug 08:30</td><td>USG Abdomen · APPT-2026-52501</td><td>S•••• R. · MRN-00**22</td><td><span class="select" style="width:220px;display:inline-block">Reassign → Dr. A. Rao ▾</span></td><td><span class="chip green">Ready</span></td></tr>
+      <tr><td class="mono">10-Aug 09:15</td><td>USG Obstetric · APPT-2026-52505</td><td>P•••• D. · MRN-00**64</td><td><span class="select" style="width:220px;display:inline-block">Reassign → Dr. A. Rao ▾</span></td><td><span class="chip amber">Form F re-attribution needed</span></td></tr>
+      <tr><td class="mono">11-Aug 10:00</td><td>USG Thyroid · APPT-2026-52530</td><td>K•••• M. · MRN-00**09</td><td><span class="select" style="width:220px;display:inline-block">Reschedule → 17-Aug ▾</span></td><td><span class="chip green">Ready</span></td></tr>
+      <tr><td class="mono">11-Aug evening</td><td>Reading on-call block</td><td>—</td><td><span class="select" style="width:220px;display:inline-block">Cover → teleradiology overflow ▾</span></td><td><span class="chip green">Ready</span></td></tr>
+      <tr><td colspan="5" class="muted small">+ 5 more lines · obstetric reassignments re-run the PC-PNDT Form F attribution check against the covering doctor's registration</td></tr>
+    </table>
+    <div class="modal-actions"><span class="btn">Save draft</span><span class="btn disabled">Approve time off</span><span class="btn primary">Create 9 tasks &amp; continue</span></div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — APPROVED WITH COVERAGE PLAN</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Time off approved — Dr. V. Shetty · 10–14 Aug 2026 <span class="chip green">Approved</span></div>
+  <div class="banner success"><b>Approved 25-Jul-2026 18:20 IST by K. Verma (step-up: passkey)</b>All 9 conflicts resolved: 6 reassigned to Dr. A. Rao / locum Dr. S. Menon, 2 rescheduled with patient confirmation, 1 on-call block covered by teleradiology overflow. Slot generation removes Dr. Shetty's performing slots for 10–14 Aug tonight; reporting auto-assignment excludes her for the same dates.</div>
+  <div class="card">
+    <div class="card-title">Approval record</div>
+    <div class="timeline">
+      <div class="ev"><span class="t">22-Jul 09:02</span><span><b>Requested</b> — by Dr. V. Shetty via staff portal · annual leave</span></div>
+      <div class="ev"><span class="t">22-Jul 09:02</span><span><b>Coverage check</b> — 9 conflicts detected automatically</span></div>
+      <div class="ev"><span class="t">24-Jul 15:40</span><span><b>Tasks resolved</b> — TASK-2026-3340…3348 closed · 2 patients confirmed new slots via WhatsApp BSP</span></div>
+      <div class="ev"><span class="t">25-Jul 18:20</span><span><b>Approved</b> — K. Verma · min-reader rule satisfied for every open block 10–14 Aug</span></div>
+    </div>
+  </div>
+</div></div></div>
+
+<p class="audit">Duty-grid versions, time-off requests, coverage-check results, each conflict resolution and the final approval (actor, step-up method) are recorded in the access log.</p>
+</section>
+<section class="screen" id="sc-05">
+<div class="screen-head"><h1><span class="sid">SC-05</span> Equipment availability &amp; maintenance</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling &amp; Resource Setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 equipment availability + maintenance</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Each imaging unit has its own availability calendar. Planned maintenance windows are entered here — they create a modality-scoped closure (visible in SC-02) plus reschedule tasks for any bookings caught inside the window. Unplanned downtime syncs in from the device board (TK-07): when a unit goes down, its future slots are auto-blocked and front office gets an immediate conflict task. Everything lands in an append-only history log per unit.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Scheduling setup</div>
+      <div class="nav-item">Working hours &amp; breaks</div>
+      <div class="nav-item">Holidays &amp; closures <span class="nav-badge">3</span></div>
+      <div class="nav-item">Slot templates</div>
+      <div class="nav-item">Doctor availability <span class="nav-badge">2</span></div>
+      <div class="nav-item active">Equipment availability <span class="nav-badge red">1</span></div>
+      <div class="sec-label">Reference</div>
+      <div class="nav-item">Rooms &amp; resources</div>
+      <div class="nav-item">Branch settings</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Setup › Scheduling › Equipment availability</div>
+      <div class="page-title">Equipment availability — Andheri West <span class="actions-right"><span class="btn small">History log</span> <span class="btn small primary">+ Plan maintenance</span></span></div>
+      <div class="page-sub">3 units · availability feeds slot generation per calendar · unplanned downtime auto-synced from device board (TK-07)</div>
+
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">2</div><div class="l">Units in service</div><div class="s">CT-ROOM-1 · MRI-ROOM-2</div></div>
+        <div class="kpi red"><div class="n">1</div><div class="l">Unit down (unplanned)</div><div class="s">US-UNIT-2 since 14:05 IST</div></div>
+        <div class="kpi amber"><div class="n">1</div><div class="l">Planned window (30 days)</div><div class="s">MRI coil service 02-Aug</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Unit availability — week of 27 Jul – 02 Aug 2026 <span class="right">■ bookable · ▦ maintenance · ✕ down</span></div>
+        <table>
+          <tr><th>Unit / AE title</th><th>Mon 27</th><th>Tue 28</th><th>Wed 29</th><th>Thu 30</th><th>Fri 31</th><th>Sat 01</th><th>Sun 02</th></tr>
+          <tr><td><b>CT-ROOM-1</b> <span class="mono">MERIDCT1</span><br><span class="small muted">Siemens go.Up · 32-slice</span></td>
+            <td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 07:30–21:00</span><br><span class="chip grey">QA 17:00–17:20</span></td><td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 08:00–18:00</span></td><td><span class="chip grey">closed</span></td></tr>
+          <tr class="hl"><td><b>US-UNIT-2</b> <span class="mono">MERIDUS2</span><br><span class="small muted">GE Logiq · Room A</span></td>
+            <td colspan="6"><span class="chip red">✕ DOWN since 25-Jul 14:05 — probe connector fault · auto-blocked from TK-07 · restore ETA 26-Jul 12:00</span></td><td><span class="chip grey">closed</span></td></tr>
+          <tr><td><b>MRI-ROOM-2</b> <span class="mono">MERIDMR2</span><br><span class="small muted">1.5T · head/spine coils</span></td>
+            <td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 08:00–18:00</span></td><td><span class="chip amber">▦ coil service 09:00–15:00</span></td></tr>
+        </table>
+        <div class="hint" style="margin-top:6px;font-size:11px;color:#64748B">TK-07 auto-block: when the device board marks a unit down, all its unbooked future slots are withdrawn within 60 seconds and booked slots open a conflict task — no manual step needed. Manual unblock requires the device to report back in service.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">History log — all units <span class="right">append-only · filter: 30 days ▾</span></div>
+        <div class="timeline">
+          <div class="ev"><span class="t">25-Jul 14:05</span><span><b>US-UNIT-2 down (unplanned)</b> — synced from device board TK-07 · fault: probe connector · 11 future bookings auto-flagged → TASK-2026-3352</span></div>
+          <div class="ev"><span class="t">18-Jul 10:12</span><span><b>MRI-ROOM-2 planned window created</b> — coil service 02-Aug 09:00–15:00 · by K. Verma · 0 booking conflicts (Sunday, branch closed)</span></div>
+          <div class="ev"><span class="t">09-Jul 16:44</span><span><b>CT-ROOM-1 back in service</b> — after tube warm-up fault · downtime 1h 38m · 3 delayed patients accommodated same day</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PLAN MAINTENANCE WITH IMPACT PREVIEW</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Plan maintenance — CT-ROOM-1 <span class="mono small">MERIDCT1</span></h3>
+    <div class="row">
+      <div class="field grow"><label>Date <span class="req">*</span></label><span class="input mono" style="display:block">14-Sep-2026 (Mon)</span></div>
+      <div class="field grow"><label>From <span class="req">*</span></label><span class="input mono" style="display:block">07:30</span></div>
+      <div class="field grow"><label>To <span class="req">*</span></label><span class="input mono" style="display:block">21:00</span></div>
+    </div>
+    <div class="field"><label>Work description <span class="req">*</span></label><span class="input" style="display:block">X-ray tube replacement — vendor engineer (Siemens SR #IN-88412)</span></div>
+    <div class="banner warn"><b>Impact preview</b>Creates a modality-scoped closure "CT — maintenance" on 14-Sep (listed in SC-02). 7 CT bookings already exist inside the window (earliest 08:15). Saving spawns bulk-reschedule task for those 7; USG, MRI and X-Ray remain fully bookable. Slot generation withdraws unbooked CT slots on tonight's run.</div>
+    <div class="check"><span class="box on">✓</span> Notify referrers of affected orders via their preferred channel after rebooking</div>
+    <div class="check"><span class="box"></span> Also block 15-Sep morning for post-service QA calibration</div>
+    <div class="banner reg"><b>Dual control</b>Full-day blocks of a primary unit require a second approver. Sent to: <b>T. Okafor (lead technologist)</b> — window stays "proposed" and slots keep generating until they countersign.</div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Propose window (step-up required)</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — UNPLANNED DOWNTIME ACTIVE (SYNCED FROM TK-07)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">US-UNIT-2 — unplanned downtime <span class="chip red">DOWN 4h 32m</span></div>
+  <div class="banner danger"><b>Auto-block active since 25-Jul-2026 14:05 IST (device board TK-07)</b>Fault: probe connector; vendor ticket <span class="mono">GE-SVC-77120</span>, engineer ETA 26-Jul 10:00, restore ETA 12:00. 46 unbooked slots withdrawn automatically; 11 booked appointments moved into conflict task <span class="mono">TASK-2026-3352</span> · <span class="chip red">SLA: OVERDUE — 4 patients arriving today</span> owner: D. Nair. This block cannot be lifted manually — it clears when the device board reports the unit back in service.</div>
+  <div class="card">
+    <div class="card-title">TASK-2026-3352 — 11 affected bookings <span class="right">7 resolved · 4 open</span></div>
+    <div class="progress amber"><i style="width:64%"></i></div>
+    <table style="margin-top:8px">
+      <tr><th>Time</th><th>Appt</th><th>Resolution</th><th>Status</th></tr>
+      <tr><td class="mono">25-Jul 15:00</td><td class="mono">APPT-2026-52240</td><td>Moved to US-UNIT-3 (Room B) same day</td><td><span class="chip green">Done</span></td></tr>
+      <tr><td class="mono">25-Jul 16:15</td><td class="mono">APPT-2026-52251</td><td>Rescheduled 26-Jul 14:30 · SMS delivered</td><td><span class="chip green">Done</span></td></tr>
+      <tr><td class="mono">25-Jul 18:45</td><td class="mono">APPT-2026-52263</td><td>Patient en route — front desk to intercept</td><td><span class="chip red">Open</span></td></tr>
+      <tr><td colspan="4" class="muted small">+ 8 more · escalation to K. Verma fires if any same-day item is still open 60 min before its slot time</td></tr>
+    </table>
+  </div>
+</div></div></div>
+
+<p class="audit">Planned windows (proposer, approver, step-up method), TK-07 auto-block and restore events, slot withdrawals and every conflict-task transition are recorded in the access log.</p>
+</section>
+<section class="screen" id="sc-06">
+<div class="screen-head"><h1><span class="sid">SC-06</span> Modality calendar admin &amp; publishing</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · calendar publish/versioning</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Admin generates the bookable slot calendar per modality from working hours + slot templates + device availability, previews the diff against the currently published version, then publishes with an effective date and version tag. Booked slots are never silently dropped — a regenerate that would remove a slot with an active booking is blocked until the booking is moved. Rollback restores a prior version under the same guard, with dual-control sign-off.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org Admin) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Setup workspace</div>
+      <div class="nav-item">Org &amp; branches</div>
+      <div class="nav-item">Users &amp; roles</div>
+      <div class="nav-item">Services &amp; price lists</div>
+      <div class="sec-label">Scheduling</div>
+      <div class="nav-item">Working hours</div>
+      <div class="nav-item">Slot templates</div>
+      <div class="nav-item active">Modality calendar <span class="nav-badge">DRAFT</span></div>
+      <div class="nav-item">Overbooking &amp; walk-in</div>
+      <div class="nav-item">Camps &amp; blocks</div>
+      <div class="nav-item">Token &amp; queue</div>
+      <div class="nav-item">Public displays</div>
+      <div class="sec-label">Compliance</div>
+      <div class="nav-item">Change audit</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Setup › Scheduling › Modality calendar</div>
+      <div class="actions-right"><span class="btn small">↻ Regenerate draft</span> <span class="btn primary small">Publish draft…</span></div>
+      <div class="page-title">Modality calendar — CT-ROOM-1 (AE MERIDCT1)</div>
+      <div class="page-sub">Published version <b class="mono">v2026.07.18-03</b> · draft <b class="mono">v2026.07.25-01 (unpublished)</b> · generated from Working hours v14 + Template "CT weekday 15-min" v6 + device availability feed</div>
+
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">412</div><div class="l">Slots in draft (wk 27 Jul–01 Aug)</div><div class="s">vs 398 in published v-03</div></div>
+        <div class="kpi"><div class="n">+22</div><div class="l">Slots added</div><div class="s">Sat evening extension 17:00–19:00</div></div>
+        <div class="kpi amber"><div class="n">−8</div><div class="l">Slots removed</div><div class="s">PM window Tue 29 Jul 13:00–15:00</div></div>
+        <div class="kpi"><div class="n">0</div><div class="l">Booked slots affected</div><div class="s">Guard: publish allowed</div></div>
+      </div>
+
+      <div class="banner success"><b>Booked-slot guard passed — affected bookings: NONE</b>All 8 slots removed by this draft are unbooked. A draft that removes a slot holding an active booking cannot be published until each booking is rescheduled or cancelled with patient notice.</div>
+
+      <div class="card">
+        <div class="card-title">Generated-slots preview · Tue 29 Jul 2026 <span class="right">Draft v2026.07.25-01 vs published v2026.07.18-03</span></div>
+        <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">
+          <span class="chip teal">Mon 27 · 68 slots</span><span class="chip grey">Tue 29 · 60 slots (−8)</span><span class="chip grey">Wed 30 · 68</span><span class="chip grey">Thu 31 · 68</span><span class="chip grey">Fri 31 · 68</span><span class="chip green">Sat 01 Aug · 80 (+22)</span><span class="chip grey">Sun · closed</span>
+        </div>
+        <table>
+          <tr><th>Slot (IST)</th><th>Source rule</th><th>Duration</th><th>Diff</th><th>Booking</th><th>Guard</th></tr>
+          <tr><td class="mono">08:00–08:15</td><td>Template "CT weekday 15-min" v6</td><td>15 min</td><td><span class="chip grey">unchanged</span></td><td class="muted">—</td><td class="muted">—</td></tr>
+          <tr><td class="mono">08:15–08:30</td><td>Template "CT weekday 15-min" v6</td><td>15 min</td><td><span class="chip grey">unchanged</span></td><td>MRD-26-04412 · 08:15 booked</td><td><span class="chip green">retained</span></td></tr>
+          <tr class="hl"><td class="mono">13:00–13:15</td><td>Working hours v14 — Tue PM window closed (engineer PM visit, CT-ROOM-1)</td><td>15 min</td><td><span class="chip red">removed</span></td><td class="muted">— (unbooked)</td><td><span class="chip green">safe to drop</span></td></tr>
+          <tr class="hl"><td class="mono">13:15–13:30</td><td>Working hours v14 — Tue PM window closed</td><td>15 min</td><td><span class="chip red">removed</span></td><td class="muted">— (unbooked)</td><td><span class="chip green">safe to drop</span></td></tr>
+          <tr><td class="mono">15:00–15:15</td><td>Template "CT weekday 15-min" v6</td><td>15 min</td><td><span class="chip grey">unchanged</span></td><td>MRD-26-04437 · contrast CT</td><td><span class="chip green">retained</span></td></tr>
+          <tr><td class="mono">18:30–18:45 <span class="chip amber">STAT reserve</span></td><td>Overbooking rules SC-07 — 2 STAT holds/day</td><td>15 min</td><td><span class="chip grey">unchanged</span></td><td class="muted">held for STAT</td><td class="muted">—</td></tr>
+        </table>
+        <div class="hint muted small" style="margin-top:8px">Preview shows patient references as booking IDs only — no names on setup screens. Full booking detail requires the Front-office workspace with its own access-log entry.</div>
+      </div>
+
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Regenerate inputs</div>
+          <dl class="kv">
+            <dt>Working hours</dt><dd>v14 · Andheri West · effective 20 Jul 2026 <span class="chip green">current</span></dd>
+            <dt>Slot template</dt><dd>"CT weekday 15-min" v6 · 15-min grid, 2 contrast super-slots/day</dd>
+            <dt>Availability feed</dt><dd>CT-ROOM-1 planned maintenance: Tue 29 Jul 13:00–15:00 (engineer PM visit)</dd>
+            <dt>Horizon</dt><dd>Rolling 42 days (27 Jul → 06 Sep 2026)</dd>
+          </dl>
+        </div>
+        <div class="card" style="width:300px">
+          <div class="card-title">Version history</div>
+          <div class="ladder">
+            <div class="tier cur"><b class="mono">v2026.07.25-01</b> <span class="chip amber">DRAFT</span><div class="small muted">Regenerated 25 Jul 10:42 by K. Verma</div></div>
+            <div class="tier done"><b class="mono">v2026.07.18-03</b> <span class="chip green">PUBLISHED</span><div class="small muted">Effective 20 Jul · by K. Verma, approved D. Nair</div></div>
+            <div class="tier done"><b class="mono">v2026.07.11-02</b> <span class="chip grey">superseded</span><div class="small muted">Effective 13 Jul</div></div>
+          </div>
+          <span class="btn small">Rollback to v-03…</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PUBLISH DRAFT (EFFECTIVE DATE + VERSION TAG + STEP-UP)</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Publish calendar draft — CT-ROOM-1</h3>
+    <p class="small muted" style="margin-bottom:10px">Publishing replaces the bookable calendar for CT-ROOM-1 from the effective date onward. Existing bookings are re-attached to identical slots; the guard has verified <b>0 affected bookings</b>.</p>
+    <div class="field"><label>Version tag</label><input class="input mono" value="v2026.07.25-01"><div class="hint">Auto-generated; suffix editable for audit clarity.</div></div>
+    <div class="field"><label>Effective from <span class="req">*</span></label><input class="input" value="Mon 27 Jul 2026, 00:00 IST"><div class="hint">Must be a future date. Days before the effective date keep serving v2026.07.18-03.</div></div>
+    <div class="field"><label>Publish note (visible in change audit)</label><textarea class="textarea">Sat evening extension 17:00–19:00 per branch head approval; Tue 29 Jul PM window blocked for CT engineer visit.</textarea></div>
+    <div class="banner info"><b>Step-up identity confirmation required</b>Publishing a live calendar is a sensitive change. Confirm with your TOTP or passkey (staff realm) to proceed.</div>
+    <div class="field"><label>TOTP code</label><input class="input mono" style="max-width:160px" value="••• •••" placeholder="6-digit code"><div class="hint">Or use passkey · backup codes accepted with security-officer alert.</div></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Verify &amp; publish v2026.07.25-01</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — ROLLBACK GUARD: PRIOR VERSION CONFLICTS WITH LIVE BOOKINGS</div>
+<div class="modal-wrap">
+  <div class="modal danger">
+    <h3>Rollback blocked — 3 bookings sit on slots that v2026.07.18-03 does not contain</h3>
+    <div class="banner danger"><b>Booked slots are never silently dropped.</b>Rolling back to <span class="mono">v2026.07.18-03</span> would remove the Saturday 01 Aug evening slots that already hold confirmed bookings. Resolve each booking first, or keep the current version.</div>
+    <table>
+      <tr><th>Slot (IST)</th><th>Booking ref</th><th>Status</th><th>Resolution</th></tr>
+      <tr><td class="mono">Sat 01 Aug 17:15</td><td class="mono">MRD-26-04502</td><td><span class="chip teal">confirmed</span></td><td><span class="btn ghost small">Reschedule…</span></td></tr>
+      <tr><td class="mono">Sat 01 Aug 17:45</td><td class="mono">MRD-26-04508</td><td><span class="chip teal">confirmed</span></td><td><span class="btn ghost small">Reschedule…</span></td></tr>
+      <tr><td class="mono">Sat 01 Aug 18:30</td><td class="mono">MRD-26-04511</td><td><span class="chip amber">payment pending</span></td><td><span class="btn ghost small">Reschedule…</span></td></tr>
+    </table>
+    <div class="banner warn" style="margin-top:10px"><b>Dual control (four-eyes) on rollback</b>Even after bookings are resolved, rollback requires a second approver with the <b>Scheduling Admin</b> role. Requested approver: <b>D. Nair (Front office lead)</b> — approval pending.</div>
+    <div class="modal-actions"><span class="btn">Close</span><span class="btn danger disabled">Rollback to v2026.07.18-03 (blocked)</span></div>
+  </div>
+</div>
+
+<p class="audit">Calendar regeneration, diff preview, publish (with TOTP step-up result), rollback attempts and the booked-slot guard outcome are versioned and recorded in the access log. Viewing booking references from this setup screen is also recorded in the access log.</p>
+</section>
+<section class="screen" id="sc-07">
+<div class="screen-head"><h1><span class="sid">SC-07</span> Overbooking &amp; walk-in rules</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 template flags → overbook/walk-in rules</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Per-modality rules governing how much walk-in demand the branch absorbs on top of booked slots: walk-in ratio, daily overbook ceiling with the role allowed to approve each overbook, and STAT reserve slots held back per day. A simulation replays yesterday's demand against the draft rules before saving, and a usage report exposes who approved overbooks so the ceiling cannot be quietly abused.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org Admin) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Setup workspace</div>
+      <div class="nav-item">Org &amp; branches</div>
+      <div class="nav-item">Users &amp; roles</div>
+      <div class="nav-item">Services &amp; price lists</div>
+      <div class="sec-label">Scheduling</div>
+      <div class="nav-item">Working hours</div>
+      <div class="nav-item">Slot templates</div>
+      <div class="nav-item">Modality calendar</div>
+      <div class="nav-item active">Overbooking &amp; walk-in</div>
+      <div class="nav-item">Camps &amp; blocks</div>
+      <div class="nav-item">Token &amp; queue</div>
+      <div class="nav-item">Public displays</div>
+      <div class="sec-label">Compliance</div>
+      <div class="nav-item">Change audit</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Setup › Scheduling › Overbooking &amp; walk-in rules</div>
+      <div class="actions-right"><span class="btn small">Run simulation</span> <span class="btn primary small">Save rules v9</span></div>
+      <div class="page-title">Overbooking &amp; walk-in rules — Andheri West</div>
+      <div class="page-sub">Active ruleset <b class="mono">v8</b> (effective 06 Jul 2026) · draft <b class="mono">v9</b> in edit · changes take effect next calendar day, never mid-day</div>
+
+      <div class="card">
+        <div class="card-title">Per-modality rules (draft v9) <span class="right">Walk-in ratio · overbook ceiling · STAT reserve</span></div>
+        <table>
+          <tr><th>Modality / device</th><th>Walk-in ratio %</th><th>Overbook max / day</th><th>Overbook approval role</th><th>STAT reserve slots / day</th><th>Changed</th></tr>
+          <tr><td><b>CT-ROOM-1</b> <span class="small muted mono">AE MERIDCT1</span></td><td><input class="input mono" style="width:70px" value="10%"></td><td><input class="input mono" style="width:60px" value="3"></td><td><select class="select" style="width:180px"><option>Branch head only</option></select></td><td><input class="input mono" style="width:60px" value="2"> <span class="small muted">18:30, 18:45</span></td><td><span class="chip amber">edited</span></td></tr>
+          <tr><td><b>US-UNIT-2</b> <span class="small muted mono">AE MERIDUS2</span></td><td><input class="input mono" style="width:70px" value="25%"></td><td><input class="input mono" style="width:60px" value="6"></td><td><select class="select" style="width:180px"><option>Front office lead+</option></select></td><td><input class="input mono" style="width:60px" value="1"></td><td class="muted">—</td></tr>
+          <tr><td><b>MRI-ROOM-2</b></td><td><input class="input mono" style="width:70px" value="0%"></td><td><input class="input mono" style="width:60px" value="1"></td><td><select class="select" style="width:180px"><option>Branch head only</option></select></td><td><input class="input mono" style="width:60px" value="1"></td><td><span class="chip amber">edited</span></td></tr>
+          <tr><td><b>X-RAY-1</b></td><td><input class="input mono" style="width:70px" value="60%"></td><td><input class="input mono" style="width:60px" value="10"></td><td><select class="select" style="width:180px"><option>Any front office</option></select></td><td><input class="input mono" style="width:60px" value="0"></td><td class="muted">—</td></tr>
+        </table>
+        <div class="hint muted small" style="margin-top:8px">Walk-in ratio = share of each hour's capacity servable without a booking. Every overbook above the booked grid demands a named approval by the configured role, captured in the usage report below. STAT reserve slots are invisible to the public booking flow and release to walk-in 30 min before slot start if unused.</div>
+      </div>
+
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Guardrails</div>
+          <div class="check"><span class="box on">✓</span><span>Overbook max/day is a hard ceiling — the approval role cannot exceed it; only this Setup screen can raise it (with change audit).</span></div>
+          <div class="check"><span class="box on">✓</span><span>MRI walk-in ratio locked at 0% — MRI safety screening requires a pre-visit questionnaire; unlockable only by org admin with step-up.</span></div>
+          <div class="check"><span class="box on">✓</span><span>Alert branch head when overbook usage exceeds 80% of ceiling for 3 consecutive days.</span></div>
+          <div class="check"><span class="box">&nbsp;</span><span>Allow cross-modality walk-in overflow (US → X-ray) — off.</span></div>
+        </div>
+        <div class="card" style="width:320px">
+          <div class="card-title">Save &amp; effect</div>
+          <dl class="kv" style="grid-template-columns:120px 1fr">
+            <dt>Draft</dt><dd class="mono">v9 · edited by K. Verma</dd>
+            <dt>Effective</dt><dd>Sun 26 Jul 2026, 00:00 IST</dd>
+            <dt>Step-up</dt><dd><span class="chip amber">required on save</span> TOTP / passkey</dd>
+          </dl>
+          <div class="hint muted small">Saving raises the CT overbook ceiling (2 → 3): flagged as a capacity-affecting change and notified to the branch head.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SIMULATION PREVIEW: YESTERDAY'S DEMAND VS DRAFT RULES</div>
+<div class="card">
+  <div class="card-title">Simulation — Fri 24 Jul 2026 demand replayed against draft v9 <span class="right">read-only · no bookings touched</span></div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">61</div><div class="l">Walk-ins presented (all modalities)</div><div class="s">actual, 24 Jul</div></div>
+    <div class="kpi"><div class="n">54</div><div class="l">Servable under draft v9</div><div class="s">vs 49 under active v8</div></div>
+    <div class="kpi amber"><div class="n">7</div><div class="l">Would be turned away / referred</div><div class="s">6 of them US-UNIT-2, 16:00–18:00</div></div>
+    <div class="kpi"><div class="n">2/2</div><div class="l">STAT reserves consumed (CT)</div><div class="s">both used before 19:00 — consider 3</div></div>
+  </div>
+  <table>
+    <tr><th>Modality</th><th>Booked load</th><th>Walk-ins actual</th><th>Servable v8</th><th>Servable v9</th><th>Overbooks needed</th><th>Verdict</th></tr>
+    <tr><td>CT-ROOM-1</td><td>52 / 60 slots</td><td class="mono">9</td><td class="mono">6</td><td class="mono">8</td><td class="mono">2 of 3 ceiling</td><td><span class="chip green">fits</span></td></tr>
+    <tr class="hl"><td>US-UNIT-2</td><td>44 / 48 slots</td><td class="mono">31</td><td class="mono">24</td><td class="mono">25</td><td class="mono">6 of 6 ceiling</td><td><span class="chip amber">ceiling saturated 16:00–18:00</span></td></tr>
+    <tr><td>MRI-ROOM-2</td><td>18 / 20 slots</td><td class="mono">2</td><td class="mono">0</td><td class="mono">0</td><td class="mono">1 of 1 ceiling</td><td><span class="chip grey">walk-in 0% by design</span></td></tr>
+    <tr><td>X-RAY-1</td><td>36 / 90 slots</td><td class="mono">19</td><td class="mono">19</td><td class="mono">19</td><td class="mono">0</td><td><span class="chip green">fits</span></td></tr>
+  </table>
+  <div class="banner warn" style="margin-top:10px"><b>Suggestion from simulation</b>US evening walk-in ratio of 25% under-serves 16:00–18:00 demand. Raising to 30% for that window would have served 5 of the 6 turned away without any overbook. Apply as a time-banded rule? <span class="btn small">Apply suggestion to draft</span> <span class="btn ghost small">Dismiss</span></div>
+  <div class="hint muted small">Simulation uses de-identified demand counts only — no patient identifiers leave the scheduling store.</div>
+</div>
+
+<div class="state-tag">STATE C — ABUSE GUARD: OVERBOOK USAGE REPORT (LAST 14 DAYS)</div>
+<div class="card">
+  <div class="card-title">Overbook usage report · 11–24 Jul 2026 <span class="right">every overbook is a named approval</span></div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">38</div><div class="l">Overbooks approved</div><div class="s">across 4 modalities</div></div>
+    <div class="kpi amber"><div class="n">86%</div><div class="l">US-UNIT-2 ceiling utilisation</div><div class="s">80% alert fired 22 Jul → branch head</div></div>
+    <div class="kpi red"><div class="n">1</div><div class="l">Ceiling-hit denial</div><div class="s">23 Jul, US-UNIT-2 — request refused by system</div></div>
+  </div>
+  <table>
+    <tr><th>Date</th><th>Modality</th><th>Overbooks used / max</th><th>Approved by</th><th>Reason codes</th><th>Flag</th></tr>
+    <tr><td class="mono">24 Jul</td><td>US-UNIT-2</td><td class="mono">6 / 6</td><td>D. Nair (Front office lead) ×5, K. Verma ×1</td><td>referral-urgent ×4, patient-travel ×2</td><td><span class="chip amber">at ceiling</span></td></tr>
+    <tr><td class="mono">24 Jul</td><td>CT-ROOM-1</td><td class="mono">2 / 3</td><td>Branch head (A. Kulkarni)</td><td>STAT-followup ×2</td><td class="muted">—</td></tr>
+    <tr class="hl"><td class="mono">23 Jul</td><td>US-UNIT-2</td><td class="mono">6 / 6 + 1 denied</td><td>D. Nair ×6 · 7th attempt auto-denied</td><td>referral-urgent ×3, walkin-vip ×3</td><td><span class="chip red">review: 'walkin-vip' used 3× by same approver</span></td></tr>
+    <tr><td class="mono">22 Jul</td><td>MRI-ROOM-2</td><td class="mono">1 / 1</td><td>Branch head (A. Kulkarni)</td><td>inpatient-transfer</td><td class="muted">—</td></tr>
+  </table>
+  <div class="banner danger" style="margin-top:10px"><b>Abuse guard</b>Reason code <span class="mono">walkin-vip</span> exceeded its weekly threshold for approver D. Nair. A review task has been assigned to the branch head; further <span class="mono">walkin-vip</span> approvals by this approver require branch-head co-approval (four-eyes) until the review closes.</div>
+  <div style="margin-top:8px"><span class="btn small">Export report (CSV, de-identified)</span> <span class="btn ghost small">Open review task</span></div>
+</div>
+
+<p class="audit">Rule edits, simulation runs, every overbook approval/denial with approver identity and reason code, and abuse-guard escalations are recorded in the access log.</p>
+</section>
+<section class="screen" id="sc-08">
+<div class="screen-head"><h1><span class="sid">SC-08</span> Block booking &amp; camps</h1><div class="meta"><span class="chip amber">CONDITIONAL</span><div class="cluster">G4 Scheduling setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · block booking & camps (Conditional)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Create a camp or corporate block booking: date range, modality capacity allocation, expected volume, a camp price-list link and the camp-variant consent notice. A carve-out preview shows exactly which public slots the camp will absorb (booked slots are never carved out), a roster can be imported ahead of camp day, and a close-out report reconciles attended vs no-show and releases unused carve-outs.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org Admin) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Setup workspace</div>
+      <div class="nav-item">Org &amp; branches</div>
+      <div class="nav-item">Users &amp; roles</div>
+      <div class="nav-item">Services &amp; price lists</div>
+      <div class="sec-label">Scheduling</div>
+      <div class="nav-item">Working hours</div>
+      <div class="nav-item">Slot templates</div>
+      <div class="nav-item">Modality calendar</div>
+      <div class="nav-item">Overbooking &amp; walk-in</div>
+      <div class="nav-item active">Camps &amp; blocks <span class="nav-badge">2</span></div>
+      <div class="nav-item">Token &amp; queue</div>
+      <div class="nav-item">Public displays</div>
+      <div class="sec-label">Compliance</div>
+      <div class="nav-item">Change audit</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Setup › Scheduling › Camps &amp; block bookings › New camp</div>
+      <div class="page-title">New camp / block booking</div>
+      <div class="page-sub">Active: <b>TechNova Corporate Screening</b> (block, 27–31 Jul) · <b>Sunday Health Camp — Versova</b> (draft, this form)</div>
+
+      <div class="stepper">
+        <div class="step cur"><span class="dot">1</span>Details</div><span class="step-line"></span>
+        <div class="step"><span class="dot">2</span>Carve-out preview</div><span class="step-line"></span>
+        <div class="step"><span class="dot">3</span>Approve &amp; publish</div><span class="step-line"></span>
+        <div class="step"><span class="dot">4</span>Roster</div><span class="step-line"></span>
+        <div class="step"><span class="dot">5</span>Close-out</div>
+      </div>
+
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Camp details</div>
+          <div class="field"><label>Camp name <span class="req">*</span></label><input class="input" value="Sunday Health Camp — Versova Residents' Assn"></div>
+          <div class="row">
+            <div class="field grow"><label>Type</label><select class="select"><option>Community camp (on-site at branch)</option></select></div>
+            <div class="field grow"><label>Sponsor / payer</label><select class="select"><option>Versova Residents' Association (invoice to sponsor)</option></select></div>
+          </div>
+          <div class="row">
+            <div class="field grow"><label>Date range <span class="req">*</span></label><input class="input" value="Sun 02 Aug 2026 → Sun 02 Aug 2026"></div>
+            <div class="field grow"><label>Window</label><input class="input" value="08:00 – 14:00 IST"></div>
+            <div class="field grow"><label>Expected volume</label><input class="input mono" value="120 participants"></div>
+          </div>
+          <div class="field"><label>Modality allocation <span class="req">*</span></label>
+            <table>
+              <tr><th>Modality</th><th>Slots carved out</th><th>% of day's capacity</th><th>Services</th></tr>
+              <tr><td>US-UNIT-2 (AE MERIDUS2)</td><td class="mono">36 × 10-min</td><td class="mono">50%</td><td>USG abdomen screening</td></tr>
+              <tr><td>X-RAY-1</td><td class="mono">48 × 5-min</td><td class="mono">40%</td><td>Chest X-ray PA</td></tr>
+              <tr><td>CT-ROOM-1</td><td class="mono">0</td><td class="mono">0%</td><td class="muted">not offered at camp rates</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="card" style="width:320px">
+          <div class="card-title">Commercial &amp; consent links</div>
+          <div class="field"><label>Camp price list <span class="req">*</span></label><select class="select"><option>PL-CAMP-2026-07 "Community camp rates" (v3, approved)</option></select><div class="hint">Camp bookings can only bill against this list; standard list is blocked for camp visits.</div></div>
+          <div class="field"><label>Consent notice — camp variant <span class="req">*</span></label><select class="select"><option>CN-CAMP-v2 (EN/HI/MR) — sponsor data-sharing clause</option></select><div class="hint">Camp variant discloses that summary results (de-identified counts only) go to the sponsor. Individual reports go to the participant alone.</div></div>
+          <div class="banner reg"><b>Privacy rule</b>Sponsor receives attendance counts and aggregate findings only. No participant-level report, image or identifier is shared with the sponsor under any setting.</div>
+          <div class="modal-actions" style="margin-top:6px"><span class="btn">Save draft</span><span class="btn primary">Preview carve-out →</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SLOT CARVE-OUT PREVIEW + ROSTER IMPORT NOTE</div>
+<div class="card">
+  <div class="card-title">Carve-out preview · Sun 02 Aug 2026 <span class="right">draft — nothing reserved until approved</span></div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">84</div><div class="l">Slots to carve out</div><div class="s">36 US + 48 X-ray</div></div>
+    <div class="kpi"><div class="n">3</div><div class="l">Public slots already booked in window</div><div class="s">skipped — carve-out flows around them</div></div>
+    <div class="kpi amber"><div class="n">70%</div><div class="l">Sunday US capacity consumed</div><div class="s">above 60% policy line — needs branch-head approval</div></div>
+  </div>
+  <table>
+    <tr><th>Window (IST)</th><th>Modality</th><th>Public slots today</th><th>Carved for camp</th><th>Remains public</th><th>Conflicts</th></tr>
+    <tr><td class="mono">08:00–10:00</td><td>US-UNIT-2</td><td class="mono">12</td><td class="mono">12</td><td class="mono">0</td><td class="muted">none</td></tr>
+    <tr class="hl"><td class="mono">10:00–12:00</td><td>US-UNIT-2</td><td class="mono">12</td><td class="mono">10</td><td class="mono">2</td><td>2 booked (MRD-26-04519, MRD-26-04521) — <span class="chip green">kept, not carved</span></td></tr>
+    <tr><td class="mono">12:00–14:00</td><td>US-UNIT-2</td><td class="mono">14</td><td class="mono">14</td><td class="mono">0</td><td class="muted">none</td></tr>
+    <tr><td class="mono">08:00–14:00</td><td>X-RAY-1</td><td class="mono">54</td><td class="mono">48</td><td class="mono">5</td><td>1 booked — <span class="chip green">kept</span></td></tr>
+  </table>
+  <div class="banner warn" style="margin-top:10px"><b>Approval required before publish</b>Carve-out exceeds 60% of Sunday capacity on US-UNIT-2. Publish requires branch-head co-approval (four-eyes): request sent to A. Kulkarni. Step-up (TOTP/passkey) required from both parties.</div>
+  <div class="banner info"><b>Roster import (optional, recommended)</b>Upload the sponsor's participant roster (CSV: name, age band, mobile) up to camp day. Rosters land in a quarantined staging area, are validated for duplicates against existing MRNs, and are purged automatically 30 days after close-out. No roster row becomes a patient record until the participant registers on camp day with the CN-CAMP-v2 consent. <span class="btn small">Upload roster CSV…</span> <span class="small muted">Last import: none</span></div>
+</div>
+
+<div class="state-tag">STATE C — CLOSE-OUT REPORT (CAMP COMPLETED)</div>
+<div class="card">
+  <div class="card-title">Close-out — TechNova Corporate Screening · block 27–31 Jul 2026 <span class="right">closed 31 Jul 19:10 IST by K. Verma</span></div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">184 / 210</div><div class="l">Attended / rostered</div><div class="s">87.6% show rate</div></div>
+    <div class="kpi amber"><div class="n">26</div><div class="l">No-shows</div><div class="s">22 released to walk-in same day, 4 expired unused</div></div>
+    <div class="kpi"><div class="n">₹ 3,12,800</div><div class="l">Invoiced to sponsor</div><div class="s">PL-CORP-TECHNOVA v2 · invoice INV-26-0733</div></div>
+    <div class="kpi"><div class="n">184</div><div class="l">Consents captured (CN-CAMP-v2)</div><div class="s">100% of attended — 0 exceptions</div></div>
+  </div>
+  <table>
+    <tr><th>Day</th><th>Modality</th><th>Carved</th><th>Attended</th><th>No-show</th><th>Released to walk-in</th><th>Notes</th></tr>
+    <tr><td class="mono">Mon 27 Jul</td><td>US-UNIT-2</td><td class="mono">20</td><td class="mono">19</td><td class="mono">1</td><td class="mono">1</td><td class="muted">—</td></tr>
+    <tr><td class="mono">Tue 28 Jul</td><td>US-UNIT-2</td><td class="mono">20</td><td class="mono">16</td><td class="mono">4</td><td class="mono">4</td><td class="muted">—</td></tr>
+    <tr class="hl"><td class="mono">Wed 29 Jul</td><td>X-RAY-1</td><td class="mono">50</td><td class="mono">41</td><td class="mono">9</td><td class="mono">7</td><td>2 expired — release cutoff 30 min missed</td></tr>
+    <tr><td class="mono">Thu 30 Jul</td><td>X-RAY-1</td><td class="mono">50</td><td class="mono">46</td><td class="mono">4</td><td class="mono">4</td><td class="muted">—</td></tr>
+    <tr><td class="mono">Fri 31 Jul</td><td>US-UNIT-2 + X-RAY-1</td><td class="mono">70</td><td class="mono">62</td><td class="mono">8</td><td class="mono">6</td><td class="muted">—</td></tr>
+  </table>
+  <div class="banner success" style="margin-top:10px"><b>Sponsor summary generated (de-identified)</b>Aggregate counts and abnormal-finding rate bands only. Sent to TechNova HR contact via the WhatsApp BSP business channel after branch-head review. Participant-level reports delivered individually via patient portal / DLT SMS (Jio route) link.</div>
+  <div style="margin-top:8px"><span class="btn small">Download close-out PDF</span> <span class="btn ghost small">Archive camp</span> <span class="small muted">Roster staging data purges automatically on 30 Aug 2026.</span></div>
+</div>
+
+<p class="audit">Camp creation, carve-out approvals (both four-eyes identities), roster imports and purges, releases of unused slots, and sponsor-summary dispatch are recorded in the access log.</p>
+</section>
+<section class="screen" id="sc-09">
+<div class="screen-head"><h1><span class="sid">SC-09</span> Token &amp; queue rules</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S9 tokens & queue rules</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Configure token issuance per service point — prefix, number length, reset schedule and what a token counts against — plus lane rules (walk-in vs booked kept in separate lanes, urgent-first toggle) and which public display each queue maps to. A live preview shows the exact next token each lane would issue under the draft, and every change lands in an immutable change log.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org Admin) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Setup workspace</div>
+      <div class="nav-item">Org &amp; branches</div>
+      <div class="nav-item">Users &amp; roles</div>
+      <div class="nav-item">Services &amp; price lists</div>
+      <div class="sec-label">Scheduling</div>
+      <div class="nav-item">Working hours</div>
+      <div class="nav-item">Slot templates</div>
+      <div class="nav-item">Modality calendar</div>
+      <div class="nav-item">Overbooking &amp; walk-in</div>
+      <div class="nav-item">Camps &amp; blocks</div>
+      <div class="nav-item active">Token &amp; queue</div>
+      <div class="nav-item">Public displays</div>
+      <div class="sec-label">Compliance</div>
+      <div class="nav-item">Change audit</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Setup › Scheduling › Token &amp; queue rules</div>
+      <div class="actions-right"><span class="btn small">Preview next tokens</span> <span class="btn primary small">Save token config v12</span></div>
+      <div class="page-title">Token &amp; queue rules — Andheri West</div>
+      <div class="page-sub">Active config <b class="mono">v11</b> · draft <b class="mono">v12</b> · changes apply at next reset boundary, never mid-queue</div>
+
+      <div class="card">
+        <div class="card-title">Per-service-point token configuration (draft v12)</div>
+        <table>
+          <tr><th>Service point</th><th>Prefix</th><th>Number length</th><th>Reset schedule</th><th>Count-per policy</th><th>Status</th></tr>
+          <tr><td><b>Registration desk</b></td><td><input class="input mono" style="width:56px" value="R"></td><td><select class="select" style="width:80px"><option>3 (001)</option></select></td><td><select class="select" style="width:150px"><option>Daily 00:00 IST</option></select></td><td><select class="select" style="width:170px"><option>Per visit</option></select></td><td><span class="chip green">active</span></td></tr>
+          <tr><td><b>Cash counter</b> <span class="small muted">(P. D'Souza)</span></td><td><input class="input mono" style="width:56px" value="C"></td><td><select class="select" style="width:80px"><option>3 (001)</option></select></td><td><select class="select" style="width:150px"><option>Daily 00:00 IST</option></select></td><td><select class="select" style="width:170px"><option>Per transaction</option></select></td><td><span class="chip green">active</span></td></tr>
+          <tr class="hl"><td><b>CT-ROOM-1</b> <span class="small muted mono">AE MERIDCT1</span></td><td><input class="input mono" style="width:56px" value="CT"></td><td><select class="select" style="width:80px"><option>3 (001)</option></select></td><td><select class="select" style="width:150px"><option>Daily 07:00 IST</option></select></td><td><select class="select" style="width:170px"><option>Per procedure</option></select></td><td><span class="chip amber">edited in draft</span></td></tr>
+          <tr><td><b>US-UNIT-2</b> <span class="small muted mono">AE MERIDUS2</span></td><td><input class="input mono" style="width:56px" value="US"></td><td><select class="select" style="width:80px"><option>3 (001)</option></select></td><td><select class="select" style="width:150px"><option>Daily 07:00 IST</option></select></td><td><select class="select" style="width:170px"><option>Per procedure</option></select></td><td><span class="chip green">active</span></td></tr>
+          <tr><td><b>MRI-ROOM-2</b></td><td><input class="input mono" style="width:56px" value="MR"></td><td><select class="select" style="width:80px"><option>2 (01)</option></select></td><td><select class="select" style="width:150px"><option>Daily 07:00 IST</option></select></td><td><select class="select" style="width:170px"><option>Per procedure</option></select></td><td><span class="chip green">active</span></td></tr>
+        </table>
+        <div class="hint muted small" style="margin-top:8px">Count-per policy: "per visit" issues one token covering all same-day services; "per procedure" issues a fresh token at each modality queue. Prefix collisions across service points are blocked at save.</div>
+      </div>
+
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Lane rules</div>
+          <div class="check"><span class="box on">✓</span><span><b>Separate lanes for walk-in vs booked</b> — booked patients hold their slot time; walk-ins queue FIFO in their own lane. Interleave ratio: <select class="select" style="width:130px;display:inline-block"><option>2 booked : 1 walk-in</option></select></span></div>
+          <div class="check"><span class="box on">✓</span><span><b>Urgent-first</b> — STAT/urgent tokens (flagged by technologist or radiologist) jump both lanes; the deferred patient keeps position #2. Toggle per modality: CT <span class="chip teal">on</span> · US <span class="chip teal">on</span> · MRI <span class="chip teal">on</span> · X-ray <span class="chip grey">off</span></span></div>
+          <div class="check"><span class="box on">✓</span><span><b>No-show recycling</b> — 3 unanswered calls over 10 min moves token to end of lane; 2 recycles then marks no-show.</span></div>
+          <div class="check"><span class="box">&nbsp;</span><span>Priority lane for senior citizens / accessibility (adds a third lane) — off in draft v12.</span></div>
+        </div>
+        <div class="card" style="width:330px">
+          <div class="card-title">Display mapping</div>
+          <table>
+            <tr><th>Queue</th><th>Shown on display</th></tr>
+            <tr><td class="mono">R-*** Registration</td><td>LOBBY-DISP-1</td></tr>
+            <tr><td class="mono">C-*** Cash</td><td>LOBBY-DISP-1</td></tr>
+            <tr><td class="mono">CT-*** / MR-***</td><td>IMG-DISP-2 (imaging corridor)</td></tr>
+            <tr><td class="mono">US-***</td><td>IMG-DISP-2</td></tr>
+          </table>
+          <div class="hint muted small">Display content &amp; privacy mode are governed by Public display settings (SC-10). Token-only is the default; names never appear without privacy approval.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PREVIEW NEXT-TOKEN UNDER DRAFT v12</div>
+<div class="card">
+  <div class="card-title">Next-token preview · Sat 25 Jul 2026, 11:38 IST <span class="right">simulated — no tokens issued</span></div>
+  <table>
+    <tr><th>Service point</th><th>Lane</th><th>Last issued (live, v11)</th><th>Next under draft v12</th><th>Effect of change</th></tr>
+    <tr><td>Registration desk</td><td>Walk-in</td><td class="mono">R-047</td><td class="mono">R-048</td><td class="muted">no change</td></tr>
+    <tr><td>Cash counter</td><td>Single</td><td class="mono">C-112</td><td class="mono">C-113</td><td class="muted">no change</td></tr>
+    <tr class="hl"><td>CT-ROOM-1</td><td>Booked</td><td class="mono">CT-B-021</td><td class="mono">CT-021 → next CT-022</td><td>Draft drops the lane infix "B/W" in favour of colour-coded lanes on display; numbering continues, no reset mid-day</td></tr>
+    <tr class="hl"><td>CT-ROOM-1</td><td>Walk-in</td><td class="mono">CT-W-008</td><td class="mono">CT-101 → next CT-102</td><td>Walk-in lane renumbers into 1xx band at next 07:00 reset</td></tr>
+    <tr><td>US-UNIT-2</td><td>Walk-in</td><td class="mono">US-W-034</td><td class="mono">US-134</td><td>1xx band at next reset</td></tr>
+    <tr><td>MRI-ROOM-2</td><td>Booked</td><td class="mono">MR-09</td><td class="mono">MR-10</td><td class="muted">no change</td></tr>
+  </table>
+  <div class="banner info" style="margin-top:10px"><b>Boundary rule</b>Draft v12 activates at each service point's next reset (00:00 / 07:00 IST). Tokens already issued keep their format until served — a queue is never renumbered while patients hold printed tokens.</div>
+  <div class="modal-actions"><span class="btn">Back to config</span><span class="btn primary">Save v12 (effective at next reset)</span></div>
+</div>
+
+<div class="state-tag">STATE C — CHANGE AUDIT LOG</div>
+<div class="card">
+  <div class="card-title">Token &amp; queue change log <span class="right">immutable · newest first</span></div>
+  <div class="timeline">
+    <div class="ev"><span class="t">25 Jul 11:41</span><div><b>Draft v12 saved</b> by K. Verma (step-up: passkey ✓) — CT lane infix removed; walk-in 1xx band; effective at next reset. Diff stored as <span class="mono">tokencfg-v11→v12</span>.</div></div>
+    <div class="ev"><span class="t">18 Jul 07:00</span><div><b>v11 activated</b> (scheduled) — US interleave ratio 3:1 → 2:1. Authored 17 Jul by K. Verma, co-approved D. Nair.</div></div>
+    <div class="ev"><span class="t">12 Jul 16:22</span><div><b>Urgent-first enabled for MRI-ROOM-2</b> by K. Verma on request of Dr. V. Shetty (ticket SR-2214). Reason: inpatient transfer priority.</div></div>
+    <div class="ev"><span class="t">05 Jul 09:14</span><div><span class="chip red">rejected</span> <b>Proposed mid-day reset of C-*** counter</b> by D. Nair — blocked by rule "no renumbering while tokens outstanding"; advised to wait for 00:00 boundary.</div></div>
+    <div class="ev"><span class="t">01 Jul 00:00</span><div><b>v10 activated</b> — monthly baseline; number length 3 across all points.</div></div>
+  </div>
+  <div style="margin-top:6px"><span class="btn small">Export change log (CSV)</span> <span class="small muted">Log entries carry actor, step-up method, before/after diff hash. Entries cannot be edited or deleted, including by org admins.</span></div>
+</div>
+
+<p class="audit">Token configuration edits, activation boundaries, preview runs and rejected proposals are recorded in the access log with the actor's step-up verification result.</p>
+</section>
+<section class="screen" id="sc-10">
+<div class="screen-head"><h1><span class="sid">SC-10</span> Public display settings</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S9 public display settings</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Governs what waiting-area displays show. Token-only is the privacy default; switching any display to token+first-name is a privacy-relevant change that must pass an approval workflow (privacy officer sign-off). Admin also sets chime, language rotation, per-display room layout, and can push a test broadcast to verify a physical screen before go-live.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org Admin) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Setup workspace</div>
+      <div class="nav-item">Org &amp; branches</div>
+      <div class="nav-item">Users &amp; roles</div>
+      <div class="nav-item">Services &amp; price lists</div>
+      <div class="sec-label">Scheduling</div>
+      <div class="nav-item">Working hours</div>
+      <div class="nav-item">Slot templates</div>
+      <div class="nav-item">Modality calendar</div>
+      <div class="nav-item">Overbooking &amp; walk-in</div>
+      <div class="nav-item">Camps &amp; blocks</div>
+      <div class="nav-item">Token &amp; queue</div>
+      <div class="nav-item active">Public displays <span class="nav-badge red">1</span></div>
+      <div class="sec-label">Compliance</div>
+      <div class="nav-item">Change audit</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Setup › Scheduling › Public display settings</div>
+      <div class="actions-right"><span class="btn small">Send test broadcast</span> <span class="btn primary small">Save display settings</span></div>
+      <div class="page-title">Public display settings — Andheri West</div>
+      <div class="page-sub">2 displays online · settings <b class="mono">v7</b> · privacy mode changes require privacy-officer approval</div>
+
+      <div class="card">
+        <div class="card-title">Displays &amp; privacy mode <span class="right">token-only is the platform default</span></div>
+        <table>
+          <tr><th>Display</th><th>Location</th><th>Privacy mode</th><th>Rooms shown</th><th>Health</th></tr>
+          <tr><td class="mono"><b>LOBBY-DISP-1</b></td><td>Ground-floor lobby</td><td><span class="chip teal">Token only (default)</span></td><td>Registration, Cash counter</td><td><span class="chip green">online · seen 11:52 IST</span></td></tr>
+          <tr class="hl"><td class="mono"><b>IMG-DISP-2</b></td><td>Imaging corridor, 1st floor</td><td><span class="chip amber">Token + first name — approval pending</span> <span class="small muted">requested by K. Verma 25 Jul</span></td><td>CT-ROOM-1, US-UNIT-2, MRI-ROOM-2</td><td><span class="chip green">online · seen 11:53 IST</span></td></tr>
+          <tr class="dim"><td class="mono">LOBBY-DISP-2</td><td>First-floor waiting (decommissioned)</td><td><span class="chip grey">—</span></td><td class="muted">—</td><td><span class="chip red">offline 14 days</span></td></tr>
+        </table>
+        <div class="banner reg" style="margin-top:10px"><b>Privacy approval chip</b>"Token + first name" exposes personal data in a public area. It never activates on save alone — it enters the approval workflow below and displays keep running token-only until the privacy officer approves. Full names, MRNs and clinical context are never displayable options.</div>
+      </div>
+
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Chime &amp; language rotation</div>
+          <div class="field"><label>Call chime</label><select class="select" style="max-width:260px"><option>Two-tone (soft) · volume 60%</option></select><div class="hint">Chime plays once per call; repeat announcements are visual-only to keep the waiting area calm.</div></div>
+          <div class="field"><label>Announcement languages (rotation order)</label>
+            <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip teal">1 · English</span><span class="chip teal">2 · हिन्दी (Hindi)</span><span class="chip teal">3 · मराठी (Marathi)</span><span class="chip grey">+ Add language</span></div>
+            <div class="hint">Each token call cycles the on-screen call strip through the rotation; text-to-speech uses language 1 only.</div>
+          </div>
+          <div class="field"><label>Ticker message (optional)</label><input class="input" value="Please keep your token slip ready. Reports are delivered via SMS link within 4 working hours."><div class="hint">Reviewed content only — free-text ticker changes are versioned in the change audit.</div></div>
+        </div>
+        <div class="card" style="width:330px">
+          <div class="card-title">Per-display layout · IMG-DISP-2</div>
+          <dl class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Layout</dt><dd>3-room grid + call strip</dd>
+            <dt>Rooms</dt><dd>CT-ROOM-1 · US-UNIT-2 · MRI-ROOM-2</dd>
+            <dt>Now-serving</dt><dd>Current token + last 2 called per room</dd>
+            <dt>Wait estimate</dt><dd><span class="chip grey">hidden</span> (branch policy)</dd>
+          </dl>
+          <div class="sig-box" style="min-height:88px;flex-direction:column;font-style:normal">
+            <div class="mono" style="color:#334155;font-size:13px">CT-ROOM-1&nbsp;&nbsp;▶ CT-018&nbsp;&nbsp;·&nbsp;&nbsp;US-UNIT-2&nbsp;&nbsp;▶ US-131</div>
+            <div class="small" style="color:#94A3B8">layout preview — token-only mode</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PRIVACY-APPROVAL WORKFLOW PENDING (NAME-DISPLAY CHANGE)</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Approval request PRV-0142 — enable "Token + first name" on IMG-DISP-2</h3>
+    <dl class="kv">
+      <dt>Requested by</dt><dd>K. Verma (Org Admin) · 25 Jul 2026 11:20 IST · step-up TOTP ✓</dd>
+      <dt>Justification</dt><dd>"Corridor display is behind the imaging access door; only called patients and escorts present. First name reduces missed calls for hearing-impaired patients."</dd>
+      <dt>Scope</dt><dd>IMG-DISP-2 only · first name + token · no surname, no MRN, no service name</dd>
+      <dt>Approver</dt><dd>Privacy officer — S. Menon <span class="chip amber">PENDING · SLA 2 working days · due 28 Jul</span></dd>
+    </dl>
+    <div class="banner warn" style="margin-top:10px"><b>Until approved</b>IMG-DISP-2 continues in token-only mode. The requester cannot approve their own request (four-eyes enforced by role separation, Keycloak staff realm).</div>
+    <div class="ladder" style="margin-top:10px">
+      <div class="tier done"><b>Requested</b> <span class="small muted">25 Jul 11:20 · K. Verma</span></div>
+      <div class="tier cur"><b>Privacy officer review</b> <span class="small muted">S. Menon notified · reminder at 24 h</span></div>
+      <div class="tier"><b>Activation</b> <span class="small muted">auto-applies at next display refresh after approval; reverts require the same workflow</span></div>
+    </div>
+    <div class="modal-actions"><span class="btn">Withdraw request</span><span class="btn disabled">Approve (privacy officer only)</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — TEST BROADCAST SENT TO DISPLAY</div>
+<div class="card">
+  <div class="card-title">Test broadcast · LOBBY-DISP-1 <span class="right">sent 25 Jul 11:56 IST by K. Verma</span></div>
+  <div class="banner success"><b>Test frame acknowledged by display in 1.8 s</b>LOBBY-DISP-1 rendered the synthetic call <span class="mono">TEST-R-999 → Registration</span> with chime at 60% and cycled EN → HI → MR captions. No real queue data was interrupted; the live queue resumed automatically after 10 seconds.</div>
+  <table>
+    <tr><th>Check</th><th>Result</th><th>Detail</th></tr>
+    <tr><td>Render latency</td><td><span class="chip green">PASS</span></td><td class="mono">1.8 s (threshold 5 s)</td></tr>
+    <tr><td>Chime playback</td><td><span class="chip green">PASS</span></td><td>two-tone soft · 60%</td></tr>
+    <tr><td>Language rotation</td><td><span class="chip green">PASS</span></td><td>EN / HI / MR · 3 s each</td></tr>
+    <tr class="hl"><td>Privacy mode banner</td><td><span class="chip green">PASS</span></td><td>Display self-reported mode: token-only · matches config v7</td></tr>
+    <tr><td>Clock sync</td><td><span class="chip amber">WARN</span></td><td>Display clock +41 s vs server — schedule NTP resync tonight</td></tr>
+  </table>
+  <div style="margin-top:8px"><span class="btn small">Re-run test</span> <span class="btn ghost small">Send test to IMG-DISP-2</span> <span class="small muted">Test broadcasts use synthetic tokens only; no patient data is ever included in a test frame.</span></div>
+</div>
+
+<p class="audit">Display setting changes, privacy-mode approval requests and decisions (with both identities), test broadcasts and display health events are recorded in the access log.</p>
+</section>
+</body></html>

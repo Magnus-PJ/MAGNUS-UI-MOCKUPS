@@ -1,0 +1,105 @@
+<section class="screen" id="sc-07">
+<div class="screen-head"><h1><span class="sid">SC-07</span> Overbooking &amp; walk-in rules</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 template flags → overbook/walk-in rules</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Per-modality rules governing how much walk-in demand the branch absorbs on top of booked slots: walk-in ratio, daily overbook ceiling with the role allowed to approve each overbook, and STAT reserve slots held back per day. A simulation replays yesterday's demand against the draft rules before saving, and a usage report exposes who approved overbooks so the ceiling cannot be quietly abused.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org Admin) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Setup workspace</div>
+      <div class="nav-item">Org &amp; branches</div>
+      <div class="nav-item">Users &amp; roles</div>
+      <div class="nav-item">Services &amp; price lists</div>
+      <div class="sec-label">Scheduling</div>
+      <div class="nav-item">Working hours</div>
+      <div class="nav-item">Slot templates</div>
+      <div class="nav-item">Modality calendar</div>
+      <div class="nav-item active">Overbooking &amp; walk-in</div>
+      <div class="nav-item">Camps &amp; blocks</div>
+      <div class="nav-item">Token &amp; queue</div>
+      <div class="nav-item">Public displays</div>
+      <div class="sec-label">Compliance</div>
+      <div class="nav-item">Change audit</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Setup › Scheduling › Overbooking &amp; walk-in rules</div>
+      <div class="actions-right"><span class="btn small">Run simulation</span> <span class="btn primary small">Save rules v9</span></div>
+      <div class="page-title">Overbooking &amp; walk-in rules — Andheri West</div>
+      <div class="page-sub">Active ruleset <b class="mono">v8</b> (effective 06 Jul 2026) · draft <b class="mono">v9</b> in edit · changes take effect next calendar day, never mid-day</div>
+
+      <div class="card">
+        <div class="card-title">Per-modality rules (draft v9) <span class="right">Walk-in ratio · overbook ceiling · STAT reserve</span></div>
+        <table>
+          <tr><th>Modality / device</th><th>Walk-in ratio %</th><th>Overbook max / day</th><th>Overbook approval role</th><th>STAT reserve slots / day</th><th>Changed</th></tr>
+          <tr><td><b>CT-ROOM-1</b> <span class="small muted mono">AE MERIDCT1</span></td><td><input class="input mono" style="width:70px" value="10%"></td><td><input class="input mono" style="width:60px" value="3"></td><td><select class="select" style="width:180px"><option>Branch head only</option></select></td><td><input class="input mono" style="width:60px" value="2"> <span class="small muted">18:30, 18:45</span></td><td><span class="chip amber">edited</span></td></tr>
+          <tr><td><b>US-UNIT-2</b> <span class="small muted mono">AE MERIDUS2</span></td><td><input class="input mono" style="width:70px" value="25%"></td><td><input class="input mono" style="width:60px" value="6"></td><td><select class="select" style="width:180px"><option>Front office lead+</option></select></td><td><input class="input mono" style="width:60px" value="1"></td><td class="muted">—</td></tr>
+          <tr><td><b>MRI-ROOM-2</b></td><td><input class="input mono" style="width:70px" value="0%"></td><td><input class="input mono" style="width:60px" value="1"></td><td><select class="select" style="width:180px"><option>Branch head only</option></select></td><td><input class="input mono" style="width:60px" value="1"></td><td><span class="chip amber">edited</span></td></tr>
+          <tr><td><b>X-RAY-1</b></td><td><input class="input mono" style="width:70px" value="60%"></td><td><input class="input mono" style="width:60px" value="10"></td><td><select class="select" style="width:180px"><option>Any front office</option></select></td><td><input class="input mono" style="width:60px" value="0"></td><td class="muted">—</td></tr>
+        </table>
+        <div class="hint muted small" style="margin-top:8px">Walk-in ratio = share of each hour's capacity servable without a booking. Every overbook above the booked grid demands a named approval by the configured role, captured in the usage report below. STAT reserve slots are invisible to the public booking flow and release to walk-in 30 min before slot start if unused.</div>
+      </div>
+
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Guardrails</div>
+          <div class="check"><span class="box on">✓</span><span>Overbook max/day is a hard ceiling — the approval role cannot exceed it; only this Setup screen can raise it (with change audit).</span></div>
+          <div class="check"><span class="box on">✓</span><span>MRI walk-in ratio locked at 0% — MRI safety screening requires a pre-visit questionnaire; unlockable only by org admin with step-up.</span></div>
+          <div class="check"><span class="box on">✓</span><span>Alert branch head when overbook usage exceeds 80% of ceiling for 3 consecutive days.</span></div>
+          <div class="check"><span class="box">&nbsp;</span><span>Allow cross-modality walk-in overflow (US → X-ray) — off.</span></div>
+        </div>
+        <div class="card" style="width:320px">
+          <div class="card-title">Save &amp; effect</div>
+          <dl class="kv" style="grid-template-columns:120px 1fr">
+            <dt>Draft</dt><dd class="mono">v9 · edited by K. Verma</dd>
+            <dt>Effective</dt><dd>Sun 26 Jul 2026, 00:00 IST</dd>
+            <dt>Step-up</dt><dd><span class="chip amber">required on save</span> TOTP / passkey</dd>
+          </dl>
+          <div class="hint muted small">Saving raises the CT overbook ceiling (2 → 3): flagged as a capacity-affecting change and notified to the branch head.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SIMULATION PREVIEW: YESTERDAY'S DEMAND VS DRAFT RULES</div>
+<div class="card">
+  <div class="card-title">Simulation — Fri 24 Jul 2026 demand replayed against draft v9 <span class="right">read-only · no bookings touched</span></div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">61</div><div class="l">Walk-ins presented (all modalities)</div><div class="s">actual, 24 Jul</div></div>
+    <div class="kpi"><div class="n">54</div><div class="l">Servable under draft v9</div><div class="s">vs 49 under active v8</div></div>
+    <div class="kpi amber"><div class="n">7</div><div class="l">Would be turned away / referred</div><div class="s">6 of them US-UNIT-2, 16:00–18:00</div></div>
+    <div class="kpi"><div class="n">2/2</div><div class="l">STAT reserves consumed (CT)</div><div class="s">both used before 19:00 — consider 3</div></div>
+  </div>
+  <table>
+    <tr><th>Modality</th><th>Booked load</th><th>Walk-ins actual</th><th>Servable v8</th><th>Servable v9</th><th>Overbooks needed</th><th>Verdict</th></tr>
+    <tr><td>CT-ROOM-1</td><td>52 / 60 slots</td><td class="mono">9</td><td class="mono">6</td><td class="mono">8</td><td class="mono">2 of 3 ceiling</td><td><span class="chip green">fits</span></td></tr>
+    <tr class="hl"><td>US-UNIT-2</td><td>44 / 48 slots</td><td class="mono">31</td><td class="mono">24</td><td class="mono">25</td><td class="mono">6 of 6 ceiling</td><td><span class="chip amber">ceiling saturated 16:00–18:00</span></td></tr>
+    <tr><td>MRI-ROOM-2</td><td>18 / 20 slots</td><td class="mono">2</td><td class="mono">0</td><td class="mono">0</td><td class="mono">1 of 1 ceiling</td><td><span class="chip grey">walk-in 0% by design</span></td></tr>
+    <tr><td>X-RAY-1</td><td>36 / 90 slots</td><td class="mono">19</td><td class="mono">19</td><td class="mono">19</td><td class="mono">0</td><td><span class="chip green">fits</span></td></tr>
+  </table>
+  <div class="banner warn" style="margin-top:10px"><b>Suggestion from simulation</b>US evening walk-in ratio of 25% under-serves 16:00–18:00 demand. Raising to 30% for that window would have served 5 of the 6 turned away without any overbook. Apply as a time-banded rule? <span class="btn small">Apply suggestion to draft</span> <span class="btn ghost small">Dismiss</span></div>
+  <div class="hint muted small">Simulation uses de-identified demand counts only — no patient identifiers leave the scheduling store.</div>
+</div>
+
+<div class="state-tag">STATE C — ABUSE GUARD: OVERBOOK USAGE REPORT (LAST 14 DAYS)</div>
+<div class="card">
+  <div class="card-title">Overbook usage report · 11–24 Jul 2026 <span class="right">every overbook is a named approval</span></div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">38</div><div class="l">Overbooks approved</div><div class="s">across 4 modalities</div></div>
+    <div class="kpi amber"><div class="n">86%</div><div class="l">US-UNIT-2 ceiling utilisation</div><div class="s">80% alert fired 22 Jul → branch head</div></div>
+    <div class="kpi red"><div class="n">1</div><div class="l">Ceiling-hit denial</div><div class="s">23 Jul, US-UNIT-2 — request refused by system</div></div>
+  </div>
+  <table>
+    <tr><th>Date</th><th>Modality</th><th>Overbooks used / max</th><th>Approved by</th><th>Reason codes</th><th>Flag</th></tr>
+    <tr><td class="mono">24 Jul</td><td>US-UNIT-2</td><td class="mono">6 / 6</td><td>D. Nair (Front office lead) ×5, K. Verma ×1</td><td>referral-urgent ×4, patient-travel ×2</td><td><span class="chip amber">at ceiling</span></td></tr>
+    <tr><td class="mono">24 Jul</td><td>CT-ROOM-1</td><td class="mono">2 / 3</td><td>Branch head (A. Kulkarni)</td><td>STAT-followup ×2</td><td class="muted">—</td></tr>
+    <tr class="hl"><td class="mono">23 Jul</td><td>US-UNIT-2</td><td class="mono">6 / 6 + 1 denied</td><td>D. Nair ×6 · 7th attempt auto-denied</td><td>referral-urgent ×3, walkin-vip ×3</td><td><span class="chip red">review: 'walkin-vip' used 3× by same approver</span></td></tr>
+    <tr><td class="mono">22 Jul</td><td>MRI-ROOM-2</td><td class="mono">1 / 1</td><td>Branch head (A. Kulkarni)</td><td>inpatient-transfer</td><td class="muted">—</td></tr>
+  </table>
+  <div class="banner danger" style="margin-top:10px"><b>Abuse guard</b>Reason code <span class="mono">walkin-vip</span> exceeded its weekly threshold for approver D. Nair. A review task has been assigned to the branch head; further <span class="mono">walkin-vip</span> approvals by this approver require branch-head co-approval (four-eyes) until the review closes.</div>
+  <div style="margin-top:8px"><span class="btn small">Export report (CSV, de-identified)</span> <span class="btn ghost small">Open review task</span></div>
+</div>
+
+<p class="audit">Rule edits, simulation runs, every overbook approval/denial with approver identity and reason code, and abuse-guard escalations are recorded in the access log.</p>
+</section>

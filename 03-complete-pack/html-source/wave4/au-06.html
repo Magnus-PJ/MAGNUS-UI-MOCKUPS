@@ -1,0 +1,122 @@
+<section class="screen" id="au-06">
+<div class="screen-head"><h1><span class="sid">AU-06</span> Password reset &amp; policy</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G1 Identity &amp; Access — auth entry + session</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · AU-S5 reset + policy</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Staff who forget their password request a reset from the sign-in page. The system always shows the same neutral confirmation (no account enumeration), then delivers a one-time link by email plus a 6-digit OTP that must be entered together. The new password must satisfy org policy (min 12 chars, last-5 history block, no forced periodic rotation); on success all other sessions are revoked.</div>
+
+<!-- STATE A — reset request -->
+<div class="state-tag">STATE A — RESET REQUEST (NEUTRAL RESPONSE, NO ENUMERATION)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>HMS</span></span><span class="org">🏥 Meridian Diagnostics · staff realm (Keycloak)</span></div><div class="userchip"><span class="chip grey">Not signed in</span></div></div>
+  <div style="padding:12px 0 4px">
+    <div class="card" style="max-width:420px;margin:40px auto">
+      <div style="text-align:center;margin-bottom:12px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div class="small muted">Staff sign-in · Meridian Diagnostics</div>
+        <div style="margin-top:6px"><span class="chip teal">STAFF REALM</span> <span class="chip grey">meridian.magnus-hms.in</span></div>
+      </div>
+      <div class="page-title" style="font-size:16px">Reset your password</div>
+      <div class="page-sub">Enter the work email registered with your Magnus staff account.</div>
+      <div class="field"><label>Work email <span class="req">*</span></label><input class="input" value="d.nair@meridiandiag.in"><div class="hint">Patient portal users sign in with OTP — this reset is for staff accounts only.</div></div>
+      <a class="btn primary" style="width:100%">Send reset instructions</a>
+      <div class="banner info" style="margin-top:12px"><b>If this email is registered, instructions have been sent.</b>This message is shown for every request — we never confirm whether an account exists. The link expires in 15 minutes and works once.</div>
+      <div style="display:flex;justify-content:space-between;font-size:12px"><a class="btn ghost small">← Back to sign-in</a><a class="btn ghost small">Contact branch admin</a></div>
+      <div class="small muted" style="text-align:center;margin-top:10px;border-top:1px solid #EEF2F6;padding-top:8px">Magnus HMS by NUMINACORE · Privacy notice · Help</div>
+    </div>
+  </div>
+</div>
+<p class="audit">Reset request for d.nair@meridiandiag.in (masked in UI logs) at 25 Jul 2026 09:41 IST from 103.27.xx.xx — request, delivery channel and outcome recorded in the access log.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<!-- STATE B — set new password -->
+<div class="state-tag">STATE B — SET NEW PASSWORD (LINK + OTP COMBO, POLICY LIST, STRENGTH METER)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>HMS</span></span><span class="org">🏥 Meridian Diagnostics · staff realm (Keycloak)</span></div><div class="userchip"><span class="chip grey">Reset link verified</span></div></div>
+  <div style="padding:12px 0 4px">
+    <div class="card" style="max-width:420px;margin:40px auto">
+      <div style="text-align:center;margin-bottom:12px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div class="small muted">Password reset · step 2 of 2</div>
+        <div style="margin-top:6px"><span class="chip teal">STAFF REALM</span> <span class="chip green">Email link valid · 11:24 left</span></div>
+      </div>
+      <div class="page-title" style="font-size:16px">Choose a new password</div>
+      <div class="page-sub">Account: <span class="mono">d.nair@meridiandiag.in</span> · D. Nair (Front office)</div>
+      <div class="field"><label>OTP from reset email <span class="req">*</span></label><input class="input mono" value="4 8 2  9 1 7" style="letter-spacing:4px;text-align:center"><div class="hint">The email link alone is not enough — enter the 6-digit code from the same email.</div></div>
+      <div class="field"><label>New password <span class="req">*</span></label><input class="input mono" type="password" value="••••••••••••••••">
+        <div class="progress" style="margin-top:6px"><i style="width:82%"></i></div>
+        <div class="hint" style="color:#15803D;font-weight:700">Strength: strong (16 characters, mixed classes)</div>
+      </div>
+      <div class="field"><label>Confirm new password <span class="req">*</span></label><input class="input mono" type="password" value="••••••••••••••••"></div>
+      <div class="card" style="background:#F8FAFC;padding:10px 12px;margin-bottom:12px">
+        <div class="small bold" style="margin-bottom:6px">Meridian password policy</div>
+        <div class="check"><span class="box on">✓</span>At least 12 characters</div>
+        <div class="check"><span class="box on">✓</span>Not one of your last 5 passwords</div>
+        <div class="check"><span class="box on">✓</span>Not found in known-breach lists</div>
+        <div class="check"><span class="box on">✓</span>Does not contain your name or email</div>
+        <div class="small muted" style="margin-top:4px">No forced periodic rotation — you only change it when you choose to, or after a security event (per org policy, aligned to modern guidance).</div>
+      </div>
+      <a class="btn primary" style="width:100%">Set new password &amp; sign in</a>
+      <div class="hint" style="margin-top:8px">Setting a new password signs you out everywhere else, including shared counter terminals.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<!-- STATE C — weak password error -->
+<div class="state-tag">STATE C — WEAK PASSWORD REJECTED (POLICY VIOLATIONS INLINE)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>HMS</span></span><span class="org">🏥 Meridian Diagnostics · staff realm (Keycloak)</span></div><div class="userchip"><span class="chip grey">Reset link verified</span></div></div>
+  <div style="padding:12px 0 4px">
+    <div class="card" style="max-width:420px;margin:40px auto">
+      <div style="text-align:center;margin-bottom:12px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div style="margin-top:6px"><span class="chip teal">STAFF REALM</span> <span class="chip amber">Link valid · 06:02 left</span></div>
+      </div>
+      <div class="page-title" style="font-size:16px">Choose a new password</div>
+      <div class="banner danger"><b>This password doesn't meet policy.</b>Fix the items marked below. Your previous entry has not been stored.</div>
+      <div class="field"><label>New password <span class="req">*</span></label><input class="input err mono" type="password" value="•••••••••">
+        <div class="progress red" style="margin-top:6px"><i style="width:22%"></i></div>
+        <div class="hint" style="color:#B91C1C;font-weight:700">Strength: weak</div>
+      </div>
+      <div class="card" style="background:#FEF2F2;border-color:#FCA5A5;padding:10px 12px;margin-bottom:12px">
+        <div class="check"><span class="box" style="border-color:#B91C1C;color:#B91C1C">✕</span><span style="color:#B91C1C">Only 9 characters — minimum is 12</span></div>
+        <div class="check"><span class="box" style="border-color:#B91C1C;color:#B91C1C">✕</span><span style="color:#B91C1C">Matches one of your last 5 passwords</span></div>
+        <div class="check"><span class="box on">✓</span>Not in known-breach lists</div>
+        <div class="check"><span class="box on">✓</span>Does not contain your name or email</div>
+      </div>
+      <a class="btn primary disabled" style="width:100%">Set new password &amp; sign in</a>
+      <div class="hint" style="margin-top:8px">Tip: a long passphrase of 3–4 unrelated words is easier to remember and stronger than a short complex string.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<!-- STATE D — success -->
+<div class="state-tag">STATE D — SUCCESS · ALL OTHER SESSIONS REVOKED</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>HMS</span></span><span class="org">🏥 Meridian Diagnostics · staff realm (Keycloak)</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div style="padding:12px 0 4px">
+    <div class="card" style="max-width:420px;margin:40px auto">
+      <div style="text-align:center;margin-bottom:12px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div style="margin-top:6px"><span class="chip teal">STAFF REALM</span> <span class="chip green">Password updated</span></div>
+      </div>
+      <div class="banner success"><b>Password changed — you're signed in on this device.</b>Changed 25 Jul 2026, 09:47 IST for d.nair@meridiandiag.in.</div>
+      <div class="card" style="background:#F8FAFC;padding:10px 12px">
+        <div class="small bold" style="margin-bottom:6px">Sessions revoked (3)</div>
+        <table>
+          <tr><th>Device</th><th>Last active</th><th>Status</th></tr>
+          <tr><td>Counter terminal FO-DESK-2 (shared)</td><td>Today 08:55</td><td><span class="chip red">Revoked</span></td></tr>
+          <tr><td>Chrome · Windows · Andheri West LAN</td><td>Yesterday 18:32</td><td><span class="chip red">Revoked</span></td></tr>
+          <tr><td>Magnus mobile app · Android</td><td>22 Jul 14:10</td><td><span class="chip red">Revoked</span></td></tr>
+          <tr class="hl"><td>This browser (current session)</td><td>Now</td><td><span class="chip green">Active</span></td></tr>
+        </table>
+      </div>
+      <a class="btn primary" style="width:100%;margin-top:10px">Continue to workspace chooser</a>
+      <a class="btn ghost small" style="width:100%;margin-top:6px">Didn't do this? Report to security now</a>
+    </div>
+  </div>
+</div>
+<p class="audit">Password change, OTP verification result, policy-check outcome and the revocation of 3 sessions were recorded in the access log. Password values are never logged.</p>
+</section>

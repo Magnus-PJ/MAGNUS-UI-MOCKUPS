@@ -1,0 +1,116 @@
+<section class="screen" id="pl-04">
+<div class="screen-head"><h1><span class="sid">PL-04</span> Plans &amp; feature entitlements</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G16 Platform Operator — operator console</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · PL-S3 plans + impact preview</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Operators manage the plan matrix (features × plans) and per-tenant overrides. Every entitlement change runs through an <b>impact preview</b> — which screens go dark, which users lose access, which in-flight items strand — then a change approval (four-eyes) with an effective date, never an instant flip. All changes land in the entitlement audit log visible to both operator and tenant.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>Platform</span></span><span class="org">🛰 NUMINACORE Platform Console · operator realm</span></div><div class="userchip"><span class="av">RI</span>R. Iyer (Platform Ops) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Tenants</div>
+      <div class="nav-item">Tenant directory</div>
+      <div class="nav-item">Provisioning</div>
+      <div class="nav-item">Suspend &amp; closure</div>
+      <div class="nav-item active">Plans &amp; entitlements <span class="nav-badge">1</span></div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Regional rulebook</div>
+      <div class="nav-item">Support access</div>
+      <div class="nav-item">Operator audit</div>
+      <div class="sec-label">Operations</div>
+      <div class="nav-item">Platform health</div>
+      <div class="nav-item">Provider routes</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Platform › Plans &amp; entitlements</div>
+      <div class="page-title">Plan matrix — features × plans <span class="actions-right"><span class="btn small">Entitlement audit log</span> <span class="btn small">Export matrix</span> <span class="btn small primary">Propose plan change…</span></span></div>
+      <div class="page-sub">Matrix version <span class="mono">PM-2026.07.2</span> · effective since 01-Jul-2026 · 3 live tenants · changes require four-eyes and an effective date ≥ 24h out</div>
+
+      <div class="card">
+        <div class="card-title">Feature matrix <span class="right">✓ included · ○ add-on · — not available</span></div>
+        <table>
+          <tr><th>Feature</th><th>Clinic</th><th>Diagnostics Pro</th><th>Enterprise</th><th>Override-able?</th></tr>
+          <tr><td><b>Radiology worklist + device link</b> <span class="small muted">(CT/US/MRI, AE registration)</span></td><td>—</td><td>✓ up to 5 modalities</td><td>✓ unlimited</td><td><span class="chip grey">No — plan-bound</span></td></tr>
+          <tr><td><b>PC-PNDT module</b> <span class="small muted">(Form F, USG register)</span></td><td>—</td><td>✓ where region pack mandates</td><td>✓</td><td><span class="chip red">Never removable in IN-MH — compliance-locked</span></td></tr>
+          <tr><td><b>Patient portal + report delivery</b></td><td>✓</td><td>✓</td><td>✓</td><td><span class="chip grey">No</span></td></tr>
+          <tr><td><b>DLT SMS (Jio route)</b></td><td>✓ 1k/mo</td><td>✓ 10k/mo</td><td>✓ pooled</td><td><span class="chip blue">Quota only</span></td></tr>
+          <tr><td><b>WhatsApp BSP messaging</b></td><td>○ add-on</td><td>✓</td><td>✓</td><td><span class="chip blue">Yes</span></td></tr>
+          <tr><td><b>Online payments (UPI gateway)</b></td><td>○ add-on</td><td>✓</td><td>✓</td><td><span class="chip blue">Yes</span></td></tr>
+          <tr><td><b>Referral doctor portal</b></td><td>—</td><td>○ add-on</td><td>✓</td><td><span class="chip blue">Yes</span></td></tr>
+          <tr><td><b>Multi-branch (&gt;1 branch)</b></td><td>—</td><td>✓ up to 5</td><td>✓ unlimited</td><td><span class="chip blue">Limit only</span></td></tr>
+          <tr><td><b>Advanced analytics &amp; MIS export</b></td><td>—</td><td>○ add-on</td><td>✓</td><td><span class="chip blue">Yes</span></td></tr>
+          <tr><td><b>API access (FHIR read)</b></td><td>—</td><td>—</td><td>✓</td><td><span class="chip grey">No — MVP2 review</span></td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">Tenant assignments &amp; live overrides</div>
+        <table>
+          <tr><th>Tenant</th><th>Plan</th><th>Overrides in force</th><th>Pending change</th><th></th></tr>
+          <tr><td><b>Meridian Diagnostics</b> <span class="mono small">TEN-MERI-01</span></td><td><span class="chip teal">Diagnostics Pro</span></td><td>+ Advanced analytics (since 01-May-2026)</td><td><span class="chip amber">1 scheduled — Referral portal, eff. 01-Aug</span></td><td><span class="btn small ghost">Manage</span></td></tr>
+          <tr><td><b>Sunrise Imaging (Pune)</b> <span class="mono small">TEN-SUNR-02</span></td><td><span class="chip teal">Diagnostics Pro</span></td><td>— none</td><td><span class="chip grey">Suspended — changes frozen</span></td><td><span class="btn small ghost">Manage</span></td></tr>
+          <tr><td><b>CarePoint Labs (Kochi)</b> <span class="mono small">TEN-CARE-03</span></td><td><span class="chip blue">Clinic</span></td><td>+ WhatsApp BSP add-on · SMS quota raised to 3k/mo</td><td>—</td><td><span class="btn small ghost">Manage</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:6px">Overrides never grant compliance-locked features out of policy, and removals always run the impact preview first — there is no direct "toggle off" path.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — OVERRIDE IMPACT PREVIEW (ENABLE REFERRAL PORTAL FOR MERIDIAN)</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:640px">
+    <h3>Impact preview — enable "Referral doctor portal" · Meridian Diagnostics</h3>
+    <div class="banner info" style="margin-bottom:10px"><b>Nothing has changed yet</b>This preview is computed against Meridian's live configuration as of 25-Jul-2026 14:36 IST. The change applies only after approval and its effective date.</div>
+    <div class="kv" style="margin-bottom:10px">
+      <dt>Screens affected</dt><dd>4 unlock: RF-01 Referrer directory, RF-02 Referral intake, RF-03 Referrer results view, RF-04 Payout statements</dd>
+      <dt>Users affected</dt><dd>7 staff gain access (roles: org admin ×1, front office ×4, billing ×2) · 0 users lose anything</dd>
+      <dt>In-flight items</dt><dd><span class="chip amber">3 pending referral invites</span> created during Meridian's trial in June will re-activate and send invitation SMS on effective date — flagged to tenant admin K. Verma for review</dd>
+      <dt>Billing impact</dt><dd>+ ₹4,500/mo add-on, pro-rated from effective date; appears on next invoice</dd>
+      <dt>Data impact</dt><dd>None — enabling reveals existing data to entitled roles; no records created or deleted</dd>
+      <dt>Reverse path</dt><dd>Disabling later runs this same preview; referral history is retained read-only, never deleted</dd>
+    </div>
+    <div class="field"><label>Effective date <span class="req">*</span></label><span class="input mono" style="display:block;max-width:220px">01-Aug-2026 00:00 IST</span><div class="hint">Minimum 24h from approval so the tenant admin sees the change notice first.</div></div>
+    <div class="check"><span class="box on">✓</span> Notify tenant admin (K. Verma) with this impact summary on approval</div>
+    <div class="modal-actions"><span class="btn">Back</span><span class="btn primary">Submit for 2nd approval →</span></div>
+  </div>
+</div>
+
+<div class="divider-label">·</div>
+
+<div class="state-tag">STATE C — SCHEDULED CHANGE + ENTITLEMENT AUDIT LOG</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Platform › Plans &amp; entitlements › Change ENT-2026-031</div>
+      <div class="page-title">Entitlement change ENT-2026-031 <span class="chip amber">SCHEDULED</span></div>
+      <div class="page-sub">Enable Referral doctor portal (add-on) · Meridian Diagnostics · effective <b>01-Aug-2026 00:00 IST</b> · auto-applies, no human action at cutover</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Approval trail</div>
+          <div class="timeline">
+            <div class="ev"><span class="t">25-Jul 14:36</span><div><b>Proposed</b> by R. Iyer (Platform Ops) — impact preview PRV-8841 attached · step-up TOTP verified</div></div>
+            <div class="ev"><span class="t">25-Jul 15:10</span><div><b>Second approval</b> by A. Menon (Ops Lead) — reviewed impact preview, confirmed effective date · step-up passkey verified</div></div>
+            <div class="ev"><span class="t">25-Jul 15:11</span><div><b>Tenant notified</b> — K. Verma (Meridian org admin) sent change notice + impact summary; acknowledgement optional for non-compliance features</div></div>
+            <div class="ev"><span class="t">01-Aug 00:00</span><div class="muted"><b>Scheduled apply</b> — entitlement flips atomically; 3 pending referral invites release; billing pro-ration starts</div></div>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:8px"><span class="btn small warn-outline">Cancel scheduled change (four-eyes)</span><span class="btn small ghost">Amend effective date</span></div>
+        </div>
+        <div class="card" style="width:330px;flex-shrink:0">
+          <div class="card-title">Entitlement audit log <span class="right">Meridian · last 5</span></div>
+          <table>
+            <tr><th>When</th><th>Change</th><th>By</th></tr>
+            <tr class="hl"><td class="mono small">25-Jul</td><td>Referral portal → ON (sched. 01-Aug)</td><td class="small">Iyer + Menon</td></tr>
+            <tr><td class="mono small">01-May</td><td>Advanced analytics → ON</td><td class="small">Menon + Rao</td></tr>
+            <tr><td class="mono small">12-Apr</td><td>SMS quota 10k → confirmed at renewal</td><td class="small">system</td></tr>
+            <tr><td class="mono small">03-Mar</td><td>Plan Clinic → Diagnostics Pro</td><td class="small">Iyer + Menon</td></tr>
+            <tr><td class="mono small">03-Mar</td><td>PC-PNDT module → ON (IN-MH mandate)</td><td class="small">rulebook auto</td></tr>
+          </table>
+          <div class="small muted" style="margin-top:6px">This log is mirrored read-only into the tenant's own admin console — tenants always see who changed their entitlements and when.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="audit">Matrix edits, overrides, impact previews viewed, approvals and cancellations are all captured in the immutable entitlement audit log with actor, step-up evidence and tenant notification receipts — this page view is recorded in the access log.</p>
+</section>

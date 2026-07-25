@@ -1,0 +1,131 @@
+<section class="screen" id="pl-05">
+<div class="screen-head"><h1><span class="sid">PL-05</span> Regional rulebook</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G16 Platform Operator — operator console</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · PL-S4 rulebook + diff & rings</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Regional rule packs bundle the compliance configuration for a region — PC-PNDT, GST profile, DPDP consent settings, retention classes. New pack versions ship with a <b>human-readable diff</b>, roll out through rings (sandbox → pilot tenant → all tenants), require <b>tenant acknowledgement</b> when a change is compliance-affecting, and can be rolled back at any ring boundary with four-eyes approval.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>Platform</span></span><span class="org">🛰 NUMINACORE Platform Console · operator realm</span></div><div class="userchip"><span class="av">RI</span>R. Iyer (Platform Ops) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Tenants</div>
+      <div class="nav-item">Tenant directory</div>
+      <div class="nav-item">Provisioning</div>
+      <div class="nav-item">Suspend &amp; closure</div>
+      <div class="nav-item">Plans &amp; entitlements</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item active">Regional rulebook <span class="nav-badge">1</span></div>
+      <div class="nav-item">Support access</div>
+      <div class="nav-item">Operator audit</div>
+      <div class="sec-label">Operations</div>
+      <div class="nav-item">Platform health</div>
+      <div class="nav-item">Provider routes</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Platform › Governance › Regional rulebook</div>
+      <div class="page-title">Rule packs by region <span class="actions-right"><span class="btn small">Regulatory watchlist</span> <span class="btn small">Pack change history</span> <span class="btn small primary">Draft new version…</span></span></div>
+      <div class="page-sub">Packs are versioned, signed by the compliance editor, and applied per tenant region binding — a tenant never runs an unversioned or hand-edited rule set</div>
+
+      <div class="card">
+        <div class="card-title">Rule packs <span class="right">3 regions · 1 rollout in progress</span></div>
+        <table>
+          <tr><th>Region pack</th><th>Active version</th><th>Key rules</th><th>Tenants bound</th><th>Status</th><th></th></tr>
+          <tr class="hl"><td><b>IN-MH</b> Maharashtra</td><td class="mono">v2026.07</td><td><span class="chip green">PC-PNDT ON</span> <span class="chip blue">GST profile GST-27</span> <span class="chip violet">DPDP consent v3</span> · radiology retention 10y</td><td>Meridian Diagnostics · Sunrise Imaging (Pune)</td><td><span class="chip amber">v2026.08 in ring rollout</span></td><td><span class="btn small ghost">Open</span></td></tr>
+          <tr><td><b>IN-KL</b> Kerala</td><td class="mono">v2026.06</td><td><span class="chip green">PC-PNDT ON</span> <span class="chip blue">GST profile GST-32</span> <span class="chip violet">DPDP consent v3</span> · radiology retention 10y</td><td>CarePoint Labs (Kochi)</td><td><span class="chip green">Stable</span></td><td><span class="btn small ghost">Open</span></td></tr>
+          <tr class="dim"><td><b>IN-DL</b> Delhi NCR</td><td class="mono">v2026.05-draft</td><td>PC-PNDT ON · GST profile GST-07 (draft) · DPDP consent v3</td><td>— none yet (pre-sales)</td><td><span class="chip grey">Draft — sandbox only</span></td><td><span class="btn small ghost">Open</span></td></tr>
+        </table>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">IN-MH v2026.07 — active pack contents (summary)</div>
+          <div class="kv">
+            <dt>PC-PNDT</dt><dd>Module mandatory for all USG-capable tenants; Form F digital register; monthly submission reminder to district Appropriate Authority</dd>
+            <dt>GST profile</dt><dd>GST-27 (Maharashtra) — healthcare diagnostic services exempt; consumables &amp; contrast billed at 12%; e-invoice threshold ₹5 Cr</dd>
+            <dt>DPDP</dt><dd>Consent notice v3 (EN/HI/MR), purpose-bound; breach notification workflow 72h; patient erasure requests routed through retention check</dd>
+            <dt>Retention</dt><dd>Radiology images &amp; reports 10y · billing 8y · audit trail 10y · consent register life-of-record + 3y</dd>
+          </div>
+        </div>
+        <div class="card" style="width:320px;flex-shrink:0">
+          <div class="card-title">Guardrails</div>
+          <div class="check"><span class="box on">✓</span> Compliance-affecting changes require tenant admin acknowledgement before ring completes</div>
+          <div class="check"><span class="box on">✓</span> Packs are signed; tenants verify signature at load</div>
+          <div class="check"><span class="box on">✓</span> Rollback available at every ring boundary (four-eyes)</div>
+          <div class="check"><span class="box on">✓</span> No operator can edit a live pack in place — new version only</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — VERSION DIFF, HUMAN-READABLE (IN-MH v2026.07 → v2026.08)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Platform › Regional rulebook › IN-MH › Diff v2026.07 → v2026.08</div>
+      <div class="page-title">What changes in IN-MH v2026.08</div>
+      <div class="page-sub">Drafted by compliance editor N. Bhatt 18-Jul-2026 · legal review signed 21-Jul-2026 · 2 of 4 changes are compliance-affecting → tenant acknowledgement required</div>
+      <div class="banner reg"><b>Plain-language diff</b>Tenants see exactly this table — no JSON, no rule IDs without explanation. Each row states what changes, why, and what the tenant must do.</div>
+      <table>
+        <tr><th style="width:90px">Change</th><th>Rule</th><th>Before (v2026.07)</th><th>After (v2026.08)</th><th>Tenant action</th></tr>
+        <tr><td><span class="chip amber">CHANGED</span></td><td><b>PC-PNDT Form F submission window</b><div class="small muted">per AA circular MH/PNDT/2026/09</div></td><td>Submit by 5th of following month</td><td>Submit by <b>3rd</b> of following month; auto-reminder moves to 1st</td><td><span class="chip red">Ack required</span> — compliance-affecting</td></tr>
+        <tr><td><span class="chip amber">CHANGED</span></td><td><b>DPDP breach notification</b></td><td>Notify Data Protection Board "without delay" (target 72h)</td><td>Hard 72h timer with escalation to tenant DPO at 24h and 48h</td><td><span class="chip red">Ack required</span> — compliance-affecting</td></tr>
+        <tr><td><span class="chip green">ADDED</span></td><td><b>GST — contrast media HSN update</b></td><td>—</td><td>HSN 3006.30 mapped, 12% confirmed; invoice line description template updated</td><td><span class="chip grey">Informational</span></td></tr>
+        <tr><td><span class="chip grey">REMOVED</span></td><td><b>Legacy SMS consent footer (pre-DLT)</b></td><td>Extra consent footer appended to booking SMS</td><td>Removed — superseded by DLT template registration on Jio route</td><td><span class="chip grey">Informational</span></td></tr>
+      </table>
+      <div class="row" style="margin-top:12px">
+        <div class="card grow">
+          <div class="card-title">No changes to</div>
+          <div class="small">Retention classes (radiology 10y unchanged) · consent notice languages · GST exemption for diagnostic services · patient erasure workflow. The diff engine lists untouched compliance areas explicitly so tenants don't have to guess.</div>
+        </div>
+        <div class="card" style="width:320px;flex-shrink:0">
+          <div class="card-title">Publish to rollout</div>
+          <div class="kv"><dt>Editor</dt><dd>N. Bhatt (Compliance) — step-up verified</dd><dt>2nd approver</dt><dd>M. Fernandes (Platform DPO) ✓ 21-Jul</dd></div>
+          <span class="btn small primary" style="margin-top:8px">Start ring rollout →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">·</div>
+
+<div class="state-tag">STATE C — RING ROLLOUT STATUS (IN-MH v2026.08, PILOT RING)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Platform › Regional rulebook › IN-MH › Rollout RB-2026-014</div>
+      <div class="page-title">Ring rollout — IN-MH v2026.08 <span class="chip amber">RING 2 OF 3 · PILOT</span> <span class="actions-right"><span class="btn small warn-outline">Rollback to v2026.07 (four-eyes)</span></span></div>
+      <div class="page-sub">Rollout <span class="mono">RB-2026-014</span> · started 22-Jul-2026 · owner N. Bhatt · SLA to complete all rings before 03-Aug (Form F window change effective for August cycle) <span class="chip amber">SLA 9d left · owner N. Bhatt</span></div>
+      <div class="stepper">
+        <span class="step done"><span class="dot">✓</span> Ring 0 — Sandbox (synthetic tenant, 22-Jul, 0 defects)</span><span class="step-line"></span>
+        <span class="step cur"><span class="dot">2</span> Ring 1 — Pilot tenant: Sunrise Imaging (Pune)</span><span class="step-line"></span>
+        <span class="step"><span class="dot">3</span> Ring 2 — All IN-MH tenants</span>
+      </div>
+      <div class="card">
+        <div class="card-title">Ring 1 — pilot status</div>
+        <table>
+          <tr><th>Tenant</th><th>Pack applied</th><th>Ack status (2 required changes)</th><th>Post-apply checks</th><th>Blockers</th></tr>
+          <tr><td><b>Sunrise Imaging (Pune)</b></td><td class="mono">23-Jul 02:00 IST ✓</td><td><span class="chip green">Form F window — acked by org admin 23-Jul</span><br><span class="chip amber">DPDP 72h timer — ack pending (reminder sent 25-Jul)</span></td><td>Form F reminder fired on new schedule ✓ · invoice template renders HSN 3006.30 ✓</td><td><span class="chip amber">Tenant is suspended (PL-03) — ack allowed via suspension notice screen</span></td></tr>
+        </table>
+        <div class="progress" style="max-width:420px;margin-top:8px"><i style="width:50%"></i></div>
+        <div class="small muted" style="margin-top:4px">Ring 1 completes only when all compliance acks are in. Ring 2 then requires a fresh four-eyes go-decision — rings never auto-advance across an ack gate.</div>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Ring 2 preview — all IN-MH tenants</div>
+          <table>
+            <tr><th>Tenant</th><th>Will receive</th><th>Ack contacts</th></tr>
+            <tr><td>Meridian Diagnostics</td><td>v2026.08 on ring-2 go</td><td>K. Verma (org admin) + tenant DPO</td></tr>
+          </table>
+        </div>
+        <div class="card" style="width:320px;flex-shrink:0">
+          <div class="card-title">Rollback readiness</div>
+          <div class="small">One-click revert to v2026.07 per ring; tenant configs are snapshotted pre-apply. Rollback is itself a compliance event: it requires two operators with step-up and notifies every affected tenant admin with the reverse diff.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="audit">Pack drafts, legal sign-offs, diffs viewed, ring go/rollback decisions and every tenant acknowledgement are recorded with actor, timestamp and step-up evidence in the immutable rulebook audit trail — this page view is recorded in the access log.</p>
+</section>

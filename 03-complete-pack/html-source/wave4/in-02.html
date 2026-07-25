@@ -1,0 +1,106 @@
+<section class="screen" id="in-02">
+<div class="screen-head"><h1><span class="sid">IN-02</span> Imaging devices &amp; AE registry</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IN-S1 + AD-S11 single-write-surface fix</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Read-only registry of imaging equipment and their DICOM Application Entities for the branch. Technologists and admins verify connectivity (C-ECHO), MWL/MPPS state and review echo history when a modality misbehaves. All edits happen on the single write surface in Admin (AD-08) — this screen only links there, keeping device identity changes under approval workflow.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Integration</div>
+      <div class="nav-item">Overview &amp; health</div>
+      <div class="nav-item active">Imaging devices &amp; AE</div>
+      <div class="nav-item">Unknown AE quarantine <span class="nav-badge">3</span></div>
+      <div class="nav-item">PACS / archive</div>
+      <div class="nav-item">Messaging providers</div>
+      <div class="nav-item">Payment gateway</div>
+      <div class="nav-item">Edge-sync</div>
+      <div class="sec-label">Operations</div>
+      <div class="nav-item">Incidents <span class="nav-badge red">1</span></div>
+      <div class="nav-item">Connector audit log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Integration › Imaging devices &amp; AE registry</div>
+      <div class="page-title">Imaging devices &amp; AE registry <span class="actions-right"><span class="chip grey">READ-ONLY</span> <button class="btn small">✎ Edit in Admin AD-08 →</button></span></div>
+      <div class="page-sub">3 registered devices · single write surface is Admin › Equipment (AD-08); changes there require org-admin approval</div>
+      <div class="banner info"><b>Read-only view</b>Device identity (AE title, host, port) can only be changed via Admin AD-08 with approval. C-ECHO tests from this page are non-mutating and are logged.</div>
+      <div class="card">
+        <div class="card-title">Device registry <span class="right">Andheri West · updated 25 Jul 2026 09:12 IST</span></div>
+        <table>
+          <tr><th>Device</th><th>Modality</th><th>AE title</th><th>Host : port</th><th>MWL</th><th>MPPS</th><th>Link status</th><th>Last C-ECHO</th><th></th></tr>
+          <tr><td class="bold">CT-ROOM-1</td><td>CT · Somaris 128</td><td class="mono">MERIDCT1</td><td class="mono">10.20.4.11 : 104</td><td><span class="chip green">ENABLED</span></td><td><span class="chip green">ACTIVE</span></td><td><span class="chip green">UP</span></td><td>08:00 IST · <span class="chip green">OK 42 ms</span></td><td><button class="btn small">C-ECHO test</button></td></tr>
+          <tr><td class="bold">US-UNIT-2</td><td>US · Sonix S40</td><td class="mono">MERIDUS2</td><td class="mono">10.20.4.23 : 104</td><td><span class="chip green">ENABLED</span></td><td><span class="chip green">ACTIVE</span></td><td><span class="chip green">UP</span></td><td>08:00 IST · <span class="chip green">OK 38 ms</span></td><td><button class="btn small">C-ECHO test</button></td></tr>
+          <tr><td class="bold">MRI-ROOM-2</td><td>MR · Aria 1.5T</td><td class="mono">MERIDMR2</td><td class="mono">10.20.4.35 : 11112</td><td><span class="chip green">ENABLED</span></td><td><span class="chip amber">NOT SENT (2 d)</span></td><td><span class="chip green">UP</span></td><td>08:00 IST · <span class="chip green">OK 61 ms</span></td><td><button class="btn small">C-ECHO test</button></td></tr>
+        </table>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Connection detail — CT-ROOM-1 <span class="right">selected device</span></div>
+          <div class="kv">
+            <dt>AE title</dt><dd class="mono">MERIDCT1</dd>
+            <dt>Host : port</dt><dd class="mono">10.20.4.11 : 104 (branch VLAN 40, no internet route)</dd>
+            <dt>Calling AE accepted</dt><dd class="mono">MAGNUS_SCP</dd>
+            <dt>MWL enabled</dt><dd><span class="chip green">YES</span> — worklist scoped to CT orders, today ± 1 day, this branch only</dd>
+            <dt>MPPS state</dt><dd><span class="chip green">ACTIVE</span> — last COMPLETED 14:18 IST (accession masked ACC-••••312)</dd>
+            <dt>Transfer syntaxes</dt><dd class="mono small">Implicit VR LE, Explicit VR LE, JPEG-LS lossless</dd>
+            <dt>Registered by</dt><dd>K. Verma (org admin) · 02 Mar 2026 · approval REQ-0871</dd>
+            <dt>Last config change</dt><dd>11 Jun 2026 — port unchanged, description edit (AD-08, approved by 2nd admin)</dd>
+          </div>
+          <div style="margin-top:10px;display:flex;gap:8px"><button class="btn small primary">Run C-ECHO now</button><button class="btn small">View MWL queries (24h)</button><button class="btn small ghost">Edit in Admin AD-08 →</button></div>
+        </div>
+        <div class="card" style="width:340px;flex-shrink:0">
+          <div class="card-title">Echo history — CT-ROOM-1 <span class="right">last 6</span></div>
+          <table>
+            <tr><th>Time (IST)</th><th>Initiator</th><th>Result</th><th>RTT</th></tr>
+            <tr><td class="mono">25 Jul 08:00</td><td>scheduler</td><td><span class="chip green">OK</span></td><td>42 ms</td></tr>
+            <tr><td class="mono">24 Jul 20:00</td><td>scheduler</td><td><span class="chip green">OK</span></td><td>40 ms</td></tr>
+            <tr><td class="mono">24 Jul 08:00</td><td>scheduler</td><td><span class="chip green">OK</span></td><td>45 ms</td></tr>
+            <tr><td class="mono">23 Jul 16:41</td><td>T. Okafor</td><td><span class="chip green">OK</span></td><td>39 ms</td></tr>
+            <tr><td class="mono">23 Jul 16:38</td><td>T. Okafor</td><td><span class="chip red">FAIL — assoc. rejected</span></td><td>—</td></tr>
+            <tr><td class="mono">23 Jul 08:00</td><td>scheduler</td><td><span class="chip green">OK</span></td><td>44 ms</td></tr>
+          </table>
+          <div class="small muted" style="margin-top:8px">Scheduled echoes run 08:00 / 20:00 IST. Manual echoes record initiator identity.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — MANUAL C-ECHO SUCCESS (US-UNIT-2)</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>C-ECHO test — US-UNIT-2 <span class="chip green">SUCCESS</span></h3>
+    <div class="kv">
+      <dt>Target</dt><dd class="mono">MERIDUS2 @ 10.20.4.23 : 104</dd>
+      <dt>Calling AE</dt><dd class="mono">MAGNUS_SCP</dd>
+      <dt>Association</dt><dd>Accepted · presentation context Verification SOP (Implicit VR LE)</dd>
+      <dt>Round-trip</dt><dd><b>38 ms</b> · 3/3 echoes acknowledged</dd>
+      <dt>Run at</dt><dd>25 Jul 2026 · 14:41:22 IST · by T. Okafor (technologist)</dd>
+    </div>
+    <div class="banner success" style="margin-top:12px;margin-bottom:0"><b>Link healthy</b>MWL queries and MPPS from this device should function normally. Result appended to echo history.</div>
+    <div class="modal-actions"><button class="btn">View echo history</button><button class="btn primary">Done</button></div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — C-ECHO FAIL (MRI-ROOM-2) WITH TROUBLESHOOTING STEPS</div>
+<div class="modal-wrap">
+  <div class="modal danger">
+    <h3>C-ECHO test — MRI-ROOM-2 <span class="chip red">FAILED</span></h3>
+    <div class="kv">
+      <dt>Target</dt><dd class="mono">MERIDMR2 @ 10.20.4.35 : 11112</dd>
+      <dt>Error</dt><dd class="mono">TCP connect timeout after 10 s (no association attempted)</dd>
+      <dt>Run at</dt><dd>25 Jul 2026 · 14:44:07 IST · by T. Okafor (technologist)</dd>
+      <dt>Last success</dt><dd>25 Jul 08:00 IST (61 ms) — failure window &lt; 7 h</dd>
+    </div>
+    <div class="banner warn" style="margin-top:12px"><b>Troubleshooting checklist (in order)</b></div>
+    <div class="check"><span class="box on">✓</span> 1. Confirm the modality console is powered on and out of service mode (contact MRI room ext. 4172).</div>
+    <div class="check"><span class="box on">✓</span> 2. Verify network drop: link light on wall port MRI-2-B; scanner shows IP <span class="mono">10.20.4.35</span>.</div>
+    <div class="check"><span class="box"></span> 3. From edge gateway, ping test to <span class="mono">10.20.4.35</span> — run via "Network probe" below.</div>
+    <div class="check"><span class="box"></span> 4. If ping OK but connect fails: check scanner DICOM service restarted &amp; listening on port <span class="mono">11112</span>.</div>
+    <div class="check"><span class="box"></span> 5. If AE title or port was changed on the scanner, request a registry update via Admin AD-08 (approval required) — do not work around with an unregistered AE (studies will quarantine, see IN-03).</div>
+    <div class="check"><span class="box"></span> 6. Still failing after 30 min → raise incident, tag vendor AMC (Aria support, contract #AMC-2231).</div>
+    <div class="modal-actions"><button class="btn">Run network probe</button><button class="btn warn-outline">Retry C-ECHO</button><button class="btn danger">Raise incident</button></div>
+  </div>
+</div>
+<p class="audit">Registry views, C-ECHO test runs (initiator, target AE, result) and AD-08 edit-link navigations are recorded in the access log. Device identity changes are only possible in Admin AD-08 under dual-control approval.</p>
+</section>

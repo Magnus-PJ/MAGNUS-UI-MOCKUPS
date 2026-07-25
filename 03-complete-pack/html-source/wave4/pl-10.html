@@ -1,0 +1,119 @@
+<section class="screen" id="pl-10">
+<div class="screen-head"><h1><span class="sid">PL-10</span> Platform incidents &amp; status page</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G16 Platform Operator — operator console</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · PL-S6 → incidents & status page</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> One console for platform incidents — severity, tenants affected, and a comms timeline that feeds the public status page. Maintenance windows are scheduled here with an enforced tenant notice lead-time rule, and no incident can be closed without passing the post-incident review gate. The public status page is previewed exactly as subscribers will see it before publishing.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>Platform</span></span><span class="org">🏢 NUMINACORE Platform Console · operator realm</span></div><div class="userchip"><span class="av">RI</span>R. Iyer (Platform Ops) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Platform</div>
+      <div class="nav-item">Tenant directory</div>
+      <div class="nav-item">Provisioning</div>
+      <div class="nav-item">Support access</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Platform audit log</div>
+      <div class="nav-item">Dual-control queue <span class="nav-badge">2</span></div>
+      <div class="sec-label">Operations</div>
+      <div class="nav-item">Releases &amp; rings</div>
+      <div class="nav-item">Backup &amp; DR</div>
+      <div class="nav-item active">Incidents <span class="nav-badge red">1</span></div>
+      <div class="nav-item">Status page</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Platform Console › Operations › Incidents &amp; status page</div>
+      <div class="page-title">Platform incidents &amp; status page <span class="actions-right"><span class="btn small">Status page preview</span> <span class="btn small warn-outline">Schedule maintenance…</span> <span class="btn small danger">Declare incident…</span></span></div>
+      <div class="page-sub">Comms SLA: first public update ≤ 30 min for SEV-1/2 · post-incident review gate blocks closure · IST</div>
+
+      <div class="state-tag">STATE A — ACTIVE INCIDENT WITH COMMS TIMELINE</div>
+      <div class="banner danger"><b>SEV-2 · PLT-INC-2026-030 — WhatsApp BSP delivery degraded</b> Opened 25 Jul 10:48 IST · commander: R. Iyer · next public update due <b>12:20 IST</b> <span class="chip amber">SLA 12 min left · owner R. Iyer</span></div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Incident console <span class="right">1 active · 2 recent</span></div>
+          <table>
+            <tr><th>ID</th><th>Sev</th><th>Summary</th><th>Tenants affected</th><th>Status</th><th>Comms SLA</th></tr>
+            <tr class="hl"><td class="mono">PLT-INC-2026-030</td><td><span class="chip amber">SEV-2</span></td><td>WhatsApp BSP outbound delivery degraded (report-ready notices delayed; DLT SMS Jio fallback active)</td><td>Meridian Diagnostics · Sunrise Imaging</td><td><span class="chip amber">MONITORING</span></td><td><span class="chip teal">Next update 12:20 · R. Iyer</span></td></tr>
+            <tr><td class="mono">PLT-INC-2026-029</td><td><span class="chip red">SEV-1</span></td><td>UPI payment gateway callbacks failing (resolved — provider-side cert expiry)</td><td>All 3 tenants</td><td><span class="chip blue">REVIEW GATE</span></td><td><span class="chip grey">Closed comms 21 Jul</span></td></tr>
+            <tr class="dim"><td class="mono">PLT-INC-2026-028</td><td><span class="chip grey">SEV-3</span></td><td>Slow report PDF rendering, Pune region</td><td>Sunrise Imaging</td><td><span class="chip green">CLOSED · PIR done</span></td><td><span class="chip grey">—</span></td></tr>
+          </table>
+        </div>
+        <div class="card" style="width:330px">
+          <div class="card-title">Comms timeline — PLT-INC-2026-030 <span class="right">Public + tenant</span></div>
+          <div class="timeline">
+            <div class="ev"><span class="t">10:48</span><span>Detected: BSP webhook error rate 34%. Incident declared SEV-2.</span></div>
+            <div class="ev"><span class="t">10:55</span><span><b>Status page</b> — “Investigating: WhatsApp notifications delayed.” Subscribers emailed. (7 min — within 30 min SLA)</span></div>
+            <div class="ev"><span class="t">11:05</span><span>Tenant admins (K. Verma + Sunrise) notified in-console; advised patients still receive DLT SMS fallback.</span></div>
+            <div class="ev"><span class="t">11:20</span><span><b>Status page</b> — “Identified: BSP-side capacity issue; SMS fallback engaged, no data impact.”</span></div>
+            <div class="ev"><span class="t">11:50</span><span><b>Status page</b> — “Monitoring: delivery success back to 96%, clearing backlog of 1,240 notices.”</span></div>
+          </div>
+          <div style="margin-top:8px"><span class="btn small primary">Post 12:20 update…</span> <span class="btn small">Edit tenant notice</span></div>
+          <p class="small muted" style="margin-top:6px">Public updates never name tenants or patients; tenant-console notices carry tenant-specific counts only.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Post-incident review gate <span class="right">Blocks closure</span></div>
+        <table>
+          <tr><th>Incident</th><th>PIR due</th><th>Timeline reconstructed</th><th>Root cause</th><th>Actions filed</th><th>Tenant summary sent</th><th>Gate</th></tr>
+          <tr><td class="mono">PLT-INC-2026-029 (SEV-1)</td><td class="mono">26 Jul (T+5 d)</td><td><span class="chip green">DONE</span></td><td><span class="chip amber">DRAFT — provider cert monitoring gap</span></td><td><span class="chip amber">2 of 3 filed</span></td><td><span class="chip red">PENDING</span></td><td><span class="chip red">CLOSURE BLOCKED</span></td></tr>
+          <tr class="dim"><td class="mono">PLT-INC-2026-028 (SEV-3)</td><td class="mono">18 Jul</td><td><span class="chip green">DONE</span></td><td><span class="chip green">DONE</span></td><td><span class="chip green">1 of 1 done</span></td><td><span class="chip green">SENT 17 Jul</span></td><td><span class="chip green">CLOSED</span></td></tr>
+        </table>
+        <p class="small muted" style="margin-top:8px">The gate is mechanical: an incident cannot move to CLOSED until all five PIR items are green. SEV-1 PIRs additionally require sign-off by a second operator (four-eyes) who was not the incident commander.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PUBLIC STATUS PAGE PREVIEW (AS SUBSCRIBERS SEE IT)</div>
+<div class="card" style="max-width:760px;margin:0 auto 14px">
+  <div class="card-title">status.magnus-hms.in — preview <span class="right">Publish requires 2nd operator ack for SEV-1 text</span></div>
+  <div style="border:1px solid #E2E8F0;border-radius:8px;padding:16px 18px;background:#F8FAFC">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><span class="bold" style="font-size:16px">◎ Magnus HMS — Service Status</span><span class="btn small primary">Subscribe to updates ▾</span></div>
+    <div class="banner warn" style="margin-bottom:10px"><b>Degraded performance — WhatsApp notifications</b> Monitoring · last update 25 Jul 2026, 11:50 IST · SMS fallback active, no data impact.</div>
+    <table>
+      <tr><th>Component</th><th>Status</th><th>90-day uptime</th></tr>
+      <tr><td>Core application &amp; worklists</td><td><span class="chip green">OPERATIONAL</span></td><td class="mono">99.98%</td></tr>
+      <tr><td>Imaging (PACS ingest &amp; viewer)</td><td><span class="chip green">OPERATIONAL</span></td><td class="mono">99.97%</td></tr>
+      <tr class="hl"><td>Patient notifications (WhatsApp BSP)</td><td><span class="chip amber">DEGRADED</span></td><td class="mono">99.71%</td></tr>
+      <tr><td>Patient notifications (DLT SMS, Jio route)</td><td><span class="chip green">OPERATIONAL</span></td><td class="mono">99.95%</td></tr>
+      <tr><td>Payments (UPI gateway)</td><td><span class="chip green">OPERATIONAL</span></td><td class="mono">99.90%</td></tr>
+      <tr><td>Patient portal &amp; OTP sign-in</td><td><span class="chip green">OPERATIONAL</span></td><td class="mono">99.99%</td></tr>
+    </table>
+    <div class="sec-label" style="padding-left:0;margin-top:12px">Incident history</div>
+    <div class="timeline">
+      <div class="ev"><span class="t">25 Jul</span><span><b>WhatsApp notifications delayed</b> — monitoring (this incident)</span></div>
+      <div class="ev"><span class="t">21 Jul</span><span><b>UPI payment callbacks failing</b> — resolved in 1 h 12 m; post-incident summary published 26 Jul</span></div>
+      <div class="ev"><span class="t">16 Jul</span><span><b>Slow report PDFs, Pune region</b> — resolved; summary published</span></div>
+      <div class="ev"><span class="t">26 Jul</span><span><span class="chip blue">SCHEDULED</span> <b>Maintenance 02:00–04:00 IST</b> — platform upgrade to v3.10.0; brief read-only period ≤ 10 min</span></div>
+    </div>
+    <p class="small muted" style="margin-top:8px">Subscribers: email + SMS. This page never displays tenant names, patient data, or branch identifiers.</p>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — MAINTENANCE WINDOW SCHEDULER WITH LEAD-TIME RULE</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:620px">
+    <h3>Schedule maintenance window</h3>
+    <div class="row">
+      <div class="field grow"><label>Window (IST) <span class="req">*</span></label><input class="input" value="26 Jul 2026 02:00 — 04:00"></div>
+      <div class="field grow"><label>Type</label><select class="select"><option>Platform upgrade (GA ring)</option><option>Infrastructure / network</option><option>Provider migration</option></select></div>
+    </div>
+    <div class="field"><label>Impact statement (public) <span class="req">*</span></label><textarea class="textarea">Platform upgrade to v3.10.0. Booking, worklists and the patient portal remain available; a brief read-only period of up to 10 minutes may occur while databases switch over. Imaging devices continue local caching via edge agents.</textarea></div>
+    <div class="field"><label>Tenants affected</label>
+      <div class="check"><span class="box on">✓</span>Meridian Diagnostics</div>
+      <div class="check"><span class="box on">✓</span>Sunrise Imaging (Pune)</div>
+      <div class="check"><span class="box on">✓</span>CarePoint Labs (Kochi)</div>
+    </div>
+    <div class="banner success"><b>Notice lead-time rule: satisfied</b> Standard maintenance requires ≥ 72 h tenant notice. Notice was queued 22 Jul 10:00 IST → lead time 88 h. Emergency windows (&lt; 72 h) require dual-control approval and a written risk note, and are flagged EMERGENCY on the status page.</div>
+    <div class="check"><span class="box on">✓</span>Publish to status page “Scheduled” section immediately</div>
+    <div class="check"><span class="box on">✓</span>Notify tenant admins (K. Verma + 2 others) in-console and by email</div>
+    <div class="check"><span class="box"></span>Suppress patient-facing notices (ops-only change, no patient impact expected)</div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Confirm schedule (step-up passkey required)</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE D — EMERGENCY WINDOW BLOCKED BY LEAD-TIME RULE</div>
+<div class="banner danger" style="max-width:760px;margin:0 auto 14px"><b>Cannot schedule as standard maintenance</b> Requested window 25 Jul 23:00 IST is only 11 h away (&lt; 72 h notice). Options: reclassify as EMERGENCY (requires dual-control ref + risk note, tenants notified immediately with reason), or move the window to 29 Jul 02:00 IST or later. Standard windows can never bypass the lead-time rule.</div>
+
+<p class="audit">Incident declarations, every public and tenant-facing comms post, maintenance scheduling (including blocked attempts), and PIR gate sign-offs are hash-chained in the platform audit log, mirrored to affected tenants, and recorded in the access log.</p>
+</section>

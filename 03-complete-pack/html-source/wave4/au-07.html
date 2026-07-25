@@ -1,0 +1,111 @@
+<section class="screen" id="au-07">
+<div class="screen-head"><h1><span class="sid">AU-07</span> Account activation</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G1 Identity &amp; Access — auth entry + session</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · AU cluster activation flow</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> A new staff member opens the invite link emailed by the org admin (K. Verma). They confirm their name, set a policy-compliant password, enrol a mandatory second factor inline (TOTP or passkey), and accept the AUP and privacy notice. The assigned role and branch are shown for review before finishing; expired invites can only be re-issued by an admin.</div>
+
+<!-- STATE A — activation stepper -->
+<div class="state-tag">STATE A — ACTIVATION STEPPER · STEP 3 OF 4 (2FA ENROLMENT)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>HMS</span></span><span class="org">🏥 Meridian Diagnostics · staff realm (Keycloak)</span></div><div class="userchip"><span class="chip grey">Invite: activating</span></div></div>
+  <div style="padding:12px 0 4px">
+    <div class="card" style="max-width:420px;margin:40px auto">
+      <div style="text-align:center;margin-bottom:12px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div class="small muted">Activate your staff account</div>
+        <div style="margin-top:6px"><span class="chip teal">STAFF REALM</span> <span class="chip green">Invite valid · expires 27 Jul 2026</span></div>
+      </div>
+      <div class="stepper">
+        <span class="step done"><span class="dot">✓</span>Identity</span><span class="step-line"></span>
+        <span class="step done"><span class="dot">✓</span>Password</span><span class="step-line"></span>
+        <span class="step cur"><span class="dot">3</span>2FA</span><span class="step-line"></span>
+        <span class="step"><span class="dot">4</span>Policies</span>
+      </div>
+      <div class="card" style="background:#F8FAFC;padding:10px 12px;margin-bottom:12px">
+        <div class="kv">
+          <dt>Invited as</dt><dd>T. Okafor <span class="chip grey">confirmed step 1</span></dd>
+          <dt>Work email</dt><dd class="mono">t.okafor@meridiandiag.in</dd>
+          <dt>Role</dt><dd><span class="chip blue">Technologist</span></dd>
+          <dt>Branch</dt><dd>Andheri West · modalities CT-ROOM-1, US-UNIT-2</dd>
+          <dt>Invited by</dt><dd>K. Verma (Org admin) · 24 Jul 2026, 17:05 IST</dd>
+        </div>
+        <div class="small muted" style="margin-top:6px">Not you, or wrong role/branch? Stop here and contact your admin — don't activate an account that isn't yours.</div>
+      </div>
+      <div class="page-title" style="font-size:15px">Set up your second factor <span class="chip red">Required</span></div>
+      <div class="page-sub">Meridian policy: every staff account must have 2FA before first sign-in.</div>
+      <div class="check" style="margin-bottom:10px"><span class="box radio on"></span><span><b>Authenticator app (TOTP)</b> — scan with any TOTP app<br>
+        <span style="display:inline-block;border:1px solid #CBD5E1;border-radius:8px;padding:8px;margin-top:6px;background:#fff"><span class="mono" style="display:block;width:96px;height:96px;background:repeating-conic-gradient(#1E293B 0% 25%,#fff 0% 50%) 0 0/12px 12px;border:4px solid #fff;outline:1px solid #CBD5E1"></span></span><br>
+        <span class="small muted">Can't scan? Key: <span class="mono">JBSW Y3DP EHPK 3PXP QK2M</span></span></span></div>
+      <div class="check"><span class="box radio"></span><span><b>Passkey</b> — fingerprint / face / security key on this device</span></div>
+      <div class="field" style="margin-top:10px"><label>Enter the 6-digit code to confirm <span class="req">*</span></label><input class="input mono" value="7 3 1  0 4 8" style="letter-spacing:4px;text-align:center"></div>
+      <div class="banner warn"><b>Backup codes will be issued at the end.</b>You'll get 10 one-time backup codes — store them outside this device. Shown only once.</div>
+      <div class="check" style="margin-top:6px"><span class="box on">✓</span><span class="small">I accept the Meridian Acceptable Use Policy (v3.2) — <i>step 4 preview</i></span></div>
+      <div class="check"><span class="box on">✓</span><span class="small">I acknowledge the staff privacy notice: my actions on patient data are logged and auditable.</span></div>
+      <div style="display:flex;gap:10px;margin-top:12px"><a class="btn" style="flex:1">← Back</a><a class="btn primary" style="flex:2">Verify &amp; continue</a></div>
+      <div class="small muted" style="text-align:center;margin-top:10px;border-top:1px solid #EEF2F6;padding-top:8px">Magnus HMS by NUMINACORE · Help · Privacy notice</div>
+    </div>
+  </div>
+</div>
+<p class="audit">Invite open, identity confirmation, 2FA enrolment method and policy acceptances (AUP v3.2, privacy notice v2.1) are each timestamped and recorded in the access log.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<!-- STATE B — expired invite -->
+<div class="state-tag">STATE B — EXPIRED INVITE (RE-ISSUE ONLY VIA ADMIN)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>HMS</span></span><span class="org">🏥 Meridian Diagnostics · staff realm (Keycloak)</span></div><div class="userchip"><span class="chip grey">Invite: expired</span></div></div>
+  <div style="padding:12px 0 4px">
+    <div class="card" style="max-width:420px;margin:40px auto">
+      <div style="text-align:center;margin-bottom:12px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div style="margin-top:6px"><span class="chip teal">STAFF REALM</span> <span class="chip red">Invite expired</span></div>
+      </div>
+      <div class="banner danger"><b>This invite link has expired.</b>Invites are valid for 72 hours. This one expired on 23 Jul 2026, 17:05 IST and can no longer be used.</div>
+      <div class="card" style="background:#F8FAFC;padding:10px 12px;margin-bottom:12px">
+        <div class="small bold" style="margin-bottom:6px">What to do next</div>
+        <div class="check"><span class="box on">1</span><span class="small">Ask your branch admin (K. Verma, Andheri West) to send a fresh invite from Admin → Staff → Invites.</span></div>
+        <div class="check"><span class="box on">2</span><span class="small">A new link will arrive at the same work email. Old links stay dead — they cannot be revived.</span></div>
+      </div>
+      <a class="btn primary" style="width:100%">Notify my admin to re-issue</a>
+      <div class="hint" style="margin-top:6px;text-align:center">Sends a re-issue request to the inviting admin. No account details are exposed on this page.</div>
+      <a class="btn ghost small" style="width:100%;margin-top:6px">← Back to sign-in</a>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<!-- STATE C — done -->
+<div class="state-tag">STATE C — ACTIVATION COMPLETE · ROLE + BRANCH SUMMARY · BACKUP CODES</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>HMS</span></span><span class="org">🏥 Meridian Diagnostics · staff realm (Keycloak)</span></div><div class="userchip"><span class="av">TO</span>T. Okafor ▾</div></div>
+  <div style="padding:12px 0 4px">
+    <div class="card" style="max-width:420px;margin:40px auto">
+      <div style="text-align:center;margin-bottom:12px">
+        <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
+        <div style="margin-top:6px"><span class="chip teal">STAFF REALM</span> <span class="chip green">Account active</span></div>
+      </div>
+      <div class="banner success"><b>Welcome, T. Okafor — your account is active.</b>Activated 25 Jul 2026, 10:12 IST. 2FA: authenticator app (TOTP) enrolled.</div>
+      <div class="card" style="background:#F8FAFC;padding:10px 12px;margin-bottom:12px">
+        <div class="small bold" style="margin-bottom:6px">Your access — review before you finish</div>
+        <div class="kv">
+          <dt>Role</dt><dd><span class="chip blue">Technologist</span></dd>
+          <dt>Branch</dt><dd>Andheri West (default)</dd>
+          <dt>Workspaces</dt><dd>RIS Technician · Device worklists</dd>
+          <dt>Devices</dt><dd class="mono">CT-ROOM-1 (MERIDCT1) · US-UNIT-2 (MERIDUS2)</dd>
+          <dt>Policies signed</dt><dd>AUP v3.2 · Privacy notice v2.1</dd>
+        </div>
+        <div class="small muted" style="margin-top:6px">Wrong access? Contact K. Verma — role changes need admin approval and are audited.</div>
+      </div>
+      <div class="card" style="border-color:#FCD34D;background:#FFFBEB;padding:10px 12px;margin-bottom:12px">
+        <div class="small bold" style="margin-bottom:6px;color:#92400E">Backup codes — shown once, save them now</div>
+        <div class="mono small" style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
+          <span>K7XT-29QD</span><span>M4RV-81LC</span><span>W2FN-63HB</span><span>J9PZ-40TK</span><span>R5DM-77XS</span><span>B3QW-15GN</span><span>H8LC-92VF</span><span>T6KJ-38RD</span><span>N1YS-56PM</span><span>C4GB-07WZ</span>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:8px"><a class="btn small">Download .txt</a><a class="btn small">Print</a></div>
+      </div>
+      <div class="check"><span class="box on">✓</span><span class="small">I have saved my backup codes somewhere safe.</span></div>
+      <a class="btn primary" style="width:100%;margin-top:8px">Go to workspace chooser →</a>
+    </div>
+  </div>
+</div>
+<p class="audit">Activation completion, backup-code issuance (codes themselves never logged) and the effective role/branch grant snapshot were recorded in the access log.</p>
+</section>

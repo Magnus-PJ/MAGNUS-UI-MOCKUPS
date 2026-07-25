@@ -1,0 +1,116 @@
+<section class="screen" id="pl-09">
+<div class="screen-head"><h1><span class="sid">PL-09</span> Backup &amp; DR evidence</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G16 Platform Operator — operator console</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · PL-S6 → backup/DR evidence (RPO/RTO)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Per-tenant backup health against the RPO 15 min target, with offsite copy verification and a monthly restore-test register proving the RTO 4 h target with evidence files. Failed backups escalate on a timed ladder until acknowledged. The DR runbook and last drill result live here so auditors and tenants get evidence, not promises.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>Platform</span></span><span class="org">🏢 NUMINACORE Platform Console · operator realm</span></div><div class="userchip"><span class="av">RI</span>R. Iyer (Platform Ops) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Platform</div>
+      <div class="nav-item">Tenant directory</div>
+      <div class="nav-item">Provisioning</div>
+      <div class="nav-item">Support access</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Platform audit log</div>
+      <div class="nav-item">Dual-control queue <span class="nav-badge">2</span></div>
+      <div class="sec-label">Operations</div>
+      <div class="nav-item">Releases &amp; rings</div>
+      <div class="nav-item active">Backup &amp; DR</div>
+      <div class="nav-item">Incidents <span class="nav-badge red">1</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Platform Console › Operations › Backup &amp; DR evidence</div>
+      <div class="page-title">Backup &amp; DR evidence <span class="actions-right"><span class="btn small">DR runbook RB-DR-01</span> <span class="btn small primary">Start restore test…</span></span></div>
+      <div class="page-sub">RPO target 15 min · RTO target 4 h · offsite: Hyderabad DR region · evidence retained 7 years</div>
+
+      <div class="state-tag">STATE A — HEALTHY OVERVIEW</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">3 / 3</div><div class="l">Tenants within RPO</div><div class="s">Worst snapshot age 9 min</div></div>
+        <div class="kpi"><div class="n">100%</div><div class="l">Offsite copies current</div><div class="s">Lag ≤ 4 min</div></div>
+        <div class="kpi"><div class="n">3 / 3</div><div class="l">July restore tests done</div><div class="s">All within RTO 4 h</div></div>
+        <div class="kpi"><div class="n">2 h 41 m</div><div class="l">Last DR drill RTO</div><div class="s">12 Jul 2026 · PASSED</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Per-tenant backup status <span class="right">Auto-refresh 60 s · 25 Jul 12:10 IST</span></div>
+        <table>
+          <tr><th>Tenant</th><th>Last snapshot (IST)</th><th>Age vs RPO 15 min</th><th>Offsite copy (Hyderabad)</th><th>PACS/object tier</th><th>Encryption</th><th></th></tr>
+          <tr><td>Meridian Diagnostics</td><td class="mono">25 Jul 12:03</td><td><span class="chip green">7 min · WITHIN RPO</span></td><td><span class="chip green">SYNCED · lag 2 min</span></td><td><span class="chip green">VERIFIED 05:15</span></td><td class="mono">AES-256 · tenant key</td><td><span class="btn small ghost">Timeline</span></td></tr>
+          <tr><td>Sunrise Imaging (Pune)</td><td class="mono">25 Jul 12:01</td><td><span class="chip green">9 min · WITHIN RPO</span></td><td><span class="chip green">SYNCED · lag 4 min</span></td><td><span class="chip green">VERIFIED 05:22</span></td><td class="mono">AES-256 · tenant key</td><td><span class="btn small ghost">Timeline</span></td></tr>
+          <tr><td>CarePoint Labs (Kochi)</td><td class="mono">25 Jul 12:06</td><td><span class="chip green">4 min · WITHIN RPO</span></td><td><span class="chip green">SYNCED · lag 3 min</span></td><td><span class="chip green">VERIFIED 05:31</span></td><td class="mono">AES-256 · tenant key</td><td><span class="btn small ghost">Timeline</span></td></tr>
+        </table>
+        <p class="small muted" style="margin-top:8px">Snapshot verification restores a random 1% sample to an isolated enclave and checksums it — a snapshot is not “green” until the sample passes. Tenant keys never leave the KMS; operators cannot read backup contents.</p>
+      </div>
+
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">DR readiness <span class="right">Runbook + last drill</span></div>
+          <div class="kv">
+            <dt>Runbook</dt><dd><span class="mono">RB-DR-01 v6</span> — regional failover to Hyderabad · reviewed 02 Jul 2026 by A. Bhat · <span class="btn small ghost">Open runbook</span></dd>
+            <dt>Last full drill</dt><dd>12 Jul 2026 · scope: all 3 tenants, read-write failover · RTO achieved <b>2 h 41 m</b> vs 4 h target · <span class="chip green">PASSED</span></dd>
+            <dt>Drill findings</dt><dd>2 minor: DNS TTL lowered to 60 s (done 14 Jul); edge-agent reconnect doc clarified (done 15 Jul)</dd>
+            <dt>Next drill</dt><dd class="mono">Scheduled 11 Oct 2026 (quarterly)</dd>
+          </div>
+        </div>
+        <div class="card" style="width:300px">
+          <div class="card-title">Escalation ladder <span class="right">Failed backup</span></div>
+          <div class="ladder">
+            <div class="tier"><b>T+0</b> — page on-call operator · auto-retry snapshot</div>
+            <div class="tier"><b>T+15 m</b> — second retry fails → alert #platform-oncall + open incident draft</div>
+            <div class="tier"><b>T+30 m</b> — RPO breached → SEV-2 incident, tenant admin notified</div>
+            <div class="tier"><b>T+60 m</b> — escalate to platform lead · dual-control emergency restore path unlocked</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — MONTHLY RESTORE-TEST REGISTER</div>
+<div class="card">
+  <div class="card-title">Restore-test register <span class="right">Policy: every tenant, every month · evidence mandatory</span></div>
+  <table>
+    <tr><th>Test ID</th><th>Tenant</th><th>Date (IST)</th><th>Scope</th><th>RTO achieved vs 4 h</th><th>Data verified</th><th>Evidence file</th><th>Run by / witnessed</th></tr>
+    <tr><td class="mono">RT-2026-07-03</td><td>CarePoint Labs (Kochi)</td><td class="mono">18 Jul 09:00</td><td>Full DB + 48 h PACS sample → isolated enclave</td><td><span class="chip green">1 h 58 m · PASS</span></td><td><span class="chip green">Checksums + row counts ✓</span></td><td><span class="btn small ghost">RT-2026-07-03.pdf · sha256:41ab…</span></td><td>A. Bhat / S. Menon</td></tr>
+    <tr><td class="mono">RT-2026-07-02</td><td>Sunrise Imaging (Pune)</td><td class="mono">11 Jul 09:00</td><td>Full DB + 48 h PACS sample → isolated enclave</td><td><span class="chip green">2 h 12 m · PASS</span></td><td><span class="chip green">Checksums + row counts ✓</span></td><td><span class="btn small ghost">RT-2026-07-02.pdf · sha256:c7f0…</span></td><td>S. Menon / R. Iyer</td></tr>
+    <tr class="hl"><td class="mono">RT-2026-07-01</td><td>Meridian Diagnostics</td><td class="mono">04 Jul 09:00</td><td>Full DB + 48 h PACS sample → isolated enclave</td><td><span class="chip green">2 h 26 m · PASS</span></td><td><span class="chip green">Checksums + row counts ✓</span></td><td><span class="btn small ghost">RT-2026-07-01.pdf · sha256:9d2e…</span></td><td>R. Iyer / A. Bhat</td></tr>
+    <tr><td class="mono">RT-2026-06-03</td><td>CarePoint Labs (Kochi)</td><td class="mono">20 Jun 09:00</td><td>Full DB + 48 h PACS sample</td><td><span class="chip amber">3 h 51 m · PASS (near limit)</span></td><td><span class="chip green">✓</span></td><td><span class="btn small ghost">RT-2026-06-03.pdf</span></td><td>A. Bhat / R. Iyer</td></tr>
+    <tr class="dim"><td class="mono">RT-2026-06-02</td><td>Sunrise Imaging (Pune)</td><td class="mono">13 Jun 09:00</td><td>Full DB + 48 h PACS sample</td><td><span class="chip green">2 h 33 m · PASS</span></td><td><span class="chip green">✓</span></td><td><span class="btn small ghost">RT-2026-06-02.pdf</span></td><td>S. Menon / A. Bhat</td></tr>
+  </table>
+  <div class="banner info" style="margin-top:10px"><b>Register rules</b> Restore tests run into an isolated enclave — never a production tenant. Each test needs a runner and a witness (four-eyes), a signed evidence PDF, and its hash goes into the platform audit log. RT-2026-06-03's near-limit RTO triggered a follow-up: PACS sample restore parallelised (done 28 Jun); July run improved to 1 h 58 m.</div>
+  <div class="row" style="margin-top:6px">
+    <div class="grow"><div class="small muted">August window opens 01 Aug · Meridian slot proposed 01 Aug 09:00 IST</div></div>
+    <div><span class="btn small">Export register (auditor pack)</span> <span class="btn small primary">Schedule August tests</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — FAILED BACKUP ESCALATED</div>
+<div class="banner danger"><b>SEV-2 · CarePoint Labs (Kochi) backup failing — RPO breached</b> Last good snapshot 25 Jul 11:12 IST · age <b>58 min vs 15 min RPO</b> · ladder at T+30 m step · owner: A. Bhat <span class="chip outline-red">OVERDUE</span></div>
+<div class="row">
+  <div class="card grow">
+    <div class="card-title">Escalation timeline <span class="right">INC draft PLT-INC-2026-031</span></div>
+    <div class="timeline">
+      <div class="ev"><span class="t">11:27</span><span>Snapshot job <span class="mono">bk-cpk-1127</span> failed — object-store write timeout (edge of Kochi region blip). Auto-retry queued.</span></div>
+      <div class="ev"><span class="t">11:32</span><span>Retry failed. On-call operator (A. Bhat) paged · <span class="chip amber">T+0 ACK 11:34</span></span></div>
+      <div class="ev"><span class="t">11:42</span><span>Second retry failed → #platform-oncall alerted, incident draft opened, linked to status page (internal only at SEV-2 unless customer-visible impact).</span></div>
+      <div class="ev"><span class="t">11:57</span><span><b>RPO breached (T+30 m)</b> — SEV-2 confirmed. Tenant admin at CarePoint Labs auto-notified with plain-language impact note (“your data is safe; recovery-point currently 45 min instead of 15”).</span></div>
+      <div class="ev"><span class="t">12:10</span><span>Root cause suspected: expired storage-gateway credential. Rotation prepared — requires dual control.</span></div>
+    </div>
+  </div>
+  <div class="card" style="width:320px">
+    <div class="card-title">Recovery action <span class="right">Dual-control</span></div>
+    <div class="kv" style="grid-template-columns:110px 1fr">
+      <dt>Action</dt><dd>Rotate storage-gateway credential + force snapshot for CarePoint Labs</dd>
+      <dt>Requested</dt><dd>A. Bhat · 12:10 IST</dd>
+      <dt>Approver</dt><dd><span class="chip amber">DC-2026-0195 · AWAITING S. Menon</span></dd>
+      <dt>Next step</dt><dd>If not green by <b>12:27 (T+60 m)</b>: escalate to platform lead; emergency restore path unlocks per ladder</dd>
+    </div>
+    <div class="field" style="margin-top:8px"><label>Step-up identity confirmation <span class="req">*</span></label><input class="input" placeholder="Passkey — approver identity, operator realm"></div>
+    <div style="display:flex;gap:8px"><span class="btn small danger">Approve &amp; execute</span><span class="btn small">Decline with note</span></div>
+    <p class="small muted" style="margin-top:8px">Meridian and Sunrise snapshots remain green and unaffected; blast radius limited to one tenant's backup pipeline.</p>
+  </div>
+</div>
+
+<p class="audit">Backup status views, restore-test evidence downloads, escalation acknowledgements, and dual-control approvals are hash-chained in the platform audit log, mirrored to the affected tenant, and recorded in the access log.</p>
+</section>

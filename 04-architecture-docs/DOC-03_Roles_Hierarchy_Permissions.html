@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DOC-03 · User Roles, Hierarchy &amp; Permission Model — Magnus HMS</title>
+<style>
+/* Magnus HMS — NS design pack shared design system */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
+.mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
+.muted{color:#64748B}.small{font-size:12px}.bold{font-weight:700}
+/* ---------- page / screen frame ---------- */
+.screen{page-break-after:always;padding:28px 34px;background:#fff;min-height:1000px}
+.screen-head{display:flex;justify-content:space-between;align-items:flex-start;border-left:5px solid #0F766E;padding:6px 0 6px 14px;margin-bottom:6px}
+.screen-head h1{font-size:22px;font-weight:800}
+.screen-head .sid{color:#0F766E;margin-right:10px}
+.screen-head .meta{text-align:right}
+.screen-head .meta .cluster{color:#64748B;font-size:12px;margin-top:3px}
+.gap-note{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:8px 12px;margin:10px 0 16px;font-size:12.5px;color:#7C2D12}
+.gap-note b{color:#9A3412}
+/* ---------- app chrome ---------- */
+.frame{border:1px solid #CBD5E1;border-radius:10px;overflow:hidden;background:#F4F6F8;box-shadow:0 1px 4px rgba(15,23,42,.08);margin-bottom:22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:2px solid #0F766E;padding:9px 16px}
+.brand{font-weight:800;color:#0F766E}.brand span{color:#1E293B}
+.org{font-size:12.5px;color:#334155;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px}
+.userchip{font-size:12.5px;color:#334155}
+.userchip .av{display:inline-block;background:#CCFBF1;color:#0F766E;font-weight:700;border-radius:5px;padding:2px 6px;margin-right:6px;font-size:11px}
+.body{display:flex;min-height:520px}
+.sidebar{width:196px;background:#fff;border-right:1px solid #E2E8F0;padding:12px 0;flex-shrink:0}
+.sec-label{font-size:10.5px;letter-spacing:.08em;color:#94A3B8;font-weight:700;padding:8px 16px 4px;text-transform:uppercase}
+.nav-item{padding:7px 16px;font-size:13px;color:#334155;display:flex;justify-content:space-between;align-items:center}
+.nav-item.active{background:#F0FDFA;color:#0F766E;font-weight:700;border-left:3px solid #0F766E;padding-left:13px}
+.nav-badge{background:#0F766E;color:#fff;border-radius:9px;font-size:10.5px;padding:1px 7px;font-weight:700}
+.nav-badge.red{background:#B91C1C}
+.main{flex:1;padding:16px 18px;min-width:0}
+.crumb{font-size:12px;color:#64748B;margin-bottom:8px}
+.page-title{font-size:19px;font-weight:800;margin-bottom:2px}
+.page-sub{font-size:12.5px;color:#64748B;margin-bottom:14px}
+.actions-right{float:right}
+/* ---------- components ---------- */
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card-title{font-weight:800;font-size:14.5px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.card-title .right{font-size:10.5px;letter-spacing:.07em;color:#94A3B8;font-weight:700;text-transform:uppercase}
+.row{display:flex;gap:14px}.row>*{min-width:0}.grow{flex:1}
+.btn{display:inline-block;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:700;border:1px solid #CBD5E1;background:#fff;color:#334155;text-align:center;white-space:nowrap}
+.btn.primary{background:#0F766E;border-color:#0F766E;color:#fff}
+.btn.danger{background:#B91C1C;border-color:#B91C1C;color:#fff}
+.btn.warn-outline{border-color:#F59E0B;color:#92400E;background:#FFFBEB}
+.btn.ghost{border:none;background:none;color:#0F766E;padding:7px 6px}
+.btn.small{padding:4px 10px;font-size:12px}
+.btn.disabled{opacity:.45}
+.chip{display:inline-block;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip.teal{background:#CCFBF1;color:#0F766E}
+.chip.green{background:#DCFCE7;color:#15803D}
+.chip.amber{background:#FEF3C7;color:#92400E}
+.chip.red{background:#FEE2E2;color:#B91C1C}
+.chip.grey{background:#F1F5F9;color:#475569}
+.chip.blue{background:#E0F2FE;color:#0369A1}
+.chip.violet{background:#EDE9FE;color:#6D28D9}
+.chip.outline-red{background:#fff;border:1.5px solid #B91C1C;color:#B91C1C}
+.banner{border-radius:8px;padding:10px 13px;font-size:12.5px;margin-bottom:12px;border:1px solid}
+.banner b{display:block;margin-bottom:2px;font-size:13px}
+.banner.info{background:#E0F2FE;border-color:#7DD3FC;color:#075985}
+.banner.warn{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+.banner.danger{background:#FEE2E2;border-color:#FCA5A5;color:#991B1B}
+.banner.success{background:#DCFCE7;border-color:#86EFAC;color:#166534}
+.banner.reg{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding:7px 9px;border-bottom:2px solid #E2E8F0;background:#F8FAFC}
+td{padding:8px 9px;border-bottom:1px solid #EEF2F6;vertical-align:top}
+tr.hl td{background:#F0FDFA}
+tr.dim td{color:#94A3B8}
+.kv{display:grid;grid-template-columns:150px 1fr;row-gap:6px;column-gap:12px;font-size:12.5px}
+.kv dt{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding-top:2px}
+.kv dd{margin:0}
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+.field label .req{color:#B91C1C}
+.field .hint{font-size:11px;color:#64748B;margin-top:3px}
+.input,.select,.textarea{width:100%;border:1px solid #CBD5E1;border-radius:7px;padding:7px 10px;font-size:13px;background:#fff;color:#1E293B}
+.input.err{border-color:#B91C1C;background:#FEF2F2}
+.textarea{min-height:64px}
+.check{font-size:12.5px;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.box{display:inline-block;width:14px;height:14px;border:1.6px solid #64748B;border-radius:3px;flex-shrink:0;margin-top:1px;text-align:center;line-height:12px;font-size:11px;font-weight:800}
+.box.on{background:#0F766E;border-color:#0F766E;color:#fff}
+.radio{border-radius:50%}
+.radio.on{background:#fff;border-color:#0F766E;box-shadow:inset 0 0 0 3.5px #0F766E;color:transparent}
+/* modal */
+.modal-wrap{background:#64748B22;border:1px dashed #94A3B8;border-radius:12px;padding:26px 40px;margin:14px 0}
+.modal{background:#fff;border-radius:12px;border-top:5px solid #0F766E;box-shadow:0 8px 30px rgba(15,23,42,.25);max-width:560px;margin:0 auto;padding:18px 20px}
+.modal.danger{border-top-color:#B91C1C}
+.modal h3{font-size:16px;margin-bottom:8px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+/* misc */
+.divider-label{text-align:center;color:#94A3B8;font-size:11.5px;margin:20px 0 14px;position:relative}
+.divider-label:before,.divider-label:after{content:"";display:inline-block;width:24%;border-top:1px dashed #CBD5E1;vertical-align:middle;margin:0 10px}
+.audit{font-size:11px;color:#8A6D1D;margin-top:10px}
+.audit:before{content:"🔒 "}
+.state-tag{font-size:10px;letter-spacing:.08em;font-weight:800;text-transform:uppercase;color:#94A3B8;text-align:right;margin-bottom:4px}
+.kpi-row{display:flex;gap:12px;margin-bottom:14px}
+.kpi{flex:1;background:#fff;border:1px solid #E2E8F0;border-left:4px solid #0F766E;border-radius:9px;padding:10px 13px}
+.kpi.amber{border-left-color:#F59E0B}.kpi.red{border-left-color:#B91C1C}
+.kpi .n{font-size:23px;font-weight:800}.kpi .l{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700}
+.kpi .s{font-size:11px;color:#64748B;margin-top:2px}
+.stepper{display:flex;gap:6px;align-items:center;font-size:12px;color:#64748B;margin-bottom:14px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:6px}
+.step .dot{width:20px;height:20px;border-radius:50%;background:#E2E8F0;color:#475569;font-size:11px;font-weight:800;text-align:center;line-height:20px}
+.step.done .dot{background:#15803D;color:#fff}.step.cur .dot{background:#0F766E;color:#fff}
+.step.cur{color:#0F766E;font-weight:700}
+.step-line{width:26px;border-top:2px solid #CBD5E1}
+.sig-box{border:1.5px dashed #94A3B8;border-radius:8px;min-height:64px;background:#F8FAFC;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:12px;font-style:italic}
+.sig-box.signed{border-style:solid;border-color:#15803D;color:#166534;background:#F0FDF4;font-family:'Segoe Script','Comic Sans MS',cursive;font-size:17px;font-style:normal}
+.ladder{border-left:3px solid #E2E8F0;margin-left:8px;padding-left:16px}
+.ladder .tier{margin-bottom:12px;position:relative}
+.ladder .tier:before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:#CBD5E1}
+.ladder .tier.done:before{background:#15803D}.ladder .tier.cur:before{background:#0F766E;box-shadow:0 0 0 3px #CCFBF1}
+.ladder .tier.fail:before{background:#B91C1C}
+.progress{height:7px;border-radius:4px;background:#E2E8F0;overflow:hidden;margin-top:4px}
+.progress i{display:block;height:100%;background:#0F766E}
+.progress.amber i{background:#F59E0B}.progress.red i{background:#B91C1C}
+.split{display:grid;grid-template-columns:1fr 300px;gap:14px}
+.timeline{font-size:12.5px}
+.timeline .ev{display:flex;gap:10px;margin-bottom:9px}
+.timeline .t{color:#64748B;white-space:nowrap;font-family:Consolas,monospace;font-size:11.5px;padding-top:1px}
+/* ---------- doc additions ---------- */
+body{background:#F4F6F8;padding:30px}
+.doc{max-width:1100px;margin:0 auto}
+h1{font-size:26px;margin:18px 0 6px}
+h2{font-size:19px;margin:22px 0 8px;color:#0F766E}
+.flow{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:8px 0}
+.fstep{background:#fff;border:1px solid #CBD5E1;border-left:4px solid #0F766E;border-radius:7px;padding:6px 10px;font-size:12.5px}
+.fstep .fid{font-family:Consolas,monospace;font-weight:800;color:#0F766E;font-size:11px;display:block}
+.farr{color:#94A3B8;font-weight:800}
+/* matrix cells */
+.mx th{padding:6px 4px;text-align:center;font-size:9.5px}
+.mx td{padding:5px 4px;text-align:center;font-size:11px;font-weight:800}
+.mx td:first-child,.mx th:first-child{text-align:left;font-weight:700;font-size:11.5px;white-space:nowrap}
+.mx .sub{display:block;font-weight:400;color:#64748B;font-size:10px}
+.c-n{color:#CBD5E1}
+.c-r{color:#0369A1;background:#E0F2FE55}
+.c-w{color:#0F766E;background:#CCFBF155}
+.c-a{color:#6D28D9;background:#EDE9FE66}
+.legend{display:flex;gap:14px;font-size:11.5px;margin:8px 0 12px;flex-wrap:wrap}
+.legend b{font-family:Consolas,monospace}
+</style>
+</head>
+<body>
+<div class="doc">
+
+<!-- ================= DOC HEADER ================= -->
+<div class="card" style="border-left:5px solid #0F766E">
+  <div class="kv" style="grid-template-columns:170px 1fr">
+    <dt>Document ID</dt><dd class="mono bold">DOC-03</dd>
+    <dt>Title</dt><dd><h1 style="margin:0">User Roles, Hierarchy &amp; Permission Model</h1></dd>
+    <dt>Series</dt><dd>Magnus HMS · MVP 1 · Architecture &amp; Workflow Documentation</dd>
+    <dt>Date / Version</dt><dd>July 2026 · <span class="chip teal">v1.0</span></dd>
+    <dt>Audience</dt><dd>NUMINACORE development team — backend (Java/Spring, Keycloak, policy service), frontend (React), QA</dd>
+    <dt>Related docs</dt><dd class="mono">DOC-01 (System Overview), DOC-02 (Identity &amp; Session), DOC-04 (Security Architecture), DOC-09 (Governance)</dd>
+  </div>
+</div>
+
+<div class="banner info"><b>Scope</b>This document defines the organisational hierarchy, the 13-role catalogue, the role × screen-group access matrix, ABAC conditions layered on top of RBAC, separation-of-duties (SoD) rules, and delegation / break-glass behaviour. Roles are provisioned in Keycloak (realm <span class="mono">magnus-staff</span>) via AD-03/AD-04; the authorization decision is made by the policy service (PDP) on every API call — the React frontend only <i>reflects</i> decisions (hide/disable), it never enforces them.</div>
+
+<!-- ================= 1. ORG HIERARCHY ================= -->
+<h2>1. Organisational hierarchy</h2>
+<p class="small muted">Five scope levels. Every permission grant is bound to exactly one node in this tree; grants inherit downward, never upward. All example data below is synthetic.</p>
+
+<div class="card">
+<table>
+  <tr><th style="width:60px">Level</th><th style="width:160px">Node</th><th style="width:210px">Managed at (screens)</th><th>Scope semantics</th><th style="width:230px">Synthetic example</th></tr>
+  <tr>
+    <td class="mono bold">L0</td><td><b>Platform operator</b> <span class="chip violet">NUMINACORE</span></td>
+    <td class="mono">PL-01..12, AU-16, AU-18</td>
+    <td>Cross-tenant. Operates infrastructure, tenant lifecycle, edge fleet. <b>No clinical data access</b> without tenant-approved, time-boxed support grant (PL-12, four-eyes).</td>
+    <td>NUMINACORE Platform Ops</td>
+  </tr>
+  <tr>
+    <td class="mono bold">L1</td><td><b>Tenant / Organisation</b></td>
+    <td class="mono">AD-01, AD-14, AD-16, GV-14</td>
+    <td>Legal entity + GST registrations + DPDP data-fiduciary boundary. One Keycloak org per tenant; single MRN namespace per tenant (FO decision: single-MRN identity). Data never crosses tenants.</td>
+    <td class="mono">ORG-SDC · Sharda Diagnostics Chain Pvt Ltd</td>
+  </tr>
+  <tr>
+    <td class="mono bold">L2</td><td><b>Branch</b></td>
+    <td class="mono">AD-01, AD-09 (registrations), IR-05</td>
+    <td>Physical site. Holds PC-PNDT + AERB registrations, GSTIN, number series (AD-15), cash sessions (BL-09), edge server (IN-10). Default ABAC boundary <span class="mono">own-branch</span>.</td>
+    <td class="mono">BR-IND-01 · Indiranagar, Bengaluru</td>
+  </tr>
+  <tr>
+    <td class="mono bold">L3</td><td><b>Department</b></td>
+    <td class="mono">AD-02</td>
+    <td>Functional unit inside a branch (Radiology, Front Office, Billing). Drives worklist filtering (TK-01, RD-01, BL-01) and handover scoping (FO-20, TK-12).</td>
+    <td class="mono">DEP-RAD · Radiology — CT &amp; MR</td>
+  </tr>
+  <tr>
+    <td class="mono bold">L4</td><td><b>Service point</b></td>
+    <td class="mono">AD-02, SC-01..10, AD-08 (equipment)</td>
+    <td>Bookable resource: modality room, registration counter, cash counter, kiosk. Bound to equipment + AERB registration (AD-08/AD-09); appears in scheduling grids (SC-01, FO-09) and device board (TK-07).</td>
+    <td class="mono">SP-CT-01 · CT Room 1 (Somatom go.Up)</td>
+  </tr>
+</table>
+<div class="flow">
+  <div class="fstep"><span class="fid">L0</span>Platform operator</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">L1</span>Tenant / org <span class="mono small">ORG-SDC</span></div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">L2</span>Branch <span class="mono small">BR-IND-01</span></div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">L3</span>Department <span class="mono small">DEP-RAD</span></div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">L4</span>Service point <span class="mono small">SP-CT-01</span></div>
+</div>
+<div class="audit">Hierarchy edits (AD-01/AD-02) are audit-logged with before/after snapshots and appear in the audit viewer AD-20.</div>
+</div>
+
+<!-- ================= 2. ROLE CATALOGUE ================= -->
+<h2>2. Role catalogue (13 roles)</h2>
+<p class="small muted">Keycloak realm roles, prefixed <span class="mono">mhms:</span>. A user may hold multiple roles at multiple scope nodes (e.g. <span class="mono">mhms:cashier @ BR-IND-01</span> + <span class="mono">mhms:front-office @ BR-IND-02</span>); the workspace chooser AU-10 resolves the active role+scope pair per session. Step-up = re-auth via AU-09 (per design contract: sign / money / legal actions).</p>
+
+<div class="card">
+<table>
+  <tr><th style="width:135px">Role (code)</th><th>Purpose</th><th style="width:105px">Workspace(s)</th><th style="width:170px">Key screens</th><th style="width:195px">Sensitive capabilities</th><th style="width:170px">Step-up (AU-09) triggers</th></tr>
+  <tr>
+    <td><b>Front office</b><br><span class="mono small">mhms:front-office</span> <span class="chip teal">FO</span></td>
+    <td>Registration, scheduling, check-in, queue &amp; document intake at a branch.</td>
+    <td>Front office</td>
+    <td class="mono small">FO-01..22, OR-08, PT-04, NT-02, GR-01</td>
+    <td>Create/edit demographics (FO-03..07); initiate merge candidates (FO-08, resolve is supervisor-only); counter-pickup on notification failure (NT-02); kiosk supervision (FO-22).</td>
+    <td>Verified-field edit on FO-07 (name/DOB/sex after report signed); consent re-capture PT-07 override.</td>
+  </tr>
+  <tr>
+    <td><b>Technologist</b><br><span class="mono small">mhms:technologist</span> <span class="chip teal">TK</span></td>
+    <td>Perform acquisitions, record contrast, run device/QC workflows on assigned modalities.</td>
+    <td>Technician</td>
+    <td class="mono small">TK-01..12, CS-01..05, OR-03, IN-08</td>
+    <td>Perform gate (TK-01) — blocked until CS safety gates pass; retake with dose justification (TK-05, TK-10); exception paths TK-03/TK-04.</td>
+    <td>Contrast administration record sign (TK-06); dose registry correction (TK-10).</td>
+  </tr>
+  <tr>
+    <td><b>Radiologist</b><br><span class="mono small">mhms:radiologist</span> <span class="chip teal">RD</span></td>
+    <td>Read, report, sign, manage critical results; telerad reading across branches of same org.</td>
+    <td>Radiologist</td>
+    <td class="mono small">RD-01..18, CS-04 (override), OR-07, IR-01</td>
+    <td>Sign-off (RD-09); addendum (RD-12); critical flag RED/ORANGE (RD-10/RD-11); physician safety override (CS-04); same-org priors allow-and-audit (RD-03).</td>
+    <td>Report sign-off RD-09; addendum RD-12; safety override CS-04; Form F declaration IR-01.</td>
+  </tr>
+  <tr>
+    <td><b>Referring doctor (external)</b><br><span class="mono small">mhms:referrer-ext</span> <span class="chip blue">DD</span></td>
+    <td>External clinician: view own referred patients' results, ack criticals, place orders where enabled.</td>
+    <td>Doctor desk</td>
+    <td class="mono small">DD-01..11, OR-01, OR-04, PT-02 (share)</td>
+    <td>Critical acknowledgement (DD-02); break-glass request (DD-05) — masked identity <span class="mono">#MRN-••••30</span> until granted; SOAP/rx (DD-11) only if in-house privilege flag set (AD-06).</td>
+    <td>Break-glass activation DD-05; delegation grant DD-10.</td>
+  </tr>
+  <tr>
+    <td><b>Cashier</b><br><span class="mono small">mhms:cashier</span> <span class="chip teal">BL</span></td>
+    <td>Invoice, collect, receipt, handle UPI-pending and own cash session.</td>
+    <td>Billing</td>
+    <td class="mono small">BL-01..05, BL-09 (own session), BL-14, BL-16</td>
+    <td>Collections &amp; receipts (BL-03..05); advances (BL-14). Cannot approve refunds, discounts beyond slab, write-offs — all route to BL-08 approvals queue.</td>
+    <td>Refund initiation BL-06; cash session close BL-09; receipt reprint beyond count limit BL-05.</td>
+  </tr>
+  <tr>
+    <td><b>Billing supervisor</b><br><span class="mono small">mhms:billing-sup</span> <span class="chip amber">BL</span></td>
+    <td>Approve financial exceptions, own EOD reconciliation, GST export, payer/catalog stewardship.</td>
+    <td>Billing</td>
+    <td class="mono small">BL-06..13, BL-15..19, FO-16 (EOD), AD-15</td>
+    <td>Approve refunds/credit notes/discounts/write-offs (BL-08, async approvals pattern); day book &amp; GST export (BL-18/BL-19); ledger corrections (BL-15).</td>
+    <td>Every approval action in BL-08; write-off BL-17; GST export BL-19 (legal).</td>
+  </tr>
+  <tr>
+    <td><b>Branch manager</b><br><span class="mono small">mhms:branch-mgr</span> <span class="chip amber">OPS</span></td>
+    <td>Operational owner of a branch: SLAs, queues, EOD sign-off, grievances, merge resolution.</td>
+    <td>Front office + Billing (read) + Admin (subset)</td>
+    <td class="mono small">FO-01, FO-08 (resolve), FO-16, BL-09 (all sessions), GR-01..06, AD-13, NT-01</td>
+    <td>Merge resolve (FO-08) — irreversible, four-eyes with initiating FO user; EOD variance acceptance (FO-16/BL-09); grievance closure (GR-04).</td>
+    <td>Merge resolve FO-08; EOD variance sign FO-16; grievance legal escalation GR-05.</td>
+  </tr>
+  <tr>
+    <td><b>Branch admin</b><br><span class="mono small">mhms:branch-admin</span> <span class="chip amber">AD</span></td>
+    <td>Branch-scoped configuration: service points, schedules, equipment, printers, local users.</td>
+    <td>Admin</td>
+    <td class="mono small">AD-02, AD-03 (branch scope), AD-08, AD-09, SC-01..10, IN-07, IN-08, AU-14</td>
+    <td>Create branch users + role requests (approved via AD-05); equipment/AERB registration edits (AD-08/AD-09); admin session revoke (AU-17 branch scope).</td>
+    <td>Role assignment submit AD-03; registration expiry override AD-09.</td>
+  </tr>
+  <tr>
+    <td><b>Org admin</b><br><span class="mono small">mhms:org-admin</span> <span class="chip red">AD</span></td>
+    <td>Tenant-wide configuration and identity governance across all branches.</td>
+    <td>Admin</td>
+    <td class="mono small">AD-01..20, AU-13..18, IN-01..09, SC-01..10, NT-03..08</td>
+    <td>Role model edits (AD-04); approvals of access requests (AD-05); feature toggles (AD-17); number series (AD-15); MFA/SSO policy (AU-15/AU-16); webhooks (IN-09).</td>
+    <td>Role model change AD-04; toggle flip AD-17 (prod); number-series edit AD-15; service-account key issue AU-18.</td>
+  </tr>
+  <tr>
+    <td><b>Privacy officer</b><br><span class="mono small">mhms:privacy-officer</span> <span class="chip violet">GV</span></td>
+    <td>Day-to-day DPDP operations: rights requests, consent registry, access/emergency reviews.</td>
+    <td>Governance</td>
+    <td class="mono small">GV-01..11, PT-08/PT-09 (fulfilment), DD-06 (review), AD-10, AD-20</td>
+    <td>Fulfil patient rights (GV-05); run access review campaigns (GV-02); review break-glass events (GV-03) within 72h; consent notice publishing (AD-10/GV-10).</td>
+    <td>Rights fulfilment dispatch GV-05; deletion execution GV-04.</td>
+  </tr>
+  <tr>
+    <td><b>DPO</b><br><span class="mono small">mhms:dpo</span> <span class="chip violet">GV</span></td>
+    <td>Statutory Data Protection Officer: breach, DPIA, legal holds, retention, residency, export governance.</td>
+    <td>Governance</td>
+    <td class="mono small">GV-01..16 (approve tier), IR-01..06 (read), AD-20</td>
+    <td>Approve deletions (GV-04) and retention changes (GV-06); place/lift legal holds (GV-07); run breach runbook (GV-09, CERT-In 6h clock); approve export governance requests (GV-15).</td>
+    <td>Legal hold place/lift GV-07; breach notification dispatch GV-09; export approval GV-15.</td>
+  </tr>
+  <tr>
+    <td><b>Platform operator</b><br><span class="mono small">mhms:platform-op</span> <span class="chip violet">PL</span></td>
+    <td>NUMINACORE staff: tenant provisioning, fleet health, upgrades, support access.</td>
+    <td>Platform</td>
+    <td class="mono small">PL-01..12, IN-01, IN-10 (fleet), AU-16</td>
+    <td>Tenant lifecycle (PL-02); edge fleet ops (PL-07); support access to tenant data only via PL-12 grant: tenant org-admin approval + expiry ≤ 8h + session recording flag + GV-03-style review.</td>
+    <td>Support-access grant activation PL-12; tenant suspension PL-03.</td>
+  </tr>
+  <tr>
+    <td><b>Service account</b><br><span class="mono small">mhms:svc-*</span> <span class="chip grey">API</span></td>
+    <td>Non-human principals: modality/MWL bridge, PACS sync, payment gateway callbacks, DLT/SMS provider, webhook consumers.</td>
+    <td>— (API only)</td>
+    <td class="mono small">Managed at AU-18; traffic visible IN-02..06, IN-09</td>
+    <td>Scoped OAuth2 client-credentials tokens; per-integration allow-list (e.g. <span class="mono">svc-mwl</span> may write TK-08 sync state only). Keys rotated ≤ 90d, revocable at AU-18. Never granted approve rights anywhere.</td>
+    <td>n/a — key issuance/rotation by org admin is itself step-up (AU-18).</td>
+  </tr>
+</table>
+</div>
+
+<!-- ================= 3. ACCESS MATRIX ================= -->
+<h2>3. Role × screen-group access matrix</h2>
+<div class="legend">
+  <span><b class="c-n">—</b> none (nav hidden, API 403, denial shows masked identity <span class="mono">#MRN-••••30</span> where a record was referenced)</span>
+  <span><b class="c-r">R</b> read</span>
+  <span><b class="c-w">W</b> read + write</span>
+  <span><b class="c-a">A</b> read + write + approve (async approvals pattern)</span>
+</div>
+<p class="small muted">Matrix is the coarse RBAC layer, enforced by the policy service per API resource group. ABAC conditions in §4 further narrow every non-"—" cell. Column codes: FO front office · TK technologist · RD radiologist · RDx referring doctor (ext) · CSH cashier · BSU billing supervisor · BMG branch manager · BAD branch admin · OAD org admin · PRV privacy officer · DPO · PLT platform operator · SVC service accounts.</p>
+
+<div class="card">
+<table class="mx">
+  <tr>
+    <th>Screen group</th><th>FO</th><th>TK</th><th>RD</th><th>RDx</th><th>CSH</th><th>BSU</th><th>BMG</th><th>BAD</th><th>OAD</th><th>PRV</th><th>DPO</th><th>PLT</th><th>SVC</th>
+  </tr>
+  <tr><td>AU Identity <span class="sub">AU-01..18</span></td>
+    <td class="c-w">W¹</td><td class="c-w">W¹</td><td class="c-w">W¹</td><td class="c-w">W¹</td><td class="c-w">W¹</td><td class="c-w">W¹</td><td class="c-w">W¹</td><td class="c-w">W²</td><td class="c-a">A</td><td class="c-w">W¹</td><td class="c-w">W¹</td><td class="c-w">W³</td><td class="c-n">—</td></tr>
+  <tr><td>PT Patient links <span class="sub">PT-01..12</span></td>
+    <td class="c-w">W⁴</td><td class="c-n">—</td><td class="c-r">R</td><td class="c-r">R⁵</td><td class="c-w">W⁴</td><td class="c-r">R</td><td class="c-r">R</td><td class="c-n">—</td><td class="c-r">R</td><td class="c-w">W⁶</td><td class="c-r">R</td><td class="c-n">—</td><td class="c-w">W⁷</td></tr>
+  <tr><td>FO Front office <span class="sub">FO-01..22</span></td>
+    <td class="c-w">W</td><td class="c-r">R</td><td class="c-r">R</td><td class="c-n">—</td><td class="c-r">R</td><td class="c-r">R</td><td class="c-a">A⁸</td><td class="c-r">R</td><td class="c-r">R</td><td class="c-r">R</td><td class="c-r">R</td><td class="c-n">—</td><td class="c-w">W⁷</td></tr>
+  <tr><td>SC Scheduling setup <span class="sub">SC-01..10</span></td>
+    <td class="c-r">R</td><td class="c-r">R</td><td class="c-r">R</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-r">R</td><td class="c-w">W</td><td class="c-w">W</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td></tr>
+  <tr><td>OR Orders <span class="sub">OR-01..08</span></td>
+    <td class="c-w">W⁹</td><td class="c-r">R</td><td class="c-w">W</td><td class="c-w">W⁵</td><td class="c-r">R</td><td class="c-r">R</td><td class="c-r">R</td><td class="c-n">—</td><td class="c-r">R</td><td class="c-r">R</td><td class="c-r">R</td><td class="c-n">—</td><td class="c-w">W⁷</td></tr>
+  <tr><td>CS Safety <span class="sub">CS-01..06</span></td>
+    <td class="c-r">R</td><td class="c-w">W</td><td class="c-a">A¹⁰</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-r">R</td><td class="c-n">—</td><td class="c-r">R</td><td class="c-r">R</td><td class="c-r">R</td><td class="c-n">—</td><td class="c-n">—</td></tr>
+  <tr><td>TK Technician <span class="sub">TK-01..12</span></td>
+    <td class="c-n">—</td><td class="c-w">W</td><td class="c-r">R</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-r">R</td><td class="c-r">R¹¹</td><td class="c-r">R</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-w">W⁷</td></tr>
+  <tr><td>RD Radiologist <span class="sub">RD-01..18</span></td>
+    <td class="c-n">—</td><td class="c-n">—</td><td class="c-w">W</td><td class="c-r">R⁵</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-r">R¹²</td><td class="c-n">—</td><td class="c-r">R¹²</td><td class="c-r">R</td><td class="c-r">R</td><td class="c-n">—</td><td class="c-w">W⁷</td></tr>
+  <tr><td>DD Doctor desk <span class="sub">DD-01..11</span></td>
+    <td class="c-n">—</td><td class="c-n">—</td><td class="c-r">R</td><td class="c-w">W⁵</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-r">R</td><td class="c-n">—</td><td class="c-r">R</td><td class="c-a">A¹³</td><td class="c-r">R</td><td class="c-n">—</td><td class="c-n">—</td></tr>
+  <tr><td>BL Billing <span class="sub">BL-01..19</span></td>
+    <td class="c-r">R¹⁴</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-w">W¹⁵</td><td class="c-a">A</td><td class="c-r">R¹⁶</td><td class="c-n">—</td><td class="c-r">R</td><td class="c-n">—</td><td class="c-r">R</td><td class="c-n">—</td><td class="c-w">W⁷</td></tr>
+  <tr><td>NT Notifications <span class="sub">NT-01..08</span></td>
+    <td class="c-w">W¹⁷</td><td class="c-n">—</td><td class="c-r">R</td><td class="c-n">—</td><td class="c-r">R</td><td class="c-r">R</td><td class="c-r">R</td><td class="c-r">R</td><td class="c-w">W</td><td class="c-r">R</td><td class="c-r">R</td><td class="c-r">R¹⁸</td><td class="c-w">W⁷</td></tr>
+  <tr><td>GR Grievance <span class="sub">GR-01..06</span></td>
+    <td class="c-w">W</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-r">R</td><td class="c-r">R</td><td class="c-a">A</td><td class="c-n">—</td><td class="c-r">R</td><td class="c-w">W</td><td class="c-a">A</td><td class="c-n">—</td><td class="c-n">—</td></tr>
+  <tr><td>AD Admin <span class="sub">AD-01..20</span></td>
+    <td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-r">R¹⁹</td><td class="c-r">R</td><td class="c-w">W²⁰</td><td class="c-a">A</td><td class="c-r">R²¹</td><td class="c-r">R²¹</td><td class="c-n">—</td><td class="c-n">—</td></tr>
+  <tr><td>IN Integration <span class="sub">IN-01..10</span></td>
+    <td class="c-n">—</td><td class="c-r">R²²</td><td class="c-r">R²²</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-r">R</td><td class="c-w">W²³</td><td class="c-w">W</td><td class="c-n">—</td><td class="c-r">R</td><td class="c-w">W²⁴</td><td class="c-w">W⁷</td></tr>
+  <tr><td>GV Governance <span class="sub">GV-01..16</span></td>
+    <td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-r">R²⁵</td><td class="c-n">—</td><td class="c-r">R</td><td class="c-w">W</td><td class="c-a">A</td><td class="c-n">—</td><td class="c-n">—</td></tr>
+  <tr><td>IR Regulatory <span class="sub">IR-01..06</span></td>
+    <td class="c-n">—</td><td class="c-r">R²⁶</td><td class="c-w">W²⁷</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-w">W</td><td class="c-w">W²⁸</td><td class="c-a">A</td><td class="c-r">R</td><td class="c-r">R</td><td class="c-n">—</td><td class="c-n">—</td></tr>
+  <tr><td>PL Platform <span class="sub">PL-01..12</span></td>
+    <td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-n">—</td><td class="c-r">R²⁹</td><td class="c-n">—</td><td class="c-r">R²⁹</td><td class="c-a">A</td><td class="c-n">—</td></tr>
+</table>
+<div class="small muted" style="margin-top:10px;columns:2;column-gap:28px">
+  <b>Footnotes:</b>
+  ¹ Own credentials only: AU-11 profile, AU-12 sessions, AU-04/AU-05 enrol/recover.
+  ² Plus AU-14 admin unlock, AU-17 session revoke at branch scope.
+  ³ Operator realm only (separate Keycloak realm, see DOC-04 L2).
+  ⁴ Issue/resend patient links, PT-04 receipt, PT-05 prep; never sees the patient's OTP (PT-01).
+  ⁵ Only for patients referred by this doctor (care-team ABAC, §4).
+  ⁶ PT-07..09 consent/rights fulfilment views.
+  ⁷ Service-account scope is per-integration allow-list defined at AU-18 (e.g. <span class="mono">svc-pacs</span>: RD study-state sync only; <span class="mono">svc-payments</span>: BL-04 UPI callbacks only; <span class="mono">svc-edge</span>: IN-10 queue).
+  ⁸ Approve = FO-08 merge resolve, FO-16 EOD variance, FO-18 waitlist overrides.
+  ⁹ FO enters paper referrals via OR-08 and books; clinical order modify/cancel (OR-05) is RD/RDx.
+  ¹⁰ Approve = CS-04 physician override of safety blocks (step-up + reason, feeds GV-03-style review).
+  ¹¹ AD-08-linked device board TK-07 and QC TK-11 read for equipment stewardship.
+  ¹² Reports/registry read only (RD-13, RD-14, RD-17); never sign/author.
+  ¹³ Approve = DD-06 access-request decisions on privacy escalation tier.
+  ¹⁴ FO sees price/estimate views BL-16 and invoice status on FO-15 visit summary.
+  ¹⁵ Own cash session BL-09 only; no approvals; no BL-19 GST export.
+  ¹⁶ Plus approve tier on BL-09 (all sessions) EOD acceptance.
+  ¹⁷ NT-01 ledger + NT-02 failure/counter-pickup handling only.
+  ¹⁸ NT-04 channel/provider health via IN-07 mirror, no template/PHI access.
+  ¹⁹ AD-11 terminology + AD-13 dashboard read for catalog mapping.
+  ²⁰ Branch-scoped subset: AD-02/03/08/09/14/16/18/19; org-wide nodes read-only.
+  ²¹ Plus W on AD-10 consent notices (PRV) and AD-20 audit viewer query.
+  ²² TK: IN-02 AE registry + IN-03 quarantine + IN-08 printers for own modalities; RD: IN-04 PACS status.
+  ²³ IN-07 comms providers read; W on IN-08 printers, IN-02 AE registry (branch).
+  ²⁴ Fleet tier of IN-01/IN-10 only; tenant message content (IN-05) requires PL-12 grant.
+  ²⁵ GV-01 calendar + GV-11 consent registry read for own branch.
+  ²⁶ IR-05 AERB items for own equipment.
+  ²⁷ W on IR-01 Form F register entries they declared; corrections via IR-04 need BMG approval.
+  ²⁸ IR-02/03 submission prep &amp; dispatch for own branch.
+  ²⁹ Read = PL-12 support-grant approval/consent view for their own tenant only.
+</div>
+</div>
+
+<!-- ================= 4. ABAC ================= -->
+<h2>4. ABAC conditions (applied after RBAC)</h2>
+<p class="small muted">Policy service (Spring, PDP module) evaluates in order: <span class="mono">RBAC group grant → ABAC conditions → obligations (mask, audit, step-up)</span>. Deny is default; every deny returns the masked-identity payload (<span class="mono">#MRN-••••30</span>) instead of a bare 403 when a patient record was the target (design contract, rendered per DS pattern).</p>
+
+<div class="card">
+<table>
+  <tr><th style="width:150px">Condition</th><th style="width:105px">Attribute source</th><th>Rule</th><th style="width:200px">Applies to (examples)</th><th style="width:170px">On failure</th></tr>
+  <tr>
+    <td class="mono bold">own-branch</td>
+    <td>Session scope from AU-10 workspace chooser</td>
+    <td>Subject's active scope node must be an ancestor of the resource's branch. Default for all FO/TK/BL/GR/IR data. Radiologists get org-wide relaxation for telerad worklist RD-02 and same-org priors RD-03 (allow-and-audit — access permitted, audit event emitted, sampled into GV-02 review).</td>
+    <td class="mono small">FO-02 search, FO-11 day list, TK-01 worklist, BL-01 worklist, BL-09 sessions</td>
+    <td>Record hidden from lists; direct URL → masked denial + audit event</td>
+  </tr>
+  <tr>
+    <td class="mono bold">care-team</td>
+    <td>Order/visit participants (ordering referrer, performing tech, reading radiologist, delegates)</td>
+    <td>External referring doctors (RDx) see only patients where they are the referrer of record on an order (OR-01/OR-08) or hold an active delegation (DD-10). Membership expires 90 days after last signed report unless renewed by a new order.</td>
+    <td class="mono small">DD-01 summary, DD-02 results inbox, DD-04 tracking, DD-07 my patients, RD-16 second opinion</td>
+    <td>Masked denial; DD-05 break-glass or DD-06 access request offered as escape hatch</td>
+  </tr>
+  <tr>
+    <td class="mono bold">purpose-of-use</td>
+    <td>Declared on access (UI header param), validated against role defaults</td>
+    <td>Every PHI read carries a purpose code: <span class="mono">TREATMENT</span> (clinical roles), <span class="mono">PAYMENT</span> (CSH/BSU — demographics + orders only, no report bodies), <span class="mono">OPERATIONS</span> (BMG dashboards — aggregates), <span class="mono">LEGAL</span> (DPO under GV-07 hold), <span class="mono">EMERGENCY</span> (break-glass only). Purpose is written to the audit line on every screen.</td>
+    <td class="mono small">All PHI endpoints; visible in AD-20 audit viewer facets and GV-02 review</td>
+    <td>403 <span class="mono">PURPOSE_MISMATCH</span>; repeated mismatches raise GV-02 anomaly</td>
+  </tr>
+  <tr>
+    <td class="mono bold">masked-by-default</td>
+    <td>Field-level sensitivity tags in resource schema</td>
+    <td>Phone, address, Aadhaar-last-4, and report bodies render masked for roles whose purpose ≠ TREATMENT; unmask is an explicit click that logs a field-level audit event. Denied-record references always render as <span class="mono">#MRN-••••30</span>. Kiosk FO-22 and shared-terminal sessions (AU-08) force masking regardless of role.</td>
+    <td class="mono small">FO-02 results, BL-02 invoice header, NT-06 message log, GR-02 grievance detail, AD-20</td>
+    <td>n/a (obligation, not deny) — unmask events counted in GV-02</td>
+  </tr>
+  <tr>
+    <td class="mono bold">time-boxed-grant</td>
+    <td>Grant records (DD-05, DD-10, PL-12, GV-15)</td>
+    <td>Break-glass, delegation, operator support access, and export approvals are grants with mandatory <span class="mono">expires_at</span> (break-glass ≤ 24h, delegation ≤ 14d, PL-12 ≤ 8h, export ≤ 72h). PDP treats an expired grant as absent — no grace. All active grants are enumerable at GV-03 / AD-05 / PL-12.</td>
+    <td class="mono small">DD-05, DD-10, PL-12, GV-15, AD-05 temporary roles</td>
+    <td>Access reverts silently at expiry; attempted use post-expiry → masked denial + audit</td>
+  </tr>
+</table>
+
+<div class="flow">
+  <div class="fstep"><span class="fid">REQ</span>API call + JWT (role, scope, purpose)</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">RBAC</span>Group grant from §3 matrix</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">ABAC</span>own-branch · care-team · purpose · grants</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">OBLG</span>mask fields · require AU-09 step-up · emit audit</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">ALLOW</span>200 + audit line</div>
+</div>
+<div class="flow">
+  <div class="fstep" style="border-left-color:#B91C1C"><span class="fid" style="color:#B91C1C">DENY</span>Masked identity <span class="mono">#MRN-••••30</span> + reason code</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">DD-05</span>Break-glass offer (clinical roles)</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">GV-03</span>Emergency access review ≤ 72h</div>
+</div>
+</div>
+
+<!-- ================= 5. SoD ================= -->
+<h2>5. Separation-of-duties rules</h2>
+<p class="small muted">Enforced server-side by the policy service (not just UI): the approver principal must differ from the initiator principal, and where noted, from anyone in the initiator's delegation chain (DD-10). All four-eyes actions are irreversible-class per design contract.</p>
+
+<div class="card">
+<table>
+  <tr><th style="width:220px">Rule</th><th style="width:120px">Screens</th><th>Constraint</th><th style="width:220px">Enforcement detail</th></tr>
+  <tr>
+    <td><b>Financial exception approval</b> <span class="chip amber">four-eyes</span></td>
+    <td class="mono">BL-06, BL-07, BL-08, BL-12, BL-17</td>
+    <td>Initiator of a refund, credit note, above-slab discount, or write-off cannot approve it. Cashiers can never self-approve; a billing supervisor who <i>initiates</i> on BL-06/BL-17 must route to a <i>different</i> BSU or the branch manager in BL-08.</td>
+    <td class="mono small">approver_id ≠ initiator_id; both step-up AU-09; approval record immutable, visible BL-18 day book + AD-20</td>
+  </tr>
+  <tr>
+    <td><b>Access &amp; role grants</b> <span class="chip amber">four-eyes</span></td>
+    <td class="mono">AD-03, AD-04, AD-05</td>
+    <td>A branch/org admin cannot approve a role request they raised, and can never approve any change to <i>their own</i> account (including unlock AU-14 and MFA reset AU-15). Org-admin role grants require a second org admin or the tenant owner.</td>
+    <td class="mono small">Self-target check on subject_user_id; queue AD-05 hides own items from approver view</td>
+  </tr>
+  <tr>
+    <td><b>Export governance</b> <span class="chip red">four-eyes + DPO</span></td>
+    <td class="mono">GV-15, BL-19, AD-12</td>
+    <td>Bulk export requester (any role) cannot approve; approval requires DPO (or privacy officer for &lt; 500 records). DPO's own export requests route to org admin + platform-op co-sign.</td>
+    <td class="mono small">Export job blocked in state PENDING_APPROVAL; watermarked output; logged GV-15 + AD-20</td>
+  </tr>
+  <tr>
+    <td><b>Operator support access</b> <span class="chip red">cross-org four-eyes</span></td>
+    <td class="mono">PL-12</td>
+    <td>Platform operator requesting tenant data access cannot approve it — approval must come from the tenant's org admin (and DPO is notified). A second platform operator confirms activation (four-eyes inside NUMINACORE) before the grant goes live.</td>
+    <td class="mono small">Two approvals (tenant + operator peer); grant ≤ 8h; auto-review entry GV-03</td>
+  </tr>
+  <tr>
+    <td><b>Patient merge</b> <span class="chip amber">four-eyes</span></td>
+    <td class="mono">FO-08</td>
+    <td>FO user queues merge candidates; only branch manager resolves, and not for candidates they themselves queued.</td>
+    <td class="mono small">Irreversible-class; pre-merge snapshot retained per retention policy (10y radiology)</td>
+  </tr>
+  <tr>
+    <td><b>Regulatory corrections</b></td>
+    <td class="mono">IR-04, TK-10</td>
+    <td>Form F corrections (IR-04) authored by a radiologist require branch-manager approval; dose registry corrections (TK-10) by a technologist require radiologist or branch-admin countersign.</td>
+    <td class="mono small">Original record never overwritten — correction appended, both visible in IR-01 register</td>
+  </tr>
+  <tr>
+    <td><b>Clinical sign integrity</b></td>
+    <td class="mono">RD-09, RD-12, CS-04</td>
+    <td>Not four-eyes, but exclusive: only the authoring radiologist signs their report (RD-09); addenda (RD-12) may be by another radiologist but never silently replace. CS-04 override must be a radiologist who is <i>not</i> the performing technologist's supervisor-of-record for that shift (prevents pressure override).</td>
+    <td class="mono small">Signature binds report hash (see DOC-04 L7); overrides feed GV-03 review</td>
+  </tr>
+</table>
+</div>
+
+<!-- ================= 6. DELEGATION & BREAK-GLASS ================= -->
+<h2>6. Delegation &amp; break-glass</h2>
+
+<div class="card">
+<div class="card-title">6.1 Delegation (DD-10) <span class="right">planned absence</span></div>
+<table>
+  <tr><th style="width:170px">Property</th><th>Rule</th></tr>
+  <tr><td>Who may delegate</td><td>Referring doctors and radiologists delegate <i>read + acknowledge</i> on their care-team patients to a named colleague of equal or higher clinical role. Approval capabilities (BL-08, AD-05, GV) are <b>never delegable</b>.</td></tr>
+  <tr><td>Grant shape</td><td class="mono small">delegate_id, scope = care-team snapshot at grant time, capabilities ⊆ {read, ack-critical DD-02, order-track DD-04}, starts_at, expires_at ≤ 14 days</td></tr>
+  <tr><td>Critical results</td><td>RED/ORANGE escalation ladder (RD-10/RD-11) targets the delegate during the window; the delegator remains on the ladder as final tier. Ack by delegate is recorded as <span class="mono">acked_by ≠ ordered_by</span> on RD-11 and DD-02.</td></tr>
+  <tr><td>Review</td><td>Active delegations listed on DD-10 and in the quarterly access review GV-02; auto-expiry, no renewal without fresh grant.</td></tr>
+</table>
+</div>
+
+<div class="card">
+<div class="card-title">6.2 Break-glass (DD-05) <span class="right">emergency access</span></div>
+<div class="flow">
+  <div class="fstep" style="border-left-color:#B91C1C"><span class="fid" style="color:#B91C1C">DENY</span>Doctor hits masked record <span class="mono">#MRN-••••30</span></div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">DD-05</span>Break-glass: reason (min 30 chars) + patient-relationship attestation</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">AU-09</span>Step-up re-auth</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">GRANT</span>Read-only, purpose=EMERGENCY, ≤ 24h, red banner on every screen</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">NT-01</span>Notify privacy officer + patient (rights notice)</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">GV-03</span>Emergency review ≤ 72h: justified / coached / escalated → GV-08 incident</div>
+</div>
+<table>
+  <tr><th style="width:170px">Property</th><th>Rule</th></tr>
+  <tr><td>Eligible roles</td><td>Radiologist, referring doctor (external). Never CSH/BSU/FO/admins/PLT (operators use PL-12 instead).</td></tr>
+  <tr><td>Capabilities</td><td>Read-only: DD-01 summary, DD-02 results, RD-13 signed reports. No orders, no edits, no export, no print beyond single-report watermark.</td></tr>
+  <tr><td>Non-emergency path</td><td>DD-06 access request → asynchronous approval by privacy officer (approve tier ¹³ in §3) — preferred whenever the need is not immediate.</td></tr>
+  <tr><td>Abuse controls</td><td>&gt; 3 break-glass events / 30 days per user auto-opens a GV-08 incident; unresolved GV-03 review past 72h escalates to DPO; metrics on GV-16 DPO office dashboard.</td></tr>
+  <tr><td>Operator analogue</td><td>PL-12 support access follows the same grant/expiry/review skeleton with tenant-side approval (§5) — reviewed in GV-03 alongside clinical break-glass.</td></tr>
+</table>
+<div class="audit">Every grant, use, expiry and review outcome in §6 is a hash-chained audit event (DOC-04 L7), queryable in AD-20 with facets: grant type, purpose, reviewer verdict.</div>
+</div>
+
+<div class="divider-label">END DOC-03</div>
+<p class="small muted" style="text-align:center">Magnus HMS · MVP 1 · Architecture &amp; Workflow Documentation · DOC-03 v1.0 · July 2026 · Synthetic data only — no real patient or staff identities.</p>
+
+</div>
+</body>
+</html>

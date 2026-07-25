@@ -18,13 +18,16 @@ Design review + complete MVP 1 UI/UX design pack for Magnus HMS (radiology-first
 | `03-complete-pack/` | The full 225-screen MVP 1 design pack, built in 4 waves |
 | `03-complete-pack/group-pdfs/` | One rendered PDF per group (G1–G17) |
 | `03-complete-pack/html-source/` | Screen fragments (one HTML file per screen) |
-| `03-complete-pack/design-system/` | Shared `base.css` design system + assembly script |
+| `03-complete-pack/design-system/` | Shared `base.css` + assembly, baseline-crosswalk and PDF-render scripts |
+| `04-architecture-docs/` | DOC-00..10: HTML architecture & workflow documentation (open DOC-00_Master_Index.html first) |
 
 ## Wave status
 - [x] Wave 1 — Clinical core: G3 Front Office (FO-01…22) · G5 Orders & Clinical Safety (OR-01…08, CS-01…06) · G6 Technician (TK-01…12) · G7 Radiologist (RD-01…18) — 66 screens
 - [x] Wave 2 — Revenue & outreach: G9 Billing (19) · G10 Notifications (8) · G2 Patient-facing (12) · G8 Doctor Desk (11) — 50 screens
 - [x] Wave 3 — Admin & governance: G12 Admin (20) · G14 Governance (16) · G15 Regulatory (6) · G11 Grievance (6) — 48 screens
-- [~] Wave 4 (IN PROGRESS) — Identity & platform: G1 Identity (18) · G4 Scheduling setup (10) · G13 Integration (10) · G16 Platform (12) · G17 Design system (11) — 61 screens
-- [ ] Final: master index + combined volume (pending client review inputs)
+- [x] Wave 4 — Identity & platform: G1 Identity (18) · G4 Scheduling setup (10) · G13 Integration (10) · G16 Platform (12) · G17 Design system (11) — 61 screens
+- [x] 04-architecture-docs/: DOC-00 master index + DOC-01..10 (patient scenarios, workflow orders, roles/permissions, security layers, audit/logging, billing E2E, auth/MFA, vendor crosswalk, build blueprint, test traceability)
+- [x] Baseline sync: all 226 screens carry vendor-deck references (140 extend / 86 net-new)
+- [ ] FINAL PACKAGING GATE: combined volume + rename to final product name before UAT (awaiting client inputs)
 
 Synthetic data only — no PHI. Prototype/reference, not committed product scope.

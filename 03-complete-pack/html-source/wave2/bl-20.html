@@ -1,0 +1,148 @@
+<section class="screen" id="bl-20">
+<div class="screen-head"><h1><span class="sid">BL-20</span> Report release policy &amp; release queue</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: NEW · expert-panel decision "Option C" — configurable release policy</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Implements the expert-panel decision <b>Option C — organisation-configurable report release policy with authorised clinical override and full audit</b>. The screen separates two statuses that the legacy system conflated: <b>SIGNED</b> (the clinical act is complete and the report is immutable — RD-09) and <b>RELEASED</b> (delivery of the report to patient/referrer is permitted — feeds NT-01 delivery). Policy is set once at organisation level (admin view, top); day-to-day the billing/front-office desk works the release queue (second frame). Reports flagged critical (RD-10) are never held for payment.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org admin) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Billing worklist <span class="nav-badge">23</span></div>
+      <div class="nav-item">Release queue <span class="nav-badge red">6</span></div>
+      <div class="nav-item">Pending payments <span class="nav-badge red">4</span></div>
+      <div class="sec-label">Setup</div>
+      <div class="nav-item active">Release policy</div>
+      <div class="nav-item">Number series</div>
+      <div class="nav-item">Tariff &amp; catalog</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Setup › Report release policy</div>
+      <div class="page-title">Report release policy <span class="chip grey">ORG-LEVEL SETTING</span></div>
+      <div class="page-sub">Governs when a <b>SIGNED</b> report (RD-09) becomes <b>RELEASED</b> for delivery (NT-01). Effective-dated and recorded; applies to all branches of Meridian Diagnostics.</div>
+      <div class="split">
+        <div>
+          <div class="card">
+            <div class="card-title">Release policy <span class="right">effective 01 Jul 2026</span></div>
+            <div class="check"><span class="box radio"></span><span><b>A — Release immediately on sign-off</b> (payment independent)<br><span class="small muted">Report is released to patient/referrer the moment the radiologist signs. Dues are pursued separately by the billing desk.</span></span></div>
+            <div class="check" style="margin-top:8px"><span class="box radio"></span><span><b>B — Withhold until full payment</b><br><span class="small muted">Report stays SIGNED-not-released until balance = ₹0. No override path — not recommended; blocks clinically urgent delivery.</span></span></div>
+            <div class="check" style="margin-top:8px;background:#F0FDFA;border:1px solid #99F6E4;border-radius:8px;padding:8px 10px"><span class="box radio on"></span><span><b>C — Withhold until payment, allow authorised clinical override</b> <span class="chip teal">SELECTED · PILOT DEFAULT</span><br><span class="small muted">B behaviour day-to-day, but holders of <span class="mono">release_without_payment</span> may release on clinical grounds with reason + step-up confirm + audit. This is the panel-agreed pilot configuration ("B behaviour via C").</span></span></div>
+            <div class="banner reg" style="margin-top:12px"><b>Change control</b>Policy is org-level, recorded and effective-dated. Changing it requires <b>Privacy Officer (S. Mehta)</b> + <b>org admin (K. Verma)</b> joint approval; the change, both approvers and the effective date are written to the audit log. Last change: 01 Jul 2026 · B → C · CHG-POL-2026-031.</div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Override permission</div>
+            <p class="small" style="margin-bottom:8px"><span class="chip violet mono">release_without_payment</span></p>
+            <table>
+              <tr><th>Granted to</th><th>Holder (Andheri West)</th></tr>
+              <tr><td>Branch medical lead</td><td>Dr. A. Rao</td></tr>
+              <tr><td>Radiologist-in-charge</td><td>Dr. V. Shetty</td></tr>
+            </table>
+            <p class="small muted" style="margin-top:8px">Granted per role via AU-04 role matrix; every use is individually audited. Cashier/front-office roles cannot hold this permission.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Status model</div>
+            <dl class="kv" style="grid-template-columns:92px 1fr">
+              <dt>SIGNED</dt><dd>Clinical act complete; report immutable (RD-09). Not yet visible to patient.</dd>
+              <dt>RELEASED</dt><dd>Delivery permitted; NT-01 starts portal/WhatsApp/print delivery.</dd>
+              <dt>Critical</dt><dd><span class="chip red">RD-10 critical result</span> auto-releases regardless of dues.</dd>
+            </dl>
+          </div>
+          <div class="card">
+            <div class="card-title">Save</div>
+            <span class="btn primary disabled" style="width:100%">Save policy — awaiting Privacy Officer approval</span>
+            <div class="small muted" style="margin-top:8px">🔒 Saving a policy change sends a dual-approval request to S. Mehta (Privacy Officer) and takes effect only on the stated effective date.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front office) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Billing worklist <span class="nav-badge">23</span></div>
+      <div class="nav-item active">Release queue <span class="nav-badge red">6</span></div>
+      <div class="nav-item">Collect payment</div>
+      <div class="nav-item">Pending payments <span class="nav-badge red">4</span></div>
+      <div class="nav-item">Receipts &amp; reprints</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Release queue</div>
+      <div class="page-title">Release queue — signed reports awaiting release <span class="chip amber">6 HELD</span></div>
+      <div class="page-sub">Policy C active: SIGNED reports with balance due are held. Collect payment to release, or a <span class="mono">release_without_payment</span> holder may perform a clinical override. Critical results never appear here — they auto-release.</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">6</div><div class="l">Held reports</div><div class="s">signed, balance &gt; ₹0</div></div>
+        <div class="kpi amber"><div class="n">₹21,650</div><div class="l">Balance blocking release</div><div class="s">across 5 patients</div></div>
+        <div class="kpi red"><div class="n">1</div><div class="l">Held &gt; 24 h</div><div class="s">escalated to branch medical lead</div></div>
+      </div>
+      <table>
+        <tr><th>Patient</th><th>Accession · study</th><th>Signed at (IST)</th><th>Balance due ₹</th><th>Ageing</th><th>Actions</th></tr>
+        <tr class="hl"><td>Sofia Rossi · <span class="mono">MRN-004822</span></td><td><span class="mono">ACC-2026-91247</span> · MRI Brain (plain)</td><td class="mono">25 Jul 12:02</td><td>4,500.00</td><td><span class="chip amber">3 h 41 m</span></td><td><span class="btn small primary">Collect &amp; release → BL-03</span> <span class="btn small warn-outline">Clinical override…</span></td></tr>
+        <tr><td>Aarav Sharma · <span class="mono">MRN-004821</span></td><td><span class="mono">ACC-2026-91242</span> · CT KUB (plain)</td><td class="mono">25 Jul 13:10</td><td>8,075.00</td><td><span class="chip green">2 h 33 m</span></td><td><span class="btn small primary">Collect &amp; release → BL-03</span> <span class="btn small warn-outline">Clinical override…</span></td></tr>
+        <tr><td>Priya Deshmukh · <span class="mono">MRN-004833</span></td><td><span class="mono">ACC-2026-91251</span> · USG Abdomen</td><td class="mono">25 Jul 14:26</td><td>1,400.00</td><td><span class="chip green">1 h 17 m</span></td><td><span class="btn small primary">Collect &amp; release → BL-03</span> <span class="btn small warn-outline">Clinical override…</span></td></tr>
+        <tr><td>Ibrahim Khan · <span class="mono">MRN-004819</span></td><td><span class="mono">ACC-2026-91239</span> · X-Ray Chest PA + lateral</td><td class="mono">25 Jul 09:48</td><td>850.00</td><td><span class="chip amber">5 h 55 m</span></td><td><span class="btn small primary">Collect &amp; release → BL-03</span> <span class="btn small warn-outline">Clinical override…</span></td></tr>
+        <tr><td>Lakshmi Venkatesan · <span class="mono">MRN-004841</span></td><td><span class="mono">ACC-2026-91226</span> · Mammogram bilateral</td><td class="mono">24 Jul 11:19</td><td>3,200.00</td><td><span class="chip red">1 d 4 h</span></td><td><span class="btn small primary">Collect &amp; release → BL-03</span> <span class="btn small warn-outline">Clinical override…</span></td></tr>
+        <tr><td>Mohammed Al-Rashid · <span class="mono">MRN-004790</span></td><td><span class="mono">ACC-2026-91244</span> · Doppler venous LL</td><td class="mono">25 Jul 13:55</td><td>3,625.00</td><td><span class="chip green">1 h 48 m</span></td><td><span class="btn small primary">Collect &amp; release → BL-03</span> <span class="btn small warn-outline">Clinical override…</span></td></tr>
+      </table>
+      <p class="small muted" style="margin-top:8px">"Clinical override…" is visible to all but enabled only for <span class="mono">release_without_payment</span> holders (Dr. A. Rao, Dr. V. Shetty) — front office sees it greyed and can page the medical lead. Collect &amp; release opens BL-03 payment collection; on balance = ₹0 the report auto-releases and NT-01 delivery starts.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — CLINICAL OVERRIDE RELEASE MODAL (DR. A. RAO, release_without_payment)</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Clinical override — release report without payment</h3>
+    <p class="small muted">Sofia Rossi · <span class="mono">MRN-004822</span> · <span class="mono">ACC-2026-91247</span> MRI Brain (plain) · signed 25 Jul 12:02 IST by Dr. V. Shetty · balance due ₹4,500.00.</p>
+    <div class="field" style="margin-top:10px"><label>Reason category <span class="req">*</span></label>
+      <div class="check"><span class="box radio on"></span> Clinical urgency — report needed for ongoing treatment decision</div>
+      <div class="check"><span class="box radio"></span> Referring doctor request — Dr. Meera Nair awaiting result</div>
+      <div class="check"><span class="box radio"></span> Critical result <span class="chip red">auto-released regardless of dues</span> <span class="small muted">— critical results (RD-10) are NEVER held for payment; this category exists only for retrospective documentation.</span></div>
+    </div>
+    <div class="field"><label>Justification <span class="req">*</span></label><div class="textarea" style="color:#1E293B">Patient in neurology OPD at Lilavati Hospital at 16:30 today; treating neurologist needs MRI report before deciding on admission. Payment to follow — family collecting funds.</div></div>
+    <div class="field"><label>Step-up identity confirmation (AU-09) <span class="req">*</span></label><input class="input" value="••••••••"/><div class="hint">Confirm it is you, Dr. A. Rao (branch medical lead), authorising release without payment.</div></div>
+    <div class="banner warn" style="margin-top:6px"><b>Balance remains due</b><span class="chip amber">₹4,500.00 STILL DUE</span> — override releases the report only; the invoice stays open in Pending payments and follows normal dunning.</div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn warn-outline">Release without payment</span></div>
+    <p class="audit">Audit: override by Dr. A. Rao (release_without_payment) · reason category, justification text, step-up confirmation, report hash, balance at time of release (₹4,500.00) and policy version (C, eff. 01 Jul 2026) are all written to the immutable audit log and visible to the Privacy Officer.</p>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — RELEASED RECORD VIEW (AFTER OVERRIDE)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front office) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item active">Release queue <span class="nav-badge red">5</span></div>
+      <div class="nav-item">Pending payments <span class="nav-badge red">5</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Release queue › ACC-2026-91247</div>
+      <div class="page-title">MRI Brain (plain) — Sofia Rossi <span class="chip green">Signed 12:02 · Released 12:41 (override — Dr. A. Rao)</span></div>
+      <div class="page-sub">Patient Sofia Rossi · <span class="mono">MRN-004822</span> · F/34 · accession <span class="mono">ACC-2026-91247</span> · invoice <span class="mono">INV/AND/26-27/0415</span> <span class="chip amber">₹4,500.00 STILL DUE</span></div>
+      <div class="banner danger"><b>Critical-result exception</b>Reports flagged critical (RD-10) bypass payment hold automatically — patient safety precedes dues. This report was NOT critical; it was released by authorised clinical override.</div>
+      <div class="card" style="max-width:760px">
+        <div class="card-title">Release record <span class="right">policy C · eff. 01 Jul 2026</span></div>
+        <div class="timeline">
+          <div class="ev"><span class="t">12:02</span><span><b>SIGNED</b> by Dr. V. Shetty (RD-09) — report frozen, hash <span class="mono">a91f…c04e</span>. Held: balance ₹4,500.00 &gt; ₹0.</span></div>
+          <div class="ev"><span class="t">12:39</span><span>Override initiated by Dr. A. Rao · reason: clinical urgency · step-up confirmed (AU-09).</span></div>
+          <div class="ev"><span class="t">12:41</span><span><b>RELEASED</b> (override — Dr. A. Rao) · balance remains due · queue position closed.</span></div>
+          <div class="ev"><span class="t">12:41</span><span>Delivery started (NT-01): patient portal + WhatsApp to +91 98••• ••107; referrer copy to Dr. Meera Nair. <span class="chip blue">DELIVERY IN PROGRESS</span></span></div>
+        </div>
+        <dl class="kv" style="margin-top:10px">
+          <dt>Balance</dt><dd>₹4,500.00 open on <span class="mono">INV/AND/26-27/0415</span> — remains in Pending payments, normal dunning applies</dd>
+          <dt>Override audit</dt><dd><span class="mono">AUD-2026-77103</span> · reason, justification, approver, policy version recorded · Privacy Officer visibility</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="audit">Policy views and changes (dual-approved, effective-dated), queue views, collect-and-release events, every clinical override (reason, justification, step-up confirmation, balance at release) and NT-01 delivery start are recorded in the access log.</p>
+</section>

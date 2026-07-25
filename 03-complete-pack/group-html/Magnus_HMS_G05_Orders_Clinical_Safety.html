@@ -125,7 +125,7 @@ tr.dim td{color:#94A3B8}
 <div class="card" style="max-width:700px;margin-top:26px"><div class="card-title">Screens in this group</div>
 <table><tr><th style="width:70px">ID</th><th>Screen</th></tr><tr><td class="mono bold" style="color:#0F766E">OR-01</td><td>Order entry — shared path</td></tr><tr><td class="mono bold" style="color:#0F766E">OR-02</td><td>Duplicate &amp; safety interception</td></tr><tr><td class="mono bold" style="color:#0F766E">OR-03</td><td>Order detail &amp; timeline</td></tr><tr><td class="mono bold" style="color:#0F766E">OR-04</td><td>Orders worklist</td></tr><tr><td class="mono bold" style="color:#0F766E">OR-05</td><td>Order modify / cancel</td></tr><tr><td class="mono bold" style="color:#0F766E">OR-06</td><td>Order sets &amp; prep protocols admin</td></tr><tr><td class="mono bold" style="color:#0F766E">OR-07</td><td>STAT &amp; priority governance</td></tr><tr><td class="mono bold" style="color:#0F766E">OR-08</td><td>External / paper referral digitisation</td></tr><tr><td class="mono bold" style="color:#0F766E">CS-01</td><td>Contrast &amp; general screening</td></tr><tr><td class="mono bold" style="color:#0F766E">CS-02</td><td>MR safety screening</td></tr><tr><td class="mono bold" style="color:#0F766E">CS-03</td><td>Procedure &amp; contrast consent</td></tr><tr><td class="mono bold" style="color:#0F766E">CS-04</td><td>Physician override — blocked screening</td></tr><tr><td class="mono bold" style="color:#0F766E">CS-05</td><td>Adverse reaction record</td></tr><tr><td class="mono bold" style="color:#0F766E">CS-06</td><td>Form F — statutory (PC-PNDT)</td></tr></table></div>
 <p class="muted small" style="margin-top:14px">Magnus Diagnostics → NUMINACORE · July 2026 · Prototype/reference — not committed product scope.</p></div></section><section class="screen" id="or-01">
-<div class="screen-head"><h1><span class="sid">OR-01</span> Order entry — shared path</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety — workspace 'Orders'</div></div></div>
+<div class="screen-head"><h1><span class="sid">OR-01</span> Order entry — shared path</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety — workspace 'Orders'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · RT-S3 + DD-S2 shared order path</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office and clinical staff create imaging/diagnostic orders against a registered patient from the procedure catalog. The form must guarantee a complete, safe order: clinical indication is mandatory, laterality is forced for paired-organ procedures, STAT priority requires justification, and the referrer is resolved from the directory (with registration number) or explicitly marked self-referred. Place-order is idempotent — a retry after a network/service failure reuses the same idempotency reference and can never create a duplicate accession.</div>
 
 <div class="frame">
@@ -279,7 +279,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Order placement, every validation failure, each retry attempt (with idempotency key), and the price-visibility check for role Front Office (D. Nair) are recorded in the access log.</p>
 </section>
 <section class="screen" id="or-02">
-<div class="screen-head"><h1><span class="sid">OR-02</span> Duplicate &amp; safety interception</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety — workspace 'Orders'</div></div></div>
+<div class="screen-head"><h1><span class="sid">OR-02</span> Duplicate &amp; safety interception</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety — workspace 'Orders'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · closes S-5 / N-9 duplicate & laterality (vendor DD-S2 demoed the failure)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Fires synchronously at place-order for any staff member. It must guarantee (1) no accidental repeat radiation — active same-procedure orders are surfaced with Open-existing / Link / Create-distinct-with-reason choices; (2) laterality can never be omitted on paired-organ procedures (hard block, not a warning); (3) a 3-question safety mini-check (pacemaker/implant, pregnancy possibility, prior contrast reaction) is answered before the accession is issued, setting flags that pre-populate technologist screening.</div>
 
 <div class="frame">
@@ -369,7 +369,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Duplicate-modal decisions (open / link / create-distinct + reason), the laterality block event, and all three safety answers with the answering staff identity (D. Nair) and timestamp are versioned on the order and recorded in the access log.</p>
 </section>
 <section class="screen" id="or-03">
-<div class="screen-head"><h1><span class="sid">OR-03</span> Order detail &amp; timeline</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety — workspace 'Orders'</div></div></div>
+<div class="screen-head"><h1><span class="sid">OR-03</span> Order detail &amp; timeline</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety — workspace 'Orders'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · RT-S3 order confirmation → full timeline</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The single source of truth for one order, used by front office, technologists and radiologists throughout the visit. It must guarantee a complete picture: order facts (kv), the six-stage status stepper, every linked artifact (appointment, screening, consent, Form F where applicable, study, report, invoice), and a tamper-evident event trail with actor + timestamp for each transition. Terminal states (completed, cancelled) are immutable except for annotations.</div>
 
 <div class="frame">
@@ -490,7 +490,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Every view of this order detail (viewer, role, purpose), each status transition with actor and device, and all artifact link openings are recorded in the access log.</p>
 </section>
 <section class="screen" id="or-04">
-<div class="screen-head"><h1><span class="sid">OR-04</span> Orders worklist</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety — workspace 'Orders'</div></div></div>
+<div class="screen-head"><h1><span class="sid">OR-04</span> Orders worklist</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety — workspace 'Orders'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · orders worklist (dept view)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Department-level operational queue used by front office and the branch coordinator through the day to keep every order moving. It must guarantee visibility of gate status (scheduling, screening, consent, payment) per order, honest aging on anything awaiting scheduling, and bulk printing of prep instructions for tomorrow's booked patients. Filters by status, modality, priority and date drive all triage.</div>
 
 <div class="frame">
@@ -580,7 +580,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Worklist filter usage, each order opened from this list, bulk prep-print jobs (accessions included, printed by, printer), and escalation notifications are recorded in the access log.</p>
 </section>
 <section class="screen" id="or-05">
-<div class="screen-head"><h1><span class="sid">OR-05</span> Order modify / cancel</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety — workspace 'Orders'</div></div></div>
+<div class="screen-head"><h1><span class="sid">OR-05</span> Order modify / cancel</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety — workspace 'Orders'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · closes RT-S2 cancellation-visibility gap</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Controlled change surface for an existing order, used by front office and branch admins. It must guarantee that what can change depends strictly on order status (indication editable until acquired; a procedure change is always cancel + new linked order, never an in-place edit), that cancellation states its reason from a fixed taxonomy and lists every downstream effect, and that post-acquisition cancellation is guarded because radiation has already been delivered. Every change produces a new order version.</div>
 
 <div class="frame">
@@ -680,7 +680,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">All modifications (field, old value, new value, reason, version number), cancellation reasons, step-up identity confirmations, and post-acquisition guard encounters are versioned on the order and recorded in the access log.</p>
 </section>
 <section class="screen" id="or-06">
-<div class="screen-head"><h1><span class="sid">OR-06</span> Order sets &amp; prep protocols admin</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div></div></div>
+<div class="screen-head"><h1><span class="sid">OR-06</span> Order sets &amp; prep protocols admin</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · prep protocols (scope item #61/#63)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Admin (K. Verma) and the chief radiologist maintain per-procedure prep protocols: fasting rules, multi-language patient prep instructions, contrast defaults, mandatory safety questionnaires, slot-template and price-list links. Every protocol is versioned with effective dates — a booked appointment always carries the version that was live at booking time. Branch overrides must never weaken a safety flag set at chain level.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Admin) ▾</div></div>
@@ -820,7 +820,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">All protocol edits, countersigns, branch overrides and rollbacks are versioned and recorded in the access log with editor identity, timestamp (IST) and before/after diff. Viewing patient-free catalogue data requires no purpose declaration; publish actions require step-up identity confirmation.</p>
 </section>
 <section class="screen" id="or-07">
-<div class="screen-head"><h1><span class="sid">OR-07</span> STAT &amp; priority governance</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div></div></div>
+<div class="screen-head"><h1><span class="sid">OR-07</span> STAT &amp; priority governance</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · closes S-5 STAT-inflation governance</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The chief radiologist and admin review STAT usage weekly to keep the priority lane meaningful: who orders STAT, how often, and whether urgency was clinically justified. Flagged over-users get a documented review; the policy card defines who may mark STAT and the auto-downgrade rule, which always requires a radiologist's explicit confirmation before any priority is lowered.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
@@ -949,7 +949,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Every STAT flag, review verdict, privilege restriction and priority downgrade is signed with the acting clinician's identity and reason code; report views with masked patient identifiers, and any unmasking (which requires a declared clinical purpose), are recorded in the access log.</p>
 </section>
 <section class="screen" id="or-08">
-<div class="screen-head"><h1><span class="sid">OR-08</span> External / paper referral digitisation</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div></div></div>
+<div class="screen-head"><h1><span class="sid">OR-08</span> External / paper referral digitisation</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · paper referral digitisation</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office (D. Nair) digitises paper referral slips scanned at the counter (FO-18) into structured orders before or during patient registration. The screen guarantees the original scan stays attached to the order forever, unknown referrers enter the directory in a pending-verify state (no payouts, STAT capped), and every transcription names the transcriber.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front office) ▾</div></div>
@@ -1086,7 +1086,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Each transcription stores the transcriber's identity, the immutable source scan, patient-link decisions and duplicate-check outcome; quick-added referrers, their restrictions and later verification results are all recorded in the access log.</p>
 </section>
 <section class="screen" id="cs-01">
-<div class="screen-head"><h1><span class="sid">CS-01</span> Contrast &amp; general screening</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div></div></div>
+<div class="screen-head"><h1><span class="sid">CS-01</span> Contrast &amp; general screening</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · CS-S1 contrast screening + R-01 eGFR pathway</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Technologist (T. Okafor) or nurse completes this screening with the patient before any contrast-enhanced study; the acquisition console will not start until a decision exists. It must guarantee: allergies and prior reactions surfaced, eGFR fresh (hard 90-day staleness rule) or an explicit no-result pathway (point-of-care creatinine OR named-physician risk acceptance), pregnancy/LMP and metformin captured, and the screener's role recorded on the decision.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>CLINICAL SAFETY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (Technologist) ▾</div></div>
@@ -1279,7 +1279,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Every question response, pathway choice, POC order, physician risk-acceptance countersign and final decision is stored with the screener's identity and role, timestamps (IST) and the accession it applies to; console gate releases and blocked-decision overrides are recorded in the access log.</p>
 </section>
 <section class="screen" id="cs-02">
-<div class="screen-head"><h1><span class="sid">CS-02</span> MR safety screening</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div></div></div>
+<div class="screen-head"><h1><span class="sid">CS-02</span> MR safety screening</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · MR safety (closes DD-S2 deferred-safety gap)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Technologist (T. Okafor) screens every person entering Zone III/IV — patients and accompanying adults — before any MR study. It must guarantee: the implant/device checklist is answered item-by-item, device cards are captured with MR-conditional parameters, conditional devices get a radiologist countersign before scanning, and absolute contraindications produce a hard block with an alternative-modality suggestion routed back to the referrer.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>CLINICAL SAFETY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (Technologist) ▾</div></div>
@@ -1433,7 +1433,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Checklist answers, device-card images and parameters, zone wristband issuance, both signatures on conditional clearances, block confirmations and alternative-modality communications are stored against the accession with actor identity and IST timestamps, and recorded in the access log. Device serials are masked in list views for staff without a declared clinical purpose.</p>
 </section>
 <section class="screen" id="cs-03">
-<div class="screen-head"><h1><span class="sid">CS-03</span> Procedure &amp; contrast consent</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Clinical Safety</div></div></div>
+<div class="screen-head"><h1><span class="sid">CS-03</span> Procedure &amp; contrast consent</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Clinical Safety</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · CS-S2 consent + R-02 refusal/vernacular</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Technologists and front office capture informed consent for a procedure (and contrast, where applicable) immediately before the study, in the patient's chosen language. The screen must guarantee that consent text is rendered — not merely referenced — in the selected language, that risks, alternatives and the right to refuse are shown before signature, and that a refusal or pre-scan withdrawal hard-blocks the study, notifies the referrer, and preserves the record permanently. Guardians must state their relation; interpreters must attest.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>CLINICAL SAFETY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (Technologist) ▾</div></div>
@@ -1468,7 +1468,7 @@ tr.dim td{color:#94A3B8}
         <div class="card">
           <div class="card-title">Consent document — rendered in selected language <span class="right">v3.2 · CT-IV-CONTRAST</span></div>
           <div class="field"><label>Language of consent <span class="req">*</span></label>
-            <div style="display:flex;gap:8px"><span class="btn small">English</span><span class="btn small primary">हिन्दी (hi)</span><span class="btn small">मराठी (mr)</span><span class="btn small">ગુજરાતી (gu)</span></div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="btn small">English</span><span class="btn small">മലയാളം (ml) · Kerala pilot</span><span class="btn small primary">हिन्दी (hi)</span><span class="btn small">मराठी (mr)</span><span class="btn small">ગુજરાતી (gu)</span></div>
             <div class="hint">The full legal text below re-renders in the chosen script. The signed PDF stores this language code.</div>
           </div>
           <div class="card" style="background:#F8FAFC;margin-bottom:10px">
@@ -1481,6 +1481,10 @@ tr.dim td{color:#94A3B8}
           <div class="card" style="background:#F8FAFC">
             <div class="small muted" style="margin-bottom:6px">Preview if <b>मराठी</b> (mr-IN) selected — same clause, Marathi rendering:</div>
             <p style="font-size:13px"><b>नकार देण्याचा अधिकार:</b> तुम्ही कोणतेही कारण न देता, कधीही ही तपासणी नाकारू शकता किंवा स्कॅन सुरू होण्यापूर्वी संमती मागे घेऊ शकता. याचा तुमच्या पुढील उपचारांवर कोणताही विपरीत परिणाम होणार नाही.</p>
+          </div>
+          <div class="card" style="background:#F8FAFC;margin-top:10px">
+            <div class="small muted" style="margin-bottom:6px">Preview if <b>മലയാളം</b> (ml-IN) selected — same clause, Malayalam rendering (Kerala pilot):</div>
+            <p style="font-size:13px"><b>നിരസിക്കാനുള്ള അവകാശം:</b> കാരണം പറയാതെ തന്നെ, എപ്പോൾ വേണമെങ്കിലും ഈ പരിശോധന നിരസിക്കാനോ സ്കാൻ ആരംഭിക്കുന്നതിന് മുമ്പ് സമ്മതം പിൻവലിക്കാനോ നിങ്ങൾക്ക് അവകാശമുണ്ട്. ഇത് നിങ്ങളുടെ തുടർ ചികിത്സയെ ഒരു തരത്തിലും ബാധിക്കില്ല.</p>
           </div>
         </div>
         <div class="card">
@@ -1576,7 +1580,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Every render of consent text (language, version, timestamp), each signature stroke hash, refusal, withdrawal, and referrer notification for MRN-004822 / MRN-004821 / MRN-004828 is recorded in the access log. Consent PDFs are immutable; corrections are made by superseding record only.</p>
 </section>
 <section class="screen" id="cs-04">
-<div class="screen-head"><h1><span class="sid">CS-04</span> Physician override — blocked screening</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Clinical Safety</div></div></div>
+<div class="screen-head"><h1><span class="sid">CS-04</span> Physician override — blocked screening</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Clinical Safety</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · closes S-2 physician-only override (was CS-S1 self-override)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> When a safety screening (contrast, MRI, pregnancy) blocks a study, the technologist or desk can only <i>request</i> an override — they can never grant one. The request lands in a physician queue; the physician reviews the underlying screening data, must confirm their identity, give a clinical reason, and acknowledge the risk statement. A grant is time-boxed and stamped onto the study as a banner; every step is fully audited.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>CLINICAL SAFETY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (Technologist) ▾</div></div>
@@ -1693,7 +1697,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Request, every physician view of screening data, step-up identity check, grant/denial with reason, validity window, expiry re-block and all notifications for OVR-2026-0085/0086/0087 are recorded in the access log. Technologist accounts have no code path to grant an override.</p>
 </section>
 <section class="screen" id="cs-05">
-<div class="screen-head"><h1><span class="sid">CS-05</span> Adverse reaction record</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Clinical Safety</div></div></div>
+<div class="screen-head"><h1><span class="sid">CS-05</span> Adverse reaction record</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Clinical Safety</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · adverse reaction record (clinical safety)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Technologists and radiologists record any adverse reaction during or after a procedure — onset, severity, the exact agent and lot (pulled from TK-06 stock issue), interventions, outcome and reporter. The system must auto-alert the covering radiologist and branch medical lead, write a permanent allergy flag to the patient record with a propagation preview, and queue a pharmacovigilance export. Severe reactions surface an emergency checklist first, documentation second.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>CLINICAL SAFETY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (Technologist) ▾</div></div>
@@ -1831,7 +1835,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Reaction capture, severity changes, every emergency-checklist stamp, pages and acknowledgements, lot quarantine, the allergy-flag write to MRN-004819/MRN-004795 and the pharmacovigilance export queue entry are recorded in the access log with reporter identity.</p>
 </section>
 <section class="screen" id="cs-06">
-<div class="screen-head"><h1><span class="sid">CS-06</span> Form F — statutory (PC-PNDT)</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Clinical Safety</div></div></div>
+<div class="screen-head"><h1><span class="sid">CS-06</span> Form F — statutory (PC-PNDT)</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Clinical Safety</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IR-S1 Form F + C-1 patient signature (NS-10)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Before any obstetric ultrasound, the front office and performing doctor complete the statutory PC-PNDT Form F: centre and machine registration (validated for <i>this</i> centre), full patient particulars with address and ID (type + last-4 only), obstetric history G/P/L/A, an approved indication, the doctor's declaration and the patient's signed undertaking rendered in her language. The scan is hard-blocked until Form F is complete, the record is tamper-evident, and it feeds the monthly district submission. Foetal sex is never determined or disclosed.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>CLINICAL SAFETY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front Office) ▾</div></div>

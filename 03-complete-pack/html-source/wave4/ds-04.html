@@ -1,0 +1,95 @@
+<section class="screen" id="ds-04">
+<div class="screen-head"><h1><span class="sid">DS-04</span> Offline / Degraded / Sync Pattern</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM</span><div class="cluster">G17 Design System &amp; Patterns — documentation pages</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · offline/degraded/sync pattern (checklist #13/#14)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Indian diagnostics branches lose connectivity routinely; Magnus degrades predictably instead of failing randomly. This page defines the three-level banner hierarchy every module must use, the action-queue contract for offline-captured work, the sync-conflict resolution modal, and the hard capability matrix that says which modules may work offline at all. The matrix is normative — report signing is NEVER offline, no exceptions.</div>
+
+<div class="state-tag">STATE A — BANNER HIERARCHY (THREE LEVELS, NO OTHERS)</div>
+<div class="card">
+  <div class="card-title">Level 1 · Offline-supported (info blue) <span class="right">banner.info</span></div>
+  <div class="banner info"><b>⬇ Working offline — this module supports it.</b> Front-office registration continues on the branch cache. 6 actions queued locally · original timestamps preserved · will sync automatically when the link returns. Last successful sync 11:42 IST.</div>
+  <table>
+    <tr><th style="width:30%">Rule</th><th>Specification</th></tr>
+    <tr><td class="bold">When shown</td><td>Connection lost AND the current module is marked <b>full</b> or <b>partial</b> in the capability matrix (State C). Pinned below the topbar, non-dismissible, updates queue count live.</td></tr>
+    <tr><td class="bold">Tone</td><td>Reassuring, factual. Always states: queue count, timestamp policy, last successful sync time (IST). Never says "error".</td></tr>
+    <tr><td class="bold">Forbidden</td><td>No modal takeover, no toast spam, no per-keystroke warnings. One pinned banner is the entire treatment.</td></tr>
+  </table>
+</div>
+<div class="card">
+  <div class="card-title">Level 2 · Degraded (amber) <span class="right">banner.warn</span></div>
+  <div class="banner warn"><b>⚠ Degraded — some functions paused.</b> PACS link to CT-ROOM-1 (AE MERIDCT1) is intermittent since 12:03 IST. Worklists show the read-cache as of 12:03 IST and are marked "cached". New study arrivals may be delayed; billing runs in draft-only mode. Owner: T. Okafor (technologist on duty) · auto-retry every 60s.</div>
+  <table>
+    <tr><th style="width:30%">Rule</th><th>Specification</th></tr>
+    <tr><td class="bold">When shown</td><td>Partial failure: one upstream (PACS, payment gateway UPI, DLT SMS, WhatsApp BSP) is down or flapping while the app itself is reachable.</td></tr>
+    <tr><td class="bold">Must state</td><td>(1) which dependency, (2) since when (IST), (3) exactly what is paused vs. still working, (4) a named on-duty owner, (5) retry cadence. Cached data anywhere on screen carries a <span class="chip grey">cached 12:03 IST</span> chip.</td></tr>
+    <tr><td class="bold">Forbidden</td><td>Never show stale data without the cached chip; never let a degraded module silently drop writes — it queues (level 1 behaviour) or blocks (level 3), nothing in between.</td></tr>
+  </table>
+</div>
+<div class="card">
+  <div class="card-title">Level 3 · Blocked (red) <span class="right">banner.danger</span></div>
+  <div class="banner danger"><b>⛔ Report signing is unavailable offline.</b> Signing requires a live server-side identity check and hash-chain write; it cannot be queued. Your draft for study MRD-2026-018834 is saved locally and intact. Signing re-enables automatically when the connection returns — nothing to redo. Why: a queued signature could be replayed against a report edited after you last saw it.</div>
+  <table>
+    <tr><th style="width:30%">Rule</th><th>Specification</th></tr>
+    <tr><td class="bold">When shown</td><td>User attempts an action marked <b>never-offline</b> in the capability matrix. Rendered at the point of action (replaces the primary button area), plus the pinned level-1/2 banner stays.</td></tr>
+    <tr><td class="bold">Must state</td><td>(1) what is blocked, (2) that in-progress work is preserved, (3) that recovery is automatic, (4) one-sentence rationale ("Why:") — users obey rules they understand.</td></tr>
+    <tr><td class="bold">Forbidden</td><td>The blocked action's button renders <span class="btn small disabled">Sign report</span> disabled — never hidden, never enabled-then-erroring.</td></tr>
+  </table>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ACTION QUEUE SPEC + SYNC-CONFLICT MODAL</div>
+<div class="card">
+  <div class="card-title">Offline action-queue table — contract <span class="right">normative</span></div>
+  <table>
+    <tr><th>#</th><th>Queued (device, IST)</th><th>Actor</th><th>Action</th><th>Subject</th><th>Replay order</th><th>Status</th></tr>
+    <tr><td class="mono">1</td><td class="mono">12:04:11</td><td>D. Nair</td><td>Register walk-in patient</td><td>A. Kulkarni (masked: A. K•••••ni)</td><td class="mono">1 of 6</td><td><span class="chip green">Synced 12:31 IST</span></td></tr>
+    <tr><td class="mono">2</td><td class="mono">12:06:47</td><td>D. Nair</td><td>Book USG appointment · US-UNIT-2</td><td>A. K•••••ni</td><td class="mono">2 of 6</td><td><span class="chip green">Synced 12:31 IST</span></td></tr>
+    <tr class="hl"><td class="mono">3</td><td class="mono">12:09:02</td><td>P. D'Souza</td><td>Draft invoice ₹2,850 (UPI pending)</td><td>Enc MRD-2026-018851</td><td class="mono">3 of 6</td><td><span class="chip amber">⚑ Conflict — needs review</span></td></tr>
+    <tr><td class="mono">4</td><td class="mono">12:12:38</td><td>T. Okafor</td><td>Mark patient arrived</td><td>Enc MRD-2026-018852</td><td class="mono">4 of 6</td><td><span class="chip grey">Held (after conflict)</span></td></tr>
+  </table>
+  <table style="margin-top:12px">
+    <tr><th style="width:30%">Contract clause</th><th>Specification</th></tr>
+    <tr><td class="bold">Queued timestamp preserved</td><td>The device capture time is the business timestamp forever — sync time is stored separately as <span class="mono">synced_at</span>. An SLA clock, a token number, an arrival time all use the capture time. The UI shows both when they differ by &gt;5 min.</td></tr>
+    <tr><td class="bold">Replay order</td><td>Strict FIFO per branch per module. A conflicted item <b>holds</b> everything behind it that touches the same subject; unrelated subjects continue. Order is never user-reorderable.</td></tr>
+    <tr><td class="bold">Conflict flag</td><td>⚑ amber chip, row highlighted. Conflicts never auto-resolve for clinical or financial fields; demographic no-ops (identical values) auto-merge silently and are logged.</td></tr>
+    <tr><td class="bold">Visibility</td><td>Queue is always inspectable (nav badge shows pending count). Nothing syncs invisibly except logged no-op merges.</td></tr>
+  </table>
+</div>
+<div class="card">
+  <div class="card-title">Sync-conflict resolution modal — reference spec <span class="right">component: .modal</span></div>
+  <div class="modal-wrap">
+    <div class="modal" style="max-width:640px">
+      <h3>⚑ Sync conflict — Invoice draft, Enc MRD-2026-018851</h3>
+      <p class="small muted" style="margin-bottom:10px">Queued offline by P. D'Souza at 12:09 IST; the server record was changed by K. Verma at 12:14 IST while this branch was offline. Only the differing fields are shown.</p>
+      <table>
+        <tr><th>Field</th><th>Your offline value (12:09)</th><th>Server value (12:14)</th><th>Keep</th></tr>
+        <tr><td class="bold">Discount applied</td><td class="mono">10% (senior citizen)</td><td class="mono">0%</td><td><span class="box radio on"> </span> offline &nbsp; <span class="box radio"> </span> server</td></tr>
+        <tr><td class="bold">Payable amount</td><td class="mono">₹2,565</td><td class="mono">₹2,850</td><td><span class="chip grey">follows discount</span></td></tr>
+      </table>
+      <div class="banner reg" style="margin:12px 0"><b>Clinical-field rule (four-eyes).</b> If any conflicting field is clinical (order, laterality, contrast flag, report content), single-user resolution is disabled: the resolver picks a value <b>and</b> a second qualified user (radiologist or supervisor) must confirm before the merge commits. Financial conflicts above ₹5,000 require cashier + branch manager.</div>
+      <div class="modal-actions"><span class="btn">Keep server value</span><span class="btn primary">Keep my offline value</span></div>
+      <p class="audit" style="margin-top:10px">Both versions, the choice, resolver and (where required) co-signer are stored in the conflict record — recorded in the access log.</p>
+    </div>
+  </div>
+  <div class="small muted">Modal rules: shows <b>only</b> differing fields (never full-record diffs); derived fields render as "follows X", not as choices; "Merge both" is not offered — one side wins per field; dismissing the modal keeps the item flagged and held, it never discards either version.</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — WHICH-MODULES-OFFLINE CAPABILITY MATRIX</div>
+<div class="card">
+  <div class="card-title">Offline capability matrix (MVP-1) — normative, change requires clinical-governance sign-off <span class="right">exhaustive</span></div>
+  <table>
+    <tr><th>Module</th><th>Offline capability</th><th>What works</th><th>What is blocked</th><th>Rationale</th></tr>
+    <tr><td class="bold">Front office (registration, appointments, arrivals)</td><td><span class="chip green">FULL</span></td><td>Register, book, reschedule, mark arrived — all queue with preserved timestamps.</td><td>Cross-branch lookups (cached list only, marked cached).</td><td>Patient flow must never stop for connectivity; identity dedup runs at sync.</td></tr>
+    <tr><td class="bold">Billing &amp; payments</td><td><span class="chip amber">DRAFT-ONLY</span></td><td>Draft invoices, estimates, discount capture pending approval.</td><td>Finalising invoices, UPI collection (payment gateway UPI requires live confirmation), refunds, receipt numbering.</td><td>Fiscal document numbers and payment confirmations must be single-sourced server-side; duplicates are a statutory problem.</td></tr>
+    <tr><td class="bold">RIS worklists</td><td><span class="chip amber">READ-CACHE</span></td><td>View worklist/study status as of last sync, always chip-marked <span class="chip grey">cached 12:03 IST</span>.</td><td>Status transitions, reassignment, priority changes.</td><td>Two branches mutating one worklist offline creates unsafe double-work; reading stale is safe if labelled.</td></tr>
+    <tr><td class="bold">Report drafting</td><td><span class="chip green">FULL (local drafts)</span></td><td>Dictate/type draft, templates, macros — saved to encrypted local store.</td><td>Assigning drafts to other readers.</td><td>Drafting is single-author; no shared state to corrupt.</td></tr>
+    <tr class="hl"><td class="bold">Report signing</td><td><span class="chip red">NEVER</span></td><td>—</td><td>Sign, amend-and-resign, addendum sign.</td><td>Signature = live step-up identity check + server hash-chain append at sign time. A queued signature could be replayed against content changed after the signer last saw it, and the signature timestamp would be unverifiable. No cached credential is ever acceptable. This row cannot be reconfigured per-tenant.</td></tr>
+    <tr><td class="bold">Critical results / STAT comms</td><td><span class="chip red">NEVER</span></td><td>—</td><td>Critical notify, ack recording.</td><td>An unsent "sent" state is a patient-safety lie; the pattern requires live delivery receipts (DLT SMS / WhatsApp BSP).</td></tr>
+    <tr><td class="bold">Admin, config, user management</td><td><span class="chip red">NEVER</span></td><td>—</td><td>All writes.</td><td>Config drift across branches during a partition is unrecoverable by FIFO replay.</td></tr>
+  </table>
+  <div class="small muted" style="margin-top:10px">Legend: <span class="chip green">FULL</span> queue-and-sync · <span class="chip amber">DRAFT-ONLY / READ-CACHE</span> partial with explicit limits · <span class="chip red">NEVER</span> hard-blocked with level-3 banner. Any new module must declare its row here before build; "we'll decide offline behaviour later" fails design review.</div>
+  <div class="banner info" style="margin-top:10px;margin-bottom:0"><b>Implementation note</b>Frontend: global <span class="mono">ConnectionStatusProvider</span> (React); offline actions queue in IndexedDB with client-generated correlation IDs and replay on reconnect. Backend edge service exposes IDEMPOTENT sync endpoints (correlation-ID dedupe). Offline registrations use temporary local UUIDs; the canonical MRN is assigned at sync; collisions route to the merge queue (FO-08).</div>
+</div>
+<p class="audit">Design-system pages are versioned artefacts (DS-04 v1.2, updated 21 Jul 2026 IST by K. Verma). Offline queue replays, conflict resolutions and capability-matrix changes are written to the immutable audit trail and recorded in the access log.</p>
+</section>

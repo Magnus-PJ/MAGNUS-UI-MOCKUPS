@@ -1,0 +1,137 @@
+<section class="screen" id="au-18">
+<div class="screen-head"><h1><span class="sid">AU-18</span> Admin: service accounts &amp; API keys</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G1 IDENTITY &amp; ACCESS — ADMIN</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · service accounts & API keys (foundation)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Manage non-human identities — integration engine, kiosk, display board, and the future patient portal — each with least-privilege scope chips and per-key lifecycle (created / last used / expiry). Keys rotate with a dual-key overlap window so integrations never break mid-shift; revoke is immediate and step-up protected. Secrets are shown exactly once at creation and are never retrievable again.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ADMIN</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org Admin) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Administration</div>
+      <div class="nav-item">Users &amp; roles</div>
+      <div class="nav-item">Password &amp; MFA policy</div>
+      <div class="nav-item">SSO &amp; realm settings</div>
+      <div class="nav-item">Sessions &amp; devices <span class="nav-badge">41</span></div>
+      <div class="nav-item active">Service accounts</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Access review</div>
+      <div class="nav-item">Audit log</div>
+      <div class="nav-item">Consent registry</div>
+      <div class="sec-label">Org</div>
+      <div class="nav-item">Branches</div>
+      <div class="nav-item">Notification providers</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Administration › Identity &amp; access › Service accounts &amp; API keys</div>
+      <div class="page-title">Service accounts &amp; API keys <span class="actions-right"><span class="btn small ghost">Usage log</span> <span class="btn small primary">+ New service account</span></span></div>
+      <div class="page-sub">4 service accounts · 6 active keys · scopes follow least privilege — an account can never be granted a scope wider than its template without a four-eyes approval.</div>
+
+      <div class="banner warn"><b>1 key expiring soon</b><span class="mono">mk_live_kio…9f4</span> (kiosk) expires 03 Aug 2026 — start rotation now to use the full 7-day overlap window. Owner: K. Verma · <span class="chip amber">SLA: rotate by 27 Jul</span></div>
+
+      <div class="card">
+        <div class="card-title">Service accounts <span class="right">4 accounts</span></div>
+        <table>
+          <tr><th>Account</th><th>Purpose</th><th>Scopes (least privilege)</th><th>Keys</th><th>Status</th><th></th></tr>
+          <tr>
+            <td class="bold mono">svc-integration@meridian</td><td>Integration engine — HL7/DICOM bridge (CT-ROOM-1 AE MERIDCT1, US-UNIT-2 AE MERIDUS2, MRI-ROOM-2)</td>
+            <td><span class="chip teal">orders:read</span> <span class="chip teal">orders:status</span> <span class="chip teal">studies:link</span> <span class="chip teal">worklist:write</span></td>
+            <td>2 active <span class="chip amber">rotation overlap</span></td><td><span class="chip green">ACTIVE</span></td>
+            <td><span class="btn small ghost">Manage</span></td>
+          </tr>
+          <tr>
+            <td class="bold mono">svc-kiosk@meridian</td><td>Lobby check-in kiosks (KIOSK-AW-01, KIOSK-BND-01)</td>
+            <td><span class="chip teal">appointments:checkin</span> <span class="chip teal">queue:token-issue</span></td>
+            <td>1 active <span class="chip amber">expires 03 Aug</span></td><td><span class="chip green">ACTIVE</span></td>
+            <td><span class="btn small">Rotate now</span></td>
+          </tr>
+          <tr>
+            <td class="bold mono">svc-display@meridian</td><td>Waiting-area queue display boards (token numbers only, no PHI)</td>
+            <td><span class="chip teal">queue:read-tokens</span></td>
+            <td>1 active</td><td><span class="chip green">ACTIVE</span></td>
+            <td><span class="btn small ghost">Manage</span></td>
+          </tr>
+          <tr class="dim">
+            <td class="bold mono">svc-portal@meridian</td><td>Future patient portal (MVP-2) — pre-provisioned, disabled</td>
+            <td><span class="chip grey">reports:release (dormant)</span> <span class="chip grey">payments:status (dormant)</span></td>
+            <td>0</td><td><span class="chip grey">DISABLED</span></td>
+            <td><span class="btn small ghost">Manage</span></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-title">API keys <span class="right">created / last used / expiry</span></div>
+        <table>
+          <tr><th>Key</th><th>Account</th><th>Created</th><th>Last used</th><th>Expiry</th><th>Status</th><th></th></tr>
+          <tr><td class="mono">mk_live_int…c21</td><td class="mono">svc-integration</td><td>18 Jul 2026 · K. Verma</td><td>2 min ago · 172.20.4.11</td><td>18 Jul 2027</td><td><span class="chip green">ACTIVE (new)</span></td><td><span class="btn small ghost">Usage</span> <span class="btn small warn-outline">Revoke</span></td></tr>
+          <tr><td class="mono">mk_live_int…7ab</td><td class="mono">svc-integration</td><td>19 Jan 2026 · K. Verma</td><td>4 h ago · 172.20.4.11</td><td><span class="chip amber">auto-revokes 31 Jul (overlap end)</span></td><td><span class="chip amber">RETIRING</span></td><td><span class="btn small ghost">Usage</span> <span class="btn small warn-outline">Revoke now</span></td></tr>
+          <tr><td class="mono">mk_live_kio…9f4</td><td class="mono">svc-kiosk</td><td>04 Aug 2025 · (prev admin)</td><td>38 s ago · KIOSK-AW-01</td><td><span class="chip red">03 Aug 2026 — 9 days</span></td><td><span class="chip green">ACTIVE</span></td><td><span class="btn small">Rotate</span> <span class="btn small warn-outline">Revoke</span></td></tr>
+          <tr><td class="mono">mk_live_dsp…e02</td><td class="mono">svc-display</td><td>12 Mar 2026 · K. Verma</td><td>12 s ago · DISPLAY-AW-02</td><td>12 Mar 2027</td><td><span class="chip green">ACTIVE</span></td><td><span class="btn small ghost">Usage</span> <span class="btn small warn-outline">Revoke</span></td></tr>
+          <tr class="dim"><td class="mono">mk_live_int…d90</td><td class="mono">svc-integration</td><td>02 Sep 2025</td><td>19 Jan 2026</td><td>—</td><td><span class="chip red">REVOKED 19 Jan</span></td><td><span class="btn small ghost">Usage</span></td></tr>
+        </table>
+        <div class="hint" style="font-size:11px;color:#64748B;margin-top:6px">Keys are stored as salted hashes — the full secret is displayed once at creation and cannot be recovered, only rotated. "Last used" shows source IP or bound device; a never-used key older than 30 days is flagged for revocation in the quarterly access review.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — CREATE SERVICE ACCOUNT WITH SCOPES (SECRET SHOWN ONCE)</div>
+<div class="modal-wrap"><div class="modal" style="max-width:640px">
+  <h3>New service account</h3>
+  <div class="field"><label>Account ID <span class="req">*</span></label><input class="input mono" value="svc-labfeed@meridian"><div class="hint">Non-human identity; cannot sign in interactively, no password, key-auth only.</div></div>
+  <div class="field"><label>Purpose <span class="req">*</span></label><input class="input" value="Outbound lab analyser results feed — Bandra biochemistry"></div>
+  <div class="field"><label>Scopes — least privilege <span class="req">*</span></label>
+    <div class="check"><span class="box on">✓</span> <span class="chip teal">lab-results:write</span> <span class="muted small">push analyser results to pending orders</span></div>
+    <div class="check"><span class="box on">✓</span> <span class="chip teal">orders:read</span> <span class="muted small">match sample IDs to open orders</span></div>
+    <div class="check"><span class="box">&nbsp;</span> <span class="chip grey">patients:read</span> <span class="muted small">not needed — order matching is by sample ID</span></div>
+    <div class="check"><span class="box">&nbsp;</span> <span class="chip grey">reports:release</span> <span class="chip outline-red">requires four-eyes approval</span></div>
+    <div class="hint">Start minimal; scopes can be widened later (widening always requires a second approver).</div>
+  </div>
+  <div class="field"><label>Key expiry</label><select class="select" style="max-width:220px"><option>1 year (default)</option></select></div>
+  <div class="field"><label>IP / device allowlist</label><input class="input mono" value="172.20.8.0/24 (Bandra lab VLAN)"></div>
+  <div class="banner danger" style="margin-top:6px"><b>Secret shown once</b><span class="mono" style="font-size:13px">mk_live_lab_5QH8vR2mKtWn7xE4cJd0…Pz</span><br>Copy it now and store in your secrets manager. After you close this dialog it is hashed and can never be displayed again — only rotated. <span class="btn small" style="margin-top:6px">Copy to clipboard</span></div>
+  <div class="check"><span class="box on">✓</span> I have stored the secret securely</div>
+  <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Create account (passkey step-up)</span></div>
+</div></div>
+
+<div class="state-tag">STATE C — ROTATION WITH DUAL-KEY OVERLAP WINDOW</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Rotate key — svc-integration@meridian</div>
+  <div class="page-sub">Zero-downtime rotation: both keys work during the overlap window, then the old key auto-revokes. Overlap 7 days by default (max 14).</div>
+  <div class="stepper">
+    <span class="step done"><span class="dot">✓</span> Issue new key</span><span class="step-line"></span>
+    <span class="step cur"><span class="dot">2</span> Overlap window — migrate callers</span><span class="step-line"></span>
+    <span class="step"><span class="dot">3</span> Old key auto-revokes</span>
+  </div>
+  <div class="card">
+    <div class="card-title">Overlap status <span class="right">ends 31 Jul 2026, 00:00 IST</span></div>
+    <table>
+      <tr><th>Key</th><th>Role</th><th>Traffic (last 24 h)</th><th>Trend</th></tr>
+      <tr class="hl"><td class="mono">mk_live_int…c21</td><td><span class="chip green">NEW</span></td><td>9,412 calls (87%)</td><td>rising — integration engine updated 22 Jul</td></tr>
+      <tr><td class="mono">mk_live_int…7ab</td><td><span class="chip amber">RETIRING</span></td><td>1,388 calls (13%)</td><td>falling — remaining traffic from MRI-ROOM-2 bridge node</td></tr>
+    </table>
+    <div class="progress" style="margin-top:8px"><i style="width:87%"></i></div>
+    <div class="small muted" style="margin-top:4px">87% of traffic migrated. Finish MRI-ROOM-2 bridge config before 31 Jul or extend the overlap (max once, +7 days, logged).</div>
+    <div style="display:flex;gap:8px;margin-top:10px"><span class="btn small">Extend overlap +7 d</span><span class="btn small warn-outline">Revoke old key now</span><span class="btn small ghost">View per-caller usage</span></div>
+  </div>
+  <div class="banner info"><b>Why overlap?</b>Immediate cutover would break the HL7/DICOM bridge mid-shift for CT-ROOM-1 (AE MERIDCT1) and US-UNIT-2 (AE MERIDUS2). Overlap lets each caller migrate independently while every call is attributed to a specific key in the usage log.</div>
+</div></div></div>
+
+<div class="state-tag">STATE D — KEY REVOKED (IMMEDIATE, STEP-UP + REASON)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner danger"><b>Key mk_live_kio…9f4 revoked immediately</b>Revoked 25 Jul 2026, 22:05 IST by K. Verma · reason: "Kiosk KIOSK-BND-01 reported stolen from Bandra lobby" · passkey step-up verified. All calls with this key now fail with <span class="mono">401 key_revoked</span>; propagation to edge completed in 8 s.</div>
+  <div class="card">
+    <div class="card-title">Post-revocation checklist</div>
+    <table>
+      <tr><th>Item</th><th>Status</th><th>Owner</th></tr>
+      <tr><td>KIOSK-AW-01 offline (shared the key) — issue replacement key &amp; re-pair</td><td><span class="chip red">OVERDUE 22:20 IST</span></td><td>K. Verma</td></tr>
+      <tr><td>Device binding for KIOSK-BND-01 unbound</td><td><span class="chip green">DONE 22:06</span></td><td>system</td></tr>
+      <tr><td>Usage log review — last 72 h of revoked key</td><td><span class="chip amber">IN PROGRESS · SLA 23:00</span></td><td>K. Verma</td></tr>
+      <tr><td>Incident note filed with branch manager (Bandra)</td><td><span class="chip amber">PENDING</span></td><td>D. Nair</td></tr>
+    </table>
+    <div style="display:flex;gap:8px;margin-top:10px"><span class="btn small primary">Issue replacement key</span><span class="btn small ghost">Open usage log (last 72 h)</span></div>
+  </div>
+</div></div></div>
+
+<p class="audit">Service-account creation, scope changes (with four-eyes approver identity), key issuance, rotations, overlap extensions and revocations are recorded in the access log. Secrets are shown once, transmitted over TLS only, and stored solely as salted hashes; per-key usage is attributable for 400 days.</p>
+</section>

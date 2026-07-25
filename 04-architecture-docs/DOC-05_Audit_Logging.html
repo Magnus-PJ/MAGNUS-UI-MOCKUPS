@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DOC-05 · Audit &amp; Logging Architecture · Magnus HMS</title>
+<style>
+/* Magnus HMS — NS design pack shared design system */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
+.mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
+.muted{color:#64748B}.small{font-size:12px}.bold{font-weight:700}
+/* ---------- page / screen frame ---------- */
+.screen{page-break-after:always;padding:28px 34px;background:#fff;min-height:1000px}
+.screen-head{display:flex;justify-content:space-between;align-items:flex-start;border-left:5px solid #0F766E;padding:6px 0 6px 14px;margin-bottom:6px}
+.screen-head h1{font-size:22px;font-weight:800}
+.screen-head .sid{color:#0F766E;margin-right:10px}
+.screen-head .meta{text-align:right}
+.screen-head .meta .cluster{color:#64748B;font-size:12px;margin-top:3px}
+.gap-note{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:8px 12px;margin:10px 0 16px;font-size:12.5px;color:#7C2D12}
+.gap-note b{color:#9A3412}
+/* ---------- app chrome ---------- */
+.frame{border:1px solid #CBD5E1;border-radius:10px;overflow:hidden;background:#F4F6F8;box-shadow:0 1px 4px rgba(15,23,42,.08);margin-bottom:22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:2px solid #0F766E;padding:9px 16px}
+.brand{font-weight:800;color:#0F766E}.brand span{color:#1E293B}
+.org{font-size:12.5px;color:#334155;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px}
+.userchip{font-size:12.5px;color:#334155}
+.userchip .av{display:inline-block;background:#CCFBF1;color:#0F766E;font-weight:700;border-radius:5px;padding:2px 6px;margin-right:6px;font-size:11px}
+.body{display:flex;min-height:520px}
+.sidebar{width:196px;background:#fff;border-right:1px solid #E2E8F0;padding:12px 0;flex-shrink:0}
+.sec-label{font-size:10.5px;letter-spacing:.08em;color:#94A3B8;font-weight:700;padding:8px 16px 4px;text-transform:uppercase}
+.nav-item{padding:7px 16px;font-size:13px;color:#334155;display:flex;justify-content:space-between;align-items:center}
+.nav-item.active{background:#F0FDFA;color:#0F766E;font-weight:700;border-left:3px solid #0F766E;padding-left:13px}
+.nav-badge{background:#0F766E;color:#fff;border-radius:9px;font-size:10.5px;padding:1px 7px;font-weight:700}
+.nav-badge.red{background:#B91C1C}
+.main{flex:1;padding:16px 18px;min-width:0}
+.crumb{font-size:12px;color:#64748B;margin-bottom:8px}
+.page-title{font-size:19px;font-weight:800;margin-bottom:2px}
+.page-sub{font-size:12.5px;color:#64748B;margin-bottom:14px}
+.actions-right{float:right}
+/* ---------- components ---------- */
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card-title{font-weight:800;font-size:14.5px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.card-title .right{font-size:10.5px;letter-spacing:.07em;color:#94A3B8;font-weight:700;text-transform:uppercase}
+.row{display:flex;gap:14px}.row>*{min-width:0}.grow{flex:1}
+.btn{display:inline-block;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:700;border:1px solid #CBD5E1;background:#fff;color:#334155;text-align:center;white-space:nowrap}
+.btn.primary{background:#0F766E;border-color:#0F766E;color:#fff}
+.btn.danger{background:#B91C1C;border-color:#B91C1C;color:#fff}
+.btn.warn-outline{border-color:#F59E0B;color:#92400E;background:#FFFBEB}
+.btn.ghost{border:none;background:none;color:#0F766E;padding:7px 6px}
+.btn.small{padding:4px 10px;font-size:12px}
+.btn.disabled{opacity:.45}
+.chip{display:inline-block;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip.teal{background:#CCFBF1;color:#0F766E}
+.chip.green{background:#DCFCE7;color:#15803D}
+.chip.amber{background:#FEF3C7;color:#92400E}
+.chip.red{background:#FEE2E2;color:#B91C1C}
+.chip.grey{background:#F1F5F9;color:#475569}
+.chip.blue{background:#E0F2FE;color:#0369A1}
+.chip.violet{background:#EDE9FE;color:#6D28D9}
+.chip.outline-red{background:#fff;border:1.5px solid #B91C1C;color:#B91C1C}
+.banner{border-radius:8px;padding:10px 13px;font-size:12.5px;margin-bottom:12px;border:1px solid}
+.banner b{display:block;margin-bottom:2px;font-size:13px}
+.banner.info{background:#E0F2FE;border-color:#7DD3FC;color:#075985}
+.banner.warn{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+.banner.danger{background:#FEE2E2;border-color:#FCA5A5;color:#991B1B}
+.banner.success{background:#DCFCE7;border-color:#86EFAC;color:#166534}
+.banner.reg{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding:7px 9px;border-bottom:2px solid #E2E8F0;background:#F8FAFC}
+td{padding:8px 9px;border-bottom:1px solid #EEF2F6;vertical-align:top}
+tr.hl td{background:#F0FDFA}
+tr.dim td{color:#94A3B8}
+.kv{display:grid;grid-template-columns:150px 1fr;row-gap:6px;column-gap:12px;font-size:12.5px}
+.kv dt{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding-top:2px}
+.kv dd{margin:0}
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+.field label .req{color:#B91C1C}
+.field .hint{font-size:11px;color:#64748B;margin-top:3px}
+.input,.select,.textarea{width:100%;border:1px solid #CBD5E1;border-radius:7px;padding:7px 10px;font-size:13px;background:#fff;color:#1E293B}
+.input.err{border-color:#B91C1C;background:#FEF2F2}
+.textarea{min-height:64px}
+.check{font-size:12.5px;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.box{display:inline-block;width:14px;height:14px;border:1.6px solid #64748B;border-radius:3px;flex-shrink:0;margin-top:1px;text-align:center;line-height:12px;font-size:11px;font-weight:800}
+.box.on{background:#0F766E;border-color:#0F766E;color:#fff}
+.radio{border-radius:50%}
+.radio.on{background:#fff;border-color:#0F766E;box-shadow:inset 0 0 0 3.5px #0F766E;color:transparent}
+/* modal */
+.modal-wrap{background:#64748B22;border:1px dashed #94A3B8;border-radius:12px;padding:26px 40px;margin:14px 0}
+.modal{background:#fff;border-radius:12px;border-top:5px solid #0F766E;box-shadow:0 8px 30px rgba(15,23,42,.25);max-width:560px;margin:0 auto;padding:18px 20px}
+.modal.danger{border-top-color:#B91C1C}
+.modal h3{font-size:16px;margin-bottom:8px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+/* misc */
+.divider-label{text-align:center;color:#94A3B8;font-size:11.5px;margin:20px 0 14px;position:relative}
+.divider-label:before,.divider-label:after{content:"";display:inline-block;width:24%;border-top:1px dashed #CBD5E1;vertical-align:middle;margin:0 10px}
+.audit{font-size:11px;color:#8A6D1D;margin-top:10px}
+.audit:before{content:"🔒 "}
+.state-tag{font-size:10px;letter-spacing:.08em;font-weight:800;text-transform:uppercase;color:#94A3B8;text-align:right;margin-bottom:4px}
+.kpi-row{display:flex;gap:12px;margin-bottom:14px}
+.kpi{flex:1;background:#fff;border:1px solid #E2E8F0;border-left:4px solid #0F766E;border-radius:9px;padding:10px 13px}
+.kpi.amber{border-left-color:#F59E0B}.kpi.red{border-left-color:#B91C1C}
+.kpi .n{font-size:23px;font-weight:800}.kpi .l{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700}
+.kpi .s{font-size:11px;color:#64748B;margin-top:2px}
+.stepper{display:flex;gap:6px;align-items:center;font-size:12px;color:#64748B;margin-bottom:14px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:6px}
+.step .dot{width:20px;height:20px;border-radius:50%;background:#E2E8F0;color:#475569;font-size:11px;font-weight:800;text-align:center;line-height:20px}
+.step.done .dot{background:#15803D;color:#fff}.step.cur .dot{background:#0F766E;color:#fff}
+.step.cur{color:#0F766E;font-weight:700}
+.step-line{width:26px;border-top:2px solid #CBD5E1}
+.sig-box{border:1.5px dashed #94A3B8;border-radius:8px;min-height:64px;background:#F8FAFC;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:12px;font-style:italic}
+.sig-box.signed{border-style:solid;border-color:#15803D;color:#166534;background:#F0FDF4;font-family:'Segoe Script','Comic Sans MS',cursive;font-size:17px;font-style:normal}
+.ladder{border-left:3px solid #E2E8F0;margin-left:8px;padding-left:16px}
+.ladder .tier{margin-bottom:12px;position:relative}
+.ladder .tier:before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:#CBD5E1}
+.ladder .tier.done:before{background:#15803D}.ladder .tier.cur:before{background:#0F766E;box-shadow:0 0 0 3px #CCFBF1}
+.ladder .tier.fail:before{background:#B91C1C}
+.progress{height:7px;border-radius:4px;background:#E2E8F0;overflow:hidden;margin-top:4px}
+.progress i{display:block;height:100%;background:#0F766E}
+.progress.amber i{background:#F59E0B}.progress.red i{background:#B91C1C}
+.split{display:grid;grid-template-columns:1fr 300px;gap:14px}
+.timeline{font-size:12.5px}
+.timeline .ev{display:flex;gap:10px;margin-bottom:9px}
+.timeline .t{color:#64748B;white-space:nowrap;font-family:Consolas,monospace;font-size:11.5px;padding-top:1px}
+/* ---------- doc overrides ---------- */
+body{background:#F4F6F8;padding:30px}
+.doc{max-width:1100px;margin:0 auto}
+h1{font-size:26px;margin:18px 0 6px}
+h2{font-size:19px;margin:22px 0 8px;color:#0F766E}
+.flow{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:8px 0}
+.fstep{background:#fff;border:1px solid #CBD5E1;border-left:4px solid #0F766E;border-radius:7px;padding:6px 10px;font-size:12.5px}
+.fstep .fid{font-family:Consolas,monospace;font-weight:800;color:#0F766E;font-size:11px;display:block}
+.farr{color:#94A3B8;font-weight:800}
+</style>
+</head>
+<body>
+<div class="doc">
+
+<!-- ============ DOC HEADER ============ -->
+<div class="card" style="border-left:5px solid #0F766E">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start">
+    <div>
+      <div class="mono" style="color:#0F766E;font-weight:800;font-size:13px">DOC-05</div>
+      <h1 style="margin:4px 0 4px">Audit &amp; Logging Architecture</h1>
+      <div class="muted">Magnus HMS · MVP 1 · Architecture &amp; Workflow Documentation</div>
+    </div>
+    <div style="text-align:right">
+      <div class="chip teal">Version 1.0</div>
+      <div class="small muted" style="margin-top:6px">July 2026</div>
+      <div class="small muted">Audience: NUMINACORE development team</div>
+      <div class="small muted">Status: Approved for build</div>
+    </div>
+  </div>
+  <div class="small muted" style="margin-top:10px">
+    Normative for: audit event pipeline, hash-chain integrity, operational logging, observability baseline. Cross-references: DOC-02 (Security &amp; Identity), DOC-08 (DPDP Governance), design-pack screens AD-20, PL-07, GV-02, GV-03, GV-08, DS-11.
+  </div>
+</div>
+
+<div class="banner reg"><b>Regulatory anchors</b>
+DPDP Act 2023 §8(4) reasonable security safeguards &amp; audit trail; PC-PNDT Rules — Form F register traceability (IR-01..IR-04); AERB radiation dose &amp; equipment records (TK-10, IR-05); CERT-In direction of 28-Apr-2022 — 180-day minimum log retention within India, 6-hour breach reporting clock (GV-09). Audit is a first-class subsystem, not a side effect: <b>every one of the 225 screens carries an audit line (DS-11 pattern)</b> stating what viewing/acting on that screen records.</div>
+
+<!-- ============ 1. PRINCIPLES ============ -->
+<h2>1 · Design principles</h2>
+<div class="card">
+<table>
+<tr><th style="width:60px">#</th><th style="width:250px">Principle</th><th>Implementation consequence</th></tr>
+<tr><td class="mono">P-1</td><td class="bold">Append-only, write-once</td><td>Audit store accepts INSERT only. No UPDATE/DELETE grants for any application role, including DBA service accounts (AU-18 keys are scoped write-only to the ingest endpoint). Corrections are new events referencing the corrected event.</td></tr>
+<tr><td class="mono">P-2</td><td class="bold">Audit before commit</td><td>The audit event is written in the same transaction (transactional outbox) as the business mutation. If the audit insert fails, the business action fails. Reads are audited asynchronously with at-least-once delivery and a 60-second flush SLA.</td></tr>
+<tr><td class="mono">P-3</td><td class="bold">Pseudonymised subject</td><td>Audit rows never carry patient name/phone/address — only the surrogate <span class="mono">patient_ref</span> (opaque UUIDv7) plus masked MRN display form <span class="mono">#MRN-••••30</span> for UI rendering (same masking as denial screens, DD-05/DD-06).</td></tr>
+<tr><td class="mono">P-4</td><td class="bold">Purpose-of-use on every event</td><td>Every API call carries a <span class="mono">X-Purpose-Of-Use</span> header set by the client from screen context (TREATMENT, PAYMENT, OPERATIONS, EMERGENCY, LEGAL, PATIENT-REQUEST, RESEARCH-DEIDENT). Missing header → 400 in non-prod, logged anomaly in prod.</td></tr>
+<tr><td class="mono">P-5</td><td class="bold">Tamper-evident, not tamper-proof</td><td>SHA-256 hash chain per branch-day partition, daily anchor persisted to the platform ledger (PL-07). We detect modification; prevention is layered (P-1 grants + storage immutability policy).</td></tr>
+<tr><td class="mono">P-6</td><td class="bold">Audit of audit</td><td>Opening AD-20 / GV-02 / GV-03 / PL-07, running an audit search, or exporting audit data is itself an audit event of category SECURITY (§4.6).</td></tr>
+<tr><td class="mono">P-7</td><td class="bold">Data residency</td><td>Audit store, log store and metric store reside in Indian regions only (GV-14). Cross-border export of audit extracts requires GV-15 export-governance approval.</td></tr>
+</table>
+</div>
+
+<!-- ============ 2. PIPELINE ============ -->
+<h2>2 · Event pipeline (write path)</h2>
+<div class="flow">
+  <div class="fstep"><span class="fid">Any screen</span>User action / record open (DS-11 audit line)</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">API GW</span>Enrich: actor, session, device, branch, purpose header</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">Service</span>Business tx + audit event in transactional outbox</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">audit-svc</span>Validate schema, compute chain_hash, append</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">PL-07</span>Daily anchor + integrity verification job</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">AD-20</span>Org audit viewer (search, filter, export)</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">GV-02/03</span>Review workflows (sampling, break-glass)</div>
+</div>
+<div class="card">
+  <div class="kv">
+    <dt>Ingest transport</dt><dd>Kafka topic <span class="mono">audit.events.v1</span>, partition key = <span class="mono">branch_id</span>; ordering guaranteed per branch (required for hash chaining).</dd>
+    <dt>Offline branches</dt><dd>FO offline-first mode (IN-10 edge sync) queues audit events locally with an <span class="mono">offline_seq</span>; on reconnect they are appended with original device timestamps preserved and a <span class="mono">sync_lag_ms</span> annotation. Chain hash is computed at server append time, never on the edge.</dd>
+    <dt>Clock discipline</dt><dd>All servers NTP-synced; events store <span class="mono">ts_utc</span> authoritative + derived <span class="mono">ts_ist</span> (UTC+05:30) for display and regulator exports (IR-02, IR-05 expect IST).</dd>
+    <dt>Idempotency</dt><dd><span class="mono">event_id</span> is a client/service-generated UUIDv7; duplicate ids are dropped on ingest (at-least-once transport, exactly-once store).</dd>
+  </div>
+</div>
+
+<!-- ============ 3. SCHEMA ============ -->
+<h2>3 · Audit event schema</h2>
+<p class="small muted">Canonical record: table <span class="mono">audit_event</span> (append-only, partitioned by <span class="mono">branch_id, day</span>). JSON representation on <span class="mono">audit.events.v1</span> matches column-for-column.</p>
+<div class="card">
+<table>
+<tr><th style="width:150px">Field</th><th style="width:130px">Type</th><th style="width:55px">Req</th><th>Definition &amp; rules</th><th style="width:225px">Example (synthetic)</th></tr>
+<tr><td class="mono">event_id</td><td class="mono">uuid v7</td><td>✔</td><td>Globally unique, time-ordered. Idempotency key on ingest.</td><td class="mono small">018f3a2c-9b41-7cc2-a3d1-55e0…</td></tr>
+<tr><td class="mono">event_code</td><td class="mono">varchar(12)</td><td>✔</td><td>Taxonomy code from §4, format <span class="mono">CAT-nnnn</span>.</td><td class="mono small">AUTH-0107</td></tr>
+<tr><td class="mono">actor_id</td><td class="mono">uuid</td><td>✔</td><td>Keycloak subject of the authenticated principal. Service accounts (AU-18) use their own subject — never a shared identity. Kiosk/patient-link flows (FO-22, PT-01) use the pseudonymous link principal.</td><td class="mono small">usr_9f21 (Dr. Kavitha Rao)</td></tr>
+<tr><td class="mono">actor_role</td><td class="mono">varchar(40)</td><td>✔</td><td>Effective role at event time (roles can change later; we snapshot).</td><td class="mono small">RADIOLOGIST</td></tr>
+<tr><td class="mono">on_behalf_of</td><td class="mono">uuid, null</td><td>—</td><td>Delegation context: set when acting under DD-10 delegation, FO-21 shift handover, or an approved DD-06 access request on another clinician's patient. Null = acting as self.</td><td class="mono small">usr_4be0 (Dr. A. Menon, on leave)</td></tr>
+<tr><td class="mono">subject_patient</td><td class="mono">uuid, null</td><td>—</td><td><b>Pseudonymised</b> patient reference (single-MRN identity spine). Never the MRN string, never demographics. UI resolves to masked form <span class="mono">#MRN-••••30</span>; full resolution requires viewer's own authorised access (AD-20 enforces).</td><td class="mono small">pat_7d33…f2</td></tr>
+<tr><td class="mono">subject_type / subject_id</td><td class="mono">varchar / uuid</td><td>✔</td><td>The non-patient object acted on: order, study, report, invoice, user, device, template, config key…</td><td class="mono small">INVOICE / inv_00218</td></tr>
+<tr><td class="mono">purpose_of_use</td><td class="mono">enum</td><td>✔</td><td>TREATMENT · PAYMENT · OPERATIONS · EMERGENCY · LEGAL · PATIENT-REQUEST · RESEARCH-DEIDENT. EMERGENCY only via break-glass (DD-05) and forces GV-03 review.</td><td class="mono small">EMERGENCY</td></tr>
+<tr><td class="mono">legal_basis</td><td class="mono">enum</td><td>✔</td><td>DPDP basis snapshot: CONSENT (consent_id FK to GV-11 registry) · LEGITIMATE-USE-MEDICAL · LEGAL-OBLIGATION (PC-PNDT/AERB/GST/CERT-In) · COURT-ORDER (legal hold ref GV-07).</td><td class="mono small">CONSENT · cns_2216</td></tr>
+<tr><td class="mono">action</td><td class="mono">enum</td><td>✔</td><td>VIEW · SEARCH · CREATE · UPDATE · SIGN · APPROVE · REJECT · PRINT · EXPORT · SEND · MERGE · DELETE · OVERRIDE · LOGIN · LOGOUT · GRANT · REVOKE.</td><td class="mono small">OVERRIDE</td></tr>
+<tr><td class="mono">before_hash / after_hash</td><td class="mono">char(64) ×2</td><td>mut.</td><td>SHA-256 of the canonicalised (RFC 8785 JCS) subject document before and after mutation. Required for all mutating actions; null for VIEW/SEARCH. The audit row stores hashes, <b>not payloads</b> — diffs are reconstructed from the domain store's version history when a reviewer needs detail (AD-20 "show diff").</td><td class="mono small">a91c…04 → 7be2…d8</td></tr>
+<tr><td class="mono">reason_code / reason_text</td><td class="mono">varchar</td><td>cond.</td><td>Mandatory for OVERRIDE (CS-04, OR-07), break-glass (DD-05), merge (FO-08), cancel/refund (BL-06/OR-05), unlock (AU-14), legal-hold ops (GV-07). Free text ≥ 20 chars where DS pattern requires justification.</td><td class="mono small">CS-OVR-03 "Prior GFR on file, verified verbally"</td></tr>
+<tr><td class="mono">branch_id</td><td class="mono">uuid</td><td>✔</td><td>Service-point / branch scope (AD-02). Hash-chain partition key.</td><td class="mono small">brn_BLR-KOR-01</td></tr>
+<tr><td class="mono">device_id / channel</td><td class="mono">varchar</td><td>✔</td><td>Registered workstation, kiosk (FO-22), modality console (TK-07), API client (AU-18), or patient-link channel (PT-xx). Includes IP and user-agent fingerprint hash.</td><td class="mono small">wks_FO_03 · 10.4.22.31</td></tr>
+<tr><td class="mono">session_id / stepup_ref</td><td class="mono">uuid / uuid</td><td>✔ / cond.</td><td>Keycloak session. <span class="mono">stepup_ref</span> links to the AU-09 step-up assertion for sign/money/legal actions — a SIGN or REFUND event without a step-up ref fails validation.</td><td class="mono small">ses_c410 · su_88a1</td></tr>
+<tr><td class="mono">ts_utc / ts_ist</td><td class="mono">timestamptz</td><td>✔</td><td>Server receive time (authoritative) in UTC; IST rendering derived, both persisted for regulator exports. Edge-queued events additionally keep <span class="mono">device_ts</span> + <span class="mono">sync_lag_ms</span>.</td><td class="mono small">2026-07-25T08:42:11Z / 14:12:11 IST</td></tr>
+<tr class="hl"><td class="mono">chain_hash</td><td class="mono">char(64)</td><td>✔</td><td>SHA-256( prev_chain_hash ‖ canonical(event) ). Computed at append per branch-day partition; first event of the day chains from yesterday's anchored terminal hash. See §6.</td><td class="mono small">f04a…9c</td></tr>
+</table>
+</div>
+
+<!-- ============ 4. TAXONOMY ============ -->
+<h2>4 · Event taxonomy</h2>
+<p class="small muted">Seven categories. Codes are stable API contract values — never renumber; deprecate and add. Ranges reserved per category: <span class="mono">0001–0999</span>.</p>
+
+<div class="card">
+<div class="card-title">4.1 · ACCESS <span class="chip blue">who saw what</span></div>
+<table>
+<tr><th style="width:110px">Code</th><th style="width:250px">Event</th><th style="width:220px">Emitting screens</th><th>Notes</th></tr>
+<tr><td class="mono">AUTH-0101</td><td>Sign-in success / failure</td><td class="mono small">AU-01, AU-02</td><td>Failure includes failure class (bad-cred, locked, policy-gate AU-13) — never the attempted password.</td></tr>
+<tr><td class="mono">AUTH-0102</td><td>2FA verify / enrol / lost-authenticator</td><td class="mono small">AU-03, AU-04, AU-05</td><td>Lost-authenticator recovery also raises SEC-0605 anomaly candidate.</td></tr>
+<tr><td class="mono">AUTH-0103</td><td>Step-up assertion issued</td><td class="mono small">AU-09</td><td>Referenced by every SIGN/REFUND/legal event via <span class="mono">stepup_ref</span>.</td></tr>
+<tr><td class="mono">AUTH-0104</td><td>Session lock / unlock at shared terminal</td><td class="mono small">AU-08, FO-22</td><td>Kiosk auto-lock after 90 s idle is also logged (proof of shared-terminal hygiene).</td></tr>
+<tr><td class="mono">AUTH-0105</td><td>Patient record opened</td><td class="mono small">FO-05, DD-01, RD-03, TK-02…</td><td><b>Always logged</b> — every render of a patient-identified view, incl. viewer priors (same-org allow-and-audit rule).</td></tr>
+<tr><td class="mono">AUTH-0106</td><td>Patient search executed</td><td class="mono small">FO-02, DD-07, BL-01</td><td>Stores the query <i>shape</i> (fields used + result count), not raw query text containing names/phones.</td></tr>
+<tr><td class="mono">AUTH-0107</td><td>Break-glass access</td><td class="mono small">DD-05</td><td>purpose=EMERGENCY, mandatory reason, auto-enrols into GV-03 2-working-day review queue, RED banner on the session.</td></tr>
+<tr><td class="mono">AUTH-0108</td><td>Access request raised / approved / denied</td><td class="mono small">DD-06</td><td>Denial responses render masked identity <span class="mono">#MRN-••••30</span> only.</td></tr>
+<tr><td class="mono">AUTH-0109</td><td>Print / export / download of PHI</td><td class="mono small">RD-13, FO-14, BL-19, AD-20, GV-15</td><td><b>Always logged</b>; export events carry file manifest hash + destination class (local print, patient link PT-02, payer, regulator).</td></tr>
+<tr><td class="mono">AUTH-0110</td><td>Patient-link access (OTP view)</td><td class="mono small">PT-01, PT-02, PT-07</td><td>Actor = pseudonymous link principal; OTP failures + expiry (PT-03) logged for abuse detection.</td></tr>
+</table>
+</div>
+
+<div class="card">
+<div class="card-title">4.2 · CLINICAL <span class="chip teal">care &amp; imaging</span></div>
+<table>
+<tr><th style="width:110px">Code</th><th style="width:250px">Event</th><th style="width:220px">Emitting screens</th><th>Notes</th></tr>
+<tr><td class="mono">CLIN-0201</td><td>Order placed / modified / cancelled</td><td class="mono small">OR-01, OR-05, DD-03</td><td>Duplicate-intercept outcomes (OR-02: proceed vs abandon) logged with the conflicting order ref.</td></tr>
+<tr><td class="mono">CLIN-0202</td><td>Safety screening completed / failed</td><td class="mono small">CS-01, CS-02, TK-09</td><td>Gate evaluation result is snapshotted — TK-01 Perform is blocked until gates pass or CS-04 override exists.</td></tr>
+<tr><td class="mono">CLIN-0203</td><td>Physician safety override</td><td class="mono small">CS-04, OR-07 (STAT)</td><td><b>Always logged</b>; four-eyes: overriding physician ≠ ordering technician; step-up AU-09 required.</td></tr>
+<tr><td class="mono">CLIN-0204</td><td>Acquisition start / complete / retake / exception</td><td class="mono small">TK-02, TK-03, TK-05</td><td>Retake logs dose delta into the dose registry (TK-10) — AERB traceability.</td></tr>
+<tr><td class="mono">CLIN-0205</td><td>Contrast administered / adverse reaction</td><td class="mono small">TK-06, CS-05</td><td>Adverse reaction also opens incident (GV-08) automatically.</td></tr>
+<tr><td class="mono">CLIN-0206</td><td>Report signed / addendum issued</td><td class="mono small">RD-09, RD-12</td><td>SIGN carries before/after hash of the report document + <span class="mono">stepup_ref</span>. Signed report is immutable; corrections only via addendum.</td></tr>
+<tr><td class="mono">CLIN-0207</td><td>Critical result flagged / acknowledged / escalated</td><td class="mono small">RD-10, RD-11, DD-02</td><td>Every rung of the escalation ladder (RED 15 m / ORANGE 4 h) is an event — the ladder is reconstructed entirely from audit.</td></tr>
+<tr><td class="mono">CLIN-0208</td><td>Prior study viewed cross-branch</td><td class="mono small">RD-03, RD-05</td><td>Same-org priors: <b>allow and audit</b> — no prompt, but AUTH-0105 + CLIN-0208 pair always emitted.</td></tr>
+<tr><td class="mono">CLIN-0209</td><td>Form F created / corrected / submitted</td><td class="mono small">CS-06, IR-01..IR-04</td><td>legal_basis=LEGAL-OBLIGATION; correction events reference original entry; register export hash recorded.</td></tr>
+</table>
+</div>
+
+<div class="card">
+<div class="card-title">4.3 · BILLING <span class="chip amber">money</span></div>
+<table>
+<tr><th style="width:110px">Code</th><th style="width:250px">Event</th><th style="width:220px">Emitting screens</th><th>Notes</th></tr>
+<tr><td class="mono">BILL-0301</td><td>Invoice issued / voided-by-credit-note</td><td class="mono small">BL-02, BL-07</td><td>after_hash of issued invoice = the immutability reference used by GST export (BL-19) reconciliation.</td></tr>
+<tr><td class="mono">BILL-0302</td><td>Payment collected / UPI state change</td><td class="mono small">BL-03, BL-04</td><td>Every UPI transition (initiated→awaiting→confirmed / timeout path) is an event; see DOC-06 §4.</td></tr>
+<tr><td class="mono">BILL-0303</td><td>Refund / credit note / write-off / discount approval</td><td class="mono small">BL-06, BL-07, BL-17, BL-08</td><td>Approval events capture approver, limit rule matched, async approval token; step-up AU-09 on approver.</td></tr>
+<tr><td class="mono">BILL-0304</td><td>Cash session open / close / variance</td><td class="mono small">BL-09</td><td>Variance beyond tolerance forces reason + supervisor countersign (four-eyes) — both are events.</td></tr>
+<tr><td class="mono">BILL-0305</td><td>GST period export / period lock</td><td class="mono small">BL-19, BL-13</td><td>Export manifest hash anchored; post-lock mutation attempts are rejected AND logged as SEC-0604.</td></tr>
+</table>
+</div>
+
+<div class="card">
+<div class="card-title">4.4 · CONSENT <span class="chip violet">DPDP</span></div>
+<table>
+<tr><th style="width:110px">Code</th><th style="width:250px">Event</th><th style="width:220px">Emitting screens</th><th>Notes</th></tr>
+<tr><td class="mono">CONS-0401</td><td>Consent captured / version shown</td><td class="mono small">FO-03..05, CS-03, PT-07, AD-10</td><td>Stores notice version id + language shown (PT-11) — proof of informed consent text at that moment.</td></tr>
+<tr><td class="mono">CONS-0402</td><td>Consent withdrawn / restricted</td><td class="mono small">PT-08, GV-11</td><td>Downstream suppression (NT-05) actions link back to this event.</td></tr>
+<tr><td class="mono">CONS-0403</td><td>Rights request lifecycle</td><td class="mono small">PT-08, PT-09, GV-05</td><td>Access/correction/erasure request → decision → fulfilment, each with SLA timestamps for GV-16 DPO reporting.</td></tr>
+<tr><td class="mono">CONS-0404</td><td>Deletion executed / blocked by hold</td><td class="mono small">GV-04, GV-07</td><td>Deletion emits tombstone event with manifest hash of destroyed set; legal-hold block records hold id.</td></tr>
+</table>
+</div>
+
+<div class="card">
+<div class="card-title">4.5 · ADMIN <span class="chip grey">configuration</span></div>
+<table>
+<tr><th style="width:110px">Code</th><th style="width:250px">Event</th><th style="width:220px">Emitting screens</th><th>Notes</th></tr>
+<tr><td class="mono">ADMN-0501</td><td>User / role / permission change</td><td class="mono small">AD-03, AD-04, AD-05</td><td>GRANT/REVOKE with before/after role-set hashes; feeds GV-02 access review.</td></tr>
+<tr><td class="mono">ADMN-0502</td><td>Patient merge executed</td><td class="mono small">FO-07, FO-08</td><td><b>Always logged</b>; irreversible → four-eyes (proposer ≠ approver), survivor + retired MRN refs, full field-resolution map hash.</td></tr>
+<tr><td class="mono">ADMN-0503</td><td>Catalog / price / tax / number-series change</td><td class="mono small">BL-10, BL-13, AD-16</td><td>Number-series edits are step-up + four-eyes (affects statutory document integrity, DOC-06 §3).</td></tr>
+<tr><td class="mono">ADMN-0504</td><td>Feature toggle / template / terminology change</td><td class="mono small">AD-17, AD-15, AD-11</td><td>Toggle flips capture rollout scope; report-template changes (RD-18) versioned.</td></tr>
+<tr><td class="mono">ADMN-0505</td><td>Bulk import executed</td><td class="mono small">AD-12</td><td>Row counts, reject counts, source-file hash.</td></tr>
+</table>
+</div>
+
+<div class="card">
+<div class="card-title">4.6 · SECURITY <span class="chip red">threat &amp; meta-audit</span></div>
+<table>
+<tr><th style="width:110px">Code</th><th style="width:250px">Event</th><th style="width:220px">Emitting screens</th><th>Notes</th></tr>
+<tr><td class="mono">SEC-0601</td><td>Audit log viewed / searched / exported</td><td class="mono small">AD-20, GV-02, GV-03, PL-07</td><td><b>Log access is itself logged</b> (P-6). Export requires step-up AU-09 and GV-15 approval if leaving the org.</td></tr>
+<tr><td class="mono">SEC-0602</td><td>Admin unlock / password reset by admin</td><td class="mono small">AU-14, AU-06</td><td></td></tr>
+<tr><td class="mono">SEC-0603</td><td>API key / service account lifecycle</td><td class="mono small">AU-18</td><td>Create/rotate/revoke; key material never in the event, key-id only.</td></tr>
+<tr><td class="mono">SEC-0604</td><td>Authorisation denial / policy violation</td><td class="mono small">any screen, AU-13</td><td>Includes post-lock mutation attempts (BILL-0305 note) and masked-identity denials.</td></tr>
+<tr><td class="mono">SEC-0605</td><td>Anomaly flag raised</td><td class="mono small">system → GV-02, GV-16</td><td>Detector output (§7.3): self-lookup, volume spike, after-hours pattern, VIP access, geographic impossibility.</td></tr>
+<tr><td class="mono">SEC-0606</td><td>Integrity check pass / FAIL</td><td class="mono small">PL-07, AD-20 badge</td><td>FAIL is a P1 incident (GV-08) and starts the CERT-In 6-hour assessment clock via the breach runbook (GV-09).</td></tr>
+</table>
+</div>
+
+<div class="card">
+<div class="card-title">4.7 · PLATFORM <span class="chip blue">machinery</span></div>
+<table>
+<tr><th style="width:110px">Code</th><th style="width:250px">Event</th><th style="width:220px">Emitting screens</th><th>Notes</th></tr>
+<tr><td class="mono">PLAT-0701</td><td>Integration message quarantine / retry / replay</td><td class="mono small">IN-03, IN-06</td><td>Replay of a clinical message is a mutating action → before/after hash of target object.</td></tr>
+<tr><td class="mono">PLAT-0702</td><td>Edge sync batch applied</td><td class="mono small">IN-10</td><td>Batch id, device, event count, conflict resolutions.</td></tr>
+<tr><td class="mono">PLAT-0703</td><td>Notification sent / failed / suppressed</td><td class="mono small">NT-01, NT-02, NT-05, NT-06</td><td>DLT template id + channel; suppression links to CONS-0402.</td></tr>
+<tr><td class="mono">PLAT-0704</td><td>Scheduled job run / failure</td><td class="mono small">AD-18, PL-07</td><td>Includes the nightly integrity job itself.</td></tr>
+<tr><td class="mono">PLAT-0705</td><td>MWL sync / device board state change</td><td class="mono small">TK-08, TK-07, IN-02</td><td></td></tr>
+</table>
+</div>
+
+<!-- ============ 5. ALWAYS LOGGED ============ -->
+<h2>5 · The non-negotiable list — ALWAYS logged</h2>
+<div class="banner danger"><b>Build gate</b> A screen or API that performs any action below and does not emit the mapped event fails code review. This list is the acceptance test for the DS-11 audit-line pattern on all 225 screens.</div>
+<div class="card">
+<table>
+<tr><th style="width:230px">Action</th><th style="width:120px">Event code</th><th style="width:190px">Trigger screens (non-exhaustive)</th><th>Extra requirements</th></tr>
+<tr><td class="bold">Patient record open (any PHI render)</td><td class="mono">AUTH-0105</td><td class="mono small">FO-05, DD-01, RD-03, TK-02, BL-02, PT-02</td><td>Async allowed (≤60 s flush); includes priors and second-opinion views (RD-16).</td></tr>
+<tr><td class="bold">Patient search</td><td class="mono">AUTH-0106</td><td class="mono small">FO-02, DD-07, BL-01</td><td>Query shape + result count only, no raw PII in the event.</td></tr>
+<tr><td class="bold">Print / export / download / send</td><td class="mono">AUTH-0109</td><td class="mono small">RD-13, FO-14, BL-05, BL-19, AD-20</td><td>Manifest hash + destination class.</td></tr>
+<tr><td class="bold">Report sign-off / addendum</td><td class="mono">CLIN-0206</td><td class="mono small">RD-09, RD-12</td><td>Synchronous (P-2), step-up ref mandatory, before/after hash.</td></tr>
+<tr><td class="bold">Any override</td><td class="mono">CLIN-0203 / SEC-0604</td><td class="mono small">CS-04, OR-07, BL-08</td><td>Reason code + free text ≥ 20 chars; four-eyes where irreversible.</td></tr>
+<tr><td class="bold">Break-glass</td><td class="mono">AUTH-0107</td><td class="mono small">DD-05</td><td>Auto-enrol GV-03 review (2 working days), session banner, patient-visible in rights disclosure (PT-08).</td></tr>
+<tr><td class="bold">Patient merge</td><td class="mono">ADMN-0502</td><td class="mono small">FO-07, FO-08</td><td>Four-eyes, resolution-map hash, both MRN refs.</td></tr>
+<tr><td class="bold">Deletion / retention destruction</td><td class="mono">CONS-0404</td><td class="mono small">GV-04, GV-06</td><td>Tombstone with manifest hash survives the deleted data (log ≠ record, §6 note).</td></tr>
+</table>
+</div>
+
+<!-- ============ 6. RETENTION + TAMPER ============ -->
+<h2>6 · Retention: logs vs clinical data</h2>
+<div class="card">
+<table>
+<tr><th style="width:260px">Data class</th><th style="width:150px">Retention</th><th style="width:170px">Driver</th><th>Notes</th></tr>
+<tr><td>Radiology clinical records (studies, reports)</td><td><span class="chip teal">10 years</span></td><td>Retention schedule GV-06</td><td>From last patient activity; minors: until age 18 + 10 y if longer.</td></tr>
+<tr><td>Billing / GST documents</td><td><span class="chip teal">8 years</span></td><td>GST law / GV-06</td><td>From end of financial year of the document.</td></tr>
+<tr><td>PC-PNDT Form F register</td><td><span class="chip violet">as mandated (≥ statutory period)</span></td><td>PC-PNDT Rules</td><td>IR-01 register export hashes retained alongside.</td></tr>
+<tr class="hl"><td class="bold">Audit events referencing a subject record</td><td><span class="chip teal">record retention + 2 y</span></td><td>Accountability &gt; data</td><td>Audit outlives the data it describes: erasure (GV-04) deletes the record but keeps the pseudonymised audit trail + tombstone. Effective: clinical-linked audit 12 y, billing-linked 10 y.</td></tr>
+<tr><td>Security/auth events with no patient subject</td><td><span class="chip teal">3 years</span></td><td>Internal policy</td><td>Never below the CERT-In 180-day floor; kept in India (GV-14).</td></tr>
+<tr><td>Operational app logs (no PII, §8)</td><td><span class="chip grey">180 days hot, 1 y cold</span></td><td>CERT-In 180-day minimum</td><td>Compressed to cold object storage after 30 days.</td></tr>
+<tr><td>Metrics / traces</td><td><span class="chip grey">13 months / 30 days</span></td><td>Observability baseline §9</td><td>13 months for YoY seasonal comparison of metrics.</td></tr>
+<tr><td>Anything under legal hold</td><td><span class="chip red">until hold released</span></td><td>GV-07</td><td>Hold overrides every schedule above; deletion jobs check holds before destruction (CONS-0404 blocked-by-hold event).</td></tr>
+</table>
+</div>
+
+<h2>7 · Tamper-evidence &amp; review workflows</h2>
+<div class="card">
+<div class="card-title">7.1 · Hash chain &amp; integrity verification</div>
+<div class="flow">
+  <div class="fstep"><span class="fid">append</span>chain_hash = SHA-256(prev ‖ event) per branch-day</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">00:30 IST</span>Nightly job re-verifies yesterday's chain end-to-end</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">PL-07</span>Terminal hash anchored to platform ledger (separate trust domain, operator-controlled)</div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">AD-20</span>Org viewer shows per-day integrity badge: VERIFIED / PENDING / <b>FAILED</b></div><span class="farr">→</span>
+  <div class="fstep"><span class="fid">GV-08/09</span>FAILED ⇒ P1 incident + breach runbook, CERT-In 6 h clock</div>
+</div>
+<div class="kv" style="margin-top:8px">
+  <dt>Trust separation</dt><dd>Anchors live in the platform-operator domain (PL-07); org admins (AD-20) can read but not write anchors. An attacker must compromise both domains inside one anchoring window (≤ 24 h) to hide a modification.</dd>
+  <dt>On-demand check</dt><dd>AD-20 "Verify range" re-computes any date range; result itself logged as SEC-0601 + SEC-0606.</dd>
+  <dt>Spot re-anchor</dt><dd>Weekly, a random 1% of historical branch-days are re-verified against their anchors (defence against slow storage rot).</dd>
+</div>
+</div>
+
+<div class="card">
+<div class="card-title">7.2 · Human review workflows</div>
+<table>
+<tr><th style="width:130px">Workflow</th><th style="width:120px">Screen</th><th style="width:150px">Cadence / SLA</th><th style="width:170px">Reviewer</th><th>Method</th></tr>
+<tr><td class="bold">Access review sampling</td><td class="mono">GV-02</td><td>Monthly cycle</td><td><span class="chip violet">DPO office</span> <span class="chip grey">Branch admin</span></td><td>Stratified sample: 100% of SEC-0605 anomalies + 100% of VIP-flagged AUTH-0105 + random 2% of all record opens. Outcome per item: JUSTIFIED / COACHING / ESCALATE→GV-08.</td></tr>
+<tr class="hl"><td class="bold">Break-glass review</td><td class="mono">GV-03</td><td><span class="chip red">2 working days</span> per event</td><td><span class="chip violet">DPO office</span> + treating dept head (four-eyes)</td><td>Every AUTH-0107 individually adjudicated against the stated emergency. Unjustified ⇒ incident GV-08 + HR route; pattern of misuse ⇒ role suspension (AD-03). Queue ageing beyond SLA escalates to GV-16 dashboard (DS-03 SLA pattern).</td></tr>
+<tr><td class="bold">Emergency access trend</td><td class="mono">GV-03, GV-16</td><td>Quarterly</td><td>DPO</td><td>Break-glass rate per clinician vs peer baseline; outliers auto-flagged SEC-0605.</td></tr>
+<tr><td class="bold">Privileged/admin review</td><td class="mono">GV-02, AD-05</td><td>Quarterly</td><td>Org admin + platform op (PL)</td><td>All ADMN-0501 grants re-certified; dormant privileged accounts (&gt; 45 d no AUTH-0101) auto-disabled.</td></tr>
+</table>
+</div>
+
+<div class="card">
+<div class="card-title">7.3 · Anomaly detectors (feed SEC-0605)</div>
+<table>
+<tr><th style="width:180px">Detector</th><th>Rule (MVP-1: deterministic, no ML)</th><th style="width:160px">Route</th></tr>
+<tr><td>Self / family lookup</td><td>actor's linked patient_ref (or FO-20 family group) appears as subject_patient without a same-day visit/order relationship.</td><td>GV-02 mandatory item</td></tr>
+<tr><td>Volume spike</td><td>Record opens &gt; μ+4σ of actor's trailing 30-day baseline, or &gt; 150/shift for non-FO roles.</td><td>GV-02 mandatory item</td></tr>
+<tr><td>After-hours pattern</td><td>PHI access outside rostered shift (FO-21 roster) on 3+ distinct days in 7.</td><td>GV-02 mandatory item</td></tr>
+<tr><td>Snooping fan-out</td><td>Opens of &gt; 20 distinct patients with no order/worklist linkage in 1 h.</td><td>Immediate DPO alert + GV-08 candidate</td></tr>
+<tr><td>Export burst</td><td>&gt; 5 AUTH-0109 exports in 10 min or any export &gt; 500 patients.</td><td>Immediate DPO alert; export throttled pending GV-15</td></tr>
+</table>
+</div>
+
+<!-- ============ 8. OPERATIONAL LOGGING ============ -->
+<h2>8 · Operational (application) logging</h2>
+<div class="banner warn"><b>The NO-PII rule</b> Application logs (stdout/JSON to the log store) may <b>never</b> contain: patient name, phone, address, full MRN, Aadhaar/ID numbers, report text, or free-text fields. Allowed identifiers: <span class="mono">patient_ref</span> UUID, order/invoice ids, masked MRN <span class="mono">#MRN-••••30</span>. This is what lets us keep app logs 180 days on cheaper, wider-access infrastructure than the audit store.</div>
+<div class="card">
+<table>
+<tr><th style="width:220px">Control</th><th>Specification</th></tr>
+<tr><td class="bold">Structured logging</td><td>JSON lines; mandatory fields: <span class="mono">ts, level, service, trace_id, span_id, branch_id, msg</span>. <span class="mono">trace_id</span> = W3C traceparent, propagated GW → services → Kafka headers; joins app logs to audit events for incident forensics.</td></tr>
+<tr><td class="bold">PII scrubber</td><td>Logback/Log4j2 filter with deny-list regexes (10-digit phone, Aadhaar pattern, MRN pattern, email) runs on every appender in every service — defence in depth behind developer discipline. Scrub replaces with <span class="mono">[REDACTED:type]</span> and increments metric <span class="mono">logs_pii_scrubbed_total</span>.</td></tr>
+<tr class="hl"><td class="bold">Violation route</td><td><span class="mono">logs_pii_scrubbed_total &gt; 0</span> alerts the owning team same-day (a scrub means code tried to log PII). Confirmed PII that <i>reached</i> the log store = data incident: open GV-08, run purge playbook (targeted deletion from log store — permissible because logs are not the audit record), assess under GV-09 breach runbook incl. CERT-In 6 h evaluation, add regression test.</td></tr>
+<tr><td class="bold">Log levels in prod</td><td>INFO default; DEBUG only via AD-17 feature toggle, per-service, auto-expiring in 4 h, toggle flip logged ADMN-0504.</td></tr>
+<tr><td class="bold">Access control</td><td>Log store read access = engineering on-call group only, via SSO (AU-16 realm), session-recorded; access reviewed in GV-02 quarterly privileged review.</td></tr>
+</table>
+</div>
+
+<!-- ============ 9. OBSERVABILITY ============ -->
+<h2>9 · Metrics &amp; observability baseline (checklist #27)</h2>
+<div class="card">
+<div class="card-title">9.1 · Golden signals — every service, no exceptions</div>
+<table>
+<tr><th style="width:200px">Signal</th><th>Metric (Prometheus naming)</th><th style="width:230px">Default alert</th></tr>
+<tr><td>Latency</td><td class="mono">http_server_requests_seconds{quantile}</td><td>p95 &gt; 800 ms for 5 min (page), p99 &gt; 2 s</td></tr>
+<tr><td>Traffic</td><td class="mono">http_server_requests_total</td><td>drop &gt; 60% vs same hour last week (possible outage)</td></tr>
+<tr><td>Errors</td><td class="mono">http_server_requests_total{status=~"5.."}</td><td>&gt; 1% for 5 min (page)</td></tr>
+<tr><td>Saturation</td><td class="mono">jvm_memory_used_bytes, hikaricp_connections_pending, kafka_consumer_lag</td><td>pool pending &gt; 0 for 3 min; consumer lag &gt; 10k or growing 15 min</td></tr>
+</table>
+</div>
+<div class="card">
+<div class="card-title">9.2 · Domain health metrics (rendered on IN-01 health board / PL dashboards)</div>
+<table>
+<tr><th style="width:280px">Metric</th><th style="width:170px">Screen surface</th><th>Alert threshold</th></tr>
+<tr><td class="mono">audit_ingest_flush_lag_seconds</td><td class="mono small">PL-07</td><td>&gt; 60 s (P-2 read-path SLA breached) — page</td></tr>
+<tr><td class="mono">audit_chain_verify_status{branch,day}</td><td class="mono small">PL-07, AD-20 badge</td><td>any FAILED — P1 page + GV-08</td></tr>
+<tr><td class="mono">critical_result_unacked_age_seconds{tier}</td><td class="mono small">RD-11, DD-02</td><td>RED &gt; 900 s, ORANGE &gt; 14 400 s (drives DS-03 SLA chips + escalation ladder)</td></tr>
+<tr><td class="mono">upi_unconfirmed_payments{age_bucket}</td><td class="mono small">BL-04</td><td>any &gt; 30 min — billing on-call (DOC-06 §4)</td></tr>
+<tr><td class="mono">edge_sync_queue_depth{device}</td><td class="mono small">IN-10</td><td>&gt; 500 events or oldest &gt; 4 h</td></tr>
+<tr><td class="mono">mwl_sync_failures_total</td><td class="mono small">TK-08, IN-02</td><td>&gt; 3 in 15 min per modality</td></tr>
+<tr><td class="mono">notification_dlt_failure_ratio</td><td class="mono small">NT-02, NT-06</td><td>&gt; 5% per channel per 15 min (counter-pickup fallback banner NT-02)</td></tr>
+<tr><td class="mono">integration_quarantine_depth</td><td class="mono small">IN-03</td><td>&gt; 25 messages or oldest &gt; 2 h</td></tr>
+<tr><td class="mono">logs_pii_scrubbed_total</td><td class="mono small">internal</td><td>&gt; 0/day — owning-team ticket (§8)</td></tr>
+<tr><td class="mono">jobs_last_success_timestamp{job}</td><td class="mono small">AD-18</td><td>staleness &gt; 2× schedule interval</td></tr>
+</table>
+</div>
+<div class="card">
+<div class="card-title">9.3 · Baseline checklist (per service, enforced in the deploy gate)</div>
+<div class="row">
+<div class="grow">
+<div class="check"><span class="box on">✓</span>Exposes <span class="mono">/actuator/health</span> (liveness+readiness split) → IN-01</div>
+<div class="check"><span class="box on">✓</span>Golden-signal metrics + JVM + pool metrics exported</div>
+<div class="check"><span class="box on">✓</span>W3C trace propagation in and out (HTTP + Kafka)</div>
+<div class="check"><span class="box on">✓</span>Structured JSON logs, PII scrubber appender attached</div>
+</div>
+<div class="grow">
+<div class="check"><span class="box on">✓</span>Audit outbox metrics (<span class="mono">outbox_pending, outbox_oldest_age</span>)</div>
+<div class="check"><span class="box on">✓</span>Dashboards: 1 golden-signal + 1 domain board per service, provisioned as code</div>
+<div class="check"><span class="box on">✓</span>Alert routes: P1 → pager, P2 → team channel; runbook link mandatory in every alert</div>
+<div class="check"><span class="box on">✓</span>Synthetic probe: sign-in (AU-01) + order create (OR-01) + invoice (BL-02) canary every 5 min per environment</div>
+</div>
+</div>
+</div>
+
+<div class="divider-label">END OF DOC-05</div>
+<div class="small muted" style="text-align:center;margin-bottom:8px">Magnus HMS · DOC-05 Audit &amp; Logging Architecture · v1.0 · July 2026 · NUMINACORE internal — synthetic examples only. Related: DOC-06 Billing E2E (money-event audit), GV-09 breach runbook, DS-11 audit-line pattern.</div>
+
+</div>
+</body>
+</html>

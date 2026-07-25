@@ -1,0 +1,1444 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Magnus HMS — G13 · Integration & Devices</title><style>/* Magnus HMS — NS design pack shared design system */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
+.mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
+.muted{color:#64748B}.small{font-size:12px}.bold{font-weight:700}
+/* ---------- page / screen frame ---------- */
+.screen{page-break-after:always;padding:28px 34px;background:#fff;min-height:1000px}
+.screen-head{display:flex;justify-content:space-between;align-items:flex-start;border-left:5px solid #0F766E;padding:6px 0 6px 14px;margin-bottom:6px}
+.screen-head h1{font-size:22px;font-weight:800}
+.screen-head .sid{color:#0F766E;margin-right:10px}
+.screen-head .meta{text-align:right}
+.screen-head .meta .cluster{color:#64748B;font-size:12px;margin-top:3px}
+.gap-note{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:8px 12px;margin:10px 0 16px;font-size:12.5px;color:#7C2D12}
+.gap-note b{color:#9A3412}
+/* ---------- app chrome ---------- */
+.frame{border:1px solid #CBD5E1;border-radius:10px;overflow:hidden;background:#F4F6F8;box-shadow:0 1px 4px rgba(15,23,42,.08);margin-bottom:22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:2px solid #0F766E;padding:9px 16px}
+.brand{font-weight:800;color:#0F766E}.brand span{color:#1E293B}
+.org{font-size:12.5px;color:#334155;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px}
+.userchip{font-size:12.5px;color:#334155}
+.userchip .av{display:inline-block;background:#CCFBF1;color:#0F766E;font-weight:700;border-radius:5px;padding:2px 6px;margin-right:6px;font-size:11px}
+.body{display:flex;min-height:520px}
+.sidebar{width:196px;background:#fff;border-right:1px solid #E2E8F0;padding:12px 0;flex-shrink:0}
+.sec-label{font-size:10.5px;letter-spacing:.08em;color:#94A3B8;font-weight:700;padding:8px 16px 4px;text-transform:uppercase}
+.nav-item{padding:7px 16px;font-size:13px;color:#334155;display:flex;justify-content:space-between;align-items:center}
+.nav-item.active{background:#F0FDFA;color:#0F766E;font-weight:700;border-left:3px solid #0F766E;padding-left:13px}
+.nav-badge{background:#0F766E;color:#fff;border-radius:9px;font-size:10.5px;padding:1px 7px;font-weight:700}
+.nav-badge.red{background:#B91C1C}
+.main{flex:1;padding:16px 18px;min-width:0}
+.crumb{font-size:12px;color:#64748B;margin-bottom:8px}
+.page-title{font-size:19px;font-weight:800;margin-bottom:2px}
+.page-sub{font-size:12.5px;color:#64748B;margin-bottom:14px}
+.actions-right{float:right}
+/* ---------- components ---------- */
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card-title{font-weight:800;font-size:14.5px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.card-title .right{font-size:10.5px;letter-spacing:.07em;color:#94A3B8;font-weight:700;text-transform:uppercase}
+.row{display:flex;gap:14px}.row>*{min-width:0}.grow{flex:1}
+.btn{display:inline-block;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:700;border:1px solid #CBD5E1;background:#fff;color:#334155;text-align:center;white-space:nowrap}
+.btn.primary{background:#0F766E;border-color:#0F766E;color:#fff}
+.btn.danger{background:#B91C1C;border-color:#B91C1C;color:#fff}
+.btn.warn-outline{border-color:#F59E0B;color:#92400E;background:#FFFBEB}
+.btn.ghost{border:none;background:none;color:#0F766E;padding:7px 6px}
+.btn.small{padding:4px 10px;font-size:12px}
+.btn.disabled{opacity:.45}
+.chip{display:inline-block;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip.teal{background:#CCFBF1;color:#0F766E}
+.chip.green{background:#DCFCE7;color:#15803D}
+.chip.amber{background:#FEF3C7;color:#92400E}
+.chip.red{background:#FEE2E2;color:#B91C1C}
+.chip.grey{background:#F1F5F9;color:#475569}
+.chip.blue{background:#E0F2FE;color:#0369A1}
+.chip.violet{background:#EDE9FE;color:#6D28D9}
+.chip.outline-red{background:#fff;border:1.5px solid #B91C1C;color:#B91C1C}
+.banner{border-radius:8px;padding:10px 13px;font-size:12.5px;margin-bottom:12px;border:1px solid}
+.banner b{display:block;margin-bottom:2px;font-size:13px}
+.banner.info{background:#E0F2FE;border-color:#7DD3FC;color:#075985}
+.banner.warn{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+.banner.danger{background:#FEE2E2;border-color:#FCA5A5;color:#991B1B}
+.banner.success{background:#DCFCE7;border-color:#86EFAC;color:#166534}
+.banner.reg{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding:7px 9px;border-bottom:2px solid #E2E8F0;background:#F8FAFC}
+td{padding:8px 9px;border-bottom:1px solid #EEF2F6;vertical-align:top}
+tr.hl td{background:#F0FDFA}
+tr.dim td{color:#94A3B8}
+.kv{display:grid;grid-template-columns:150px 1fr;row-gap:6px;column-gap:12px;font-size:12.5px}
+.kv dt{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding-top:2px}
+.kv dd{margin:0}
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+.field label .req{color:#B91C1C}
+.field .hint{font-size:11px;color:#64748B;margin-top:3px}
+.input,.select,.textarea{width:100%;border:1px solid #CBD5E1;border-radius:7px;padding:7px 10px;font-size:13px;background:#fff;color:#1E293B}
+.input.err{border-color:#B91C1C;background:#FEF2F2}
+.textarea{min-height:64px}
+.check{font-size:12.5px;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.box{display:inline-block;width:14px;height:14px;border:1.6px solid #64748B;border-radius:3px;flex-shrink:0;margin-top:1px;text-align:center;line-height:12px;font-size:11px;font-weight:800}
+.box.on{background:#0F766E;border-color:#0F766E;color:#fff}
+.radio{border-radius:50%}
+.radio.on{background:#fff;border-color:#0F766E;box-shadow:inset 0 0 0 3.5px #0F766E;color:transparent}
+/* modal */
+.modal-wrap{background:#64748B22;border:1px dashed #94A3B8;border-radius:12px;padding:26px 40px;margin:14px 0}
+.modal{background:#fff;border-radius:12px;border-top:5px solid #0F766E;box-shadow:0 8px 30px rgba(15,23,42,.25);max-width:560px;margin:0 auto;padding:18px 20px}
+.modal.danger{border-top-color:#B91C1C}
+.modal h3{font-size:16px;margin-bottom:8px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+/* misc */
+.divider-label{text-align:center;color:#94A3B8;font-size:11.5px;margin:20px 0 14px;position:relative}
+.divider-label:before,.divider-label:after{content:"";display:inline-block;width:24%;border-top:1px dashed #CBD5E1;vertical-align:middle;margin:0 10px}
+.audit{font-size:11px;color:#8A6D1D;margin-top:10px}
+.audit:before{content:"🔒 "}
+.state-tag{font-size:10px;letter-spacing:.08em;font-weight:800;text-transform:uppercase;color:#94A3B8;text-align:right;margin-bottom:4px}
+.kpi-row{display:flex;gap:12px;margin-bottom:14px}
+.kpi{flex:1;background:#fff;border:1px solid #E2E8F0;border-left:4px solid #0F766E;border-radius:9px;padding:10px 13px}
+.kpi.amber{border-left-color:#F59E0B}.kpi.red{border-left-color:#B91C1C}
+.kpi .n{font-size:23px;font-weight:800}.kpi .l{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700}
+.kpi .s{font-size:11px;color:#64748B;margin-top:2px}
+.stepper{display:flex;gap:6px;align-items:center;font-size:12px;color:#64748B;margin-bottom:14px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:6px}
+.step .dot{width:20px;height:20px;border-radius:50%;background:#E2E8F0;color:#475569;font-size:11px;font-weight:800;text-align:center;line-height:20px}
+.step.done .dot{background:#15803D;color:#fff}.step.cur .dot{background:#0F766E;color:#fff}
+.step.cur{color:#0F766E;font-weight:700}
+.step-line{width:26px;border-top:2px solid #CBD5E1}
+.sig-box{border:1.5px dashed #94A3B8;border-radius:8px;min-height:64px;background:#F8FAFC;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:12px;font-style:italic}
+.sig-box.signed{border-style:solid;border-color:#15803D;color:#166534;background:#F0FDF4;font-family:'Segoe Script','Comic Sans MS',cursive;font-size:17px;font-style:normal}
+.ladder{border-left:3px solid #E2E8F0;margin-left:8px;padding-left:16px}
+.ladder .tier{margin-bottom:12px;position:relative}
+.ladder .tier:before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:#CBD5E1}
+.ladder .tier.done:before{background:#15803D}.ladder .tier.cur:before{background:#0F766E;box-shadow:0 0 0 3px #CCFBF1}
+.ladder .tier.fail:before{background:#B91C1C}
+.progress{height:7px;border-radius:4px;background:#E2E8F0;overflow:hidden;margin-top:4px}
+.progress i{display:block;height:100%;background:#0F766E}
+.progress.amber i{background:#F59E0B}.progress.red i{background:#B91C1C}
+.split{display:grid;grid-template-columns:1fr 300px;gap:14px}
+.timeline{font-size:12.5px}
+.timeline .ev{display:flex;gap:10px;margin-bottom:9px}
+.timeline .t{color:#64748B;white-space:nowrap;font-family:Consolas,monospace;font-size:11.5px;padding-top:1px}
+
+@page{size:A4;margin:0}@media print{body{background:#fff}}</style></head><body><section class="screen" id="cover">
+<div style="padding-top:120px"><div style="border-left:6px solid #0F766E;padding-left:22px">
+<div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">Magnus HMS · MVP 1 Complete Design Pack</div>
+<h1 style="font-size:36px;font-weight:800">G13 · Integration & Devices</h1>
+<p style="font-size:14px;color:#64748B;margin-top:10px">10 screens · every screen with alternate states · shared design system · synthetic data only (no PHI)</p></div>
+<div class="card" style="max-width:700px;margin-top:26px"><div class="card-title">Screens in this group</div>
+<table><tr><th style="width:70px">ID</th><th>Screen</th></tr><tr><td class="mono bold" style="color:#0F766E">IN-01</td><td>Integration overview &amp; health</td></tr><tr><td class="mono bold" style="color:#0F766E">IN-02</td><td>Imaging devices &amp; AE registry</td></tr><tr><td class="mono bold" style="color:#0F766E">IN-03</td><td>Unknown AE &amp; quarantine</td></tr><tr><td class="mono bold" style="color:#0F766E">IN-04</td><td>PACS / archive connections</td></tr><tr><td class="mono bold" style="color:#0F766E">IN-05</td><td>Message browser — HL7 / DICOM events</td></tr><tr><td class="mono bold" style="color:#0F766E">IN-06</td><td>Retry &amp; replay console</td></tr><tr><td class="mono bold" style="color:#0F766E">IN-07</td><td>Comms provider connections</td></tr><tr><td class="mono bold" style="color:#0F766E">IN-08</td><td>Printers &amp; peripherals</td></tr><tr><td class="mono bold" style="color:#0F766E">IN-09</td><td>Webhooks &amp; API clients</td></tr><tr><td class="mono bold" style="color:#0F766E">IN-10</td><td>Edge &amp; offline sync monitor</td></tr></table></div>
+<p class="muted small" style="margin-top:14px">Magnus Diagnostics → NUMINACORE · July 2026 · Prototype/reference — not committed product scope.</p></div></section><section class="screen" id="in-01">
+<div class="screen-head"><h1><span class="sid">IN-01</span> Integration overview &amp; health</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IN-S1 → connector health board</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single status board for every external connector the branch depends on — PACS/archive, modality worklist (MWL/MPPS), messaging providers (DLT SMS, WhatsApp BSP, email), payment gateway (UPI) and edge-sync. Org admins and platform ops triage from here: each tile links to the connector detail, the incident queue and the 24-hour error-rate table. Auto-alert rules escalate to the on-call channel when a connector breaches its threshold; no patient data appears on this screen.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Integration</div>
+      <div class="nav-item active">Overview &amp; health</div>
+      <div class="nav-item">Imaging devices &amp; AE</div>
+      <div class="nav-item">Unknown AE quarantine <span class="nav-badge">3</span></div>
+      <div class="nav-item">PACS / archive</div>
+      <div class="nav-item">Messaging providers</div>
+      <div class="nav-item">Payment gateway</div>
+      <div class="nav-item">Edge-sync</div>
+      <div class="sec-label">Operations</div>
+      <div class="nav-item">Incidents <span class="nav-badge red">1</span></div>
+      <div class="nav-item">Alert rules</div>
+      <div class="nav-item">Connector audit log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Integration › Overview &amp; health</div>
+      <div class="page-title">Connector health <span class="actions-right"><span class="chip green">ALL SYSTEMS OPERATIONAL</span> <button class="btn small">Refresh</button> <button class="btn small ghost">Alert rules</button></span></div>
+      <div class="page-sub">Live status across 7 connectors · polled every 60 s · last refresh 25 Jul 2026 · 14:32:10 IST</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">7 / 7</div><div class="l">Connectors up</div><div class="s">0 degraded · 0 down</div></div>
+        <div class="kpi"><div class="n">0.14%</div><div class="l">24h error rate (all)</div><div class="s">threshold 1.0% · SLA <span class="chip teal">OK · owner K. Verma</span></div></div>
+        <div class="kpi"><div class="n">3</div><div class="l">Quarantined studies</div><div class="s">unknown AE titles · see IN-03</div></div>
+        <div class="kpi"><div class="n">1</div><div class="l">Open incident</div><div class="s">INC-2214 · SMS retry backlog (resolved-monitoring)</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Connector status board <span class="right">up / degraded / down · last event age</span></div>
+        <table>
+          <tr><th>Connector</th><th>Provider / endpoint</th><th>Status</th><th>Last event</th><th>24h err%</th><th>24h volume</th><th></th></tr>
+          <tr><td class="bold">PACS / archive (DIMSE + DICOMweb)</td><td class="mono">pacs01.meridian.local:11112 · QIDO/WADO/STOW</td><td><span class="chip green">UP</span></td><td>12 s ago (C-STORE ack)</td><td>0.02%</td><td>1,912 assoc.</td><td><button class="btn small ghost">Detail →</button></td></tr>
+          <tr><td class="bold">Modality worklist (MWL)</td><td class="mono">CT-ROOM-1, US-UNIT-2, MRI-ROOM-2 · C-FIND SCP</td><td><span class="chip green">UP</span></td><td>41 s ago (MWL query, MERIDCT1)</td><td>0.00%</td><td>486 queries</td><td><button class="btn small ghost">Detail →</button></td></tr>
+          <tr><td class="bold">MPPS (procedure step)</td><td class="mono">N-CREATE / N-SET SCP</td><td><span class="chip green">UP</span></td><td>3 m ago (MPPS COMPLETED, MERIDUS2)</td><td>0.31%</td><td>128 msgs</td><td><button class="btn small ghost">Detail →</button></td></tr>
+          <tr><td class="bold">SMS (DLT)</td><td>Jio route · entity ID <span class="mono">1101…8842</span></td><td><span class="chip green">UP</span></td><td>18 s ago (delivery receipt)</td><td>0.42%</td><td>1,204 sent</td><td><button class="btn small ghost">Detail →</button></td></tr>
+          <tr><td class="bold">WhatsApp BSP</td><td>BSP session API · template pack v14</td><td><span class="chip green">UP</span></td><td>55 s ago (template send)</td><td>0.10%</td><td>642 sent</td><td><button class="btn small ghost">Detail →</button></td></tr>
+          <tr><td class="bold">Email (transactional)</td><td class="mono">smtp-relay.meridian.in:587 · TLS</td><td><span class="chip green">UP</span></td><td>2 m ago (report-ready mail)</td><td>0.08%</td><td>318 sent</td><td><button class="btn small ghost">Detail →</button></td></tr>
+          <tr><td class="bold">Payment gateway (UPI)</td><td>PG webhook + status API</td><td><span class="chip green">UP</span></td><td>7 s ago (webhook: payment.success)</td><td>0.19%</td><td>431 txns</td><td><button class="btn small ghost">Detail →</button></td></tr>
+          <tr><td class="bold">Edge-sync (branch ⇄ cloud)</td><td class="mono">edge-gw-andheri-01 · queue depth 0</td><td><span class="chip green">UP</span></td><td>4 s ago (sync batch #88412)</td><td>0.00%</td><td>12,880 records</td><td><button class="btn small ghost">Detail →</button></td></tr>
+        </table>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">24-hour error rate by connector <span class="right">rolling window · IST</span></div>
+          <table>
+            <tr><th>Connector</th><th>Errors</th><th>Total</th><th>Err%</th><th>Trend vs prev 24h</th><th>Top error</th></tr>
+            <tr><td>SMS (DLT · Jio route)</td><td>5</td><td>1,204</td><td>0.42%</td><td><span class="chip green">▼ −0.3 pt</span></td><td class="mono small">DLT template scrub (DND window)</td></tr>
+            <tr><td>MPPS</td><td>4</td><td>128</td><td>0.31%</td><td><span class="chip grey">— flat</span></td><td class="mono small">N-SET duplicate (retried OK)</td></tr>
+            <tr><td>Payment gateway (UPI)</td><td>8</td><td>431</td><td>0.19%</td><td><span class="chip green">▼ −0.1 pt</span></td><td class="mono small">PSP timeout → auto-reconciled</td></tr>
+            <tr><td>PACS / archive</td><td>4</td><td>1,912</td><td>0.02%</td><td><span class="chip grey">— flat</span></td><td class="mono small">assoc. abort (modality reboot)</td></tr>
+          </table>
+        </div>
+        <div class="card" style="width:320px;flex-shrink:0">
+          <div class="card-title">Incident quick-links</div>
+          <div class="timeline">
+            <div class="ev"><span class="t">14:05</span><div><b>INC-2214</b> SMS retry backlog cleared · <span class="chip green">RESOLVED-MONITORING</span><br><span class="muted small">owner K. Verma · review 26 Jul 09:00</span></div></div>
+            <div class="ev"><span class="t">22 Jul</span><div><b>INC-2207</b> MWL slow queries (MRI-ROOM-2) · <span class="chip grey">CLOSED</span></div></div>
+            <div class="ev"><span class="t">19 Jul</span><div><b>INC-2199</b> PG webhook signature rotate · <span class="chip grey">CLOSED</span></div></div>
+          </div>
+          <button class="btn small" style="margin-top:6px">Open incident queue →</button>
+          <div class="banner info" style="margin-top:12px;margin-bottom:0"><b>Auto-alert rules</b>3 rules active: connector DOWN &gt; 2 min → page on-call; err% &gt; 1.0% (15-min window) → notify #integrations; edge-sync queue &gt; 500 → notify org admin. Editing rules requires org-admin role + step-up (TOTP/passkey).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — CONNECTOR DOWN · SMS (DLT) WITH IMPACT PANEL</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Integration</div>
+      <div class="nav-item active">Overview &amp; health</div>
+      <div class="nav-item">Imaging devices &amp; AE</div>
+      <div class="nav-item">Unknown AE quarantine <span class="nav-badge">3</span></div>
+      <div class="nav-item">PACS / archive</div>
+      <div class="nav-item">Messaging providers</div>
+      <div class="nav-item">Payment gateway</div>
+      <div class="nav-item">Edge-sync</div>
+      <div class="sec-label">Operations</div>
+      <div class="nav-item">Incidents <span class="nav-badge red">2</span></div>
+      <div class="nav-item">Alert rules</div>
+      <div class="nav-item">Connector audit log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Integration › Overview &amp; health</div>
+      <div class="page-title">Connector health <span class="actions-right"><span class="chip red">1 CONNECTOR DOWN</span> <button class="btn small">Refresh</button></span></div>
+      <div class="page-sub">Live status across 7 connectors · last refresh 25 Jul 2026 · 15:04:42 IST</div>
+      <div class="banner danger"><b>SMS (DLT · Jio route) is DOWN — since 14:47 IST (17 min)</b>Provider API returning HTTP 503 on submit. Auto-alert fired 14:49 → on-call paged. Incident INC-2216 opened automatically. SLA <span class="chip red">OVERDUE · owner K. Verma</span> — restore target was 15:02 IST (15-min SLA).</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Status board (abridged)</div>
+          <table>
+            <tr><th>Connector</th><th>Status</th><th>Last event</th><th>24h err%</th></tr>
+            <tr class="hl"><td class="bold">SMS (DLT · Jio route)</td><td><span class="chip red">DOWN</span></td><td>17 m ago (last delivery receipt 14:47)</td><td>6.8% ▲</td></tr>
+            <tr><td>WhatsApp BSP</td><td><span class="chip green">UP</span></td><td>22 s ago</td><td>0.10%</td></tr>
+            <tr><td>PACS / archive</td><td><span class="chip green">UP</span></td><td>9 s ago</td><td>0.02%</td></tr>
+            <tr><td>Modality worklist (MWL)</td><td><span class="chip green">UP</span></td><td>30 s ago</td><td>0.00%</td></tr>
+            <tr><td>Payment gateway (UPI)</td><td><span class="chip green">UP</span></td><td>11 s ago</td><td>0.19%</td></tr>
+            <tr><td>Edge-sync</td><td><span class="chip green">UP</span></td><td>6 s ago</td><td>0.00%</td></tr>
+          </table>
+        </div>
+        <div class="card" style="width:340px;flex-shrink:0;border-color:#FCA5A5">
+          <div class="card-title">Impact panel — SMS DOWN <span class="chip red">INC-2216</span></div>
+          <div class="kv">
+            <dt>Queued messages</dt><dd><b>212</b> held in retry queue (auto-flush on recovery)</dd>
+            <dt>Affected flows</dt><dd>Appointment reminders (148), report-ready alerts (41), payment links (23)</dd>
+            <dt>Fallback</dt><dd><span class="chip green">ACTIVE</span> report-ready + payment links re-routed to WhatsApp BSP where consent exists (57 of 64)</dd>
+            <dt>Patient impact</dt><dd>No PHI exposed; message bodies stay queued encrypted at rest</dd>
+            <dt>On-call</dt><dd>K. Verma (org admin) · paged 14:49 · ack 14:51</dd>
+          </div>
+          <div style="margin-top:10px;display:flex;gap:8px"><button class="btn danger small">Open incident INC-2216</button><button class="btn small">Provider status page</button></div>
+          <div class="small muted" style="margin-top:8px">Manual failover to secondary SMS route requires dual-control: second org admin must co-approve within 10 min.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — DEGRADED · PACS LATENCY ELEVATED</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Integration</div>
+      <div class="nav-item active">Overview &amp; health</div>
+      <div class="nav-item">Imaging devices &amp; AE</div>
+      <div class="nav-item">Unknown AE quarantine <span class="nav-badge">3</span></div>
+      <div class="nav-item">PACS / archive</div>
+      <div class="nav-item">Incidents <span class="nav-badge red">1</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Integration › Overview &amp; health</div>
+      <div class="page-title">Connector health <span class="actions-right"><span class="chip amber">1 DEGRADED</span> <button class="btn small">Refresh</button></span></div>
+      <div class="page-sub">Live status · last refresh 25 Jul 2026 · 18:21:05 IST</div>
+      <div class="banner warn"><b>PACS / archive DEGRADED — C-STORE latency elevated since 17:58 IST</b>p95 store-ack latency 4.8 s (baseline 0.6 s, threshold 3.0 s). Studies are still archiving; no data loss. Likely cause: nightly archive compaction started early. SLA <span class="chip amber">AT RISK · owner K. Verma</span> — auto-escalates to incident if degraded &gt; 60 min.</div>
+      <div class="card">
+        <div class="card-title">Latency detail — PACS / archive <span class="right">15-min buckets · IST</span></div>
+        <table>
+          <tr><th>Window</th><th>Assoc.</th><th>p50 ack</th><th>p95 ack</th><th>Timeouts</th><th>Status</th></tr>
+          <tr><td class="mono">17:30–17:45</td><td>96</td><td>0.4 s</td><td>0.7 s</td><td>0</td><td><span class="chip green">NORMAL</span></td></tr>
+          <tr><td class="mono">17:45–18:00</td><td>104</td><td>0.9 s</td><td>2.6 s</td><td>0</td><td><span class="chip amber">RISING</span></td></tr>
+          <tr class="hl"><td class="mono">18:00–18:15</td><td>91</td><td>1.8 s</td><td>4.8 s</td><td>2</td><td><span class="chip amber">DEGRADED</span></td></tr>
+          <tr><td class="mono">18:15–18:21 (partial)</td><td>38</td><td>1.6 s</td><td>4.1 s</td><td>1</td><td><span class="chip amber">DEGRADED</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Modality send queues (CT-ROOM-1, US-UNIT-2) are absorbing the delay — max device queue depth 6. Reporting worklist unaffected; prior fetch (WADO) p95 1.1 s.</div>
+        <div style="margin-top:10px;display:flex;gap:8px"><button class="btn small primary">Acknowledge degradation</button><button class="btn small">Open PACS connection detail (IN-04)</button><button class="btn small ghost">Snooze alert 30 min</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">All connector state changes, acknowledgements, alert-rule edits and failover approvals are recorded in the access log with actor, role, step-up method and timestamp.</p>
+</section>
+<section class="screen" id="in-02">
+<div class="screen-head"><h1><span class="sid">IN-02</span> Imaging devices &amp; AE registry</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IN-S1 + AD-S11 single-write-surface fix</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Read-only registry of imaging equipment and their DICOM Application Entities for the branch. Technologists and admins verify connectivity (C-ECHO), MWL/MPPS state and review echo history when a modality misbehaves. All edits happen on the single write surface in Admin (AD-08) — this screen only links there, keeping device identity changes under approval workflow.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Integration</div>
+      <div class="nav-item">Overview &amp; health</div>
+      <div class="nav-item active">Imaging devices &amp; AE</div>
+      <div class="nav-item">Unknown AE quarantine <span class="nav-badge">3</span></div>
+      <div class="nav-item">PACS / archive</div>
+      <div class="nav-item">Messaging providers</div>
+      <div class="nav-item">Payment gateway</div>
+      <div class="nav-item">Edge-sync</div>
+      <div class="sec-label">Operations</div>
+      <div class="nav-item">Incidents <span class="nav-badge red">1</span></div>
+      <div class="nav-item">Connector audit log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Integration › Imaging devices &amp; AE registry</div>
+      <div class="page-title">Imaging devices &amp; AE registry <span class="actions-right"><span class="chip grey">READ-ONLY</span> <button class="btn small">✎ Edit in Admin AD-08 →</button></span></div>
+      <div class="page-sub">3 registered devices · single write surface is Admin › Equipment (AD-08); changes there require org-admin approval</div>
+      <div class="banner info"><b>Read-only view</b>Device identity (AE title, host, port) can only be changed via Admin AD-08 with approval. C-ECHO tests from this page are non-mutating and are logged.</div>
+      <div class="card">
+        <div class="card-title">Device registry <span class="right">Andheri West · updated 25 Jul 2026 09:12 IST</span></div>
+        <table>
+          <tr><th>Device</th><th>Modality</th><th>AE title</th><th>Host : port</th><th>MWL</th><th>MPPS</th><th>Link status</th><th>Last C-ECHO</th><th></th></tr>
+          <tr><td class="bold">CT-ROOM-1</td><td>CT · Somaris 128</td><td class="mono">MERIDCT1</td><td class="mono">10.20.4.11 : 104</td><td><span class="chip green">ENABLED</span></td><td><span class="chip green">ACTIVE</span></td><td><span class="chip green">UP</span></td><td>08:00 IST · <span class="chip green">OK 42 ms</span></td><td><button class="btn small">C-ECHO test</button></td></tr>
+          <tr><td class="bold">US-UNIT-2</td><td>US · Sonix S40</td><td class="mono">MERIDUS2</td><td class="mono">10.20.4.23 : 104</td><td><span class="chip green">ENABLED</span></td><td><span class="chip green">ACTIVE</span></td><td><span class="chip green">UP</span></td><td>08:00 IST · <span class="chip green">OK 38 ms</span></td><td><button class="btn small">C-ECHO test</button></td></tr>
+          <tr><td class="bold">MRI-ROOM-2</td><td>MR · Aria 1.5T</td><td class="mono">MERIDMR2</td><td class="mono">10.20.4.35 : 11112</td><td><span class="chip green">ENABLED</span></td><td><span class="chip amber">NOT SENT (2 d)</span></td><td><span class="chip green">UP</span></td><td>08:00 IST · <span class="chip green">OK 61 ms</span></td><td><button class="btn small">C-ECHO test</button></td></tr>
+        </table>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Connection detail — CT-ROOM-1 <span class="right">selected device</span></div>
+          <div class="kv">
+            <dt>AE title</dt><dd class="mono">MERIDCT1</dd>
+            <dt>Host : port</dt><dd class="mono">10.20.4.11 : 104 (branch VLAN 40, no internet route)</dd>
+            <dt>Calling AE accepted</dt><dd class="mono">MAGNUS_SCP</dd>
+            <dt>MWL enabled</dt><dd><span class="chip green">YES</span> — worklist scoped to CT orders, today ± 1 day, this branch only</dd>
+            <dt>MPPS state</dt><dd><span class="chip green">ACTIVE</span> — last COMPLETED 14:18 IST (accession masked ACC-••••312)</dd>
+            <dt>Transfer syntaxes</dt><dd class="mono small">Implicit VR LE, Explicit VR LE, JPEG-LS lossless</dd>
+            <dt>Registered by</dt><dd>K. Verma (org admin) · 02 Mar 2026 · approval REQ-0871</dd>
+            <dt>Last config change</dt><dd>11 Jun 2026 — port unchanged, description edit (AD-08, approved by 2nd admin)</dd>
+          </div>
+          <div style="margin-top:10px;display:flex;gap:8px"><button class="btn small primary">Run C-ECHO now</button><button class="btn small">View MWL queries (24h)</button><button class="btn small ghost">Edit in Admin AD-08 →</button></div>
+        </div>
+        <div class="card" style="width:340px;flex-shrink:0">
+          <div class="card-title">Echo history — CT-ROOM-1 <span class="right">last 6</span></div>
+          <table>
+            <tr><th>Time (IST)</th><th>Initiator</th><th>Result</th><th>RTT</th></tr>
+            <tr><td class="mono">25 Jul 08:00</td><td>scheduler</td><td><span class="chip green">OK</span></td><td>42 ms</td></tr>
+            <tr><td class="mono">24 Jul 20:00</td><td>scheduler</td><td><span class="chip green">OK</span></td><td>40 ms</td></tr>
+            <tr><td class="mono">24 Jul 08:00</td><td>scheduler</td><td><span class="chip green">OK</span></td><td>45 ms</td></tr>
+            <tr><td class="mono">23 Jul 16:41</td><td>T. Okafor</td><td><span class="chip green">OK</span></td><td>39 ms</td></tr>
+            <tr><td class="mono">23 Jul 16:38</td><td>T. Okafor</td><td><span class="chip red">FAIL — assoc. rejected</span></td><td>—</td></tr>
+            <tr><td class="mono">23 Jul 08:00</td><td>scheduler</td><td><span class="chip green">OK</span></td><td>44 ms</td></tr>
+          </table>
+          <div class="small muted" style="margin-top:8px">Scheduled echoes run 08:00 / 20:00 IST. Manual echoes record initiator identity.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — MANUAL C-ECHO SUCCESS (US-UNIT-2)</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>C-ECHO test — US-UNIT-2 <span class="chip green">SUCCESS</span></h3>
+    <div class="kv">
+      <dt>Target</dt><dd class="mono">MERIDUS2 @ 10.20.4.23 : 104</dd>
+      <dt>Calling AE</dt><dd class="mono">MAGNUS_SCP</dd>
+      <dt>Association</dt><dd>Accepted · presentation context Verification SOP (Implicit VR LE)</dd>
+      <dt>Round-trip</dt><dd><b>38 ms</b> · 3/3 echoes acknowledged</dd>
+      <dt>Run at</dt><dd>25 Jul 2026 · 14:41:22 IST · by T. Okafor (technologist)</dd>
+    </div>
+    <div class="banner success" style="margin-top:12px;margin-bottom:0"><b>Link healthy</b>MWL queries and MPPS from this device should function normally. Result appended to echo history.</div>
+    <div class="modal-actions"><button class="btn">View echo history</button><button class="btn primary">Done</button></div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — C-ECHO FAIL (MRI-ROOM-2) WITH TROUBLESHOOTING STEPS</div>
+<div class="modal-wrap">
+  <div class="modal danger">
+    <h3>C-ECHO test — MRI-ROOM-2 <span class="chip red">FAILED</span></h3>
+    <div class="kv">
+      <dt>Target</dt><dd class="mono">MERIDMR2 @ 10.20.4.35 : 11112</dd>
+      <dt>Error</dt><dd class="mono">TCP connect timeout after 10 s (no association attempted)</dd>
+      <dt>Run at</dt><dd>25 Jul 2026 · 14:44:07 IST · by T. Okafor (technologist)</dd>
+      <dt>Last success</dt><dd>25 Jul 08:00 IST (61 ms) — failure window &lt; 7 h</dd>
+    </div>
+    <div class="banner warn" style="margin-top:12px"><b>Troubleshooting checklist (in order)</b></div>
+    <div class="check"><span class="box on">✓</span> 1. Confirm the modality console is powered on and out of service mode (contact MRI room ext. 4172).</div>
+    <div class="check"><span class="box on">✓</span> 2. Verify network drop: link light on wall port MRI-2-B; scanner shows IP <span class="mono">10.20.4.35</span>.</div>
+    <div class="check"><span class="box"></span> 3. From edge gateway, ping test to <span class="mono">10.20.4.35</span> — run via "Network probe" below.</div>
+    <div class="check"><span class="box"></span> 4. If ping OK but connect fails: check scanner DICOM service restarted &amp; listening on port <span class="mono">11112</span>.</div>
+    <div class="check"><span class="box"></span> 5. If AE title or port was changed on the scanner, request a registry update via Admin AD-08 (approval required) — do not work around with an unregistered AE (studies will quarantine, see IN-03).</div>
+    <div class="check"><span class="box"></span> 6. Still failing after 30 min → raise incident, tag vendor AMC (Aria support, contract #AMC-2231).</div>
+    <div class="modal-actions"><button class="btn">Run network probe</button><button class="btn warn-outline">Retry C-ECHO</button><button class="btn danger">Raise incident</button></div>
+  </div>
+</div>
+<p class="audit">Registry views, C-ECHO test runs (initiator, target AE, result) and AD-08 edit-link navigations are recorded in the access log. Device identity changes are only possible in Admin AD-08 under dual-control approval.</p>
+</section>
+<section class="screen" id="in-03">
+<div class="screen-head"><h1><span class="sid">IN-03</span> Unknown AE &amp; quarantine</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · RT-S4 unknown-AE → quarantine queue</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Studies pushed from AE titles not in the registry are quarantined instead of entering the archive — a privacy and integrity guard. Admins triage each quarantined study: register the sending AE (routes to Admin AD-08 with approval), associate it with a known device that was renamed, or reject with a reason. Study metadata stays masked until a decision is made; quarantined data auto-purges after 30 days.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Integration</div>
+      <div class="nav-item">Overview &amp; health</div>
+      <div class="nav-item">Imaging devices &amp; AE</div>
+      <div class="nav-item active">Unknown AE quarantine <span class="nav-badge">3</span></div>
+      <div class="nav-item">PACS / archive</div>
+      <div class="nav-item">Messaging providers</div>
+      <div class="nav-item">Payment gateway</div>
+      <div class="nav-item">Edge-sync</div>
+      <div class="sec-label">Operations</div>
+      <div class="nav-item">Incidents <span class="nav-badge red">1</span></div>
+      <div class="nav-item">Connector audit log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Integration › Unknown AE &amp; quarantine</div>
+      <div class="page-title">Quarantined studies — unregistered AE titles <span class="actions-right"><span class="chip amber">3 PENDING</span></span></div>
+      <div class="page-sub">Studies received from AE titles not in the device registry · metadata masked until triaged · auto-purge after 30 days</div>
+      <div class="banner warn"><b>Why studies land here</b>Any C-STORE from an AE title / host pair not in the registry is held outside the clinical archive. It is not visible to radiologists and is excluded from reporting worklists until you register, associate or reject it.</div>
+      <div class="card">
+        <div class="card-title">Quarantine queue <span class="right">3 studies · oldest first</span></div>
+        <table>
+          <tr><th>Received from (AE @ host)</th><th>Study meta (masked)</th><th>Objects</th><th>Received</th><th>Age</th><th>Purge in</th><th>Actions</th></tr>
+          <tr class="hl">
+            <td class="mono">USNEW_01 @ 10.20.4.29</td>
+            <td>Modality US · Patient <span class="mono">S••••• R•••</span> · DOB ••/••/19•• · Acc <span class="mono">ACC-••••871</span></td>
+            <td>34 img · 41 MB</td>
+            <td class="mono">25 Jul 11:02 IST</td>
+            <td><span class="chip teal">3 h</span></td>
+            <td><span class="chip grey">30 d</span></td>
+            <td><button class="btn small primary">Register AE →</button> <button class="btn small">Associate</button> <button class="btn small">Reject…</button></td>
+          </tr>
+          <tr>
+            <td class="mono">MERIDCT1_BAK @ 10.20.4.11</td>
+            <td>Modality CT · Patient <span class="mono">A••• K••••</span> · DOB ••/••/19•• · Acc <span class="mono">ACC-••••640</span></td>
+            <td>412 img · 208 MB</td>
+            <td class="mono">22 Jul 17:48 IST</td>
+            <td><span class="chip amber">2 d 20 h</span></td>
+            <td><span class="chip grey">27 d</span></td>
+            <td><button class="btn small primary">Register AE →</button> <button class="btn small">Associate</button> <button class="btn small">Reject…</button></td>
+          </tr>
+          <tr>
+            <td class="mono">TESTAE @ 10.20.9.77</td>
+            <td>Modality OT · Patient <span class="mono">T••• P••••••</span> · Acc <span class="mono">—</span> (no accession)</td>
+            <td>2 img · 1.1 MB</td>
+            <td class="mono">28 Jun 09:15 IST</td>
+            <td><span class="chip red">27 d — PURGE IMMINENT</span></td>
+            <td><span class="chip red">3 d</span></td>
+            <td><button class="btn small primary">Register AE →</button> <button class="btn small">Associate</button> <button class="btn small">Reject…</button></td>
+          </tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Same-host hint: <span class="mono">MERIDCT1_BAK @ 10.20.4.11</span> matches the registered host of <b>CT-ROOM-1 (MERIDCT1)</b> — likely an AE rename after a vendor service visit. Use <b>Associate</b> to link without creating a new device.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Retention &amp; privacy for quarantined data</div>
+        <div class="kv">
+          <dt>Storage</dt><dd>Quarantine zone, encrypted at rest, outside clinical archive; not queryable via QIDO/WADO</dd>
+          <dt>Metadata masking</dt><dd>Patient name/DOB/accession masked in this UI; full values visible only after "Associate" or "Register AE" step-up confirmation</dd>
+          <dt>Auto-purge</dt><dd><b>30 days</b> from receipt · warning banner at day 25 · purge is irreversible and logged</dd>
+          <dt>Rejection</dt><dd>Requires a reason code; sender is not auto-notified (network-level response only)</dd>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — REGISTER-AE FLOW (ROUTES TO ADMIN AD-08 WITH APPROVAL)</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Register AE title — <span class="mono">USNEW_01</span></h3>
+    <div class="banner info" style="margin-bottom:12px"><b>Routes to Admin AD-08</b>Registration creates a change request on the single write surface (Admin › Equipment). It becomes active only after a second org admin approves (four-eyes). Quarantined studies from this AE are then released to the archive automatically.</div>
+    <div class="field"><label>AE title (from received association)</label><input class="input mono" value="USNEW_01" disabled></div>
+    <div class="row">
+      <div class="field grow"><label>Host</label><input class="input mono" value="10.20.4.29" disabled></div>
+      <div class="field grow"><label>Port</label><input class="input mono" value="104"></div>
+    </div>
+    <div class="field"><label>Link to device <span class="req">*</span></label>
+      <div class="check"><span class="box radio on"></span> Create new device record — <i>US-UNIT-3 (new ultrasound, GA 20 Jul 2026)</i></div>
+      <div class="check"><span class="box radio"></span> Attach as additional AE of an existing device</div>
+    </div>
+    <div class="field"><label>Enable services</label>
+      <div class="check"><span class="box on">✓</span> MWL (worklist scoped to US orders, this branch)</div>
+      <div class="check"><span class="box on">✓</span> MPPS</div>
+      <div class="check"><span class="box on">✓</span> C-STORE to archive</div>
+    </div>
+    <div class="field"><label>Justification (visible to approver) <span class="req">*</span></label><textarea class="textarea">New ultrasound unit installed 20 Jul; vendor configured AE USNEW_01. Study in quarantine belongs to today's OP list.</textarea></div>
+    <div class="banner reg" style="margin-bottom:0"><b>Step-up required</b>Confirm your identity with passkey or TOTP to submit. Approval request goes to another org admin — you cannot approve your own request.</div>
+    <div class="modal-actions"><button class="btn">Cancel</button><button class="btn primary">Confirm identity &amp; submit to AD-08</button></div>
+  </div>
+</div>
+<div class="state-tag" style="margin-top:14px">STATE B (CONT.) — REQUEST SUBMITTED</div>
+<div class="banner success" style="max-width:700px"><b>Change request REQ-1042 submitted to Admin AD-08</b>Awaiting approval by a second org admin (notified: D. Nair has admin-delegate role — no; routed to org-admin group). Quarantined study stays held; it will auto-release on approval. SLA <span class="chip teal">4 h · owner K. Verma</span>.</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — PURGE WARNING (DAY 27 OF 30) AND REJECT-WITH-REASON</div>
+<div class="banner danger" style="max-width:860px"><b>Auto-purge in 3 days — TESTAE @ 10.20.9.77 (received 28 Jun 2026)</b>This quarantined study reaches its 30-day retention limit on 28 Jul 2026 23:59 IST. If no action is taken it will be irreversibly deleted and only a purge audit record (no pixel data, no PHI) is kept. Org admins were notified at day 25 and day 27.</div>
+<div class="modal-wrap">
+  <div class="modal danger">
+    <h3>Reject quarantined study — <span class="mono">TESTAE @ 10.20.9.77</span></h3>
+    <div class="field"><label>Reason code <span class="req">*</span></label>
+      <select class="select"><option>Vendor test images — not patient data</option><option>Sent to wrong facility</option><option>Duplicate of archived study</option><option>Unidentifiable / corrupt</option></select>
+    </div>
+    <div class="field"><label>Note (audit trail) <span class="req">*</span></label><textarea class="textarea">Two test pattern images from vendor engineer's laptop during network survey on 28 Jun. No patient content.</textarea></div>
+    <div class="check"><span class="box on">✓</span> I confirm this study contains no patient data that must be retained, or a retained copy exists in the clinical archive.</div>
+    <div class="banner reg" style="margin-top:8px;margin-bottom:0"><b>Dual control</b>Rejection deletes the quarantined objects immediately. A second org admin must co-confirm within this session (four-eyes) — enter their approval below or send an approval link.</div>
+    <div class="modal-actions"><button class="btn">Cancel</button><button class="btn">Send co-approval link</button><button class="btn danger disabled">Reject &amp; delete (awaiting co-approval)</button></div>
+  </div>
+</div>
+<p class="audit">Every quarantine event, mask-reveal, register/associate/reject decision, co-approval and auto-purge is recorded in the access log with actor, step-up method, reason code and study hash (no PHI in log lines).</p>
+</section>
+<section class="screen" id="in-04">
+<div class="screen-head"><h1><span class="sid">IN-04</span> PACS / archive connections</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · PACS/archive config (scope item #66)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Configuration and health of the branch's imaging archive: DIMSE endpoint, DICOMweb services (QIDO/WADO/STOW), TLS posture and storage-commitment status. Admins can run a masked query test from the console to verify end-to-end query paths. Any connection change requires an approval (four-eyes) plus a passing connectivity test before it activates; a secondary/failover archive slot is reserved for the roadmap.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Integration</div>
+      <div class="nav-item">Overview &amp; health</div>
+      <div class="nav-item">Imaging devices &amp; AE</div>
+      <div class="nav-item">Unknown AE quarantine <span class="nav-badge">3</span></div>
+      <div class="nav-item active">PACS / archive</div>
+      <div class="nav-item">Messaging providers</div>
+      <div class="nav-item">Payment gateway</div>
+      <div class="nav-item">Edge-sync</div>
+      <div class="sec-label">Operations</div>
+      <div class="nav-item">Incidents <span class="nav-badge red">1</span></div>
+      <div class="nav-item">Connector audit log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Integration › PACS / archive connections</div>
+      <div class="page-title">Primary archive — <span class="mono">pacs01.meridian.local</span> <span class="actions-right"><span class="chip green">UP</span> <button class="btn small primary">Request connection change…</button></span></div>
+      <div class="page-sub">Changes require org-admin approval (four-eyes) + a passing connectivity test before activation</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">DIMSE endpoint <span class="right">classic DICOM</span></div>
+          <div class="kv">
+            <dt>Called AE</dt><dd class="mono">MERID_ARCH</dd>
+            <dt>Host : port</dt><dd class="mono">pacs01.meridian.local : 11112</dd>
+            <dt>Services</dt><dd>C-STORE SCP · C-FIND · C-MOVE · Storage Commitment (N-ACTION/N-EVENT)</dd>
+            <dt>TLS</dt><dd><span class="chip green">DIMSE-TLS ON</span> · mutual auth, cert CN <span class="mono">pacs01.meridian.local</span></dd>
+            <dt>Cert expiry</dt><dd>14 Feb 2027 (204 days) <span class="chip green">OK</span></dd>
+            <dt>Last C-ECHO</dt><dd>25 Jul 2026 14:30 IST · <span class="chip green">OK 12 ms</span></dd>
+          </div>
+        </div>
+        <div class="card grow">
+          <div class="card-title">DICOMweb endpoints <span class="right">HTTPS</span></div>
+          <table>
+            <tr><th>Service</th><th>Endpoint</th><th>Status</th><th>p95 (24h)</th></tr>
+            <tr><td class="bold">QIDO-RS</td><td class="mono small">https://pacs01.meridian.local/dw/qido</td><td><span class="chip green">UP</span></td><td>210 ms</td></tr>
+            <tr><td class="bold">WADO-RS</td><td class="mono small">https://pacs01.meridian.local/dw/wado</td><td><span class="chip green">UP</span></td><td>640 ms</td></tr>
+            <tr><td class="bold">STOW-RS</td><td class="mono small">https://pacs01.meridian.local/dw/stow</td><td><span class="chip green">UP</span></td><td>380 ms</td></tr>
+          </table>
+          <div class="kv" style="margin-top:10px">
+            <dt>TLS cert</dt><dd>Expires 14 Feb 2027 · <span class="chip green">OK</span> · TLS 1.3, OAuth2 client-credentials</dd>
+            <dt>Auth client</dt><dd class="mono">magnus-archive-client (Keycloak staff realm, service account)</dd>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Storage commitment <span class="right">last 24 h</span></div>
+          <table>
+            <tr><th>Metric</th><th>Value</th><th>Status</th></tr>
+            <tr><td>Commit requests sent</td><td>1,884</td><td><span class="chip green">OK</span></td></tr>
+            <tr><td>Commit confirmations</td><td>1,884 (100%)</td><td><span class="chip green">OK</span></td></tr>
+            <tr><td>Pending &gt; 15 min</td><td>0</td><td><span class="chip green">OK</span></td></tr>
+            <tr><td>Local copies eligible for cleanup</td><td>1,861 studies</td><td><span class="chip grey">AUTO (edge cache 7 d)</span></td></tr>
+          </table>
+          <div class="small muted" style="margin-top:8px">Edge cache retains committed studies 7 days for fast prior access, then relies on archive. Cleanup never runs on uncommitted studies.</div>
+        </div>
+        <div class="card" style="width:330px;flex-shrink:0">
+          <div class="card-title">Secondary / failover archive <span class="chip violet">ROADMAP</span></div>
+          <div class="sig-box" style="min-height:88px">Not configured in MVP-1 — placeholder for DR archive (async replication, read-only failover)</div>
+          <div class="small muted" style="margin-top:8px">Planned MVP-2: secondary STOW target with replication lag monitor and manual failover under dual-control.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Query test console <span class="right">results masked · non-mutating</span></div>
+        <div class="row" style="align-items:flex-end">
+          <div class="field grow"><label>Query type</label><select class="select"><option>QIDO-RS · studies</option><option>C-FIND · study root</option></select></div>
+          <div class="field grow"><label>Accession / study date</label><input class="input mono" placeholder="ACC-… or 20260725"></div>
+          <div class="field"><label>&nbsp;</label><button class="btn primary">Run test query</button></div>
+        </div>
+        <div class="small muted">Patient identifiers in results are masked by default. Unmasking requires a documented reason + step-up and is separately audited.</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — TEST QUERY SUCCESS (MASKED RESULTS)</div>
+<div class="frame"><div class="main" style="padding:16px 18px">
+  <div class="banner success"><b>QIDO-RS test query OK — 5 results in 198 ms</b>Query: studies, StudyDate=20260725, branch=Andheri West · run by K. Verma · 14:52:31 IST</div>
+  <div class="card" style="margin-bottom:0">
+    <div class="card-title">Results (masked) <span class="right">QIDO-RS · pacs01</span></div>
+    <table>
+      <tr><th>Patient ID (masked)</th><th>Patient name (masked)</th><th>Accession</th><th>Modality</th><th>Study time</th><th>Instances</th></tr>
+      <tr><td class="mono">MRD-••••482</td><td class="mono">S••••• R•••</td><td class="mono">ACC-••••871</td><td>US</td><td class="mono">10:44 IST</td><td>34</td></tr>
+      <tr><td class="mono">MRD-••••911</td><td class="mono">A••• K••••</td><td class="mono">ACC-••••640</td><td>CT</td><td class="mono">11:12 IST</td><td>412</td></tr>
+      <tr><td class="mono">MRD-••••076</td><td class="mono">M••••• J••••</td><td class="mono">ACC-••••702</td><td>MR</td><td class="mono">12:05 IST</td><td>288</td></tr>
+      <tr><td class="mono">MRD-••••355</td><td class="mono">R••• D•••••</td><td class="mono">ACC-••••718</td><td>US</td><td class="mono">12:38 IST</td><td>29</td></tr>
+      <tr><td class="mono">MRD-••••820</td><td class="mono">N•••• S•••</td><td class="mono">ACC-••••733</td><td>CT</td><td class="mono">13:21 IST</td><td>396</td></tr>
+    </table>
+    <div style="margin-top:10px;display:flex;gap:8px"><button class="btn small">Export test evidence (masked)</button><button class="btn small ghost">Unmask a row… (reason + step-up)</button></div>
+  </div>
+</div></div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — TLS CERT EXPIRING (AMBER) + CONNECTION CHANGE REQUEST GATE</div>
+<div class="frame"><div class="main" style="padding:16px 18px">
+  <div class="banner warn"><b>DICOMweb TLS certificate expires in 21 days — 15 Aug 2026</b>Endpoints <span class="mono">/dw/qido</span>, <span class="mono">/dw/wado</span>, <span class="mono">/dw/stow</span> share cert CN <span class="mono">pacs01.meridian.local</span>. Renew and stage the new cert before 12 Aug to keep the 72-h validation buffer. SLA <span class="chip amber">DUE 12 AUG · owner K. Verma</span>. Auto-reminder escalates to red at 7 days.</div>
+  <div class="modal-wrap" style="margin-top:0">
+    <div class="modal">
+      <h3>Request connection change — rotate DICOMweb TLS certificate</h3>
+      <div class="kv">
+        <dt>Change</dt><dd>Replace server certificate (new expiry 15 Aug 2027) · endpoints unchanged</dd>
+        <dt>Requested by</dt><dd>K. Verma (org admin) · 25 Jul 2026 15:10 IST · identity confirmed via passkey <span class="chip green">STEP-UP OK</span></dd>
+        <dt>Approval</dt><dd><span class="chip amber">PENDING — second org admin</span> (four-eyes; requester cannot self-approve)</dd>
+        <dt>Activation gate</dt><dd>Applies only after approval <b>and</b> automated test-pass: C-ECHO, QIDO probe, STOW probe, cert-chain validation</dd>
+        <dt>Rollback</dt><dd>Previous cert kept staged 72 h for one-click rollback (also dual-control)</dd>
+      </div>
+      <div class="banner info" style="margin-top:12px;margin-bottom:0"><b>Test-pass required</b>The change stays inactive until the connectivity test suite passes against the staged configuration. A failed suite auto-cancels activation and notifies both approvers.</div>
+      <div class="modal-actions"><button class="btn">Withdraw request</button><button class="btn disabled primary">Activate (awaiting approval + test-pass)</button></div>
+    </div>
+  </div>
+</div></div>
+<p class="audit">Archive configuration views, test queries (masked and unmasked, with reasons), certificate rotations, change requests, approvals and activation test results are recorded in the access log.</p>
+</section>
+<section class="screen" id="in-05">
+<div class="screen-head"><h1><span class="sid">IN-05</span> Message browser — HL7 / DICOM events</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · message browser (scope item #103 baseline)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Integration engineers and org admins search the full HL7 (ORM/ORU) and DICOM (MWL/MPPS/C-STORE) event log to trace an order or study end-to-end. Every message is correlated to an accession; raw payloads are PHI-minimised by default and require a reveal reason. Errors carry a taxonomy chip so triage can route failures to IN-06 Retry &amp; replay.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Connectors</div>
+      <div class="nav-item">Connector health</div>
+      <div class="nav-item">Modality worklist</div>
+      <div class="nav-item active">Message browser</div>
+      <div class="nav-item">Retry &amp; replay <span class="nav-badge red">14</span></div>
+      <div class="sec-label">Channels</div>
+      <div class="nav-item">Comms providers</div>
+      <div class="nav-item">Printers &amp; peripherals</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Mapping tables</div>
+      <div class="nav-item">Access log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Integration › Message browser</div>
+      <div class="page-title">Message browser <span class="actions-right"><span class="btn small">⬇ Export filtered (CSV, no PHI)</span> <span class="btn small">⟳ Auto-refresh: 30s</span></span></div>
+      <div class="page-sub">HL7 v2 and DICOM events across all connectors · retention 90 days hot, 7 years cold archive · payloads PHI-minimised at rest</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">4,182</div><div class="l">Messages · last 24h</div><div class="s">Across 6 connectors</div></div>
+        <div class="kpi"><div class="n">99.2%</div><div class="l">Ack success</div><div class="s">AA / total inbound</div></div>
+        <div class="kpi amber"><div class="n">19</div><div class="l">Warnings (AE)</div><div class="s">Mostly mapping fallbacks</div></div>
+        <div class="kpi red"><div class="n">14</div><div class="l">Failed (AR / timeout)</div><div class="s">In retry queues → IN-06</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Search &amp; filters <span class="right">saved view: "CT failures this week"</span></div>
+        <div class="row">
+          <div class="grow field" style="margin-bottom:0"><label>Free text / accession / MRN-hash / correlation ID</label><input class="input mono" value="ACC-2607-0142"></div>
+          <div class="field" style="width:130px;margin-bottom:0"><label>Direction</label><div class="select">All ▾</div></div>
+          <div class="field" style="width:160px;margin-bottom:0"><label>Type</label><div class="select">All (ORM, ORU, MWL…) ▾</div></div>
+          <div class="field" style="width:130px;margin-bottom:0"><label>Status</label><div class="select">All ▾</div></div>
+          <div class="field" style="width:190px;margin-bottom:0"><label>Time range (IST)</label><div class="select">24 Jul 06:00 → now ▾</div></div>
+          <div style="align-self:flex-end"><span class="btn primary">Search</span></div>
+        </div>
+        <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap"><span class="chip grey">Connector: all</span><span class="chip grey">Branch: Andheri West</span><span class="chip teal">Correlated to accession only</span><span class="chip grey">Exclude heartbeats ✓</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Results · 61 messages for ACC-2607-0142 and related <span class="right">newest first · IST</span></div>
+        <table>
+          <tr><th>Time (IST)</th><th>Dir</th><th>Type</th><th>Connector / AE</th><th>Correlation</th><th>Summary (PHI-minimised)</th><th>Status</th><th></th></tr>
+          <tr><td class="mono">25 Jul 14:22:08</td><td><span class="chip blue">IN</span></td><td class="mono">DICOM MPPS N-SET</td><td>CT-ROOM-1 · MERIDCT1</td><td class="mono">ACC-2607-0142</td><td>Study COMPLETED · 342 objects · CT Chest HRCT</td><td><span class="chip green">SUCCESS</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr class="hl"><td class="mono">25 Jul 14:21:44</td><td><span class="chip violet">OUT</span></td><td class="mono">HL7 ORU^R01</td><td>LIS-Bridge · TLS MLLP</td><td class="mono">ACC-2607-0142</td><td>Preliminary result dispatch · pt ▮▮▮▮ (F/62) · ordering Dr. ▮▮▮▮</td><td><span class="chip green">ACK AA</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="mono">25 Jul 13:58:31</td><td><span class="chip blue">IN</span></td><td class="mono">DICOM C-STORE</td><td>CT-ROOM-1 · MERIDCT1</td><td class="mono">ACC-2607-0142</td><td>Store event batch · 342/342 instances · 512 MB</td><td><span class="chip green">SUCCESS</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="mono">25 Jul 13:41:05</td><td><span class="chip blue">IN</span></td><td class="mono">DICOM MWL C-FIND</td><td>CT-ROOM-1 · MERIDCT1</td><td class="mono">ACC-2607-0142</td><td>Worklist query matched 1 entry · scheduled 13:45</td><td><span class="chip green">SUCCESS</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="mono">25 Jul 12:02:47</td><td><span class="chip violet">OUT</span></td><td class="mono">HL7 ORM^O01</td><td>RIS-Core outbound</td><td class="mono">ACC-2607-0142</td><td>New order broadcast · CT Chest HRCT · priority ROUTINE</td><td><span class="chip green">ACK AA</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="mono">25 Jul 11:58:12</td><td><span class="chip blue">IN</span></td><td class="mono">HL7 ORM^O01</td><td>Referrer portal GW</td><td class="mono">ACC-2607-0141</td><td>Order for pt ▮▮▮▮ (M/48) · USG Abdomen · US-UNIT-2</td><td><span class="chip amber">ACK AE</span> <span class="chip amber">MAP-FALLBACK</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="mono">25 Jul 11:31:09</td><td><span class="chip blue">IN</span></td><td class="mono">HL7 ORU^R01</td><td>Partner lab inbound</td><td class="mono">ACC-2607-0137</td><td>External result · segment OBX-5 length exceeds profile</td><td><span class="chip red">ACK AR</span> <span class="chip red">SCHEMA-VIOLATION</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr class="dim"><td class="mono">25 Jul 11:30:52</td><td><span class="chip violet">OUT</span></td><td class="mono">DICOM MPPS N-CREATE</td><td>US-UNIT-2 · MERIDUS2</td><td class="mono">ACC-2607-0139</td><td>Procedure step IN PROGRESS</td><td><span class="chip green">SUCCESS</span></td><td><span class="btn ghost small">Open</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Error taxonomy: <span class="chip red">SCHEMA-VIOLATION</span> <span class="chip red">TIMEOUT</span> <span class="chip red">AUTH-REJECT</span> <span class="chip amber">MAP-FALLBACK</span> <span class="chip amber">DUP-SUPPRESSED</span> <span class="chip grey">HEARTBEAT</span> · Page 1 of 8 · <span class="btn ghost small">Next ›</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — MESSAGE DETAIL · PARSED VIEW (ORU^R01 OUTBOUND, PHI-MINIMISED RAW)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Integration › Message browser › MSG-9F2C-7A11</div>
+      <div class="page-title">HL7 ORU^R01 · MSG-9F2C-7A11 <span class="chip green">ACK AA</span> <span class="actions-right"><span class="btn small">Copy correlation link</span> <span class="btn small">Send to replay console</span></span></div>
+      <div class="page-sub">Outbound · LIS-Bridge (TLS MLLP, mutual auth) · 25 Jul 2026 14:21:44 IST · latency 212 ms</div>
+      <div class="split">
+        <div>
+          <div class="card">
+            <div class="card-title">Parsed summary</div>
+            <dl class="kv">
+              <dt>Correlation</dt><dd class="mono">ACC-2607-0142 · order ORD-88214 · study 1.2.826.0.…4421</dd>
+              <dt>Message control</dt><dd class="mono">MSH-10: MER-20260725-142144-0031 · HL7 v2.5.1</dd>
+              <dt>Patient</dt><dd>▮▮▮▮ ▮▮▮▮ (F/62) · MRN-hash <span class="mono">b7e2…91c4</span> — full identity masked</dd>
+              <dt>Order</dt><dd>CT Chest HRCT · priority ROUTINE · ordering Dr. ▮▮▮▮ (masked)</dd>
+              <dt>Result status</dt><dd>OBR-25 = P (Preliminary) · signed by Dr. V. Shetty</dd>
+              <dt>Segments</dt><dd class="mono">MSH · PID · PV1 · ORC · OBR · OBX×4 · NTE×2</dd>
+              <dt>Ack received</dt><dd class="mono">14:21:44.512 · MSA|AA|MER-20260725-142144-0031</dd>
+            </dl>
+          </div>
+          <div class="card">
+            <div class="card-title">Raw payload · PHI-minimised view <span class="right">masked fields: PID-5, PID-7, PID-11, PID-13, OBR-16</span></div>
+            <div class="mono small" style="background:#0F172A;color:#E2E8F0;border-radius:8px;padding:12px;line-height:1.7;overflow-x:auto">
+MSH|^~\&amp;|MAGNUS|MERIDIAN_AW|LIS|MERIDIAN|20260725142144+0530||ORU^R01|MER-20260725-142144-0031|P|2.5.1<br>
+PID|1||b7e2…91c4^^^MRN||████████^████||████████|F|||████████████████||██████████<br>
+ORC|RE|ORD-88214|ACC-2607-0142||CM<br>
+OBR|1|ORD-88214|ACC-2607-0142|CTHRCT^CT Chest HRCT|||20260725134500+0530||||||||████^██████|…|P<br>
+OBX|1|TX|IMP^Impression||No evidence of acute pulmonary embolism …||||||P
+            </div>
+            <div class="banner warn" style="margin-top:10px;margin-bottom:0"><b>Reveal full payload (step-up required)</b>Unmasking PHI requires a documented reason and a fresh identity confirmation (TOTP/passkey, staff realm). Reveal is time-boxed to 15 minutes and recorded against your user.
+              <div class="row" style="margin-top:8px"><div class="grow field" style="margin-bottom:0"><div class="select">Reason: Order/result mismatch investigation ▾</div></div><span class="btn warn-outline small">Confirm identity &amp; reveal</span></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Transport headers</div>
+            <dl class="kv" style="grid-template-columns:110px 1fr">
+              <dt>Channel</dt><dd>MLLP over TLS 1.3</dd>
+              <dt>Peer</dt><dd class="mono">lis.meridian.local:6661</dd>
+              <dt>Client cert</dt><dd class="mono">CN=magnus-int-aw · exp 02 Mar 2027</dd>
+              <dt>Idempotency</dt><dd class="mono">key ORU:ACC-2607-0142:P:v1</dd>
+              <dt>Attempt</dt><dd>1 of 1 · no retries</dd>
+              <dt>Size</dt><dd>2.9 KB</dd>
+            </dl>
+          </div>
+          <div class="card">
+            <div class="card-title">Correlation timeline</div>
+            <div class="timeline">
+              <div class="ev"><span class="t">12:02:47</span><span>ORM^O01 out → RIS-Core <span class="chip green">AA</span></span></div>
+              <div class="ev"><span class="t">13:41:05</span><span>MWL C-FIND from MERIDCT1</span></div>
+              <div class="ev"><span class="t">13:45:12</span><span>MPPS N-CREATE (in progress)</span></div>
+              <div class="ev"><span class="t">13:58:31</span><span>C-STORE 342 objects</span></div>
+              <div class="ev"><span class="t">14:21:44</span><span><b>ORU^R01 out (this message)</b></span></div>
+              <div class="ev"><span class="t">14:22:08</span><span>MPPS N-SET COMPLETED</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — ERROR DETAIL · INBOUND ORU REJECTED (SCHEMA-VIOLATION)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Integration › Message browser › MSG-4B77-C210</div>
+      <div class="page-title">HL7 ORU^R01 · MSG-4B77-C210 <span class="chip red">ACK AR</span> <span class="chip red">SCHEMA-VIOLATION</span></div>
+      <div class="page-sub">Inbound · Partner lab inbound connector · 25 Jul 2026 11:31:09 IST · rejected in 96 ms, negative ack returned to sender</div>
+      <div class="banner danger"><b>Rejected: OBX-5 exceeds site profile limit (64 KB embedded PDF in text field)</b>Validation rule HL7-PRF-014 · The sender embedded a base64 report inside OBX-5 (TX). Site profile requires ED type with reference pointer. Message parked in the Partner-lab failed queue; correlation ACC-2607-0137 is flagged "external result pending".</div>
+      <div class="row">
+        <div class="grow card">
+          <div class="card-title">Error breakdown</div>
+          <table>
+            <tr><th>Check</th><th>Rule</th><th>Result</th></tr>
+            <tr><td>Structural parse (v2.5.1)</td><td class="mono">HL7-CORE</td><td><span class="chip green">PASS</span></td></tr>
+            <tr><td>Sender auth (facility whitelist)</td><td class="mono">SEC-041</td><td><span class="chip green">PASS</span></td></tr>
+            <tr><td>OBX-5 payload type/size</td><td class="mono">HL7-PRF-014</td><td><span class="chip red">FAIL · 64,112 B &gt; 32,768 B</span></td></tr>
+            <tr><td>Accession correlation</td><td class="mono">COR-002</td><td><span class="chip green">PASS · ACC-2607-0137</span></td></tr>
+            <tr><td>Duplicate control (MSH-10)</td><td class="mono">IDEM-001</td><td><span class="chip green">PASS · first occurrence</span></td></tr>
+          </table>
+          <div class="small muted" style="margin-top:8px">Suggested fix: ask partner lab to switch template LAB-ORU-STD → LAB-ORU-EDREF, or raise site limit via change request (dual approval, org admin + platform operator).</div>
+        </div>
+        <div class="card" style="width:300px">
+          <div class="card-title">Actions</div>
+          <span class="btn primary" style="display:block;margin-bottom:8px">Open in retry console (IN-06)</span>
+          <span class="btn" style="display:block;margin-bottom:8px">Notify partner lab contact</span>
+          <span class="btn" style="display:block;margin-bottom:8px">Create engineer task</span>
+          <span class="btn disabled" style="display:block">Replay now — blocked until rule passes</span>
+          <div class="small muted" style="margin-top:10px">Same taxonomy in last 7 days: 6 messages, all from Partner lab inbound. Pattern alert armed at 10.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Message searches, payload opens and every PHI reveal (with reason, duration and viewer identity) are recorded in the access log.</p>
+</section>
+<section class="screen" id="in-06">
+<div class="screen-head"><h1><span class="sid">IN-06</span> Retry &amp; replay console</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · retry/replay console (scope item #103)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Failed HL7/DICOM/comms messages land in per-connector queues where staff can replay a single message or a filtered batch. Replays are idempotency-safe: every message carries a stable key, so a duplicate replay is acknowledged but suppressed downstream. Messages that fail repeatedly move to the POISON queue, which auto-raises an engineer task and suppresses further automatic retries.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Connectors</div>
+      <div class="nav-item">Connector health</div>
+      <div class="nav-item">Modality worklist</div>
+      <div class="nav-item">Message browser</div>
+      <div class="nav-item active">Retry &amp; replay <span class="nav-badge red">14</span></div>
+      <div class="sec-label">Channels</div>
+      <div class="nav-item">Comms providers</div>
+      <div class="nav-item">Printers &amp; peripherals</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Mapping tables</div>
+      <div class="nav-item">Access log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Integration › Retry &amp; replay console</div>
+      <div class="page-title">Retry &amp; replay console <span class="actions-right"><span class="btn small">Replay audit trail</span> <span class="btn small">⟳ Refreshed 14:31 IST</span></span></div>
+      <div class="page-sub">Failed-message queues per connector · automatic retry ladder 1m → 5m → 30m → park · manual replay always available</div>
+      <div class="banner info"><b>Idempotency guarantee</b>Every outbound/inbound message carries a stable idempotency key (e.g. <span class="mono">ORU:ACC-2607-0137:P:v1</span>). Replaying an already-applied message returns DUP-SUPPRESSED downstream — replay is safe and cannot double-post results, orders or payments.</div>
+      <div class="kpi-row">
+        <div class="kpi red"><div class="n">14</div><div class="l">Parked failures</div><div class="s">Across 4 connectors</div></div>
+        <div class="kpi amber"><div class="n">3</div><div class="l">In retry ladder</div><div class="s">Next attempt ≤ 30 min</div></div>
+        <div class="kpi red"><div class="n">2</div><div class="l">Poison queue</div><div class="s">Auto-suppressed · engineer task open</div></div>
+        <div class="kpi"><div class="n">37</div><div class="l">Replayed · 7 days</div><div class="s">35 success · 2 → poison</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Failed queues by connector <span class="right">age SLA: teal &lt;2h · amber &lt;6h · red overdue</span></div>
+        <table>
+          <tr><th>Connector</th><th>Queue depth</th><th>Oldest message</th><th>Age SLA</th><th>Owner</th><th>Dominant error</th><th></th></tr>
+          <tr class="hl"><td>Partner lab inbound (HL7 ORU)</td><td><b>7</b></td><td class="mono">MSG-4B77-C210 · 11:31 IST</td><td><span class="chip amber">3h 00m · due 17:31</span></td><td>K. Verma</td><td><span class="chip red">SCHEMA-VIOLATION</span></td><td><span class="btn ghost small">Open queue</span></td></tr>
+          <tr><td>LIS-Bridge outbound (HL7 ORU)</td><td><b>3</b></td><td class="mono">MSG-1D09-EE42 · 13:47 IST</td><td><span class="chip teal">44m · due 15:47</span></td><td>K. Verma</td><td><span class="chip red">TIMEOUT</span></td><td><span class="btn ghost small">Open queue</span></td></tr>
+          <tr><td>DLT SMS (Jio route)</td><td><b>3</b></td><td class="mono">SMS-88welcome-291 · 09:12 IST</td><td><span class="chip red">5h 19m · OVERDUE</span></td><td>D. Nair</td><td><span class="chip red">TEMPLATE-REJECT</span></td><td><span class="btn ghost small">Open queue</span></td></tr>
+          <tr><td>MRI-ROOM-2 MPPS (DICOM)</td><td><b>1</b></td><td class="mono">MPPS-0F31 · 12:55 IST</td><td><span class="chip teal">1h 36m · due 14:55</span></td><td>T. Okafor</td><td><span class="chip red">AUTH-REJECT</span></td><td><span class="btn ghost small">Open queue</span></td></tr>
+          <tr class="dim"><td>Payment gateway UPI webhooks</td><td>0</td><td>—</td><td><span class="chip green">CLEAR</span></td><td>P. D'Souza</td><td>—</td><td></td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">Queue: Partner lab inbound · 7 parked <span class="right">2 selected</span></div>
+        <div style="display:flex;gap:8px;margin-bottom:10px"><span class="btn primary small">Replay selected (2)</span><span class="btn small">Replay all matching filter</span><span class="btn warn-outline small">Move selected to poison</span><span class="btn ghost small">Clear selection</span></div>
+        <table>
+          <tr><th style="width:26px"></th><th>Message</th><th>Correlation</th><th>Error</th><th>Attempts</th><th>Last attempt</th><th>Age SLA</th></tr>
+          <tr class="hl"><td><span class="box on">✓</span></td><td class="mono">MSG-4B77-C210 · ORU^R01</td><td class="mono">ACC-2607-0137</td><td><span class="chip red">SCHEMA-VIOLATION</span></td><td>3 auto + 0 manual</td><td class="mono">12:31 IST</td><td><span class="chip amber">3h 00m</span></td></tr>
+          <tr class="hl"><td><span class="box on">✓</span></td><td class="mono">MSG-4B91-A00F · ORU^R01</td><td class="mono">ACC-2607-0138</td><td><span class="chip red">SCHEMA-VIOLATION</span></td><td>3 auto + 1 manual</td><td class="mono">13:02 IST</td><td><span class="chip amber">2h 41m</span></td></tr>
+          <tr><td><span class="box"></span></td><td class="mono">MSG-4C12-B7D3 · ORU^R01</td><td class="mono">ACC-2607-0140</td><td><span class="chip red">TIMEOUT</span></td><td>2 auto · next 14:45</td><td class="mono">14:15 IST</td><td><span class="chip teal">1h 12m</span></td></tr>
+          <tr><td><span class="box"></span></td><td class="mono">MSG-4C55-90AA · ORU^R01</td><td class="mono">ACC-2607-0143</td><td><span class="chip red">SCHEMA-VIOLATION</span></td><td>3 auto</td><td class="mono">13:44 IST</td><td><span class="chip teal">0h 58m</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Replay uses the original payload and idempotency key unless "edit-and-replay" is chosen — edited replays require a second approver (four-eyes) and are tagged EDITED in the audit trail.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — BULK REPLAY RESULT (2 SELECTED · CONFIRM + OUTCOME)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Integration › Retry &amp; replay › Bulk replay</div>
+      <div class="page-title">Bulk replay · Partner lab inbound</div>
+      <div class="page-sub">Requested by K. Verma · 25 Jul 2026 14:33 IST · run ID <span class="mono">RPL-20260725-0091</span></div>
+      <div class="modal-wrap">
+        <div class="modal">
+          <h3>Confirm bulk replay — 2 messages</h3>
+          <p class="small" style="margin-bottom:8px">Messages will be re-submitted through full validation with their <b>original idempotency keys</b>. Any message already applied downstream will be suppressed as a duplicate, not double-posted.</p>
+          <dl class="kv" style="grid-template-columns:130px 1fr">
+            <dt>Scope</dt><dd class="mono">MSG-4B77-C210, MSG-4B91-A00F</dd>
+            <dt>Reason</dt><dd>Partner lab redeployed template LAB-ORU-EDREF at 14:20 IST</dd>
+            <dt>Identity</dt><dd><span class="chip green">Step-up confirmed · passkey · 14:32 IST</span></dd>
+          </dl>
+          <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Replay 2 messages</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Run result · RPL-20260725-0091 <span class="right">completed 14:33:41 IST · 3.2s</span></div>
+        <div class="kpi-row" style="margin-bottom:10px">
+          <div class="kpi"><div class="n">1</div><div class="l">Succeeded</div><div class="s">Applied downstream</div></div>
+          <div class="kpi"><div class="n">0</div><div class="l">Duplicate-suppressed</div><div class="s">Idempotency key hit</div></div>
+          <div class="kpi red"><div class="n">1</div><div class="l">Failed again</div><div class="s">Attempt count now 5 → poison candidate</div></div>
+        </div>
+        <table>
+          <tr><th>Message</th><th>Correlation</th><th>Idempotency key</th><th>Outcome</th><th>Detail</th></tr>
+          <tr><td class="mono">MSG-4B77-C210</td><td class="mono">ACC-2607-0137</td><td class="mono">ORU:ACC-2607-0137:F:v2</td><td><span class="chip green">SUCCESS</span></td><td>Validated · result posted · accession flag cleared</td></tr>
+          <tr class="hl"><td class="mono">MSG-4B91-A00F</td><td class="mono">ACC-2607-0138</td><td class="mono">ORU:ACC-2607-0138:F:v1</td><td><span class="chip red">FAIL · 5th attempt</span></td><td>Sender still on old template · auto-move to POISON in effect, engineer task <span class="mono">ENG-1147</span> raised</td></tr>
+        </table>
+        <div class="banner success" style="margin-top:10px;margin-bottom:0"><b>1 of 2 applied</b>Successful replay logged with run ID, actor and outcome. The remaining failure is now suppressed from auto-retry and visible in the poison queue below.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Replay audit trail (this connector, last 7 days) <span class="right">who · when · outcome</span></div>
+        <table>
+          <tr><th>Run</th><th>When (IST)</th><th>Actor</th><th>Scope</th><th>Outcome</th></tr>
+          <tr><td class="mono">RPL-20260725-0091</td><td class="mono">25 Jul 14:33</td><td>K. Verma</td><td>2 msgs · bulk</td><td><span class="chip green">1 ok</span> <span class="chip red">1 fail→poison</span></td></tr>
+          <tr><td class="mono">RPL-20260724-0087</td><td class="mono">24 Jul 18:04</td><td>K. Verma</td><td>1 msg · single</td><td><span class="chip green">1 ok</span></td></tr>
+          <tr><td class="mono">RPL-20260723-0080</td><td class="mono">23 Jul 09:52</td><td>R. Iyer (Platform Ops)</td><td>4 msgs · edited replay · co-approved K. Verma</td><td><span class="chip green">4 ok</span> <span class="chip grey">EDITED</span></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — POISON QUEUE · ESCALATED TO ENGINEER TASK &amp; SUPPRESSED</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Integration › Retry &amp; replay › Poison queue</div>
+      <div class="page-title">Poison queue <span class="chip red">3 messages</span></div>
+      <div class="page-sub">Messages that failed ≥5 attempts or matched a poison pattern · auto-retry suppressed · manual replay requires four-eyes approval</div>
+      <div class="banner danger"><b>Auto-escalation active</b>Each poison entry raises an engineer task and notifies the connector owner. Further automatic retries are suppressed to protect downstream systems from repeated bad payloads.</div>
+      <table>
+        <tr><th>Message</th><th>Correlation</th><th>Poisoned at</th><th>Failure history</th><th>Engineer task</th><th>Status</th><th></th></tr>
+        <tr class="hl"><td class="mono">MSG-4B91-A00F · ORU^R01</td><td class="mono">ACC-2607-0138</td><td class="mono">25 Jul 14:33 IST</td><td>5 fails · SCHEMA-VIOLATION ×5</td><td class="mono">ENG-1147 · open · assignee K. Verma</td><td><span class="chip red">SUPPRESSED</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+        <tr><td class="mono">SMS-88welcome-291 · DLT SMS</td><td class="mono">VISIT-2607-0410</td><td class="mono">25 Jul 12:40 IST</td><td>6 fails · TEMPLATE-REJECT (DLT header mismatch)</td><td class="mono">ENG-1145 · in progress · D. Nair</td><td><span class="chip red">SUPPRESSED</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+        <tr><td class="mono">MPPS-0E88 · N-SET · MRI-ROOM-2</td><td class="mono">ACC-2606-0994</td><td class="mono">22 Jul 16:11 IST</td><td>5 fails · AUTH-REJECT (AE title cert rotated)</td><td class="mono">ENG-1139 · resolved · awaiting replay</td><td><span class="chip amber">READY FOR REPLAY</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+      </table>
+      <div class="modal-wrap">
+        <div class="modal danger">
+          <h3>Replay from poison — four-eyes required</h3>
+          <p class="small" style="margin-bottom:8px">Replaying <span class="mono">MPPS-0E88</span> after engineer fix ENG-1139. Poison replays require the requester plus one independent approver; neither can approve their own request.</p>
+          <dl class="kv" style="grid-template-columns:140px 1fr">
+            <dt>Requester</dt><dd>T. Okafor · identity step-up <span class="chip green">TOTP ✓ 14:36 IST</span></dd>
+            <dt>Approver</dt><dd>K. Verma (org admin) · <span class="chip amber">PENDING approval</span></dd>
+            <dt>Idempotency</dt><dd class="mono">MPPS:ACC-2606-0994:COMPLETED:v1 — duplicate-safe</dd>
+          </dl>
+          <div class="modal-actions"><span class="btn">Cancel</span><span class="btn disabled">Replay — awaiting second approval</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Every replay (single, bulk, edited, poison), its approver pair, idempotency outcome and suppression event is recorded in the access log.</p>
+</section>
+<section class="screen" id="in-07">
+<div class="screen-head"><h1><span class="sid">IN-07</span> Comms provider connections</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IN-S3 comms providers + expiry alerting</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Org admins manage patient-communication channels: DLT-registered SMS (Jio route), WhatsApp BSP, and transactional email. The screen surfaces credential expiry countdowns, DLT template sync, email domain auth (SPF/DKIM/DMARC), and a drag-order failover chain. Test sends use sandbox numbers with synthetic data only — never real patient contacts.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Connectors</div>
+      <div class="nav-item">Connector health</div>
+      <div class="nav-item">Modality worklist</div>
+      <div class="nav-item">Message browser</div>
+      <div class="nav-item">Retry &amp; replay <span class="nav-badge red">14</span></div>
+      <div class="sec-label">Channels</div>
+      <div class="nav-item active">Comms providers</div>
+      <div class="nav-item">Printers &amp; peripherals</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Mapping tables</div>
+      <div class="nav-item">Access log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Integration › Comms providers</div>
+      <div class="page-title">Comms provider connections <span class="actions-right"><span class="btn small">Delivery analytics</span> <span class="btn primary small">+ Add provider</span></span></div>
+      <div class="page-sub">Patient notifications: appointment, prep, report-ready, payment links · all templates DLT/BSP pre-approved · secrets stored in tenant vault</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">3/3</div><div class="l">Providers healthy</div><div class="s">Last probe 14:30 IST</div></div>
+        <div class="kpi"><div class="n">98.7%</div><div class="l">Delivery · 7 days</div><div class="s">All channels combined</div></div>
+        <div class="kpi"><div class="n">41</div><div class="l">Templates synced</div><div class="s">DLT 24 · WhatsApp 11 · Email 6</div></div>
+        <div class="kpi"><div class="n">142d</div><div class="l">Nearest credential expiry</div><div class="s">WhatsApp BSP token</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">SMS · DLT (Jio route) <span class="chip green">HEALTHY</span> <span class="right">owner: K. Verma</span></div>
+        <div class="row">
+          <div class="grow">
+            <dl class="kv">
+              <dt>DLT entity ID</dt><dd class="mono">110120260078841 · Meridian Diagnostics Pvt Ltd</dd>
+              <dt>Sender header</dt><dd class="mono">MERDIA · transactional route · Jio (primary)</dd>
+              <dt>Template sync</dt><dd><span class="chip green">24/24 IN SYNC</span> · last sync 25 Jul 06:00 IST · next 26 Jul 06:00</dd>
+              <dt>Throughput</dt><dd>1,912 sent / 24h · 99.1% delivered · avg 4.2s</dd>
+              <dt>Credential</dt><dd>API key <span class="mono">jio-****-7f21</span> · rotated 02 Jun 2026 · expires 30 May 2027</dd>
+            </dl>
+          </div>
+          <div style="width:230px">
+            <span class="btn small" style="display:block;margin-bottom:6px;text-align:center">Test send (sandbox)</span>
+            <span class="btn small" style="display:block;margin-bottom:6px;text-align:center">Re-sync DLT templates</span>
+            <span class="btn ghost small" style="display:block;text-align:center">View 24 templates</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">WhatsApp · BSP <span class="chip green">HEALTHY</span> <span class="right">owner: K. Verma</span></div>
+        <div class="row">
+          <div class="grow">
+            <dl class="kv">
+              <dt>WABA</dt><dd class="mono">Meridian Diagnostics · +91 98•• ••• 210 · display verified</dd>
+              <dt>Credential expiry</dt><dd><span class="chip teal">142 days remaining</span> · token expires 14 Dec 2026 · auto-alert at 30/14/7 days to owner + platform ops</dd>
+              <dt>Quality rating</dt><dd><span class="chip green">HIGH</span> · messaging limit tier: 10K/day · 0 policy strikes</dd>
+              <dt>Templates</dt><dd>11 approved · 0 pending · report-ready, prep-instructions, payment-link</dd>
+            </dl>
+          </div>
+          <div style="width:230px">
+            <span class="btn small" style="display:block;margin-bottom:6px;text-align:center">Test send (sandbox)</span>
+            <span class="btn small" style="display:block;margin-bottom:6px;text-align:center">Rotate token…</span>
+            <span class="btn ghost small" style="display:block;text-align:center">Quality history</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Email · transactional <span class="chip green">HEALTHY</span> <span class="right">owner: K. Verma</span></div>
+        <div class="row">
+          <div class="grow">
+            <dl class="kv">
+              <dt>Sending domain</dt><dd class="mono">mail.meridiandiagnostics.in</dd>
+              <dt>Domain auth</dt><dd><span class="chip green">SPF PASS</span> <span class="chip green">DKIM PASS (2048-bit, selector mg1)</span> <span class="chip green">DMARC p=quarantine, 100% aligned</span> · checked 25 Jul 14:00 IST</dd>
+              <dt>Volume</dt><dd>388 sent / 24h · bounce 0.4% · complaint 0.0%</dd>
+            </dl>
+          </div>
+          <div style="width:230px">
+            <span class="btn small" style="display:block;margin-bottom:6px;text-align:center">Test send (sandbox)</span>
+            <span class="btn ghost small" style="display:block;text-align:center">Re-run DNS checks</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Failover order · patient notifications <span class="right">applies per message class</span></div>
+        <table>
+          <tr><th>Priority</th><th>Channel</th><th>Condition to fail over</th><th>Status</th></tr>
+          <tr><td><b>1</b></td><td>WhatsApp BSP</td><td>No delivery receipt in 120s or provider DOWN</td><td><span class="chip green">ACTIVE</span></td></tr>
+          <tr><td><b>2</b></td><td>SMS DLT (Jio route)</td><td>Reject or no DLR in 300s</td><td><span class="chip green">ACTIVE</span></td></tr>
+          <tr><td><b>3</b></td><td>Email transactional</td><td>Final fallback · report-ready &amp; payment classes only</td><td><span class="chip green">ACTIVE</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Reordering the chain requires step-up identity confirmation and takes effect within 60s across all branches. <span class="btn ghost small">Edit failover order…</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — WHATSAPP CREDENTIAL EXPIRING · AMBER COUNTDOWN + AUTO-ALERT</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Integration › Comms providers</div>
+      <div class="page-title">Comms provider connections <span class="chip amber">1 WARNING</span></div>
+      <div class="page-sub">Snapshot: 30 Nov 2026 — WhatsApp BSP token inside 14-day alert window</div>
+      <div class="banner warn"><b>WhatsApp BSP token expires in 14 days (14 Dec 2026)</b>Auto-alerts sent to owner K. Verma and NUMINACORE platform ops at the 30-day mark (14 Nov) and today. If the token lapses, WhatsApp drops out of the failover chain automatically and SMS DLT becomes priority 1 — patients still receive notifications, at higher SMS cost.</div>
+      <div class="card">
+        <div class="card-title">WhatsApp · BSP <span class="chip amber">EXPIRING · 14 DAYS</span> <span class="right">owner: K. Verma</span></div>
+        <div class="row">
+          <div class="grow">
+            <dl class="kv">
+              <dt>Credential expiry</dt><dd><span class="chip amber">14 days remaining</span> · expires 14 Dec 2026 23:59 IST
+                <div class="progress amber" style="max-width:260px"><i style="width:90%"></i></div>
+                <span class="small muted">Alert ladder: 30d ✓ sent · 14d ✓ sent today · 7d pending · daily thereafter</span></dd>
+              <dt>Quality rating</dt><dd><span class="chip green">HIGH</span> · unaffected by token state</dd>
+              <dt>Impact if lapsed</dt><dd>~1,400 msgs/day shift to SMS · est. +₹2,850/day · prep-instruction rich media unavailable</dd>
+            </dl>
+          </div>
+          <div style="width:240px">
+            <span class="btn primary small" style="display:block;margin-bottom:6px;text-align:center">Rotate token now…</span>
+            <span class="btn small" style="display:block;margin-bottom:6px;text-align:center">Snooze alert 24h (logged)</span>
+            <span class="btn ghost small" style="display:block;text-align:center">Escalate to platform ops</span>
+          </div>
+        </div>
+        <div class="banner info" style="margin-bottom:0"><b>Token rotation is step-up protected</b>Pasting a new BSP token requires a fresh passkey/TOTP confirmation (staff realm). The old token stays valid for a 15-minute overlap window to avoid delivery gaps, then is revoked. Both events are audit-logged.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — FAILOVER REORDER + SANDBOX TEST SEND</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Integration › Comms providers › Failover order</div>
+      <div class="page-title">Edit failover order</div>
+      <div class="page-sub">Draft change by K. Verma · 25 Jul 2026 14:41 IST · not yet applied</div>
+      <div class="row">
+        <div class="grow card">
+          <div class="card-title">Reorder channels (drag ↑↓) <span class="right">draft</span></div>
+          <table>
+            <tr><th></th><th>Priority</th><th>Channel</th><th>Change</th></tr>
+            <tr class="hl"><td class="mono">⠿</td><td><b>1</b></td><td>SMS DLT (Jio route)</td><td><span class="chip amber">MOVED UP from #2</span></td></tr>
+            <tr class="hl"><td class="mono">⠿</td><td><b>2</b></td><td>WhatsApp BSP</td><td><span class="chip amber">MOVED DOWN — token expiring</span></td></tr>
+            <tr><td class="mono">⠿</td><td><b>3</b></td><td>Email transactional</td><td>unchanged</td></tr>
+          </table>
+          <div class="banner warn" style="margin-top:10px"><b>Confirm identity to apply</b>Failover order affects patient-facing delivery across all Meridian branches. Step-up required; change propagates within 60s and is reversible.</div>
+          <div style="display:flex;gap:8px;justify-content:flex-end"><span class="btn">Discard draft</span><span class="btn warn-outline">Confirm identity (passkey) &amp; apply</span></div>
+        </div>
+        <div class="card" style="width:330px">
+          <div class="card-title">Test send · sandbox <span class="chip teal">SYNTHETIC DATA ONLY</span></div>
+          <div class="field"><label>Channel</label><div class="select">SMS DLT (Jio route) ▾</div></div>
+          <div class="field"><label>Template</label><div class="select">RPT_READY_EN · "Your report is ready…" ▾</div></div>
+          <div class="field"><label>Sandbox recipient</label><div class="select">+91 90000 00001 (Magnus test SIM) ▾</div><div class="hint">Real patient numbers cannot be selected here. Variables filled with synthetic values (Pt: TEST PATIENT, ACC-TEST-0001).</div></div>
+          <span class="btn primary small" style="display:block;text-align:center;margin-bottom:8px">Send test</span>
+          <div class="banner success" style="margin-bottom:0"><b>Delivered · 3.8s</b>DLR received 14:42:11 IST · DLT template ID matched <span class="mono">1107162026001</span> · route Jio-TXN.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Provider credential views, token rotations, failover changes, alert snoozes and every sandbox test send are recorded in the access log.</p>
+</section>
+<section class="screen" id="in-08">
+<div class="screen-head"><h1><span class="sid">IN-08</span> Printers &amp; peripherals</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IN-S2 printers & peripherals</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Registry of every service-point peripheral — token slip and label printers, wristband printers, public queue displays and signature pads — with live status pings and driver/queue diagnostics. Test prints use synthetic data only. When a device is down, the screen surfaces the front-office fallback (reprint at another desk) so patient flow never stalls.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Connectors</div>
+      <div class="nav-item">Connector health</div>
+      <div class="nav-item">Modality worklist</div>
+      <div class="nav-item">Message browser</div>
+      <div class="nav-item">Retry &amp; replay <span class="nav-badge red">14</span></div>
+      <div class="sec-label">Channels</div>
+      <div class="nav-item">Comms providers</div>
+      <div class="nav-item active">Printers &amp; peripherals <span class="nav-badge red">1</span></div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Mapping tables</div>
+      <div class="nav-item">Access log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Integration › Printers &amp; peripherals</div>
+      <div class="page-title">Printers &amp; peripherals <span class="actions-right"><span class="btn small">Ping all now</span> <span class="btn primary small">+ Register device</span></span></div>
+      <div class="page-sub">12 devices across 5 service points · Andheri West branch · agent heartbeat every 60s</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">10</div><div class="l">Online</div><div class="s">Heartbeat &lt; 2 min</div></div>
+        <div class="kpi amber"><div class="n">1</div><div class="l">Degraded</div><div class="s">Label printer low ribbon</div></div>
+        <div class="kpi red"><div class="n">1</div><div class="l">Down</div><div class="s">Front desk 2 token printer</div></div>
+        <div class="kpi"><div class="n">1,204</div><div class="l">Jobs today</div><div class="s">0.6% reprint rate</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Device registry <span class="right">grouped by service point</span></div>
+        <table>
+          <tr><th>Device</th><th>Type</th><th>Service point</th><th>Agent / driver</th><th>Last ping (IST)</th><th>Queue</th><th>Status</th><th></th></tr>
+          <tr><td class="mono">TKN-FD1</td><td>Token slip printer (thermal 80mm)</td><td>Front desk 1 · D. Nair</td><td class="mono">magnus-agent 2.4.1 · ESC/POS</td><td class="mono">14:44:02</td><td>0 jobs</td><td><span class="chip green">ONLINE</span></td><td><span class="btn ghost small">Test print</span></td></tr>
+          <tr class="hl"><td class="mono">TKN-FD2</td><td>Token slip printer (thermal 80mm)</td><td>Front desk 2 · D. Nair</td><td class="mono">magnus-agent 2.4.1 · ESC/POS</td><td class="mono">14:19:47 · stale</td><td><b>6 stuck</b></td><td><span class="chip red">DOWN · 24m</span></td><td><span class="btn ghost small">Diagnose</span></td></tr>
+          <tr><td class="mono">LBL-PHLEB1</td><td>Label printer (barcode, 2-up)</td><td>Phlebotomy · T. Okafor</td><td class="mono">magnus-agent 2.4.1 · ZPL</td><td class="mono">14:44:10</td><td>1 job</td><td><span class="chip amber">LOW RIBBON ~120 labels</span></td><td><span class="btn ghost small">Test print</span></td></tr>
+          <tr><td class="mono">LBL-CT1</td><td>Label printer (barcode)</td><td>CT-ROOM-1 console</td><td class="mono">magnus-agent 2.4.1 · ZPL</td><td class="mono">14:43:55</td><td>0 jobs</td><td><span class="chip green">ONLINE</span></td><td><span class="btn ghost small">Test print</span></td></tr>
+          <tr><td class="mono">WRB-DAYCARE</td><td>Wristband printer</td><td>Daycare / contrast bay</td><td class="mono">magnus-agent 2.4.1 · ZPL-W</td><td class="mono">14:44:01</td><td>0 jobs</td><td><span class="chip green">ONLINE</span></td><td><span class="btn ghost small">Test print</span></td></tr>
+          <tr><td class="mono">DSP-LOBBY</td><td>Public queue display (55")</td><td>Lobby</td><td class="mono">display-agent 1.9 · HDMI-CEC</td><td class="mono">14:44:12</td><td>—</td><td><span class="chip green">ONLINE · privacy mode: token-only</span></td><td><span class="btn ghost small">Preview</span></td></tr>
+          <tr><td class="mono">DSP-RADWAIT</td><td>Public queue display (43")</td><td>Radiology waiting</td><td class="mono">display-agent 1.9</td><td class="mono">14:43:58</td><td>—</td><td><span class="chip green">ONLINE · privacy mode: token-only</span></td><td><span class="btn ghost small">Preview</span></td></tr>
+          <tr><td class="mono">SIG-FD1</td><td>Signature pad (consent capture)</td><td>Front desk 1</td><td class="mono">magnus-agent 2.4.1 · HID</td><td class="mono">14:44:05</td><td>—</td><td><span class="chip green">ONLINE</span></td><td><span class="btn ghost small">Test stroke</span></td></tr>
+          <tr><td class="mono">SIG-BILL1</td><td>Signature pad</td><td>Billing counter · P. D'Souza</td><td class="mono">magnus-agent 2.4.1 · HID</td><td class="mono">14:44:07</td><td>—</td><td><span class="chip green">ONLINE</span></td><td><span class="btn ghost small">Test stroke</span></td></tr>
+          <tr><td class="mono">RCP-BILL1</td><td>Receipt printer (thermal 80mm)</td><td>Billing counter</td><td class="mono">magnus-agent 2.4.1 · ESC/POS</td><td class="mono">14:44:03</td><td>0 jobs</td><td><span class="chip green">ONLINE</span></td><td><span class="btn ghost small">Test print</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Public displays never show patient names — token number and room only (privacy mode enforced at template level). Device registration and removal require org-admin role with step-up confirmation.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — TEST PRINT · SYNTHETIC DATA ONLY</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Integration › Printers &amp; peripherals › LBL-PHLEB1 › Test print</div>
+      <div class="page-title">Test print · LBL-PHLEB1 <span class="chip teal">SYNTHETIC DATA ONLY</span></div>
+      <div class="page-sub">Phlebotomy label printer · ZPL · 2-up barcode stock 50×25mm</div>
+      <div class="modal-wrap">
+        <div class="modal">
+          <h3>Send test label</h3>
+          <p class="small" style="margin-bottom:10px">Test jobs are generated from fixed synthetic fixtures — real patient data can never be selected into a test print. Each test is tagged TEST in bold on the physical output.</p>
+          <div class="field"><label>Template</label><div class="select">SAMPLE-LBL-STD · barcode + accession + tube type ▾</div></div>
+          <div class="field"><label>Fixture</label><div class="select">TEST PATIENT ONE · ACC-TEST-0001 · EDTA ▾</div></div>
+          <div class="field"><label>Copies</label><input class="input" style="width:80px" value="1"></div>
+          <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Print test label</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="grow card">
+          <div class="card-title">Label preview (rendered)</div>
+          <div style="border:1.5px dashed #94A3B8;border-radius:8px;background:#F8FAFC;padding:14px;max-width:340px">
+            <div class="mono small" style="letter-spacing:.3em">▐║▌║█║▌│║▐║█▌║│▐</div>
+            <div class="mono bold">ACC-TEST-0001 · ** TEST **</div>
+            <div class="small">TEST PATIENT ONE · 01 Jan 1990 · EDTA (lavender)</div>
+            <div class="small muted">Andheri West · 25 Jul 2026 14:47 IST · printed by T. Okafor</div>
+          </div>
+        </div>
+        <div class="card" style="width:320px">
+          <div class="card-title">Result</div>
+          <div class="banner success" style="margin-bottom:8px"><b>Test label printed · 1.1s</b>Job <span class="mono">PRJ-20260725-1088</span> rendered and confirmed by agent. Ribbon estimate updated: ~119 labels remaining.</div>
+          <div class="banner warn" style="margin-bottom:0"><b>Low ribbon</b>Consumable alert already open for LBL-PHLEB1 — supplies task <span class="mono">FAC-0223</span> assigned to facilities, due today 18:00 IST.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — PRINTER DOWN · DRIVER/QUEUE ERROR + FRONT-OFFICE FALLBACK</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Integration › Printers &amp; peripherals › TKN-FD2 › Diagnose</div>
+      <div class="page-title">TKN-FD2 · Token slip printer <span class="chip red">DOWN · 26 min</span> <span class="chip red">SLA 30m · D. Nair</span></div>
+      <div class="page-sub">Front desk 2 · last successful job 14:17:31 IST · 6 jobs stuck in queue</div>
+      <div class="banner danger"><b>Driver error: USB endpoint not responding (agent code PRN-E-104)</b>Agent heartbeat is healthy but the spooler reports the device unreachable — most often a cable/power fault or paper jam with the cutter engaged. Auto-recovery attempted twice (spooler restart 14:22, 14:32) without success.</div>
+      <div class="row">
+        <div class="grow card">
+          <div class="card-title">Stuck queue · 6 jobs</div>
+          <table>
+            <tr><th>Job</th><th>Type</th><th>Queued (IST)</th><th>Token</th><th>State</th></tr>
+            <tr><td class="mono">PRJ-1091</td><td>Token slip</td><td class="mono">14:19:02</td><td class="mono">A-118</td><td><span class="chip amber">HELD</span></td></tr>
+            <tr><td class="mono">PRJ-1092</td><td>Token slip</td><td class="mono">14:21:44</td><td class="mono">A-119</td><td><span class="chip amber">HELD</span></td></tr>
+            <tr><td class="mono">PRJ-1094</td><td>Token slip</td><td class="mono">14:26:10</td><td class="mono">A-120</td><td><span class="chip amber">HELD</span></td></tr>
+            <tr><td class="mono">PRJ-1096</td><td>Token slip</td><td class="mono">14:31:37</td><td class="mono">A-121</td><td><span class="chip amber">HELD</span></td></tr>
+            <tr><td class="mono">PRJ-1099</td><td>Token slip</td><td class="mono">14:38:15</td><td class="mono">A-122</td><td><span class="chip amber">HELD</span></td></tr>
+            <tr><td class="mono">PRJ-1101</td><td>Token slip</td><td class="mono">14:42:50</td><td class="mono">A-123</td><td><span class="chip amber">HELD</span></td></tr>
+          </table>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <span class="btn primary small">Reroute all 6 → TKN-FD1</span>
+            <span class="btn small">Retry on TKN-FD2</span>
+            <span class="btn warn-outline small">Purge queue (requires reason)</span>
+          </div>
+          <div class="small muted" style="margin-top:8px">Rerouted slips print with "issued at Desk 1" footer; queue-display token order is unaffected because tokens are already allocated server-side.</div>
+        </div>
+        <div class="card" style="width:330px">
+          <div class="card-title">Front-office fallback</div>
+          <div class="banner info" style="margin-bottom:10px"><b>Fallback active for Desk 2</b>D. Nair's registration screen now shows: "Token printer offline — slips reprint automatically at <b>Front desk 1 (TKN-FD1)</b>. Verbally direct patients to collect there, or read out the token number." Patients on WhatsApp/SMS also receive their token digitally as usual.</div>
+          <div class="card-title" style="font-size:13px">Recovery checklist</div>
+          <div class="check"><span class="box on">✓</span>Spooler restart attempted (auto ×2)</div>
+          <div class="check"><span class="box"></span>Check power &amp; USB cable at Desk 2</div>
+          <div class="check"><span class="box"></span>Clear paper path / cutter jam</div>
+          <div class="check"><span class="box"></span>Power-cycle printer, wait for agent re-ping</div>
+          <div class="check"><span class="box"></span>Still down? Escalate: task to facilities + notify K. Verma</div>
+          <span class="btn small" style="display:block;text-align:center;margin-top:8px">Create facilities task (pre-filled)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="audit">Device registrations, test prints (synthetic fixtures), queue reroutes, purges with reason, and fallback activations are recorded in the access log.</p>
+</section>
+<section class="screen" id="in-09">
+<div class="screen-head"><h1><span class="sid">IN-09</span> Webhooks &amp; API clients</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 + G16 — workspaces 'Integration' / operator</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · webhooks & API clients (Conditional, foundation)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Registry of API clients (future patient portal, partner integrations) with scoped credentials and per-client rate limits, plus webhook subscriptions onto the domain event backbone (OrderPlaced, ReportSigned…). Org admin creates clients in <b>sandbox</b> first; promotion to <b>live</b> and signing-secret rotation are step-up + dual-control actions. Delivery log shows retries with exponential backoff and dead-letter after 8 attempts.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org admin) ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Integration</div>
+    <div class="nav-item">Overview</div>
+    <div class="nav-item">Modality worklist</div>
+    <div class="nav-item">HL7 / FHIR feeds</div>
+    <div class="nav-item">Messaging providers</div>
+    <div class="nav-item">Payment gateway</div>
+    <div class="nav-item active">Webhooks &amp; API clients</div>
+    <div class="nav-item">Edge &amp; offline sync <span class="nav-badge">3</span></div>
+    <div class="sec-label">Governance</div>
+    <div class="nav-item">Event backbone catalogue</div>
+    <div class="nav-item">Access log</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Integration workspace › Webhooks &amp; API clients</div>
+    <div class="page-title">API clients &amp; webhook subscriptions <span class="chip blue">SANDBOX + LIVE</span> <span class="actions-right"><span class="btn small">Event catalogue</span> <span class="btn primary small">+ Register API client</span></span></div>
+    <div class="page-sub">OAuth2 client-credentials clients with least-privilege scopes. Outbound webhooks are HMAC-SHA256 signed; payloads carry event envelopes only — <b>no patient identifiers unless the scope explicitly includes phi:read and the endpoint is allow-listed</b>.</div>
+
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">4</div><div class="l">Active clients</div><div class="s">2 live · 2 sandbox</div></div>
+      <div class="kpi"><div class="n">7</div><div class="l">Webhook subscriptions</div><div class="s">across 11 event types</div></div>
+      <div class="kpi"><div class="n">99.6%</div><div class="l">Delivery success 7d</div><div class="s">1,842 / 1,849 delivered</div></div>
+      <div class="kpi amber"><div class="n">1</div><div class="l">Secret expiring</div><div class="s">partner-crm — rotate by 05 Aug</div></div>
+    </div>
+
+    <div class="card"><div class="card-title">API client registry <span class="right">4 clients · Meridian tenant</span></div>
+    <table>
+      <tr><th>Client</th><th>Client ID</th><th>Env</th><th>Scopes</th><th>Rate limit</th><th>Secret age</th><th>Status</th><th></th></tr>
+      <tr><td><b>Patient Portal (future)</b><div class="small muted">First-party · portal team</div></td><td class="mono">mgs_cli_ptl_7f2a</td><td><span class="chip blue">SANDBOX</span></td><td><span class="chip grey">appointments:read</span> <span class="chip grey">reports:read-own</span> <span class="chip grey">payments:create</span></td><td class="mono">60 rpm / burst 120</td><td>12 d</td><td><span class="chip green">ACTIVE</span></td><td><span class="btn ghost small">Manage</span></td></tr>
+      <tr class="hl"><td><b>Partner CRM — Wellness360</b><div class="small muted">Third-party · DPA #DPA-2026-014 on file</div></td><td class="mono">mgs_cli_crm_91cd</td><td><span class="chip teal">LIVE</span></td><td><span class="chip grey">orders:read</span> <span class="chip grey">webhooks:subscribe</span></td><td class="mono">30 rpm / burst 60</td><td><span class="chip amber">78 d — rotate soon</span></td><td><span class="chip green">ACTIVE</span></td><td><span class="btn ghost small">Manage</span></td></tr>
+      <tr><td><b>Referrer results push</b><div class="small muted">First-party · referring-doctor notify service</div></td><td class="mono">mgs_cli_ref_20b8</td><td><span class="chip teal">LIVE</span></td><td><span class="chip grey">reports:read</span> <span class="chip grey">phi:read</span> <span class="chip red">PHI-SCOPED</span></td><td class="mono">120 rpm / burst 240</td><td>21 d</td><td><span class="chip green">ACTIVE</span></td><td><span class="btn ghost small">Manage</span></td></tr>
+      <tr class="dim"><td><b>Analytics export (pilot)</b><div class="small muted">Sandbox trial ended 30 Jun 2026</div></td><td class="mono">mgs_cli_anx_44e0</td><td><span class="chip blue">SANDBOX</span></td><td><span class="chip grey">events:read-anon</span></td><td class="mono">10 rpm</td><td>92 d</td><td><span class="chip grey">SUSPENDED</span></td><td><span class="btn ghost small">Manage</span></td></tr>
+    </table>
+    <p class="small muted" style="margin-top:8px">PHI-scoped clients require DPO approval and appear in the quarterly access review (SEC-07). Rate limits enforced at the API gateway; 429 responses include Retry-After.</p></div>
+
+    <div class="row">
+      <div class="card grow"><div class="card-title">Webhook subscriptions <span class="right">domain event backbone</span></div>
+      <table>
+        <tr><th>Subscription</th><th>Event types</th><th>Endpoint</th><th>Env</th><th>Health</th></tr>
+        <tr><td class="mono">whk_crm_orders</td><td><span class="chip grey">OrderPlaced</span> <span class="chip grey">OrderCancelled</span></td><td class="mono small">https://api.wellness360.in/hooks/magnus</td><td><span class="chip teal">LIVE</span></td><td><span class="chip green">HEALTHY</span></td></tr>
+        <tr><td class="mono">whk_ref_reports</td><td><span class="chip grey">ReportSigned</span> <span class="chip grey">ReportAmended</span></td><td class="mono small">https://notify.meridian.internal/refpush</td><td><span class="chip teal">LIVE</span></td><td><span class="chip amber">RETRYING ×2</span></td></tr>
+        <tr><td class="mono">whk_ptl_appts</td><td><span class="chip grey">AppointmentBooked</span> <span class="chip grey">AppointmentRescheduled</span> <span class="chip grey">PaymentCaptured</span></td><td class="mono small">https://sandbox.portal.meridian.in/wh</td><td><span class="chip blue">SANDBOX</span></td><td><span class="chip green">HEALTHY</span></td></tr>
+      </table></div>
+      <div class="card" style="width:300px;flex-shrink:0"><div class="card-title">Signing &amp; retry policy</div>
+      <dl class="kv" style="grid-template-columns:118px 1fr">
+        <dt>Signature</dt><dd class="mono small">X-Magnus-Signature: HMAC-SHA256(ts.body)</dd>
+        <dt>Replay window</dt><dd>±5 min timestamp tolerance</dd>
+        <dt>Retries</dt><dd>8 attempts, exp. backoff 1m → 4h</dd>
+        <dt>Dead-letter</dt><dd>parked 7 d, admin replay allowed</dd>
+        <dt>Payload</dt><dd>event envelope; PHI only if scope + allow-list</dd>
+      </dl></div>
+    </div>
+    <div class="banner info"><b>Sandbox vs live isolation</b>Sandbox clients receive synthetic tenant data only and can never reach live PHI endpoints. Promotion to live requires step-up identity confirmation and a second approver.</div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — WEBHOOK DELIVERY LOG (whk_ref_reports · retries + dead-letter)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Integration workspace › Webhooks &amp; API clients › whk_ref_reports › Deliveries</div>
+  <div class="page-title">Delivery log — <span class="mono">whk_ref_reports</span> <span class="chip amber">RETRYING</span> <span class="actions-right"><span class="btn small">Pause subscription</span> <span class="btn small">Send test event</span></span></div>
+  <div class="page-sub">Endpoint <span class="mono">https://notify.meridian.internal/refpush</span> · Events ReportSigned, ReportAmended · Last 24 h IST</div>
+  <table>
+    <tr><th>Delivery ID</th><th>Event</th><th>Event ID</th><th>Attempt</th><th>HTTP</th><th>Latency</th><th>Timestamp (IST)</th><th>Status</th><th></th></tr>
+    <tr><td class="mono">dlv_9a41f2</td><td>ReportSigned</td><td class="mono">evt_rs_20260725_0812</td><td>1 / 8</td><td class="mono">200</td><td class="mono">184 ms</td><td class="mono">25 Jul 14:22:08</td><td><span class="chip green">DELIVERED</span></td><td><span class="btn ghost small">Payload</span></td></tr>
+    <tr class="hl"><td class="mono">dlv_9a40c7</td><td>ReportSigned</td><td class="mono">evt_rs_20260725_0807</td><td>3 / 8</td><td class="mono">503</td><td class="mono">30,001 ms (timeout)</td><td class="mono">25 Jul 14:05:41</td><td><span class="chip amber">RETRY in 8 m</span></td><td><span class="btn ghost small">Payload</span> <span class="btn ghost small">Retry now</span></td></tr>
+    <tr class="hl"><td class="mono">dlv_9a3fe0</td><td>ReportAmended</td><td class="mono">evt_ra_20260725_0031</td><td>3 / 8</td><td class="mono">503</td><td class="mono">30,002 ms (timeout)</td><td class="mono">25 Jul 14:04:19</td><td><span class="chip amber">RETRY in 8 m</span></td><td><span class="btn ghost small">Payload</span> <span class="btn ghost small">Retry now</span></td></tr>
+    <tr><td class="mono">dlv_9a2b11</td><td>ReportSigned</td><td class="mono">evt_rs_20260724_0492</td><td>8 / 8</td><td class="mono">401</td><td class="mono">96 ms</td><td class="mono">24 Jul 22:47:03</td><td><span class="chip red">DEAD-LETTER</span></td><td><span class="btn ghost small">Payload</span> <span class="btn ghost small">Replay…</span></td></tr>
+    <tr><td class="mono">dlv_9a2a58</td><td>ReportSigned</td><td class="mono">evt_rs_20260724_0488</td><td>1 / 8</td><td class="mono">200</td><td class="mono">142 ms</td><td class="mono">24 Jul 18:31:56</td><td><span class="chip green">DELIVERED</span></td><td><span class="btn ghost small">Payload</span></td></tr>
+  </table>
+  <div class="banner warn" style="margin-top:12px"><b>Endpoint responding 503 since 14:04 IST</b>Consumer service refpush appears down. 2 deliveries in retry, next attempt 14:13 IST with backoff doubling. If 8 attempts exhaust, events park in dead-letter for 7 days — replay from here does not re-emit the domain event, it re-sends the same signed payload. Owner: <b>K. Verma</b> · <span class="chip amber">SLA: consumer ack ≤ 4 h</span></div>
+  <div class="card"><div class="card-title">Payload preview — dlv_9a40c7 <span class="right">envelope only · PHI masked in console</span></div>
+  <div class="mono small" style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:7px;padding:10px;white-space:pre-wrap">{ "event":"ReportSigned", "event_id":"evt_rs_20260725_0807", "occurred_at":"2026-07-25T08:35:41Z",
+  "tenant":"meridian", "branch":"andheri-west", "order_ref":"ORD-AW-88121", "report_ref":"RPT-CT-45210",
+  "signed_by_role":"radiologist", "patient_ref":"tok_pat_••••••••", "links":{"fetch":"/v1/reports/RPT-CT-45210"} }</div>
+  <p class="small muted" style="margin-top:6px">Console preview masks tokenised patient reference. Full payload fetch requires phi:read scope and is itself access-logged.</p></div>
+</div></div></div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — SIGNING-SECRET ROTATION (step-up + four-eyes)</div>
+<div class="modal-wrap"><div class="modal">
+  <h3>Rotate signing secret — Partner CRM (Wellness360) <span class="chip teal">LIVE</span></h3>
+  <p class="small muted" style="margin-bottom:10px">Current secret <span class="mono">whsec_••••91cd</span> is 78 days old (policy: rotate ≤ 90 days). Rotation uses a 48-hour dual-secret overlap so the partner can migrate without dropped verifications.</p>
+  <div class="field"><label>Overlap window <span class="req">*</span></label><span class="select" style="display:inline-block;width:220px">48 hours (recommended) ▾</span><div class="hint">Both old and new secrets validate during the overlap; old secret is revoked automatically at 27 Jul 14:30 IST.</div></div>
+  <div class="check"><span class="box on">✓</span><span>Notify partner technical contact (integrations@wellness360.in) with new secret via one-time secure link (expires 24 h, single view)</span></div>
+  <div class="check"><span class="box">&nbsp;</span><span>Revoke old secret immediately (breaks in-flight verification — use only if secret is compromised)</span></div>
+  <div class="banner warn" style="margin-top:10px"><b>Step-up identity confirmation required</b>Re-enter your Keycloak staff-realm passkey or TOTP to proceed. This is a live-environment credential action.</div>
+  <div class="field"><label>TOTP code <span class="req">*</span></label><span class="input mono" style="display:inline-block;width:150px;color:#94A3B8">6-digit code</span></div>
+  <div class="banner reg"><b>Dual-control (four-eyes)</b>A second Integration admin must approve within 4 h or the rotation is cancelled. Pending approver: <b>Dr. V. Shetty is not eligible</b> — eligible: platform-designated org admins only. Request sent to: <span class="chip grey">standby org admin — S. Kulkarni</span></div>
+  <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Confirm &amp; request approval</span></div>
+</div></div>
+<p class="audit">Secret rotations, scope changes, client suspensions, dead-letter replays and every payload view are dual-logged to the Meridian tenant audit trail and the NUMINACORE operator evidence store; each entry (actor K. Verma, approver, step-up method, client ID, timestamp IST) is recorded in the access log.</p>
+</section>
+<section class="screen" id="in-10">
+<div class="screen-head"><h1><span class="sid">IN-10</span> Edge &amp; offline sync monitor</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 + G16 — workspaces 'Integration' / operator</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · edge/offline sync monitor (checklist #12–14)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Each branch runs an edge node that keeps front office and modality worklist working when the cloud link drops. This monitor shows per-branch sync freshness, outbound/inbound queues, and a CONFLICTS queue for same-record edits made offline and in cloud — resolved field-by-field (keep-cloud / keep-branch / merge), with four-eyes required when a clinical field is involved. Sync SLA: full catch-up ≤ 15 min after reconnect.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org admin) ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Integration</div>
+    <div class="nav-item">Overview</div>
+    <div class="nav-item">Modality worklist</div>
+    <div class="nav-item">HL7 / FHIR feeds</div>
+    <div class="nav-item">Messaging providers</div>
+    <div class="nav-item">Payment gateway</div>
+    <div class="nav-item">Webhooks &amp; API clients</div>
+    <div class="nav-item active">Edge &amp; offline sync <span class="nav-badge">0</span></div>
+    <div class="sec-label">Governance</div>
+    <div class="nav-item">Event backbone catalogue</div>
+    <div class="nav-item">Access log</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Integration workspace › Edge &amp; offline sync monitor</div>
+    <div class="page-title">Edge &amp; offline sync — all branches <span class="chip green">ALL SYNCED</span> <span class="actions-right"><span class="btn small">Replay log</span> <span class="btn small">Force sync all</span></span></div>
+    <div class="page-sub">Auto-refresh 30 s · Last poll 25 Jul 2026, 14:32:10 IST · Edge agent v2.6.1 on all nodes · <span class="chip teal">SLA: catch-up ≤ 15 min after reconnect</span></div>
+
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">4 / 4</div><div class="l">Branches online</div><div class="s">edge heartbeat &lt; 60 s</div></div>
+      <div class="kpi"><div class="n">0</div><div class="l">Pending outbound</div><div class="s">actions awaiting cloud ack</div></div>
+      <div class="kpi"><div class="n">0</div><div class="l">Open conflicts</div><div class="s">last resolved 22 Jul 09:14</div></div>
+      <div class="kpi"><div class="n">42 s</div><div class="l">Worst sync age</div><div class="s">Thane East · within SLA</div></div>
+    </div>
+
+    <div class="card"><div class="card-title">Per-branch sync status <span class="right">edge nodes · Meridian tenant</span></div>
+    <table>
+      <tr><th>Branch</th><th>Edge node</th><th>Link</th><th>Last sync age</th><th>Pending outbound</th><th>Inbound queue</th><th>Conflicts</th><th>SLA</th><th></th></tr>
+      <tr><td><b>Andheri West</b></td><td class="mono">edge-aw-01</td><td><span class="chip green">ONLINE</span></td><td class="mono">18 s</td><td class="mono">0</td><td class="mono">0</td><td class="mono">0</td><td><span class="chip teal">OK · owner K. Verma</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+      <tr><td><b>Bandra</b></td><td class="mono">edge-bd-01</td><td><span class="chip green">ONLINE</span></td><td class="mono">25 s</td><td class="mono">0</td><td class="mono">0</td><td class="mono">0</td><td><span class="chip teal">OK · owner K. Verma</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+      <tr><td><b>Thane East</b></td><td class="mono">edge-te-01</td><td><span class="chip green">ONLINE</span></td><td class="mono">42 s</td><td class="mono">0</td><td class="mono">0</td><td class="mono">0</td><td><span class="chip teal">OK · owner K. Verma</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+      <tr><td><b>Powai</b></td><td class="mono">edge-pw-01</td><td><span class="chip green">ONLINE</span></td><td class="mono">31 s</td><td class="mono">0</td><td class="mono">0</td><td class="mono">0</td><td><span class="chip teal">OK · owner K. Verma</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+    </table></div>
+
+    <div class="row">
+      <div class="card grow"><div class="card-title">Replay log — last 24 h <span class="right">outbound actions applied to cloud</span></div>
+      <div class="timeline">
+        <div class="ev"><span class="t">14:31:52</span><span><b>edge-te-01</b> batch #58812 — 3 actions (VisitCheckedIn ×2, PaymentCaptured ×1) applied, 0 conflicts · <span class="mono">lag 42 s</span></span></div>
+        <div class="ev"><span class="t">14:29:07</span><span><b>edge-aw-01</b> batch #58811 — 6 actions (OrderPlaced ×3, SlotHeld ×2, PaymentCaptured ×1) applied, 0 conflicts</span></div>
+        <div class="ev"><span class="t">13:58:44</span><span><b>edge-pw-01</b> batch #58796 — 1 action (AppointmentRescheduled) applied · idempotency key de-duplicated 1 retry</span></div>
+        <div class="ev"><span class="t">09:12:03</span><span><b>edge-bd-01</b> reconnect after planned ISP maintenance (11 min offline) — catch-up completed in <b>3 m 40 s</b> <span class="chip teal">WITHIN SLA</span></span></div>
+      </div></div>
+      <div class="card" style="width:300px;flex-shrink:0"><div class="card-title">What stays available offline</div>
+      <dl class="kv" style="grid-template-columns:118px 1fr">
+        <dt>Front office</dt><dd>register walk-in, check-in, cash/UPI-offline receipts (queued)</dd>
+        <dt>Modality</dt><dd>cached MWL for today's confirmed orders (CT-ROOM-1, US-UNIT-2)</dd>
+        <dt>Blocked</dt><dd>report sign-off, refunds, master-data edits — cloud-only by policy</dd>
+        <dt>Data at edge</dt><dd>encrypted at rest; auto-purged 72 h after sync</dd>
+      </dl></div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — BRANCH OFFLINE 2 H (amber · degraded-mode mirror)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Integration workspace › Edge &amp; offline sync monitor › Thane East</div>
+  <div class="page-title">Thane East — <span class="mono">edge-te-01</span> <span class="chip amber">OFFLINE 2 h 08 m</span> <span class="actions-right"><span class="btn small">Ping edge (out-of-band)</span> <span class="btn warn-outline small">Raise incident</span></span></div>
+  <div class="page-sub">Cloud link lost 25 Jul 12:24 IST · edge node itself healthy on branch LAN (last out-of-band heartbeat via SMS channel 14:28 IST) · SLA clock starts at reconnect</div>
+  <div class="banner warn"><b>Degraded mode active at Thane East since 12:24 IST</b>Branch continues on edge node: check-ins, walk-in registrations and offline receipts are queueing locally. Report sign-off and refunds are blocked at branch by policy. Owner: <b>K. Verma</b> · escalation to NUMINACORE platform ops if offline &gt; 4 h. <span class="chip amber">SLA: catch-up ≤ 15 min after reconnect</span></div>
+  <div class="kpi-row">
+    <div class="kpi amber"><div class="n">2 h 08 m</div><div class="l">Last sync age</div><div class="s">since 12:24 IST</div></div>
+    <div class="kpi amber"><div class="n">37</div><div class="l">Pending outbound</div><div class="s">queued at edge (est. from OOB beacon)</div></div>
+    <div class="kpi"><div class="n">5</div><div class="l">Inbound held</div><div class="s">cloud changes awaiting push to branch</div></div>
+    <div class="kpi"><div class="n">est. 2</div><div class="l">Likely conflicts</div><div class="s">same records touched in cloud</div></div>
+  </div>
+  <div class="row">
+    <div class="card grow"><div class="card-title">Queued outbound actions (edge estimate) <span class="right">via out-of-band beacon 14:28 IST</span></div>
+    <table>
+      <tr><th>Type</th><th>Count</th><th>Oldest</th><th>Notes</th></tr>
+      <tr><td>VisitCheckedIn</td><td class="mono">14</td><td class="mono">12:26 IST</td><td>front desk continuing normally</td></tr>
+      <tr><td>OrderPlaced</td><td class="mono">11</td><td class="mono">12:31 IST</td><td>incl. 4 US-UNIT-2 same-day orders</td></tr>
+      <tr><td>PaymentCaptured (cash)</td><td class="mono">9</td><td class="mono">12:29 IST</td><td>offline receipt series TE-OFF-0091…0099</td></tr>
+      <tr class="hl"><td>PatientDemographicsEdited</td><td class="mono">3</td><td class="mono">12:47 IST</td><td>2 records also edited in cloud → conflict likely</td></tr>
+    </table></div>
+    <div class="card" style="width:320px;flex-shrink:0"><div class="card-title">Front-office banner mirror <span class="right">what Thane East staff see</span></div>
+      <div class="banner warn" style="margin-bottom:8px"><b>⚠ Working offline — cloud link down since 12:24</b>Bookings, check-ins and cash receipts continue and will sync automatically. Online payments (UPI), refunds and report delivery are paused. Do not re-enter records after reconnect — the system will catch up on its own.</div>
+      <p class="small muted">Banner is generated by the edge node; wording is centrally managed under Comms templates › System notices (DLT-exempt, internal display only).</p>
+    </div>
+  </div>
+</div></div></div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — CONFLICT RESOLVE MODAL (field-level diff · four-eyes on clinical fields)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Integration workspace › Edge &amp; offline sync monitor › Conflicts</div>
+  <div class="page-title">Conflicts queue <span class="chip red">2 OPEN</span></div>
+  <div class="page-sub">Thane East reconnected 14:41 IST · catch-up applied 35 of 37 actions in 4 m 12 s <span class="chip teal">WITHIN SLA</span> · 2 actions held for manual resolution</div>
+  <table>
+    <tr><th>Conflict</th><th>Record</th><th>Branch edit (offline)</th><th>Cloud edit</th><th>Clinical fields?</th><th>Status</th></tr>
+    <tr class="hl"><td class="mono">cfl_20260725_01</td><td>Patient MRD-TE-30412 · demographics</td><td>D. Nair · 12:47 IST</td><td>D. Nair (Andheri desk assist) · 13:02 IST</td><td><span class="chip grey">NO</span></td><td><span class="chip amber">RESOLVING</span></td></tr>
+    <tr><td class="mono">cfl_20260725_02</td><td>Order ORD-TE-11487 · CT contrast flag</td><td>T. Okafor · 13:10 IST</td><td>Dr. V. Shetty · 13:24 IST</td><td><span class="chip red">YES — allergy/contrast</span></td><td><span class="chip red">FOUR-EYES REQUIRED</span></td></tr>
+  </table>
+</div></div></div>
+<div class="modal-wrap"><div class="modal danger" style="max-width:640px">
+  <h3>Resolve conflict cfl_20260725_02 — ORD-TE-11487 (CT abdomen w/ contrast) <span class="chip red">CLINICAL FIELDS</span></h3>
+  <p class="small muted" style="margin-bottom:10px">Same order edited at Thane East while offline and in cloud. Choose per field. Non-conflicting fields merge automatically.</p>
+  <table>
+    <tr><th>Field</th><th>Branch value (T. Okafor · 13:10 offline)</th><th>Cloud value (Dr. V. Shetty · 13:24)</th><th>Resolution</th></tr>
+    <tr><td><b>Contrast allergy note</b> <span class="chip red">CLINICAL</span></td><td>"No known allergy — verbal confirm"</td><td>"Prior mild iodinated contrast reaction 2024 — premedicate"</td><td><span class="box radio">&nbsp;</span> branch &nbsp;<span class="box radio on">●</span> <b>keep-cloud</b></td></tr>
+    <tr><td><b>Contrast protocol</b> <span class="chip red">CLINICAL</span></td><td class="mono">Std IV 80 ml</td><td class="mono">Premed + IV 80 ml, slow push</td><td><span class="box radio">&nbsp;</span> branch &nbsp;<span class="box radio on">●</span> <b>keep-cloud</b></td></tr>
+    <tr><td>Scheduling remark</td><td>"Patient prefers after 16:00"</td><td>—</td><td><span class="box radio on">●</span> <b>keep-branch</b> &nbsp;<span class="box radio">&nbsp;</span> cloud</td></tr>
+    <tr><td>Billing note</td><td>"Corporate — Tata AIG pre-auth"</td><td>"Pre-auth #PA-88231 approved"</td><td><span class="box radio on">●</span> <b>merge (both kept)</b></td></tr>
+  </table>
+  <div class="banner reg" style="margin-top:10px"><b>Four-eyes required — clinical fields in scope</b>Resolution touching allergy/contrast fields must be countersigned by a radiologist or org admin other than the initiating resolver. Initiator: <b>K. Verma</b> · Countersign requested: <b>Dr. V. Shetty</b> (step-up passkey on their own session). The losing values are retained in record history, never deleted.</div>
+  <div class="modal-actions"><span class="btn">Defer (keep held)</span><span class="btn primary">Apply resolution &amp; request countersign</span></div>
+</div></div>
+<p class="audit">Sync sessions, degraded-mode entry/exit, replay batches and every conflict resolution (initiator, countersigner, per-field choices, prior values, step-up method, timestamps IST) are recorded in the access log.</p>
+</section>
+</body></html>

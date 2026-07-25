@@ -1,0 +1,143 @@
+<section class="screen" id="pl-03">
+<div class="screen-head"><h1><span class="sid">PL-03</span> Suspend / close organisation — retention-safe</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G16 Platform Operator — operator console</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · PL-S2 + C-4 retention-safe close</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The platform operator can <b>suspend</b> a tenant (billing/operations pause, all data intact, tenant sees a banner) or run the <b>retention-safe closure</b> stepper: notice period → full tenant data export into patient-record escrow → read-only archive held for the statutory retention period (radiology records 10 years) → deletion only after retention expiry with DPO sign-off. There is no immediate hard-delete anywhere on this screen — every gate requires four-eyes approval and operator step-up identity confirmation.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>Platform</span></span><span class="org">🛰 NUMINACORE Platform Console · operator realm</span></div><div class="userchip"><span class="av">RI</span>R. Iyer (Platform Ops) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Tenants</div>
+      <div class="nav-item">Tenant directory</div>
+      <div class="nav-item">Provisioning</div>
+      <div class="nav-item active">Suspend &amp; closure <span class="nav-badge">2</span></div>
+      <div class="nav-item">Plans &amp; entitlements</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Regional rulebook</div>
+      <div class="nav-item">Support access</div>
+      <div class="nav-item">Operator audit</div>
+      <div class="sec-label">Operations</div>
+      <div class="nav-item">Platform health</div>
+      <div class="nav-item">Provider routes</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Platform › Tenants › Suspend &amp; closure › Sunrise Imaging (Pune)</div>
+      <div class="page-title">Suspend tenant — Sunrise Imaging (Pune) <span class="actions-right"><span class="btn small">Lifecycle history</span> <span class="btn small">Open tenant record</span></span></div>
+      <div class="page-sub">Tenant <span class="mono">TEN-SUNR-02</span> · plan Diagnostics Pro · 2 branches · 41 staff users · region pack IN-MH v2026.07 · billing status <span class="chip red">3 invoices overdue</span></div>
+
+      <div class="banner reg"><b>No immediate hard delete — ever</b>Suspension keeps every byte intact. Closure never deletes data before the statutory retention period ends (radiology records: 10 years under IN-MH rulebook). This is enforced by the platform, not by operator discretion.</div>
+
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Suspension order <span class="right">draft · not yet in force</span></div>
+          <div class="field"><label>Reason <span class="req">*</span></label><span class="select" style="display:block">Non-payment — dunning ladder exhausted (INV-2026-0412, 0435, 0461) ▾</span></div>
+          <div class="field"><label>Scope of pause</label>
+            <div class="check"><span class="box on">✓</span> Pause billing &amp; plan charges from suspension date</div>
+            <div class="check"><span class="box on">✓</span> Block staff sign-in (org admins see suspension notice only)</div>
+            <div class="check"><span class="box on">✓</span> Pause outbound messaging (DLT SMS Jio route, WhatsApp BSP)</div>
+            <div class="check"><span class="box"></span> Block patient portal report downloads <span class="chip amber">not recommended — patients keep access to their own reports by default</span></div>
+          </div>
+          <div class="field"><label>What stays intact</label>
+            <div class="check"><span class="box on" style="background:#15803D;border-color:#15803D">✓</span> All patient records, studies, invoices — untouched, fully restorable</div>
+            <div class="check"><span class="box on" style="background:#15803D;border-color:#15803D">✓</span> Scheduled jobs frozen (not deleted) · device AE registrations retained</div>
+          </div>
+          <div class="field"><label>Auto-lift on payment?</label>
+            <div class="check"><span class="box radio on">•</span> Yes — lift automatically when overdue invoices settle (recommended)</div>
+            <div class="check"><span class="box radio"></span> No — manual review before lifting</div>
+          </div>
+        </div>
+        <div style="width:320px;flex-shrink:0">
+          <div class="card">
+            <div class="card-title">Banner shown to tenant</div>
+            <div class="banner warn" style="margin-bottom:6px"><b>⚠ Account suspended</b>Sunrise Imaging is suspended for non-payment. All data is safe and intact. Contact NUMINACORE billing (billing@numinacore.in) to restore access.</div>
+            <div class="small muted">Shown on tenant sign-in page and to org admins. Patients booking online see "temporarily unavailable" — no reason disclosed.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Four-eyes + step-up</div>
+            <div class="kv">
+              <dt>Initiator</dt><dd>R. Iyer (Platform Ops) — step-up <span class="chip green">TOTP verified 14:02 IST</span></dd>
+              <dt>2nd approver</dt><dd>A. Menon (Ops Lead) — <span class="chip amber">approval pending</span></dd>
+              <dt>Takes effect</dt><dd>Only after both approvals, 26-Jul-2026 09:00 IST</dd>
+            </div>
+            <div style="margin-top:10px;display:flex;gap:8px"><span class="btn small warn-outline">Submit suspension for 2nd approval</span><span class="btn small ghost">Discard</span></div>
+            <div class="small muted" style="margin-top:6px">The same operator can never provide both approvals — enforced by the operator realm, not policy text.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — CLOSURE STEPPER, MID-FLIGHT (STEP 2: DATA EXPORT / ESCROW)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Platform › Tenants › Suspend &amp; closure › Orchid Imaging (Nashik) › Closure C-2026-004</div>
+      <div class="page-title">Retention-safe closure — Orchid Imaging (Nashik)</div>
+      <div class="page-sub">Closure case <span class="mono">C-2026-004</span> · opened 20-Jun-2026 by tenant's own written termination notice · DPO of record: Adv. S. Kulkarni (tenant DPO) · platform DPO: M. Fernandes</div>
+      <div class="stepper">
+        <span class="step done"><span class="dot">✓</span> 1 Notice period (30 days, ended 20-Jul-2026)</span><span class="step-line"></span>
+        <span class="step cur"><span class="dot">2</span> Tenant data export — patient-record escrow</span><span class="step-line"></span>
+        <span class="step"><span class="dot">3</span> Read-only archive (retention: radiology 10y → 20-Jul-2036)</span><span class="step-line"></span>
+        <span class="step"><span class="dot">4</span> Deletion after retention · DPO sign-off</span>
+      </div>
+      <div class="banner info"><b>Gate rule</b>Each step is a gate: it opens only with four-eyes approval (two distinct operators) and fresh operator step-up (TOTP or passkey, valid 10 minutes). Step 4 additionally requires DPO sign-off and cannot be scheduled earlier than retention expiry — the date field is read-only.</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Export manifest — escrow bundle <span class="right">running · 71% complete</span></div>
+          <table>
+            <tr><th>Dataset</th><th>Records</th><th>Size</th><th>Status</th><th>SHA-256 checksum</th></tr>
+            <tr><td>Patient master + consents (DPDP register)</td><td class="mono">18,204</td><td class="mono">1.2 GB</td><td><span class="chip green">Done</span></td><td class="mono small">9f3a…c821 ✓</td></tr>
+            <tr><td>Radiology studies (DICOM, CT/US/X-ray)</td><td class="mono">44,318</td><td class="mono">3.9 TB</td><td><span class="chip amber">Exporting 68%</span><div class="progress" style="margin-top:4px"><i style="width:68%"></i></div></td><td class="mono small">pending</td></tr>
+            <tr><td>Reports (final, signed PDFs + structured)</td><td class="mono">41,977</td><td class="mono">62 GB</td><td><span class="chip green">Done</span></td><td class="mono small">4be0…77d2 ✓</td></tr>
+            <tr><td>Billing, invoices, GST filings snapshot</td><td class="mono">96,441</td><td class="mono">4.4 GB</td><td><span class="chip green">Done</span></td><td class="mono small">a1c9…03fe ✓</td></tr>
+            <tr><td>PC-PNDT Form F register (IN-MH)</td><td class="mono">1,208</td><td class="mono">310 MB</td><td><span class="chip green">Done</span></td><td class="mono small">e77b…9a04 ✓</td></tr>
+            <tr><td>Full audit trail (immutable, incl. this closure)</td><td class="mono">2.1 M events</td><td class="mono">18 GB</td><td><span class="chip grey">Queued — exported last</span></td><td class="mono small">—</td></tr>
+          </table>
+          <div class="small muted" style="margin-top:6px">Escrow destination: tenant-nominated custodian <b>MedArchive Trust (Mumbai)</b>, DPDP data-processor agreement DPA-2026-117 on file. Encrypted per-dataset; tenant DPO holds the decryption key half — operators cannot read escrow contents.</div>
+        </div>
+        <div class="card" style="width:320px;flex-shrink:0">
+          <div class="card-title">Gate 2 → 3 approval</div>
+          <div class="ladder">
+            <div class="tier done"><b>Notice period served</b><div class="small muted">Gate 1 approved 20-Jul by R. Iyer + A. Menon · tenant ack by K. Rao (Orchid org admin)</div></div>
+            <div class="tier cur"><b>Export verification</b><div class="small muted">All checksums must verify + tenant DPO confirms escrow receipt before archive gate opens</div></div>
+            <div class="tier"><b>Archive freeze</b><div class="small muted">Tenant flips to read-only archive; staff sign-in disabled except archive-viewer role</div></div>
+            <div class="tier"><b>Deletion (earliest 20-Jul-2036)</b><div class="small muted">Requires platform DPO + tenant DPO sign-off; 90-day pre-deletion notice to tenant contact of record</div></div>
+          </div>
+          <span class="btn small disabled">Advance to Step 3 — locked until export verifies</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">·</div>
+
+<div class="state-tag">STATE C — ARCHIVED, READ-ONLY (RETENTION CLOCK RUNNING)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Platform › Tenants › Suspend &amp; closure › Archived tenants</div>
+      <div class="page-title">Archived tenant — Orchid Imaging (Nashik) <span class="chip grey">READ-ONLY ARCHIVE</span></div>
+      <div class="page-sub">Archived 25-Jul-2026 · retention class: radiology 10 years (IN-MH rulebook) · earliest lawful deletion <b>20-Jul-2036</b> · archive-viewer access: 2 named users</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">10y 0m</div><div class="l">Retention remaining</div><div class="s">clock started at archive freeze</div></div>
+        <div class="kpi"><div class="n">4.0 TB</div><div class="l">Archive size (immutable)</div><div class="s">WORM storage, IN region only</div></div>
+        <div class="kpi"><div class="n">2</div><div class="l">Archive-viewer accounts</div><div class="s">tenant DPO + records officer</div></div>
+        <div class="kpi amber"><div class="n">1</div><div class="l">Legal hold</div><div class="s">consumer case CC/442/2026 — blocks deletion regardless of retention</div></div>
+      </div>
+      <div class="banner success"><b>Data intact, writes impossible</b>The archive is write-blocked at the storage layer. Patient record retrieval requests (e.g. a patient asking for an old CT report) are served via the archive-viewer role and logged; no operator can modify or delete content before 20-Jul-2036, and deletion then still requires the Step-4 DPO sign-off gate.</div>
+      <table>
+        <tr><th>Event</th><th>When (IST)</th><th>Actor(s)</th><th>Evidence</th></tr>
+        <tr><td>Archive freeze applied (Gate 3)</td><td class="mono">25-Jul-2026 11:40</td><td>R. Iyer + A. Menon (four-eyes) · step-up verified ×2</td><td><span class="btn small ghost">Approval record</span></td></tr>
+        <tr><td>Escrow receipt confirmed by tenant DPO</td><td class="mono">24-Jul-2026 17:05</td><td>Adv. S. Kulkarni (Orchid DPO)</td><td><span class="btn small ghost">Signed receipt</span></td></tr>
+        <tr><td>Export checksums verified (6/6)</td><td class="mono">24-Jul-2026 09:12</td><td>System · witnessed by A. Menon</td><td><span class="btn small ghost">Manifest</span></td></tr>
+        <tr class="hl"><td>Deletion eligibility opens</td><td class="mono">20-Jul-2036</td><td>Requires platform DPO + tenant DPO + four-eyes + step-up</td><td><span class="chip grey">Future gate</span></td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<p class="audit">Every suspension, gate approval, step-up verification, escrow checksum and archive access on this screen is written to the immutable operator audit trail and mirrored into the tenant's own access log — including this page view, which is recorded in the access log.</p>
+</section>

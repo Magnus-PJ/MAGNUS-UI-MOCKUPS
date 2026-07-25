@@ -1,0 +1,89 @@
+<section class="screen" id="ds-07">
+<div class="screen-head"><h1><span class="sid">DS-07</span> Masked Identity &amp; Privacy Pattern</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM</span><div class="cluster">G17 Design System &amp; Patterns — documentation pages</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · masked identity & privacy pattern (C-7)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Canonical rules for how patient identity is masked, tokenised and revealed across every Magnus surface. Every screen that renders a patient must consume the shared <span class="mono">&lt;MaskedIdentity&gt;</span> component — never hand-roll masking. Reveal is always an explicit, reasoned, audited act; masked is the default state everywhere.</div>
+
+<div class="banner reg"><b>Non-negotiable principle</b>Demographics are rendered only when the viewer's role, purpose-of-use and context all pass the policy check. Failing any one of the three yields the token form — silently, with no error state that leaks existence of the record.</div>
+
+<div class="state-tag">STATE A — MASKING RULES TABLE</div>
+<div class="card">
+<div class="card-title">Masking levels by context <span class="right">policy: PRIV-MASK v3.2 · effective 01 Jul 2026</span></div>
+<table>
+<tr><th style="width:190px">Context</th><th style="width:200px">What renders</th><th>Example</th><th style="width:260px">Rule</th></tr>
+<tr><td><b>Denied context</b><br><span class="muted small">role/purpose check failed</span></td><td><span class="chip red">TOKEN ONLY</span> zero demographics</td><td><span class="mono">#MRN-••••30</span> · <span class="mono">Visit V-260718-0412</span></td><td>No name, age, sex, phone, photo, address. No tooltip on hover. Row is selectable only if the workflow itself is permitted (e.g. cashier settling a bill).</td></tr>
+<tr><td><b>Queue public view</b><br><span class="muted small">waiting-area TV, kiosk</span></td><td><span class="chip red">TOKEN ONLY</span></td><td><span class="mono">Token Q-047 · CT · ~15 min</span></td><td>Public displays never show name or MRN — token number and modality only. Called-out announcements use token number, never name.</td></tr>
+<tr><td><b>Staff worklist (default)</b><br><span class="muted small">purpose = Treatment</span></td><td><span class="chip amber">PARTIAL</span> name + masked MRN</td><td>Ananya S. · <span class="mono">#MRN-••••30</span> · F/34</td><td>Surname initialised. Phone masked to <span class="mono">+91 98••• ••412</span>. Full MRN needs reveal-with-reason.</td></tr>
+<tr><td><b>Clinical read context</b><br><span class="muted small">assigned radiologist, open study</span></td><td><span class="chip green">FULL</span> within assignment</td><td>Ananya Subramanian · <span class="mono">MRN-2026-004530</span></td><td>Full identity auto-unmasked only while Dr. V. Shetty holds the active read assignment; collapses back to PARTIAL on release.</td></tr>
+<tr><td><b>Logs &amp; audit exports</b><br><span class="muted small">system + operator surfaces</span></td><td><span class="chip blue">PSEUDONYMISED</span></td><td><span class="mono">subj:pt_9f3a1c · actor:usr_dnair</span></td><td>Logs store stable pseudonyms, never names/phones. Re-identification only via privacy officer console with dual control (four-eyes).</td></tr>
+<tr><td><b>Platform operator (NUMINACORE)</b></td><td><span class="chip red">TOKEN ONLY</span> — always</td><td><span class="mono">tenant:meridian · pt_9f3a1c</span></td><td>Operators never see tenant PHI. No reveal path exists in the operator realm.</td></tr>
+</table>
+<p class="small muted" style="margin-top:8px">Token format: <span class="mono">#MRN-••••NN</span> — last two digits retained for verbal disambiguation at the desk; all other digits suppressed. Never show first digits (they encode registration year/branch).</p>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — REVEAL-WITH-REASON INTERACTION SPEC</div>
+<div class="row">
+<div class="card grow" style="flex:1.2">
+<div class="card-title">Interaction sequence <span class="right">component: &lt;RevealControl&gt;</span></div>
+<table>
+<tr><th style="width:36px">#</th><th>Step</th><th>Spec</th></tr>
+<tr><td>1</td><td>Trigger</td><td>👁 icon-button adjacent to masked field. Label on hover: “Reveal — reason required”. Keyboard: <span class="mono">Enter</span> on focused field.</td></tr>
+<tr><td>2</td><td>Purpose + reason</td><td>Inline popover, not a page nav. Purpose chip is mandatory single-select; free-text reason mandatory when purpose = Support or Audit (min 15 chars).</td></tr>
+<tr><td>3</td><td>Step-up check</td><td>If last identity confirmation &gt; 15 min ago, or purpose ∉ viewer's default purposes → TOTP / passkey step-up before reveal.</td></tr>
+<tr><td>4</td><td>Reveal window</td><td>Field unmasks for <b>5 minutes</b> (session-scoped, this record only). Countdown chip shown: <span class="chip amber">revealed · 4:12 left</span>. No copy-to-clipboard on phone numbers.</td></tr>
+<tr><td>5</td><td>Auto re-mask</td><td>On timer expiry, tab blur &gt; 60 s, or record close — whichever first. Re-reveal requires a fresh reason.</td></tr>
+</table>
+</div>
+<div class="card grow">
+<div class="card-title">Purpose chips vocabulary <span class="right">closed list — no free-form purposes</span></div>
+<table>
+<tr><th>Chip</th><th>When</th><th>Step-up?</th></tr>
+<tr><td><span class="chip teal">TREATMENT</span></td><td>Active clinical care of this patient</td><td>No (if in-role)</td></tr>
+<tr><td><span class="chip blue">BILLING</span></td><td>Invoice, refund, insurer query</td><td>No (cashier role)</td></tr>
+<tr><td><span class="chip violet">AUDIT</span></td><td>Compliance / privacy-officer review</td><td>Yes, always</td></tr>
+<tr><td><span class="chip amber">SUPPORT</span></td><td>Patient-raised issue, callback</td><td>Yes + reason text</td></tr>
+</table>
+<p class="small muted" style="margin-top:8px">Purpose is stamped on the access-log entry and drives retention class. “Curiosity” has no chip by design — no purpose, no reveal.</p>
+</div>
+</div>
+<div class="modal-wrap">
+<div class="modal">
+<h3>Reveal patient contact number</h3>
+<p class="small muted" style="margin-bottom:10px">Record <span class="mono">#MRN-••••30</span> · Meridian Diagnostics · Andheri West branch</p>
+<div class="field"><label>Purpose of access <span class="req">*</span></label>
+<span class="chip teal">TREATMENT</span> <span class="chip blue">BILLING</span> <span class="chip violet">AUDIT</span> <span class="chip amber">SUPPORT ✓</span></div>
+<div class="field"><label>Reason <span class="req">*</span></label><input class="input" value="Patient callback — report delivery SMS failed twice (DLT route error), confirming number."></div>
+<div class="banner warn" style="margin-bottom:0"><b>Step-up required</b>Confirm identity with TOTP or passkey to continue. Reveal lasts 5 minutes and is written to the access log with your name — D. Nair (front office).</div>
+<div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Confirm identity &amp; reveal</span></div>
+</div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — COMMUNICATIONS &amp; PRINT PRIVACY RULES</div>
+<div class="row">
+<div class="card grow" style="flex:1.3">
+<div class="card-title">No-PHI-in-SMS rule <span class="right">DLT SMS (Jio route) · WhatsApp BSP</span></div>
+<div class="banner danger" style="margin-bottom:10px"><b>Hard rule</b>Outbound SMS/WhatsApp never contains diagnosis, test name, report content, or full MRN. Links are short-lived tokenised URLs behind patient OTP (separate patient realm).</div>
+<table>
+<tr><th style="width:70px">Verdict</th><th>Template</th></tr>
+<tr><td><span class="chip green">PASS</span></td><td class="mono">Meridian Diagnostics: Your report for visit V-0412 is ready. View securely: mgns.in/r/8kq2 (OTP to this number). Helpdesk 022-4000 1100 — MERIDN</td></tr>
+<tr><td><span class="chip green">PASS</span></td><td class="mono">Meridian Diagnostics: Appointment confirmed 28 Jul 2026, 10:30 AM, Andheri West. Token Q-047. Reschedule: mgns.in/a/3fp9 — MERIDN</td></tr>
+<tr><td><span class="chip red">FAIL</span></td><td class="mono"><s>Your CT Brain report shows no abnormality. MRN-2026-004530…</s> <span class="small" style="color:#B91C1C">✕ test name + finding + full MRN in transit</span></td></tr>
+<tr><td><span class="chip red">FAIL</span></td><td class="mono"><s>Dear Ananya Subramanian, your HIV screening result is available…</s> <span class="small" style="color:#B91C1C">✕ full name + sensitive test category</span></td></tr>
+</table>
+<p class="small muted" style="margin-top:8px">Template linting runs at template-save time in NT admin (NT-04); a template containing a PHI merge-field for SMS channel is rejected at save, not at send.</p>
+</div>
+<div class="card grow">
+<div class="card-title">Print watermark rules <span class="right">see DS-09 for full print spec</span></div>
+<table>
+<tr><th>Condition</th><th>Watermark</th></tr>
+<tr><td>Re-print of any issued document</td><td><span class="mono bold" style="color:#94A3B8">DUPLICATE COPY</span> diagonal, 12% opacity, + reprint counter “Copy 2 of record”</td></tr>
+<tr><td>Report before final sign-off</td><td><span class="mono bold" style="color:#94A3B8">DRAFT — NOT FOR CLINICAL USE</span></td></tr>
+<tr><td>Cancelled / voided document</td><td><span class="mono bold" style="color:#B91C1C">VOID</span></td></tr>
+</table>
+<div class="banner info" style="margin-top:10px;margin-bottom:0"><b>Print = disclosure</b>Every print job stamps footer: printed-by, timestamp IST, branch, and purpose chip. Batch printing of &gt; 20 patient documents requires branch-admin approval (dual control).</div>
+</div>
+</div>
+<p class="audit">Every reveal, print, export and re-identification event — including purpose chip, reason text, step-up result and viewing duration — is recorded in the access log.</p>
+</section>

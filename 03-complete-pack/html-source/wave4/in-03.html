@@ -1,0 +1,116 @@
+<section class="screen" id="in-03">
+<div class="screen-head"><h1><span class="sid">IN-03</span> Unknown AE &amp; quarantine</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G13 Integration &amp; Devices — workspace 'Integration'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · RT-S4 unknown-AE → quarantine queue</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Studies pushed from AE titles not in the registry are quarantined instead of entering the archive — a privacy and integrity guard. Admins triage each quarantined study: register the sending AE (routes to Admin AD-08 with approval), associate it with a known device that was renamed, or reject with a reason. Study metadata stays masked until a decision is made; quarantined data auto-purges after 30 days.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>INTEGRATION</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Integration</div>
+      <div class="nav-item">Overview &amp; health</div>
+      <div class="nav-item">Imaging devices &amp; AE</div>
+      <div class="nav-item active">Unknown AE quarantine <span class="nav-badge">3</span></div>
+      <div class="nav-item">PACS / archive</div>
+      <div class="nav-item">Messaging providers</div>
+      <div class="nav-item">Payment gateway</div>
+      <div class="nav-item">Edge-sync</div>
+      <div class="sec-label">Operations</div>
+      <div class="nav-item">Incidents <span class="nav-badge red">1</span></div>
+      <div class="nav-item">Connector audit log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Integration › Unknown AE &amp; quarantine</div>
+      <div class="page-title">Quarantined studies — unregistered AE titles <span class="actions-right"><span class="chip amber">3 PENDING</span></span></div>
+      <div class="page-sub">Studies received from AE titles not in the device registry · metadata masked until triaged · auto-purge after 30 days</div>
+      <div class="banner warn"><b>Why studies land here</b>Any C-STORE from an AE title / host pair not in the registry is held outside the clinical archive. It is not visible to radiologists and is excluded from reporting worklists until you register, associate or reject it.</div>
+      <div class="card">
+        <div class="card-title">Quarantine queue <span class="right">3 studies · oldest first</span></div>
+        <table>
+          <tr><th>Received from (AE @ host)</th><th>Study meta (masked)</th><th>Objects</th><th>Received</th><th>Age</th><th>Purge in</th><th>Actions</th></tr>
+          <tr class="hl">
+            <td class="mono">USNEW_01 @ 10.20.4.29</td>
+            <td>Modality US · Patient <span class="mono">S••••• R•••</span> · DOB ••/••/19•• · Acc <span class="mono">ACC-••••871</span></td>
+            <td>34 img · 41 MB</td>
+            <td class="mono">25 Jul 11:02 IST</td>
+            <td><span class="chip teal">3 h</span></td>
+            <td><span class="chip grey">30 d</span></td>
+            <td><button class="btn small primary">Register AE →</button> <button class="btn small">Associate</button> <button class="btn small">Reject…</button></td>
+          </tr>
+          <tr>
+            <td class="mono">MERIDCT1_BAK @ 10.20.4.11</td>
+            <td>Modality CT · Patient <span class="mono">A••• K••••</span> · DOB ••/••/19•• · Acc <span class="mono">ACC-••••640</span></td>
+            <td>412 img · 208 MB</td>
+            <td class="mono">22 Jul 17:48 IST</td>
+            <td><span class="chip amber">2 d 20 h</span></td>
+            <td><span class="chip grey">27 d</span></td>
+            <td><button class="btn small primary">Register AE →</button> <button class="btn small">Associate</button> <button class="btn small">Reject…</button></td>
+          </tr>
+          <tr>
+            <td class="mono">TESTAE @ 10.20.9.77</td>
+            <td>Modality OT · Patient <span class="mono">T••• P••••••</span> · Acc <span class="mono">—</span> (no accession)</td>
+            <td>2 img · 1.1 MB</td>
+            <td class="mono">28 Jun 09:15 IST</td>
+            <td><span class="chip red">27 d — PURGE IMMINENT</span></td>
+            <td><span class="chip red">3 d</span></td>
+            <td><button class="btn small primary">Register AE →</button> <button class="btn small">Associate</button> <button class="btn small">Reject…</button></td>
+          </tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Same-host hint: <span class="mono">MERIDCT1_BAK @ 10.20.4.11</span> matches the registered host of <b>CT-ROOM-1 (MERIDCT1)</b> — likely an AE rename after a vendor service visit. Use <b>Associate</b> to link without creating a new device.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Retention &amp; privacy for quarantined data</div>
+        <div class="kv">
+          <dt>Storage</dt><dd>Quarantine zone, encrypted at rest, outside clinical archive; not queryable via QIDO/WADO</dd>
+          <dt>Metadata masking</dt><dd>Patient name/DOB/accession masked in this UI; full values visible only after "Associate" or "Register AE" step-up confirmation</dd>
+          <dt>Auto-purge</dt><dd><b>30 days</b> from receipt · warning banner at day 25 · purge is irreversible and logged</dd>
+          <dt>Rejection</dt><dd>Requires a reason code; sender is not auto-notified (network-level response only)</dd>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — REGISTER-AE FLOW (ROUTES TO ADMIN AD-08 WITH APPROVAL)</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Register AE title — <span class="mono">USNEW_01</span></h3>
+    <div class="banner info" style="margin-bottom:12px"><b>Routes to Admin AD-08</b>Registration creates a change request on the single write surface (Admin › Equipment). It becomes active only after a second org admin approves (four-eyes). Quarantined studies from this AE are then released to the archive automatically.</div>
+    <div class="field"><label>AE title (from received association)</label><input class="input mono" value="USNEW_01" disabled></div>
+    <div class="row">
+      <div class="field grow"><label>Host</label><input class="input mono" value="10.20.4.29" disabled></div>
+      <div class="field grow"><label>Port</label><input class="input mono" value="104"></div>
+    </div>
+    <div class="field"><label>Link to device <span class="req">*</span></label>
+      <div class="check"><span class="box radio on"></span> Create new device record — <i>US-UNIT-3 (new ultrasound, GA 20 Jul 2026)</i></div>
+      <div class="check"><span class="box radio"></span> Attach as additional AE of an existing device</div>
+    </div>
+    <div class="field"><label>Enable services</label>
+      <div class="check"><span class="box on">✓</span> MWL (worklist scoped to US orders, this branch)</div>
+      <div class="check"><span class="box on">✓</span> MPPS</div>
+      <div class="check"><span class="box on">✓</span> C-STORE to archive</div>
+    </div>
+    <div class="field"><label>Justification (visible to approver) <span class="req">*</span></label><textarea class="textarea">New ultrasound unit installed 20 Jul; vendor configured AE USNEW_01. Study in quarantine belongs to today's OP list.</textarea></div>
+    <div class="banner reg" style="margin-bottom:0"><b>Step-up required</b>Confirm your identity with passkey or TOTP to submit. Approval request goes to another org admin — you cannot approve your own request.</div>
+    <div class="modal-actions"><button class="btn">Cancel</button><button class="btn primary">Confirm identity &amp; submit to AD-08</button></div>
+  </div>
+</div>
+<div class="state-tag" style="margin-top:14px">STATE B (CONT.) — REQUEST SUBMITTED</div>
+<div class="banner success" style="max-width:700px"><b>Change request REQ-1042 submitted to Admin AD-08</b>Awaiting approval by a second org admin (notified: D. Nair has admin-delegate role — no; routed to org-admin group). Quarantined study stays held; it will auto-release on approval. SLA <span class="chip teal">4 h · owner K. Verma</span>.</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — PURGE WARNING (DAY 27 OF 30) AND REJECT-WITH-REASON</div>
+<div class="banner danger" style="max-width:860px"><b>Auto-purge in 3 days — TESTAE @ 10.20.9.77 (received 28 Jun 2026)</b>This quarantined study reaches its 30-day retention limit on 28 Jul 2026 23:59 IST. If no action is taken it will be irreversibly deleted and only a purge audit record (no pixel data, no PHI) is kept. Org admins were notified at day 25 and day 27.</div>
+<div class="modal-wrap">
+  <div class="modal danger">
+    <h3>Reject quarantined study — <span class="mono">TESTAE @ 10.20.9.77</span></h3>
+    <div class="field"><label>Reason code <span class="req">*</span></label>
+      <select class="select"><option>Vendor test images — not patient data</option><option>Sent to wrong facility</option><option>Duplicate of archived study</option><option>Unidentifiable / corrupt</option></select>
+    </div>
+    <div class="field"><label>Note (audit trail) <span class="req">*</span></label><textarea class="textarea">Two test pattern images from vendor engineer's laptop during network survey on 28 Jun. No patient content.</textarea></div>
+    <div class="check"><span class="box on">✓</span> I confirm this study contains no patient data that must be retained, or a retained copy exists in the clinical archive.</div>
+    <div class="banner reg" style="margin-top:8px;margin-bottom:0"><b>Dual control</b>Rejection deletes the quarantined objects immediately. A second org admin must co-confirm within this session (four-eyes) — enter their approval below or send an approval link.</div>
+    <div class="modal-actions"><button class="btn">Cancel</button><button class="btn">Send co-approval link</button><button class="btn danger disabled">Reject &amp; delete (awaiting co-approval)</button></div>
+  </div>
+</div>
+<p class="audit">Every quarantine event, mask-reveal, register/associate/reject decision, co-approval and auto-purge is recorded in the access log with actor, step-up method, reason code and study hash (no PHI in log lines).</p>
+</section>

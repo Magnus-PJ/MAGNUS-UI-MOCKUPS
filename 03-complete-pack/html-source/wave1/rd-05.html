@@ -1,5 +1,5 @@
 <section class="screen" id="rd-05">
-<div class="screen-head"><h1><span class="sid">RD-05</span> Prior comparison layout</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div></div></div>
+<div class="screen-head"><h1><span class="sid">RD-05</span> Prior comparison layout</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G7 Radiologist — workspace 'RIS · Reading'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · RR-S2 prior-comparison layout</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Invoked from RD-03 when a relevant prior exists: Dr. V. Shetty reads current vs prior side-by-side with synced scroll, peeks at the prior report's impression without leaving the viewer, and captures a structured delta note that feeds the report macro ("Compared with the 12 Feb 2026 study…"). It must guarantee that the prior actually loaded is the one cited in the report (accession-linked), that multiple priors are offered sorted by clinical relevance, and that same-org prior access carries the visible Treatment purpose chip.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>RIS · Reading</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty · RMC MH-44721 ▾</div></div>
@@ -81,6 +81,7 @@
       <div class="small muted" style="margin-top:6px">Relevance = body region + modality match + recency + presence of comparable measurements. The picker never auto-fetches cross-org studies.</div>
     </div>
   </div>
+  <div class="banner info"><b>Prior-selection contract.</b> The RIS passes the current accession + relevant prior study UIDs to the viewer launch URL. Default rule: same patient, same modality, last 24 months, most-recent first (org-configurable). Defined in the Viewer Launch service contract — see DOC-09.</div>
 </div></div></div>
 <div class="state-tag">STATE C — NO PRIORS AVAILABLE (EMPTY)</div>
 <div class="frame"><div class="body"><div class="main">
