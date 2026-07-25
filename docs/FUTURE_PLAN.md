@@ -1,34 +1,30 @@
-# Future Plan & Roadmap
+# Future Plan & Roadmap — MagnusPRO
 
-## Immediate next steps (this engagement)
+## Immediate (client actions — nothing blocks on the design side)
+1. **Final legal product name** → one sweep replaces the MagnusPRO working name across screens/docs (pre-UAT, D-31/D-32).
+2. **Branch-4 details** for AD-21 (name, code, modalities, edge hardware).
+3. **Hand the pack to NUMINACORE**: repo link + `01-review/` docx; walk DECISIONS D-11…D-37 as the design contract; DOC-09 defines Sprint-1 readiness.
+4. **UAT planning** (deferred): derive scripts from DOC-10 (25 scenario chains + safety gates SG-01…12 + statutory set); assign acceptance owners.
+5. Rotate/revoke the shared GitHub token.
 
-1. **Finish Wave 3 & Wave 4** screen production (in progress; status in README).
-2. **Client's additional information review (HELD gate).** Paul will provide further inputs after Wave 4. We then: check the pack against them → add new screens / issue recommendations → only after that finalise.
-3. **Final packaging** (after the gate): master index + IA map refresh (DS-11), combined single-volume pack, per-group packs, and download bundle. PDFs regenerated (one-page-per-screen renderer) only if the client re-enables them.
-4. **Vendor handoff:** send NUMINACORE the review docx (01), the gap-closure pack (02), and this complete pack (03) as the UI/UX baseline for Phase 0 sign-off; walk through DECISIONS.md D-11…D-18 as design contract items.
+## MVP 1 build phase (6 months, all-4-branch pilot per D-34)
+- Phase 0 artifacts to demand: data model (FHIR-aligned), ID scheme, encounter spine, event catalogue, authz policy model, audit schema, offline/sync contract, OpenAPI per screen action (DOC-09).
+- SLA matrix mirrored into the SoW (report TAT, critical tiers, RPO 15m/RTO 4h, Sunday maintenance window).
+- Staged go-live inside the window across the 4 branches; per-branch feature toggles (AD-17) as the risk valve; readiness tracked on AD-21.
 
-## MVP 1 build phase (6 months, NUMINACORE)
-
-- Phase 0 sign-off artifacts to demand: FHIR-aligned data model, ID scheme, encounter spine, event catalogue, authz policy model, audit schema, offline/sync contract, OpenAPI contracts per screen action (see review §9).
-- SLA matrix (review §8) mirrored into the SoW: TAT targets, critical-result windows, delivery retries, RPO 15 min / RTO 4 h, support severities.
-- UAT scripts should be generated from the 20 scenario walkthroughs in the review — they are the acceptance backbone.
-
-## Post-MVP quarterly releases (from the scope checklist)
-
-| Quarter theme | Contents (checklist refs) |
+## Post-MVP quarterly releases (scope checklist)
+| Theme | Contents |
 |---|---|
-| Diagnostics & LIS | Test catalog, samples, barcodes, analyzers (HL7/ASTM), lab reports (#87–95) |
-| Multi-branch expansion | Branch rollout, MPI at scale, longitudinal record, patient timeline, dashboards (#79–83, #100–101) |
-| Patient/referrer network | Patient PWA portal, referrer portal, online payments at scale, teleradiology (#104–117) |
-| SaaS & white-label | Tenant onboarding, branding, entitlements, metering, subscription billing (#118–129) |
-| Interop & exchange | FHIR APIs, ABDM/ABHA, DICOMweb expansion, integration engine (#84–86, #147–161) |
-| IPD (extended roadmap) | ADT, beds/wards, nursing, MAR, OT, discharge, IPD billing (#162–173) — the encounter spine (FO-16/NS-12) is the pre-built foundation |
-| AI roadmap (parallel, governed) | AI governance, de-identification, data lake, triage, reporting assist (#174–203) — consent + human-in-the-loop patterns already present in vendor RA screens |
+| Diagnostics & LIS | Test catalog, samples, barcodes, analyzers, lab reports (#87–95) |
+| Portals & network | Patient PWA, referrer portal expansion, teleradiology at scale (#104–117) |
+| SaaS & white-label | Tenant onboarding, entitlements, metering, subscription billing (#118–129) |
+| Interop | FHIR APIs, ABDM/ABHA, DICOMweb expansion, integration engine (#84–86, #147–161) |
+| IPD & hospital | ADT, beds, nursing, MAR, OT, discharge, IPD billing (#162–173) — encounter spine is pre-built |
+| International | Activate EU-GDPR / US-HIPAA rulebook packs (PL-05) + BAA/SCC execution per tenant |
+| AI (governed, parallel) | Governance, de-identification, data lake, triage, reporting assist (#174–203) |
 
-## Open items / watch list
-
-- GitHub token is fine-grained and repo-scoped; rotate before expiry.
-- Vendor deck data errors (review §10) must be fixed before UAT script generation.
-- ~~Q1 report-release policy~~ RESOLVED: Option C org-configurable (BL-20, D-21).
-- Pilot = all 4 Magnus branches together (D-34): plan staged go-live inside the window; UAT planning deferred by client.
-- Decide OHIF vs commercial viewer before build start (RD-03/04 assume OHIF-class capability).
+## Watch list
+- Vendor deck data errors (review §10) must be fixed before UAT scripts are generated.
+- OHIF vs commercial viewer decision before build start (RD-03/04, DOC-09 §7).
+- Air-gap screens (IN-11, PL-13) activate only when an air-gapped site is contracted.
+- DOC-10 acceptance-owner column to be filled at UAT planning.

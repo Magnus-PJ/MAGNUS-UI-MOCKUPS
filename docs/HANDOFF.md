@@ -1,66 +1,31 @@
-# Handoff Document
+# Handoff Document — MagnusPRO MVP 1
 
-Everything a new team member, vendor, or another AI session needs to pick this up cold.
+Everything a new team member, the vendor, or another AI session needs to pick this up cold.
 
 ## What this project is
-
-Magnus Diagnostics engaged NUMINACORE to build **Magnus HMS** (radiology-first HMS, Java/Spring + React, India compliance). The vendor produced a 107-page MVP 1 UI/UX walkthrough (106 screens) + a 209-item scope checklist. This repo contains our **review of that walkthrough** and our own **complete replacement/extension design pack** (225 screens, 17 groups) that becomes the UI/UX baseline for the 6-month MVP 1. Read `docs/VISION.md` first, then `docs/DECISIONS.md`.
+Magnus Diagnostics engaged NUMINACORE to build **MagnusPRO** (working name) — an enterprise, radiology-first healthcare platform (Java 21/Spring Boot 3 modular monolith + React/TS; DPDP live, GDPR/HIPAA-ready via rulebook packs). This repo holds the **complete MVP 1 design**: 232 screens, 12 architecture docs, decision log D-01…D-37. Read `docs/VISION.md` → `docs/DECISIONS.md` → `INDEX.md`.
 
 ## Repository map
+See root **`INDEX.md`** for the full classified index. Short version: `01-review/` (vendor-deck review), `02-gap-closure-pack/` (historical), `03-complete-pack/` (★ screen sources + group packs + design system), `04-architecture-docs/` (DOC-00…11), `docs/` (governance).
 
-```
-00-project-log/PROJECT_LOG.md      chronological engagement record
-01-review/                          vendor design review & feedback (.docx) — findings C-x/S-x/N-x, SLAs, foundation asks
-02-gap-closure-pack/                first 16 gap-closure screens (NS-01…16) + catalogue (PDF + HTML)
-03-complete-pack/
-  html-source/wave1..wave4/         ONE HTML FRAGMENT PER SCREEN (the atomic source of truth)
-  group-html/                       assembled per-group packs (self-contained, open in any browser)
-  group-pdfs/                       rendered PDFs (DEPRECATED for now — see D-08; HTML is primary)
-  design-system/base.css            the shared design system every screen uses
-  design-system/assemble_group.py   builds per-group HTML packs (GROUPS dict = the full 17-group registry)
-  design-system/render_fixed.py     one-variable-height-page-per-screen PDF renderer (Playwright) — use this, never plain A4
-docs/                               VISION, DECISIONS, FUTURE_PLAN, HANDOFF (this file)
-```
-
-## Screen ID scheme (225 screens, 17 groups)
-
-| Prefix | Group | Count | Prefix | Group | Count |
-|---|---|---|---|---|---|
-| AU | G1 Identity & Access | 18 | BL | G9 Billing & Payments | 19 |
-| PT | G2 Patient-facing | 12 | NT | G10 Notifications & Delivery | 8 |
-| FO | G3 Front Office | 22 | GR | G11 Grievance & Support | 6 |
-| SC | G4 Scheduling Setup | 10 | AD | G12 Admin & Master Data | 20 |
-| OR/CS | G5 Orders & Clinical Safety | 8+6 | IN | G13 Integration & Devices | 10 |
-| TK | G6 Radiology Technician | 12 | GV | G14 Governance & Compliance | 16 |
-| RD | G7 Radiologist | 18 | IR | G15 Imaging Regulatory | 6 |
-| DD | G8 Doctor Desk | 11 | PL | G16 Platform Operator | 12 |
-| | | | DS | G17 Design System & Patterns | 11 |
-
-Vendor's original deck used different IDs (FO-S1, RR-S6…) — the review documents map between them.
+## Screen ID scheme (232 screens, 17 groups)
+AU-01…19 Identity · PT-01…12 Patient · FO-01…22 Front Office · SC-01…10 Scheduling setup · OR-01…08 + CS-01…06 Orders & Safety · TK-01…12 Technician · RD-01…18 Radiologist · DD-01…11 Doctor Desk · BL-01…20 Billing · NT-01…08 Notifications · GR-01…06 Grievance · AD-01…21 Admin · IN-01…11 Integration · GV-01…18 Governance · IR-01…06 Regulatory · PL-01…13 Platform · DS-01…11 Design system.
+Vendor deck used FO-S1-style IDs — DOC-08 maps both directions; every screen page carries its own "Baseline:" line.
 
 ## How to work with the pack
+- **View:** open any `group-html/*.html` (or the Combined Volume) in a browser.
+- **Edit one screen:** change its fragment in `html-source/waveN/<id>.html` (only `base.css` classes), then `python3 design-system/assemble_group.py <GroupKey>`.
+- **Add a screen:** create the fragment, add its ID to GROUPS in `assemble_group.py`, add its mapping in `baseline_map.py`, run `python3 baseline_map.py inject`, rebuild the group, regenerate DOC-08.
+- **Never** hand-edit `group-html/` outputs — they are generated.
 
-- **View:** open any `group-html/*.html` in a browser. Each screen = header (ID, title, scope chip, cluster) + purpose note + app-chrome frame + alternate states below dividers + audit footer.
-- **Edit a screen:** edit its fragment in `html-source/waveN/<id>.html`, then rebuild the group: `python3 design-system/assemble_group.py <GroupKey>` (keys in the GROUPS dict).
-- **Add a screen:** create the fragment following an existing one (only `base.css` classes), add its ID to GROUPS, rebuild.
-- **PDFs (if re-enabled):** `python3 design-system/render_fixed.py <GroupKey>` — renders one variable-height page per screen. Never print straight to A4 (screens fragment — that was the D-08 issue).
+## Design rules (enforce on every new screen)
+1. Scope chip (MVP1-CORE / Conditional) + Baseline line. 2. 2–4 states — no happy-path-only. 3. Audit footer + step-up on money/legal/destructive actions + four-eyes on irreversible. 4. Masked identifiers where the viewer lacks purpose. 5. One SLA/overdue pattern (DS-03). 6. Synthetic data, ₹/IST formats, Aadhaar last-4, Malayalam for patient-facing Kerala content. 7. Vendor names only in AD-21/adapters — never in core screens (D-37).
 
-## Design rules every screen follows (enforce on any new screen)
+## Key decisions the dev team must not re-litigate
+Modular monolith (D-24) · release policy Option C via BL-20 (D-21) · critical-results tiers & closed loop (D-13) · same-org priors allow-and-audit (D-14) · Form F patient signature + monthly filing CORE (D-15) · GST-exempt labeling + credit notes (D-16) · retention-safe closure (D-18) · all-4-branch pilot (D-34) · PDFs dropped (D-35) · vendor-neutral small-file modularity (D-37). Full list: `docs/DECISIONS.md`.
 
-1. Scope chip: MVP1-CORE / Conditional / Post-MVP1.
-2. 2–4 states (default + error/blocked/empty/offline/success) — no happy-path-only screens.
-3. Audit footer (🔒 …recorded in the access log) + step-up identity confirm on legal/money/destructive actions + four-eyes on irreversible ones.
-4. Masked identifiers wherever the viewer lacks purpose (`#MRN-••••30` pattern, DS-07).
-5. One SLA/overdue pattern (DS-03): countdown → warn → BREACHED w/ owner + escalation.
-6. Synthetic data only; consistent cast (Meridian Diagnostics, Andheri West, Dr. V. Shetty, K. Verma, MRN-0048xx…); ₹ Indian formats; IST; Aadhaar last-4 only.
-7. India compliance surfaces: DPDP consent/rights, PC-PNDT Form F gates, AERB, GST-exempt invoicing, DLT SMS.
+## Status & pending
+All design work complete and verified (see README Status). Pending (client): final legal product name, branch-4 details, UAT planning, sending the pack to NUMINACORE, rotating the GitHub token.
 
-## Current status & the HELD gate
-
-- Waves 1–2 complete and pushed; Waves 3–4 in production (README wave checklist is the live status).
-- **Do not finalise/package**: the client (Paul, pauljoy89@gmail.com) will supply additional information after Wave 4; the pack is to be checked against it and extended before the final master index + combined volume is produced (see FUTURE_PLAN §1–3).
-
-## Credentials & access
-
-- Repo: https://github.com/Magnus-PJ/MAGNUS-UI-MOCKUPS (fine-grained PAT held by Paul; write access granted July 2026).
-- No other external systems are wired to this project.
+## Access
+Repo: https://github.com/Magnus-PJ/MAGNUS-UI-MOCKUPS (fine-grained PAT held by Paul, pauljoy89@gmail.com). No other external systems wired.
