@@ -1,0 +1,180 @@
+<section class="screen" id="bl-03">
+<div class="screen-head"><h1><span class="sid">BL-03</span> Payment collection</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Cashier collects against an issued invoice using CASH (tender/change with drawer session ref), CARD (terminal handshake) or UPI (dynamic QR with live status poll and a 3-minute countdown). Part-payments require a reason. On success Magnus issues a receipt from the RCP series and sends an SMS only if the patient's messaging consent allows it.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Billing worklist <span class="nav-badge">23</span></div>
+      <div class="nav-item">Create invoice</div>
+      <div class="nav-item active">Collect payment</div>
+      <div class="nav-item">Pending payments <span class="nav-badge red">4</span></div>
+      <div class="nav-item">Receipts &amp; reprints</div>
+      <div class="sec-label">Cash desk</div>
+      <div class="nav-item">Drawer session</div>
+      <div class="nav-item">Day close</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Collect › INV/AND/26-27/0413</div>
+      <div class="page-title">Collect payment — INV/AND/26-27/0413</div>
+      <div class="page-sub">Aarav Sharma · <span class="mono">MRN-004821</span> · net payable <b>₹8,075.00</b> · drawer session <span class="mono">DRW-AND-0725-02</span> · counter 2</div>
+      <div class="split">
+        <div>
+          <div class="card">
+            <div style="display:flex;gap:8px;margin-bottom:12px">
+              <span class="btn primary" style="flex:1">💵 CASH</span>
+              <span class="btn" style="flex:1">💳 CARD</span>
+              <span class="btn" style="flex:1">▦ UPI</span>
+              <span class="btn" style="flex:1">🏦 BANK</span>
+            </div>
+            <div class="row">
+              <div class="grow">
+                <div class="field"><label>Amount to collect <span class="req">*</span></label><input class="input" value="₹8,075.00"/><div class="hint">Full amount pre-filled. Editing below full triggers part-payment reason.</div></div>
+                <div class="field"><label>Tender received <span class="req">*</span></label><input class="input" value="₹8,500.00"/></div>
+                <div class="field"><label>Change due (auto)</label><div class="input" style="background:#F0FDFA;font-weight:800;font-size:16px">₹425.00</div></div>
+              </div>
+              <div style="width:250px">
+                <div class="card" style="background:#F8FAFC;margin-bottom:10px">
+                  <div class="card-title" style="font-size:12.5px">Denomination helper</div>
+                  <table><tr><th>Note</th><th>Count</th><th>₹</th></tr>
+                  <tr><td>₹500</td><td>17</td><td>8,500</td></tr>
+                  <tr><td colspan="2">Change: ₹500×0 · ₹200×2 · ₹20×1 · ₹5×1</td><td>425</td></tr></table>
+                </div>
+                <dl class="kv" style="grid-template-columns:96px 1fr">
+                  <dt>Drawer</dt><dd><span class="mono small">DRW-AND-0725-02</span></dd>
+                  <dt>Cash in drawer</dt><dd>₹36,200.00</dd>
+                </dl>
+              </div>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:6px">
+              <span class="btn primary" style="flex:1">Record cash ₹8,075.00 &amp; issue receipt</span>
+              <span class="btn">Switch to part-payment</span>
+            </div>
+            <div class="small muted" style="margin-top:8px">🔒 Receipt will be issued as next <span class="mono">RCP/AND/26-27/0xxx</span> from the central number-series registry. SMS receipt link goes to +91 98••• ••231 — patient consent: <span class="chip green">SMS ALLOWED</span>.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Part-payment (if collecting less than due) <span class="chip grey">COLLAPSED — SHOWN FOR SPEC</span></div>
+            <div class="row">
+              <div class="grow"><div class="field"><label>Part amount</label><input class="input" value="₹4,000.00"/></div></div>
+              <div class="grow"><div class="field"><label>Reason <span class="req">*</span></label><select class="select"><option>Patient will pay balance at report collection</option></select></div></div>
+            </div>
+            <p class="small muted">Balance ₹4,075.00 stays on the worklist as PART-PAID with owner P. D'Souza. Reports are not withheld for balances below the branch threshold (₹500) — policy AND-BIL-07.</p>
+          </div>
+        </div>
+        <div>
+          <div class="card" style="border-top:3px solid #0F766E">
+            <div class="card-title">Invoice summary</div>
+            <dl class="kv" style="grid-template-columns:110px 1fr">
+              <dt>Invoice</dt><dd class="mono">INV/AND/26-27/0413</dd>
+              <dt>Patient</dt><dd>Aarav Sharma · <span class="mono">MRN-004821</span></dd>
+              <dt>Net due</dt><dd class="bold">₹8,075.00</dd>
+              <dt>GST</dt><dd>Exempt (healthcare service)</dd>
+              <dt>Paid so far</dt><dd>₹0.00</dd>
+              <dt>Payer</dt><dd>Self-pay</dd>
+            </dl>
+          </div>
+          <div class="card">
+            <div class="card-title">Today at this station</div>
+            <table>
+              <tr><th>Time</th><th>Mode</th><th>₹</th></tr>
+              <tr><td class="mono">11:38</td><td>UPI</td><td>2,800.00</td></tr>
+              <tr><td class="mono">11:31</td><td>Cash</td><td>950.00</td></tr>
+              <tr><td class="mono">11:22</td><td>Card</td><td>9,800.00</td></tr>
+              <tr><td class="mono">11:14</td><td>Cash</td><td>2,400.00</td></tr>
+              <tr><td class="mono">11:02</td><td>UPI</td><td>13,500.00</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — UPI AWAITING CONFIRMATION WITH COUNTDOWN</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item active">Collect payment</div>
+      <div class="nav-item">Pending payments <span class="nav-badge red">4</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Collect › INV/AND/26-27/0412 › UPI</div>
+      <div class="page-title">UPI collection — ₹13,500.00</div>
+      <div class="page-sub">Sofia Rossi · <span class="mono">MRN-004822</span> · payment ref <span class="mono">PAY-2026-77120</span> · initiated 11:44:03 IST</div>
+      <div class="row">
+        <div class="card" style="width:320px;text-align:center">
+          <div class="card-title" style="justify-content:center">Scan to pay</div>
+          <div style="border:2px solid #0F766E;border-radius:10px;width:190px;height:190px;margin:0 auto;display:flex;align-items:center;justify-content:center;background:#F8FAFC;font-size:11px;color:#64748B">[ DYNAMIC UPI QR ]<br>meridian.and@icici<br>₹13,500.00</div>
+          <div class="mono small muted" style="margin-top:8px">exact-amount QR · single use · ref PAY-2026-77120</div>
+        </div>
+        <div class="grow">
+          <div class="card">
+            <div class="card-title">Live status <span class="chip amber">AWAITING CONFIRMATION</span></div>
+            <div class="timeline">
+              <div class="ev"><span class="t">11:44:03</span><span>QR generated, payment initiated with provider</span></div>
+              <div class="ev"><span class="t">11:44:21</span><span>Patient app scan detected (collect request delivered)</span></div>
+              <div class="ev"><span class="t">11:45:10</span><span class="muted">Polling provider every 5s… last poll 11:45:55 → PENDING</span></div>
+            </div>
+            <div style="margin:10px 0 4px" class="small bold">Confirmation window</div>
+            <div class="progress amber"><i style="width:64%"></i></div>
+            <div class="small muted" style="margin-top:4px">⏱ 1:05 remaining of 3:00 — at timeout this payment moves to <b>UNCONFIRMED</b> and appears in Pending payments (BL-04). Do not ask the patient to pay again.</div>
+            <div style="display:flex;gap:10px;margin-top:12px">
+              <span class="btn">Re-query provider now</span>
+              <span class="btn">Switch mode (cancels this QR)</span>
+              <span class="btn danger">Cancel payment attempt</span>
+            </div>
+          </div>
+          <div class="banner info"><b>If the patient shows a success screen but Magnus stays pending:</b> wait out the window — a late provider webhook auto-confirms. Never collect cash on top without the BL-04 duplicate-collection guard.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — SUCCESS · RECEIPT ISSUED</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item active">Collect payment</div>
+      <div class="nav-item">Receipts &amp; reprints</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Collect › INV/AND/26-27/0412 › Success</div>
+      <div class="page-title">Payment received ✅</div>
+      <div class="page-sub">Confirmed by provider at 11:46:12 IST · UPI · UTR <span class="mono">616309882741</span></div>
+      <div class="banner success"><b>₹13,500.00 collected in full — invoice INV/AND/26-27/0412 is now PAID.</b> Receipt <span class="mono">RCP/AND/26-27/0891</span> issued from the central number-series registry.</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Receipt RCP/AND/26-27/0891</div>
+          <dl class="kv">
+            <dt>Patient</dt><dd>Sofia Rossi · <span class="mono">MRN-004822</span></dd>
+            <dt>Against</dt><dd class="mono">INV/AND/26-27/0412</dd>
+            <dt>Amount</dt><dd class="bold">₹13,500.00 (Rupees Thirteen Thousand Five Hundred Only)</dd>
+            <dt>Mode / ref</dt><dd>UPI · UTR <span class="mono">616309882741</span></dd>
+            <dt>Collected by</dt><dd>P. D'Souza · counter 2 · drawer <span class="mono">DRW-AND-0725-02</span></dd>
+            <dt>GST</dt><dd>Exempt (healthcare service) · GSTIN 27AAACM1234K1Z5</dd>
+          </dl>
+          <div style="display:flex;gap:10px;margin-top:12px"><span class="btn primary">Print receipt</span><span class="btn">Open invoice</span><span class="btn ghost">Next patient →</span></div>
+        </div>
+        <div style="width:280px">
+          <div class="card">
+            <div class="card-title">Patient messaging</div>
+            <div class="check"><span class="box on">✓</span> SMS receipt link sent to +91 99••• ••847 <span class="chip green">CONSENT: ALLOWED</span></div>
+            <div class="check"><span class="box"></span> WhatsApp — <span class="muted">not sent, consent withheld</span></div>
+            <p class="small muted">Message contains a secure link only — no amounts, diagnoses or personal details in SMS body. Link expires in 72h.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="audit">Every collection attempt (mode, amount, tender/change, provider refs, UTR, drawer session, part-payment reason) and each SMS dispatch decision is recorded in the access log.</p>
+</section>

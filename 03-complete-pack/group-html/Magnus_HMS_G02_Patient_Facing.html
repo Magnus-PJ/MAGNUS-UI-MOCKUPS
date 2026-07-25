@@ -1,0 +1,1347 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Magnus HMS — G2 · Patient-Facing (Secure Links)</title><style>/* Magnus HMS — NS design pack shared design system */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
+.mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
+.muted{color:#64748B}.small{font-size:12px}.bold{font-weight:700}
+/* ---------- page / screen frame ---------- */
+.screen{page-break-after:always;padding:28px 34px;background:#fff;min-height:1000px}
+.screen-head{display:flex;justify-content:space-between;align-items:flex-start;border-left:5px solid #0F766E;padding:6px 0 6px 14px;margin-bottom:6px}
+.screen-head h1{font-size:22px;font-weight:800}
+.screen-head .sid{color:#0F766E;margin-right:10px}
+.screen-head .meta{text-align:right}
+.screen-head .meta .cluster{color:#64748B;font-size:12px;margin-top:3px}
+.gap-note{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:8px 12px;margin:10px 0 16px;font-size:12.5px;color:#7C2D12}
+.gap-note b{color:#9A3412}
+/* ---------- app chrome ---------- */
+.frame{border:1px solid #CBD5E1;border-radius:10px;overflow:hidden;background:#F4F6F8;box-shadow:0 1px 4px rgba(15,23,42,.08);margin-bottom:22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:2px solid #0F766E;padding:9px 16px}
+.brand{font-weight:800;color:#0F766E}.brand span{color:#1E293B}
+.org{font-size:12.5px;color:#334155;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px}
+.userchip{font-size:12.5px;color:#334155}
+.userchip .av{display:inline-block;background:#CCFBF1;color:#0F766E;font-weight:700;border-radius:5px;padding:2px 6px;margin-right:6px;font-size:11px}
+.body{display:flex;min-height:520px}
+.sidebar{width:196px;background:#fff;border-right:1px solid #E2E8F0;padding:12px 0;flex-shrink:0}
+.sec-label{font-size:10.5px;letter-spacing:.08em;color:#94A3B8;font-weight:700;padding:8px 16px 4px;text-transform:uppercase}
+.nav-item{padding:7px 16px;font-size:13px;color:#334155;display:flex;justify-content:space-between;align-items:center}
+.nav-item.active{background:#F0FDFA;color:#0F766E;font-weight:700;border-left:3px solid #0F766E;padding-left:13px}
+.nav-badge{background:#0F766E;color:#fff;border-radius:9px;font-size:10.5px;padding:1px 7px;font-weight:700}
+.nav-badge.red{background:#B91C1C}
+.main{flex:1;padding:16px 18px;min-width:0}
+.crumb{font-size:12px;color:#64748B;margin-bottom:8px}
+.page-title{font-size:19px;font-weight:800;margin-bottom:2px}
+.page-sub{font-size:12.5px;color:#64748B;margin-bottom:14px}
+.actions-right{float:right}
+/* ---------- components ---------- */
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card-title{font-weight:800;font-size:14.5px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.card-title .right{font-size:10.5px;letter-spacing:.07em;color:#94A3B8;font-weight:700;text-transform:uppercase}
+.row{display:flex;gap:14px}.row>*{min-width:0}.grow{flex:1}
+.btn{display:inline-block;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:700;border:1px solid #CBD5E1;background:#fff;color:#334155;text-align:center;white-space:nowrap}
+.btn.primary{background:#0F766E;border-color:#0F766E;color:#fff}
+.btn.danger{background:#B91C1C;border-color:#B91C1C;color:#fff}
+.btn.warn-outline{border-color:#F59E0B;color:#92400E;background:#FFFBEB}
+.btn.ghost{border:none;background:none;color:#0F766E;padding:7px 6px}
+.btn.small{padding:4px 10px;font-size:12px}
+.btn.disabled{opacity:.45}
+.chip{display:inline-block;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip.teal{background:#CCFBF1;color:#0F766E}
+.chip.green{background:#DCFCE7;color:#15803D}
+.chip.amber{background:#FEF3C7;color:#92400E}
+.chip.red{background:#FEE2E2;color:#B91C1C}
+.chip.grey{background:#F1F5F9;color:#475569}
+.chip.blue{background:#E0F2FE;color:#0369A1}
+.chip.violet{background:#EDE9FE;color:#6D28D9}
+.chip.outline-red{background:#fff;border:1.5px solid #B91C1C;color:#B91C1C}
+.banner{border-radius:8px;padding:10px 13px;font-size:12.5px;margin-bottom:12px;border:1px solid}
+.banner b{display:block;margin-bottom:2px;font-size:13px}
+.banner.info{background:#E0F2FE;border-color:#7DD3FC;color:#075985}
+.banner.warn{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+.banner.danger{background:#FEE2E2;border-color:#FCA5A5;color:#991B1B}
+.banner.success{background:#DCFCE7;border-color:#86EFAC;color:#166534}
+.banner.reg{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding:7px 9px;border-bottom:2px solid #E2E8F0;background:#F8FAFC}
+td{padding:8px 9px;border-bottom:1px solid #EEF2F6;vertical-align:top}
+tr.hl td{background:#F0FDFA}
+tr.dim td{color:#94A3B8}
+.kv{display:grid;grid-template-columns:150px 1fr;row-gap:6px;column-gap:12px;font-size:12.5px}
+.kv dt{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding-top:2px}
+.kv dd{margin:0}
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+.field label .req{color:#B91C1C}
+.field .hint{font-size:11px;color:#64748B;margin-top:3px}
+.input,.select,.textarea{width:100%;border:1px solid #CBD5E1;border-radius:7px;padding:7px 10px;font-size:13px;background:#fff;color:#1E293B}
+.input.err{border-color:#B91C1C;background:#FEF2F2}
+.textarea{min-height:64px}
+.check{font-size:12.5px;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.box{display:inline-block;width:14px;height:14px;border:1.6px solid #64748B;border-radius:3px;flex-shrink:0;margin-top:1px;text-align:center;line-height:12px;font-size:11px;font-weight:800}
+.box.on{background:#0F766E;border-color:#0F766E;color:#fff}
+.radio{border-radius:50%}
+.radio.on{background:#fff;border-color:#0F766E;box-shadow:inset 0 0 0 3.5px #0F766E;color:transparent}
+/* modal */
+.modal-wrap{background:#64748B22;border:1px dashed #94A3B8;border-radius:12px;padding:26px 40px;margin:14px 0}
+.modal{background:#fff;border-radius:12px;border-top:5px solid #0F766E;box-shadow:0 8px 30px rgba(15,23,42,.25);max-width:560px;margin:0 auto;padding:18px 20px}
+.modal.danger{border-top-color:#B91C1C}
+.modal h3{font-size:16px;margin-bottom:8px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+/* misc */
+.divider-label{text-align:center;color:#94A3B8;font-size:11.5px;margin:20px 0 14px;position:relative}
+.divider-label:before,.divider-label:after{content:"";display:inline-block;width:24%;border-top:1px dashed #CBD5E1;vertical-align:middle;margin:0 10px}
+.audit{font-size:11px;color:#8A6D1D;margin-top:10px}
+.audit:before{content:"🔒 "}
+.state-tag{font-size:10px;letter-spacing:.08em;font-weight:800;text-transform:uppercase;color:#94A3B8;text-align:right;margin-bottom:4px}
+.kpi-row{display:flex;gap:12px;margin-bottom:14px}
+.kpi{flex:1;background:#fff;border:1px solid #E2E8F0;border-left:4px solid #0F766E;border-radius:9px;padding:10px 13px}
+.kpi.amber{border-left-color:#F59E0B}.kpi.red{border-left-color:#B91C1C}
+.kpi .n{font-size:23px;font-weight:800}.kpi .l{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700}
+.kpi .s{font-size:11px;color:#64748B;margin-top:2px}
+.stepper{display:flex;gap:6px;align-items:center;font-size:12px;color:#64748B;margin-bottom:14px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:6px}
+.step .dot{width:20px;height:20px;border-radius:50%;background:#E2E8F0;color:#475569;font-size:11px;font-weight:800;text-align:center;line-height:20px}
+.step.done .dot{background:#15803D;color:#fff}.step.cur .dot{background:#0F766E;color:#fff}
+.step.cur{color:#0F766E;font-weight:700}
+.step-line{width:26px;border-top:2px solid #CBD5E1}
+.sig-box{border:1.5px dashed #94A3B8;border-radius:8px;min-height:64px;background:#F8FAFC;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:12px;font-style:italic}
+.sig-box.signed{border-style:solid;border-color:#15803D;color:#166534;background:#F0FDF4;font-family:'Segoe Script','Comic Sans MS',cursive;font-size:17px;font-style:normal}
+.ladder{border-left:3px solid #E2E8F0;margin-left:8px;padding-left:16px}
+.ladder .tier{margin-bottom:12px;position:relative}
+.ladder .tier:before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:#CBD5E1}
+.ladder .tier.done:before{background:#15803D}.ladder .tier.cur:before{background:#0F766E;box-shadow:0 0 0 3px #CCFBF1}
+.ladder .tier.fail:before{background:#B91C1C}
+.progress{height:7px;border-radius:4px;background:#E2E8F0;overflow:hidden;margin-top:4px}
+.progress i{display:block;height:100%;background:#0F766E}
+.progress.amber i{background:#F59E0B}.progress.red i{background:#B91C1C}
+.split{display:grid;grid-template-columns:1fr 300px;gap:14px}
+.timeline{font-size:12.5px}
+.timeline .ev{display:flex;gap:10px;margin-bottom:9px}
+.timeline .t{color:#64748B;white-space:nowrap;font-family:Consolas,monospace;font-size:11.5px;padding-top:1px}
+
+@page{size:A4;margin:0}@media print{body{background:#fff}}</style></head><body><section class="screen" id="cover">
+<div style="padding-top:120px"><div style="border-left:6px solid #0F766E;padding-left:22px">
+<div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">Magnus HMS · MVP 1 Complete Design Pack</div>
+<h1 style="font-size:36px;font-weight:800">G2 · Patient-Facing (Secure Links)</h1>
+<p style="font-size:14px;color:#64748B;margin-top:10px">12 screens · every screen with alternate states · shared design system · synthetic data only (no PHI)</p></div>
+<div class="card" style="max-width:700px;margin-top:26px"><div class="card-title">Screens in this group</div>
+<table><tr><th style="width:70px">ID</th><th>Screen</th></tr><tr><td class="mono bold" style="color:#0F766E">PT-01</td><td>Secure link landing &amp; OTP</td></tr><tr><td class="mono bold" style="color:#0F766E">PT-02</td><td>Report view via link</td></tr><tr><td class="mono bold" style="color:#0F766E">PT-03</td><td>Link expired / paused / renew</td></tr><tr><td class="mono bold" style="color:#0F766E">PT-04</td><td>Receipt &amp; invoice via link</td></tr><tr><td class="mono bold" style="color:#0F766E">PT-05</td><td>Appointment reminder &amp; prep page</td></tr><tr><td class="mono bold" style="color:#0F766E">PT-06</td><td>Online payment page</td></tr><tr><td class="mono bold" style="color:#0F766E">PT-07</td><td>My consent notice</td></tr><tr><td class="mono bold" style="color:#0F766E">PT-08</td><td>Privacy &amp; rights page</td></tr><tr><td class="mono bold" style="color:#0F766E">PT-09</td><td>Data rights request submission</td></tr><tr><td class="mono bold" style="color:#0F766E">PT-10</td><td>Request tracking</td></tr><tr><td class="mono bold" style="color:#0F766E">PT-11</td><td>Language &amp; accessibility</td></tr><tr><td class="mono bold" style="color:#0F766E">PT-12</td><td>Help &amp; troubleshooting</td></tr></table></div>
+<p class="muted small" style="margin-top:14px">Magnus Diagnostics → NUMINACORE · July 2026 · Prototype/reference — not committed product scope.</p></div></section><section class="screen" id="pt-01">
+<div class="screen-head"><h1><span class="sid">PT-01</span> Secure link landing &amp; OTP</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G2 Patient-Facing — patient chrome (no sidebar)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> A patient taps the secure SMS link and lands here before anything private is shown. They verify a 6-digit OTP sent to their registered mobile; the link binds to this device only and expires 72 hours after the first send. Three wrong codes pause verification for 30 minutes with a call-the-clinic alternative — no report content is ever visible before verification.</div>
+
+<div class="state-tag">STATE A — LANDING (before verification)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:1px solid #E2E8F0;padding:12px;text-align:center"><span class="brand">◎ Meridian Diagnostics</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="text-align:center;padding:22px 20px">
+      <div style="font-size:34px;margin-bottom:8px">📄</div>
+      <div style="font-size:18px;font-weight:800;margin-bottom:4px">A report is ready for you</div>
+      <div class="muted" style="font-size:13px;margin-bottom:14px">Prepared for the patient registered with mobile number <span class="mono bold">•••• •••4821</span></div>
+      <div class="kv" style="text-align:left;grid-template-columns:130px 1fr;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:12px;margin-bottom:14px">
+        <dt>From</dt><dd>Meridian Diagnostics · Andheri West branch</dd>
+        <dt>Document</dt><dd>Imaging report · 1 study</dd>
+        <dt>Link valid until</dt><dd>Mon 27 Jul 2026, 6:42 PM IST <span class="chip teal">72-hour link</span></dd>
+      </div>
+      <a class="btn primary" style="display:block;padding:13px;font-size:15px;margin-bottom:10px">Send verification code to •••• •••4821</a>
+      <a class="btn ghost" style="display:block">This isn't my number — get help</a>
+      <div class="small muted" style="margin-top:12px;line-height:1.6">🔒 To protect your privacy, we never show a report before verifying it's you.<br>This link works only on the device it is first opened on and expires in 72 hours.</div>
+    </div>
+    <div class="banner info"><b>Why we ask you to verify</b>Your health information is private. A one-time code confirms this phone belongs to you before anything is displayed. Nothing about your visit appears in the SMS itself.</div>
+  </div>
+  <div style="text-align:center;padding:14px;font-size:11px;color:#64748B;border-top:1px solid #E2E8F0;background:#fff">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India<br><a style="color:#0F766E">Privacy</a> · <a style="color:#0F766E">Terms</a> · <a style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — OTP ENTRY (code sent)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:1px solid #E2E8F0;padding:12px;text-align:center"><span class="brand">◎ Meridian Diagnostics</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="text-align:center;padding:22px 20px">
+      <div style="font-size:18px;font-weight:800;margin-bottom:4px">Enter the 6-digit code</div>
+      <div class="muted" style="font-size:13px;margin-bottom:16px">Sent by SMS to <span class="mono bold">•••• •••4821</span> at 3:41 PM IST</div>
+      <div style="display:flex;gap:8px;justify-content:center;margin-bottom:8px">
+        <span class="input mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px">7</span>
+        <span class="input mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px">3</span>
+        <span class="input mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px">4</span>
+        <span class="input mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px;background:#F8FAFC">&nbsp;</span>
+        <span class="input mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px;background:#F8FAFC">&nbsp;</span>
+        <span class="input mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px;background:#F8FAFC">&nbsp;</span>
+      </div>
+      <div class="small muted" style="margin-bottom:14px">Code valid for 10 minutes · <span class="chip grey">3 attempts left</span></div>
+      <a class="btn primary" style="display:block;padding:13px;font-size:15px;margin-bottom:10px">Verify &amp; open securely</a>
+      <a class="btn disabled" style="display:block;margin-bottom:6px">Resend code (available in 0:42)</a>
+      <div class="small muted">Didn't get it? Check network signal, or call the clinic at <span class="mono">022-4890 2210</span> (8 AM – 9 PM IST).</div>
+      <div class="small muted" style="margin-top:12px">🔒 The code was sent only to your registered mobile. Meridian staff will never ask you to read this code out.</div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:14px;font-size:11px;color:#64748B;border-top:1px solid #E2E8F0;background:#fff">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India<br><a style="color:#0F766E">Privacy</a> · <a style="color:#0F766E">Terms</a> · <a style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="state-tag">STATE C — WRONG CODE (2 attempts left)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:1px solid #E2E8F0;padding:12px;text-align:center"><span class="brand">◎ Meridian Diagnostics</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="text-align:center;padding:22px 20px">
+      <div class="banner danger" style="text-align:left"><b>That code didn't match</b>Please check the most recent SMS — older codes stop working when a new one is sent. <span class="chip red">2 attempts left</span></div>
+      <div style="display:flex;gap:8px;justify-content:center;margin-bottom:8px">
+        <span class="input err mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px">1</span>
+        <span class="input err mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px">9</span>
+        <span class="input err mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px">0</span>
+        <span class="input err mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px">2</span>
+        <span class="input err mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px">8</span>
+        <span class="input err mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px">5</span>
+      </div>
+      <div class="small" style="color:#B91C1C;margin-bottom:14px">After 3 incorrect codes, verification pauses for 30 minutes to keep your report safe.</div>
+      <a class="btn primary" style="display:block;padding:13px;font-size:15px;margin-bottom:10px">Try again</a>
+      <a class="btn" style="display:block">Resend a fresh code to •••• •••4821</a>
+      <div class="small muted" style="margin-top:12px">🔒 Incorrect attempts are recorded for your protection.</div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:14px;font-size:11px;color:#64748B;border-top:1px solid #E2E8F0;background:#fff">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India<br><a style="color:#0F766E">Privacy</a> · <a style="color:#0F766E">Terms</a> · <a style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="state-tag">STATE D — PAUSED AFTER 3 WRONG CODES (30-minute lock)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:1px solid #E2E8F0;padding:12px;text-align:center"><span class="brand">◎ Meridian Diagnostics</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="text-align:center;padding:22px 20px">
+      <div style="font-size:34px;margin-bottom:8px">⏸️</div>
+      <div style="font-size:18px;font-weight:800;margin-bottom:4px">Verification paused for 30 minutes</div>
+      <div class="muted" style="font-size:13px;margin-bottom:14px">Three codes in a row didn't match, so we've paused this link to protect your report. This is automatic and nothing is wrong with your report.</div>
+      <div class="kv" style="text-align:left;grid-template-columns:130px 1fr;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:12px;margin-bottom:14px">
+        <dt>Try again after</dt><dd class="bold">4:18 PM IST (in 29 min)</dd>
+        <dt>Link still valid</dt><dd>Yes — until Mon 27 Jul 2026, 6:42 PM IST</dd>
+        <dt>Need it sooner?</dt><dd>Call the clinic and confirm your identity by phone</dd>
+      </div>
+      <a class="btn primary" style="display:block;padding:13px;font-size:15px;margin-bottom:10px">📞 Call clinic · 022-4890 2210</a>
+      <a class="btn disabled" style="display:block">Enter code (paused — 29:12 remaining)</a>
+      <div class="small muted" style="margin-top:12px">🔒 If you didn't try these codes yourself, please tell the clinic — we'll review the link's activity with you.</div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:14px;font-size:11px;color:#64748B;border-top:1px solid #E2E8F0;background:#fff">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India<br><a style="color:#0F766E">Privacy</a> · <a style="color:#0F766E">Terms</a> · <a style="color:#0F766E">Help</a></div>
+</div>
+
+<p class="audit">Every OTP send, verification attempt, pause and device binding on this link is recorded in the access log.</p>
+</section>
+<section class="screen" id="pt-02">
+<div class="screen-head"><h1><span class="sid">PT-02</span> Report view via link</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G2 Patient-Facing — patient chrome (no sidebar)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> After OTP verification (PT-01), the patient sees their finalised report in a time-limited private view that auto-closes after 15 minutes of inactivity. If the radiologist later addends the report, an UPDATED v2 banner confirms they are viewing the latest version. Every view, download and print is recorded, and a plain-language note reminds patients that the report is not a diagnosis by itself.</div>
+
+<div class="state-tag">STATE A — CURRENT REPORT (verified view)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:1px solid #E2E8F0;padding:12px;text-align:center"><span class="brand">◎ Meridian Diagnostics</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="banner info" style="display:flex;justify-content:space-between;align-items:center;gap:10px"><span><b>Private view · closes automatically</b>For your privacy this page closes after 15 minutes. Time left: <span class="mono bold">12:48</span></span><a class="btn small">Keep open</a></div>
+    <div class="card">
+      <div class="card-title">Imaging report <span class="chip green">FINAL · signed</span></div>
+      <div class="kv" style="grid-template-columns:130px 1fr;margin-bottom:12px">
+        <dt>Patient</dt><dd>Sofia Rossi · Female · 34 yrs · <span class="mono">MRN-004822</span></dd>
+        <dt>Study</dt><dd>X-Ray Chest PA view</dd>
+        <dt>Accession</dt><dd class="mono">ACC-2026-90412</dd>
+        <dt>Performed</dt><dd>24 Jul 2026, 10:05 AM IST · Andheri West branch</dd>
+        <dt>Reported by</dt><dd>Dr. V. Shetty, MD (Radiodiagnosis) · Reg. no. MMC-2009-44127</dd>
+        <dt>Referred by</dt><dd>Dr. Meera Nair <span class="chip teal">verified referrer</span></dd>
+        <dt>Signed</dt><dd>24 Jul 2026, 1:22 PM IST · Version 1</dd>
+      </div>
+      <div style="border:1px solid #E2E8F0;border-radius:8px;padding:12px;background:#F8FAFC;font-size:12.5px;margin-bottom:12px">
+        <div class="bold" style="margin-bottom:4px">FINDINGS</div>
+        <div style="margin-bottom:8px">Lung fields are clear. No focal consolidation, pleural effusion or pneumothorax. Cardiac silhouette within normal limits. Both costophrenic angles are free. Bony thorax and soft tissues unremarkable.</div>
+        <div class="bold" style="margin-bottom:4px">IMPRESSION</div>
+        <div>No significant abnormality detected on this chest radiograph.</div>
+      </div>
+      <div class="banner warn" style="margin-bottom:12px"><b>What this report means</b>This is a description of your scan written for your doctor. On its own it is not a diagnosis or a treatment plan — please discuss it with Dr. Meera Nair or your treating doctor, who will read it alongside your symptoms and history.</div>
+      <div class="row">
+        <a class="btn primary grow" style="padding:12px">⬇ Download PDF</a>
+        <a class="btn grow" style="padding:12px">🖨 Print</a>
+      </div>
+      <div class="small muted" style="margin-top:8px">🔒 Each download or print of this report is recorded, including date, time and device — this protects you if the link is ever misused.</div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:14px;font-size:11px;color:#64748B;border-top:1px solid #E2E8F0;background:#fff">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India<br><a style="color:#0F766E">Privacy</a> · <a style="color:#0F766E">Terms</a> · <a style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ADDENDED REPORT (UPDATED v2 banner)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:1px solid #E2E8F0;padding:12px;text-align:center"><span class="brand">◎ Meridian Diagnostics</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="banner success"><b>UPDATED — Version 2 · you are viewing the latest version</b>Dr. V. Shetty added an addendum on 25 Jul 2026, 9:10 AM IST. The original report (v1) is preserved unchanged below the addendum. If you downloaded v1 earlier, please use this updated copy and share it with your doctor.</div>
+    <div class="card">
+      <div class="card-title">Imaging report <span><span class="chip green">FINAL</span> <span class="chip violet">ADDENDUM v2</span></span></div>
+      <div class="kv" style="grid-template-columns:130px 1fr;margin-bottom:12px">
+        <dt>Patient</dt><dd>Sofia Rossi · <span class="mono">MRN-004822</span></dd>
+        <dt>Study</dt><dd>X-Ray Chest PA view · <span class="mono">ACC-2026-90412</span></dd>
+        <dt>Addendum signed</dt><dd>25 Jul 2026, 9:10 AM IST · Dr. V. Shetty</dd>
+      </div>
+      <div style="border:1.5px solid #C4B5FD;border-radius:8px;padding:12px;background:#F5F3FF;font-size:12.5px;margin-bottom:10px">
+        <div class="bold" style="margin-bottom:4px;color:#5B21B6">ADDENDUM (25 Jul 2026)</div>
+        <div>On review with prior imaging received today (external chest radiograph dated 02 Mar 2026), the subtle right apical opacity is stable and consistent with an old, healed focus. No new finding. Impression unchanged: no significant active abnormality.</div>
+      </div>
+      <div style="border:1px solid #E2E8F0;border-radius:8px;padding:12px;background:#F8FAFC;font-size:12.5px;margin-bottom:12px">
+        <div class="small muted" style="margin-bottom:6px">ORIGINAL REPORT · v1 · signed 24 Jul 2026, 1:22 PM IST (unchanged)</div>
+        <div class="bold" style="margin-bottom:4px">IMPRESSION</div>
+        <div>No significant abnormality detected on this chest radiograph.</div>
+      </div>
+      <div class="row">
+        <a class="btn primary grow" style="padding:12px">⬇ Download updated PDF (v2)</a>
+        <a class="btn grow" style="padding:12px">🖨 Print</a>
+      </div>
+      <div class="small muted" style="margin-top:8px">🔒 Older versions can't be downloaded from this link — this prevents an outdated report being shared by mistake.</div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:14px;font-size:11px;color:#64748B;border-top:1px solid #E2E8F0;background:#fff">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India<br><a style="color:#0F766E">Privacy</a> · <a style="color:#0F766E">Terms</a> · <a style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="state-tag">STATE C — DOWNLOAD CONFIRMATION</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Download report PDF?</h3>
+    <p style="font-size:12.5px;margin-bottom:10px">The PDF will be saved to this device. Anyone with access to this device could open the file, so please store it safely.</p>
+    <div class="kv" style="grid-template-columns:130px 1fr;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:10px;margin-bottom:10px">
+      <dt>File</dt><dd class="mono">MeridianReport_ACC-2026-90412_v2.pdf · 214 KB</dd>
+      <dt>Version</dt><dd>v2 (latest, includes addendum)</dd>
+      <dt>Recorded as</dt><dd>Download · 25 Jul 2026, 3:52 PM IST · this device</dd>
+    </div>
+    <div class="check"><span class="box on">✓</span><span class="small">I understand this download is recorded and the file contains my private health information.</span></div>
+    <div class="modal-actions"><a class="btn">Cancel</a><a class="btn primary">Download PDF</a></div>
+  </div>
+</div>
+
+<p class="audit">Report views, version served (v1/v2), time-outs, downloads and prints on this link are each recorded in the access log.</p>
+</section>
+<section class="screen" id="pt-03">
+<div class="screen-head"><h1><span class="sid">PT-03</span> Link expired / paused / renew</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G2 Patient-Facing — patient chrome (no sidebar)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> When a patient opens a secure link after its 72-hour window, they see a friendly expiry explanation and can request a fresh link — sent only to the registered mobile, never to a number typed on this page. Repeated requests are gently rate-limited with a clinic contact fallback, and a changed-number path explains that number changes require an in-person ID check.</div>
+
+<div class="state-tag">STATE A — LINK EXPIRED</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:1px solid #E2E8F0;padding:12px;text-align:center"><span class="brand">◎ Meridian Diagnostics</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="text-align:center;padding:22px 20px">
+      <div style="font-size:34px;margin-bottom:8px">⏳</div>
+      <div style="font-size:18px;font-weight:800;margin-bottom:4px">This link has expired</div>
+      <div class="muted" style="font-size:13px;margin-bottom:14px">Secure links stop working 72 hours after they are sent. Your report is safe — nothing has been deleted. Expired links protect you if an old SMS is seen by someone else later.</div>
+      <div class="kv" style="text-align:left;grid-template-columns:140px 1fr;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:12px;margin-bottom:14px">
+        <dt>Link sent</dt><dd>21 Jul 2026, 6:42 PM IST</dd>
+        <dt>Expired</dt><dd>24 Jul 2026, 6:42 PM IST <span class="chip grey">72-hour limit</span></dd>
+        <dt>Registered mobile</dt><dd class="mono">•••• •••4821</dd>
+      </div>
+      <a class="btn primary" style="display:block;padding:13px;font-size:15px;margin-bottom:10px">Send a new link to •••• •••4821</a>
+      <a class="btn ghost" style="display:block">My mobile number has changed</a>
+      <div class="small muted" style="margin-top:12px">🔒 For your protection, a new link can only go to the mobile number registered at the clinic. We never send links to a number entered on this page.</div>
+    </div>
+    <div class="banner info"><b>Prefer to speak to someone?</b>Call Andheri West front desk on <span class="mono">022-4890 2210</span> (8 AM – 9 PM IST) or collect a printed copy at the clinic with a photo ID.</div>
+  </div>
+  <div style="text-align:center;padding:14px;font-size:11px;color:#64748B;border-top:1px solid #E2E8F0;background:#fff">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India<br><a style="color:#0F766E">Privacy</a> · <a style="color:#0F766E">Terms</a> · <a style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — REQUEST SENT (with gentle rate-limit note)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:1px solid #E2E8F0;padding:12px;text-align:center"><span class="brand">◎ Meridian Diagnostics</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="text-align:center;padding:22px 20px">
+      <div style="font-size:34px;margin-bottom:8px">✅</div>
+      <div style="font-size:18px;font-weight:800;margin-bottom:4px">New link sent</div>
+      <div class="muted" style="font-size:13px;margin-bottom:14px">A fresh secure link is on its way to <span class="mono bold">•••• •••4821</span>. It usually arrives within 2 minutes and will be valid for 72 hours from now.</div>
+      <div class="kv" style="text-align:left;grid-template-columns:140px 1fr;background:#F0FDF4;border:1px solid #86EFAC;border-radius:8px;padding:12px;margin-bottom:14px">
+        <dt>Sent</dt><dd>25 Jul 2026, 4:02 PM IST</dd>
+        <dt>Valid until</dt><dd>28 Jul 2026, 4:02 PM IST</dd>
+        <dt>Requests today</dt><dd>1 of 3 · older links stop working once the new one is opened</dd>
+      </div>
+      <a class="btn disabled" style="display:block;padding:13px;font-size:15px;margin-bottom:10px">Resend (available in 4:37)</a>
+      <div class="small muted">You can close this page now — open the newest SMS when it arrives.</div>
+      <div class="small muted" style="margin-top:12px">🔒 To prevent misuse, we allow up to 3 new-link requests per day. After that, please call the clinic and we'll help you straight away.</div>
+    </div>
+    <div class="banner warn" style="margin-top:0"><b>Requested too many times?</b>If you reach the daily limit, this page pauses new requests until tomorrow. Your report stays safe and the front desk (<span class="mono">022-4890 2210</span>) can verify you by phone and help sooner.</div>
+  </div>
+  <div style="text-align:center;padding:14px;font-size:11px;color:#64748B;border-top:1px solid #E2E8F0;background:#fff">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India<br><a style="color:#0F766E">Privacy</a> · <a style="color:#0F766E">Terms</a> · <a style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="state-tag">STATE C — CHANGED-NUMBER GUIDANCE</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:1px solid #E2E8F0;padding:12px;text-align:center"><span class="brand">◎ Meridian Diagnostics</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="padding:22px 20px">
+      <div style="text-align:center;font-size:34px;margin-bottom:8px">🪪</div>
+      <div style="text-align:center;font-size:18px;font-weight:800;margin-bottom:4px">Changed your mobile number?</div>
+      <div class="muted" style="font-size:13px;text-align:center;margin-bottom:14px">For your protection we can't change registered numbers online — anyone with this link could otherwise redirect your reports. Please visit the clinic once with a photo ID and we'll update it in minutes.</div>
+      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:12px;margin-bottom:14px;font-size:12.5px">
+        <div class="bold" style="margin-bottom:6px">What to bring</div>
+        <div class="check"><span class="box on">✓</span><span>Any government photo ID (Aadhaar — we record only the last 4 digits — PAN, passport or driving licence)</span></div>
+        <div class="check"><span class="box on">✓</span><span>The new mobile number, switched on (we verify it with an OTP at the desk)</span></div>
+        <div class="check"><span class="box on">✓</span><span>Your MRN or visit slip if you have it — helpful but not required</span></div>
+      </div>
+      <div class="kv" style="grid-template-columns:140px 1fr;margin-bottom:14px">
+        <dt>Clinic</dt><dd>Meridian Diagnostics, Andheri West branch<br>2nd Floor, Link Corner, S.V. Road, Mumbai 400058</dd>
+        <dt>Front desk hours</dt><dd>Mon–Sat 8 AM – 9 PM · Sun 8 AM – 2 PM IST</dd>
+        <dt>Phone</dt><dd class="mono">022-4890 2210</dd>
+      </div>
+      <a class="btn primary" style="display:block;padding:13px;font-size:15px;margin-bottom:10px">📞 Call the clinic</a>
+      <a class="btn" style="display:block">Back</a>
+      <div class="small muted" style="margin-top:12px;text-align:center">🔒 Once the number is updated at the clinic, all future report links go only to the new number. Old links are cancelled automatically.</div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:14px;font-size:11px;color:#64748B;border-top:1px solid #E2E8F0;background:#fff">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India<br><a style="color:#0F766E">Privacy</a> · <a style="color:#0F766E">Terms</a> · <a style="color:#0F766E">Help</a></div>
+</div>
+
+<p class="audit">Expiry views, new-link requests, rate-limit pauses and changed-number enquiries on this link are recorded in the access log.</p>
+</section>
+<section class="screen" id="pt-04">
+<div class="screen-head"><h1><span class="sid">PT-04</span> Receipt &amp; invoice via link</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G2 Patient-Facing — patient chrome (no sidebar)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> After OTP verification, the patient can view and download their tax invoice and receipts from the same secure link as the report. Documents show the clinic's GSTIN and the healthcare GST exemption exactly as printed at the desk. If a balance remains, a pay-now button leads to the secure UPI/card payment page (PT-06), and a history list shows every payment with its reference.</div>
+
+<div class="state-tag">STATE A — PAID IN FULL (receipt + invoice)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:1px solid #E2E8F0;padding:12px;text-align:center"><span class="brand">◎ Meridian Diagnostics</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="banner success"><b>Paid in full — thank you</b>No amount is due for this visit. You can download the invoice and receipt below for insurance or reimbursement.</div>
+    <div class="card">
+      <div class="card-title">Tax invoice <span class="chip green">PAID</span></div>
+      <div class="kv" style="grid-template-columns:140px 1fr;margin-bottom:10px">
+        <dt>Invoice no.</dt><dd class="mono bold">INV/AND/26-27/0412</dd>
+        <dt>Date</dt><dd>24 Jul 2026 · Andheri West branch</dd>
+        <dt>Billed to</dt><dd>Sofia Rossi · <span class="mono">MRN-004822</span> · Visit <span class="mono">VIS-2026-30871</span></dd>
+        <dt>GSTIN</dt><dd class="mono">27AAACM1234K1Z5</dd>
+      </div>
+      <table style="margin-bottom:10px">
+        <tr><th>Service</th><th>SAC</th><th>GST</th><th style="text-align:right">Amount</th></tr>
+        <tr><td>X-Ray Chest PA view</td><td class="mono">999316</td><td><span class="chip grey">Exempt (healthcare service)</span></td><td style="text-align:right" class="mono">₹850.00</td></tr>
+        <tr><td>Radiologist reporting fee</td><td class="mono">999316</td><td><span class="chip grey">Exempt (healthcare service)</span></td><td style="text-align:right" class="mono">₹400.00</td></tr>
+        <tr><td colspan="3" class="bold" style="text-align:right">Total</td><td style="text-align:right" class="mono bold">₹1,250.00</td></tr>
+        <tr><td colspan="3" class="bold" style="text-align:right">Paid</td><td style="text-align:right" class="mono bold">₹1,250.00</td></tr>
+        <tr><td colspan="3" class="bold" style="text-align:right">Balance due</td><td style="text-align:right" class="mono bold">₹0.00</td></tr>
+      </table>
+      <div class="small muted" style="margin-bottom:10px">Diagnostic services are exempt from GST as healthcare services — no CGST/SGST is charged. Amount in words: Rupees one thousand two hundred fifty only.</div>
+      <div class="kv" style="grid-template-columns:140px 1fr;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:10px;margin-bottom:12px">
+        <dt>Receipt</dt><dd class="mono">RCP/AND/26-27/0523 · 24 Jul 2026, 9:48 AM IST</dd>
+        <dt>Paid by</dt><dd>UPI · UTR <span class="mono">616407882914</span></dd>
+        <dt>Received by</dt><dd>P. D'Souza (cashier)</dd>
+      </div>
+      <div class="row">
+        <a class="btn primary grow" style="padding:12px">⬇ Invoice PDF</a>
+        <a class="btn grow" style="padding:12px">⬇ Receipt PDF</a>
+      </div>
+      <div class="small muted" style="margin-top:8px">🔒 Downloads are recorded. These documents show only billing details — your report stays on its own page.</div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:14px;font-size:11px;color:#64748B;border-top:1px solid #E2E8F0;background:#fff">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India<br><a style="color:#0F766E">Privacy</a> · <a style="color:#0F766E">Terms</a> · <a style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — BALANCE DUE (pay-now CTA → PT-06)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:1px solid #E2E8F0;padding:12px;text-align:center"><span class="brand">◎ Meridian Diagnostics</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="banner warn"><b>Balance due: ₹1,700.00</b>An advance was paid at the desk; the remaining amount can be paid securely below. Your report link is not affected by this balance.</div>
+    <div class="card">
+      <div class="card-title">Tax invoice <span class="chip amber">PART-PAID</span></div>
+      <div class="kv" style="grid-template-columns:140px 1fr;margin-bottom:10px">
+        <dt>Invoice no.</dt><dd class="mono bold">INV/AND/26-27/0418</dd>
+        <dt>Date</dt><dd>24 Jul 2026 · Andheri West branch</dd>
+        <dt>Billed to</dt><dd>Sofia Rossi · <span class="mono">MRN-004822</span> · Visit <span class="mono">VIS-2026-30871</span></dd>
+        <dt>GSTIN</dt><dd class="mono">27AAACM1234K1Z5</dd>
+      </div>
+      <table style="margin-bottom:10px">
+        <tr><th>Service</th><th>SAC</th><th>GST</th><th style="text-align:right">Amount</th></tr>
+        <tr><td>MRI Brain (plain)</td><td class="mono">999316</td><td><span class="chip grey">Exempt (healthcare service)</span></td><td style="text-align:right" class="mono">₹6,500.00</td></tr>
+        <tr><td>Radiologist reporting fee</td><td class="mono">999316</td><td><span class="chip grey">Exempt (healthcare service)</span></td><td style="text-align:right" class="mono">₹700.00</td></tr>
+        <tr><td colspan="3" class="bold" style="text-align:right">Total</td><td style="text-align:right" class="mono bold">₹7,200.00</td></tr>
+        <tr><td colspan="3" style="text-align:right">Advance paid (RCP/AND/26-27/0524 · UPI · UTR <span class="mono">616407919277</span>)</td><td style="text-align:right" class="mono">− ₹5,500.00</td></tr>
+        <tr class="hl"><td colspan="3" class="bold" style="text-align:right">Balance due</td><td style="text-align:right" class="mono bold" >₹1,700.00</td></tr>
+      </table>
+      <a class="btn primary" style="display:block;padding:13px;font-size:15px;margin-bottom:8px">Pay ₹1,700.00 now · UPI or card →</a>
+      <div class="small muted" style="text-align:center;margin-bottom:10px">Opens the secure Meridian payment page (PT-06). We never ask for card or UPI PINs by phone or SMS.</div>
+      <div class="row">
+        <a class="btn grow small">⬇ Invoice PDF</a>
+        <a class="btn grow small">⬇ Advance receipt PDF</a>
+      </div>
+      <div class="small muted" style="margin-top:8px">🔒 Before any payment, we re-confirm your identity with a one-time code — a standard step for money-related actions.</div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:14px;font-size:11px;color:#64748B;border-top:1px solid #E2E8F0;background:#fff">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India<br><a style="color:#0F766E">Privacy</a> · <a style="color:#0F766E">Terms</a> · <a style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="state-tag">STATE C — PAYMENT HISTORY</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:1px solid #E2E8F0;padding:12px;text-align:center"><span class="brand">◎ Meridian Diagnostics</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card">
+      <div class="card-title">Payment history — this visit <span class="right">VIS-2026-30871</span></div>
+      <table style="margin-bottom:10px">
+        <tr><th>Date (IST)</th><th>Reference</th><th>Mode</th><th style="text-align:right">Amount</th></tr>
+        <tr><td>24 Jul, 9:48 AM</td><td class="mono">RCP/AND/26-27/0524</td><td>UPI · UTR <span class="mono">616407919277</span></td><td style="text-align:right" class="mono">₹5,500.00</td></tr>
+        <tr><td>25 Jul, 4:21 PM</td><td class="mono">RCP/AND/26-27/0531</td><td>Card · Visa ••6120</td><td style="text-align:right" class="mono">₹1,700.00</td></tr>
+        <tr><td colspan="3" class="bold" style="text-align:right">Total paid</td><td style="text-align:right" class="mono bold">₹7,200.00</td></tr>
+        <tr><td colspan="3" class="bold" style="text-align:right">Balance due</td><td style="text-align:right" class="mono bold">₹0.00 <span class="chip green">SETTLED</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-bottom:10px">Refunds, if any, are issued to the original payment method with a credit note (CRN/AND/26-27/00xx) and appear here within 24 hours.</div>
+      <a class="btn" style="display:block;padding:11px">⬇ Download all receipts (1 PDF)</a>
+      <div class="small muted" style="margin-top:8px">🔒 Payment records shown here are exactly what the clinic's books show — same numbers, same series.</div>
+    </div>
+    <div class="banner info"><b>Question about a charge?</b>Call billing at <span class="mono">022-4890 2218</span> (Mon–Sat, 9 AM – 7 PM IST) and quote invoice <span class="mono">INV/AND/26-27/0418</span>. Supervisor: M. Kulkarni.</div>
+  </div>
+  <div style="text-align:center;padding:14px;font-size:11px;color:#64748B;border-top:1px solid #E2E8F0;background:#fff">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India<br><a style="color:#0F766E">Privacy</a> · <a style="color:#0F766E">Terms</a> · <a style="color:#0F766E">Help</a></div>
+</div>
+
+<p class="audit">Invoice and receipt views, downloads and pay-now taps on this link are recorded in the access log.</p>
+</section>
+<section class="screen" id="pt-05">
+<div class="screen-head"><h1><span class="sid">PT-05</span> Appointment reminder &amp; prep page</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G2 Patient-Facing — patient chrome (no sidebar)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Patients open this page from the SMS/WhatsApp reminder link to see their appointment details and procedure-specific preparation instructions in their chosen language. A reschedule request creates a task for the front office — it is not self-serve rebooking in MVP1. No login is required; the tokenised link shows only this one appointment and expires after the visit.</div>
+
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="border-top:4px solid #0F766E">
+      <div class="card-title">Your appointment <span class="chip teal">CONFIRMED</span></div>
+      <div class="kv">
+        <dt>Patient</dt><dd><b>Sofia R.</b> <span class="muted small">(name shortened for your privacy)</span></dd>
+        <dt>Test</dt><dd><b>MRI Brain (plain)</b></dd>
+        <dt>Date &amp; time</dt><dd><b>Tue, 28 Jul 2026 · 09:30 AM IST</b> <span class="muted small">please arrive 15 min early</span></dd>
+        <dt>Branch</dt><dd>Meridian Diagnostics, Andheri West<br><span class="muted small">2nd floor, Link Road, near Metro station · <a href="#" style="color:#0F766E;font-weight:700">📍 Get directions</a></span></dd>
+        <dt>Reference</dt><dd class="mono">APPT-2026-51284</dd>
+        <dt>Referred by</dt><dd>Dr. Meera Nair</dd>
+      </div>
+      <div class="row" style="margin-top:14px">
+        <a class="btn primary grow" href="#" style="padding:12px 14px">📅 Add to calendar</a>
+        <a class="btn grow" href="#" style="padding:12px 14px">Request a different time</a>
+      </div>
+      <div class="hint small muted" style="margin-top:8px">Requesting a different time sends a note to our front office — they will call you within 2 working hours to fix a new slot. Your current slot stays booked until then.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">How to prepare <span class="right">English</span></div>
+      <div class="check"><span class="box on">✓</span><div><b>No fasting needed</b> for a plain MRI Brain. Eat and drink normally.</div></div>
+      <div class="check"><span class="box on">✓</span><div><b>Remove all metal</b> — jewellery, hairpins, watches, coins, belts, cards with magnetic strips. Lockers are available at the branch.</div></div>
+      <div class="check"><span class="box on">✓</span><div><b>Tell our staff before the scan</b> if you have a pacemaker, cochlear implant, metal implants, surgical clips, or if you may be pregnant.</div></div>
+      <div class="check"><span class="box on">✓</span><div><b>Bring</b> your doctor's referral note and any previous scan films or reports.</div></div>
+      <div class="check"><span class="box on">✓</span><div>The scan takes about <b>25–35 minutes</b>. You will hear loud knocking sounds — earplugs are provided.</div></div>
+    </div>
+
+    <div class="card" style="background:#F8FAFC">
+      <div class="card-title">तैयारी कैसे करें <span class="right">हिन्दी</span></div>
+      <div class="check"><span class="box on">✓</span><div><b>खाली पेट आने की ज़रूरत नहीं</b> — सादे MRI Brain के लिए आप सामान्य रूप से खा-पी सकते हैं।</div></div>
+      <div class="check"><span class="box on">✓</span><div><b>सभी धातु की चीज़ें उतार दें</b> — गहने, हेयरपिन, घड़ी, सिक्के, बेल्ट। ब्रांच पर लॉकर उपलब्ध हैं।</div></div>
+      <div class="check"><span class="box on">✓</span><div>अगर आपके शरीर में <b>पेसमेकर, इम्प्लांट या सर्जिकल क्लिप</b> हैं, या गर्भावस्था की संभावना है, तो स्कैन से पहले स्टाफ को ज़रूर बताएं।</div></div>
+      <div class="check"><span class="box on">✓</span><div>डॉक्टर की <b>रेफरल पर्ची</b> और पुरानी रिपोर्ट साथ लाएँ।</div></div>
+      <div class="hint small muted" style="margin-top:6px">भाषा बदलने के लिए फ्रंट डेस्क पर बताएं · To change your language preference, tell our front desk.</div>
+    </div>
+
+    <div class="banner info"><b>Running late or unwell?</b> Call the branch on 022-4XXX XX20. There is no charge for informing us in advance.</div>
+    <p class="small muted" style="text-align:center">🔒 This link shows only this appointment and stops working after your visit. We never send medical details over SMS — only this secure link.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SAME-DAY APPOINTMENT (TODAY BANNER, FASTING PROCEDURE)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="banner success"><b>Your appointment is today.</b> Please arrive by <b>07:15 AM</b> — 15 minutes before your slot.</div>
+    <div class="card" style="border-top:4px solid #15803D">
+      <div class="card-title">Your appointment <span class="chip green">TODAY · 07:30 AM</span></div>
+      <div class="kv">
+        <dt>Patient</dt><dd><b>Rajesh G.</b></dd>
+        <dt>Test</dt><dd><b>Ultrasound Abdomen (whole)</b></dd>
+        <dt>Date &amp; time</dt><dd><b>Sat, 25 Jul 2026 · 07:30 AM IST</b></dd>
+        <dt>Branch</dt><dd>Meridian Diagnostics, Andheri West · <a href="#" style="color:#0F766E;font-weight:700">📍 Get directions</a></dd>
+        <dt>Reference</dt><dd class="mono">APPT-2026-51291</dd>
+      </div>
+    </div>
+    <div class="banner warn"><b>Fasting check — important for today.</b> You should not have eaten or drunk anything (except sips of plain water) for the last <b>8 hours</b>. If you have eaten, call us on 022-4XXX XX20 before travelling — we may need to shift your slot, at no charge.</div>
+    <div class="card">
+      <div class="card-title">Last-minute reminders <span class="right">English · हिन्दी at branch</span></div>
+      <div class="check"><span class="box on">✓</span><div><b>Full bladder helps</b> — drink 3–4 glasses of water 1 hour before and avoid passing urine until the scan.</div></div>
+      <div class="check"><span class="box on">✓</span><div><b>Bring</b> the referral note from Dr. S. Iyer and any earlier ultrasound reports.</div></div>
+      <div class="check"><span class="box on">✓</span><div>Wear <b>loose, comfortable clothing</b>; you may be asked to change into a gown.</div></div>
+      <div class="row" style="margin-top:12px">
+        <a class="btn primary grow" href="#" style="padding:12px 14px">📍 Directions</a>
+        <a class="btn grow" href="#" style="padding:12px 14px">Call branch</a>
+      </div>
+    </div>
+    <p class="small muted" style="text-align:center">🔒 Same-day pages hide the reschedule button — please call the branch instead so we can help you fastest.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — RESCHEDULE REQUESTED (FRONT-OFFICE TASK CREATED)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="border-top:4px solid #F59E0B;text-align:center;padding:22px 18px">
+      <div style="font-size:34px;margin-bottom:6px">🕐</div>
+      <div style="font-size:17px;font-weight:800;margin-bottom:6px">We've received your reschedule request</div>
+      <p class="small muted" style="margin-bottom:12px">Our front office will call you on your registered mobile (+91 98••• ••318) <b>within 2 working hours</b> to agree a new time. Your current slot on <b>Tue, 28 Jul 2026 · 09:30 AM</b> stays reserved until we speak.</p>
+      <span class="chip amber">RESCHEDULE REQUESTED · 25 Jul, 11:42 AM IST</span>
+      <div class="kv" style="margin-top:14px;text-align:left">
+        <dt>Request ref</dt><dd class="mono">TASK-FO-2026-0871</dd>
+        <dt>Appointment</dt><dd class="mono">APPT-2026-51284 · MRI Brain (plain)</dd>
+        <dt>Preferred</dt><dd>"Any weekday after 5 PM" <span class="muted small">(your note)</span></dd>
+        <dt>Handled by</dt><dd>Front office, Andheri West (D. Nair's team)</dd>
+      </div>
+      <div class="row" style="margin-top:14px">
+        <a class="btn grow" href="#" style="padding:12px 14px">Keep my original slot instead</a>
+      </div>
+    </div>
+    <div class="banner info"><b>Nothing else to do right now.</b> If you don't hear from us within 2 working hours, call 022-4XXX XX20 and quote <span class="mono">TASK-FO-2026-0871</span>.</div>
+    <p class="small muted" style="text-align:center">🔒 Your request is visible only to the front-office team at this branch.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<p class="audit">Every open of this reminder link (time, device type, link token) and each reschedule request is recorded in the access log. Front-office task TASK-FO-2026-0871 carries an SLA timer owned by D. Nair; breach escalates to the branch manager.</p>
+</section>
+<section class="screen" id="pt-06">
+<div class="screen-head"><h1><span class="sid">PT-06</span> Online payment page</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G2 Patient-Facing — patient chrome (no sidebar)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Patients pay outstanding invoices from a secure link sent by billing — UPI intent, UPI QR, or card. The page mirrors BL-04 gateway-reconciliation logic exactly: a payment stuck between the bank and the gateway shows a pending-ambiguous state with a 30-minute confirm-or-auto-refund promise, so patients are never told to pay twice. Success issues a receipt from the central number series.</div>
+
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· secure payments</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="border-top:4px solid #0F766E">
+      <div class="card-title">Amount to pay <span class="chip grey">STEP 1 OF 2</span></div>
+      <div style="font-size:30px;font-weight:800;margin-bottom:2px">₹4,720.00</div>
+      <div class="small muted" style="margin-bottom:10px">Invoice <span class="mono">INV/AND/26-27/0342</span> · Sofia R. · MRI Brain (plain)</div>
+      <div class="kv">
+        <dt>Service</dt><dd>MRI Brain (plain) · SAC 999316</dd>
+        <dt>GST</dt><dd>Exempt (healthcare service)</dd>
+        <dt>Branch GSTIN</dt><dd class="mono">27AAACM1234K1Z5</dd>
+        <dt>Due by</dt><dd>27 Jul 2026</dd>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Choose how to pay</div>
+      <a class="btn primary" href="#" style="display:block;padding:14px;margin-bottom:10px">▶ Pay with any UPI app <span class="small" style="font-weight:400">(GPay · PhonePe · Paytm · BHIM)</span></a>
+      <div style="border:1px solid #E2E8F0;border-radius:8px;padding:12px;text-align:center;margin-bottom:10px">
+        <div class="small bold" style="margin-bottom:6px">Or scan this UPI QR</div>
+        <div style="width:132px;height:132px;margin:0 auto;border:1.5px solid #CBD5E1;border-radius:6px;display:flex;align-items:center;justify-content:center;background:#F8FAFC;font-size:11px;color:#94A3B8">▦ UPI QR<br>meridian.and@icici</div>
+        <div class="small muted" style="margin-top:6px">Payee: <b>Meridian Diagnostics Pvt Ltd</b> · always check the name before paying</div>
+      </div>
+      <a class="btn" href="#" style="display:block;padding:14px;margin-bottom:6px">💳 Pay by debit / credit card</a>
+      <div class="small muted" style="text-align:center;margin-top:6px">Prefer cash or card at the counter? That's fine too — this link stays valid until paid.</div>
+    </div>
+    <p class="small muted" style="text-align:center">🔒 Payments are processed by an RBI-regulated gateway. We never see or store your card number or UPI PIN. Amount and receipt details are recorded against your invoice only.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PROCESSING (DO NOT REFRESH)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· secure payments</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="text-align:center;padding:26px 18px;border-top:4px solid #0F766E">
+      <div style="font-size:34px;margin-bottom:8px">⏳</div>
+      <div style="font-size:17px;font-weight:800;margin-bottom:4px">Confirming your payment…</div>
+      <p class="small muted" style="margin-bottom:12px">We're waiting for your bank to confirm <b>₹4,720.00</b> for invoice <span class="mono">INV/AND/26-27/0342</span>. This usually takes under a minute.</p>
+      <div class="progress" style="max-width:280px;margin:0 auto 12px"><i style="width:60%"></i></div>
+      <span class="chip amber">CHECKING WITH BANK · attempt ref PAY-2026-88431</span>
+    </div>
+    <div class="banner warn"><b>Please don't refresh, go back, or pay again.</b> If you open your UPI app, approve the request there and return here — this page updates by itself.</div>
+    <p class="small muted" style="text-align:center">🔒 If the bank doesn't reply in 3 minutes we'll show you exactly what happened next — you will never be charged twice for one invoice.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — SUCCESS (RECEIPT ISSUED)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· secure payments</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="text-align:center;padding:26px 18px;border-top:4px solid #15803D">
+      <div style="font-size:34px;margin-bottom:8px">✅</div>
+      <div style="font-size:17px;font-weight:800;margin-bottom:4px">Payment received — thank you</div>
+      <div style="font-size:26px;font-weight:800;margin-bottom:8px">₹4,720.00</div>
+      <span class="chip green">PAID · 25 Jul 2026, 11:58 AM IST</span>
+      <div class="kv" style="margin-top:14px;text-align:left">
+        <dt>Receipt no.</dt><dd class="mono">RCP/AND/26-27/0518</dd>
+        <dt>Invoice</dt><dd class="mono">INV/AND/26-27/0342 · fully paid</dd>
+        <dt>Paid via</dt><dd>UPI · ICICI Bank</dd>
+        <dt>UTR reference</dt><dd class="mono">614523098771</dd>
+        <dt>GST</dt><dd>Exempt (healthcare service) · SAC 999316</dd>
+      </div>
+      <div class="row" style="margin-top:14px">
+        <a class="btn primary grow" href="#" style="padding:12px 14px">⬇ Download receipt (PDF)</a>
+        <a class="btn grow" href="#" style="padding:12px 14px">Done</a>
+      </div>
+      <div class="small muted" style="margin-top:8px">A copy of receipt <span class="mono">RCP/AND/26-27/0518</span> has also been sent to your registered mobile.</div>
+    </div>
+    <p class="small muted" style="text-align:center">🔒 Keep the UTR reference — it's your bank's proof of this payment.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE D — FAILURE (NO MONEY DEDUCTED) &amp; PENDING-AMBIGUOUS (MATCHES BL-04)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· secure payments</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="text-align:center;padding:22px 18px;border-top:4px solid #B91C1C">
+      <div style="font-size:34px;margin-bottom:8px">❌</div>
+      <div style="font-size:17px;font-weight:800;margin-bottom:4px">Payment didn't go through</div>
+      <p class="small muted" style="margin-bottom:10px">Your bank declined the request (reason from bank: "UPI request expired"). Invoice <span class="mono">INV/AND/26-27/0342</span> is still unpaid.</p>
+      <span class="chip red">FAILED · 25 Jul 2026, 12:04 PM IST · ref PAY-2026-88431</span>
+      <div class="banner success" style="text-align:left;margin-top:14px"><b>No money was deducted.</b> If your bank app shows a debit for this attempt, it will be reversed by your bank automatically — usually within a few hours, and always within 5 working days.</div>
+      <div class="row">
+        <a class="btn primary grow" href="#" style="padding:12px 14px">Try again</a>
+        <a class="btn grow" href="#" style="padding:12px 14px">Pay a different way</a>
+      </div>
+    </div>
+
+    <div class="divider-label" style="margin:16px 0 10px">— or, when the bank's answer is unclear —</div>
+
+    <div class="card" style="text-align:center;padding:22px 18px;border-top:4px solid #F59E0B">
+      <div style="font-size:34px;margin-bottom:8px">🕓</div>
+      <div style="font-size:17px;font-weight:800;margin-bottom:4px">We're still checking with your bank</div>
+      <p class="small muted" style="margin-bottom:10px">Your bank hasn't yet told us whether ₹4,720.00 was taken from your account for attempt <span class="mono">PAY-2026-88432</span>.</p>
+      <span class="chip amber">PENDING — CONFIRMING WITH BANK</span>
+      <div class="banner info" style="text-align:left;margin-top:14px"><b>What happens now — you don't need to do anything.</b> If money left your account, the payment will confirm automatically within <b>30 minutes</b> and we'll SMS you the receipt. If it doesn't confirm, the amount is <b>auto-refunded to the same account</b>. Please don't pay again until then.</div>
+      <div class="kv" style="text-align:left">
+        <dt>Checking until</dt><dd><b>12:41 PM IST</b> (30 min from your attempt)</dd>
+        <dt>UTR (if debited)</dt><dd class="mono">awaited from bank</dd>
+        <dt>Need help?</dt><dd>Call 022-4XXX XX20 and quote <span class="mono">PAY-2026-88432</span></dd>
+      </div>
+      <a class="btn grow" href="#" style="display:block;padding:12px 14px;margin-top:12px">Refresh status</a>
+    </div>
+    <p class="small muted" style="text-align:center">🔒 Our billing team sees the same status you do (matched against the gateway ledger) — nobody will ask you to pay again while a check is running.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<p class="audit">Every payment attempt, gateway callback, UTR match, and receipt issue (RCP/AND/26-27 series from the central number-series registry) is recorded in the access log; pending-ambiguous attempts appear on the BL-04 reconciliation queue owned by cashier P. D'Souza, escalated to M. Kulkarni at 30 minutes.</p>
+</section>
+<section class="screen" id="pt-07">
+<div class="screen-head"><h1><span class="sid">PT-07</span> My consent notice</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G2 Patient-Facing — patient chrome (no sidebar)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Patients open this page from the link sent after registration to see exactly what they agreed to — the notice version, the date, and each purpose they granted or declined — in plain language. It explains how to change a choice (front desk or a rights request) and what withdrawal actually does: optional messages stop, but medical care and legally required records are never affected.</div>
+
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· your consent record</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="border-top:4px solid #0F766E">
+      <div class="card-title">What I agreed to <span class="chip teal">CURRENT</span></div>
+      <div class="kv">
+        <dt>Patient</dt><dd><b>Sofia R.</b> · MRN ending <span class="mono">4822</span></dd>
+        <dt>Notice version</dt><dd><b>v2.3 (English)</b> · <a href="#" style="color:#0F766E;font-weight:700">read the full notice</a></dd>
+        <dt>Agreed on</dt><dd>18 Jul 2026, 10:22 AM IST · at the front desk, Andheri West</dd>
+        <dt>Recorded by</dt><dd>Front office (D. Nair) · confirmed by OTP to your mobile</dd>
+        <dt>Consent ref</dt><dd class="mono">CNS-2026-40317</dd>
+      </div>
+      <div style="margin-top:12px;border-top:1px solid #EEF2F6;padding-top:10px">
+        <div class="check"><span class="chip green" style="min-width:82px;text-align:center">GRANTED</span><div><b>Care &amp; reports</b> — using your details to do your tests and give you your reports. <span class="muted small">This one is needed to treat you; it isn't optional.</span></div></div>
+        <div class="check"><span class="chip green" style="min-width:82px;text-align:center">GRANTED</span><div><b>Appointment &amp; report messages</b> — SMS/WhatsApp reminders and "report ready" alerts.</div></div>
+        <div class="check"><span class="chip green" style="min-width:82px;text-align:center">GRANTED</span><div><b>Sharing with your referring doctor</b> — sending your report to Dr. Meera Nair, who referred you.</div></div>
+        <div class="check"><span class="chip red" style="min-width:82px;text-align:center">DECLINED</span><div><b>Health tips &amp; offers</b> — marketing messages about packages and camps. <span class="muted small">You said no — we will not send these.</span></div></div>
+        <div class="check"><span class="chip red" style="min-width:82px;text-align:center">DECLINED</span><div><b>Anonymised research</b> — using de-identified scan data to improve services. <span class="muted small">Never includes your name or contact details, and you still said no — that's respected.</span></div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Want to change any of these?</div>
+      <div class="check"><span class="box on">✓</span><div><b>At the branch:</b> tell the front desk on your next visit — takes under a minute, with an OTP to your mobile.</div></div>
+      <div class="check"><span class="box on">✓</span><div><b>From home:</b> raise a request on our <a href="#" style="color:#0F766E;font-weight:700">Privacy &amp; rights page</a> or call 022-4XXX XX20. We confirm changes within 3 working days.</div></div>
+      <div class="row" style="margin-top:10px">
+        <a class="btn primary grow" href="#" style="padding:12px 14px">Request a change</a>
+        <a class="btn grow" href="#" style="padding:12px 14px">Download this record (PDF)</a>
+      </div>
+    </div>
+
+    <div class="banner info"><b>What happens if you withdraw a consent?</b> The optional thing simply stops — for example, reminder messages end. Your medical care, your reports, and your right to your records are <b>never</b> affected. Records we must keep by law (bills, reports) are kept for the legal period even after withdrawal.</div>
+    <p class="small muted" style="text-align:center">🔒 Only you (via this secure link) and authorised Meridian staff can see this consent record. Every view is logged.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — AFTER WITHDRAWAL (MESSAGES CONSENT WITHDRAWN 24 JUL)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· your consent record</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="banner success"><b>Your change has been applied.</b> On 24 Jul 2026 you withdrew consent for appointment &amp; report messages. No further SMS/WhatsApp will be sent from 24 Jul 2026, 4:15 PM IST.</div>
+    <div class="card" style="border-top:4px solid #0F766E">
+      <div class="card-title">What I agreed to <span class="chip grey">UPDATED 24 JUL 2026</span></div>
+      <div class="kv">
+        <dt>Patient</dt><dd><b>Mohammed A.</b> · MRN ending <span class="mono">4790</span></dd>
+        <dt>Notice version</dt><dd><b>v2.3 (English)</b> · agreed 02 Jul 2026 · change recorded 24 Jul 2026</dd>
+        <dt>Change ref</dt><dd class="mono">CNS-2026-40317-W1 · via rights request RR-2026-0142</dd>
+      </div>
+      <div style="margin-top:12px;border-top:1px solid #EEF2F6;padding-top:10px">
+        <div class="check"><span class="chip green" style="min-width:92px;text-align:center">GRANTED</span><div><b>Care &amp; reports</b> — unchanged; needed to treat you.</div></div>
+        <div class="check"><span class="chip amber" style="min-width:92px;text-align:center">WITHDRAWN</span><div><b>Appointment &amp; report messages</b> — withdrawn 24 Jul 2026. <span class="muted small">You'll now hear about reports by collecting them at the branch or by phone if urgent.</span></div></div>
+        <div class="check"><span class="chip green" style="min-width:92px;text-align:center">GRANTED</span><div><b>Sharing with your referring doctor</b> — Dr. Farida Khan continues to receive your reports.</div></div>
+        <div class="check"><span class="chip red" style="min-width:92px;text-align:center">DECLINED</span><div><b>Health tips &amp; offers</b> — was already declined.</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">What this withdrawal means</div>
+      <div class="check"><span class="box on">✓</span><div><b>Stops:</b> reminder and "report ready" messages to your mobile.</div></div>
+      <div class="check"><span class="box on">✓</span><div><b>Does not change:</b> your tests, your reports, your bills, or your right to get copies any time.</div></div>
+      <div class="check"><span class="box on">✓</span><div><b>Kept by law:</b> past invoices and reports stay stored for the legal retention period, even after withdrawal.</div></div>
+      <div class="check"><span class="box on">✓</span><div><b>Changed your mind?</b> You can grant it again at the front desk any time — it takes effect immediately.</div></div>
+      <a class="btn primary" href="#" style="display:block;padding:12px 14px;margin-top:10px">Turn messages back on</a>
+    </div>
+    <p class="small muted" style="text-align:center">🔒 Withdrawal was confirmed by OTP and takes effect across all Meridian branches, not just Andheri West.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<p class="audit">Each consent grant, decline, and withdrawal is versioned against the notice (v2.3) with timestamp, channel, OTP confirmation, and staff member, and every view of this page is recorded in the access log.</p>
+</section>
+<section class="screen" id="pt-08">
+<div class="screen-head"><h1><span class="sid">PT-08</span> Privacy &amp; rights page</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G2 Patient-Facing — patient chrome (no sidebar)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> A plain-language page where any patient can see their DPDP rights — copy, correction, deletion, nominee, grievance — and start a request that lands in the privacy rights queue. It names the Privacy Officer and DPO, explains the 30-day path to the Data Protection Board if unresolved, and shows in simple words how long each kind of record is kept and why.</div>
+
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· privacy &amp; your rights</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="banner success" style="text-align:center"><b>Your data stays in India.</b> All your records are stored on servers in India and are protected under the DPDP Act, 2023.</div>
+
+    <div class="card" style="border-top:4px solid #0F766E">
+      <div class="card-title">Your rights — tap one to start</div>
+      <a href="#" style="display:block;border:1px solid #E2E8F0;border-radius:8px;padding:12px;margin-bottom:8px;color:#1E293B;text-decoration:none"><b>📄 Get a copy of my records</b><br><span class="small muted">Reports, bills, and the details we hold about you — free of charge, within 7 working days.</span></a>
+      <a href="#" style="display:block;border:1px solid #E2E8F0;border-radius:8px;padding:12px;margin-bottom:8px;color:#1E293B;text-decoration:none"><b>✏️ Correct my details</b><br><span class="small muted">Wrong spelling, mobile number, or address? We'll fix it and confirm to you.</span></a>
+      <a href="#" style="display:block;border:1px solid #E2E8F0;border-radius:8px;padding:12px;margin-bottom:8px;color:#1E293B;text-decoration:none"><b>🗑️ Ask for deletion</b><br><span class="small muted">We delete what the law allows us to. Some records (reports, bills) must be kept for a legal period — we'll tell you exactly which and until when.</span></a>
+      <a href="#" style="display:block;border:1px solid #E2E8F0;border-radius:8px;padding:12px;margin-bottom:8px;color:#1E293B;text-decoration:none"><b>👤 Name a nominee</b><br><span class="small muted">Choose someone who can exercise these rights for you if you are unable to.</span></a>
+      <a href="#" style="display:block;border:1px solid #E2E8F0;border-radius:8px;padding:12px;color:#1E293B;text-decoration:none"><b>⚖️ Raise a grievance</b><br><span class="small muted">Unhappy with how your data was handled? Tell us — we must respond within the legal time limit.</span></a>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Who to contact</div>
+      <div class="kv">
+        <dt>Privacy Officer</dt><dd><b>Ms. R. Deshpande</b> · Meridian Diagnostics · <a href="#" style="color:#0F766E">privacy@meridiandx.in</a></dd>
+        <dt>DPO</dt><dd><b>Data Protection Officer</b> · <a href="#" style="color:#0F766E">dpo@meridiandx.in</a> · replies within 7 working days</dd>
+        <dt>Still unresolved?</dt><dd>If we don't resolve your grievance within <b>30 days</b>, you may escalate to the <b>Data Protection Board of India</b>. We'll give you our final response in writing to attach.</dd>
+      </div>
+      <a class="btn primary" href="#" style="display:block;padding:12px 14px;margin-top:10px">Start a rights request</a>
+      <div class="small muted" style="margin-top:6px">You can also make any of these requests in person at the front desk with a simple form — no email needed.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">How long we keep things — in plain words</div>
+      <table>
+        <tr><th>What</th><th>Kept for</th><th>Why</th></tr>
+        <tr><td>Scan reports &amp; images</td><td><b>10 years</b> (children: till age 21)</td><td>Medical-records law; your future care</td></tr>
+        <tr><td>Bills, receipts, credit notes</td><td><b>8 years</b></td><td>Tax &amp; accounting law</td></tr>
+        <tr><td>Consent records</td><td>As long as your record exists</td><td>Proof of what you agreed to</td></tr>
+        <tr><td>Reminder / message logs</td><td><b>1 year</b></td><td>To resolve delivery disputes</td></tr>
+        <tr><td>ID proof details</td><td>Aadhaar: <b>last 4 digits only</b>, never the full number</td><td>We verify and discard the rest</td></tr>
+        <tr><td>Marketing preferences</td><td>Until you change them</td><td>To respect your choice</td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">After these periods, records are securely deleted or fully anonymised.</div>
+    </div>
+    <p class="small muted" style="text-align:center">🔒 Staff see your records only when needed for your care or billing — every access is logged and reviewed.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — CONTACT DETAIL &amp; REQUEST STARTED (GRIEVANCE PATH SHOWN)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· privacy &amp; your rights</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="border-top:4px solid #0F766E">
+      <div class="card-title">Contact the privacy team</div>
+      <div class="kv">
+        <dt>Write to</dt><dd><b>Privacy Officer, Meridian Diagnostics Pvt Ltd</b><br>2nd floor, Link Road, Andheri West, Mumbai 400053</dd>
+        <dt>Email</dt><dd><a href="#" style="color:#0F766E">privacy@meridiandx.in</a> · <a href="#" style="color:#0F766E">dpo@meridiandx.in</a></dd>
+        <dt>Phone</dt><dd>022-4XXX XX88 · Mon–Sat, 9 AM – 6 PM IST</dd>
+        <dt>In person</dt><dd>Any branch front desk — ask for the "rights request form"</dd>
+        <dt>Languages</dt><dd>English · हिन्दी · मराठी</dd>
+      </div>
+    </div>
+
+    <div class="card" style="border-top:4px solid #15803D">
+      <div class="card-title">Your request has been logged <span class="chip green">RECEIVED</span></div>
+      <div class="kv">
+        <dt>Request ref</dt><dd class="mono">RR-2026-0157</dd>
+        <dt>Type</dt><dd>Copy of my records (reports + bills, Jan–Jul 2026)</dd>
+        <dt>Received</dt><dd>25 Jul 2026, 12:20 PM IST</dd>
+        <dt>We'll respond by</dt><dd><b>03 Aug 2026</b> (7 working days)</dd>
+        <dt>Identity check</dt><dd>OTP to your registered mobile before anything is shared — copies go only to you or your named nominee.</dd>
+      </div>
+      <div class="banner info" style="margin-top:10px"><b>What happens next.</b> The privacy team verifies your identity, prepares the copies, and sends a secure download link. You'll get an SMS at each step. Quote <span class="mono">RR-2026-0157</span> in any follow-up.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">If you're not satisfied — the escalation path</div>
+      <div class="ladder">
+        <div class="tier done"><b>Step 1 · Privacy Officer</b><br><span class="small muted">First response within 7 working days of your request.</span></div>
+        <div class="tier cur"><b>Step 2 · Data Protection Officer (DPO)</b><br><span class="small muted">Reviews your grievance if you're unhappy with the first answer.</span></div>
+        <div class="tier"><b>Step 3 · Data Protection Board of India</b><br><span class="small muted">If we haven't resolved it within <b>30 days</b>, you may complain to the DPB. We give you our written final response to attach — this is your legal right.</span></div>
+      </div>
+    </div>
+    <p class="small muted" style="text-align:center">🔒 Rights requests are handled by the privacy team only — branch staff see just the status, never the contents of your request.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<p class="audit">Every rights request (RR-2026-0157), its due date, owner, and each status change is recorded in the access log; the privacy queue carries a 7-working-day SLA owned by the Privacy Officer, escalated to the DPO before the statutory 30-day limit.</p>
+</section>
+<section class="screen" id="pt-09">
+<div class="screen-head"><h1><span class="sid">PT-09</span> Data rights request submission</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G2 Patient-Facing — patient chrome (no sidebar)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Patients exercise their DPDP Act rights here without visiting the branch — request a copy of their records, a correction, deletion, or nominate someone to act for them. Identity is confirmed with an OTP to the registered mobile before anything is accepted, and every request gets a <span class="mono">DPDP-CR</span> tracking reference with a stated 30-day response window. Deletion requests explain plainly what the law requires us to keep, before the patient submits.</div>
+
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="stepper" style="justify-content:center">
+      <span class="step cur"><span class="dot">1</span> Choose request</span><span class="step-line"></span>
+      <span class="step"><span class="dot">2</span> Verify it's you</span><span class="step-line"></span>
+      <span class="step"><span class="dot">3</span> Details</span><span class="step-line"></span>
+      <span class="step"><span class="dot">4</span> Done</span>
+    </div>
+    <div class="card" style="border-top:4px solid #0F766E">
+      <div class="card-title">What would you like to do with your data?</div>
+      <div class="card" style="margin-bottom:10px;border-color:#99F6E4;background:#F0FDFA">
+        <div class="check" style="margin:0"><span class="box radio on"></span><div><b>Get a copy of my records</b><div class="small muted">Reports, invoices, consent forms and the list of who accessed them. Free of charge, sent as a secure download link.</div></div></div>
+      </div>
+      <div class="card" style="margin-bottom:10px">
+        <div class="check" style="margin:0"><span class="box radio"></span><div><b>Correct a detail that is wrong</b><div class="small muted">Name spelling, date of birth, address, mobile number or similar. You tell us the field and the correct value.</div></div></div>
+      </div>
+      <div class="card" style="margin-bottom:10px">
+        <div class="check" style="margin:0"><span class="box radio"></span><div><b>Delete my data</b><div class="small muted">We will delete everything the law allows us to delete — and tell you clearly what must be kept, and until when.</div></div></div>
+      </div>
+      <div class="card" style="margin-bottom:12px">
+        <div class="check" style="margin:0"><span class="box radio"></span><div><b>Add or change my nominee</b><div class="small muted">A person you trust who may exercise these rights for you if you are unable to (DPDP Act, Section 14).</div></div></div>
+      </div>
+      <div class="field"><label>Your registered mobile number <span class="req">*</span></label><input class="input" value="+91 98••• ••102" readonly style="background:#F8FAFC"><div class="hint">We'll send a one-time code (OTP) to this number to confirm it's really you. If this number is old or wrong, please visit the clinic with photo ID — see <a href="#" style="color:#0F766E;font-weight:700">Help</a>.</div></div>
+      <div class="field"><label>Visit or accession reference <span class="muted small" style="font-weight:400">(optional — helps us find your records faster)</span></label><input class="input" placeholder="e.g. VIS-2026-3xxxx or ACC-2026-9xxxx"></div>
+      <a class="btn primary" href="#" style="width:100%;padding:12px 14px">Send OTP &amp; continue →</a>
+      <div class="hint small muted" style="margin-top:8px">🔒 We only ask for your mobile number and reference — never your Aadhaar number, card details or passwords on this page.</div>
+    </div>
+    <div class="banner info"><b>How long does this take?</b> By law we must respond within <b>30 days</b>. Most copy requests complete in 3–5 working days. You will get a tracking reference to check progress any time.</div>
+    <p class="small muted" style="text-align:center">🔒 Your request is handled by our privacy team in India. Your data never leaves India.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — CORRECTION FORM (IDENTITY VERIFIED, FIELD + PROPOSED VALUE)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="stepper" style="justify-content:center">
+      <span class="step done"><span class="dot">✓</span> Choose request</span><span class="step-line"></span>
+      <span class="step done"><span class="dot">✓</span> Verify it's you</span><span class="step-line"></span>
+      <span class="step cur"><span class="dot">3</span> Details</span><span class="step-line"></span>
+      <span class="step"><span class="dot">4</span> Done</span>
+    </div>
+    <div class="banner success"><b>Identity confirmed.</b> OTP verified against mobile ending ••102 at 10:22 AM IST, 25 Jul 2026. This confirmation is valid for 15 minutes.</div>
+    <div class="card" style="border-top:4px solid #0F766E">
+      <div class="card-title">Correct a detail <span class="chip blue">CORRECTION</span></div>
+      <div class="kv" style="margin-bottom:12px">
+        <dt>Requesting as</dt><dd><b>Sofia R.</b> <span class="muted small">(name shortened on screen for your privacy)</span></dd>
+        <dt>Matched record</dt><dd class="mono">MRN-004822 · Andheri West</dd>
+      </div>
+      <div class="field"><label>Which detail is wrong? <span class="req">*</span></label>
+        <select class="select"><option>Name spelling</option></select>
+        <div class="hint">Other choices: date of birth · address · mobile number · email · emergency contact · referring doctor noted on my visit</div>
+      </div>
+      <div class="field"><label>What we currently have</label><input class="input" value="Sofia Rosi" readonly style="background:#F8FAFC"></div>
+      <div class="field"><label>What it should be <span class="req">*</span></label><input class="input" value="Sofia Rossi"></div>
+      <div class="field"><label>Anything that helps us check <span class="muted small" style="font-weight:400">(optional)</span></label><textarea class="textarea">Spelling as per my passport and the referral note from Dr. Meera Nair (visit VIS-2026-30412).</textarea><div class="hint">You may be asked to show a photo ID at your next visit before the change is applied to medical documents.</div></div>
+      <div class="check"><span class="box on">✓</span><div class="small">I confirm this correction is true to the best of my knowledge.</div></div>
+      <div class="row" style="margin-top:12px">
+        <a class="btn grow" href="#" style="padding:12px 14px">← Back</a>
+        <a class="btn primary grow" href="#" style="padding:12px 14px">Submit correction request</a>
+      </div>
+    </div>
+    <div class="banner info"><b>What happens next?</b> Our records team checks the change, and where it affects issued reports or invoices, the correction is noted on them rather than silently rewritten — that's a medical-records rule that protects you.</div>
+    <p class="small muted" style="text-align:center">🔒 Only the field you named is opened for review — the team does not get blanket access to your file.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — DELETION REQUEST: WHAT WE CAN AND CANNOT DELETE YET</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="border-top:4px solid #F59E0B">
+      <div class="card-title">Before you ask us to delete <span class="chip amber">PLEASE READ</span></div>
+      <p class="small" style="margin-bottom:10px">We take deletion seriously and will remove everything we are allowed to. But some records <b>must be kept for a fixed time under Indian law</b>, even after you ask. In plain words:</p>
+      <table>
+        <tr><th>What</th><th>Kept until</th><th>Why (the law)</th></tr>
+        <tr><td>Scan reports &amp; medical records</td><td><b>3 years</b> after your last visit</td><td>Medical-records retention rules for diagnostic centres</td></tr>
+        <tr><td>Invoices &amp; payment receipts</td><td><b>8 years</b> from the financial year</td><td>GST &amp; income-tax record-keeping rules</td></tr>
+        <tr><td>Consent forms you signed</td><td>As long as the record they cover</td><td>Proof that we had your permission</td></tr>
+        <tr><td>X-ray / CT dose records</td><td><b>Per AERB rules</b></td><td>Radiation-safety regulations</td></tr>
+      </table>
+      <p class="small" style="margin-top:10px"><b>What we CAN do now:</b> stop all reminders and marketing, remove your data from any research or analytics use, delete contact details not tied to a legal record, and lock the rest so it is only touched if the law demands it. When each retention period ends, the records are deleted automatically — you don't need to ask again.</p>
+      <div class="check" style="margin-top:10px"><span class="box on">✓</span><div class="small">I understand some records will be kept for the legal periods above, and deleted after.</div></div>
+      <div class="row" style="margin-top:12px">
+        <a class="btn grow" href="#" style="padding:12px 14px">← Choose a different request</a>
+        <a class="btn danger grow" href="#" style="padding:12px 14px">Continue with deletion</a>
+      </div>
+    </div>
+    <p class="small muted" style="text-align:center">🔒 A deletion request needs a second OTP confirmation at the final step — it's a big decision and we want to be sure it's you.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE D — SUBMITTED: TRACKING REFERENCE ISSUED, 30-DAY SLA STATED</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="border-top:4px solid #15803D;text-align:center;padding:22px 18px">
+      <div style="font-size:34px;margin-bottom:6px">✅</div>
+      <div style="font-size:17px;font-weight:800;margin-bottom:6px">Your request has been received</div>
+      <span class="chip green">SUBMITTED · 25 Jul 2026, 10:26 AM IST</span>
+      <div class="kv" style="margin-top:14px;text-align:left">
+        <dt>Tracking ref</dt><dd class="mono bold" style="font-size:15px">DPDP-CR-00417</dd>
+        <dt>Request type</dt><dd>Correction — name spelling (Sofia Rosi → Sofia Rossi)</dd>
+        <dt>Identity</dt><dd>Verified by OTP to mobile ending ••102</dd>
+        <dt>Respond by</dt><dd><b>24 Aug 2026</b> <span class="chip teal">30-DAY LEGAL DEADLINE</span></dd>
+        <dt>Confirmation</dt><dd>SMS sent to +91 98••• ••102 with this reference</dd>
+      </div>
+      <div class="row" style="margin-top:16px">
+        <a class="btn primary grow" href="#" style="padding:12px 14px">Track this request</a>
+        <a class="btn grow" href="#" style="padding:12px 14px">Make another request</a>
+      </div>
+      <div class="hint small muted" style="margin-top:10px">Write down or screenshot <span class="mono">DPDP-CR-00417</span> — you'll need it (plus an OTP) to check status.</div>
+    </div>
+    <div class="banner info"><b>Not happy with how we handle it?</b> You can escalate to our Data Protection Officer at any time, and after that to the Data Protection Board of India. The tracking page shows both options.</div>
+    <p class="small muted" style="text-align:center">🔒 This page will stop showing your details when you close it. Nothing is stored on this device.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<p class="audit">Request DPDP-CR-00417 (type, timestamps, OTP verification result, IP/device fingerprint) is recorded in the access log. The 30-day SLA timer starts at submission; the privacy queue owner is M. Kulkarni with automatic escalation to the DPO at day 25.</p>
+</section>
+<section class="screen" id="pt-10">
+<div class="screen-head"><h1><span class="sid">PT-10</span> Request tracking</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G2 Patient-Facing — patient chrome (no sidebar)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Patients check the progress of a data-rights request by entering their <span class="mono">DPDP-CR</span> reference and an OTP sent to the registered mobile. The page shows an honest status timeline (received → identity verified → in progress → completed / partially completed with reasons) and a live SLA countdown. If the 30-day deadline is breached, an escalate-to-DPO button appears automatically, with a further grievance path to the Data Protection Board.</div>
+
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="border-top:4px solid #0F766E">
+      <div class="card-title">Track your data-rights request</div>
+      <div class="field"><label>Tracking reference <span class="req">*</span></label><input class="input mono" value="DPDP-CR-00417"><div class="hint">Starts with DPDP-CR — it was shown when you submitted, and sent to you by SMS.</div></div>
+      <div class="field"><label>One-time code (OTP) <span class="req">*</span></label><input class="input mono" placeholder="6-digit code" style="max-width:180px;letter-spacing:4px"><div class="hint">Sent to your registered mobile +91 98••• ••102. Valid for 10 minutes. <a href="#" style="color:#0F766E;font-weight:700">Resend code</a></div></div>
+      <a class="btn primary" href="#" style="width:100%;padding:12px 14px">Show my request status →</a>
+      <div class="hint small muted" style="margin-top:8px">🔒 The OTP protects your request details — a reference number alone is never enough to see them.</div>
+    </div>
+    <div class="banner info"><b>Lost your reference?</b> Call the clinic on 022-4XXX XX20 (Mon–Sat, 8 AM–8 PM) or visit with photo ID and we will look it up for you.</div>
+    <p class="small muted" style="text-align:center">🔒 Handled in India by our privacy team. Your data stays in India.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — IN PROGRESS (HONEST SLA COUNTDOWN)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="border-top:4px solid #0F766E">
+      <div class="card-title">Request <span class="mono">DPDP-CR-00417</span> <span class="chip blue">IN PROGRESS</span></div>
+      <div class="kv" style="margin-bottom:12px">
+        <dt>Type</dt><dd>Correction — name spelling</dd>
+        <dt>Submitted</dt><dd>25 Jul 2026, 10:26 AM IST</dd>
+        <dt>Respond by</dt><dd><b>24 Aug 2026</b> · <span class="chip teal">21 DAYS LEFT</span></dd>
+      </div>
+      <div class="progress" style="margin-bottom:14px"><i style="width:30%"></i></div>
+      <div class="ladder">
+        <div class="tier done"><b>Received</b><div class="small muted">25 Jul, 10:26 AM — reference issued, SMS confirmation sent.</div></div>
+        <div class="tier done"><b>Identity verified</b><div class="small muted">25 Jul, 10:26 AM — OTP matched to your registered mobile.</div></div>
+        <div class="tier cur"><b>In progress</b><div class="small muted">28 Jul — records team is checking the correction against your visit documents. No action needed from you right now.</div></div>
+        <div class="tier"><b>Completed</b><div class="small muted">We'll SMS you the moment this is done, with what changed.</div></div>
+      </div>
+    </div>
+    <div class="banner info"><b>Being honest about timing:</b> most corrections finish well before the deadline, but if we ever need more time within the 30 days, we'll say so here — not go quiet.</div>
+    <p class="small muted" style="text-align:center">🔒 This status view expires when you close the page. Checking again needs a fresh OTP.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — COMPLETED, PARTIALLY (DELETION REQUEST WITH CLEAR REASONS)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="border-top:4px solid #15803D">
+      <div class="card-title">Request <span class="mono">DPDP-CR-00389</span> <span class="chip amber">PARTIALLY COMPLETED</span></div>
+      <div class="kv" style="margin-bottom:12px">
+        <dt>Type</dt><dd>Deletion of my data</dd>
+        <dt>Submitted</dt><dd>02 Jul 2026 · <b>Closed 21 Jul 2026</b> (within the 30-day window)</dd>
+      </div>
+      <div class="ladder">
+        <div class="tier done"><b>Received</b><div class="small muted">02 Jul, 6:41 PM</div></div>
+        <div class="tier done"><b>Identity verified</b><div class="small muted">02 Jul, 6:44 PM — OTP + second OTP confirmation for deletion.</div></div>
+        <div class="tier done"><b>In progress</b><div class="small muted">03–20 Jul — privacy team reviewed every category of your data.</div></div>
+        <div class="tier done"><b>Partially completed</b><div class="small muted">21 Jul, 3:10 PM — outcome letter sent by SMS link.</div></div>
+      </div>
+      <div class="card" style="background:#F0FDF4;border-color:#86EFAC;margin-top:12px">
+        <div class="card-title" style="margin-bottom:6px">✅ Deleted now</div>
+        <div class="small">Marketing &amp; reminder preferences · WhatsApp opt-in · secondary contact details · analytics identifiers · your data removed from all research datasets.</div>
+      </div>
+      <div class="card" style="background:#FFFBEB;border-color:#FCD34D">
+        <div class="card-title" style="margin-bottom:6px">⏳ Kept for now — and why</div>
+        <table>
+          <tr><th>Record</th><th>Deleted on</th><th>Reason</th></tr>
+          <tr><td>Scan reports (2 visits)</td><td class="mono">after 14 Mar 2029</td><td>3-yr medical retention</td></tr>
+          <tr><td>Invoices INV/AND/26-27/0114, /0182</td><td class="mono">after 31 Mar 2035</td><td>8-yr GST / tax rules</td></tr>
+          <tr><td>Signed consent forms</td><td class="mono">with the records they cover</td><td>proof of consent</td></tr>
+        </table>
+        <div class="small" style="margin-top:6px">These are <b>locked</b>: no marketing, no research, no routine access — opened only if the law requires. Deletion then happens automatically; you don't need to ask again.</div>
+      </div>
+    </div>
+    <div class="banner info"><b>Disagree with what was kept?</b> <a href="#" style="color:#075985;font-weight:700">Raise it with our Data Protection Officer</a> — or file a grievance with the <a href="#" style="color:#075985;font-weight:700">Data Protection Board of India</a>.</div>
+    <p class="small muted" style="text-align:center">🔒 The outcome letter with full detail was sent as a secure link — this page shows a summary only.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE D — OVERDUE (SLA BREACHED, ESCALATE TO DPO)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="banner danger"><b>We are late, and we're sorry.</b> This request passed its 30-day legal deadline on <b>22 Jul 2026</b>. You do not have to wait — you can escalate right now, below.</div>
+    <div class="card" style="border-top:4px solid #B91C1C">
+      <div class="card-title">Request <span class="mono">DPDP-CR-00352</span> <span class="chip red">OVERDUE · 3 DAYS PAST DEADLINE</span></div>
+      <div class="kv" style="margin-bottom:12px">
+        <dt>Type</dt><dd>Copy of my records</dd>
+        <dt>Submitted</dt><dd>22 Jun 2026 · deadline was <b>22 Jul 2026</b></dd>
+        <dt>Now with</dt><dd>Privacy queue (M. Kulkarni) · <span class="chip red">ESCALATED TO: DPO, auto on day 30</span></dd>
+      </div>
+      <div class="progress red" style="margin-bottom:14px"><i style="width:100%"></i></div>
+      <div class="ladder">
+        <div class="tier done"><b>Received</b><div class="small muted">22 Jun, 9:14 AM</div></div>
+        <div class="tier done"><b>Identity verified</b><div class="small muted">22 Jun, 9:16 AM</div></div>
+        <div class="tier cur"><b>In progress — delayed</b><div class="small muted">Last update 18 Jul: "compiling imaging access history across two branches". No update since. This is below our standard and has been flagged to management.</div></div>
+        <div class="tier fail"><b>Deadline missed</b><div class="small muted">22 Jul — automatic escalation to the Data Protection Officer was triggered the same day.</div></div>
+      </div>
+      <a class="btn danger" href="#" style="width:100%;padding:12px 14px;margin-top:12px">Escalate to the Data Protection Officer now</a>
+      <div class="hint small" style="margin-top:6px">One tap sends your case, with full history, to <b>dpo@meridiandiagnostics.in</b>. The DPO must reply to you directly within <b>7 days</b>.</div>
+      <a class="btn ghost" href="#" style="width:100%;text-align:center;margin-top:4px">File a grievance with the Data Protection Board of India →</a>
+    </div>
+    <p class="small muted" style="text-align:center">🔒 Escalating never affects your care or how you are treated at any Meridian branch.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<p class="audit">Every status lookup (reference, OTP result, device, timestamp) and every escalation tap is recorded in the access log. SLA breach on DPDP-CR-00352 auto-escalated to the DPO on day 30; owner M. Kulkarni; the patient-initiated escalation is stamped separately and both are visible to the auditor.</p>
+</section>
+<section class="screen" id="pt-11">
+<div class="screen-head"><h1><span class="sid">PT-11</span> Language &amp; accessibility</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G2 Patient-Facing — patient chrome (no sidebar)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Patients choose the language (English / हिन्दी / मराठी in MVP1) and text size for all patient-facing pages; the choice re-renders the page chrome immediately and is remembered on this device only — no account or login needed. The page also states plainly what works with screen readers and high-contrast settings, and what to do at the branch if a patient needs help reading or signing.</div>
+
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="border-top:4px solid #0F766E">
+      <div class="card-title">Choose your language · अपनी भाषा चुनें · तुमची भाषा निवडा</div>
+      <div class="card" style="margin-bottom:10px;border-color:#99F6E4;background:#F0FDFA">
+        <div class="check" style="margin:0"><span class="box radio on"></span><div><b>English</b><div class="small muted">All pages, SMS links and receipts in English.</div></div></div>
+      </div>
+      <div class="card" style="margin-bottom:10px">
+        <div class="check" style="margin:0"><span class="box radio"></span><div><b>हिन्दी</b><div class="small muted">सभी पेज, SMS लिंक और रसीदें हिन्दी में।</div></div></div>
+      </div>
+      <div class="card" style="margin-bottom:12px">
+        <div class="check" style="margin:0"><span class="box radio"></span><div><b>मराठी</b><div class="small muted">सर्व पाने, SMS लिंक आणि पावत्या मराठीत.</div></div></div>
+      </div>
+      <div class="hint small muted">Medical report content itself is written by the radiologist and stays in English; the pages around it, and all instructions, follow your choice.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Text size · अक्षर का आकार</div>
+      <div class="row">
+        <div class="card grow" style="border-color:#99F6E4;background:#F0FDFA;text-align:center;margin-bottom:0"><span class="box radio on" style="margin-bottom:6px"></span><div style="font-size:14px"><b>Standard</b></div><div class="small muted">Aa — fits more on screen</div></div>
+        <div class="card grow" style="text-align:center;margin-bottom:0"><span class="box radio" style="margin-bottom:6px"></span><div style="font-size:18px"><b>Large</b></div><div style="font-size:14px;color:#64748B">Aa — easier to read</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Accessibility</div>
+      <div class="check"><span class="box on">✓</span><div class="small"><b>Screen readers:</b> these pages work with TalkBack (Android) and VoiceOver (iPhone). Buttons and OTP fields are labelled and announced.</div></div>
+      <div class="check"><span class="box on">✓</span><div class="small"><b>High contrast:</b> if your phone is set to high-contrast or dark mode, the pages respect it. Colour is never the only signal — status is always written in words too.</div></div>
+      <div class="check"><span class="box on">✓</span><div class="small"><b>At the branch:</b> if reading or signing is difficult, our front office will read forms aloud and a thumb impression with a witness is accepted where the law allows.</div></div>
+    </div>
+
+    <div class="card" style="background:#F8FAFC">
+      <div class="check" style="margin-bottom:8px"><span class="box on">✓</span><div class="small"><b>Remember my choice on this device.</b> Saved only in this browser — no account, no login, nothing sent to our servers. Clearing your browser data resets it.</div></div>
+      <a class="btn primary" href="#" style="width:100%;padding:12px 14px">Save &amp; continue</a>
+    </div>
+    <p class="small muted" style="text-align:center">🔒 Your language choice is not linked to your medical record and is never used to profile you.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — हिन्दी RENDER SAMPLE (PAGE CHROME RE-RENDERED)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ मेरिडियन डायग्नोस्टिक्स <span class="muted small" style="font-weight:400">· अंधेरी वेस्ट शाखा</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="banner success"><b>भाषा बदल दी गई है — हिन्दी।</b> यह चुनाव इसी डिवाइस पर याद रखा गया है। · Language switched to Hindi, remembered on this device. <a href="#" style="color:#166534;font-weight:700">English पर वापस जाएँ</a></div>
+    <div class="card" style="border-top:4px solid #0F766E">
+      <div class="card-title">आपकी अपॉइंटमेंट <span class="chip teal">पक्की है</span></div>
+      <div class="kv">
+        <dt>मरीज़</dt><dd><b>आरव श.</b> <span class="muted small">(आपकी गोपनीयता के लिए नाम छोटा किया गया)</span></dd>
+        <dt>जाँच</dt><dd><b>CT Chest (plain)</b></dd>
+        <dt>दिनांक व समय</dt><dd><b>सोम, 27 जुलाई 2026 · दोपहर 12:15 बजे</b> <span class="muted small">कृपया 15 मिनट पहले पहुँचें</span></dd>
+        <dt>शाखा</dt><dd>मेरिडियन डायग्नोस्टिक्स, अंधेरी वेस्ट · <a href="#" style="color:#0F766E;font-weight:700">📍 रास्ता देखें</a></dd>
+        <dt>संदर्भ</dt><dd class="mono">APPT-2026-51302</dd>
+      </div>
+      <div class="row" style="margin-top:14px">
+        <a class="btn primary grow" href="#" style="padding:12px 14px">📅 कैलेंडर में जोड़ें</a>
+        <a class="btn grow" href="#" style="padding:12px 14px">दूसरा समय चाहिए</a>
+      </div>
+      <div class="hint small muted" style="margin-top:8px">"दूसरा समय चाहिए" दबाने पर हमारा फ्रंट ऑफिस 2 कार्य-घंटों के भीतर आपको फोन करेगा।</div>
+    </div>
+    <div class="banner info"><b>देर हो रही है या तबीयत ठीक नहीं?</b> शाखा को 022-4XXX XX20 पर फोन करें। पहले से बताने का कोई शुल्क नहीं है।</div>
+    <p class="small muted" style="text-align:center">🔒 हम SMS पर कभी मेडिकल जानकारी नहीं भेजते — केवल यह सुरक्षित लिंक। आपका डेटा भारत में ही रहता है।</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 मेरिडियन डायग्नोस्टिक्स · Magnus HMS द्वारा संचालित · आपका डेटा भारत में रहता है · <a href="#" style="color:#0F766E">गोपनीयता</a> · <a href="#" style="color:#0F766E">नियम</a> · <a href="#" style="color:#0F766E">सहायता</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — LARGE-TEXT SAMPLE (SAME CONTENT, TEXT-SIZE TOGGLE ON)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:14px 16px;text-align:center;font-weight:800;color:#0F766E;font-size:19px">◎ Meridian Diagnostics <span class="muted" style="font-weight:400;font-size:14px">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto;font-size:17px;line-height:1.55">
+    <div class="banner success" style="font-size:15.5px"><b style="font-size:16.5px">Large text is on.</b> Everything on our pages now shows bigger. Saved on this device. <a href="#" style="color:#166534;font-weight:700">Switch back to standard</a></div>
+    <div class="card" style="border-top:4px solid #0F766E;padding:18px 18px">
+      <div class="card-title" style="font-size:18px">Your appointment <span class="chip teal" style="font-size:13px;padding:3px 12px">CONFIRMED</span></div>
+      <div class="kv" style="font-size:15.5px;row-gap:9px">
+        <dt style="font-size:12px">Patient</dt><dd><b>Rajesh G.</b></dd>
+        <dt style="font-size:12px">Test</dt><dd><b>X-Ray Chest PA</b></dd>
+        <dt style="font-size:12px">Date &amp; time</dt><dd><b>Wed, 29 Jul 2026 · 11:00 AM IST</b></dd>
+        <dt style="font-size:12px">Reference</dt><dd class="mono">APPT-2026-51317</dd>
+      </div>
+      <div class="row" style="margin-top:16px">
+        <a class="btn primary grow" href="#" style="padding:15px 14px;font-size:16px">📅 Add to calendar</a>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <a class="btn grow" href="#" style="padding:15px 14px;font-size:16px">Request a different time</a>
+      </div>
+    </div>
+    <p style="text-align:center;color:#64748B;font-size:14px">🔒 Text size is saved only in this browser. It changes nothing in your medical record.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:12px 16px;text-align:center;font-size:13.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<p class="audit">Language and text-size choices are stored in this browser only (local storage) and never written to the patient record. Page opens via tokenised links remain subject to the normal link-open logging, and any change made by staff on a patient's behalf at the branch is recorded in the access log.</p>
+</section>
+<section class="screen" id="pt-12">
+<div class="screen-head"><h1><span class="sid">PT-12</span> Help &amp; troubleshooting</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G2 Patient-Facing — patient chrome (no sidebar)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The Help link in the footer of every patient page lands here. It answers the four most common problems (no OTP, wrong/old mobile number, expired link, stuck payment) with plain checklists, gives the clinic's phone number and hours, and lets the patient report a problem — which creates a tracked grievance (<span class="mono">GRV</span>) reference. A clear disclaimer states this page is never for medical emergencies.</div>
+
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="banner danger"><b>⚠ This page is not for medical emergencies.</b> If someone is seriously unwell, call <b>108</b> (ambulance) or go to the nearest hospital emergency department now.</div>
+
+    <div class="card" style="border-top:4px solid #0F766E">
+      <div class="card-title">Common problems — tap to open</div>
+
+      <div class="card" style="margin-bottom:10px;border-color:#99F6E4;background:#F0FDFA">
+        <div style="display:flex;justify-content:space-between;align-items:center;font-weight:800">I didn't get the OTP code <span>▴</span></div>
+        <div class="small" style="margin-top:8px">
+          <div class="check"><span class="box on">✓</span><div>Wait <b>60 seconds</b> — SMS can be slow at busy times. Then tap <b>Resend code</b> (allowed 3 times).</div></div>
+          <div class="check"><span class="box on">✓</span><div>Check the phone with the number <b>ending in the digits shown on screen</b> — the OTP goes to your registered mobile, which may not be the phone in your hand.</div></div>
+          <div class="check"><span class="box on">✓</span><div>If you use SMS-blocking / DND apps, check the blocked folder for sender <b>MRDIAG</b>.</div></div>
+          <div class="check"><span class="box on">✓</span><div>Still nothing after 3 tries? Call the clinic below — we can verify you by phone and re-send.</div></div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:10px">
+        <div style="display:flex;justify-content:space-between;align-items:center;font-weight:800">My registered mobile number is wrong or old <span>▾</span></div>
+        <div class="small muted" style="margin-top:6px">For your safety we cannot change your number over the internet. Visit any Meridian branch with a <b>photo ID</b> (any one of passport, driving licence, voter ID, or Aadhaar — we record only the last 4 digits). The front office updates it in minutes and OTPs work immediately after.</div>
+      </div>
+
+      <div class="card" style="margin-bottom:10px">
+        <div style="display:flex;justify-content:space-between;align-items:center;font-weight:800">The link says it has expired <span>▾</span></div>
+        <div class="small muted" style="margin-top:6px">Report and reminder links stop working after a set time to protect you. Ask for a fresh link by calling the clinic, or collect a printed copy at the branch with photo ID. Expired links can never be revived — a new one is always issued instead.</div>
+      </div>
+
+      <div class="card" style="margin-bottom:0">
+        <div style="display:flex;justify-content:space-between;align-items:center;font-weight:800">My payment is stuck / money left my account <span>▾</span></div>
+        <div class="small muted" style="margin-top:6px">If UPI money was debited but the page didn't confirm: <b>don't pay again</b>. Failed UPI payments auto-return within 2–5 working days by NPCI rules. Note your UPI/UTR reference from your bank app and call us — receipt <span class="mono">RCP/AND/26-27/0xxx</span> is issued the moment the money is confirmed on our side.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Talk to a person</div>
+      <div class="kv">
+        <dt>Call the clinic</dt><dd><b style="font-size:16px">022-4XXX XX20</b></dd>
+        <dt>Hours</dt><dd>Mon–Sat 8:00 AM – 8:00 PM · Sun 8:00 AM – 2:00 PM IST</dd>
+        <dt>At the branch</dt><dd>Front office desk, 2nd floor, Link Road, Andheri West</dd>
+        <dt>Keep handy</dt><dd class="small muted">Your reference (APPT / ACC / DPDP-CR / GRV) — never share OTPs with anyone, including our staff. We will never ask for an OTP on a call.</dd>
+      </div>
+      <a class="btn primary" href="#" style="width:100%;padding:12px 14px;margin-top:10px">📞 Call now</a>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Report a problem</div>
+      <div class="field"><label>What went wrong? <span class="req">*</span></label>
+        <select class="select"><option>Payment problem</option></select>
+        <div class="hint">Other choices: OTP / link problem · wrong details on a document · staff behaviour · privacy concern · something else</div>
+      </div>
+      <div class="field"><label>Tell us briefly <span class="req">*</span></label><textarea class="textarea">Paid ₹2,500 by UPI for my X-ray today but the page showed an error. Money has left my account. UTR 617234598812.</textarea></div>
+      <div class="field"><label>Mobile number for updates <span class="req">*</span></label><input class="input" value="+91 98••• ••318"><div class="hint">We'll send an OTP to confirm before submitting, and SMS you a tracking reference.</div></div>
+      <div class="field"><label>Related reference <span class="muted small" style="font-weight:400">(optional)</span></label><input class="input mono" value="VIS-2026-30455"></div>
+      <a class="btn primary" href="#" style="width:100%;padding:12px 14px">Verify with OTP &amp; submit</a>
+      <div class="hint small muted" style="margin-top:8px">🔒 Your report goes to the branch grievance owner, not to a shared inbox. Reporting a problem never affects your care.</div>
+    </div>
+    <p class="small muted" style="text-align:center">🔒 We never ask for full Aadhaar numbers, card PINs or OTPs on this page or on calls.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PROBLEM SUBMITTED (GRIEVANCE REFERENCE ISSUED)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="border-top:4px solid #15803D;text-align:center;padding:22px 18px">
+      <div style="font-size:34px;margin-bottom:6px">📨</div>
+      <div style="font-size:17px;font-weight:800;margin-bottom:6px">Thank you — we've logged your problem</div>
+      <span class="chip green">SUBMITTED · 25 Jul 2026, 4:37 PM IST</span>
+      <div class="kv" style="margin-top:14px;text-align:left">
+        <dt>Tracking ref</dt><dd class="mono bold" style="font-size:15px">GRV-2026-00214</dd>
+        <dt>Category</dt><dd>Payment problem — UPI debited, not confirmed</dd>
+        <dt>Your evidence</dt><dd class="mono">UTR 617234598812 · VIS-2026-30455</dd>
+        <dt>Identity</dt><dd>Verified by OTP to mobile ending ••318</dd>
+        <dt>First reply by</dt><dd><b>Tue, 28 Jul 2026</b> <span class="chip teal">2 WORKING DAYS</span></dd>
+        <dt>Handled by</dt><dd>Grievance owner, Andheri West (escalates to branch manager, then the Data Protection Officer for privacy matters)</dd>
+      </div>
+      <div class="row" style="margin-top:16px">
+        <a class="btn primary grow" href="#" style="padding:12px 14px">Track GRV-2026-00214</a>
+        <a class="btn grow" href="#" style="padding:12px 14px">Back to help</a>
+      </div>
+      <div class="hint small muted" style="margin-top:10px">An SMS with this reference and the tracking link has been sent to +91 98••• ••318.</div>
+    </div>
+    <div class="banner info"><b>About your payment:</b> because you gave a UTR, our cashier team checks it against the bank feed first. If the money reached us, your receipt <span class="mono">RCP/AND/26-27/0xxx</span> is issued and sent the same day; if it failed, NPCI returns it to your account in 2–5 working days.</div>
+    <div class="banner danger" style="margin-bottom:0"><b>⚠ Reminder:</b> this page is not for medical emergencies — call <b>108</b> if someone is seriously unwell.</div>
+    <p class="small muted" style="text-align:center;margin-top:10px">🔒 Only the grievance owner and people they escalate to can read your report.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<p class="audit">Grievance GRV-2026-00214 (category, narrative, UTR evidence, OTP verification, device, timestamps) and every later status view are recorded in the access log. The 2-working-day first-response SLA is owned by the branch grievance owner; breach escalates to the branch manager and, for privacy matters, to the DPO.</p>
+</section>
+</body></html>

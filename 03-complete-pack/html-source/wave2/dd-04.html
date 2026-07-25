@@ -1,0 +1,120 @@
+<section class="screen" id="dd-04">
+<div class="screen-head"><h1><span class="sid">DD-04</span> Order status tracking</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G8 Doctor Desk (Referrers)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> One table answering the referrer's question "where is my patient's study?" — every order they placed, with a five-stage status stepper (ordered → scheduled → acquired → reported → delivered), TAT against target, and delay flags with the reason where the branch has recorded one. When a report is signed, the row drills straight into the report; unsigned drafts stay status-only.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">My patients</div>
+      <div class="nav-item">Results inbox <span class="nav-badge red">3</span></div>
+      <div class="nav-item">New order</div>
+      <div class="nav-item active">Order tracking <span class="nav-badge">7</span></div>
+      <div class="nav-item">Reports archive</div>
+      <div class="sec-label">Account</div>
+      <div class="nav-item">Notification preferences</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › Order tracking</div>
+      <div class="page-title">My orders <a class="btn primary small actions-right">＋ New order</a></div>
+      <div class="page-sub">7 active · 2 delayed · Dr. Meera Nair · refreshed 25 Jul 2026 10:30 IST</div>
+
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">7</div><div class="l">Active orders</div><div class="s">Across 6 patients</div></div>
+        <div class="kpi amber"><div class="n">2</div><div class="l">Delayed vs target</div><div class="s">Reasons recorded on both</div></div>
+        <div class="kpi red"><div class="n">1</div><div class="l">Overdue &gt; 24h</div><div class="s">Escalated to M. Kulkarni</div></div>
+        <div class="kpi"><div class="n">96%</div><div class="l">On-time TAT (30d)</div><div class="s">Your orders at this branch</div></div>
+      </div>
+
+      <div style="display:flex;gap:8px;margin-bottom:12px">
+        <select class="select" style="width:160px"><option>All statuses</option><option>Awaiting scheduling</option><option>Scheduled</option><option>Acquired</option><option>Reported</option><option>Delivered</option></select>
+        <select class="select" style="width:150px"><option>All priorities</option><option>STAT</option><option>Urgent</option><option>Routine</option></select>
+        <select class="select" style="width:150px"><option>Last 30 days</option></select>
+        <input class="input grow" value="Search patient / accession…">
+        <a class="btn small">Apply</a>
+      </div>
+
+      <table>
+        <tr><th>Patient / accession</th><th>Procedure</th><th>Progress</th><th>TAT vs target</th><th>Status</th><th></th></tr>
+        <tr class="hl"><td><b>Sofia Rossi</b><br><span class="mono small">ACC-2026-91355 · STAT</span></td><td>MRI Right Knee (R)</td><td><span class="chip green">ordered</span>›<span class="chip grey">scheduled</span>›<span class="chip grey">acquired</span>›<span class="chip grey">reported</span>›<span class="chip grey">delivered</span></td><td>0h 06m / 2h to schedule<br><div class="progress"><i style="width:8%"></i></div></td><td><span class="chip teal">On track · owner D. Nair</span></td><td><a class="btn small ghost">Detail</a></td></tr>
+        <tr><td><b>Mohammed Al-Rashid</b><br><span class="mono small">ACC-2026-91330 · STAT</span></td><td>CT Head (plain)</td><td><span class="chip green">ordered</span>›<span class="chip green">scheduled</span>›<span class="chip green">acquired</span>›<span class="chip green">reported</span>›<span class="chip green">delivered</span></td><td>1h 47m / 4h<br><div class="progress"><i style="width:45%"></i></div></td><td><span class="chip green">✓ Delivered · ack ACK-2026-0187</span></td><td><a class="btn small ghost">Open report</a></td></tr>
+        <tr><td><b>Priya Menon</b><br><span class="mono small">ACC-2026-91344 · Routine</span></td><td>USG Abdomen f/u</td><td><span class="chip green">ordered</span>›<span class="chip green">scheduled</span>›<span class="chip grey">acquired</span>›<span class="chip grey">reported</span>›<span class="chip grey">delivered</span></td><td>18h / 72h<br><div class="progress"><i style="width:25%"></i></div></td><td><span class="chip teal">Slot 26 Jul 09:15 · APPT-2026-51218</span></td><td><a class="btn small ghost">Detail</a></td></tr>
+        <tr><td><b>Sofia Rossi</b><br><span class="mono small">ACC-2026-91302 · Routine</span></td><td>USG Right Knee (R)</td><td><span class="chip green">ordered</span>›<span class="chip green">scheduled</span>›<span class="chip green">acquired</span>›<span class="chip grey">reported</span>›<span class="chip grey">delivered</span></td><td>38h / 24h report TAT<br><div class="progress amber"><i style="width:100%"></i></div></td><td><span class="chip amber">DELAYED · reason: radiologist leave backlog · owner Dr. V. Shetty</span></td><td><a class="btn small ghost">Detail</a></td></tr>
+        <tr><td><b>Aarav Sharma</b><br><span class="mono small">ACC-2026-91290 · Urgent</span></td><td>MRI Brain (contrast)</td><td><span class="chip green">ordered</span>›<span class="chip green">scheduled</span>›<span class="chip grey">acquired</span>›<span class="chip grey">reported</span>›<span class="chip grey">delivered</span></td><td>27h / 24h to acquire<br><div class="progress red"><i style="width:100%"></i></div></td><td><span class="chip red">OVERDUE · patient rescheduled (fasting not done) · owner D. Nair · escalated to M. Kulkarni</span></td><td><a class="btn small ghost">Detail</a></td></tr>
+        <tr><td><b>Ananya Rao</b><br><span class="mono small">ACC-2026-91340 · Routine</span></td><td>USG Thyroid f/u</td><td><span class="chip green">ordered</span>›<span class="chip grey">scheduled</span>›<span class="chip grey">acquired</span>›<span class="chip grey">reported</span>›<span class="chip grey">delivered</span></td><td>4h / 24h to schedule<br><div class="progress"><i style="width:17%"></i></div></td><td><span class="chip teal">Awaiting scheduling · owner D. Nair</span></td><td><a class="btn small ghost">Detail</a></td></tr>
+        <tr class="dim"><td><b>Rajesh Gupta</b><br><span class="mono small">ACC-2026-90754 · Routine</span></td><td>X-Ray Chest PA</td><td><span class="chip green">ordered</span>›<span class="chip green">scheduled</span>›<span class="chip green">acquired</span>›<span class="chip green">reported</span>›<span class="chip green">delivered</span></td><td>6h / 24h ✓<br><div class="progress"><i style="width:25%"></i></div></td><td><span class="chip violet">v2 addendum delivered 25 Jul 08:20</span></td><td><a class="btn small ghost">Open report</a></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">"Open report" appears only when a report is <b>signed</b>. Unsigned drafts stay status-only per org policy (see DD-01 State C).</div>
+      <p class="audit">Order-tracking list viewed by Dr. Meera Nair · scope: own referrals only · 25 Jul 2026 10:30 IST — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — DELAYED ORDER DETAIL (AMBER, REASON KNOWN)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Doctor Desk › Order tracking › ACC-2026-91302</div>
+      <div class="page-title">USG Right Knee — Sofia Rossi <span class="chip amber">DELAYED · reporting TAT breached</span></div>
+      <div class="banner warn"><b>Reporting is 14h past the 24h target</b>Recorded reason: radiologist leave backlog (Dr. V. Shetty returned 25 Jul). Owner: Dr. V. Shetty · escalated to branch ops per SLA ladder at 24h. Revised estimate: signed by 25 Jul 18:00 IST. You will be notified on sign-off.</div>
+      <div class="row">
+        <div class="grow card">
+          <div class="card-title">Timeline</div>
+          <div class="timeline">
+            <div class="ev"><span class="t">22 Jul 10:40</span><span>Ordered by Dr. Meera Nair (Doctor Desk) · ACC-2026-91302</span></div>
+            <div class="ev"><span class="t">22 Jul 11:05</span><span>Scheduled · APPT-2026-51190 · slot 22 Jul 16:30</span></div>
+            <div class="ev"><span class="t">22 Jul 16:47</span><span>Acquired · USG room 2 · images in PACS</span></div>
+            <div class="ev"><span class="t">23 Jul 16:47</span><span><span class="chip amber">24h reporting target passed</span> · reason logged: radiologist leave backlog</span></div>
+            <div class="ev"><span class="t">24 Jul 16:47</span><span>Escalated to branch ops per SLA ladder (48h tier)</span></div>
+            <div class="ev"><span class="t">25 Jul 09:10</span><span>Draft in progress by Dr. V. Shetty · revised ETA 18:00 IST</span></div>
+          </div>
+        </div>
+        <div class="card" style="width:280px;flex-shrink:0">
+          <div class="card-title">SLA</div>
+          <dl class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Target</dt><dd>Report signed ≤ 24h from acquisition</dd>
+            <dt>Elapsed</dt><dd>38h 00m <span class="chip amber">+14h</span></dd>
+            <dt>Owner</dt><dd>Dr. V. Shetty</dd>
+            <dt>Escalated to</dt><dd>Branch ops (48h tier)</dd>
+          </dl>
+          <a class="btn small" style="display:block;margin-top:8px">Request status update from branch</a>
+        </div>
+      </div>
+      <p class="audit">Delay detail for ACC-2026-91302 viewed by Dr. Meera Nair · 25 Jul 2026 10:33 IST — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — COMPLETED ORDER · DRILL TO SIGNED REPORT</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Doctor Desk › Order tracking › ACC-2026-91330</div>
+      <div class="page-title">CT Head (plain) — Mohammed Al-Rashid <span class="chip green">✓ Completed · delivered &amp; acknowledged</span></div>
+      <div class="stepper">
+        <div class="step done"><span class="dot">✓</span> Ordered 08:15</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Scheduled 08:22</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Acquired 09:31</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Reported 10:02</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Delivered 10:02 · acked 10:07</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Completion summary <span class="right">25 Jul 2026</span></div>
+        <dl class="kv">
+          <dt>TAT</dt><dd>1h 47m end-to-end vs 4h STAT target <span class="chip green">ON TIME</span></dd>
+          <dt>Report</dt><dd><span class="chip green">SIGNED — FINAL</span> Dr. V. Shetty · 10:02 IST · critical finding communicated</dd>
+          <dt>Closed loop</dt><dd class="mono">ACK-2026-0187 · read-back + OTP · 10:07:44 IST</dd>
+          <dt>Delivery</dt><dd>Doctor Desk + SMS to +91 98••• ••412 · patient portal copy released after your ack</dd>
+        </dl>
+        <div style="margin-top:10px"><a class="btn primary small">Open signed report</a> <a class="btn small">Open imaging viewer (watermarked)</a> <a class="btn small ghost">Download PDF</a></div>
+      </div>
+      <p class="audit">Completed-order detail and report drill-through for ACC-2026-91330 by Dr. Meera Nair · 25 Jul 2026 10:35 IST — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<p class="audit">Order-tracking views are scoped to the signed-in referrer's own orders; every list view, detail open and report drill-through is recorded in the access log.</p>
+</section>

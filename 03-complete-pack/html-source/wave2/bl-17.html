@@ -1,0 +1,147 @@
+<section class="screen" id="bl-17">
+<div class="screen-head"><h1><span class="sid">BL-17</span> Write-off &amp; bad debt</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Billing staff raise a write-off request against an aged outstanding balance; the request requires a documented collection-attempts log and a reason code. Only the org admin can approve, with step-up identity confirmation, since a write-off moves money off the books. Approved write-offs land in the branch write-off register with a monthly summary, and are automatically reversed if the patient later pays.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Billing</div>
+    <div class="nav-item">Invoices</div>
+    <div class="nav-item">Payments &amp; receipts</div>
+    <div class="nav-item">Credit notes</div>
+    <div class="nav-item">Outstanding &amp; dunning</div>
+    <div class="nav-item active">Write-offs <span class="nav-badge red">1</span></div>
+    <div class="sec-label">Reports</div>
+    <div class="nav-item">Day book</div>
+    <div class="nav-item">GST summary</div>
+    <div class="sec-label">Admin</div>
+    <div class="nav-item">Number series</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Billing › Write-offs › New request</div>
+    <div class="page-title">Write-off request <span class="chip amber">PENDING APPROVAL</span></div>
+    <div class="page-sub">Request WO-AND-2026-0031 · Raised by M. Kulkarni (billing supervisor) · 25 Jul 2026, 15:20 IST</div>
+    <div class="banner danger"><b>Approval restricted to org admin</b>Write-offs remove receivables from the books. Only K. Verma (org admin) can approve, with step-up identity confirmation. Billing supervisors may request but never self-approve.</div>
+    <div class="row">
+      <div class="grow">
+        <div class="card">
+          <div class="card-title">Balance being written off</div>
+          <dl class="kv">
+            <dt>Patient</dt><dd>Mohammed Al-Rashid <span class="mono small">MRN-004790</span></dd>
+            <dt>Invoice</dt><dd class="mono">INV/AND/26-27/0412 · 14 Apr 2026</dd>
+            <dt>Visit</dt><dd class="mono">VIS-2026-30177 · CT Abdomen with contrast</dd>
+            <dt>Invoice total</dt><dd>₹9,800.00 · Exempt (healthcare service) · SAC 999316</dd>
+            <dt>Paid to date</dt><dd>₹4,000.00 (RCP/AND/26-27/0388, UPI · UTR 415522873310)</dd>
+            <dt>Outstanding</dt><dd><b style="color:#B91C1C">₹5,800.00</b> · <span class="chip red">102 days aged</span></dd>
+            <dt>Ageing bucket</dt><dd>91–120 days · dunning ladder exhausted</dd>
+            <dt>Reason code</dt><dd><b>BD-03 — Patient untraceable after repeated attempts</b></dd>
+          </dl>
+        </div>
+        <div class="card">
+          <div class="card-title">Collection attempts log <span class="right">Required — min. 3 attempts</span></div>
+          <table>
+            <tr><th>Date</th><th>Channel</th><th>By</th><th>Outcome</th></tr>
+            <tr><td>28 Apr 2026</td><td>SMS reminder (dunning tier 1)</td><td>System</td><td>Delivered, no response</td></tr>
+            <tr><td>12 May 2026</td><td>Phone call</td><td>D. Nair</td><td>No answer, voicemail left</td></tr>
+            <tr><td>27 May 2026</td><td>Phone call</td><td>D. Nair</td><td>Number switched off</td></tr>
+            <tr><td>10 Jun 2026</td><td>Registered letter (dunning tier 3)</td><td>M. Kulkarni</td><td>Returned undelivered — "left address"</td></tr>
+            <tr><td>08 Jul 2026</td><td>Phone call (alternate contact)</td><td>P. D'Souza</td><td>Alternate contact unaware of whereabouts</td></tr>
+          </table>
+          <div class="small muted" style="margin-top:6px">5 attempts on file — meets policy minimum. Attempts log is frozen with the request and cannot be edited after submission.</div>
+        </div>
+      </div>
+      <div style="width:300px;flex-shrink:0">
+        <div class="card">
+          <div class="card-title">Approval</div>
+          <div class="ladder">
+            <div class="tier done"><b>Requested</b><div class="small muted">M. Kulkarni · 25 Jul, 15:20</div></div>
+            <div class="tier cur"><b>Org admin review</b><div class="small muted">Owner: K. Verma · <span class="chip amber">SLA 48h · 33h left</span></div></div>
+            <div class="tier"><b>Posted to register</b><div class="small muted">Auto on approval</div></div>
+          </div>
+          <div class="small muted">If SLA breaches, request escalates to regional finance controller.</div>
+        </div>
+        <div class="modal-wrap" style="padding:16px"><div class="modal danger" style="max-width:100%">
+          <h3>Approve write-off ₹5,800.00</h3>
+          <p class="small" style="margin-bottom:8px">You are approving removal of a receivable. Confirm your identity to proceed.</p>
+          <div class="field"><label>K. Verma — re-enter password <span class="req">*</span></label><div class="input mono">••••••••••</div></div>
+          <div class="field"><label>OTP sent to admin's registered mobile <span class="req">*</span></label><div class="input mono" style="width:120px">4 8 2 · · ·</div></div>
+          <div class="check"><span class="box on">✓</span> I have reviewed the attempts log and reason code BD-03</div>
+          <div class="modal-actions"><span class="btn">Reject with note</span><span class="btn danger">Confirm &amp; approve</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — WRITE-OFF REGISTER &amp; MONTHLY SUMMARY</div>
+<div class="frame">
+  <div class="body"><div class="main" style="padding:16px 18px">
+    <div class="page-title">Write-off register — Andheri West</div>
+    <div class="page-sub">FY 26-27 · Filter: Apr–Jul 2026 · All amounts ₹ · Register is append-only; corrections happen via reversal entries</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">₹41,350</div><div class="l">Written off FY 26-27</div><div class="s">7 entries</div></div>
+      <div class="kpi amber"><div class="n">₹5,800</div><div class="l">Pending approval</div><div class="s">1 request · owner K. Verma</div></div>
+      <div class="kpi"><div class="n">₹3,200</div><div class="l">Reversed (recovered)</div><div class="s">1 entry — patient later paid</div></div>
+      <div class="kpi red"><div class="n">0.42%</div><div class="l">Bad debt ratio</div><div class="s">vs 0.60% policy ceiling</div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Register entries <span class="right">Append-only</span></div>
+      <table>
+        <tr><th>WO ref</th><th>Patient</th><th>Invoice</th><th style="text-align:right">Amount (₹)</th><th>Reason</th><th>Requested by</th><th>Approved by</th><th>Status</th></tr>
+        <tr><td class="mono">WO-AND-2026-0031</td><td>Mohammed Al-Rashid · MRN-004790</td><td class="mono">INV/AND/26-27/0412</td><td style="text-align:right">5,800.00</td><td>BD-03 untraceable</td><td>M. Kulkarni</td><td class="muted">—</td><td><span class="chip amber">PENDING</span></td></tr>
+        <tr><td class="mono">WO-AND-2026-0030</td><td>Rajesh Gupta · MRN-004795</td><td class="mono">INV/AND/26-27/0296</td><td style="text-align:right">1,150.00</td><td>BD-05 small balance &lt;₹2,000</td><td>M. Kulkarni</td><td>K. Verma · 18 Jul</td><td><span class="chip green">POSTED</span></td></tr>
+        <tr><td class="mono">WO-AND-2026-0028</td><td>Ananya Rao · MRN-004819</td><td class="mono">INV/AND/26-27/0233</td><td style="text-align:right">3,200.00</td><td>BD-03 untraceable</td><td>M. Kulkarni</td><td>K. Verma · 30 Jun</td><td><span class="chip blue">REVERSED 22 Jul</span></td></tr>
+        <tr><td class="mono">WO-AND-2026-0027</td><td>Payer: Star Health TPA</td><td class="mono">INV/AND/26-27/0198</td><td style="text-align:right">14,600.00</td><td>BD-07 claim denied, appeal exhausted</td><td>M. Kulkarni</td><td>K. Verma · 21 Jun</td><td><span class="chip green">POSTED</span></td></tr>
+        <tr><td class="mono">WO-AND-2026-0026</td><td>Priya Menon · MRN-004828</td><td class="mono">INV/AND/26-27/0154</td><td style="text-align:right">900.00</td><td>BD-05 small balance &lt;₹2,000</td><td>D. Nair</td><td>K. Verma · 09 Jun</td><td><span class="chip green">POSTED</span></td></tr>
+        <tr><td class="mono">WO-AND-2026-0024</td><td>Aarav Sharma · MRN-004821</td><td class="mono">INV/AND/26-27/0102</td><td style="text-align:right">2,400.00</td><td>BD-02 hardship, medical officer note</td><td>M. Kulkarni</td><td>K. Verma · 12 May</td><td><span class="chip green">POSTED</span></td></tr>
+        <tr><td class="mono">WO-AND-2026-0022</td><td>Sofia Rossi · MRN-004822</td><td class="mono">INV/AND/26-27/0067</td><td style="text-align:right">19,100.00</td><td>BD-07 claim denied, appeal exhausted</td><td>M. Kulkarni</td><td>K. Verma · 28 Apr</td><td><span class="chip green">POSTED</span></td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="card-title">Monthly summary FY 26-27</div>
+      <table>
+        <tr><th>Month</th><th style="text-align:right">Requested (₹)</th><th style="text-align:right">Approved (₹)</th><th style="text-align:right">Rejected (₹)</th><th style="text-align:right">Reversed (₹)</th><th style="text-align:right">Net bad debt (₹)</th></tr>
+        <tr><td>Apr 2026</td><td style="text-align:right">19,100.00</td><td style="text-align:right">19,100.00</td><td style="text-align:right">0.00</td><td style="text-align:right">0.00</td><td style="text-align:right">19,100.00</td></tr>
+        <tr><td>May 2026</td><td style="text-align:right">4,650.00</td><td style="text-align:right">2,400.00</td><td style="text-align:right">2,250.00</td><td style="text-align:right">0.00</td><td style="text-align:right">2,400.00</td></tr>
+        <tr><td>Jun 2026</td><td style="text-align:right">18,700.00</td><td style="text-align:right">18,700.00</td><td style="text-align:right">0.00</td><td style="text-align:right">0.00</td><td style="text-align:right">18,700.00</td></tr>
+        <tr class="hl"><td>Jul 2026 (to date)</td><td style="text-align:right">6,950.00</td><td style="text-align:right">1,150.00</td><td style="text-align:right">0.00</td><td style="text-align:right">3,200.00</td><td style="text-align:right">−2,050.00</td></tr>
+      </table>
+      <div class="small muted" style="margin-top:6px">Negative net for Jul reflects the WO-AND-2026-0028 recovery reversal exceeding new approvals. Summary feeds the branch P&amp;L pack.</div>
+    </div>
+  </div></div>
+</div>
+
+<div class="state-tag">STATE C — REVERSAL: PATIENT LATER PAYS</div>
+<div class="frame">
+  <div class="body"><div class="main" style="padding:16px 18px">
+    <div class="page-title">Write-off reversal · <span class="mono">WO-AND-2026-0028</span> <span class="chip blue">REVERSED</span></div>
+    <div class="page-sub">Ananya Rao · MRN-004819 · Original write-off ₹3,200.00 approved 30 Jun 2026 by K. Verma</div>
+    <div class="banner success"><b>Payment received against written-off balance</b>On 22 Jul 2026, 12:04 IST, Ananya Rao paid ₹3,200.00 by UPI at the Andheri West counter (cashier P. D'Souza). Magnus matched the payment to invoice INV/AND/26-27/0233 and auto-created a reversal entry — the receivable is reinstated and immediately settled; bad-debt expense is credited back.</div>
+    <div class="row">
+      <div class="grow card">
+        <div class="card-title">Reversal posting</div>
+        <table>
+          <tr><th>Entry</th><th>Document</th><th style="text-align:right">Amount (₹)</th><th>Effect</th></tr>
+          <tr><td>1</td><td>Write-off reversal WO-AND-2026-0028-R1</td><td style="text-align:right">3,200.00</td><td>Reinstates receivable on INV/AND/26-27/0233; reduces FY bad debt</td></tr>
+          <tr><td>2</td><td>Receipt <span class="mono">RCP/AND/26-27/0961</span> · UPI · UTR 519984022176</td><td style="text-align:right">3,200.00</td><td>Settles reinstated balance in full</td></tr>
+          <tr class="hl"><td colspan="2" style="text-align:right"><b>Invoice balance after reversal</b></td><td style="text-align:right"><b>0.00</b></td><td><span class="chip green">SETTLED</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:6px">Original write-off entry is never deleted — the register keeps both the write-off and its reversal, cross-linked. Receipt issued from the central number-series registry.</div>
+      </div>
+      <div style="width:300px;flex-shrink:0" class="card">
+        <div class="card-title">Reversal trail</div>
+        <div class="timeline">
+          <div class="ev"><span class="t">22 Jul 12:04</span><span>UPI payment ₹3,200.00 captured · P. D'Souza</span></div>
+          <div class="ev"><span class="t">22 Jul 12:04</span><span>System matched payment to written-off invoice — reversal drafted</span></div>
+          <div class="ev"><span class="t">22 Jul 12:05</span><span>Reversal auto-posted (no approval needed — reversal restores value)</span></div>
+          <div class="ev"><span class="t">22 Jul 12:06</span><span>Receipt RCP/AND/26-27/0961 shared with patient per consent</span></div>
+          <div class="ev"><span class="t">22 Jul 12:06</span><span>K. Verma and M. Kulkarni notified of recovery</span></div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<p class="audit">Write-off requests, the frozen attempts log, org-admin approval with step-up identity confirmation (password + OTP), rejections, register postings and reversals are recorded in the access log.</p>
+</section>

@@ -1,0 +1,123 @@
+<section class="screen" id="pt-06">
+<div class="screen-head"><h1><span class="sid">PT-06</span> Online payment page</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G2 Patient-Facing — patient chrome (no sidebar)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Patients pay outstanding invoices from a secure link sent by billing — UPI intent, UPI QR, or card. The page mirrors BL-04 gateway-reconciliation logic exactly: a payment stuck between the bank and the gateway shows a pending-ambiguous state with a 30-minute confirm-or-auto-refund promise, so patients are never told to pay twice. Success issues a receipt from the central number series.</div>
+
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· secure payments</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="border-top:4px solid #0F766E">
+      <div class="card-title">Amount to pay <span class="chip grey">STEP 1 OF 2</span></div>
+      <div style="font-size:30px;font-weight:800;margin-bottom:2px">₹4,720.00</div>
+      <div class="small muted" style="margin-bottom:10px">Invoice <span class="mono">INV/AND/26-27/0342</span> · Sofia R. · MRI Brain (plain)</div>
+      <div class="kv">
+        <dt>Service</dt><dd>MRI Brain (plain) · SAC 999316</dd>
+        <dt>GST</dt><dd>Exempt (healthcare service)</dd>
+        <dt>Branch GSTIN</dt><dd class="mono">27AAACM1234K1Z5</dd>
+        <dt>Due by</dt><dd>27 Jul 2026</dd>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Choose how to pay</div>
+      <a class="btn primary" href="#" style="display:block;padding:14px;margin-bottom:10px">▶ Pay with any UPI app <span class="small" style="font-weight:400">(GPay · PhonePe · Paytm · BHIM)</span></a>
+      <div style="border:1px solid #E2E8F0;border-radius:8px;padding:12px;text-align:center;margin-bottom:10px">
+        <div class="small bold" style="margin-bottom:6px">Or scan this UPI QR</div>
+        <div style="width:132px;height:132px;margin:0 auto;border:1.5px solid #CBD5E1;border-radius:6px;display:flex;align-items:center;justify-content:center;background:#F8FAFC;font-size:11px;color:#94A3B8">▦ UPI QR<br>meridian.and@icici</div>
+        <div class="small muted" style="margin-top:6px">Payee: <b>Meridian Diagnostics Pvt Ltd</b> · always check the name before paying</div>
+      </div>
+      <a class="btn" href="#" style="display:block;padding:14px;margin-bottom:6px">💳 Pay by debit / credit card</a>
+      <div class="small muted" style="text-align:center;margin-top:6px">Prefer cash or card at the counter? That's fine too — this link stays valid until paid.</div>
+    </div>
+    <p class="small muted" style="text-align:center">🔒 Payments are processed by an RBI-regulated gateway. We never see or store your card number or UPI PIN. Amount and receipt details are recorded against your invoice only.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PROCESSING (DO NOT REFRESH)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· secure payments</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="text-align:center;padding:26px 18px;border-top:4px solid #0F766E">
+      <div style="font-size:34px;margin-bottom:8px">⏳</div>
+      <div style="font-size:17px;font-weight:800;margin-bottom:4px">Confirming your payment…</div>
+      <p class="small muted" style="margin-bottom:12px">We're waiting for your bank to confirm <b>₹4,720.00</b> for invoice <span class="mono">INV/AND/26-27/0342</span>. This usually takes under a minute.</p>
+      <div class="progress" style="max-width:280px;margin:0 auto 12px"><i style="width:60%"></i></div>
+      <span class="chip amber">CHECKING WITH BANK · attempt ref PAY-2026-88431</span>
+    </div>
+    <div class="banner warn"><b>Please don't refresh, go back, or pay again.</b> If you open your UPI app, approve the request there and return here — this page updates by itself.</div>
+    <p class="small muted" style="text-align:center">🔒 If the bank doesn't reply in 3 minutes we'll show you exactly what happened next — you will never be charged twice for one invoice.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — SUCCESS (RECEIPT ISSUED)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· secure payments</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="text-align:center;padding:26px 18px;border-top:4px solid #15803D">
+      <div style="font-size:34px;margin-bottom:8px">✅</div>
+      <div style="font-size:17px;font-weight:800;margin-bottom:4px">Payment received — thank you</div>
+      <div style="font-size:26px;font-weight:800;margin-bottom:8px">₹4,720.00</div>
+      <span class="chip green">PAID · 25 Jul 2026, 11:58 AM IST</span>
+      <div class="kv" style="margin-top:14px;text-align:left">
+        <dt>Receipt no.</dt><dd class="mono">RCP/AND/26-27/0518</dd>
+        <dt>Invoice</dt><dd class="mono">INV/AND/26-27/0342 · fully paid</dd>
+        <dt>Paid via</dt><dd>UPI · ICICI Bank</dd>
+        <dt>UTR reference</dt><dd class="mono">614523098771</dd>
+        <dt>GST</dt><dd>Exempt (healthcare service) · SAC 999316</dd>
+      </div>
+      <div class="row" style="margin-top:14px">
+        <a class="btn primary grow" href="#" style="padding:12px 14px">⬇ Download receipt (PDF)</a>
+        <a class="btn grow" href="#" style="padding:12px 14px">Done</a>
+      </div>
+      <div class="small muted" style="margin-top:8px">A copy of receipt <span class="mono">RCP/AND/26-27/0518</span> has also been sent to your registered mobile.</div>
+    </div>
+    <p class="small muted" style="text-align:center">🔒 Keep the UTR reference — it's your bank's proof of this payment.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE D — FAILURE (NO MONEY DEDUCTED) &amp; PENDING-AMBIGUOUS (MATCHES BL-04)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· secure payments</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="text-align:center;padding:22px 18px;border-top:4px solid #B91C1C">
+      <div style="font-size:34px;margin-bottom:8px">❌</div>
+      <div style="font-size:17px;font-weight:800;margin-bottom:4px">Payment didn't go through</div>
+      <p class="small muted" style="margin-bottom:10px">Your bank declined the request (reason from bank: "UPI request expired"). Invoice <span class="mono">INV/AND/26-27/0342</span> is still unpaid.</p>
+      <span class="chip red">FAILED · 25 Jul 2026, 12:04 PM IST · ref PAY-2026-88431</span>
+      <div class="banner success" style="text-align:left;margin-top:14px"><b>No money was deducted.</b> If your bank app shows a debit for this attempt, it will be reversed by your bank automatically — usually within a few hours, and always within 5 working days.</div>
+      <div class="row">
+        <a class="btn primary grow" href="#" style="padding:12px 14px">Try again</a>
+        <a class="btn grow" href="#" style="padding:12px 14px">Pay a different way</a>
+      </div>
+    </div>
+
+    <div class="divider-label" style="margin:16px 0 10px">— or, when the bank's answer is unclear —</div>
+
+    <div class="card" style="text-align:center;padding:22px 18px;border-top:4px solid #F59E0B">
+      <div style="font-size:34px;margin-bottom:8px">🕓</div>
+      <div style="font-size:17px;font-weight:800;margin-bottom:4px">We're still checking with your bank</div>
+      <p class="small muted" style="margin-bottom:10px">Your bank hasn't yet told us whether ₹4,720.00 was taken from your account for attempt <span class="mono">PAY-2026-88432</span>.</p>
+      <span class="chip amber">PENDING — CONFIRMING WITH BANK</span>
+      <div class="banner info" style="text-align:left;margin-top:14px"><b>What happens now — you don't need to do anything.</b> If money left your account, the payment will confirm automatically within <b>30 minutes</b> and we'll SMS you the receipt. If it doesn't confirm, the amount is <b>auto-refunded to the same account</b>. Please don't pay again until then.</div>
+      <div class="kv" style="text-align:left">
+        <dt>Checking until</dt><dd><b>12:41 PM IST</b> (30 min from your attempt)</dd>
+        <dt>UTR (if debited)</dt><dd class="mono">awaited from bank</dd>
+        <dt>Need help?</dt><dd>Call 022-4XXX XX20 and quote <span class="mono">PAY-2026-88432</span></dd>
+      </div>
+      <a class="btn grow" href="#" style="display:block;padding:12px 14px;margin-top:12px">Refresh status</a>
+    </div>
+    <p class="small muted" style="text-align:center">🔒 Our billing team sees the same status you do (matched against the gateway ledger) — nobody will ask you to pay again while a check is running.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<p class="audit">Every payment attempt, gateway callback, UTR match, and receipt issue (RCP/AND/26-27 series from the central number-series registry) is recorded in the access log; pending-ambiguous attempts appear on the BL-04 reconciliation queue owned by cashier P. D'Souza, escalated to M. Kulkarni at 30 minutes.</p>
+</section>

@@ -1,0 +1,161 @@
+<section class="screen" id="bl-02">
+<div class="screen-head"><h1><span class="sid">BL-02</span> Invoice creation &amp; detail</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Cashier builds the invoice from the ordered services (rates and SAC codes pulled from the service catalog — no free-typed amounts), applies any discount which carries its own approval state, then issues the document. Issue is a legal, money-moving act: it pulls the next number from the central series registry and requires a step-up identity confirmation. Diagnostic services carry "Exempt (healthcare service)" labeling — never a 0% CGST/SGST row.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Billing worklist <span class="nav-badge">23</span></div>
+      <div class="nav-item active">Create invoice</div>
+      <div class="nav-item">Collect payment</div>
+      <div class="nav-item">Pending payments <span class="nav-badge red">4</span></div>
+      <div class="nav-item">Receipts &amp; reprints</div>
+      <div class="nav-item">Credit notes</div>
+      <div class="sec-label">Setup</div>
+      <div class="nav-item">Number series</div>
+      <div class="nav-item">Tariff &amp; catalog</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Create invoice › Draft</div>
+      <div class="page-title">New invoice — draft <span class="chip grey">DRAFT · no number reserved</span></div>
+      <div class="page-sub">Number is assigned only on issue, from central series <span class="mono">INV/AND/26-27/</span> (next: <span class="mono">0413</span>). Drafts carry a temporary ref <span class="mono">DFT-AND-8841</span>.</div>
+      <div class="stepper">
+        <div class="step done"><span class="dot">✓</span> Patient &amp; visit</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Services</div><span class="step-line"></span>
+        <div class="step cur"><span class="dot">3</span> Discounts &amp; payer</div><span class="step-line"></span>
+        <div class="step"><span class="dot">4</span> Review &amp; issue</div>
+      </div>
+      <div class="split">
+        <div>
+          <div class="card" style="border:1px solid #CBD5E1">
+            <div style="display:flex;justify-content:space-between;border-bottom:2px solid #0F766E;padding-bottom:8px;margin-bottom:10px">
+              <div><b style="color:#0F766E">◎ Meridian Diagnostics</b><br><span class="small muted">14 Veera Desai Road, Andheri West, Mumbai 400053<br>GSTIN 27AAACM1234K1Z5 · State: 27-Maharashtra</span></div>
+              <div style="text-align:right" class="small muted">TAX INVOICE (healthcare)<br>Series <span class="mono">INV/AND/26-27/</span> — number on issue<br>Date: 25 Jul 2026 IST</div>
+            </div>
+            <dl class="kv" style="margin-bottom:10px">
+              <dt>Patient</dt><dd>Aarav Sharma · <span class="mono">MRN-004821</span> · M/41 · Aadhaar ••••-••••-4417 (last-4 only)</dd>
+              <dt>Visit / order</dt><dd><span class="mono">VIS-2026-30864</span> · <span class="mono">ACC-2026-91242</span>, <span class="mono">ACC-2026-91243</span></dd>
+              <dt>Referrer</dt><dd>Dr. Meera Nair <span class="chip green">verified</span> · +91 98••• ••412</dd>
+            </dl>
+            <table>
+              <tr><th>#</th><th>Service (from catalog)</th><th>SAC</th><th>Qty</th><th>Rate ₹</th><th>GST</th><th>Amount ₹</th><th></th></tr>
+              <tr><td>1</td><td>CT KUB (plain) — <span class="mono small">ACC-2026-91242</span></td><td class="mono">999316</td><td>1</td><td>4,200.00</td><td><span class="chip green">Exempt (healthcare service)</span></td><td>4,200.00</td><td><span class="btn ghost small">✕</span></td></tr>
+              <tr><td>2</td><td>Doppler Carotid bilateral — <span class="mono small">ACC-2026-91243</span></td><td class="mono">999316</td><td>1</td><td>3,600.00</td><td><span class="chip green">Exempt (healthcare service)</span></td><td>3,600.00</td><td><span class="btn ghost small">✕</span></td></tr>
+              <tr><td>3</td><td>Radiologist reporting — Dr. V. Shetty</td><td class="mono">999316</td><td>2</td><td>350.00</td><td><span class="chip green">Exempt (healthcare service)</span></td><td>700.00</td><td><span class="btn ghost small">✕</span></td></tr>
+              <tr><td colspan="8"><span class="btn ghost small">＋ Add service from catalog…</span> <span class="small muted">rates locked to Andheri West tariff v2026-Q2; manual rate edits are not permitted at cashier role</span></td></tr>
+              <tr><td colspan="6" style="text-align:right" class="bold">Gross</td><td class="bold">8,500.00</td><td></td></tr>
+              <tr><td colspan="6" style="text-align:right">Discount — referrer courtesy 5% <span class="chip amber">PENDING APPROVAL · M. Kulkarni</span></td><td>−425.00</td><td><span class="btn ghost small">✕</span></td></tr>
+              <tr><td colspan="6" style="text-align:right" class="bold">Net payable (INR)</td><td class="bold" style="font-size:14px">₹8,075.00</td><td></td></tr>
+            </table>
+            <p class="small muted" style="margin-top:8px">All listed services are exempt healthcare services under GST notification 12/2017 (SAC 999316). No CGST/SGST is charged or shown. Amount in words on issue: Rupees Eight Thousand Seventy-Five Only.</p>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Payer &amp; credit</div>
+            <div class="check"><span class="box radio on"></span> Self-pay (patient)</div>
+            <div class="check"><span class="box radio"></span> Corporate credit / TPA <span class="chip violet">payer required</span></div>
+            <div class="field" style="margin-top:8px"><label>Payer</label><div class="input" style="background:#F8FAFC">Aarav Sharma (self)</div></div>
+          </div>
+          <div class="card">
+            <div class="card-title">Discount</div>
+            <dl class="kv" style="grid-template-columns:110px 1fr">
+              <dt>Type</dt><dd>Referrer courtesy 5%</dd>
+              <dt>Value</dt><dd>−₹425.00</dd>
+              <dt>Approval</dt><dd><span class="chip amber">PENDING · M. Kulkarni</span></dd>
+              <dt>Reason</dt><dd>Referrer panel scheme — Dr. Meera Nair</dd>
+            </dl>
+            <p class="small muted" style="margin-top:6px">Invoice can be issued only after the discount is approved or removed. Discounts &gt;10% need admin (K. Verma).</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Issue</div>
+            <span class="btn primary disabled" style="width:100%">Issue invoice — blocked by pending discount</span>
+            <span class="btn" style="width:100%;margin-top:8px">Save draft</span>
+            <div class="small muted" style="margin-top:8px">🔒 Issuing requires step-up identity confirmation and reserves the next number from the central series registry. Issued invoices cannot be edited — only credit-noted (CRN/AND/26-27/00xx).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ISSUED INVOICE (READ-ONLY) + STEP-UP CONFIRM MODAL AT ISSUE</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Confirm your identity to issue INV/AND/26-27/0413</h3>
+    <p class="small muted">Issuing an invoice is a legal financial document action. Confirm it is you, P. D'Souza, at counter 2.</p>
+    <div class="banner info" style="margin-top:10px"><b>Document summary</b>Aarav Sharma · MRN-004821 · Net ₹8,075.00 · Exempt (healthcare service) · discount approved by M. Kulkarni 11:58 IST.</div>
+    <div class="field"><label>Magnus password <span class="req">*</span></label><input class="input" value="••••••••"/></div>
+    <div class="check"><span class="box on">✓</span> I verified patient identity and the services rendered match the order.</div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Confirm &amp; issue</span></div>
+    <p class="audit">Issue event stores number, hash of document, approver chain and this identity confirmation; it is recorded in the access log.</p>
+  </div>
+</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item active">Create invoice</div>
+      <div class="nav-item">Collect payment</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Invoice › INV/AND/26-27/0413</div>
+      <div class="page-title">Invoice INV/AND/26-27/0413 <span class="chip amber">ISSUED · UNPAID</span> <span class="actions-right"><span class="btn small primary">Collect ₹8,075 →</span> <span class="btn small">Print</span> <span class="btn small">Credit note…</span></span></div>
+      <div class="page-sub">Issued 25 Jul 2026 12:01 IST by P. D'Souza · identity confirmed · number reserved from central series registry (INV/AND/26-27, branch AND).</div>
+      <div class="banner success"><b>Issued and locked.</b> Line items, rates and discount are frozen. Corrections require a credit note CRN/AND/26-27/00xx with supervisor approval.</div>
+      <div class="card" style="max-width:760px">
+        <div style="display:flex;justify-content:space-between;border-bottom:2px solid #0F766E;padding-bottom:8px;margin-bottom:10px">
+          <div><b style="color:#0F766E">◎ Meridian Diagnostics</b><br><span class="small muted">14 Veera Desai Road, Andheri West, Mumbai 400053 · GSTIN 27AAACM1234K1Z5</span></div>
+          <div style="text-align:right" class="small"><b class="mono">INV/AND/26-27/0413</b><br><span class="muted">25 Jul 2026 · 12:01 IST · TAX INVOICE (healthcare)</span></div>
+        </div>
+        <table>
+          <tr><th>#</th><th>Service</th><th>SAC</th><th>Qty</th><th>Rate ₹</th><th>GST treatment</th><th>Amount ₹</th></tr>
+          <tr><td>1</td><td>CT KUB (plain)</td><td class="mono">999316</td><td>1</td><td>4,200.00</td><td>Exempt (healthcare service)</td><td>4,200.00</td></tr>
+          <tr><td>2</td><td>Doppler Carotid bilateral</td><td class="mono">999316</td><td>1</td><td>3,600.00</td><td>Exempt (healthcare service)</td><td>3,600.00</td></tr>
+          <tr><td>3</td><td>Radiologist reporting (Dr. V. Shetty)</td><td class="mono">999316</td><td>2</td><td>350.00</td><td>Exempt (healthcare service)</td><td>700.00</td></tr>
+          <tr><td colspan="6" style="text-align:right">Discount — referrer courtesy 5% <span class="chip green">APPROVED · M. Kulkarni · 11:58</span></td><td>−425.00</td></tr>
+          <tr><td colspan="6" style="text-align:right" class="bold">Net payable</td><td class="bold">₹8,075.00</td></tr>
+        </table>
+        <p class="small muted" style="margin-top:8px">Amount in words: Rupees Eight Thousand Seventy-Five Only. Exempt healthcare services — no CGST/SGST applicable. E&amp;OE.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — CREDIT-INVOICE VARIANT (CORPORATE PAYER)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni (Billing supervisor) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item active">Create invoice</div>
+      <div class="nav-item">Credit notes</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Invoice › INV/AND/26-27/0406</div>
+      <div class="page-title">Invoice INV/AND/26-27/0406 <span class="chip violet">CREDIT · BILL TO PAYER</span></div>
+      <div class="page-sub">Patient: Mohammed Al-Rashid · <span class="mono">MRN-004790</span> · payer <span class="chip violet">GulfCare TPA · agreement GC-MRD-2026-11</span> · patient co-pay ₹0.</div>
+      <div class="banner info"><b>Nothing to collect from patient at desk.</b> Amount ₹950.00 posts to the GulfCare TPA credit ledger (30-day terms, credit limit ₹2,50,000, utilised ₹64,300). Pre-authorisation <span class="mono">GC-PA-88412</span> attached.</div>
+      <div class="card" style="max-width:760px">
+        <table>
+          <tr><th>#</th><th>Service</th><th>SAC</th><th>Qty</th><th>Rate ₹ (panel tariff)</th><th>GST treatment</th><th>Amount ₹</th></tr>
+          <tr><td>1</td><td>X-Ray Chest PA</td><td class="mono">999316</td><td>1</td><td>600.00</td><td>Exempt (healthcare service)</td><td>600.00</td></tr>
+          <tr><td>2</td><td>Radiologist reporting (Dr. V. Shetty)</td><td class="mono">999316</td><td>1</td><td>350.00</td><td>Exempt (healthcare service)</td><td>350.00</td></tr>
+          <tr><td colspan="6" style="text-align:right" class="bold">Net billed to GulfCare TPA</td><td class="bold">₹950.00</td></tr>
+        </table>
+        <dl class="kv" style="margin-top:10px">
+          <dt>Payer statement</dt><dd>Joins fortnightly statement <span class="mono">STMT-GC-2026-14</span> due 05 Aug 2026</dd>
+          <dt>Patient signature</dt><dd>Service-acknowledgement captured at front desk (D. Nair)</dd>
+          <dt>Tariff</dt><dd>GulfCare panel tariff v3 — panel rates cannot be discounted at branch</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="audit">Draft edits, catalog line additions, discount requests/approvals, payer changes and the issue step-up confirmation are recorded in the access log.</p>
+</section>

@@ -1,0 +1,110 @@
+<section class="screen" id="pt-05">
+<div class="screen-head"><h1><span class="sid">PT-05</span> Appointment reminder &amp; prep page</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G2 Patient-Facing — patient chrome (no sidebar)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Patients open this page from the SMS/WhatsApp reminder link to see their appointment details and procedure-specific preparation instructions in their chosen language. A reschedule request creates a task for the front office — it is not self-serve rebooking in MVP1. No login is required; the tokenised link shows only this one appointment and expires after the visit.</div>
+
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="border-top:4px solid #0F766E">
+      <div class="card-title">Your appointment <span class="chip teal">CONFIRMED</span></div>
+      <div class="kv">
+        <dt>Patient</dt><dd><b>Sofia R.</b> <span class="muted small">(name shortened for your privacy)</span></dd>
+        <dt>Test</dt><dd><b>MRI Brain (plain)</b></dd>
+        <dt>Date &amp; time</dt><dd><b>Tue, 28 Jul 2026 · 09:30 AM IST</b> <span class="muted small">please arrive 15 min early</span></dd>
+        <dt>Branch</dt><dd>Meridian Diagnostics, Andheri West<br><span class="muted small">2nd floor, Link Road, near Metro station · <a href="#" style="color:#0F766E;font-weight:700">📍 Get directions</a></span></dd>
+        <dt>Reference</dt><dd class="mono">APPT-2026-51284</dd>
+        <dt>Referred by</dt><dd>Dr. Meera Nair</dd>
+      </div>
+      <div class="row" style="margin-top:14px">
+        <a class="btn primary grow" href="#" style="padding:12px 14px">📅 Add to calendar</a>
+        <a class="btn grow" href="#" style="padding:12px 14px">Request a different time</a>
+      </div>
+      <div class="hint small muted" style="margin-top:8px">Requesting a different time sends a note to our front office — they will call you within 2 working hours to fix a new slot. Your current slot stays booked until then.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">How to prepare <span class="right">English</span></div>
+      <div class="check"><span class="box on">✓</span><div><b>No fasting needed</b> for a plain MRI Brain. Eat and drink normally.</div></div>
+      <div class="check"><span class="box on">✓</span><div><b>Remove all metal</b> — jewellery, hairpins, watches, coins, belts, cards with magnetic strips. Lockers are available at the branch.</div></div>
+      <div class="check"><span class="box on">✓</span><div><b>Tell our staff before the scan</b> if you have a pacemaker, cochlear implant, metal implants, surgical clips, or if you may be pregnant.</div></div>
+      <div class="check"><span class="box on">✓</span><div><b>Bring</b> your doctor's referral note and any previous scan films or reports.</div></div>
+      <div class="check"><span class="box on">✓</span><div>The scan takes about <b>25–35 minutes</b>. You will hear loud knocking sounds — earplugs are provided.</div></div>
+    </div>
+
+    <div class="card" style="background:#F8FAFC">
+      <div class="card-title">तैयारी कैसे करें <span class="right">हिन्दी</span></div>
+      <div class="check"><span class="box on">✓</span><div><b>खाली पेट आने की ज़रूरत नहीं</b> — सादे MRI Brain के लिए आप सामान्य रूप से खा-पी सकते हैं।</div></div>
+      <div class="check"><span class="box on">✓</span><div><b>सभी धातु की चीज़ें उतार दें</b> — गहने, हेयरपिन, घड़ी, सिक्के, बेल्ट। ब्रांच पर लॉकर उपलब्ध हैं।</div></div>
+      <div class="check"><span class="box on">✓</span><div>अगर आपके शरीर में <b>पेसमेकर, इम्प्लांट या सर्जिकल क्लिप</b> हैं, या गर्भावस्था की संभावना है, तो स्कैन से पहले स्टाफ को ज़रूर बताएं।</div></div>
+      <div class="check"><span class="box on">✓</span><div>डॉक्टर की <b>रेफरल पर्ची</b> और पुरानी रिपोर्ट साथ लाएँ।</div></div>
+      <div class="hint small muted" style="margin-top:6px">भाषा बदलने के लिए फ्रंट डेस्क पर बताएं · To change your language preference, tell our front desk.</div>
+    </div>
+
+    <div class="banner info"><b>Running late or unwell?</b> Call the branch on 022-4XXX XX20. There is no charge for informing us in advance.</div>
+    <p class="small muted" style="text-align:center">🔒 This link shows only this appointment and stops working after your visit. We never send medical details over SMS — only this secure link.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SAME-DAY APPOINTMENT (TODAY BANNER, FASTING PROCEDURE)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="banner success"><b>Your appointment is today.</b> Please arrive by <b>07:15 AM</b> — 15 minutes before your slot.</div>
+    <div class="card" style="border-top:4px solid #15803D">
+      <div class="card-title">Your appointment <span class="chip green">TODAY · 07:30 AM</span></div>
+      <div class="kv">
+        <dt>Patient</dt><dd><b>Rajesh G.</b></dd>
+        <dt>Test</dt><dd><b>Ultrasound Abdomen (whole)</b></dd>
+        <dt>Date &amp; time</dt><dd><b>Sat, 25 Jul 2026 · 07:30 AM IST</b></dd>
+        <dt>Branch</dt><dd>Meridian Diagnostics, Andheri West · <a href="#" style="color:#0F766E;font-weight:700">📍 Get directions</a></dd>
+        <dt>Reference</dt><dd class="mono">APPT-2026-51291</dd>
+      </div>
+    </div>
+    <div class="banner warn"><b>Fasting check — important for today.</b> You should not have eaten or drunk anything (except sips of plain water) for the last <b>8 hours</b>. If you have eaten, call us on 022-4XXX XX20 before travelling — we may need to shift your slot, at no charge.</div>
+    <div class="card">
+      <div class="card-title">Last-minute reminders <span class="right">English · हिन्दी at branch</span></div>
+      <div class="check"><span class="box on">✓</span><div><b>Full bladder helps</b> — drink 3–4 glasses of water 1 hour before and avoid passing urine until the scan.</div></div>
+      <div class="check"><span class="box on">✓</span><div><b>Bring</b> the referral note from Dr. S. Iyer and any earlier ultrasound reports.</div></div>
+      <div class="check"><span class="box on">✓</span><div>Wear <b>loose, comfortable clothing</b>; you may be asked to change into a gown.</div></div>
+      <div class="row" style="margin-top:12px">
+        <a class="btn primary grow" href="#" style="padding:12px 14px">📍 Directions</a>
+        <a class="btn grow" href="#" style="padding:12px 14px">Call branch</a>
+      </div>
+    </div>
+    <p class="small muted" style="text-align:center">🔒 Same-day pages hide the reschedule button — please call the branch instead so we can help you fastest.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — RESCHEDULE REQUESTED (FRONT-OFFICE TASK CREATED)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="border-top:4px solid #F59E0B;text-align:center;padding:22px 18px">
+      <div style="font-size:34px;margin-bottom:6px">🕐</div>
+      <div style="font-size:17px;font-weight:800;margin-bottom:6px">We've received your reschedule request</div>
+      <p class="small muted" style="margin-bottom:12px">Our front office will call you on your registered mobile (+91 98••• ••318) <b>within 2 working hours</b> to agree a new time. Your current slot on <b>Tue, 28 Jul 2026 · 09:30 AM</b> stays reserved until we speak.</p>
+      <span class="chip amber">RESCHEDULE REQUESTED · 25 Jul, 11:42 AM IST</span>
+      <div class="kv" style="margin-top:14px;text-align:left">
+        <dt>Request ref</dt><dd class="mono">TASK-FO-2026-0871</dd>
+        <dt>Appointment</dt><dd class="mono">APPT-2026-51284 · MRI Brain (plain)</dd>
+        <dt>Preferred</dt><dd>"Any weekday after 5 PM" <span class="muted small">(your note)</span></dd>
+        <dt>Handled by</dt><dd>Front office, Andheri West (D. Nair's team)</dd>
+      </div>
+      <div class="row" style="margin-top:14px">
+        <a class="btn grow" href="#" style="padding:12px 14px">Keep my original slot instead</a>
+      </div>
+    </div>
+    <div class="banner info"><b>Nothing else to do right now.</b> If you don't hear from us within 2 working hours, call 022-4XXX XX20 and quote <span class="mono">TASK-FO-2026-0871</span>.</div>
+    <p class="small muted" style="text-align:center">🔒 Your request is visible only to the front-office team at this branch.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<p class="audit">Every open of this reminder link (time, device type, link token) and each reschedule request is recorded in the access log. Front-office task TASK-FO-2026-0871 carries an SLA timer owned by D. Nair; breach escalates to the branch manager.</p>
+</section>

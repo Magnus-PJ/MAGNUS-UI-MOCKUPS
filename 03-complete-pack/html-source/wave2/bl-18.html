@@ -1,0 +1,173 @@
+<section class="screen" id="bl-18">
+<div class="screen-head"><h1><span class="sid">BL-18</span> Day book &amp; collections report</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The day book is the branch's reconciliation view: collections for a date range broken down by payment mode, by user (cashier) and by service group, alongside refunds, voids and cash-drawer variance incidents. Every export (CSV/PDF) is logged with who exported and why, and every figure drills down to the underlying receipts.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Billing</div>
+    <div class="nav-item">Invoices</div>
+    <div class="nav-item">Payments &amp; receipts</div>
+    <div class="nav-item">Credit notes</div>
+    <div class="nav-item">Write-offs</div>
+    <div class="sec-label">Reports</div>
+    <div class="nav-item active">Day book</div>
+    <div class="nav-item">GST summary</div>
+    <div class="nav-item">Referrer analytics</div>
+    <div class="sec-label">Admin</div>
+    <div class="nav-item">Number series</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Billing › Reports › Day book</div>
+    <div class="page-title">Day book — Friday 24 Jul 2026 <span class="actions-right"><span class="btn small">◀ Prev day</span> <span class="btn small">Next day ▶</span> <span class="btn small primary">Export…</span></span></div>
+    <div class="page-sub">Date range: 24 Jul 2026 → 24 Jul 2026 (IST) · Shift close by P. D'Souza at 20:42 · All amounts ₹</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">₹1,84,650</div><div class="l">Gross collections</div><div class="s">96 receipts</div></div>
+      <div class="kpi"><div class="n">₹6,300</div><div class="l">Refunds paid</div><div class="s">3 refunds, all approved</div></div>
+      <div class="kpi amber"><div class="n">2</div><div class="l">Voids</div><div class="s">Both same-day, supervisor-approved</div></div>
+      <div class="kpi red"><div class="n">−₹200</div><div class="l">Cash variance</div><div class="s">1 incident open · owner M. Kulkarni</div></div>
+    </div>
+    <div class="row">
+      <div class="grow">
+        <div class="card">
+          <div class="card-title">Collections by payment mode <span class="right">Click a row to drill to receipts</span></div>
+          <table>
+            <tr><th>Mode</th><th style="text-align:right">Receipts</th><th style="text-align:right">Amount (₹)</th><th>Evidence check</th><th>Reconciliation</th></tr>
+            <tr><td>UPI</td><td style="text-align:right">51</td><td style="text-align:right">92,400.00</td><td>51/51 UTR refs captured</td><td><span class="chip green">MATCHED</span></td></tr>
+            <tr><td>Card (POS terminal AND-02)</td><td style="text-align:right">22</td><td style="text-align:right">54,750.00</td><td>Batch settlement ref 240726-88</td><td><span class="chip green">MATCHED</span></td></tr>
+            <tr class="hl"><td>Cash</td><td style="text-align:right">21</td><td style="text-align:right">31,500.00</td><td>Drawer count ₹31,300.00</td><td><span class="chip red">−₹200 VARIANCE</span></td></tr>
+            <tr><td>Bank transfer (payer credit)</td><td style="text-align:right">2</td><td style="text-align:right">6,000.00</td><td>NEFT refs on file</td><td><span class="chip green">MATCHED</span></td></tr>
+            <tr><td colspan="1"><b>Total</b></td><td style="text-align:right"><b>96</b></td><td style="text-align:right"><b>1,84,650.00</b></td><td colspan="2"></td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-title">Collections by user (cashier)</div>
+          <table>
+            <tr><th>User</th><th>Shift</th><th style="text-align:right">Receipts</th><th style="text-align:right">Amount (₹)</th><th style="text-align:right">Refunds (₹)</th><th style="text-align:right">Voids</th><th>Drawer</th></tr>
+            <tr><td>P. D'Souza (cashier)</td><td>08:00–20:30</td><td style="text-align:right">58</td><td style="text-align:right">1,12,900.00</td><td style="text-align:right">4,500.00</td><td style="text-align:right">1</td><td><span class="chip red">−₹200</span></td></tr>
+            <tr><td>D. Nair (front office)</td><td>08:00–16:00</td><td style="text-align:right">27</td><td style="text-align:right">48,250.00</td><td style="text-align:right">1,800.00</td><td style="text-align:right">1</td><td><span class="chip green">Balanced</span></td></tr>
+            <tr><td>R. Patil (evening relief)</td><td>16:00–20:30</td><td style="text-align:right">11</td><td style="text-align:right">23,500.00</td><td style="text-align:right">0.00</td><td style="text-align:right">0</td><td><span class="chip green">Balanced</span></td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-title">Collections by service group</div>
+          <table>
+            <tr><th>Service group</th><th style="text-align:right">Visits</th><th style="text-align:right">Amount (₹)</th><th style="text-align:right">% of day</th><th>GST treatment</th></tr>
+            <tr><td>MRI</td><td style="text-align:right">14</td><td style="text-align:right">78,400.00</td><td style="text-align:right">42.5%</td><td>Exempt (healthcare service)</td></tr>
+            <tr><td>CT</td><td style="text-align:right">16</td><td style="text-align:right">51,200.00</td><td style="text-align:right">27.7%</td><td>Exempt (healthcare service)</td></tr>
+            <tr><td>Ultrasound &amp; Doppler</td><td style="text-align:right">24</td><td style="text-align:right">28,900.00</td><td style="text-align:right">15.7%</td><td>Exempt (healthcare service)</td></tr>
+            <tr><td>X-ray</td><td style="text-align:right">29</td><td style="text-align:right">14,650.00</td><td style="text-align:right">7.9%</td><td>Exempt (healthcare service)</td></tr>
+            <tr><td>Lab (outsourced draw)</td><td style="text-align:right">18</td><td style="text-align:right">8,700.00</td><td style="text-align:right">4.7%</td><td>Exempt (healthcare service)</td></tr>
+            <tr><td>Media &amp; records (CD/film copies)</td><td style="text-align:right">9</td><td style="text-align:right">2,800.00</td><td style="text-align:right">1.5%</td><td>Taxable — see GST summary</td></tr>
+          </table>
+        </div>
+      </div>
+      <div style="width:320px;flex-shrink:0">
+        <div class="card">
+          <div class="card-title">Refunds &amp; voids — 24 Jul</div>
+          <table>
+            <tr><th>Ref</th><th style="text-align:right">₹</th><th>Why</th></tr>
+            <tr><td class="mono small">RFD-2026-0218<div class="muted">→ RCP/AND/26-27/0912</div></td><td style="text-align:right">2,500.00</td><td class="small">Scan cancelled pre-contrast · UPI reversal UTR 512204981133</td></tr>
+            <tr><td class="mono small">RFD-2026-0219<div class="muted">→ RCP/AND/26-27/0918</div></td><td style="text-align:right">2,000.00</td><td class="small">Duplicate payment · card reversal</td></tr>
+            <tr><td class="mono small">RFD-2026-0220<div class="muted">→ RCP/AND/26-27/0925</div></td><td style="text-align:right">1,800.00</td><td class="small">Payer approved credit switch · cash</td></tr>
+            <tr><td class="mono small">VOID · RCP/AND/26-27/0907</td><td style="text-align:right" class="muted">—</td><td class="small">Wrong patient selected; re-issued as 0908 · approved M. Kulkarni</td></tr>
+            <tr><td class="mono small">VOID · INV/AND/26-27/0864</td><td style="text-align:right" class="muted">—</td><td class="small">Line entry error; credit note CRN/AND/26-27/0043 raised</td></tr>
+          </table>
+          <div class="small muted" style="margin-top:6px">All refunds carried step-up identity confirmation by the approver before payout.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Variance incidents</div>
+          <div class="banner danger" style="margin-bottom:8px"><b>VAR-AND-2026-0012 · Cash short ₹200.00</b>Drawer AND-01 (P. D'Souza) counted ₹31,300.00 vs expected ₹31,500.00 at 20:35 shift close. Recount confirmed. Owner: M. Kulkarni · <span class="chip amber">SLA 24h · 18h left</span> · escalates to K. Verma if unresolved.</div>
+          <div class="check"><span class="box on">✓</span> Cashier statement recorded</div>
+          <div class="check"><span class="box"></span> CCTV window flagged for review (17:40–18:10)</div>
+          <div class="check"><span class="box"></span> Resolution note &amp; sign-off</div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — MONTH SUMMARY VIEW (01–24 JUL 2026)</div>
+<div class="frame">
+  <div class="body"><div class="main" style="padding:16px 18px">
+    <div class="page-title">Collections summary — 01 Jul → 24 Jul 2026</div>
+    <div class="page-sub">Range mode · 24 trading days · Andheri West branch only (regional roll-up available to regional finance role)</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">₹41.2L</div><div class="l">Gross collections</div><div class="s">2,214 receipts</div></div>
+      <div class="kpi"><div class="n">₹1,71,700</div><div class="l">Daily average</div><div class="s">Peak Sat 18 Jul · ₹2,41,300</div></div>
+      <div class="kpi amber"><div class="n">₹87,400</div><div class="l">Refunds MTD</div><div class="s">41 refunds · 2.1% of gross</div></div>
+      <div class="kpi red"><div class="n">3</div><div class="l">Variance incidents</div><div class="s">2 closed · 1 open <span class="chip red">OVERDUE</span></div></div>
+    </div>
+    <div class="row">
+      <div class="grow card">
+        <div class="card-title">Weekly breakdown by mode (₹)</div>
+        <table>
+          <tr><th>Week</th><th style="text-align:right">UPI</th><th style="text-align:right">Card</th><th style="text-align:right">Cash</th><th style="text-align:right">Bank</th><th style="text-align:right">Total</th><th>Variance</th></tr>
+          <tr><td>29 Jun – 05 Jul</td><td style="text-align:right">5,61,200</td><td style="text-align:right">3,12,400</td><td style="text-align:right">1,98,600</td><td style="text-align:right">44,000</td><td style="text-align:right">11,16,200</td><td><span class="chip green">Clean</span></td></tr>
+          <tr><td>06 – 12 Jul</td><td style="text-align:right">5,88,900</td><td style="text-align:right">3,04,100</td><td style="text-align:right">1,76,300</td><td style="text-align:right">61,500</td><td style="text-align:right">11,30,800</td><td><span class="chip amber">1 closed (−₹500)</span></td></tr>
+          <tr><td>13 – 19 Jul</td><td style="text-align:right">5,42,700</td><td style="text-align:right">2,88,600</td><td style="text-align:right">1,84,900</td><td style="text-align:right">38,000</td><td style="text-align:right">10,54,200</td><td><span class="chip green">Clean</span></td></tr>
+          <tr class="hl"><td>20 – 24 Jul (partial)</td><td style="text-align:right">4,21,300</td><td style="text-align:right">2,10,900</td><td style="text-align:right">1,49,800</td><td style="text-align:right">36,800</td><td style="text-align:right">8,18,800</td><td><span class="chip red">1 open (−₹200)</span></td></tr>
+          <tr><td><b>Total MTD</b></td><td style="text-align:right"><b>21,14,100</b></td><td style="text-align:right"><b>11,16,000</b></td><td style="text-align:right"><b>7,09,600</b></td><td style="text-align:right"><b>1,80,300</b></td><td style="text-align:right"><b>41,20,000</b></td><td></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:6px">Cash share 17.2% MTD, trending down 1.8 pts vs Jun. UPI 51.3%. Drill any cell to the day book for that week, then to individual receipts.</div>
+      </div>
+      <div style="width:300px;flex-shrink:0" class="card">
+        <div class="card-title">Refunds &amp; voids MTD</div>
+        <dl class="kv" style="grid-template-columns:130px 1fr">
+          <dt>Refunds count</dt><dd>41 · ₹87,400.00</dd>
+          <dt>Top reason</dt><dd>Scan cancelled pre-procedure (19)</dd>
+          <dt>Receipt voids</dt><dd>9 · all supervisor-approved</dd>
+          <dt>Invoice voids</dt><dd>4 · credit notes CRN/AND/26-27/0040–0043</dd>
+          <dt>Same-day void %</dt><dd>100% · policy compliant</dd>
+        </dl>
+        <div style="margin-top:8px"><span class="btn small">Open refunds register</span></div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="state-tag">STATE C — EXPORT (CSV/PDF) WITH LOGGED PURPOSE + DRILL-TO-RECEIPTS</div>
+<div class="frame">
+  <div class="body"><div class="main" style="padding:16px 18px">
+    <div class="page-title">Export day book</div>
+    <div class="modal-wrap"><div class="modal">
+      <h3>Export — 24 Jul 2026 day book</h3>
+      <div class="field"><label>Format <span class="req">*</span></label>
+        <div class="check"><span class="box radio on"></span> CSV — full receipt-level detail (96 rows, includes UTR refs)</div>
+        <div class="check"><span class="box radio"></span> PDF — signed summary for shift-close file</div>
+      </div>
+      <div class="field"><label>Purpose of export <span class="req">*</span></label><div class="select">Daily reconciliation with bank statement ▾</div><div class="hint">Purpose is stored with the export log entry and visible to the org admin.</div></div>
+      <div class="check"><span class="box on">✓</span> I understand this export contains patient names and payment references and must be handled per the branch data-handling policy. Patient clinical data is never included in day-book exports.</div>
+      <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Export &amp; log</span></div>
+    </div></div>
+    <div class="row">
+      <div class="grow card">
+        <div class="card-title">Recent export log <span class="right">Visible to org admin</span></div>
+        <table>
+          <tr><th>When (IST)</th><th>Who</th><th>Range</th><th>Format</th><th>Purpose</th><th>Checksum</th></tr>
+          <tr class="hl"><td>25 Jul 09:14</td><td>M. Kulkarni</td><td>24 Jul 2026</td><td>CSV</td><td>Daily reconciliation with bank statement</td><td class="mono small">sha256 · 9f2c…a41d</td></tr>
+          <tr><td>24 Jul 20:44</td><td>P. D'Souza</td><td>24 Jul 2026</td><td>PDF</td><td>Shift-close file</td><td class="mono small">sha256 · 77b0…e2c8</td></tr>
+          <tr><td>21 Jul 10:02</td><td>M. Kulkarni</td><td>13–19 Jul 2026</td><td>CSV</td><td>Weekly finance pack</td><td class="mono small">sha256 · 1de4…03bb</td></tr>
+          <tr><td>15 Jul 17:31</td><td>K. Verma</td><td>01–14 Jul 2026</td><td>CSV</td><td>Internal audit sampling</td><td class="mono small">sha256 · c8a1…9f07</td></tr>
+        </table>
+      </div>
+      <div style="width:320px;flex-shrink:0" class="card">
+        <div class="card-title">Drill-down: cash receipts, 24 Jul <span class="right">From mode row</span></div>
+        <table>
+          <tr><th>Receipt</th><th>Patient</th><th style="text-align:right">₹</th></tr>
+          <tr><td class="mono small">RCP/AND/26-27/0902</td><td class="small">Aarav Sharma · MRN-004821</td><td style="text-align:right">1,500.00</td></tr>
+          <tr><td class="mono small">RCP/AND/26-27/0905</td><td class="small">Priya Menon · MRN-004828</td><td style="text-align:right">2,800.00</td></tr>
+          <tr><td class="mono small">RCP/AND/26-27/0911</td><td class="small">Rajesh Gupta · MRN-004795</td><td style="text-align:right">650.00</td></tr>
+          <tr><td class="mono small">RCP/AND/26-27/0916</td><td class="small">Sofia Rossi · MRN-004822</td><td style="text-align:right">4,200.00</td></tr>
+          <tr><td class="mono small">RCP/AND/26-27/0921</td><td class="small">Ananya Rao · MRN-004819</td><td style="text-align:right">1,150.00</td></tr>
+          <tr><td class="small muted" colspan="2">…16 more cash receipts</td><td style="text-align:right" class="small muted">21,200.00</td></tr>
+        </table>
+        <div class="small muted" style="margin-top:6px">Opening a receipt from here is itself logged (report drill-down context recorded).</div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<p class="audit">Day-book views, drill-downs to individual receipts, variance incident actions and every CSV/PDF export (user, range, purpose, checksum) are recorded in the access log.</p>
+</section>

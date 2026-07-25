@@ -1,0 +1,127 @@
+<section class="screen" id="dd-01">
+<div class="screen-head"><h1><span class="sid">DD-01</span> Patient summary — read-only</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G8 Doctor Desk (Referrers)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> A verified referring doctor opens a read-only summary of a patient they referred — scoped strictly to their own orders and the results attached to them. Access requires an explicit purpose-of-use pick (Treatment / Follow-up review) before demographics render, and every open is written to the patient-visible access log. No editing, no export of raw DICOM; only signed report PDFs and a watermarked viewer link.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item active">My patients</div>
+      <div class="nav-item">Results inbox <span class="nav-badge red">3</span></div>
+      <div class="nav-item">New order</div>
+      <div class="nav-item">Order tracking <span class="nav-badge">7</span></div>
+      <div class="nav-item">Reports archive</div>
+      <div class="sec-label">Account</div>
+      <div class="nav-item">My referral profile</div>
+      <div class="nav-item">Notification preferences</div>
+      <div class="nav-item">Help &amp; support</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › My patients › Sofia Rossi</div>
+      <div class="page-title">Sofia Rossi <span class="mono muted" style="font-weight:400;font-size:13px">MRN-004822</span> <span class="chip green">✓ You are on the care team</span> <span class="chip violet">Purpose: Treatment · picked 09:41</span></div>
+      <div class="page-sub">F · 34y · Aadhaar ••••&nbsp;7031 · Referred by you on 20 Jul 2026 · Read-only view scoped to your referrals</div>
+
+      <div class="banner reg"><b>Read-only, purpose-bound access</b>You selected <b>Treatment</b> as purpose-of-use at 09:41 IST. This session expires after 30 min of inactivity. Viewing is limited to orders you referred; other episodes at Meridian are not shown. This open is visible to the patient in their access log.</div>
+
+      <div class="row">
+        <div class="grow card">
+          <div class="card-title">Referral summary <span class="right">Your latest referral</span></div>
+          <dl class="kv">
+            <dt>Referral reason</dt><dd>Recurrent right-knee pain post fall (14 Jul 2026); rule out meniscal tear. Clinical note attached to order.</dd>
+            <dt>Consent status</dt><dd><span class="chip green">General imaging consent · captured 21 Jul 2026</span> <span class="chip grey">Contrast consent — not required</span></dd>
+            <dt>Last visit</dt><dd>21 Jul 2026 · VIS-2026-33471 · MRI suite, Andheri West · completed 17:52 IST</dd>
+            <dt>Active accession</dt><dd class="mono">ACC-2026-91247 · MRI Right Knee (non-contrast)</dd>
+            <dt>Allergies on file</dt><dd>No known drug allergies (patient-declared, 21 Jul 2026)</dd>
+            <dt>Referrer of record</dt><dd>Dr. Meera Nair · verified +91 98••• ••412 · MMC Reg 2009/04412</dd>
+          </dl>
+        </div>
+        <div class="card" style="width:270px;flex-shrink:0">
+          <div class="card-title">Actions</div>
+          <a class="btn primary" style="display:block;margin-bottom:8px">＋ New order for this patient</a>
+          <a class="btn" style="display:block;margin-bottom:8px">🖼 Open imaging viewer (watermarked)</a>
+          <a class="btn" style="display:block;margin-bottom:8px">⬇ Download signed report PDF</a>
+          <div class="hint small muted" style="margin-top:6px">🔒 Downloads are watermarked with your name, time and IP, and are recorded in the patient's access log. Raw DICOM export is not available on Doctor Desk.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Orders you referred <span class="right">3 orders · this patient</span></div>
+        <table>
+          <tr><th>Accession</th><th>Procedure</th><th>Ordered</th><th>Status</th><th>Report</th><th></th></tr>
+          <tr class="hl"><td class="mono">ACC-2026-91247</td><td>MRI Right Knee (non-contrast) · SAC 999316</td><td>20 Jul 2026</td><td><span class="chip blue">Reported</span></td><td><span class="chip green">SIGNED · Dr. V. Shetty · 22 Jul 10:14</span></td><td><a class="btn small ghost">View report</a> · <a class="btn small ghost">Viewer</a></td></tr>
+          <tr><td class="mono">ACC-2026-90882</td><td>X-Ray Right Knee AP/LAT</td><td>15 Jul 2026</td><td><span class="chip blue">Reported</span></td><td><span class="chip green">SIGNED · Dr. V. Shetty · 15 Jul 19:02</span></td><td><a class="btn small ghost">View report</a> · <a class="btn small ghost">Viewer</a></td></tr>
+          <tr><td class="mono">ACC-2026-91302</td><td>USG Right Knee (soft tissue)</td><td>22 Jul 2026</td><td><span class="chip amber">Acquired · awaiting report</span></td><td><span class="chip grey">PRELIMINARY — UNSIGNED · not for clinical release</span></td><td><span class="muted small">Available when signed</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Signed reports are final and legally releasable. <b>Preliminary (unsigned)</b> drafts are shown status-only here per org policy; content unlocks on radiologist sign-off.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Results attached to your orders <span class="right">Signed vs preliminary clearly labelled</span></div>
+        <table>
+          <tr><th>Result</th><th>Accession</th><th>Version</th><th>Status</th><th>Signed by</th><th>Actions</th></tr>
+          <tr><td>MRI Right Knee — Report</td><td class="mono">ACC-2026-91247</td><td>v1</td><td><span class="chip green">SIGNED — FINAL</span></td><td>Dr. V. Shetty · 22 Jul 10:14 IST</td><td><a class="btn small ghost">Open</a> · <a class="btn small ghost">PDF</a></td></tr>
+          <tr><td>X-Ray Right Knee — Report</td><td class="mono">ACC-2026-90882</td><td>v1</td><td><span class="chip green">SIGNED — FINAL</span></td><td>Dr. V. Shetty · 15 Jul 19:02 IST</td><td><a class="btn small ghost">Open</a> · <a class="btn small ghost">PDF</a></td></tr>
+          <tr class="dim"><td>USG Right Knee — Draft</td><td class="mono">ACC-2026-91302</td><td>v0 (draft)</td><td><span class="chip grey">PRELIMINARY — UNSIGNED</span></td><td>—</td><td><span class="small">Suppressed until signed</span></td></tr>
+        </table>
+        <div class="banner reg" style="margin-top:10px;margin-bottom:0"><b>Regulated-OB note</b>For obstetric ultrasound studies, preliminary content is always suppressed on Doctor Desk regardless of org setting, and all reports pass foetal-sex non-disclosure screening (PCPNDT Act) before release. No foetal sex information is ever shown or transmitted.</div>
+      </div>
+      <p class="audit">Opened patient summary for MRN-004822 · purpose: Treatment · Dr. Meera Nair · 25 Jul 2026 09:41 IST · session DSK-88214 — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ACCESS RESTRICTED (NOT ON CARE TEAM · MASKED TOKEN, NO DEMOGRAPHICS)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item active">My patients</div>
+      <div class="nav-item">Results inbox <span class="nav-badge red">3</span></div>
+      <div class="nav-item">New order</div>
+      <div class="nav-item">Order tracking <span class="nav-badge">7</span></div>
+      <div class="nav-item">Reports archive</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › My patients › Restricted record</div>
+      <div class="page-title">Patient <span class="mono">MASKED · PX-7F3K-2210</span> <span class="chip red">ACCESS RESTRICTED</span></div>
+      <div class="page-sub">You are not on this patient's current care team. Demographics, MRN and clinical content are withheld.</div>
+      <div class="banner danger"><b>You do not have access to this record</b>This record was matched from your search, but you are not the referrer of record for any active order. To protect patient privacy, only a masked token ID is shown — no name, MRN, contact details or results. Repeated restricted-record lookups are reviewed by the privacy officer.</div>
+      <div class="card">
+        <div class="card-title">What you can do</div>
+        <dl class="kv">
+          <dt>Request access</dt><dd>Submit a care-relationship attestation. The patient (or front office D. Nair) must approve before anything is revealed. Typical turnaround: same day.</dd>
+          <dt>Wrong patient?</dt><dd>Return to search and refine by your own referral reference (ACC / APPT number).</dd>
+          <dt>Emergency</dt><dd>Break-glass access is not available on Doctor Desk. Call the branch: 022-4000 1122 (staffed 07:00–22:00 IST).</dd>
+        </dl>
+        <div style="margin-top:10px"><a class="btn primary">Request access with attestation</a> <a class="btn">Back to my patients</a></div>
+      </div>
+      <p class="audit">Restricted-record lookup on token PX-7F3K-2210 by Dr. Meera Nair · 25 Jul 2026 09:47 IST · no PHI disclosed — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — PRELIMINARY-VISIBILITY ORG SETTING (ADMIN-CONTROLLED NOTE)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Doctor Desk › My patients › Sofia Rossi › Results</div>
+      <div class="banner info"><b>Preliminary report visibility is an organisation setting</b>Meridian Diagnostics has set Doctor Desk preliminary visibility to <b>"Status only — content on sign-off"</b> (changed by admin K. Verma, 02 Jun 2026). You can see that a draft exists, but its text unlocks only when Dr. V. Shetty signs. Exception: regulated obstetric studies are always suppressed, regardless of this setting.</div>
+      <div class="card">
+        <div class="card-title">USG Right Knee — Draft <span class="right">ACC-2026-91302</span></div>
+        <dl class="kv">
+          <dt>Status</dt><dd><span class="chip grey">PRELIMINARY — UNSIGNED</span> <span class="chip amber">Reporting in progress · target TAT 24h · owner Dr. V. Shetty</span></dd>
+          <dt>Content</dt><dd><span class="muted">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ — suppressed by org setting until radiologist sign-off</span></dd>
+          <dt>You will be notified</dt><dd>SMS + Doctor Desk inbox on sign-off (your preference: both, set 12 May 2026)</dd>
+        </dl>
+      </div>
+      <p class="audit">Viewed preliminary-status stub for ACC-2026-91302 (content suppressed by org policy) · Dr. Meera Nair · 25 Jul 2026 09:52 IST — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<p class="audit">All patient-summary opens, viewer launches and PDF downloads on Doctor Desk carry referrer identity, purpose-of-use and timestamp, and are recorded in the access log.</p>
+</section>

@@ -1,0 +1,122 @@
+<section class="screen" id="dd-10">
+<div class="screen-head"><h1><span class="sid">DD-10</span> Delegation / locum access</h1><div class="meta"><span class="chip amber">Conditional</span><div class="cluster">G8 Doctor Desk (Referrers)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> A referrer going on leave grants scoped, time-boxed access to a named registered doctor (locum): read access to my-patients, with an optional toggle to acknowledge results on my behalf. The delegate logs in under their own identity, sees a persistent acts-as banner, and every action is audited against both identities. Access auto-expires (max 30 days) and can be revoked at any time.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">My Patients</div>
+      <div class="nav-item">Results Inbox <span class="nav-badge">4</span></div>
+      <div class="nav-item">Critical Alerts <span class="nav-badge red">1</span></div>
+      <div class="nav-item">Refer a Patient</div>
+      <div class="sec-label">Account</div>
+      <div class="nav-item">Profile &amp; Delivery</div>
+      <div class="nav-item active">Delegation / Locum</div>
+      <div class="nav-item">Notes &amp; Prescriptions</div>
+      <div class="sec-label">Support</div>
+      <div class="nav-item">Help &amp; Contact</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › Account › Delegation / locum access</div>
+      <div class="page-title">Delegation / locum access <span class="actions-right"><span class="btn primary small">+ Grant delegate access</span></span></div>
+      <div class="page-sub">Grant a named, registered doctor temporary access to your Doctor Desk patients while you are away. Maximum validity 30 days; auto-expires.</div>
+
+      <div class="banner reg"><b>How delegation works</b>The delegate signs in with their <i>own</i> verified Doctor Desk identity — credentials are never shared. They see your patients read-only, cannot change your delivery preferences, cannot re-delegate, and cannot download bulk exports. Every view and acknowledgement is logged against both names.</div>
+
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">1</div><div class="l">Active delegation</div><div class="s">Dr. S. Iyer · ends 09 Aug</div></div>
+        <div class="kpi"><div class="n">17</div><div class="l">Delegate actions (this grant)</div><div class="s">14 views · 3 result acks</div></div>
+        <div class="kpi amber"><div class="n">16d</div><div class="l">Time remaining</div><div class="s">Auto-expiry 09 Aug 2026, 23:59 IST</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Delegation history <span class="right">Last 12 months</span></div>
+        <table>
+          <tr><th>Delegate</th><th>Reg. no.</th><th>Scope</th><th>Validity</th><th>Actions logged</th><th>Status</th></tr>
+          <tr class="hl"><td>Dr. S. Iyer</td><td class="mono">MMC/2013/58204</td><td>My-patients read + results-ack</td><td>24 Jul – 09 Aug 2026</td><td>17</td><td><span class="chip green">Active</span></td></tr>
+          <tr><td>Dr. Farida Khan</td><td class="mono">MMC/2011/47720</td><td>My-patients read only</td><td>02 – 16 May 2026</td><td>41</td><td><span class="chip grey">Expired</span></td></tr>
+          <tr><td>Dr. S. Iyer</td><td class="mono">MMC/2013/58204</td><td>My-patients read only</td><td>10 – 12 Jan 2026</td><td>6</td><td><span class="chip red">Revoked early</span></td></tr>
+          <tr><td>Dr. Farida Khan</td><td class="mono">MMC/2011/47720</td><td>My-patients read + results-ack</td><td>18 Aug – 01 Sep 2025</td><td>58</td><td><span class="chip grey">Expired</span></td></tr>
+        </table>
+        <div class="hint small muted" style="margin-top:8px">🔒 Delegates must already hold a verified Doctor Desk account. You cannot delegate to unregistered persons, clinic staff, or yourself.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — GRANT DELEGATE ACCESS MODAL</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Grant delegate / locum access</h3>
+    <div class="field"><label>Delegate (registered doctor) <span class="req">*</span></label><div class="input">Dr. S. Iyer · MMC/2013/58204 · Iyer Diagnostics Clinic, Vile Parle</div><div class="hint">Search by name or council registration number. Only verified Doctor Desk accounts appear.</div></div>
+    <div class="field"><label>Scope</label>
+      <div class="check"><span class="box on">✓</span><span><b>My-patients — read</b> (always included): reports, images link, referral history for patients referred by me.</span></div>
+      <div class="check"><span class="box on">✓</span><span><b>Results acknowledgement</b> (optional): delegate may acknowledge finalised &amp; critical results on my behalf. Ack records show "Dr. S. Iyer for Dr. Meera Nair".</span></div>
+      <div class="check"><span class="box"></span><span class="muted"><b>Notes &amp; prescriptions</b> — not delegable. Delegate writes under their own authorship only.</span></div>
+    </div>
+    <div class="row">
+      <div class="grow"><div class="field"><label>Valid from <span class="req">*</span></label><div class="input">24 Jul 2026, 18:00 IST</div></div></div>
+      <div class="grow"><div class="field"><label>Valid until <span class="req">*</span></label><div class="input">09 Aug 2026, 23:59 IST</div><div class="hint">Maximum 30 days. Auto-expires — no action needed.</div></div></div>
+    </div>
+    <div class="field"><label>Reason (shown to delegate &amp; in audit)</label><div class="input">Annual leave — overseas conference</div></div>
+    <div class="banner warn"><b>Step-up confirmation</b>Granting access to patient records requires OTP confirmation on your verified mobile +91 98••• ••412.</div>
+    <div class="field"><label>OTP</label><div class="input mono" style="max-width:160px;letter-spacing:6px">7 3 1 9 0 2</div></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Confirm &amp; grant access</span></div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — DELEGATE'S VIEW: ACTS-AS BANNER (DR. S. IYER SIGNED IN)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av" style="background:#EDE9FE;color:#6D28D9">SI</span>Dr. S. Iyer ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">My Patients</div>
+      <div class="nav-item active">Acting for: Dr. M. Nair <span class="nav-badge">4</span></div>
+      <div class="nav-item">Refer a Patient</div>
+      <div class="sec-label">Account</div>
+      <div class="nav-item">Profile &amp; Delivery</div>
+    </div>
+    <div class="main">
+      <div class="banner reg"><b>⚠ Acting as delegate for Dr. Meera Nair (MMC/2009/41172)</b>You are signed in as <b>Dr. S. Iyer</b> with read + results-ack access to Dr. Nair's patients until <b>09 Aug 2026, 23:59 IST</b>. Reason: Annual leave — overseas conference. Every action here is logged against both identities. <span class="btn ghost small">Exit delegate view</span></div>
+      <div class="crumb">Doctor Desk › Acting for Dr. M. Nair › Results inbox</div>
+      <div class="page-title">Dr. Nair's results inbox <span class="chip violet">DELEGATE VIEW · READ + ACK</span></div>
+      <div class="page-sub">Read-only patient records. You may acknowledge results; acknowledgements are recorded as "Dr. S. Iyer for Dr. Meera Nair".</div>
+      <table>
+        <tr><th>Patient</th><th>Accession</th><th>Study</th><th>Finalised</th><th>Priority</th><th>SLA (ack)</th><th>Action</th></tr>
+        <tr class="hl"><td>Sofia Rossi · MRN-004822</td><td class="mono">ACC-2026-91247</td><td>MRI Brain w/ contrast</td><td>24 Jul 11:38</td><td><span class="chip red">Critical finding</span></td><td><span class="chip red">OVERDUE 42m</span> owner: Dr. S. Iyer (for Dr. Nair) · escalated-to: Dr. V. Shetty</td><td><span class="btn primary small">View &amp; acknowledge</span></td></tr>
+        <tr><td>Aarav Sharma · MRN-004821</td><td class="mono">ACC-2026-91232</td><td>CT KUB plain</td><td>24 Jul 09:12</td><td><span class="chip grey">Routine</span></td><td><span class="chip teal">Due in 22h</span> owner: Dr. S. Iyer (for Dr. Nair)</td><td><span class="btn small">View</span></td></tr>
+        <tr><td>Priya Menon · MRN-004828</td><td class="mono">ACC-2026-91201</td><td>USG Obstetric (anomaly scan)</td><td>23 Jul 17:05</td><td><span class="chip amber">Abnormal</span></td><td><span class="chip amber">Due in 3h</span> owner: Dr. S. Iyer (for Dr. Nair)</td><td><span class="btn small">View</span></td></tr>
+        <tr><td>Rajesh Gupta · MRN-004795</td><td class="mono">ACC-2026-91188</td><td>X-Ray Chest PA</td><td>23 Jul 12:44</td><td><span class="chip grey">Routine</span></td><td><span class="chip green">Acked 23 Jul 18:02</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      </table>
+      <div class="hint small muted" style="margin-top:8px">🔒 Foetal sex is never disclosed on obstetric studies (PCPNDT Act). Bulk export, delivery-preference changes and re-delegation are disabled in delegate view.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE D — DELEGATION REVOKED</div>
+<div class="modal-wrap">
+  <div class="modal danger">
+    <h3>Revoke delegate access now?</h3>
+    <p style="font-size:13px;margin-bottom:10px">Dr. S. Iyer's access to your patients ends immediately. Any open sessions are terminated within 60 seconds. This does not delete the audit trail of actions already taken.</p>
+    <dl class="kv">
+      <dt>Delegate</dt><dd>Dr. S. Iyer · MMC/2013/58204</dd>
+      <dt>Granted</dt><dd>24 Jul 2026, 18:00 IST · scope: read + results-ack</dd>
+      <dt>Actions logged</dt><dd>17 (14 views, 3 acknowledgements) — view full trail after revoking</dd>
+      <dt>Reason for revoke</dt><dd><div class="input">Returned from leave early</div></dd>
+    </dl>
+    <div class="banner warn" style="margin-top:10px"><b>Step-up confirmation</b>OTP sent to +91 98••• ••412 to confirm it is you revoking access.</div>
+    <div class="modal-actions"><span class="btn">Keep access</span><span class="btn danger">Revoke access now</span></div>
+  </div>
+</div>
+<div class="banner success" style="max-width:760px"><b>Delegation revoked — 25 Jul 2026, 09:14 IST</b>Dr. S. Iyer's session was terminated and they were notified by SMS. 1 result acknowledgement made during the delegation remains attributed as "Dr. S. Iyer for Dr. Meera Nair". Full delegate action trail: 17 entries, exportable as PDF.</div>
+
+<p class="audit">Grant, scope toggles, OTP step-up, every delegate view/acknowledgement (dual identity: delegate + principal), session termination and auto-expiry events are recorded in the access log.</p>
+</section>

@@ -1,0 +1,109 @@
+<section class="screen" id="dd-08">
+<div class="screen-head"><h1><span class="sid">DD-08</span> Referral analytics</h1><div class="meta"><span class="chip grey">CONDITIONAL</span><div class="cluster">G8 Doctor Desk (Referrers) — workspace 'Doctor Desk'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Gives the referrer an aggregate, accessible-table view of their own referral activity: monthly volumes by modality, the turnaround time their patients actually experienced (P50/P90), addendum rate on their reports, and delivery-channel success. Strictly self-only — no comparisons with other doctors and no patient-level drill-down from this screen.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">Dashboard</div>
+      <div class="nav-item">My patients <span class="nav-badge">14</span></div>
+      <div class="nav-item">Reports inbox <span class="nav-badge">3</span></div>
+      <div class="nav-item">New referral</div>
+      <div class="sec-label">Access</div>
+      <div class="nav-item">Access requests</div>
+      <div class="nav-item">Break-glass access</div>
+      <div class="sec-label">Insights</div>
+      <div class="nav-item active">Referral analytics</div>
+      <div class="nav-item">Profile &amp; channels</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › Insights › Referral analytics</div>
+      <div class="page-title">Referral analytics — July 2026 (month to date) <span class="actions-right"><select class="select" style="width:160px"><option>July 2026</option></select></span></div>
+      <div class="page-sub">Your referrals to Meridian Diagnostics, Andheri West · data as of 25 Jul 2026, 08:00 IST · aggregates only</div>
+      <div class="banner reg"><b>🔒 Privacy note — aggregate only.</b> These figures cover only patients you referred, computed as counts and percentiles with no patient identifiers. Magnus does not show you other doctors' volumes, rankings or any comparison — referrer analytics are strictly self-referential by policy.</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">38</div><div class="l">Referrals this month</div><div class="s">Jun 2026: 41</div></div>
+        <div class="kpi"><div class="n">19h 40m</div><div class="l">TAT experienced · P50</div><div class="s">order placed → final report delivered</div></div>
+        <div class="kpi amber"><div class="n">42h 15m</div><div class="l">TAT experienced · P90</div><div class="s">driven by 3 contrast MRI cases</div></div>
+        <div class="kpi"><div class="n">2.6%</div><div class="l">Addendum rate</div><div class="s">1 of 38 reports · Jun: 0%</div></div>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Referral volume by modality — July 2026 <span class="right">Accessible table</span></div>
+          <table>
+            <tr><th>Modality</th><th>Referrals</th><th>Completed</th><th>TAT P50</th><th>TAT P90</th><th>Share of month</th></tr>
+            <tr><td>Ultrasound (incl. obstetric)</td><td>12</td><td>12</td><td>4h 05m</td><td>9h 30m</td><td>32% <div class="progress" style="max-width:120px"><i style="width:32%"></i></div></td></tr>
+            <tr><td>X-ray</td><td>9</td><td>9</td><td>2h 20m</td><td>5h 45m</td><td>24% <div class="progress" style="max-width:120px"><i style="width:24%"></i></div></td></tr>
+            <tr><td>CT</td><td>8</td><td>7</td><td>22h 10m</td><td>38h 00m</td><td>21% <div class="progress" style="max-width:120px"><i style="width:21%"></i></div></td></tr>
+            <tr><td>MRI</td><td>6</td><td>5</td><td>30h 45m</td><td>46h 20m</td><td>16% <div class="progress amber" style="max-width:120px"><i style="width:16%"></i></div></td></tr>
+            <tr><td>Mammography</td><td>3</td><td>2</td><td>21h 00m</td><td>26h 30m</td><td>8% <div class="progress" style="max-width:120px"><i style="width:8%"></i></div></td></tr>
+            <tr><td class="bold">All modalities</td><td class="bold">38</td><td class="bold">35</td><td class="bold">19h 40m</td><td class="bold">42h 15m</td><td>100%</td></tr>
+          </table>
+          <p class="small muted" style="margin-top:6px">TAT experienced = time from order acceptance to final report delivered on your chosen channel. 3 studies still in progress are excluded from percentiles.</p>
+        </div>
+        <div class="card" style="width:300px;flex-shrink:0">
+          <div class="card-title">Delivery-channel success <span class="right">July 2026</span></div>
+          <table>
+            <tr><th>Channel</th><th>Sent</th><th>Delivered</th><th>Success</th></tr>
+            <tr><td>Doctor Desk inbox</td><td>35</td><td>35</td><td><span class="chip green">100%</span></td></tr>
+            <tr><td>Secure e-mail link</td><td>28</td><td>27</td><td><span class="chip green">96%</span></td></tr>
+            <tr><td>WhatsApp (consented)</td><td>19</td><td>17</td><td><span class="chip amber">89%</span></td></tr>
+            <tr><td>Printed copy at desk</td><td>4</td><td>4</td><td><span class="chip green">100%</span></td></tr>
+          </table>
+          <div class="banner warn" style="margin-top:10px;margin-bottom:0"><b>1 e-mail bounce, 2 WhatsApp failures.</b> Check your channels in Profile &amp; channels — failed deliveries fall back to Doctor Desk inbox automatically.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Report addenda on my patients — July 2026 <span class="right">1 event</span></div>
+        <table>
+          <tr><th>When</th><th>Study type</th><th>Addendum category</th><th>What changed</th><th>You were notified</th></tr>
+          <tr><td>20 Jul 2026</td><td>Chest X-ray PA</td><td><span class="chip violet">CLARIFICATION</span></td><td>Measurement corrected; impression unchanged. v2 supersedes v1.</td><td><span class="chip green">READ 20 JUL, 14:02</span></td></tr>
+        </table>
+        <p class="small muted" style="margin-top:6px">Addendum rate 2.6% (1/38). Patient identity is not shown here — open the tagged report from your Reports inbox for clinical detail.</p>
+      </div>
+      <p class="audit">Analytics are computed nightly from de-identified aggregates of your own referrals; viewing this page is recorded in the access log. No export contains patient identifiers.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — 6-MONTH TREND TABLE</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="crumb">Doctor Desk › Insights › Referral analytics › Trend</div>
+      <div class="page-title">6-month trend — Feb to Jul 2026 <span class="actions-right"><span class="btn small">Download CSV (aggregates only)</span></span></div>
+      <div class="page-sub">Your own referral aggregates, month by month · accessible-table format, no charts required</div>
+      <div class="card">
+        <div class="card-title">Volume, turnaround and quality by month <span class="right">Self-only · no peer comparison</span></div>
+        <table>
+          <tr><th>Month</th><th>Referrals</th><th>Top modality</th><th>TAT P50</th><th>TAT P90</th><th>Addendum rate</th><th>Delivery success (all channels)</th></tr>
+          <tr><td>Feb 2026</td><td>29</td><td>Ultrasound (11)</td><td>21h 10m</td><td>44h 05m</td><td>0.0%</td><td>95%</td></tr>
+          <tr><td>Mar 2026</td><td>33</td><td>Ultrasound (12)</td><td>20h 30m</td><td>43h 50m</td><td>3.0% (1)</td><td>96%</td></tr>
+          <tr><td>Apr 2026</td><td>31</td><td>X-ray (10)</td><td>19h 55m</td><td>41h 10m</td><td>0.0%</td><td>97%</td></tr>
+          <tr><td>May 2026</td><td>36</td><td>Ultrasound (13)</td><td>18h 40m</td><td>40h 25m</td><td>2.8% (1)</td><td>97%</td></tr>
+          <tr><td>Jun 2026</td><td>41</td><td>Ultrasound (14)</td><td>18h 05m</td><td>39h 30m</td><td>0.0%</td><td>98%</td></tr>
+          <tr class="hl"><td>Jul 2026 (MTD)</td><td>38</td><td>Ultrasound (12)</td><td>19h 40m</td><td>42h 15m</td><td>2.6% (1)</td><td>96%</td></tr>
+        </table>
+        <p class="small muted" style="margin-top:6px">P50/P90 are computed on completed studies only. Months with fewer than 5 referrals in a modality suppress that modality's percentile cell to avoid small-number identification.</p>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Reading this table</div>
+          <div class="check"><span class="box on">✓</span><span><b>TAT experienced</b> is patient-experienced turnaround (order → report delivered), not the lab's internal reporting TAT — it includes delivery-channel delays.</span></div>
+          <div class="check"><span class="box on">✓</span><span><b>Addendum rate</b> counts clarification and correction addenda on final reports for your patients; a low, non-zero rate is normal.</span></div>
+          <div class="check"><span class="box on">✓</span><span><b>Delivery success</b> is first-attempt success across your enabled channels; failures always fall back to your Doctor Desk inbox.</span></div>
+        </div>
+        <div class="card" style="width:320px;flex-shrink:0">
+          <div class="card-title">Privacy &amp; scope <span class="right">Policy</span></div>
+          <p class="small">This page shows aggregates of your own referrals only. Magnus never shows referrers league tables, other doctors' figures, or incentive-linked metrics; referral analytics carry no payment linkage, consistent with Meridian's anti-inducement policy. CSV downloads contain the aggregate rows above and nothing else.</p>
+        </div>
+      </div>
+      <p class="audit">Trend view and CSV downloads (aggregates only, no identifiers) by Dr. Meera Nair on 25 Jul 2026 are recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<p class="audit">Referral analytics access is itself audited; any attempt to query another referrer's aggregates is denied and recorded in the access log.</p>
+</section>

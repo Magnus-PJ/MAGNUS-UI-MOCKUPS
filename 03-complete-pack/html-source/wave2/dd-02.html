@@ -1,0 +1,119 @@
+<section class="screen" id="dd-02">
+<div class="screen-head"><h1><span class="sid">DD-02</span> Results inbox &amp; critical acknowledgement</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G8 Doctor Desk (Referrers)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The referrer's single feed of signed results for their patients. Critical findings are pinned red and require an explicit read-back acknowledgement with identity confirmation; unacknowledged criticals escalate to phone contact after 15 minutes. Addenda replace prior versions with a visible diff, and routine results can be marked reviewed to close the communication loop.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">My patients</div>
+      <div class="nav-item active">Results inbox <span class="nav-badge red">3</span></div>
+      <div class="nav-item">New order</div>
+      <div class="nav-item">Order tracking <span class="nav-badge">7</span></div>
+      <div class="nav-item">Reports archive</div>
+      <div class="sec-label">Account</div>
+      <div class="nav-item">Notification preferences</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › Results inbox</div>
+      <div class="page-title">Results inbox <a class="btn small actions-right">⚙ Notification preferences</a></div>
+      <div class="page-sub">Signed results for patients you referred · Dr. Meera Nair · updated 25 Jul 2026 10:05 IST</div>
+
+      <div class="kpi-row">
+        <div class="kpi red"><div class="n">1</div><div class="l">Critical — unacknowledged</div><div class="s">Phone escalation in 09:12 if not acked</div></div>
+        <div class="kpi amber"><div class="n">2</div><div class="l">Unread (routine)</div><div class="s">Oldest 21h · target review 48h</div></div>
+        <div class="kpi"><div class="n">1</div><div class="l">Addenda</div><div class="s">1 report updated — replaces v1</div></div>
+        <div class="kpi"><div class="n">14</div><div class="l">Reviewed this week</div><div class="s">Closed-loop rate 100%</div></div>
+      </div>
+
+      <div style="display:flex;gap:8px;margin-bottom:12px">
+        <span class="chip teal">All (8)</span><span class="chip grey">Unread (2)</span><span class="chip red">Critical (1)</span><span class="chip violet">Addenda (1)</span>
+        <span class="grow"></span>
+        <input class="input" style="width:220px" value="Search patient / accession…">
+        <select class="select" style="width:150px"><option>Last 14 days</option></select>
+      </div>
+
+      <div class="banner danger"><b>⚠ 1 critical result requires acknowledgement</b>If not acknowledged within <b>15 minutes</b> of release, Meridian's closed-loop policy triggers <b>phone escalation</b>: front office D. Nair calls your verified number +91 98••• ••412, then escalates to your listed alternate. Ack timer started 10:02 IST.</div>
+
+      <table>
+        <tr><th></th><th>Patient</th><th>Result</th><th>Signed</th><th>Status</th><th>Action</th></tr>
+        <tr style="background:#FEF2F2"><td>📌</td><td><b>Mohammed Al-Rashid</b><br><span class="mono small">MRN-004790 · ACC-2026-91330</span></td><td><b>CT Head (plain)</b> — acute subdural haematoma, 8&nbsp;mm midline shift<br><span class="chip outline-red">CRITICAL FINDING</span></td><td>Dr. V. Shetty<br>25 Jul 10:02</td><td><span class="chip red">ACKNOWLEDGE REQUIRED · 09:12 left</span></td><td><a class="btn danger small">Acknowledge now</a></td></tr>
+        <tr class="hl"><td>●</td><td>Sofia Rossi<br><span class="mono small">MRN-004822 · ACC-2026-91247</span></td><td>MRI Right Knee — medial meniscal tear, grade II</td><td>Dr. V. Shetty<br>22 Jul 10:14</td><td><span class="chip amber">Unread · 21h</span></td><td><a class="btn small ghost">Open</a> · <a class="btn small">Mark reviewed</a></td></tr>
+        <tr class="hl"><td>●</td><td>Priya Menon<br><span class="mono small">MRN-004828 · ACC-2026-91288</span></td><td>USG Abdomen — mild fatty liver, no focal lesion</td><td>Dr. V. Shetty<br>24 Jul 18:41</td><td><span class="chip amber">Unread · 15h</span></td><td><a class="btn small ghost">Open</a> · <a class="btn small">Mark reviewed</a></td></tr>
+        <tr><td>↺</td><td>Rajesh Gupta<br><span class="mono small">MRN-004795 · ACC-2026-90754</span></td><td>X-Ray Chest PA — <span class="chip violet">UPDATED — replaces v1</span> addendum clarifies left-base opacity<br><a class="btn small ghost">View diff v1 → v2</a></td><td>Dr. V. Shetty<br>25 Jul 08:20 (v2)</td><td><span class="chip amber">Addendum unreviewed</span></td><td><a class="btn small ghost">Open v2</a> · <a class="btn small">Mark reviewed</a></td></tr>
+        <tr><td></td><td>Aarav Sharma<br><span class="mono small">MRN-004821 · ACC-2026-91101</span></td><td>MRI Lumbar Spine — L4-L5 disc bulge, no cord compression</td><td>Dr. V. Shetty<br>23 Jul 12:05</td><td><span class="chip green">Reviewed 23 Jul 14:30</span></td><td><a class="btn small ghost">Open</a></td></tr>
+        <tr><td></td><td>Ananya Rao<br><span class="mono small">MRN-004819 · ACC-2026-91056</span></td><td>USG Thyroid — TI-RADS 2, benign appearance</td><td>Dr. V. Shetty<br>22 Jul 17:48</td><td><span class="chip green">Reviewed 22 Jul 19:02</span></td><td><a class="btn small ghost">Open</a></td></tr>
+        <tr class="dim"><td></td><td>Sofia Rossi<br><span class="mono small">MRN-004822 · ACC-2026-90882</span></td><td>X-Ray Right Knee AP/LAT — no fracture</td><td>Dr. V. Shetty<br>15 Jul 19:02</td><td><span class="chip green">Reviewed 16 Jul 08:12</span></td><td><a class="btn small ghost">Open</a></td></tr>
+        <tr class="dim"><td></td><td>Rajesh Gupta<br><span class="mono small">MRN-004795 · ACC-2026-90754</span></td><td>X-Ray Chest PA — v1 <span class="chip grey">superseded by v2</span></td><td>Dr. V. Shetty<br>18 Jul 11:30</td><td><span class="chip grey">Superseded</span></td><td><a class="btn small ghost">History</a></td></tr>
+      </table>
+      <p class="audit">Inbox opened by Dr. Meera Nair · 25 Jul 2026 10:05 IST · critical row displayed, ack pending — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — CRITICAL ACKNOWLEDGEMENT MODAL (READ-BACK + IDENTITY CONFIRM)</div>
+<div class="modal-wrap">
+  <div class="modal danger">
+    <h3>⚠ Acknowledge critical result — CT Head, Mohammed Al-Rashid</h3>
+    <div class="banner danger" style="margin-bottom:12px"><b>Critical finding communicated</b>Acute subdural haematoma with 8&nbsp;mm midline shift. Released by Dr. V. Shetty at 10:02 IST, 25 Jul 2026. Phone escalation triggers at 10:17 IST if unacknowledged.</div>
+    <dl class="kv" style="margin-bottom:12px">
+      <dt>Patient</dt><dd>Mohammed Al-Rashid · MRN-004790 · M · 58y</dd>
+      <dt>Accession</dt><dd class="mono">ACC-2026-91330 · CT Head (plain) · STAT</dd>
+      <dt>Ack reference</dt><dd class="mono">ACK-2026-0187 (issued on confirm)</dd>
+    </dl>
+    <div class="field"><label>Read-back statement <span class="req">*</span></label>
+      <div class="check"><span class="box on">✓</span> I have read the full signed report, and I read back the critical finding as: <b>"acute subdural haematoma, 8&nbsp;mm midline shift — urgent neurosurgical referral advised."</b></div>
+      <div class="check"><span class="box on">✓</span> I accept clinical responsibility for the next action for this patient and will arrange urgent follow-up.</div>
+    </div>
+    <div class="field"><label>Identity confirmation <span class="req">*</span></label>
+      <input class="input" value="OTP sent to +91 98••• ••412 — enter 6-digit code: 4 8 2 • • •">
+      <div class="hint">🔒 Step-up identity confirmation is required for critical acknowledgements. Your name, registration number, IP and timestamp are sealed into the ack record.</div>
+    </div>
+    <dl class="kv"><dt>Timestamp</dt><dd>25 Jul 2026 10:07:44 IST (server time, tamper-evident)</dd></dl>
+    <div class="modal-actions"><a class="btn">Cancel</a><a class="btn danger">Confirm acknowledgement · issue ACK-2026-0187</a></div>
+  </div>
+</div>
+<p class="audit">Ack attempt started for ACC-2026-91330 · OTP challenge issued to verified number · 25 Jul 2026 10:07 IST — recorded in the access log.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — POST-ACK CLOSED-LOOP CHIP</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Doctor Desk › Results inbox</div>
+      <div class="banner success"><b>Critical result acknowledged — loop closed</b>ACK-2026-0187 recorded at 10:07:44 IST by Dr. Meera Nair (OTP-verified). Radiologist Dr. V. Shetty and front office D. Nair have been notified; the phone-escalation timer is cancelled. The ack is permanently linked to the report and visible in the audit trail.</div>
+      <table>
+        <tr><th></th><th>Patient</th><th>Result</th><th>Status</th><th>Action</th></tr>
+        <tr><td>✓</td><td>Mohammed Al-Rashid<br><span class="mono small">MRN-004790 · ACC-2026-91330</span></td><td>CT Head (plain) — critical finding</td><td><span class="chip green">✓ ACKNOWLEDGED · ACK-2026-0187 · 10:07 IST · closed loop</span></td><td><a class="btn small ghost">Open report</a> · <a class="btn small ghost">Ack certificate</a></td></tr>
+      </table>
+      <p class="audit">ACK-2026-0187 sealed: read-back text, OTP verification result, referrer identity and server timestamp — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE D — ADDENDUM ROW WITH DIFF</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Doctor Desk › Results inbox › Addendum · ACC-2026-90754</div>
+      <div class="banner warn"><b>Report updated — v2 replaces v1</b>Dr. V. Shetty issued an addendum on 25 Jul 08:20 IST. Version 1 (18 Jul 11:30) is retained read-only and marked superseded. If you acted on v1, please review the changed impression below.</div>
+      <div class="card">
+        <div class="card-title">X-Ray Chest PA — Rajesh Gupta · MRN-004795 <span class="right">Diff v1 → v2</span></div>
+        <table>
+          <tr><th>Section</th><th>v1 (superseded · 18 Jul 11:30)</th><th>v2 (current · 25 Jul 08:20)</th></tr>
+          <tr><td><b>Impression</b></td><td style="background:#FEE2E2">Left-base opacity, likely positional artefact. No follow-up required.</td><td style="background:#DCFCE7">Persistent left-base opacity on comparison; recommend HRCT chest within 2 weeks to exclude early consolidation.</td></tr>
+          <tr><td>Findings</td><td colspan="2" class="muted">Unchanged (lung fields, cardiac silhouette, bony thorax paragraphs identical)</td></tr>
+        </table>
+        <div style="margin-top:10px"><a class="btn primary small">Mark addendum reviewed</a> <a class="btn small">Order HRCT for this patient</a> <a class="btn small ghost">Open full v2 report</a></div>
+      </div>
+      <p class="audit">Addendum diff v1→v2 for ACC-2026-90754 viewed by Dr. Meera Nair · 25 Jul 2026 10:12 IST — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<p class="audit">Every inbox open, mark-reviewed, acknowledgement and diff view carries referrer identity and server timestamp, and is recorded in the access log.</p>
+</section>

@@ -1,0 +1,150 @@
+<section class="screen" id="bl-11">
+<div class="screen-head"><h1><span class="sid">BL-11</span> Payer &amp; scheme master</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Central registry of corporate accounts, TPAs and government/CSR schemes that Meridian bills on credit. MVP-1 scope is deliberately minimal: credit-billing terms and per-payer rate lists only — claim submission, pre-authorisation and EDI integrations are deferred to a later wave. Billing supervisors maintain payer records; cashiers only consume them at invoice time.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Billing dashboard</div>
+      <div class="nav-item">New invoice</div>
+      <div class="nav-item">Payments &amp; receipts</div>
+      <div class="nav-item">Refunds &amp; credit notes</div>
+      <div class="nav-item">Advances &amp; deposits</div>
+      <div class="nav-item">Patient statements</div>
+      <div class="sec-label">Masters &amp; setup</div>
+      <div class="nav-item active">Payer &amp; scheme master</div>
+      <div class="nav-item">Discount rules</div>
+      <div class="nav-item">Tax &amp; numbering</div>
+      <div class="nav-item">Approvals queue <span class="nav-badge">3</span></div>
+      <div class="sec-label">Reports</div>
+      <div class="nav-item">Day close</div>
+      <div class="nav-item">GST &amp; exempt register</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Masters &amp; setup › Payer &amp; scheme master</div>
+      <div class="page-title">Payer &amp; scheme master <span class="actions-right"><span class="btn small">Export list</span> <span class="btn primary small">+ Add payer</span></span></div>
+      <div class="page-sub">Corporate, TPA and scheme accounts billed on credit · rate lists &amp; credit terms only in MVP-1</div>
+      <div class="banner info"><b>MVP-1 scope: credit billing + rate lists only</b>Claim submission, pre-authorisation tracking and TPA EDI portals are <span class="chip violet">Post-MVP1</span>. Until then, invoices raised to a payer are settled by manual reconciliation against bank/UTR references.</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">14</div><div class="l">Active payers</div><div class="s">9 corporate · 3 TPA · 2 schemes</div></div>
+        <div class="kpi"><div class="n">₹4,82,300</div><div class="l">Credit outstanding</div><div class="s">across all payers, as of 25 Jul</div></div>
+        <div class="kpi amber"><div class="n">2</div><div class="l">Near credit limit</div><div class="s">&gt;85% of sanctioned limit used</div></div>
+        <div class="kpi red"><div class="n">1</div><div class="l">On hold</div><div class="s">invoicing blocked — overdue &gt;90d</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Payer directory <span class="right">14 records · Andheri West + shared org-level</span></div>
+        <div class="row" style="margin-bottom:10px">
+          <input class="input" style="max-width:260px" value="Search payer name / code…"/>
+          <select class="select" style="max-width:150px"><option>Type: All</option></select>
+          <select class="select" style="max-width:150px"><option>Status: All</option></select>
+        </div>
+        <table>
+          <tr><th>Payer code</th><th>Name</th><th>Type</th><th>Rate list</th><th>Credit terms</th><th>Limit used</th><th>Invoices → payer</th><th>Status</th><th></th></tr>
+          <tr class="hl"><td class="mono">PAY-CORP-014</td><td class="bold">TechNova Solutions Pvt Ltd</td><td><span class="chip blue">Corporate</span></td><td>RL-TECHNOVA-26 · 142 items</td><td>30 days · ₹3,00,000</td><td>₹1,84,600 (62%)</td><td>✔ Consolidated monthly</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="mono">PAY-CORP-009</td><td class="bold">Westline Shipping Co.</td><td><span class="chip blue">Corporate</span></td><td>RL-STD-26 (standard)</td><td>45 days · ₹2,00,000</td><td>₹1,76,450 (88%)</td><td>✔ Per-visit</td><td><span class="chip amber">Near limit</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="mono">PAY-TPA-003</td><td class="bold">MediAssist TPA</td><td><span class="chip violet">TPA</span></td><td>RL-MEDIASSIST-26 · 210 items</td><td>60 days · ₹5,00,000</td><td>₹92,800 (19%)</td><td>✔ Per-visit</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="mono">PAY-TPA-005</td><td class="bold">HealthServe Assurance TPA</td><td><span class="chip violet">TPA</span></td><td>RL-STD-26 (standard)</td><td>60 days · ₹1,50,000</td><td>₹1,48,900 (99%)</td><td>✔ Per-visit</td><td><span class="chip amber">Near limit</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="mono">PAY-SCH-001</td><td class="bold">Sr. Citizen Health Camp (BMC ward K/W)</td><td><span class="chip teal">Scheme</span></td><td>RL-CAMP-26 · 38 items</td><td>Prepaid grant · n/a</td><td>—</td><td>✖ Bill patient ₹0</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="mono">PAY-CORP-011</td><td class="bold">Suryadeep Textiles Ltd</td><td><span class="chip blue">Corporate</span></td><td>RL-STD-26 (standard)</td><td>30 days · ₹1,00,000</td><td>₹1,12,300 (112%)</td><td>✔ Consolidated monthly</td><td><span class="chip red">On hold</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="mono">PAY-CORP-002</td><td class="bold">Arvind Logistics Group</td><td><span class="chip blue">Corporate</span></td><td>RL-ARVIND-26 · 96 items</td><td>30 days · ₹2,50,000</td><td>₹41,200 (16%)</td><td>✔ Per-visit</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="mono">PAY-SCH-002</td><td class="bold">Meridian Staff &amp; Dependants Scheme</td><td><span class="chip teal">Scheme</span></td><td>RL-STAFF-26 · all items</td><td>Internal · n/a</td><td>—</td><td>✖ Internal transfer</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr class="dim"><td class="mono">PAY-TPA-001</td><td>Paramount Health TPA</td><td><span class="chip violet">TPA</span></td><td>RL-STD-25 (expired)</td><td>60 days · ₹2,00,000</td><td>₹0</td><td>✔ Per-visit</td><td><span class="chip grey">Inactive</span></td><td><span class="btn ghost small">Open</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Credit-limit % is computed on unpaid credit invoices net of credit notes. Payers at &gt;100% are automatically set to <b>On hold</b>; new credit invoices require supervisor override via BL-08.</div>
+      </div>
+      <p class="audit">Payer master viewed by M. Kulkarni (Billing supervisor) · 25 Jul 2026, 11:42 IST — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PAYER DETAIL (TECHNOVA SOLUTIONS, CORPORATE)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Masters &amp; setup</div>
+      <div class="nav-item active">Payer &amp; scheme master</div>
+      <div class="nav-item">Discount rules</div>
+      <div class="nav-item">Tax &amp; numbering</div>
+      <div class="nav-item">Approvals queue <span class="nav-badge">3</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Payer &amp; scheme master › PAY-CORP-014</div>
+      <div class="page-title">TechNova Solutions Pvt Ltd <span class="chip blue">Corporate</span> <span class="chip green">Active</span> <span class="actions-right"><span class="btn small">Deactivate</span> <span class="btn primary small">Save changes</span></span></div>
+      <div class="page-sub">Payer code PAY-CORP-014 · created 04 Apr 2026 by K. Verma · last edited 18 Jul 2026 by M. Kulkarni</div>
+      <div class="split">
+        <div>
+          <div class="card">
+            <div class="card-title">Identity &amp; billing</div>
+            <dl class="kv">
+              <dt>Legal name</dt><dd>TechNova Solutions Private Limited</dd>
+              <dt>Payer GSTIN</dt><dd class="mono">27AABCT4590P1ZK <span class="chip grey">B2B — GSTIN shown on invoice</span></dd>
+              <dt>Billing address</dt><dd>7th Floor, Ozone Tower, Veera Desai Rd, Andheri West, Mumbai 400053</dd>
+              <dt>Billing contact</dt><dd>Ms. R. Kelkar, HR Ops · accounts@technova.in · +91 22 4… (masked)</dd>
+              <dt>Invoices to payer</dt><dd><span class="box on">✓</span> On — <b>consolidated monthly invoice</b> (last working day) · patient sees ₹0-due summary</dd>
+              <dt>Invoice series</dt><dd class="mono">INV/AND/26-27/0xxx (shared branch series — see BL-13)</dd>
+            </dl>
+          </div>
+          <div class="card">
+            <div class="card-title">Credit terms <span class="right">step-up required to change</span></div>
+            <div class="row">
+              <div class="field grow"><label>Credit period (days)</label><input class="input" value="30"/></div>
+              <div class="field grow"><label>Credit limit (₹)</label><input class="input" value="3,00,000"/></div>
+              <div class="field grow"><label>On-hold threshold</label><input class="input" value="100% of limit"/></div>
+            </div>
+            <div class="banner warn" style="margin-bottom:0"><b>Changing credit terms is a money-moving action</b>Saving a new limit or period requires step-up identity confirmation (Magnus PIN) by a Billing supervisor or Org admin, and is logged with before/after values.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Employee verification note <span class="right">shown to front office at check-in</span></div>
+            <textarea class="textarea">Verify current TechNova photo ID card + employee code (TN-xxxxx). Dependants: name must appear on the HR dependant list emailed monthly by Ms. Kelkar (stored under payer documents). If not on list — bill as self-pay, do NOT hold the report.</textarea>
+            <div class="small muted" style="margin-top:6px">This note appears verbatim on FO-02 registration when this payer is selected. No patient clinical data is shared with the payer beyond the invoice line descriptions.</div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Rate list</div>
+            <dl class="kv" style="grid-template-columns:110px 1fr">
+              <dt>Linked list</dt><dd class="mono">RL-TECHNOVA-26</dd>
+              <dt>Items priced</dt><dd>142 of 486 services (rest fall back to RL-STD-26)</dd>
+              <dt>Validity</dt><dd>01 Apr 2026 – 31 Mar 2027</dd>
+              <dt>Avg. variance</dt><dd>−8.5% vs standard tariff</dd>
+            </dl>
+            <a class="btn small" style="margin-top:8px">Open rate list ↗</a>
+          </div>
+          <div class="card">
+            <div class="card-title">Exposure snapshot</div>
+            <dl class="kv" style="grid-template-columns:130px 1fr">
+              <dt>Outstanding</dt><dd class="bold">₹1,84,600</dd>
+              <dt>Limit used</dt><dd>62% <div class="progress"><i style="width:62%"></i></div></dd>
+              <dt>Oldest unpaid</dt><dd>INV/AND/26-27/0871 · 22 days</dd>
+              <dt>Last payment</dt><dd>₹96,400 · NEFT UTR AXISN02657114 · 10 Jul 2026</dd>
+            </dl>
+          </div>
+          <div class="card">
+            <div class="card-title">Post-MVP1 (visible, disabled)</div>
+            <div class="check"><span class="box"></span> Claim submission &amp; status tracking <span class="chip violet">Post-MVP1</span></div>
+            <div class="check"><span class="box"></span> Pre-authorisation workflow <span class="chip violet">Post-MVP1</span></div>
+            <div class="check"><span class="box"></span> TPA EDI / portal integration <span class="chip violet">Post-MVP1</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="audit">Payer PAY-CORP-014 opened in edit mode by M. Kulkarni · field-level change history retained 8 years — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — MVP SCOPE GUARD WHEN USER OPENS "CLAIMS" TAB</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Claims &amp; pre-authorisation — not in MVP-1 <span class="chip violet">Post-MVP1</span></h3>
+    <p class="small" style="margin-bottom:10px">Magnus MVP-1 supports <b>credit billing with payer rate lists</b> only. Claim creation, TPA pre-auth, EDI file exchange and claim-status reconciliation arrive in a later release on the product roadmap.</p>
+    <div class="banner info" style="margin-bottom:10px"><b>What you can do today</b>Raise credit invoices against this payer, track outstanding vs credit limit, record payer payments with bank/UTR references, and export the payer ledger (CSV) for manual claim filing.</div>
+    <div class="check"><span class="box on">✓</span> Notify me when claims module is enabled for Meridian Diagnostics</div>
+    <div class="modal-actions"><span class="btn">Export payer ledger (CSV)</span><span class="btn primary">Back to payer detail</span></div>
+  </div>
+</div>
+<p class="audit">All payer-master views, edits and credit-term changes (with before/after values and step-up result) are recorded in the access log.</p>
+</section>

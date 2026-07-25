@@ -1,0 +1,93 @@
+<section class="screen" id="nt-06">
+<div class="screen-head"><h1><span class="sid">NT-06</span> Patient message log</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Per-patient history of every outbound message — event, channel, PHI-free template preview and delivery status — so front office can answer "did the patient get the link?" without opening the clinical record. Resends are governed by hard rules (max attempts + cooldown), and opening any patient's log requires a captured access reason.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front Office) ▾</div></div>
+  <div class="body">
+  <div class="sidebar">
+    <div class="sec-label">Notifications</div>
+    <div class="nav-item">Delivery dashboard</div>
+    <div class="nav-item">Outbox &amp; queue <span class="nav-badge">38</span></div>
+    <div class="nav-item">Failures &amp; retries <span class="nav-badge red">4</span></div>
+    <div class="nav-item">Templates</div>
+    <div class="nav-item">Suppression &amp; consent</div>
+    <div class="nav-item active">Patient message log</div>
+    <div class="nav-item">Quiet hours &amp; rules</div>
+    <div class="nav-item">Send-test harness</div>
+    <div class="sec-label">Related</div>
+    <div class="nav-item">Patient record ↗</div>
+    <div class="nav-item">Audit log ↗</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Notifications › Patient message log › Sofia Rossi</div>
+    <div class="page-title">Message log — Sofia Rossi <span class="mono muted" style="font-weight:400;font-size:13px">MRN-004822</span></div>
+    <div class="page-sub">Outbound history · access reason on file: "patient called asking about report link" · session expires in 14 min</div>
+    <div class="banner info"><b>PHI-free by design.</b> Messages sent by Magnus contain no diagnosis, no test names beyond category, and no attachments — only secure links that require the patient's own verification (DOB + OTP). Previews below show the exact template text as sent.</div>
+    <div class="row" style="margin-bottom:12px">
+      <div class="kpi grow"><div class="n">11</div><div class="l">Messages · 90 days</div><div class="s">SMS 6 · WhatsApp 4 · Email 1</div></div>
+      <div class="kpi grow"><div class="n">10</div><div class="l">Delivered</div><div class="s">1 failed → auto-fallback used</div></div>
+      <div class="kpi amber grow"><div class="n">2 / 3</div><div class="l">Resends used (report-ready)</div><div class="s">cooldown 30 min between resends</div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Outbound history <span class="right">Newest first · IST</span></div>
+      <table>
+        <tr><th>Sent (IST)</th><th>Event</th><th>Channel · destination</th><th>Content preview (as sent · PHI-free)</th><th>Status</th><th></th></tr>
+        <tr class="hl"><td class="mono">25 Jul 10:42</td><td>Report ready<br><span class="mono small muted">ACC-2026-91247</span></td><td>SMS<br><span class="mono small">+91 98••• ••231</span></td><td class="small">"Meridian Diagnostics: your report is ready. View securely: mgns.in/r/•••••. Link needs DOB verification. Help: 022-4000-1100"</td><td><span class="chip green">DELIVERED 10:42</span></td><td><span class="btn small">Resend ▾</span></td></tr>
+        <tr><td class="mono">25 Jul 10:12</td><td>Report ready<br><span class="mono small muted">ACC-2026-91247</span></td><td>SMS<br><span class="mono small">+91 98••• ••231</span></td><td class="small">same template · TPL-RPT-READY-v4 (en)</td><td><span class="chip amber">EXPIRED · no DLR in 25 min</span></td><td><span class="small muted">superseded</span></td></tr>
+        <tr><td class="mono">24 Jul 16:05</td><td>Payment receipt<br><span class="mono small muted">RCP/AND/26-27/0412</span></td><td>WhatsApp<br><span class="mono small">+91 98••• ••231</span></td><td class="small">"Payment of ₹3,540 received at Meridian Diagnostics, Andheri West. Receipt RCP/AND/26-27/0412: mgns.in/p/•••••"</td><td><span class="chip green">READ 16:11</span></td><td><span class="btn small">Resend ▾</span></td></tr>
+        <tr><td class="mono">24 Jul 09:31</td><td>Appointment reminder<br><span class="mono small muted">APPT-2026-51108</span></td><td>WhatsApp<br><span class="mono small">+91 98••• ••231</span></td><td class="small">"Reminder: your appointment at Meridian Diagnostics Andheri West is tomorrow 25 Jul, 10:00 AM. Reply 1 to confirm, 2 to reschedule."</td><td><span class="chip green">DELIVERED 09:31</span></td><td><span class="btn small">Resend ▾</span></td></tr>
+        <tr><td class="mono">22 Jul 14:18</td><td>Preparation instructions<br><span class="mono small muted">APPT-2026-51108</span></td><td>Email<br><span class="mono small">s•••a.r@gm•••.com</span></td><td class="small">"Preparation for your upcoming scan — fasting and arrival instructions (no report content in this email)."</td><td><span class="chip green">DELIVERED 14:19</span></td><td><span class="btn small">Resend ▾</span></td></tr>
+        <tr><td class="mono">22 Jul 14:02</td><td>Booking confirmation<br><span class="mono small muted">APPT-2026-51108</span></td><td>SMS<br><span class="mono small">+91 98••• ••231</span></td><td class="small">"Meridian Diagnostics: appointment confirmed for 25 Jul, 10:00 AM, Andheri West. Details: mgns.in/a/•••••"</td><td><span class="chip green">DELIVERED 14:02</span></td><td><span class="btn small">Resend ▾</span></td></tr>
+        <tr><td class="mono">18 Jul 11:47</td><td>Invoice issued<br><span class="mono small muted">INV/AND/26-27/0298</span></td><td>SMS<br><span class="mono small">+91 98••• ••231</span></td><td class="small">"Your invoice INV/AND/26-27/0298 from Meridian Diagnostics is available: mgns.in/i/•••••"</td><td><span class="chip red">FAILED · DND window</span> <span class="chip green">FALLBACK EMAIL ✓</span></td><td><span class="btn small ghost">Trace</span></td></tr>
+      </table>
+    </div>
+    <div class="row">
+      <div class="card grow">
+        <div class="card-title">Resend rules (enforced)</div>
+        <div class="kv">
+          <dt>Max resends</dt><dd>3 per event per channel (report-ready, invoice, receipt)</dd>
+          <dt>Cooldown</dt><dd>30 minutes between resends of the same event</dd>
+          <dt>Beyond limit</dt><dd>Escalate to front-office call task — never more messages</dd>
+          <dt>Suppression</dt><dd>Resend honours suppressions &amp; quiet hours; no override</dd>
+        </div>
+      </div>
+      <div class="card" style="width:300px">
+        <div class="card-title">Retention</div>
+        <div class="small">Message metadata and template version are retained 3 years for audit. Rendered secure-link tokens expire after 30 days and are never stored in this log. Access to this log is itself logged.</div>
+      </div>
+    </div>
+  </div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — Resend guard reached (max attempts / cooldown)</div>
+<div class="modal-wrap">
+  <div class="modal danger" style="max-width:600px">
+    <h3>Resend blocked — limit reached</h3>
+    <div class="banner danger"><b>3 of 3 resends used for "Report ready · ACC-2026-91247" on SMS.</b> Last resend 25 Jul 10:42 IST. A fourth message would breach the per-event resend rule and risks TRAI complaint flags.</div>
+    <div class="kv" style="margin-bottom:10px">
+      <dt>Cooldown</dt><dd>Also active — next resend window (any channel) opens 11:12 IST</dd>
+      <dt>Delivery evidence</dt><dd>Last attempt DELIVERED 10:42 (gateway DLR ref DLR-88412)</dd>
+      <dt>What you can do</dt><dd>Create a call task, or invite the patient to collect the report at the desk with ID verification.</dd>
+    </div>
+    <div class="check"><span class="box on">✓</span><span class="small">Create front-office call task (owner: D. Nair · SLA <span class="chip teal">4h</span>)</span></div>
+    <div class="modal-actions"><span class="btn">Close</span><span class="btn disabled">Resend (blocked)</span><span class="btn primary">Create call task</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — Access-reason prompt before opening a patient's log</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:560px">
+    <h3>Reason required — open message log for Priya Menon (MRN-004828)</h3>
+    <p class="small muted" style="margin-bottom:10px">You are not on this patient's active care/service team today. Under Meridian's DPDP access policy, a reason is required and will be visible to privacy audit and, on request, to the patient.</p>
+    <div class="field"><label>Reason category <span class="req">*</span></label>
+      <select class="select"><option>Patient phoned — delivery query</option><option>Billing follow-up</option><option>Complaint investigation</option><option>Other (describe)</option></select></div>
+    <div class="field"><label>Details <span class="req">*</span></label>
+      <textarea class="textarea">Patient called 15:20 asking why WhatsApp reminder was not received.</textarea>
+      <div class="hint">Minimum 20 characters · do not include clinical details</div></div>
+    <div class="check"><span class="box on">✓</span><span class="small">I understand this access is logged with my identity and reviewed in the weekly privacy audit sample.</span></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Record reason &amp; open log (15 min session)</span></div>
+  </div>
+</div>
+<p class="audit">Opening a patient message log, every resend, every blocked resend and every trace view is recorded in the access log with user, captured reason, timestamp and patient reference; log sessions auto-expire after 15 minutes.</p>
+</section>

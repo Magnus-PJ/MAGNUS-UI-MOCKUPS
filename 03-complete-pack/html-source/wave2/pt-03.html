@@ -1,0 +1,79 @@
+<section class="screen" id="pt-03">
+<div class="screen-head"><h1><span class="sid">PT-03</span> Link expired / paused / renew</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G2 Patient-Facing — patient chrome (no sidebar)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> When a patient opens a secure link after its 72-hour window, they see a friendly expiry explanation and can request a fresh link — sent only to the registered mobile, never to a number typed on this page. Repeated requests are gently rate-limited with a clinic contact fallback, and a changed-number path explains that number changes require an in-person ID check.</div>
+
+<div class="state-tag">STATE A — LINK EXPIRED</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:1px solid #E2E8F0;padding:12px;text-align:center"><span class="brand">◎ Meridian Diagnostics</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="text-align:center;padding:22px 20px">
+      <div style="font-size:34px;margin-bottom:8px">⏳</div>
+      <div style="font-size:18px;font-weight:800;margin-bottom:4px">This link has expired</div>
+      <div class="muted" style="font-size:13px;margin-bottom:14px">Secure links stop working 72 hours after they are sent. Your report is safe — nothing has been deleted. Expired links protect you if an old SMS is seen by someone else later.</div>
+      <div class="kv" style="text-align:left;grid-template-columns:140px 1fr;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:12px;margin-bottom:14px">
+        <dt>Link sent</dt><dd>21 Jul 2026, 6:42 PM IST</dd>
+        <dt>Expired</dt><dd>24 Jul 2026, 6:42 PM IST <span class="chip grey">72-hour limit</span></dd>
+        <dt>Registered mobile</dt><dd class="mono">•••• •••4821</dd>
+      </div>
+      <a class="btn primary" style="display:block;padding:13px;font-size:15px;margin-bottom:10px">Send a new link to •••• •••4821</a>
+      <a class="btn ghost" style="display:block">My mobile number has changed</a>
+      <div class="small muted" style="margin-top:12px">🔒 For your protection, a new link can only go to the mobile number registered at the clinic. We never send links to a number entered on this page.</div>
+    </div>
+    <div class="banner info"><b>Prefer to speak to someone?</b>Call Andheri West front desk on <span class="mono">022-4890 2210</span> (8 AM – 9 PM IST) or collect a printed copy at the clinic with a photo ID.</div>
+  </div>
+  <div style="text-align:center;padding:14px;font-size:11px;color:#64748B;border-top:1px solid #E2E8F0;background:#fff">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India<br><a style="color:#0F766E">Privacy</a> · <a style="color:#0F766E">Terms</a> · <a style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — REQUEST SENT (with gentle rate-limit note)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:1px solid #E2E8F0;padding:12px;text-align:center"><span class="brand">◎ Meridian Diagnostics</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="text-align:center;padding:22px 20px">
+      <div style="font-size:34px;margin-bottom:8px">✅</div>
+      <div style="font-size:18px;font-weight:800;margin-bottom:4px">New link sent</div>
+      <div class="muted" style="font-size:13px;margin-bottom:14px">A fresh secure link is on its way to <span class="mono bold">•••• •••4821</span>. It usually arrives within 2 minutes and will be valid for 72 hours from now.</div>
+      <div class="kv" style="text-align:left;grid-template-columns:140px 1fr;background:#F0FDF4;border:1px solid #86EFAC;border-radius:8px;padding:12px;margin-bottom:14px">
+        <dt>Sent</dt><dd>25 Jul 2026, 4:02 PM IST</dd>
+        <dt>Valid until</dt><dd>28 Jul 2026, 4:02 PM IST</dd>
+        <dt>Requests today</dt><dd>1 of 3 · older links stop working once the new one is opened</dd>
+      </div>
+      <a class="btn disabled" style="display:block;padding:13px;font-size:15px;margin-bottom:10px">Resend (available in 4:37)</a>
+      <div class="small muted">You can close this page now — open the newest SMS when it arrives.</div>
+      <div class="small muted" style="margin-top:12px">🔒 To prevent misuse, we allow up to 3 new-link requests per day. After that, please call the clinic and we'll help you straight away.</div>
+    </div>
+    <div class="banner warn" style="margin-top:0"><b>Requested too many times?</b>If you reach the daily limit, this page pauses new requests until tomorrow. Your report stays safe and the front desk (<span class="mono">022-4890 2210</span>) can verify you by phone and help sooner.</div>
+  </div>
+  <div style="text-align:center;padding:14px;font-size:11px;color:#64748B;border-top:1px solid #E2E8F0;background:#fff">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India<br><a style="color:#0F766E">Privacy</a> · <a style="color:#0F766E">Terms</a> · <a style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="state-tag">STATE C — CHANGED-NUMBER GUIDANCE</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:1px solid #E2E8F0;padding:12px;text-align:center"><span class="brand">◎ Meridian Diagnostics</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="padding:22px 20px">
+      <div style="text-align:center;font-size:34px;margin-bottom:8px">🪪</div>
+      <div style="text-align:center;font-size:18px;font-weight:800;margin-bottom:4px">Changed your mobile number?</div>
+      <div class="muted" style="font-size:13px;text-align:center;margin-bottom:14px">For your protection we can't change registered numbers online — anyone with this link could otherwise redirect your reports. Please visit the clinic once with a photo ID and we'll update it in minutes.</div>
+      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:12px;margin-bottom:14px;font-size:12.5px">
+        <div class="bold" style="margin-bottom:6px">What to bring</div>
+        <div class="check"><span class="box on">✓</span><span>Any government photo ID (Aadhaar — we record only the last 4 digits — PAN, passport or driving licence)</span></div>
+        <div class="check"><span class="box on">✓</span><span>The new mobile number, switched on (we verify it with an OTP at the desk)</span></div>
+        <div class="check"><span class="box on">✓</span><span>Your MRN or visit slip if you have it — helpful but not required</span></div>
+      </div>
+      <div class="kv" style="grid-template-columns:140px 1fr;margin-bottom:14px">
+        <dt>Clinic</dt><dd>Meridian Diagnostics, Andheri West branch<br>2nd Floor, Link Corner, S.V. Road, Mumbai 400058</dd>
+        <dt>Front desk hours</dt><dd>Mon–Sat 8 AM – 9 PM · Sun 8 AM – 2 PM IST</dd>
+        <dt>Phone</dt><dd class="mono">022-4890 2210</dd>
+      </div>
+      <a class="btn primary" style="display:block;padding:13px;font-size:15px;margin-bottom:10px">📞 Call the clinic</a>
+      <a class="btn" style="display:block">Back</a>
+      <div class="small muted" style="margin-top:12px;text-align:center">🔒 Once the number is updated at the clinic, all future report links go only to the new number. Old links are cancelled automatically.</div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:14px;font-size:11px;color:#64748B;border-top:1px solid #E2E8F0;background:#fff">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India<br><a style="color:#0F766E">Privacy</a> · <a style="color:#0F766E">Terms</a> · <a style="color:#0F766E">Help</a></div>
+</div>
+
+<p class="audit">Expiry views, new-link requests, rate-limit pauses and changed-number enquiries on this link are recorded in the access log.</p>
+</section>

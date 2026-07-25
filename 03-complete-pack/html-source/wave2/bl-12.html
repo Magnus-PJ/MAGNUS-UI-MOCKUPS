@@ -1,0 +1,122 @@
+<section class="screen" id="bl-12">
+<div class="screen-head"><h1><span class="sid">BL-12</span> Discount &amp; concession rules</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Defines who may discount how much, and which named concession schemes exist (staff, senior citizen, camps). Cashiers apply discounts within their role cap at invoice time; anything above the cap auto-routes to the approvals queue (BL-08) with a mandatory reason. Every applied discount is attributable to a rule or scheme — no free-text "adjustments".</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Billing dashboard</div>
+      <div class="nav-item">New invoice</div>
+      <div class="nav-item">Payments &amp; receipts</div>
+      <div class="nav-item">Refunds &amp; credit notes</div>
+      <div class="nav-item">Advances &amp; deposits</div>
+      <div class="nav-item">Patient statements</div>
+      <div class="sec-label">Masters &amp; setup</div>
+      <div class="nav-item">Payer &amp; scheme master</div>
+      <div class="nav-item active">Discount rules</div>
+      <div class="nav-item">Tax &amp; numbering</div>
+      <div class="nav-item">Approvals queue <span class="nav-badge">3</span></div>
+      <div class="sec-label">Reports</div>
+      <div class="nav-item">Day close</div>
+      <div class="nav-item">GST &amp; exempt register</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Masters &amp; setup › Discount &amp; concession rules</div>
+      <div class="page-title">Discount &amp; concession rules <span class="actions-right"><span class="btn small">Usage report</span> <span class="btn primary small">+ New scheme</span></span></div>
+      <div class="page-sub">Role caps + named schemes · effective at Andheri West branch · FY 2026-27</div>
+      <div class="card">
+        <div class="card-title">Role-based discount limits <span class="right">applies to line + invoice-level discounts</span></div>
+        <table>
+          <tr><th>Role</th><th>Max discount (per invoice)</th><th>Reason required</th><th>Above limit</th><th>Set by</th><th>Effective from</th></tr>
+          <tr><td class="bold">Cashier <span class="small muted">(e.g. P. D'Souza)</span></td><td><span class="chip teal">up to 5%</span></td><td>≥ 2% needs reason code</td><td>Auto-routes to BL-08 approvals</td><td>K. Verma (Org admin)</td><td>01 Apr 2026</td></tr>
+          <tr><td class="bold">Billing supervisor <span class="small muted">(e.g. M. Kulkarni)</span></td><td><span class="chip amber">up to 15%</span></td><td>Always</td><td>Auto-routes to BL-08 approvals</td><td>K. Verma (Org admin)</td><td>01 Apr 2026</td></tr>
+          <tr><td class="bold">Org admin <span class="small muted">(K. Verma)</span></td><td><span class="chip red">Unlimited — with reason</span></td><td>Always + step-up PIN</td><td>n/a (self-approves, dual-logged)</td><td>Board policy BP-FIN-04</td><td>01 Apr 2026</td></tr>
+          <tr class="dim"><td>Front office <span class="small muted">(D. Nair)</span></td><td>0% — cannot discount</td><td>—</td><td>Routes to cashier</td><td>K. Verma (Org admin)</td><td>01 Apr 2026</td></tr>
+        </table>
+        <div class="banner warn" style="margin:10px 0 0"><b>Above-limit behaviour</b>When an attempted discount exceeds the user's cap, the invoice is parked as <span class="chip amber">Pending approval</span> and a request lands in BL-08 with the reason, requester and patient/invoice refs. The patient is never shown an unapproved discounted total.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Named concession schemes <span class="right">4 active · 1 expired</span></div>
+        <table>
+          <tr><th>Scheme code</th><th>Name</th><th>Benefit</th><th>Validity</th><th>Eligibility note</th><th>Used (Jul)</th><th>Status</th><th></th></tr>
+          <tr><td class="mono">SCH-STAFF</td><td class="bold">Staff &amp; dependants</td><td>50% on all diagnostics</td><td>01 Apr 26 – 31 Mar 27</td><td>Meridian staff ID + HR dependant list; max 2 dependants</td><td>31 uses · ₹48,210</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr class="hl"><td class="mono">SCH-SRCIT</td><td class="bold">Senior citizen (60+)</td><td>10% on imaging &amp; pathology</td><td>01 Apr 26 – 31 Mar 27</td><td>Govt photo ID showing DOB; auto-suggested when age ≥ 60 from registration DOB</td><td>142 uses · ₹1,12,480</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr><td class="mono">SCH-CAMP-K</td><td class="bold">Health camp — BMC ward K/W</td><td>Fixed camp tariff (RL-CAMP-26)</td><td>15 Jul 26 – 15 Aug 26</td><td>Camp token issued at registration desk; one visit per token</td><td>67 uses · ₹94,300</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr><td class="mono">SCH-REFDR</td><td class="bold">Referrer professional courtesy</td><td>25% · self &amp; immediate family of verified referrers</td><td>01 Apr 26 – 31 Mar 27</td><td>Referrer must be Verified in referrer master (e.g. Dr. Meera Nair)</td><td>6 uses · ₹9,840</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr class="dim"><td class="mono">SCH-CAMP-J</td><td>Health camp — ward J (June)</td><td>Fixed camp tariff</td><td>01 Jun 26 – 30 Jun 26</td><td>Camp token</td><td>—</td><td><span class="chip grey">Expired</span></td><td><span class="btn ghost small">View</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Schemes stack with role caps: applying a scheme never requires approval; adding an <i>extra</i> manual discount on top counts against the user's role cap.</div>
+      </div>
+      <p class="audit">Rule table viewed by M. Kulkarni · changes to caps/schemes require Org admin step-up and are versioned — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SCHEME EDIT (SENIOR CITIZEN)</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:620px">
+    <h3>Edit scheme — SCH-SRCIT · Senior citizen (60+)</h3>
+    <div class="row">
+      <div class="field grow"><label>Scheme name <span class="req">*</span></label><input class="input" value="Senior citizen (60+)"/></div>
+      <div class="field" style="width:160px"><label>Benefit type</label><select class="select"><option>Percentage</option></select></div>
+      <div class="field" style="width:110px"><label>Value</label><input class="input" value="10%"/></div>
+    </div>
+    <div class="row">
+      <div class="field grow"><label>Valid from</label><input class="input" value="01 Apr 2026"/></div>
+      <div class="field grow"><label>Valid to</label><input class="input" value="31 Mar 2027"/></div>
+      <div class="field grow"><label>Applies to</label><select class="select"><option>Imaging + pathology (excl. consumables)</option></select></div>
+    </div>
+    <div class="field"><label>Eligibility note (shown to cashier at apply time) <span class="req">*</span></label>
+      <textarea class="textarea">Any government photo ID showing date of birth (Aadhaar — record last 4 digits only, PAN, passport, voter ID). System auto-suggests scheme when registered DOB gives age ≥ 60. Do not photocopy/scan the ID; tick 'sighted' only.</textarea>
+      <div class="hint">🔒 ID documents are sighted, not stored. Aadhaar: last-4 only, per Meridian data-minimisation policy.</div>
+    </div>
+    <div class="check"><span class="box on">✓</span> Auto-suggest at billing when patient age ≥ 60 (from registration DOB)</div>
+    <div class="check"><span class="box"></span> Allow stacking with manual discount (counts against role cap) — currently off</div>
+    <div class="banner reg" style="margin-top:10px"><b>Versioned change</b>Saving creates version v3 effective from a date you choose; historical invoices keep the version in force on their invoice date. Requires Org admin step-up PIN.</div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Save as v3 · step-up →</span></div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — PER-SCHEME USAGE REPORT (JULY 2026 MTD)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Masters &amp; setup</div>
+      <div class="nav-item active">Discount rules</div>
+      <div class="nav-item">Approvals queue <span class="nav-badge">3</span></div>
+      <div class="sec-label">Reports</div>
+      <div class="nav-item">Day close</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Discount rules › Usage report</div>
+      <div class="page-title">Discount usage — July 2026 (MTD) <span class="actions-right"><span class="btn small">Export CSV</span> <span class="btn small">Print</span></span></div>
+      <div class="page-sub">01–25 Jul 2026 · Andheri West · all roles &amp; schemes</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">₹2,64,830</div><div class="l">Total concession value</div><div class="s">3.9% of gross billed (₹67.8L)</div></div>
+        <div class="kpi"><div class="n">246</div><div class="l">Discounted invoices</div><div class="s">of 2,113 invoices MTD</div></div>
+        <div class="kpi amber"><div class="n">11</div><div class="l">Above-limit requests</div><div class="s">9 approved · 1 rejected · 1 pending in BL-08</div></div>
+        <div class="kpi"><div class="n">0</div><div class="l">Unattributed discounts</div><div class="s">every discount maps to a rule/scheme</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">By scheme / rule <span class="right">MTD value · drill-down to invoices</span></div>
+        <table>
+          <tr><th>Source</th><th>Uses</th><th>Concession value</th><th>Avg / invoice</th><th>Top user</th><th>Trend vs Jun</th><th></th></tr>
+          <tr><td class="bold">SCH-SRCIT · Senior citizen</td><td>142</td><td>₹1,12,480</td><td>₹792</td><td>P. D'Souza (Cashier) · 88</td><td>▲ +6%</td><td><span class="btn ghost small">Invoices</span></td></tr>
+          <tr><td class="bold">SCH-CAMP-K · Camp ward K/W</td><td>67</td><td>₹94,300</td><td>₹1,407</td><td>D. Nair (Front office) · 67</td><td class="muted">new</td><td><span class="btn ghost small">Invoices</span></td></tr>
+          <tr><td class="bold">SCH-STAFF · Staff &amp; dependants</td><td>31</td><td>₹48,210</td><td>₹1,555</td><td>P. D'Souza (Cashier) · 19</td><td>▼ −3%</td><td><span class="btn ghost small">Invoices</span></td></tr>
+          <tr><td class="bold">Manual — within cashier 5% cap</td><td>38</td><td>₹15,640</td><td>₹412</td><td>P. D'Souza (Cashier) · 24</td><td>▲ +11%</td><td><span class="btn ghost small">Invoices</span></td></tr>
+          <tr class="hl"><td class="bold">Manual — above-limit (via BL-08)</td><td>9 approved</td><td>₹22,900</td><td>₹2,544</td><td>Approver: M. Kulkarni · 7</td><td>▲ +2 cases</td><td><span class="btn ghost small">Requests</span></td></tr>
+          <tr><td class="bold">SCH-REFDR · Referrer courtesy</td><td>6</td><td>₹9,840</td><td>₹1,640</td><td>Linked: Dr. Meera Nair · 3</td><td>flat</td><td><span class="btn ghost small">Invoices</span></td></tr>
+        </table>
+        <div class="banner info" style="margin:10px 0 0"><b>Outlier watch</b>Manual discounts by a single user exceeding 3× branch average trigger a weekly summary to K. Verma (Org admin). No outliers flagged for this period.</div>
+      </div>
+      <p class="audit">Usage report generated by M. Kulkarni · 25 Jul 2026, 12:05 IST · exports carry a footer watermark with requester + timestamp — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<p class="audit">Every discount application stores rule/scheme version, user, approver (if any) and reason; cap and scheme edits require step-up and are recorded in the access log.</p>
+</section>

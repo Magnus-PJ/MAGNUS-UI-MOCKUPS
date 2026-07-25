@@ -1,0 +1,142 @@
+<section class="screen" id="dd-06">
+<div class="screen-head"><h1><span class="sid">DD-06</span> Access requests</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G8 Doctor Desk (Referrers) — workspace 'Doctor Desk'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> When a referrer tries to open a record outside their care team, Magnus shows a fully masked denial (zero demographics) and offers a structured access request instead. Requests go to the branch privacy lead with a 4-hour SLA; approvals are time-boxed to a maximum of 24 hours with a live countdown. The doctor can track the full lifecycle — pending, approved, denied, expired — from one list.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">Dashboard</div>
+      <div class="nav-item">My patients</div>
+      <div class="nav-item">Reports inbox <span class="nav-badge">3</span></div>
+      <div class="nav-item">New referral</div>
+      <div class="sec-label">Access</div>
+      <div class="nav-item active">Access requests <span class="nav-badge">1</span></div>
+      <div class="nav-item">Break-glass access</div>
+      <div class="sec-label">Insights</div>
+      <div class="nav-item">Referral analytics</div>
+      <div class="nav-item">Profile &amp; channels</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › Access › Access requests › New request</div>
+      <div class="page-title">Record not in your care-team scope</div>
+      <div class="page-sub">You searched for a record you did not refer and are not on the care team for. Nothing about the patient is shown until access is approved.</div>
+
+      <div class="card" style="max-width:620px;border-left:4px solid #B91C1C">
+        <div class="card-title">🔒 Access denied — record masked <span class="right">Zero-demographics card</span></div>
+        <dl class="kv">
+          <dt>Record</dt><dd class="mono bold">MRN-••••30</dd>
+          <dt>Patient name</dt><dd class="muted">•••••• •••••• (hidden until approved)</dd>
+          <dt>Age / sex</dt><dd class="muted">•• / • (hidden)</dd>
+          <dt>Contact</dt><dd class="muted">+91 ••••• ••••• (hidden)</dd>
+          <dt>Studies</dt><dd class="muted">•• record(s) exist at Meridian Diagnostics (count masked)</dd>
+          <dt>Why denied</dt><dd>You are not the referrer and are not on this patient's care team. Care-team scope is enforced under Meridian's least-privilege policy (DPDP Act 2023).</dd>
+        </dl>
+        <p class="audit">This denied attempt (Dr. Meera Nair, 25 Jul 2026, 10:04 IST) has been recorded in the access log. Repeated denied lookups are flagged to the privacy lead.</p>
+      </div>
+
+      <div class="card" style="max-width:620px">
+        <div class="card-title">Request access to MRN-••••30 <span class="right">4h decision SLA</span></div>
+        <div class="field"><label>Reason category <span class="req">*</span></label>
+          <select class="select"><option>Continuity of care — patient consulted me with prior Meridian imaging</option></select>
+          <div class="hint">Other categories: Second opinion requested by patient · Referral follow-up (report not delivered) · Multidisciplinary discussion · Administrative correction.</div>
+        </div>
+        <div class="field"><label>Justification <span class="req">*</span> <span class="muted small">(shown verbatim to the branch privacy lead)</span></label>
+          <textarea class="textarea">Patient attended my OPD today (25 Jul) carrying a Meridian receipt for an MRI Brain done last week; the printed report was not brought. I need the final report to plan treatment. Patient has verbally consented and can confirm by OTP if needed.</textarea>
+        </div>
+        <div class="row">
+          <div class="field grow"><label>Duration requested <span class="req">*</span></label>
+            <select class="select"><option>24 hours (maximum)</option></select>
+            <div class="hint">Grants are always time-boxed; max 24h per grant. Access auto-expires — re-request if needed again.</div>
+          </div>
+          <div class="field grow"><label>Scope requested</label>
+            <select class="select"><option>Reports only (no raw images)</option></select>
+            <div class="hint">Narrower scope is approved faster.</div>
+          </div>
+        </div>
+        <div class="check"><span class="box on">✓</span>I confirm the patient is aware I am requesting their Meridian records.</div>
+        <div class="modal-actions" style="justify-content:flex-start"><span class="btn primary">Submit request to branch privacy lead</span><span class="btn">Cancel</span><span class="btn ghost">Emergency? Use break-glass →</span></div>
+      </div>
+      <p class="audit">Draft request ARQ-2026-1187 · not yet submitted · request text, requester identity and target record ref will be recorded in the access log on submit.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — MY REQUESTS · FULL LIFECYCLE LIST</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="crumb">Doctor Desk › Access › Access requests</div>
+      <div class="page-title">My access requests</div>
+      <div class="page-sub">All requests you have raised in the last 90 days · decisions by the branch privacy lead · 4-hour SLA on pending requests</div>
+      <div class="kpi-row">
+        <div class="kpi amber"><div class="n">1</div><div class="l">Pending decision</div><div class="s">SLA due 14:04 IST today</div></div>
+        <div class="kpi"><div class="n">1</div><div class="l">Active grant</div><div class="s">expires in 16h 22m</div></div>
+        <div class="kpi"><div class="n">6</div><div class="l">Decided (90 days)</div><div class="s">5 approved · 1 denied</div></div>
+        <div class="kpi"><div class="n">3h 06m</div><div class="l">Median decision time</div><div class="s">well within 4h SLA</div></div>
+      </div>
+      <table>
+        <tr><th>Request</th><th>Record</th><th>Reason category</th><th>Duration asked</th><th>Status</th><th>SLA / countdown</th><th>Action</th></tr>
+        <tr class="hl"><td class="mono">ARQ-2026-1187<br><span class="muted small">25 Jul, 10:11</span></td><td class="mono">MRN-••••30</td><td>Continuity of care</td><td>24h · reports only</td><td><span class="chip amber">PENDING</span></td><td><span class="chip amber">SLA 3h 49m left</span><br><span class="small muted">owner: branch privacy lead</span></td><td><span class="btn small">Withdraw</span></td></tr>
+        <tr><td class="mono">ARQ-2026-1164<br><span class="muted small">24 Jul, 16:30</span></td><td class="mono">MRN-004819<br><span class="small">Ananya Rao</span></td><td>Second opinion (patient requested)</td><td>24h · reports only</td><td><span class="chip green">APPROVED · TIME-BOXED</span></td><td><span class="chip teal">EXPIRES IN 16h 22m</span><br><span class="small muted">granted 24 Jul, 18:41 · 24h box</span></td><td><span class="btn small primary">Open record</span></td></tr>
+        <tr><td class="mono">ARQ-2026-1121<br><span class="muted small">19 Jul, 09:02</span></td><td class="mono">MRN-••••66</td><td>Multidisciplinary discussion</td><td>24h · full imaging</td><td><span class="chip red">DENIED</span></td><td><span class="small">decided in 2h 51m</span></td><td><span class="btn small ghost">View reason</span></td></tr>
+        <tr class="dim"><td class="mono">ARQ-2026-1093<br><span class="muted small">14 Jul, 11:47</span></td><td class="mono">MRN-004790<br><span class="small">Mohammed Al-Rashid</span></td><td>Referral follow-up</td><td>12h · reports only</td><td><span class="chip grey">EXPIRED</span></td><td><span class="small">grant ended 15 Jul, 02:10</span></td><td><span class="btn small">Re-request</span></td></tr>
+        <tr class="dim"><td class="mono">ARQ-2026-1052<br><span class="muted small">08 Jul, 15:20</span></td><td class="mono">MRN-004795<br><span class="small">Rajesh Gupta</span></td><td>Continuity of care</td><td>24h · reports only</td><td><span class="chip grey">EXPIRED</span></td><td><span class="small">grant ended 09 Jul, 17:33</span></td><td><span class="btn small">Re-request</span></td></tr>
+        <tr class="dim"><td class="mono">ARQ-2026-1018<br><span class="muted small">02 Jul, 08:15</span></td><td class="mono">MRN-••••41</td><td>Administrative correction</td><td>4h · reports only</td><td><span class="chip grey">WITHDRAWN</span></td><td><span class="small">withdrawn by me before decision</span></td><td>—</td></tr>
+      </table>
+      <div class="banner info" style="margin-top:12px"><b>Denied request ARQ-2026-1121 — reason from the privacy lead:</b> "Care-team link not evidenced; patient has not listed you as a treating doctor and no referral exists. Please ask the patient to share the report from their portal, or have them add you as a care-team member at the front desk."</div>
+      <p class="audit">Patient names appear only on approved/active grants; pending, denied and withdrawn rows stay masked. If the pending SLA lapses it escalates to admin K. Verma automatically. All list views recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — APPROVER-SIDE MINI-QUEUE (BRANCH PRIVACY LEAD) · IDENTITY CONFIRM ON DECISION</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>GOVERNANCE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Privacy lead) ▾</div></div>
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="crumb">Governance › Access requests queue</div>
+      <div class="page-title">Access requests awaiting decision <span class="chip amber">2 IN QUEUE</span></div>
+      <div class="page-sub">Decide within the 4-hour SLA · lapses escalate to admin K. Verma's deputy and are reported weekly</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">ARQ-2026-1187 · Dr. Meera Nair <span class="chip amber">SLA 3h 49m left · owner: K. Verma</span></div>
+          <dl class="kv">
+            <dt>Requester</dt><dd>Dr. Meera Nair · verified referrer · +91 98••• ••412 · KYC on file</dd>
+            <dt>Target record</dt><dd class="mono">MRN-004830 <span class="small muted">(full MRN visible to approver only)</span></dd>
+            <dt>Category</dt><dd>Continuity of care</dd>
+            <dt>Duration / scope</dt><dd>24h · reports only</dd>
+            <dt>Justification</dt><dd>"Patient attended my OPD today carrying a Meridian receipt for an MRI Brain done last week; the printed report was not brought…"</dd>
+            <dt>Signals</dt><dd><span class="chip green">NO PRIOR DENIALS</span> <span class="chip green">1 PRIOR GRANT, USED APPROPRIATELY</span></dd>
+          </dl>
+          <div class="modal-actions" style="justify-content:flex-start"><span class="btn primary">Approve — time-boxed 24h</span><span class="btn danger">Deny with reason</span><span class="btn ghost">Ask requester a question</span></div>
+        </div>
+        <div class="card" style="width:280px;flex-shrink:0">
+          <div class="card-title">Also in queue</div>
+          <table>
+            <tr><th>Req</th><th>SLA</th></tr>
+            <tr><td class="mono small">ARQ-2026-1189<br><span class="muted">Dr. Farida Khan</span></td><td><span class="chip red">OVERDUE 0h 22m</span><br><span class="small muted">escalated to: deputy privacy lead</span></td></tr>
+          </table>
+          <p class="small muted" style="margin-top:8px">Overdue items are auto-escalated and flagged in the weekly governance report.</p>
+        </div>
+      </div>
+      <div class="modal-wrap">
+        <div class="modal">
+          <h3>Confirm approval — identity check</h3>
+          <p class="small" style="margin-bottom:10px">You are granting Dr. Meera Nair time-boxed access (24h, reports only) to <span class="mono">MRN-004830</span>. This is a legally significant access decision — confirm your identity to sign it.</p>
+          <div class="field"><label>Your Magnus password <span class="req">*</span></label><input class="input" style="max-width:220px" value="••••••••••"></div>
+          <div class="field"><label>Decision note (visible to requester)</label><input class="input" value="Approved for report retrieval only. Patient OTP confirmation not required — receipt evidence adequate."></div>
+          <div class="check"><span class="box on">✓</span>Notify the patient that this grant was issued (SMS + portal notice).</div>
+          <div class="modal-actions"><span class="btn">Back</span><span class="btn primary">Sign &amp; approve — starts 24h countdown</span></div>
+        </div>
+      </div>
+      <p class="audit">Decision, decision note, approver identity (K. Verma) and password-confirmed signature are appended to ARQ-2026-1187 · patient notification queued · recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<p class="audit">Every denied lookup, request submission, decision, grant activation, expiry and re-request is written to the tamper-evident audit trail and recorded in the access log.</p>
+</section>

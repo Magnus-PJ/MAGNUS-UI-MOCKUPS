@@ -1,0 +1,157 @@
+<section class="screen" id="bl-14">
+<div class="screen-head"><h1><span class="sid">BL-14</span> Advances &amp; deposits</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Cashiers collect advances (e.g. for high-value MRI packages or multi-visit protocols) against a purpose, issuing a receipt from the central series. The advance sits in the patient's advance ledger until applied to an invoice at billing or refunded. Refund of unused advance is a money-moving action: supervisor approval + step-up, paid preferentially back to the original instrument.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Billing dashboard</div>
+      <div class="nav-item">New invoice</div>
+      <div class="nav-item">Payments &amp; receipts</div>
+      <div class="nav-item">Refunds &amp; credit notes</div>
+      <div class="nav-item active">Advances &amp; deposits</div>
+      <div class="nav-item">Patient statements</div>
+      <div class="sec-label">Masters &amp; setup</div>
+      <div class="nav-item">Payer &amp; scheme master</div>
+      <div class="nav-item">Discount rules</div>
+      <div class="nav-item">Tax &amp; numbering</div>
+      <div class="nav-item">Approvals queue <span class="nav-badge">3</span></div>
+      <div class="sec-label">Reports</div>
+      <div class="nav-item">Day close</div>
+      <div class="nav-item">GST &amp; exempt register</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Advances &amp; deposits › Collect advance</div>
+      <div class="page-title">Collect advance — Sofia Rossi <span class="chip grey">MRN-004822</span></div>
+      <div class="page-sub">Visit VIS-2026-30412 · appointment APPT-2026-51288 (MRI Brain w/ contrast, 28 Jul 09:30) · referred by Dr. Meera Nair (verified +91 98••• ••412)</div>
+      <div class="stepper">
+        <div class="step done"><span class="dot">✓</span> Identify patient</div><span class="step-line"></span>
+        <div class="step cur"><span class="dot">2</span> Purpose &amp; amount</div><span class="step-line"></span>
+        <div class="step"><span class="dot">3</span> Take payment</div><span class="step-line"></span>
+        <div class="step"><span class="dot">4</span> Receipt</div>
+      </div>
+      <div class="split">
+        <div>
+          <div class="card">
+            <div class="card-title">Advance details</div>
+            <div class="row">
+              <div class="field grow"><label>Purpose <span class="req">*</span></label><select class="select"><option>Booking deposit — MRI Brain with contrast (₹9,500 est.)</option></select><div class="hint">Purpose is printed on the receipt and shown at apply time.</div></div>
+              <div class="field" style="width:160px"><label>Amount (₹) <span class="req">*</span></label><input class="input" value="5,000"/></div>
+            </div>
+            <div class="row">
+              <div class="field grow"><label>Payment mode <span class="req">*</span></label><select class="select"><option>UPI</option><option>Card</option><option>Cash</option><option>Bank transfer</option></select></div>
+              <div class="field grow"><label>UPI reference (UTR)</label><input class="input" value="UTR 618842907733 · collected 25 Jul 13:04"/></div>
+            </div>
+            <div class="check"><span class="box on">✓</span> Patient informed: advance is adjustable against any Meridian invoice or refundable if unused (refund needs approval, 3–5 working days to source instrument)</div>
+            <div class="banner info" style="margin:10px 0 0"><b>Receipt from central series</b>On confirm, receipt <span class="mono">RCP/AND/26-27/1478</span> is issued (see BL-13 registry). Advances are not invoices — no GST document is created; the amount is held as a patient credit.</div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Patient</div>
+            <dl class="kv" style="grid-template-columns:110px 1fr">
+              <dt>Name</dt><dd class="bold">Sofia Rossi</dd>
+              <dt>MRN</dt><dd class="mono">MRN-004822</dd>
+              <dt>ID on file</dt><dd>Aadhaar ••••-••••-4417 (last 4 only)</dd>
+              <dt>Existing advance</dt><dd>₹0</dd>
+              <dt>Outstanding</dt><dd>₹0</dd>
+            </dl>
+          </div>
+          <div class="card">
+            <div class="card-title">Summary</div>
+            <dl class="kv" style="grid-template-columns:130px 1fr">
+              <dt>Advance amount</dt><dd class="bold">₹5,000</dd>
+              <dt>Mode</dt><dd>UPI · UTR 618842907733</dd>
+              <dt>Collected by</dt><dd>P. D'Souza (Cashier)</dd>
+              <dt>Receipt no.</dt><dd class="mono">RCP/AND/26-27/1478 (on confirm)</dd>
+            </dl>
+            <div style="display:flex;gap:10px;margin-top:12px"><span class="btn">Cancel</span><span class="btn primary grow" style="flex:1">Confirm &amp; issue receipt</span></div>
+            <div class="small muted" style="margin-top:8px">🔒 Receipt shows GSTIN 27AAACM1234K1Z5 and "Advance against services — adjustable/refundable". No clinical details are printed.</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Advance ledger — Sofia Rossi <span class="right">after confirmation</span></div>
+        <table>
+          <tr><th>Date</th><th>Ref</th><th>Purpose</th><th>In</th><th>Applied / out</th><th>Balance</th><th>Status</th></tr>
+          <tr class="hl"><td>25 Jul 2026</td><td class="mono">RCP/AND/26-27/1478</td><td>Booking deposit — MRI Brain w/ contrast</td><td>₹5,000</td><td>—</td><td class="bold">₹5,000</td><td><span class="chip teal">Unapplied</span></td></tr>
+        </table>
+      </div>
+      <p class="audit">Advance collection by P. D'Souza · UTR evidence stored with receipt — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — APPLY ADVANCE AT INVOICE (PICKER)</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:620px">
+    <h3>Apply advance — invoice draft for Sofia Rossi (MRN-004822)</h3>
+    <p class="small muted" style="margin-bottom:10px">Invoice draft: MRI Brain with contrast · SAC 999316 · Exempt (healthcare service) · total <b>₹9,500</b> · will issue as <span class="mono">INV/AND/26-27/0913</span></p>
+    <table style="margin-bottom:10px">
+      <tr><th></th><th>Advance ref</th><th>Purpose</th><th>Available</th><th>Apply now</th></tr>
+      <tr class="hl"><td><span class="box on radio">✓</span></td><td class="mono">RCP/AND/26-27/1478 · 25 Jul</td><td>Booking deposit — MRI Brain w/ contrast</td><td>₹5,000</td><td><input class="input" style="width:90px" value="5,000"/></td></tr>
+      <tr class="dim"><td><span class="box radio"></span></td><td class="mono">RCP/AND/26-27/1201 · 02 Jun</td><td>Health-check package (earmarked, APPT-2026-50914)</td><td>₹2,000</td><td><span class="small">earmarked — needs supervisor release</span></td></tr>
+    </table>
+    <dl class="kv" style="grid-template-columns:180px 1fr">
+      <dt>Invoice total</dt><dd>₹9,500</dd>
+      <dt>Advance applied</dt><dd>− ₹5,000 <span class="small muted">(from RCP/AND/26-27/1478)</span></dd>
+      <dt>Balance to collect</dt><dd class="bold">₹4,500 · UPI/card/cash at counter</dd>
+    </dl>
+    <div class="banner success" style="margin-top:10px;margin-bottom:0"><b>Cross-reference printed</b>The invoice will show "Advance adjusted ₹5,000 vide RCP/AND/26-27/1478"; the advance ledger row flips to Applied with the invoice number.</div>
+    <div class="modal-actions"><span class="btn">Skip advance</span><span class="btn primary">Apply ₹5,000 &amp; continue to payment</span></div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — REFUND UNUSED ADVANCE (APPROVAL + STEP-UP) &amp; AGING REPORT</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item active">Advances &amp; deposits</div>
+      <div class="nav-item">Refunds &amp; credit notes</div>
+      <div class="nav-item">Approvals queue <span class="nav-badge">3</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Advances &amp; deposits › Unapplied advances</div>
+      <div class="page-title">Unapplied advances — aging <span class="actions-right"><span class="btn small">Export CSV</span></span></div>
+      <div class="page-sub">Andheri West · 25 Jul 2026 · advances held as patient credit, oldest first</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">₹41,500</div><div class="l">Unapplied total</div><div class="s">17 advances across 15 patients</div></div>
+        <div class="kpi"><div class="n">₹28,000</div><div class="l">0–30 days</div><div class="s">11 advances</div></div>
+        <div class="kpi amber"><div class="n">₹9,500</div><div class="l">31–90 days</div><div class="s">4 advances · owner: P. D'Souza</div></div>
+        <div class="kpi red"><div class="n">₹4,000</div><div class="l">&gt;90 days</div><div class="s">2 advances · contact patient / refund</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Aging detail</div>
+        <table>
+          <tr><th>Patient</th><th>Advance ref</th><th>Purpose</th><th>Amount</th><th>Age</th><th>SLA</th><th>Owner</th><th></th></tr>
+          <tr><td>Priya Menon · <span class="mono">MRN-004828</span></td><td class="mono">RCP/AND/26-27/1462</td><td>CT abdomen deposit</td><td>₹3,000</td><td>4 d</td><td><span class="chip teal">OK</span></td><td>P. D'Souza</td><td><span class="btn ghost small">Ledger</span></td></tr>
+          <tr><td>Aarav Sharma · <span class="mono">MRN-004821</span></td><td class="mono">RCP/AND/26-27/1390</td><td>Cardiac package part-pay</td><td>₹6,500</td><td>19 d</td><td><span class="chip teal">OK</span></td><td>P. D'Souza</td><td><span class="btn ghost small">Ledger</span></td></tr>
+          <tr><td>Ananya Rao · <span class="mono">MRN-004819</span></td><td class="mono">RCP/AND/26-27/1288</td><td>Follow-up USG series</td><td>₹2,500</td><td>44 d</td><td><span class="chip amber">Review</span></td><td>P. D'Souza</td><td><span class="btn ghost small">Ledger</span></td></tr>
+          <tr class="hl"><td>Mohammed Al-Rashid · <span class="mono">MRN-004790</span></td><td class="mono">RCP/AND/26-27/1104</td><td>MRI slot deposit — appointment cancelled 12 May</td><td>₹2,500</td><td>96 d</td><td><span class="chip red">OVERDUE</span> · owner P. D'Souza · escalated-to M. Kulkarni</td><td>P. D'Souza</td><td><span class="btn small warn-outline">Refund</span></td></tr>
+          <tr><td>Rajesh Gupta · <span class="mono">MRN-004795</span></td><td class="mono">RCP/AND/26-27/1067</td><td>Package deposit — plan changed</td><td>₹1,500</td><td>103 d</td><td><span class="chip red">OVERDUE</span> · owner P. D'Souza · escalated-to M. Kulkarni</td><td>P. D'Souza</td><td><span class="btn small warn-outline">Refund</span></td></tr>
+        </table>
+      </div>
+      <div class="modal-wrap" style="margin:14px 0">
+        <div class="modal">
+          <h3>Refund unused advance — Mohammed Al-Rashid (MRN-004790)</h3>
+          <dl class="kv" style="grid-template-columns:170px 1fr">
+            <dt>Advance</dt><dd class="mono">RCP/AND/26-27/1104 · ₹2,500 · UPI (UTR 512204883190)</dd>
+            <dt>Reason</dt><dd>Appointment APPT-2026-50231 cancelled; no rebooking in 90 days; patient requested refund on 24 Jul (call logged)</dd>
+            <dt>Refund route</dt><dd><span class="box on radio">✓</span> Back to source UPI VPA (preferred) &nbsp; <span class="box radio"></span> Bank transfer (needs cancelled-cheque proof)</dd>
+            <dt>Refund voucher</dt><dd class="mono">RFV/AND/26-27/0031 (on approval) — no credit note; advance was never invoiced</dd>
+          </dl>
+          <div class="field" style="margin-top:10px"><label>Approver step-up — M. Kulkarni (Billing supervisor) <span class="req">*</span></label><input class="input" value="Enter Magnus PIN to approve ₹2,500 refund"/><div class="hint">🔒 Money-moving action: requester (P. D'Souza) and approver must be different users. Refund UTR will be attached when the bank confirms.</div></div>
+          <div class="modal-actions"><span class="btn">Reject with note</span><span class="btn danger">Approve refund ₹2,500 →</span></div>
+        </div>
+      </div>
+      <p class="audit">Refund request #RQ-2026-0788 created by P. D'Souza, pending M. Kulkarni approval · dual-control enforced — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<p class="audit">Advance collection, application, earmark release and refunds are all receipt/voucher-numbered from the central registry and recorded in the access log.</p>
+</section>

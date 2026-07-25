@@ -1,0 +1,110 @@
+<section class="screen" id="bl-10">
+<div class="screen-head"><h1><span class="sid">BL-10</span> Service catalog &amp; price lists</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The catalog is the single source of truth for billable services — code, SAC, modality, duration and base price — feeding the billing counter, appointment slots and GST documents. Prices change only through versioned price lists with effective dates (future-dated publish supported), branch overrides and payer/scheme columns. Every price change requires approval and lands in the change audit; nothing is edited in place on a live list.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Branch admin) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Billing dashboard</div>
+      <div class="nav-item">Invoices</div>
+      <div class="nav-item">Payments</div>
+      <div class="nav-item">Refunds</div>
+      <div class="nav-item">Credit notes</div>
+      <div class="nav-item">Approvals <span class="nav-badge">4</span></div>
+      <div class="nav-item">Cash session</div>
+      <div class="sec-label">Setup</div>
+      <div class="nav-item active">Price lists</div>
+      <div class="nav-item">Number series</div>
+      <div class="sec-label">Other</div>
+      <div class="nav-item">Reports</div>
+      <div class="nav-item">Audit log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Setup › Service catalog &amp; price lists</div>
+      <div class="page-title">Service catalog <span class="chip green">ACTIVE LIST: PL-STD v2026.3 · effective 01 Jul 2026</span></div>
+      <div class="page-sub">142 active services · radiology-first · SAC 999316 (diagnostic imaging) · most services GST-exempt healthcare · GSTIN 27AAACM1234K1Z5</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">142</div><div class="l">Active services</div><div class="s">9 retired (never deleted)</div></div>
+        <div class="kpi"><div class="n">v2026.3</div><div class="l">Live price list</div><div class="s">standard walk-in tariff</div></div>
+        <div class="kpi amber"><div class="n">v2026.4</div><div class="l">Scheduled</div><div class="s">future-dated · effective 01 Aug 2026</div></div>
+        <div class="kpi"><div class="n">4</div><div class="l">Payer/scheme lists</div><div class="s">Zenith Corp · MediAssist · CGHS · Camp</div></div>
+      </div>
+      <div class="row" style="margin-bottom:10px"><input class="input grow" placeholder="Search service, code or SAC… e.g. 'MRI', 'RAD-CT-001'"/><select class="select" style="max-width:160px"><option>All modalities</option></select><select class="select" style="max-width:170px"><option>Active only</option></select><span class="btn">Export CSV</span><span class="btn primary">+ New service</span></div>
+      <table>
+        <tr><th>Code</th><th>Service</th><th>SAC</th><th>Modality</th><th>Duration</th><th>Base price (v2026.3)</th><th>Tax</th><th>Active</th><th></th></tr>
+        <tr><td class="mono">RAD-XR-001</td><td>X-Ray Chest PA</td><td class="mono">999316</td><td>X-Ray</td><td>10 min</td><td class="mono">₹450.00</td><td><span class="chip grey">Exempt (healthcare service)</span></td><td><span class="chip green">ACTIVE</span></td><td><span class="btn ghost small">Edit…</span></td></tr>
+        <tr><td class="mono">RAD-US-004</td><td>USG Abdomen &amp; Pelvis</td><td class="mono">999316</td><td>Ultrasound</td><td>20 min</td><td class="mono">₹1,500.00</td><td><span class="chip grey">Exempt (healthcare service)</span></td><td><span class="chip green">ACTIVE</span></td><td><span class="btn ghost small">Edit…</span></td></tr>
+        <tr><td class="mono">RAD-US-009</td><td>USG Obstetric — anomaly scan <span class="chip violet">PCPNDT · foetal-sex non-disclosure</span></td><td class="mono">999316</td><td>Ultrasound</td><td>30 min</td><td class="mono">₹2,200.00</td><td><span class="chip grey">Exempt (healthcare service)</span></td><td><span class="chip green">ACTIVE</span></td><td><span class="btn ghost small">Edit…</span></td></tr>
+        <tr class="hl"><td class="mono">RAD-CT-001</td><td>CT Head (plain)</td><td class="mono">999316</td><td>CT</td><td>15 min</td><td class="mono">₹2,900.00</td><td><span class="chip grey">Exempt (healthcare service)</span></td><td><span class="chip green">ACTIVE</span></td><td><span class="btn ghost small">Edit…</span></td></tr>
+        <tr><td class="mono">RAD-MR-003</td><td>MRI Brain (plain)</td><td class="mono">999316</td><td>MRI</td><td>35 min</td><td class="mono">₹5,800.00</td><td><span class="chip grey">Exempt (healthcare service)</span></td><td><span class="chip green">ACTIVE</span></td><td><span class="btn ghost small">Edit…</span></td></tr>
+        <tr><td class="mono">RAD-MR-007</td><td>MRI Lumbar Spine (plain)</td><td class="mono">999316</td><td>MRI</td><td>35 min</td><td class="mono">₹6,500.00</td><td><span class="chip grey">Exempt (healthcare service)</span></td><td><span class="chip green">ACTIVE</span></td><td><span class="btn ghost small">Edit…</span></td></tr>
+        <tr><td class="mono">RAD-RPT-001</td><td>Radiologist reporting — MRI (Dr. V. Shetty panel)</td><td class="mono">999316</td><td>Reporting</td><td>—</td><td class="mono">₹800.00</td><td><span class="chip grey">Exempt (healthcare service)</span></td><td><span class="chip green">ACTIVE</span></td><td><span class="btn ghost small">Edit…</span></td></tr>
+        <tr><td class="mono">GEN-MED-011</td><td>Contrast media — Iohexol 50ml (consumable)</td><td class="mono">—</td><td>Consumable</td><td>—</td><td class="mono">₹1,180.00</td><td><span class="chip amber">GST 12% (goods)</span></td><td><span class="chip green">ACTIVE</span></td><td><span class="btn ghost small">Edit…</span></td></tr>
+        <tr class="dim"><td class="mono">RAD-XR-014</td><td>X-Ray Skull (retired — replaced by CT protocol)</td><td class="mono">999316</td><td>X-Ray</td><td>10 min</td><td class="mono">₹500.00</td><td><span class="chip grey">Exempt (healthcare service)</span></td><td><span class="chip grey">RETIRED 01 May 2026</span></td><td><span class="btn ghost small">History</span></td></tr>
+      </table>
+      <div class="card" style="margin-top:12px"><div class="card-title">Payer / scheme price preview — RAD-CT-001 · CT Head (plain) <span class="right">EFFECTIVE TODAY · 25 JUL 2026</span></div>
+        <table>
+          <tr><th>Price list</th><th>Price</th><th>Basis</th><th>Branch override (Andheri West)</th><th>Effective</th></tr>
+          <tr><td>Standard walk-in (PL-STD v2026.3)</td><td class="mono">₹2,900.00</td><td>Base</td><td class="muted">—</td><td>01 Jul 2026 →</td></tr>
+          <tr><td>Zenith Corp Health</td><td class="mono">₹2,610.00</td><td>Base −10% (contract)</td><td class="muted">—</td><td>01 Apr 2026 →</td></tr>
+          <tr><td>MediAssist TPA</td><td class="mono">₹2,750.00</td><td>Negotiated flat</td><td class="mono">₹2,700.00 (this branch)</td><td>01 Jun 2026 →</td></tr>
+          <tr><td>CGHS empanelment</td><td class="mono">₹2,433.00</td><td>CGHS 2026 rate card</td><td class="muted">— (override not permitted)</td><td>15 Apr 2026 →</td></tr>
+          <tr><td>Community camp</td><td class="mono">₹1,450.00</td><td>Base −50% · camp days only</td><td class="mono">Enabled: 2nd Sunday/month</td><td>01 Jul 2026 →</td></tr>
+        </table>
+        <div class="hint muted small" style="margin-top:6px">The billing counter resolves price as: payer/scheme list → branch override → base list, always by the invoice date's effective version. Cashiers can never type a free price.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — EDIT PRICE WITH EFFECTIVE DATE (FUTURE-DATED PUBLISH)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="modal-wrap"><div class="modal">
+    <h3>Change price — RAD-MR-003 · MRI Brain (plain)</h3>
+    <div class="small muted" style="margin-bottom:10px">Changes never touch the live list. This creates draft version <b>PL-STD v2026.4</b>; the counter keeps charging v2026.3 until the effective moment.</div>
+    <dl class="kv" style="grid-template-columns:150px 1fr;margin-bottom:10px">
+      <dt>Current (v2026.3)</dt><dd class="mono">₹5,800.00 · effective since 01 Jul 2026</dd>
+    </dl>
+    <div class="row">
+      <div class="grow field"><label>New base price (₹) <span class="req">*</span></label><input class="input mono" value="6,200.00"/><div class="hint">+6.9% — changes above ±15% need CFO-level approval</div></div>
+      <div class="grow field"><label>Effective from <span class="req">*</span></label><input class="input" value="01 Aug 2026, 00:00 IST"/><div class="hint">Future-dated · cannot be earlier than tomorrow · never retroactive</div></div>
+    </div>
+    <div class="field"><label>Reason for change <span class="req">*</span></label><select class="select"><option>Annual tariff revision — helium &amp; AMC cost increase</option></select></div>
+    <div class="check"><span class="box on">✓</span><div class="small">Cascade to payer lists using their contract formulas (Zenith −10% → ₹5,580.00; CGHS unaffected — fixed rate card)</div></div>
+    <div class="check"><span class="box"></span><div class="small">Apply branch override for Andheri West only (other branches keep v2026.3 pricing)</div></div>
+    <div class="banner warn" style="margin:10px 0"><b>Approval required before publish</b>Price changes route to M. Kulkarni (Billing supervisor) and require your step-up identity confirmation as proposer. Patients already invoiced are never repriced.</div>
+    <div class="modal-actions"><span class="btn">Discard</span><span class="btn">Save to draft v2026.4</span><span class="btn primary">Submit v2026.4 for approval →</span></div>
+  </div></div>
+  <div class="hint muted small">Draft v2026.4 currently holds 11 changed prices · diff view available before submission · scheduled publish 01 Aug 2026 00:00 IST after approval.</div>
+</div></div></div>
+
+<div class="state-tag">STATE C — VERSION HISTORY &amp; CHANGE AUDIT</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Price list versions — PL-STD (Standard walk-in)</div>
+  <div class="page-sub">Versions are immutable once published; the invoice date decides which version priced each bill</div>
+  <table>
+    <tr><th>Version</th><th>Status</th><th>Effective</th><th>Changes</th><th>Proposed by</th><th>Approved by</th><th>Published</th><th></th></tr>
+    <tr><td class="mono">v2026.4</td><td><span class="chip amber">SCHEDULED</span></td><td>01 Aug 2026 →</td><td>11 prices ↑ (avg +6.2%)</td><td>K. Verma</td><td>M. Kulkarni · 24 Jul 18:40</td><td class="muted">auto at effective time</td><td><span class="btn ghost small">Diff vs v2026.3</span></td></tr>
+    <tr class="hl"><td class="mono">v2026.3</td><td><span class="chip green">LIVE</span></td><td>01 Jul 2026 → 31 Jul 2026</td><td>6 prices ↑ · 2 new services</td><td>K. Verma</td><td>M. Kulkarni · 28 Jun 11:05</td><td>01 Jul 00:00</td><td><span class="btn ghost small">View</span></td></tr>
+    <tr class="dim"><td class="mono">v2026.2</td><td><span class="chip grey">SUPERSEDED</span></td><td>01 Apr → 30 Jun 2026</td><td>New FY list · SAC audit fixes</td><td>K. Verma</td><td>M. Kulkarni</td><td>01 Apr 00:00</td><td><span class="btn ghost small">View</span></td></tr>
+    <tr class="dim"><td class="mono">v2026.1</td><td><span class="chip grey">SUPERSEDED</span></td><td>05 Jan → 31 Mar 2026</td><td>Camp scheme added</td><td>K. Verma</td><td>M. Kulkarni</td><td>05 Jan 00:00</td><td><span class="btn ghost small">View</span></td></tr>
+    <tr class="dim"><td class="mono">v2025.6</td><td><span class="chip red">ROLLED BACK</span></td><td>12 Dec 2025 (4 hours live)</td><td>Erroneous −40% on CT panel</td><td>(ex-staff)</td><td>—</td><td>rolled back 12 Dec 14:20</td><td><span class="btn ghost small">Incident note</span></td></tr>
+  </table>
+  <div class="card" style="margin-top:12px"><div class="card-title">Change audit — v2026.4 (scheduled) <span class="right">SAMPLE OF 11 CHANGES</span></div>
+    <table>
+      <tr><th>Service</th><th>Old (v2026.3)</th><th>New (v2026.4)</th><th>Δ</th><th>Reason</th><th>Audit ref</th></tr>
+      <tr><td class="mono small">RAD-MR-003 · MRI Brain (plain)</td><td class="mono">₹5,800.00</td><td class="mono">₹6,200.00</td><td class="mono">+6.9%</td><td class="small">Annual tariff revision</td><td class="mono small">AUD-PL-2026-0334</td></tr>
+      <tr><td class="mono small">RAD-MR-007 · MRI Lumbar Spine</td><td class="mono">₹6,500.00</td><td class="mono">₹6,900.00</td><td class="mono">+6.2%</td><td class="small">Annual tariff revision</td><td class="mono small">AUD-PL-2026-0335</td></tr>
+      <tr><td class="mono small">RAD-CT-001 · CT Head (plain)</td><td class="mono">₹2,900.00</td><td class="mono">₹3,050.00</td><td class="mono">+5.2%</td><td class="small">Annual tariff revision</td><td class="mono small">AUD-PL-2026-0336</td></tr>
+      <tr><td class="mono small">RAD-US-004 · USG Abdomen &amp; Pelvis</td><td class="mono">₹1,500.00</td><td class="mono">₹1,600.00</td><td class="mono">+6.7%</td><td class="small">Annual tariff revision</td><td class="mono small">AUD-PL-2026-0337</td></tr>
+      <tr><td class="mono small">GEN-MED-011 · Contrast Iohexol 50ml</td><td class="mono">₹1,180.00</td><td class="mono">₹1,240.00</td><td class="mono">+5.1%</td><td class="small">Vendor cost pass-through (GST 12% goods)</td><td class="mono small">AUD-PL-2026-0338</td></tr>
+    </table>
+    <div class="hint muted small" style="margin-top:6px">Each row links the proposer, approver, identity-confirmation timestamps and the before/after values. Rollback creates a new version — history is never rewritten.</div>
+  </div>
+</div></div></div>
+
+<p class="audit">Catalog edits, price-list versions, approvals, scheduled publishes and rollbacks are written to the immutable change audit (AUD-PL refs); viewing contracted payer rates is restricted by role and recorded in the access log.</p>
+</section>

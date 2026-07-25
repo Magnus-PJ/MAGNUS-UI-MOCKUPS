@@ -1,0 +1,126 @@
+<section class="screen" id="nt-01">
+<div class="screen-head"><h1><span class="sid">NT-01</span> Delivery ledger</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The delivery ledger is the single source of truth for every outbound message tied to an accession — report-ready links, reminders, tokens and payment receipts. Staff filter by status, channel and date to answer "did the patient get it?" without opening the patient chart, and can drill into a per-accession timeline showing queued → sent → delivered → read/failed hops per recipient. Resends re-issue a fresh secure link (72-hour TTL, previous link revoked) and every view/resend/export is written to the access log.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Delivery</div>
+      <div class="nav-item active">Delivery ledger</div>
+      <div class="nav-item">Failures &amp; pickup <span class="nav-badge red">9</span></div>
+      <div class="sec-label">Configuration</div>
+      <div class="nav-item">Templates</div>
+      <div class="nav-item">Channels &amp; senders</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Consent registry</div>
+      <div class="nav-item">Access log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Notifications › Delivery ledger</div>
+      <div class="page-title">Delivery ledger <span class="actions-right"><span class="btn small">⬇ Export CSV (governed)</span> <span class="btn small ghost">Refresh</span></span></div>
+      <div class="page-sub">All outbound patient &amp; referrer messages · Andheri West · secure report links expire 72&nbsp;h after issue</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">312</div><div class="l">Sent today</div><div class="s">across SMS / WhatsApp / email</div></div>
+        <div class="kpi"><div class="n">287</div><div class="l">Delivered</div><div class="s">92.0% delivery rate</div></div>
+        <div class="kpi amber"><div class="n">16</div><div class="l">Pending &gt; 30 min</div><div class="s">provider queue backlog</div></div>
+        <div class="kpi red"><div class="n">9</div><div class="l">Failed</div><div class="s">go to Failures worklist</div></div>
+      </div>
+      <div class="card">
+        <div class="row" style="align-items:flex-end;flex-wrap:wrap">
+          <div class="field" style="width:170px;margin-bottom:0"><label>Status</label><div class="select">All except delivered ▾</div></div>
+          <div class="field" style="width:150px;margin-bottom:0"><label>Channel</label><div class="select">All channels ▾</div></div>
+          <div class="field" style="width:170px;margin-bottom:0"><label>Event type</label><div class="select">Report ready ▾</div></div>
+          <div class="field" style="width:190px;margin-bottom:0"><label>Date range</label><div class="select">24 Jul – 25 Jul 2026 ▾</div></div>
+          <div class="field grow" style="margin-bottom:0"><label>Search</label><div class="input muted">Accession / MRN / phone last-4…</div></div>
+          <span class="btn primary" style="margin-bottom:1px">Apply</span>
+        </div>
+      </div>
+      <table>
+        <tr><th>Queued (IST)</th><th>Accession</th><th>Patient / recipient</th><th>Event</th><th>Channel</th><th>Status</th><th>Last hop</th><th></th></tr>
+        <tr><td class="mono">25 Jul 14:42</td><td class="mono">ACC-2026-91247</td><td>Sofia Rossi <span class="muted small">MRN-004822</span><br><span class="small muted">📱 +91 98••• ••318 (patient)</span></td><td>Report ready · secure link</td><td><span class="chip blue">WhatsApp</span></td><td><span class="chip green">READ</span></td><td class="mono small">14:47:12</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr class="hl"><td class="mono">25 Jul 14:31</td><td class="mono">ACC-2026-91236</td><td>Aarav Sharma <span class="muted small">MRN-004821</span><br><span class="small muted">📱 +91 91••• ••204 (patient)</span></td><td>Report ready · secure link</td><td><span class="chip grey">SMS</span></td><td><span class="chip red">FAILED</span></td><td class="mono small">14:33:40</td><td><span class="btn small">Resend</span></td></tr>
+        <tr><td class="mono">25 Jul 14:31</td><td class="mono">ACC-2026-91236</td><td>Dr. Meera Nair <span class="chip teal" style="font-size:10px">REFERRER ✓</span><br><span class="small muted">📱 +91 98••• ••412 (verified)</span></td><td>Report ready · portal notify</td><td><span class="chip blue">WhatsApp</span></td><td><span class="chip green">DELIVERED</span></td><td class="mono small">14:32:05</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr><td class="mono">25 Jul 13:58</td><td class="mono">APPT-2026-53318</td><td>Priya Menon <span class="muted small">MRN-004828</span><br><span class="small muted">📱 +91 99••• ••871 (patient)</span></td><td>Appointment reminder T-24h</td><td><span class="chip grey">SMS</span></td><td><span class="chip green">DELIVERED</span></td><td class="mono small">13:58:44</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr><td class="mono">25 Jul 13:41</td><td class="mono">ACC-2026-91229</td><td>Mohammed Al-Rashid <span class="muted small">MRN-004790</span><br><span class="small muted">✉ m.alrashid••@••• (patient)</span></td><td>Report ready · secure link</td><td><span class="chip violet">Email</span></td><td><span class="chip amber">SENT · awaiting delivery receipt</span></td><td class="mono small">13:41:19</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr><td class="mono">25 Jul 12:20</td><td class="mono">VIS-2026-33107</td><td>Rajesh Gupta <span class="muted small">MRN-004795</span><br><span class="small muted">📱 +91 90••• ••662 (patient)</span></td><td>Payment receipt RCP/AND/26-27/0912</td><td><span class="chip grey">SMS</span></td><td><span class="chip green">DELIVERED</span></td><td class="mono small">12:20:37</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr class="dim"><td class="mono">25 Jul 11:05</td><td class="mono">ACC-2026-91214</td><td>Ananya Rao <span class="muted small">MRN-004819</span><br><span class="small muted">📱 +91 97••• ••530 (patient)</span></td><td>Report ready · secure link</td><td><span class="chip grey">SMS</span></td><td><span class="chip grey">SUPPRESSED · consent withdrawn</span></td><td class="mono small">—</td><td><span class="btn small ghost">Why?</span></td></tr>
+        <tr><td class="mono">25 Jul 09:12</td><td class="mono">APPT-2026-53341</td><td>Sofia Rossi <span class="muted small">MRN-004822</span><br><span class="small muted">📱 +91 98••• ••318 (patient)</span></td><td>Queue token T-042</td><td><span class="chip blue">WhatsApp</span></td><td><span class="chip green">READ</span></td><td class="mono small">09:12:58</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr><td class="mono">24 Jul 18:47</td><td class="mono">ACC-2026-91188</td><td>Rajesh Gupta <span class="muted small">MRN-004795</span><br><span class="small muted">📱 +91 90••• ••662 (patient)</span></td><td>Report ready · secure link</td><td><span class="chip grey">SMS</span></td><td><span class="chip amber">LINK EXPIRED (72 h)</span></td><td class="mono small">21 Jul 18:47</td><td><span class="btn small">Resend</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Showing 9 of 312 · phone numbers and emails are masked in list view; full values require a per-record reveal that is access-logged. Export produces masked contact fields only and requires a stated purpose.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SINGLE-ACCESSION DELIVERY TIMELINE (ACC-2026-91236)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Notifications › Delivery ledger › ACC-2026-91236</div>
+      <div class="page-title">Delivery timeline — ACC-2026-91236 <span class="chip amber">1 of 2 recipients failed</span></div>
+      <div class="page-sub">CT Brain (plain) · Aarav Sharma · reported by Dr. V. Shetty, finalised 25 Jul 2026 14:29 IST</div>
+      <div class="split">
+        <div class="card">
+          <div class="card-title">Per-recipient delivery hops <span class="right">All times IST</span></div>
+          <div class="bold small" style="margin-bottom:6px">Recipient 1 · Aarav Sharma (patient) · SMS +91 91••• ••204</div>
+          <div class="timeline">
+            <div class="ev"><span class="t">14:31:02</span><div><b>Queued</b> — event report-ready · template RR-SMS-EN v4 · DLT 11071722264189</div></div>
+            <div class="ev"><span class="t">14:31:05</span><div><b>Sent</b> to provider RouteSMS-DLT · msg-id <span class="mono">SM-88412-ax</span></div></div>
+            <div class="ev"><span class="t">14:33:40</span><div><b style="color:#B91C1C">Failed</b> — carrier code 21: <span class="chip red">UNDELIVERABLE — number inactive</span></div></div>
+            <div class="ev"><span class="t">14:33:41</span><div>Auto-routed to <b>Failures worklist</b> · owner: front office · SLA review by 26 Jul 10:00</div></div>
+          </div>
+          <div class="bold small" style="margin:12px 0 6px;border-top:1px solid #EEF2F6;padding-top:10px">Recipient 2 · Dr. Meera Nair (referrer, verified) · WhatsApp +91 98••• ••412</div>
+          <div class="timeline">
+            <div class="ev"><span class="t">14:31:02</span><div><b>Queued</b> — template RR-WA-EN v2 · BSP Gupshup</div></div>
+            <div class="ev"><span class="t">14:31:08</span><div><b>Sent</b> · wamid <span class="mono">wamid.HBgM…9187</span></div></div>
+            <div class="ev"><span class="t">14:32:05</span><div><b style="color:#15803D">Delivered</b> to handset</div></div>
+            <div class="ev"><span class="t">—</span><div class="muted">Read receipt not yet received (recipient read-receipts may be off)</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Secure link</div>
+            <dl class="kv" style="grid-template-columns:110px 1fr">
+              <dt>Link ref</dt><dd class="mono">lnk_9f27c…a1</dd>
+              <dt>Issued</dt><dd>25 Jul 14:31 IST</dd>
+              <dt>Expires</dt><dd>28 Jul 14:31 IST <span class="chip teal">72 h TTL</span></dd>
+              <dt>Opens</dt><dd>0 · OTP-gated (DOB + OTP)</dd>
+              <dt>Scope</dt><dd>Report PDF only · no raw images</dd>
+            </dl>
+            <div class="small muted" style="margin-top:8px">🔒 Resending issues a new link and revokes this one immediately.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Message content</div>
+            <div class="small" style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:8px 10px">Your report for order ending <b>1236</b> at Meridian Diagnostics is ready. View securely: &lt;link&gt;. Link valid 72 hrs. Do not share. — MERDIA</div>
+            <div class="small muted" style="margin-top:6px">Template contains no name, no test description, no result — PHI-free by lint rule NT-L1.</div>
+          </div>
+          <span class="btn primary" style="width:100%;margin-bottom:8px">Resend to patient…</span>
+          <span class="btn" style="width:100%">Move to counter pickup</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — RESEND MODAL (FRESH 72 H LINK, OLD LINK REVOKED)</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Resend report-ready message — ACC-2026-91236</h3>
+    <div class="banner info"><b>A new secure link will be generated.</b> The previous link (issued 25 Jul 14:31) is revoked the moment you resend. The new link is valid for 72 hours from now and remains OTP-gated.</div>
+    <div class="field"><label>Recipient</label><div class="select">Aarav Sharma (patient) · SMS +91 91••• ••204 — last attempt FAILED ▾</div><div class="hint">Contact edits require OTP verification — use "Fix contact" in the Failures worklist instead of retyping here.</div></div>
+    <div class="field"><label>Channel</label>
+      <div class="check"><span class="box radio on"></span> Same channel — SMS (retry via failover provider Kaleyra)</div>
+      <div class="check"><span class="box radio"></span> Switch to WhatsApp (consent on file: yes, 12 Jul 2026)</div>
+      <div class="check"><span class="box radio"></span> Switch to email — <span class="muted">no email on file</span></div>
+    </div>
+    <div class="field"><label>Reason for resend <span class="req">*</span></label><div class="select">Delivery failed — carrier undeliverable ▾</div></div>
+    <div class="check"><span class="box on">✓</span> I confirm the recipient identity matches the registered patient contact. Resend count for this accession today: 1 of 3 allowed.</div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Resend with new 72 h link</span></div>
+  </div>
+</div>
+<p class="audit">Ledger views, per-record contact reveals, resends (with reason and actor D. Nair), link revocations and CSV exports (with stated purpose) are recorded in the access log.</p>
+</section>

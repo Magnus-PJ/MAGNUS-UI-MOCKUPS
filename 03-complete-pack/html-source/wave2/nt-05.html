@@ -1,0 +1,96 @@
+<section class="screen" id="nt-05">
+<div class="screen-head"><h1><span class="sid">NT-05</span> Suppression &amp; consent cross-view</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single view of every destination Magnus will NOT message, and exactly why — consent withdrawal (DPDP), opt-out, missing destination or hard bounce. Staff can see what would lift a suppression, but can never override it here: consent-driven suppressions are lifted only by a recorded consent update at the front desk. Every attempted send against a suppressed destination is blocked and logged.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front Office) ▾</div></div>
+  <div class="body">
+  <div class="sidebar">
+    <div class="sec-label">Notifications</div>
+    <div class="nav-item">Delivery dashboard</div>
+    <div class="nav-item">Outbox &amp; queue <span class="nav-badge">38</span></div>
+    <div class="nav-item">Failures &amp; retries <span class="nav-badge red">4</span></div>
+    <div class="nav-item">Templates</div>
+    <div class="nav-item active">Suppression &amp; consent</div>
+    <div class="nav-item">Patient message log</div>
+    <div class="nav-item">Quiet hours &amp; rules</div>
+    <div class="nav-item">Send-test harness</div>
+    <div class="sec-label">Related</div>
+    <div class="nav-item">Consent registry ↗</div>
+    <div class="nav-item">Audit log ↗</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Notifications › Suppression &amp; consent</div>
+    <div class="page-title">Suppressed destinations <span class="actions-right"><span class="btn small">Export list (masked) ▾</span></span></div>
+    <div class="page-sub">Destinations excluded from all outbound messaging · masked view · read-only — suppression is lifted only by the source record, never from this screen</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">61</div><div class="l">Active suppressions</div><div class="s">across SMS · WhatsApp · Email</div></div>
+      <div class="kpi amber"><div class="n">9</div><div class="l">Consent-withdrawn (DPDP)</div><div class="s">lift only via consent update</div></div>
+      <div class="kpi"><div class="n">28</div><div class="l">Hard bounces</div><div class="s">lift via verified destination change</div></div>
+      <div class="kpi red"><div class="n">12</div><div class="l">Blocked send attempts (7d)</div><div class="s">all logged · none delivered</div></div>
+    </div>
+    <div class="banner reg"><b>DPDP Act 2023 — consent is the source of truth.</b> A destination suppressed for consent withdrawal cannot be re-enabled from the Notifications workspace. Direct the patient to the front desk (or patient portal) to record a fresh consent; the suppression lifts automatically when the consent record updates.</div>
+    <div class="card">
+      <div class="card-title">Suppression list <span class="right">61 rows · showing 6 · filter: all reasons</span></div>
+      <div class="row" style="margin-bottom:10px">
+        <input class="input" style="max-width:240px" value="" placeholder="Search MRN / masked destination"/>
+        <select class="select" style="max-width:180px"><option>Reason: All</option></select>
+        <select class="select" style="max-width:160px"><option>Channel: All</option></select>
+        <select class="select" style="max-width:170px"><option>Since: Last 90 days</option></select>
+      </div>
+      <table>
+        <tr><th>Patient</th><th>Destination (masked)</th><th>Channel</th><th>Reason</th><th>Since</th><th>What would unsuppress</th><th></th></tr>
+        <tr class="hl"><td><b>Sofia Rossi</b><br><span class="mono small muted">MRN-004822</span></td><td class="mono">+91 98••• ••231</td><td>SMS + WhatsApp</td><td><span class="chip red">CONSENT-WITHDRAWN</span><br><span class="small muted">DPDP ref CNS-2026-00184</span></td><td>18 Jul 2026</td><td class="small">New consent recorded at front desk → <span style="color:#0F766E;font-weight:700">Consent record CNS-2026-00184 ↗</span>. Cannot be overridden here.</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr><td><b>Mohammed Al-Rashid</b><br><span class="mono small muted">MRN-004790</span></td><td class="mono">m•••••d@gm•••.com</td><td>Email</td><td><span class="chip amber">OPTED-OUT</span><br><span class="small muted">STOP reply · 12 Jul</span></td><td>12 Jul 2026</td><td class="small">Patient re-opts in via portal preferences or signed preference form at front desk.</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr><td><b>Rajesh Gupta</b><br><span class="mono small muted">MRN-004795</span></td><td class="mono">+91 90••• ••118</td><td>SMS</td><td><span class="chip red">HARD-BOUNCE</span><br><span class="small muted">DND / number inactive ×3</span></td><td>09 Jul 2026</td><td class="small">Verified mobile number update in patient record (front desk, OTP-verified).</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr><td><b>Ananya Rao</b><br><span class="mono small muted">MRN-004819</span></td><td class="mono">— none on file —</td><td>All</td><td><span class="chip grey">NO-DESTINATION</span></td><td>02 Jul 2026</td><td class="small">Add a verified mobile or email to the patient record at registration desk.</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr><td><b>Priya Menon</b><br><span class="mono small muted">MRN-004828</span></td><td class="mono">+91 97••• ••604</td><td>WhatsApp</td><td><span class="chip amber">OPTED-OUT</span><br><span class="small muted">channel-level only</span></td><td>21 Jul 2026</td><td class="small">Channel opt-in via portal; SMS remains active for this patient.</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr><td><b>Aarav Sharma</b><br><span class="mono small muted">MRN-004821</span></td><td class="mono">a•••v.s@ya•••.in</td><td>Email</td><td><span class="chip red">HARD-BOUNCE</span><br><span class="small muted">mailbox does not exist</span></td><td>15 Jul 2026</td><td class="small">Corrected email address entered and verified in patient record.</td><td><span class="btn small ghost">Detail</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Destinations are always masked in this view. Full values are visible only in the patient record with a captured access reason.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Suppression events feed <span class="right">Last 24h · IST</span></div>
+      <div class="timeline">
+        <div class="ev"><span class="t">25 Jul 14:42</span><div><b>Suppression added</b> — Priya Menon (MRN-004828) · WhatsApp · opted-out via portal preference change. Linked to consent record CNS-2026-00203.</div></div>
+        <div class="ev"><span class="t">25 Jul 11:08</span><div><span class="chip red">BLOCKED</span> <b>Send attempt blocked</b> — report-ready SMS to Sofia Rossi (MRN-004822) suppressed at gateway. Reason: consent-withdrawn. Attempt logged, no message left Magnus.</div></div>
+        <div class="ev"><span class="t">24 Jul 18:31</span><div><b>Suppression lifted</b> — MRN-004760 · SMS · verified number updated at front desk by D. Nair; hard-bounce cleared automatically.</div></div>
+        <div class="ev"><span class="t">24 Jul 09:14</span><div><b>Suppression added</b> — Aarav Sharma (MRN-004821) · Email · hard bounce (5.1.1) after invoice-issued message.</div></div>
+      </div>
+    </div>
+  </div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — Suppression detail with bidirectional consent link</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:620px">
+    <h3>Suppression detail — SMS/WhatsApp · Sofia Rossi (MRN-004822)</h3>
+    <div class="kv" style="margin-bottom:10px">
+      <dt>Destination</dt><dd class="mono">+91 98••• ••231 (masked)</dd>
+      <dt>Reason</dt><dd><span class="chip red">CONSENT-WITHDRAWN</span></dd>
+      <dt>DPDP reference</dt><dd class="mono">CNS-2026-00184 · withdrawal recorded 18 Jul 2026, 10:22 IST</dd>
+      <dt>Recorded by</dt><dd>D. Nair (Front Office) · in person, patient-signed preference form</dd>
+      <dt>Scope</dt><dd>All non-clinical messaging on SMS &amp; WhatsApp. Statutorily required communications (e.g. billing documents on request) unaffected.</dd>
+      <dt>Consent record</dt><dd><span style="color:#0F766E;font-weight:700">Open consent record CNS-2026-00184 ↗</span> <span class="small muted">(that record links back to this suppression)</span></dd>
+      <dt>Blocked attempts</dt><dd>3 since 18 Jul — all logged, none delivered</dd>
+    </div>
+    <div class="banner warn"><b>What would unsuppress this destination</b>A new consent captured at the front desk or via the patient portal, recorded against CNS-2026-00184. There is no override control on this screen — by design.</div>
+    <div class="modal-actions"><span class="btn">View blocked attempts</span><span class="btn primary">Open consent record ↗</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — Attempted send blocked · audit trail</div>
+<div class="card">
+  <div class="card-title">Blocked-send audit — ACC-2026-91247 · report-ready notification <span class="right">Read-only</span></div>
+  <div class="banner danger"><b>Message blocked at suppression gateway — nothing was sent.</b> The report-ready SMS for accession ACC-2026-91247 (Sofia Rossi, MRN-004822) matched an active consent-withdrawn suppression. The event, not the message content, was written to the audit log.</div>
+  <table>
+    <tr><th>Time (IST)</th><th>Event</th><th>Template</th><th>Channel</th><th>Outcome</th><th>Actor</th></tr>
+    <tr><td class="mono">25 Jul 11:08:02</td><td>report-ready trigger fired</td><td class="mono">TPL-RPT-READY-v4 (en)</td><td>SMS</td><td><span class="chip grey">QUEUED</span></td><td>system (RIS event)</td></tr>
+    <tr class="hl"><td class="mono">25 Jul 11:08:03</td><td>suppression check</td><td class="mono">—</td><td>SMS</td><td><span class="chip red">BLOCKED · consent-withdrawn</span></td><td>gateway</td></tr>
+    <tr><td class="mono">25 Jul 11:08:03</td><td>fallback evaluation</td><td class="mono">—</td><td>WhatsApp / Email</td><td><span class="chip grey">NO ELIGIBLE CHANNEL</span></td><td>gateway</td></tr>
+    <tr><td class="mono">25 Jul 11:08:04</td><td>front-office task created</td><td class="mono">TASK-2026-7731</td><td>—</td><td><span class="chip amber">HANDOVER · call patient / collect at desk · owner D. Nair · SLA 4h</span></td><td>system</td></tr>
+  </table>
+  <div class="small muted" style="margin-top:8px">Patients with suppressed destinations still receive results — via front-desk handover workflow, never via an overridden message.</div>
+</div>
+<p class="audit">Every view of this list, every suppression detail opened and every blocked-send event is recorded in the access log with user, role, timestamp and patient reference. Suppressions cannot be edited or lifted from the Notifications workspace; lift events originate only from consent or patient-record updates and are recorded in the access log.</p>
+</section>

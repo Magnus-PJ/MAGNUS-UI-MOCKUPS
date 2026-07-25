@@ -1,0 +1,193 @@
+<section class="screen" id="dd-05">
+<div class="screen-head"><h1><span class="sid">DD-05</span> Break-glass emergency access</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G8 Doctor Desk (Referrers) — workspace 'Doctor Desk'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> A verified referrer facing a clinical emergency can open a record outside their care-team scope without waiting for approval. Access is granted instantly but is loud: a persistent red banner, a 24-hour auto-expiry countdown, every action tagged, and mandatory post-hoc review by the branch privacy lead within 2 working days. Extending access requires fresh justification.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">Dashboard</div>
+      <div class="nav-item">My patients</div>
+      <div class="nav-item">Reports inbox <span class="nav-badge">3</span></div>
+      <div class="nav-item">New referral</div>
+      <div class="sec-label">Access</div>
+      <div class="nav-item">Access requests <span class="nav-badge">1</span></div>
+      <div class="nav-item active">Break-glass access <span class="nav-badge red">1</span></div>
+      <div class="sec-label">Insights</div>
+      <div class="nav-item">Referral analytics</div>
+      <div class="nav-item">Profile &amp; channels</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › Access › Break-glass emergency access</div>
+      <div class="page-title">Break-glass emergency access</div>
+      <div class="page-sub">For genuine clinical emergencies only. Every break-glass event is logged in full and reviewed by the branch privacy lead within 2 working days.</div>
+
+      <div class="banner danger"><b>⚠ Use only when a patient's immediate care depends on it.</b> Break-glass bypasses normal care-team access controls. Misuse is treated as a privacy incident under Meridian policy and the DPDP Act 2023 and may lead to suspension of Doctor Desk access.</div>
+
+      <div class="row">
+        <div class="card grow" style="max-width:340px">
+          <div class="card-title">Before you break the glass <span class="right">Checklist</span></div>
+          <div class="check"><span class="box on">✓</span>I have a genuine, time-critical clinical reason.</div>
+          <div class="check"><span class="box on">✓</span>The patient is not already on my care-team list (checked "My patients").</div>
+          <div class="check"><span class="box on">✓</span>A standard access request (4h SLA) would be too slow for this situation.</div>
+          <div class="check"><span class="box on">✓</span>I understand all my actions will be tagged and reviewed.</div>
+          <div class="field" style="margin-top:8px"><span class="hint">🔒 If this is not time-critical, use <b>Access requests</b> instead — the branch privacy lead approves most requests within 4 hours.</span></div>
+        </div>
+        <div class="card grow">
+          <div class="card-title">My break-glass history <span class="right">Last 12 months</span></div>
+          <table>
+            <tr><th>Event</th><th>Patient ref</th><th>Opened</th><th>Ended</th><th>Review outcome</th></tr>
+            <tr><td class="mono">BG-2026-00341</td><td class="mono">MRN-004790</td><td>02 Mar 2026, 22:41</td><td>Auto-expired 24h</td><td><span class="chip green">JUSTIFIED</span></td></tr>
+            <tr><td class="mono">BG-2025-00287</td><td class="mono">MRN-••••512</td><td>18 Nov 2025, 03:12</td><td>Ended by me (2h 10m)</td><td><span class="chip green">JUSTIFIED</span></td></tr>
+            <tr><td class="mono">BG-2025-00201</td><td class="mono">MRN-••••077</td><td>04 Aug 2025, 14:55</td><td>Auto-expired 24h</td><td><span class="chip amber">ADVISORY ISSUED</span></td></tr>
+          </table>
+          <p class="audit">History shows only events you initiated. Patient identifiers outside your current care team are masked; the review board sees full detail. All views recorded in the access log.</p>
+        </div>
+      </div>
+
+      <div class="modal-wrap">
+        <div class="modal danger">
+          <h3>🚨 Break-glass emergency access request</h3>
+          <div class="banner warn" style="margin-bottom:12px"><b>This action is irreversible once granted.</b> The event, your justification and every subsequent view will be sent to the Governance review queue.</div>
+          <div class="field"><label>Patient identifier <span class="req">*</span></label><input class="input mono" value="MRN-004830"><div class="hint">MRN, accession no. (ACC-2026-9xxxx) or registered mobile. Demographics stay masked until access is granted.</div></div>
+          <div class="field"><label>Reason category <span class="req">*</span></label>
+            <select class="select"><option>Medical emergency — patient deteriorating, prior imaging needed now</option></select>
+            <div class="hint">Other categories: Unconscious/unidentified patient · Critical result follow-up · Medico-legal emergency (police/court) — each is reviewed against the justification below.</div>
+          </div>
+          <div class="field"><label>Clinical justification <span class="req">*</span> <span class="muted small">(min 50 characters, shown verbatim to reviewers)</span></label>
+            <textarea class="textarea">Patient presented at my clinic at 21:40 with acute breathlessness and chest pain; needs comparison with the CT Chest performed at Meridian Andheri West on 18 Jul 2026 before I refer to emergency care. Family confirms scan; patient unable to grant portal access right now.</textarea>
+          </div>
+          <div class="field"><label>Expected duration of need</label><select class="select"><option>Up to 24 hours (maximum — auto-expiry)</option></select><div class="hint">Access always auto-expires at 24h. Shorter is better — you can end access early at any time.</div></div>
+          <div class="banner reg" style="margin:10px 0"><b>Identity confirmation required.</b> Re-enter your Doctor Desk PIN to sign this declaration as Dr. Meera Nair (verified +91 98••• ••412).</div>
+          <div class="field"><label>Doctor Desk PIN <span class="req">*</span></label><input class="input" style="max-width:180px" value="• • • • • •"></div>
+          <div class="check"><span class="box on">✓</span>I declare this is a genuine clinical emergency and accept post-hoc review by the branch privacy lead within 2 working days.</div>
+          <div class="modal-actions"><span class="btn">Cancel — use standard request instead</span><span class="btn danger">Break glass &amp; open record</span></div>
+        </div>
+      </div>
+      <p class="audit">Break-glass request BG-2026-00412 draft · initiated by Dr. Meera Nair (Referrer, verified) · 24 Jul 2026, 21:52 IST · device fingerprint and IP captured · recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ACCESS ACTIVE · PERSISTENT RED BANNER WITH 24H COUNTDOWN</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">Dashboard</div>
+      <div class="nav-item">My patients</div>
+      <div class="nav-item">Reports inbox <span class="nav-badge">3</span></div>
+      <div class="nav-item">New referral</div>
+      <div class="sec-label">Access</div>
+      <div class="nav-item">Access requests <span class="nav-badge">1</span></div>
+      <div class="nav-item active">Break-glass access <span class="nav-badge red">LIVE</span></div>
+      <div class="sec-label">Insights</div>
+      <div class="nav-item">Referral analytics</div>
+      <div class="nav-item">Profile &amp; channels</div>
+    </div>
+    <div class="main">
+      <div class="banner danger" style="border-width:2px"><b>🚨 BREAK-GLASS ACCESS ACTIVE — BG-2026-00412 · auto-expires in 21h 37m (25 Jul 2026, 21:58 IST)</b> Every record you open, view, download or share while this banner is visible is tagged <span class="chip outline-red">BREAK-GLASS</span> and queued for privacy-lead review. This banner stays on every Doctor Desk page until access ends. <span style="display:inline-block;margin-top:6px"><span class="btn small danger">End access now</span> <span class="btn small warn-outline">Extend — requires fresh justification</span></span></div>
+      <div class="crumb">Doctor Desk › Access › Break-glass · BG-2026-00412</div>
+      <div class="page-title">Rajesh Gupta <span class="chip outline-red">BREAK-GLASS SCOPE</span> <span class="chip grey">NOT ON MY CARE TEAM</span></div>
+      <div class="page-sub">MRN-004795 · M · 58y · opened under emergency access · read-only clinical view, no export of raw images</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Records visible under this grant <span class="right">Imaging only · 24h scope</span></div>
+          <table>
+            <tr><th>Date</th><th>Accession</th><th>Study</th><th>Report status</th><th>Action</th></tr>
+            <tr class="hl"><td>18 Jul 2026</td><td class="mono">ACC-2026-91104</td><td>CT Chest (plain)</td><td><span class="chip green">FINAL · Dr. V. Shetty</span></td><td><span class="btn small primary">View report</span></td></tr>
+            <tr><td>18 Jul 2026</td><td class="mono">ACC-2026-91104</td><td>CT Chest — key images (6)</td><td><span class="chip green">AVAILABLE</span></td><td><span class="btn small">View images</span></td></tr>
+            <tr><td>02 Mar 2026</td><td class="mono">ACC-2026-90233</td><td>Chest X-ray PA</td><td><span class="chip green">FINAL</span></td><td><span class="btn small">View report</span></td></tr>
+            <tr><td>02 Mar 2026</td><td class="mono">ACC-2026-90218</td><td>ECG (12-lead)</td><td><span class="chip green">FINAL</span></td><td><span class="btn small">View report</span></td></tr>
+            <tr class="dim"><td>11 Jan 2026</td><td class="mono">ACC-2026-90021</td><td>USG Abdomen</td><td><span class="chip grey">OUTSIDE EMERGENCY SCOPE</span></td><td><span class="btn small disabled">Not included</span></td></tr>
+          </table>
+        </div>
+        <div class="card" style="width:300px;flex-shrink:0">
+          <div class="card-title">Grant details</div>
+          <dl class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Event</dt><dd class="mono">BG-2026-00412</dd>
+            <dt>Opened</dt><dd>24 Jul 2026, 21:58 IST</dd>
+            <dt>Auto-expiry</dt><dd><b>25 Jul 2026, 21:58</b> <span class="chip amber">21h 37m LEFT</span></dd>
+            <dt>Reason</dt><dd>Medical emergency</dd>
+            <dt>Actions tagged</dt><dd>4 views · 1 report opened</dd>
+            <dt>Review</dt><dd>Governance queue · due <b>28 Jul 2026</b> (within 2 working days)</dd>
+            <dt>Reviewer</dt><dd>Branch privacy lead (K. Verma)</dd>
+          </dl>
+          <div style="margin-top:10px"><span class="btn danger" style="width:100%">End access now</span></div>
+          <div class="hint" style="margin-top:6px">Ending early is noted favourably in the review. Unused time is discarded.</div>
+        </div>
+      </div>
+      <p class="audit">All 5 actions in this session tagged BREAK-GLASS/BG-2026-00412 · patient notification will be sent when access ends unless the reviewer defers it on clinical-safety grounds · recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — EXPIRED · AUTO-END AT 24H, EXTEND REQUIRES RE-JUSTIFICATION</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="banner warn"><b>⏱ Break-glass access BG-2026-00412 has auto-expired.</b> The 24-hour window ended on 25 Jul 2026, 21:58 IST. The record of Rajesh Gupta (MRN-004795) is no longer accessible and has been removed from your recent items. 5 tagged actions were captured for review.</div>
+      <div class="modal-wrap">
+        <div class="modal">
+          <h3>Need continued access?</h3>
+          <p class="small muted" style="margin-bottom:10px">Extensions are never automatic. Choose one path — both require fresh justification and are reviewed separately from the original event.</p>
+          <div class="card" style="margin-bottom:10px">
+            <div class="card-title">Option 1 — Standard access request <span class="chip teal">RECOMMENDED</span></div>
+            <p class="small">Approved by the branch privacy lead, usually within the 4-hour SLA. Time-boxed to the duration you request (max 24h per grant).</p>
+            <div style="margin-top:8px"><span class="btn primary small">Start standard request</span></div>
+          </div>
+          <div class="card" style="margin-bottom:0">
+            <div class="card-title">Option 2 — New break-glass event <span class="chip red">EMERGENCY ONLY</span></div>
+            <p class="small">Only if the emergency is ongoing. You must write a <b>new</b> justification — the previous one is not carried over — and re-confirm identity with your Doctor Desk PIN. Repeated events on the same patient are flagged to the reviewer.</p>
+            <div style="margin-top:8px"><span class="btn danger small">Break glass again — new justification required</span></div>
+          </div>
+          <div class="modal-actions"><span class="btn">No further access needed</span></div>
+        </div>
+      </div>
+      <p class="audit">Auto-expiry executed by system at 25 Jul 2026, 21:58:00 IST · no user action required · expiry event appended to BG-2026-00412 and recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE D — POST-HOC REVIEW OUTCOME NOTICE (GOVERNANCE QUEUE, WITHIN 2 DAYS)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="crumb">Doctor Desk › Access › Break-glass · BG-2026-00412 · Review outcome</div>
+      <div class="page-title">Review outcome — BG-2026-00412</div>
+      <div class="page-sub">Reviewed by the branch privacy lead under the mandatory 2-working-day post-hoc review</div>
+      <div class="banner success"><b>✔ Outcome: JUSTIFIED — no further action.</b> Reviewed by K. Verma (Branch privacy lead) on 27 Jul 2026, 11:20 IST, within SLA (due 28 Jul). Your justification and all 5 tagged actions were found consistent with a genuine medical emergency.</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Review summary</div>
+          <dl class="kv">
+            <dt>Event</dt><dd class="mono">BG-2026-00412 · patient MRN-004795</dd>
+            <dt>Duration used</dt><dd>24h 0m (auto-expired; 4 views + 1 report open, all within first 40 minutes)</dd>
+            <dt>Reviewer notes</dt><dd>"Justification specific and time-critical. Actions limited to relevant imaging. Patient notified on 26 Jul; no objection received."</dd>
+            <dt>Patient notified</dt><dd>Yes — SMS + portal notice, 26 Jul 2026, 09:00 IST</dd>
+            <dt>Outcome recorded</dt><dd>Governance case GV-2026-0764 · closed</dd>
+          </dl>
+        </div>
+        <div class="card" style="width:300px;flex-shrink:0">
+          <div class="card-title">Possible outcomes <span class="right">Reference</span></div>
+          <div class="check"><span class="chip green">JUSTIFIED</span></div>
+          <p class="small muted" style="margin:2px 0 8px">No action; event closed.</p>
+          <div class="check"><span class="chip amber">ADVISORY ISSUED</span></div>
+          <p class="small muted" style="margin:2px 0 8px">Coaching note; pattern monitored for 6 months.</p>
+          <div class="check"><span class="chip red">NOT JUSTIFIED</span></div>
+          <p class="small muted" style="margin:2px 0 0">Privacy incident raised (GV queue), Doctor Desk access may be suspended; patient informed of the finding.</p>
+        </div>
+      </div>
+      <p class="audit">Review outcome delivered to Dr. Meera Nair on 27 Jul 2026, 11:21 IST · outcome, reviewer identity and notes are immutable once the governance case closes · recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<p class="audit">All break-glass lifecycle events (request, grant, each tagged action, expiry/early end, extension attempts, review outcome) are written to the tamper-evident audit trail and recorded in the access log.</p>
+</section>

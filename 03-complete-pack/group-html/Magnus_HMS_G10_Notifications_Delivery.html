@@ -1,0 +1,989 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Magnus HMS — G10 · Notifications & Delivery</title><style>/* Magnus HMS — NS design pack shared design system */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
+.mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
+.muted{color:#64748B}.small{font-size:12px}.bold{font-weight:700}
+/* ---------- page / screen frame ---------- */
+.screen{page-break-after:always;padding:28px 34px;background:#fff;min-height:1000px}
+.screen-head{display:flex;justify-content:space-between;align-items:flex-start;border-left:5px solid #0F766E;padding:6px 0 6px 14px;margin-bottom:6px}
+.screen-head h1{font-size:22px;font-weight:800}
+.screen-head .sid{color:#0F766E;margin-right:10px}
+.screen-head .meta{text-align:right}
+.screen-head .meta .cluster{color:#64748B;font-size:12px;margin-top:3px}
+.gap-note{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:8px 12px;margin:10px 0 16px;font-size:12.5px;color:#7C2D12}
+.gap-note b{color:#9A3412}
+/* ---------- app chrome ---------- */
+.frame{border:1px solid #CBD5E1;border-radius:10px;overflow:hidden;background:#F4F6F8;box-shadow:0 1px 4px rgba(15,23,42,.08);margin-bottom:22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:2px solid #0F766E;padding:9px 16px}
+.brand{font-weight:800;color:#0F766E}.brand span{color:#1E293B}
+.org{font-size:12.5px;color:#334155;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px}
+.userchip{font-size:12.5px;color:#334155}
+.userchip .av{display:inline-block;background:#CCFBF1;color:#0F766E;font-weight:700;border-radius:5px;padding:2px 6px;margin-right:6px;font-size:11px}
+.body{display:flex;min-height:520px}
+.sidebar{width:196px;background:#fff;border-right:1px solid #E2E8F0;padding:12px 0;flex-shrink:0}
+.sec-label{font-size:10.5px;letter-spacing:.08em;color:#94A3B8;font-weight:700;padding:8px 16px 4px;text-transform:uppercase}
+.nav-item{padding:7px 16px;font-size:13px;color:#334155;display:flex;justify-content:space-between;align-items:center}
+.nav-item.active{background:#F0FDFA;color:#0F766E;font-weight:700;border-left:3px solid #0F766E;padding-left:13px}
+.nav-badge{background:#0F766E;color:#fff;border-radius:9px;font-size:10.5px;padding:1px 7px;font-weight:700}
+.nav-badge.red{background:#B91C1C}
+.main{flex:1;padding:16px 18px;min-width:0}
+.crumb{font-size:12px;color:#64748B;margin-bottom:8px}
+.page-title{font-size:19px;font-weight:800;margin-bottom:2px}
+.page-sub{font-size:12.5px;color:#64748B;margin-bottom:14px}
+.actions-right{float:right}
+/* ---------- components ---------- */
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card-title{font-weight:800;font-size:14.5px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.card-title .right{font-size:10.5px;letter-spacing:.07em;color:#94A3B8;font-weight:700;text-transform:uppercase}
+.row{display:flex;gap:14px}.row>*{min-width:0}.grow{flex:1}
+.btn{display:inline-block;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:700;border:1px solid #CBD5E1;background:#fff;color:#334155;text-align:center;white-space:nowrap}
+.btn.primary{background:#0F766E;border-color:#0F766E;color:#fff}
+.btn.danger{background:#B91C1C;border-color:#B91C1C;color:#fff}
+.btn.warn-outline{border-color:#F59E0B;color:#92400E;background:#FFFBEB}
+.btn.ghost{border:none;background:none;color:#0F766E;padding:7px 6px}
+.btn.small{padding:4px 10px;font-size:12px}
+.btn.disabled{opacity:.45}
+.chip{display:inline-block;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip.teal{background:#CCFBF1;color:#0F766E}
+.chip.green{background:#DCFCE7;color:#15803D}
+.chip.amber{background:#FEF3C7;color:#92400E}
+.chip.red{background:#FEE2E2;color:#B91C1C}
+.chip.grey{background:#F1F5F9;color:#475569}
+.chip.blue{background:#E0F2FE;color:#0369A1}
+.chip.violet{background:#EDE9FE;color:#6D28D9}
+.chip.outline-red{background:#fff;border:1.5px solid #B91C1C;color:#B91C1C}
+.banner{border-radius:8px;padding:10px 13px;font-size:12.5px;margin-bottom:12px;border:1px solid}
+.banner b{display:block;margin-bottom:2px;font-size:13px}
+.banner.info{background:#E0F2FE;border-color:#7DD3FC;color:#075985}
+.banner.warn{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+.banner.danger{background:#FEE2E2;border-color:#FCA5A5;color:#991B1B}
+.banner.success{background:#DCFCE7;border-color:#86EFAC;color:#166534}
+.banner.reg{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding:7px 9px;border-bottom:2px solid #E2E8F0;background:#F8FAFC}
+td{padding:8px 9px;border-bottom:1px solid #EEF2F6;vertical-align:top}
+tr.hl td{background:#F0FDFA}
+tr.dim td{color:#94A3B8}
+.kv{display:grid;grid-template-columns:150px 1fr;row-gap:6px;column-gap:12px;font-size:12.5px}
+.kv dt{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding-top:2px}
+.kv dd{margin:0}
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+.field label .req{color:#B91C1C}
+.field .hint{font-size:11px;color:#64748B;margin-top:3px}
+.input,.select,.textarea{width:100%;border:1px solid #CBD5E1;border-radius:7px;padding:7px 10px;font-size:13px;background:#fff;color:#1E293B}
+.input.err{border-color:#B91C1C;background:#FEF2F2}
+.textarea{min-height:64px}
+.check{font-size:12.5px;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.box{display:inline-block;width:14px;height:14px;border:1.6px solid #64748B;border-radius:3px;flex-shrink:0;margin-top:1px;text-align:center;line-height:12px;font-size:11px;font-weight:800}
+.box.on{background:#0F766E;border-color:#0F766E;color:#fff}
+.radio{border-radius:50%}
+.radio.on{background:#fff;border-color:#0F766E;box-shadow:inset 0 0 0 3.5px #0F766E;color:transparent}
+/* modal */
+.modal-wrap{background:#64748B22;border:1px dashed #94A3B8;border-radius:12px;padding:26px 40px;margin:14px 0}
+.modal{background:#fff;border-radius:12px;border-top:5px solid #0F766E;box-shadow:0 8px 30px rgba(15,23,42,.25);max-width:560px;margin:0 auto;padding:18px 20px}
+.modal.danger{border-top-color:#B91C1C}
+.modal h3{font-size:16px;margin-bottom:8px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+/* misc */
+.divider-label{text-align:center;color:#94A3B8;font-size:11.5px;margin:20px 0 14px;position:relative}
+.divider-label:before,.divider-label:after{content:"";display:inline-block;width:24%;border-top:1px dashed #CBD5E1;vertical-align:middle;margin:0 10px}
+.audit{font-size:11px;color:#8A6D1D;margin-top:10px}
+.audit:before{content:"🔒 "}
+.state-tag{font-size:10px;letter-spacing:.08em;font-weight:800;text-transform:uppercase;color:#94A3B8;text-align:right;margin-bottom:4px}
+.kpi-row{display:flex;gap:12px;margin-bottom:14px}
+.kpi{flex:1;background:#fff;border:1px solid #E2E8F0;border-left:4px solid #0F766E;border-radius:9px;padding:10px 13px}
+.kpi.amber{border-left-color:#F59E0B}.kpi.red{border-left-color:#B91C1C}
+.kpi .n{font-size:23px;font-weight:800}.kpi .l{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700}
+.kpi .s{font-size:11px;color:#64748B;margin-top:2px}
+.stepper{display:flex;gap:6px;align-items:center;font-size:12px;color:#64748B;margin-bottom:14px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:6px}
+.step .dot{width:20px;height:20px;border-radius:50%;background:#E2E8F0;color:#475569;font-size:11px;font-weight:800;text-align:center;line-height:20px}
+.step.done .dot{background:#15803D;color:#fff}.step.cur .dot{background:#0F766E;color:#fff}
+.step.cur{color:#0F766E;font-weight:700}
+.step-line{width:26px;border-top:2px solid #CBD5E1}
+.sig-box{border:1.5px dashed #94A3B8;border-radius:8px;min-height:64px;background:#F8FAFC;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:12px;font-style:italic}
+.sig-box.signed{border-style:solid;border-color:#15803D;color:#166534;background:#F0FDF4;font-family:'Segoe Script','Comic Sans MS',cursive;font-size:17px;font-style:normal}
+.ladder{border-left:3px solid #E2E8F0;margin-left:8px;padding-left:16px}
+.ladder .tier{margin-bottom:12px;position:relative}
+.ladder .tier:before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:#CBD5E1}
+.ladder .tier.done:before{background:#15803D}.ladder .tier.cur:before{background:#0F766E;box-shadow:0 0 0 3px #CCFBF1}
+.ladder .tier.fail:before{background:#B91C1C}
+.progress{height:7px;border-radius:4px;background:#E2E8F0;overflow:hidden;margin-top:4px}
+.progress i{display:block;height:100%;background:#0F766E}
+.progress.amber i{background:#F59E0B}.progress.red i{background:#B91C1C}
+.split{display:grid;grid-template-columns:1fr 300px;gap:14px}
+.timeline{font-size:12.5px}
+.timeline .ev{display:flex;gap:10px;margin-bottom:9px}
+.timeline .t{color:#64748B;white-space:nowrap;font-family:Consolas,monospace;font-size:11.5px;padding-top:1px}
+
+@page{size:A4;margin:0}@media print{body{background:#fff}}</style></head><body><section class="screen" id="cover">
+<div style="padding-top:120px"><div style="border-left:6px solid #0F766E;padding-left:22px">
+<div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">Magnus HMS · MVP 1 Complete Design Pack</div>
+<h1 style="font-size:36px;font-weight:800">G10 · Notifications & Delivery</h1>
+<p style="font-size:14px;color:#64748B;margin-top:10px">8 screens · every screen with alternate states · shared design system · synthetic data only (no PHI)</p></div>
+<div class="card" style="max-width:700px;margin-top:26px"><div class="card-title">Screens in this group</div>
+<table><tr><th style="width:70px">ID</th><th>Screen</th></tr><tr><td class="mono bold" style="color:#0F766E">NT-01</td><td>Delivery ledger</td></tr><tr><td class="mono bold" style="color:#0F766E">NT-02</td><td>Failures &amp; counter-pickup worklist</td></tr><tr><td class="mono bold" style="color:#0F766E">NT-03</td><td>Template admin</td></tr><tr><td class="mono bold" style="color:#0F766E">NT-04</td><td>Channels &amp; senders</td></tr><tr><td class="mono bold" style="color:#0F766E">NT-05</td><td>Suppression &amp; consent cross-view</td></tr><tr><td class="mono bold" style="color:#0F766E">NT-06</td><td>Patient message log</td></tr><tr><td class="mono bold" style="color:#0F766E">NT-07</td><td>Quiet hours &amp; rate rules</td></tr><tr><td class="mono bold" style="color:#0F766E">NT-08</td><td>Send-test harness</td></tr></table></div>
+<p class="muted small" style="margin-top:14px">Magnus Diagnostics → NUMINACORE · July 2026 · Prototype/reference — not committed product scope.</p></div></section><section class="screen" id="nt-01">
+<div class="screen-head"><h1><span class="sid">NT-01</span> Delivery ledger</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The delivery ledger is the single source of truth for every outbound message tied to an accession — report-ready links, reminders, tokens and payment receipts. Staff filter by status, channel and date to answer "did the patient get it?" without opening the patient chart, and can drill into a per-accession timeline showing queued → sent → delivered → read/failed hops per recipient. Resends re-issue a fresh secure link (72-hour TTL, previous link revoked) and every view/resend/export is written to the access log.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Delivery</div>
+      <div class="nav-item active">Delivery ledger</div>
+      <div class="nav-item">Failures &amp; pickup <span class="nav-badge red">9</span></div>
+      <div class="sec-label">Configuration</div>
+      <div class="nav-item">Templates</div>
+      <div class="nav-item">Channels &amp; senders</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Consent registry</div>
+      <div class="nav-item">Access log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Notifications › Delivery ledger</div>
+      <div class="page-title">Delivery ledger <span class="actions-right"><span class="btn small">⬇ Export CSV (governed)</span> <span class="btn small ghost">Refresh</span></span></div>
+      <div class="page-sub">All outbound patient &amp; referrer messages · Andheri West · secure report links expire 72&nbsp;h after issue</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">312</div><div class="l">Sent today</div><div class="s">across SMS / WhatsApp / email</div></div>
+        <div class="kpi"><div class="n">287</div><div class="l">Delivered</div><div class="s">92.0% delivery rate</div></div>
+        <div class="kpi amber"><div class="n">16</div><div class="l">Pending &gt; 30 min</div><div class="s">provider queue backlog</div></div>
+        <div class="kpi red"><div class="n">9</div><div class="l">Failed</div><div class="s">go to Failures worklist</div></div>
+      </div>
+      <div class="card">
+        <div class="row" style="align-items:flex-end;flex-wrap:wrap">
+          <div class="field" style="width:170px;margin-bottom:0"><label>Status</label><div class="select">All except delivered ▾</div></div>
+          <div class="field" style="width:150px;margin-bottom:0"><label>Channel</label><div class="select">All channels ▾</div></div>
+          <div class="field" style="width:170px;margin-bottom:0"><label>Event type</label><div class="select">Report ready ▾</div></div>
+          <div class="field" style="width:190px;margin-bottom:0"><label>Date range</label><div class="select">24 Jul – 25 Jul 2026 ▾</div></div>
+          <div class="field grow" style="margin-bottom:0"><label>Search</label><div class="input muted">Accession / MRN / phone last-4…</div></div>
+          <span class="btn primary" style="margin-bottom:1px">Apply</span>
+        </div>
+      </div>
+      <table>
+        <tr><th>Queued (IST)</th><th>Accession</th><th>Patient / recipient</th><th>Event</th><th>Channel</th><th>Status</th><th>Last hop</th><th></th></tr>
+        <tr><td class="mono">25 Jul 14:42</td><td class="mono">ACC-2026-91247</td><td>Sofia Rossi <span class="muted small">MRN-004822</span><br><span class="small muted">📱 +91 98••• ••318 (patient)</span></td><td>Report ready · secure link</td><td><span class="chip blue">WhatsApp</span></td><td><span class="chip green">READ</span></td><td class="mono small">14:47:12</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr class="hl"><td class="mono">25 Jul 14:31</td><td class="mono">ACC-2026-91236</td><td>Aarav Sharma <span class="muted small">MRN-004821</span><br><span class="small muted">📱 +91 91••• ••204 (patient)</span></td><td>Report ready · secure link</td><td><span class="chip grey">SMS</span></td><td><span class="chip red">FAILED</span></td><td class="mono small">14:33:40</td><td><span class="btn small">Resend</span></td></tr>
+        <tr><td class="mono">25 Jul 14:31</td><td class="mono">ACC-2026-91236</td><td>Dr. Meera Nair <span class="chip teal" style="font-size:10px">REFERRER ✓</span><br><span class="small muted">📱 +91 98••• ••412 (verified)</span></td><td>Report ready · portal notify</td><td><span class="chip blue">WhatsApp</span></td><td><span class="chip green">DELIVERED</span></td><td class="mono small">14:32:05</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr><td class="mono">25 Jul 13:58</td><td class="mono">APPT-2026-53318</td><td>Priya Menon <span class="muted small">MRN-004828</span><br><span class="small muted">📱 +91 99••• ••871 (patient)</span></td><td>Appointment reminder T-24h</td><td><span class="chip grey">SMS</span></td><td><span class="chip green">DELIVERED</span></td><td class="mono small">13:58:44</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr><td class="mono">25 Jul 13:41</td><td class="mono">ACC-2026-91229</td><td>Mohammed Al-Rashid <span class="muted small">MRN-004790</span><br><span class="small muted">✉ m.alrashid••@••• (patient)</span></td><td>Report ready · secure link</td><td><span class="chip violet">Email</span></td><td><span class="chip amber">SENT · awaiting delivery receipt</span></td><td class="mono small">13:41:19</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr><td class="mono">25 Jul 12:20</td><td class="mono">VIS-2026-33107</td><td>Rajesh Gupta <span class="muted small">MRN-004795</span><br><span class="small muted">📱 +91 90••• ••662 (patient)</span></td><td>Payment receipt RCP/AND/26-27/0912</td><td><span class="chip grey">SMS</span></td><td><span class="chip green">DELIVERED</span></td><td class="mono small">12:20:37</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr class="dim"><td class="mono">25 Jul 11:05</td><td class="mono">ACC-2026-91214</td><td>Ananya Rao <span class="muted small">MRN-004819</span><br><span class="small muted">📱 +91 97••• ••530 (patient)</span></td><td>Report ready · secure link</td><td><span class="chip grey">SMS</span></td><td><span class="chip grey">SUPPRESSED · consent withdrawn</span></td><td class="mono small">—</td><td><span class="btn small ghost">Why?</span></td></tr>
+        <tr><td class="mono">25 Jul 09:12</td><td class="mono">APPT-2026-53341</td><td>Sofia Rossi <span class="muted small">MRN-004822</span><br><span class="small muted">📱 +91 98••• ••318 (patient)</span></td><td>Queue token T-042</td><td><span class="chip blue">WhatsApp</span></td><td><span class="chip green">READ</span></td><td class="mono small">09:12:58</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr><td class="mono">24 Jul 18:47</td><td class="mono">ACC-2026-91188</td><td>Rajesh Gupta <span class="muted small">MRN-004795</span><br><span class="small muted">📱 +91 90••• ••662 (patient)</span></td><td>Report ready · secure link</td><td><span class="chip grey">SMS</span></td><td><span class="chip amber">LINK EXPIRED (72 h)</span></td><td class="mono small">21 Jul 18:47</td><td><span class="btn small">Resend</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Showing 9 of 312 · phone numbers and emails are masked in list view; full values require a per-record reveal that is access-logged. Export produces masked contact fields only and requires a stated purpose.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SINGLE-ACCESSION DELIVERY TIMELINE (ACC-2026-91236)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Notifications › Delivery ledger › ACC-2026-91236</div>
+      <div class="page-title">Delivery timeline — ACC-2026-91236 <span class="chip amber">1 of 2 recipients failed</span></div>
+      <div class="page-sub">CT Brain (plain) · Aarav Sharma · reported by Dr. V. Shetty, finalised 25 Jul 2026 14:29 IST</div>
+      <div class="split">
+        <div class="card">
+          <div class="card-title">Per-recipient delivery hops <span class="right">All times IST</span></div>
+          <div class="bold small" style="margin-bottom:6px">Recipient 1 · Aarav Sharma (patient) · SMS +91 91••• ••204</div>
+          <div class="timeline">
+            <div class="ev"><span class="t">14:31:02</span><div><b>Queued</b> — event report-ready · template RR-SMS-EN v4 · DLT 11071722264189</div></div>
+            <div class="ev"><span class="t">14:31:05</span><div><b>Sent</b> to provider RouteSMS-DLT · msg-id <span class="mono">SM-88412-ax</span></div></div>
+            <div class="ev"><span class="t">14:33:40</span><div><b style="color:#B91C1C">Failed</b> — carrier code 21: <span class="chip red">UNDELIVERABLE — number inactive</span></div></div>
+            <div class="ev"><span class="t">14:33:41</span><div>Auto-routed to <b>Failures worklist</b> · owner: front office · SLA review by 26 Jul 10:00</div></div>
+          </div>
+          <div class="bold small" style="margin:12px 0 6px;border-top:1px solid #EEF2F6;padding-top:10px">Recipient 2 · Dr. Meera Nair (referrer, verified) · WhatsApp +91 98••• ••412</div>
+          <div class="timeline">
+            <div class="ev"><span class="t">14:31:02</span><div><b>Queued</b> — template RR-WA-EN v2 · BSP Gupshup</div></div>
+            <div class="ev"><span class="t">14:31:08</span><div><b>Sent</b> · wamid <span class="mono">wamid.HBgM…9187</span></div></div>
+            <div class="ev"><span class="t">14:32:05</span><div><b style="color:#15803D">Delivered</b> to handset</div></div>
+            <div class="ev"><span class="t">—</span><div class="muted">Read receipt not yet received (recipient read-receipts may be off)</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Secure link</div>
+            <dl class="kv" style="grid-template-columns:110px 1fr">
+              <dt>Link ref</dt><dd class="mono">lnk_9f27c…a1</dd>
+              <dt>Issued</dt><dd>25 Jul 14:31 IST</dd>
+              <dt>Expires</dt><dd>28 Jul 14:31 IST <span class="chip teal">72 h TTL</span></dd>
+              <dt>Opens</dt><dd>0 · OTP-gated (DOB + OTP)</dd>
+              <dt>Scope</dt><dd>Report PDF only · no raw images</dd>
+            </dl>
+            <div class="small muted" style="margin-top:8px">🔒 Resending issues a new link and revokes this one immediately.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Message content</div>
+            <div class="small" style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:8px 10px">Your report for order ending <b>1236</b> at Meridian Diagnostics is ready. View securely: &lt;link&gt;. Link valid 72 hrs. Do not share. — MERDIA</div>
+            <div class="small muted" style="margin-top:6px">Template contains no name, no test description, no result — PHI-free by lint rule NT-L1.</div>
+          </div>
+          <span class="btn primary" style="width:100%;margin-bottom:8px">Resend to patient…</span>
+          <span class="btn" style="width:100%">Move to counter pickup</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — RESEND MODAL (FRESH 72 H LINK, OLD LINK REVOKED)</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Resend report-ready message — ACC-2026-91236</h3>
+    <div class="banner info"><b>A new secure link will be generated.</b> The previous link (issued 25 Jul 14:31) is revoked the moment you resend. The new link is valid for 72 hours from now and remains OTP-gated.</div>
+    <div class="field"><label>Recipient</label><div class="select">Aarav Sharma (patient) · SMS +91 91••• ••204 — last attempt FAILED ▾</div><div class="hint">Contact edits require OTP verification — use "Fix contact" in the Failures worklist instead of retyping here.</div></div>
+    <div class="field"><label>Channel</label>
+      <div class="check"><span class="box radio on"></span> Same channel — SMS (retry via failover provider Kaleyra)</div>
+      <div class="check"><span class="box radio"></span> Switch to WhatsApp (consent on file: yes, 12 Jul 2026)</div>
+      <div class="check"><span class="box radio"></span> Switch to email — <span class="muted">no email on file</span></div>
+    </div>
+    <div class="field"><label>Reason for resend <span class="req">*</span></label><div class="select">Delivery failed — carrier undeliverable ▾</div></div>
+    <div class="check"><span class="box on">✓</span> I confirm the recipient identity matches the registered patient contact. Resend count for this accession today: 1 of 3 allowed.</div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Resend with new 72 h link</span></div>
+  </div>
+</div>
+<p class="audit">Ledger views, per-record contact reveals, resends (with reason and actor D. Nair), link revocations and CSV exports (with stated purpose) are recorded in the access log.</p>
+</section>
+<section class="screen" id="nt-02">
+<div class="screen-head"><h1><span class="sid">NT-02</span> Failures &amp; counter-pickup worklist</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Every failed, suppressed or counter-routed delivery lands here so no patient silently misses a report. Front office works the Failed tab daily (fix contact via OTP-verified change link, switch channel, or move to counter pickup), and the counter queue enforces an ID-verify checklist with pickup code, collector details and signature before hand-over. Suppressed rows are read-only and link to the consent registry — they are never resent from this screen.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Delivery</div>
+      <div class="nav-item">Delivery ledger</div>
+      <div class="nav-item active">Failures &amp; pickup <span class="nav-badge red">9</span></div>
+      <div class="sec-label">Configuration</div>
+      <div class="nav-item">Templates</div>
+      <div class="nav-item">Channels &amp; senders</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Consent registry</div>
+      <div class="nav-item">Access log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Notifications › Failures &amp; counter pickup</div>
+      <div class="page-title">Failures &amp; counter-pickup worklist</div>
+      <div class="page-sub">Daily review required · Andheri West · owner: front office (D. Nair)</div>
+      <div class="banner warn"><b>Daily-review SLA: 6 failed items are unreviewed for &gt; 18 h.</b> Policy: every failed delivery must be actioned within 24 h of failure. <span class="chip amber">SLA 05:12 left</span> Owner: D. Nair · escalates to branch manager K. Verma at 26 Jul 10:00 IST if unactioned.</div>
+      <div style="display:flex;gap:8px;margin-bottom:12px">
+        <span class="btn small primary">Failed (9)</span><span class="btn small">Print-at-counter (4)</span><span class="btn small">Suppressed (3)</span><span class="btn small">Resolved · 7 days (41)</span>
+      </div>
+      <table>
+        <tr><th>Failed at (IST)</th><th>Accession / event</th><th>Patient</th><th>Channel</th><th>Error taxonomy</th><th>SLA</th><th>Actions</th></tr>
+        <tr class="hl"><td class="mono">25 Jul 14:33</td><td class="mono">ACC-2026-91236<br><span class="small muted">Report ready</span></td><td>Aarav Sharma<br><span class="small muted">MRN-004821 · +91 91••• ••204</span></td><td><span class="chip grey">SMS</span></td><td><span class="chip red">UNDELIVERABLE</span><br><span class="small muted">carrier 21 · number inactive</span></td><td><span class="chip teal">22:40 left</span></td><td><span class="btn small primary">Fix contact &amp; resend</span> <span class="btn small">Switch channel</span> <span class="btn small ghost">To counter</span></td></tr>
+        <tr><td class="mono">25 Jul 11:19</td><td class="mono">ACC-2026-91221<br><span class="small muted">Report ready</span></td><td>Priya Menon<br><span class="small muted">MRN-004828 · +91 99••• ••871</span></td><td><span class="chip grey">SMS</span></td><td><span class="chip amber">DND BLOCKED</span><br><span class="small muted">TRAI DND list · transactional header rejected</span></td><td><span class="chip teal">19:26 left</span></td><td><span class="btn small">Switch channel</span> <span class="btn small ghost">To counter</span></td></tr>
+        <tr><td class="mono">25 Jul 09:47</td><td class="mono">APPT-2026-53322<br><span class="small muted">Reminder T-24h</span></td><td>Mohammed Al-Rashid<br><span class="small muted">MRN-004790 · m.alrashid••@•••</span></td><td><span class="chip violet">Email</span></td><td><span class="chip red">UNDELIVERABLE</span><br><span class="small muted">550 mailbox not found</span></td><td><span class="chip teal">17:54 left</span></td><td><span class="btn small primary">Fix contact &amp; resend</span> <span class="btn small">Switch channel</span></td></tr>
+        <tr><td class="mono">24 Jul 19:02</td><td class="mono">ACC-2026-91190<br><span class="small muted">Report ready</span></td><td>Rajesh Gupta<br><span class="small muted">MRN-004795 · +91 90••• ••662</span></td><td><span class="chip blue">WhatsApp</span></td><td><span class="chip amber">PROVIDER DOWN</span><br><span class="small muted">BSP timeout · auto-retry ×3 exhausted</span></td><td><span class="chip amber">03:58 left</span></td><td><span class="btn small">Retry via failover</span> <span class="btn small">Switch channel</span></td></tr>
+        <tr><td class="mono">24 Jul 16:38</td><td class="mono">ACC-2026-91184<br><span class="small muted">Report ready</span></td><td>Ananya Rao<br><span class="small muted">MRN-004819 · +91 97••• ••530</span></td><td><span class="chip grey">SMS</span></td><td><span class="chip red">UNDELIVERABLE</span><br><span class="small muted">carrier 34 · handset switched off &gt; 48 h</span></td><td><span class="chip red">OVERDUE 01:22</span><br><span class="small muted">escalated to K. Verma</span></td><td><span class="btn small primary">Fix contact &amp; resend</span> <span class="btn small ghost">To counter</span></td></tr>
+        <tr><td class="mono">24 Jul 15:10</td><td class="mono">VIS-2026-33098<br><span class="small muted">Payment receipt</span></td><td>Sofia Rossi<br><span class="small muted">MRN-004822 · +91 98••• ••318</span></td><td><span class="chip grey">SMS</span></td><td><span class="chip amber">PROVIDER DOWN</span><br><span class="small muted">RouteSMS 5xx · queued on failover Kaleyra</span></td><td><span class="chip red">OVERDUE 02:50</span><br><span class="small muted">escalated to K. Verma</span></td><td><span class="btn small">Retry via failover</span> <span class="btn small ghost">To counter</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">3 more failed rows · "Fix contact &amp; resend" sends an OTP-verified phone-change link to the patient's alternate contact or requires in-person OTP at the counter — staff never free-type a new number without verification.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PRINT-AT-COUNTER TAB + PICKUP HANDOVER MODAL</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Notifications › Failures &amp; counter pickup › Print-at-counter</div>
+      <div class="page-title">Counter pickup queue (4)</div>
+      <div class="page-sub">Reports routed for physical collection · verify identity before hand-over · every hand-over is signed</div>
+      <table>
+        <tr><th>Routed</th><th>Pickup code</th><th>Accession</th><th>Patient</th><th>Reason routed</th><th>Waiting</th><th></th></tr>
+        <tr class="hl"><td class="mono">24 Jul 16:50</td><td class="mono bold">PKP-4471</td><td class="mono">ACC-2026-91184</td><td>Ananya Rao · MRN-004819</td><td>SMS undeliverable, no alt contact</td><td><span class="chip amber">22 h</span></td><td><span class="btn small primary">Hand over…</span></td></tr>
+        <tr><td class="mono">24 Jul 12:05</td><td class="mono bold">PKP-4468</td><td class="mono">ACC-2026-91162</td><td>Rajesh Gupta · MRN-004795</td><td>Patient requested paper copy</td><td><span class="chip amber">27 h</span></td><td><span class="btn small primary">Hand over…</span></td></tr>
+        <tr><td class="mono">23 Jul 18:20</td><td class="mono bold">PKP-4465</td><td class="mono">ACC-2026-91120</td><td>Mohammed Al-Rashid · MRN-004790</td><td>Email bounced, patient opted counter</td><td><span class="chip red">44 h · call patient</span></td><td><span class="btn small primary">Hand over…</span></td></tr>
+        <tr><td class="mono">23 Jul 10:11</td><td class="mono bold">PKP-4460</td><td class="mono">ACC-2026-91101</td><td>Priya Menon · MRN-004828</td><td>Consent: no digital delivery</td><td><span class="chip red">52 h · call patient</span></td><td><span class="btn small primary">Hand over…</span></td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Hand over report — PKP-4471 · ACC-2026-91184</h3>
+    <div class="small muted" style="margin-bottom:10px">Ananya Rao · MRN-004819 · USG Abdomen · reported 24 Jul 2026 by Dr. V. Shetty</div>
+    <div class="field"><label>Pickup code quoted by collector <span class="req">*</span></label><div class="input mono">PKP-4471 ✓ matches</div></div>
+    <div class="bold small" style="margin-bottom:6px">ID-verify checklist <span class="req">*</span></div>
+    <div class="check"><span class="box on">✓</span> Government photo ID sighted (not photocopied, not retained)</div>
+    <div class="check"><span class="box on">✓</span> Name on ID matches patient / authorised collector</div>
+    <div class="check"><span class="box on">✓</span> DOB or registered mobile last-4 confirmed verbally</div>
+    <div class="check"><span class="box"></span> Sealed envelope handed over intact</div>
+    <div class="field" style="margin-top:10px"><label>Collector</label>
+      <div class="check"><span class="box radio"></span> Patient in person</div>
+      <div class="check"><span class="box radio on"></span> Someone else on patient's behalf</div>
+    </div>
+    <div class="row">
+      <div class="field grow"><label>Collector name <span class="req">*</span></label><div class="input">Suresh Rao</div></div>
+      <div class="field" style="width:150px"><label>Relation <span class="req">*</span></label><div class="select">Spouse ▾</div></div>
+      <div class="field" style="width:130px"><label>ID last-4 <span class="req">*</span></label><div class="input mono">••7391</div><div class="hint">Aadhaar last-4 only</div></div>
+    </div>
+    <div class="field"><label>Collector signature <span class="req">*</span></label><div class="sig-box signed">Suresh Rao</div></div>
+    <div class="banner info" style="margin-top:8px"><b>Step-up confirmation.</b> Handing over a medical record to a third party requires your PIN re-entry. Actor: D. Nair (front office).</div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Confirm PIN &amp; mark collected</span></div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — SUPPRESSED TAB (CONSENT-DRIVEN, READ-ONLY)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Notifications › Failures &amp; counter pickup › Suppressed</div>
+      <div class="page-title">Suppressed deliveries (3)</div>
+      <div class="page-sub">Messages withheld by consent or policy — these cannot be resent from this screen</div>
+      <div class="banner reg"><b>Consent-governed.</b> A suppression lifts only when the patient's consent record changes in the Consent registry. Do not work around suppressions by calling or messaging from personal devices — that is a reportable privacy breach.</div>
+      <table>
+        <tr><th>Suppressed at</th><th>Accession / event</th><th>Patient</th><th>Channel</th><th>Suppression reason</th><th></th></tr>
+        <tr><td class="mono">25 Jul 11:05</td><td class="mono">ACC-2026-91214 · Report ready</td><td>Ananya Rao · MRN-004819</td><td><span class="chip grey">SMS</span></td><td><span class="chip grey">Consent withdrawn — digital delivery</span><br><span class="small muted">recorded 18 Jul 2026 · counter pickup only</span></td><td><span class="btn small ghost">Open consent record ↗</span></td></tr>
+        <tr><td class="mono">24 Jul 17:30</td><td class="mono">ACC-2026-91177 · Report ready</td><td>Sofia Rossi · MRN-004822</td><td><span class="chip blue">WhatsApp</span></td><td><span class="chip grey">Channel consent absent — WhatsApp</span><br><span class="small muted">SMS fallback delivered 24 Jul 17:31 ✓</span></td><td><span class="btn small ghost">Open consent record ↗</span></td></tr>
+        <tr><td class="mono">23 Jul 09:15</td><td class="mono">ACC-2026-91144 · Report ready</td><td>Priya Menon · MRN-004828</td><td><span class="chip grey">SMS</span></td><td><span class="chip grey">Obstetric non-disclosure policy</span><br><span class="small muted">report released to referrer Dr. Farida Khan only; foetal-sex non-disclosure applies</span></td><td><span class="btn small ghost">Open policy note ↗</span></td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+<p class="audit">Failure actions (fix-contact OTP requests, channel switches, counter routing), hand-overs with collector identity and signature, and every suppressed-row view are recorded in the access log.</p>
+</section>
+<section class="screen" id="nt-03">
+<div class="screen-head"><h1><span class="sid">NT-03</span> Template admin</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Admins manage one template per notification event (report-ready, reminder, token, payment), with a variant per language, each carrying its own TRAI DLT template ID. A lint panel blocks publishing on PHI leakage, unknown variables or segment-length issues, and any DLT registered-text mismatch hard-blocks sending on SMS. Every version change requires an approver and is kept in history with test-renders per variant.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Delivery</div>
+      <div class="nav-item">Delivery ledger</div>
+      <div class="nav-item">Failures &amp; pickup <span class="nav-badge red">9</span></div>
+      <div class="sec-label">Configuration</div>
+      <div class="nav-item active">Templates</div>
+      <div class="nav-item">Channels &amp; senders</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Consent registry</div>
+      <div class="nav-item">Access log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Notifications › Templates</div>
+      <div class="page-title">Message templates <span class="actions-right"><span class="btn small primary">+ New template variant</span></span></div>
+      <div class="page-sub">Org-wide (all branches) · SMS variants require an approved DLT template ID before they can send</div>
+      <div class="banner info"><b>DLT sync ran 25 Jul 2026 06:00 IST.</b> 11 of 13 SMS variants match their registered DLT text. 1 pending registration, 1 mismatch (blocked from sending).</div>
+      <table>
+        <tr><th>Event</th><th>Variant / language</th><th>Channel</th><th>DLT template ID</th><th>Version</th><th>Lint</th><th>Status</th><th></th></tr>
+        <tr><td rowspan="3" class="bold">Report ready</td><td>English</td><td><span class="chip grey">SMS</span></td><td class="mono small">11071722264189 <span class="chip green">REGISTERED ✓</span></td><td>v4 · appr. M. Kulkarni</td><td><span class="chip green">PASS</span></td><td><span class="chip green">LIVE</span></td><td><span class="btn small ghost">Edit</span> <span class="btn small ghost">Test render</span></td></tr>
+        <tr><td>हिन्दी (Hindi)</td><td><span class="chip grey">SMS</span></td><td class="mono small">11071722264190 <span class="chip green">REGISTERED ✓</span></td><td>v3 · appr. M. Kulkarni</td><td><span class="chip green">PASS</span></td><td><span class="chip green">LIVE</span></td><td><span class="btn small ghost">Edit</span> <span class="btn small ghost">Test render</span></td></tr>
+        <tr class="hl"><td>मराठी (Marathi)</td><td><span class="chip grey">SMS</span></td><td class="mono small">11071722264204 <span class="chip red">MISMATCH ✕</span></td><td>v2 · appr. K. Verma</td><td><span class="chip green">PASS</span></td><td><span class="chip red">BLOCKED</span></td><td><span class="btn small">Resolve…</span></td></tr>
+        <tr><td rowspan="2" class="bold">Appointment reminder</td><td>English</td><td><span class="chip grey">SMS</span></td><td class="mono small">11071722264191 <span class="chip green">REGISTERED ✓</span></td><td>v6 · appr. M. Kulkarni</td><td><span class="chip green">PASS</span></td><td><span class="chip green">LIVE</span></td><td><span class="btn small ghost">Edit</span> <span class="btn small ghost">Test render</span></td></tr>
+        <tr><td>English</td><td><span class="chip blue">WhatsApp</span></td><td class="mono small">BSP appr. <span class="chip green">APPROVED ✓</span></td><td>v2 · appr. K. Verma</td><td><span class="chip green">PASS</span></td><td><span class="chip green">LIVE</span></td><td><span class="btn small ghost">Edit</span> <span class="btn small ghost">Test render</span></td></tr>
+        <tr><td class="bold">Queue token</td><td>English</td><td><span class="chip grey">SMS</span></td><td class="mono small">11071722264195 <span class="chip green">REGISTERED ✓</span></td><td>v2 · appr. M. Kulkarni</td><td><span class="chip green">PASS</span></td><td><span class="chip green">LIVE</span></td><td><span class="btn small ghost">Edit</span> <span class="btn small ghost">Test render</span></td></tr>
+        <tr><td rowspan="2" class="bold">Payment receipt</td><td>English</td><td><span class="chip grey">SMS</span></td><td class="mono small">11071722264198 <span class="chip green">REGISTERED ✓</span></td><td>v5 · appr. M. Kulkarni</td><td><span class="chip green">PASS</span></td><td><span class="chip green">LIVE</span></td><td><span class="btn small ghost">Edit</span> <span class="btn small ghost">Test render</span></td></tr>
+        <tr><td>हिन्दी (Hindi)</td><td><span class="chip grey">SMS</span></td><td class="mono small">— <span class="chip amber">PENDING DLT</span></td><td>v1 draft · unapproved</td><td><span class="chip amber">2 WARN</span></td><td><span class="chip grey">DRAFT</span></td><td><span class="btn small ghost">Edit</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Sender header for all SMS: <span class="mono">MERDIA</span> · Principal entity DLT: <span class="mono">1101584930000012345</span>. Templates never contain patient names, test names, results or foetal-sex references (lint rule NT-L1).</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — EDIT VARIANT WITH LINT ERRORS (PAYMENT RECEIPT · HINDI · DRAFT v1)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Notifications › Templates › Payment receipt › Hindi (SMS)</div>
+      <div class="page-title">Edit variant — Payment receipt · हिन्दी · SMS <span class="chip grey">DRAFT v1</span></div>
+      <div class="page-sub">Changes require approval by billing supervisor M. Kulkarni before DLT submission</div>
+      <div class="split">
+        <div class="card">
+          <div class="card-title">Template body</div>
+          <div class="textarea mono small" style="min-height:110px">प्रिय {{patient_name}}, Meridian Diagnostics को ₹{{amount}} का भुगतान प्राप्त हुआ। रसीद {{receipt_no}} देखें: {{secure_link}}। लिंक 72 घंटे मान्य। धन्यवाद। — MERDIA</div>
+          <div class="row" style="margin-top:10px">
+            <div class="field grow"><label>Allowed variables</label><div class="small mono">{{amount}} {{receipt_no}} {{secure_link}} {{order_last4}}</div></div>
+            <div class="field" style="width:160px"><label>Language</label><div class="select">हिन्दी ▾</div></div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:6px"><span class="btn small">Save draft</span><span class="btn small primary disabled">Submit for approval</span><span class="btn small ghost">Test render</span></div>
+          <div class="hint">Submit is disabled until all lint errors are cleared.</div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Lint panel <span class="chip red">2 ERRORS · 1 WARN</span></div>
+            <div class="banner danger" style="margin-bottom:8px"><b>NT-L1 · PHI in template</b> Variable <span class="mono">{{patient_name}}</span> is not permitted in SMS templates. Replace with <span class="mono">{{order_last4}}</span> or remove.</div>
+            <div class="banner danger" style="margin-bottom:8px"><b>NT-L2 · Unknown variable</b> <span class="mono">{{receipt_no}}</span> — did you mean <span class="mono">{{receipt_number}}</span>? Unmapped variables render blank at send time.</div>
+            <div class="banner warn" style="margin-bottom:0"><b>NT-L4 · Length / segments</b> 214 chars in Unicode (UCS-2) → 4 SMS segments. Recommended ≤ 2 segments (134 chars). Cost impact ~₹0.48/msg.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Version history</div>
+            <div class="timeline">
+              <div class="ev"><span class="t">25 Jul 12:10</span><div>v1 draft created — K. Verma</div></div>
+              <div class="ev"><span class="t">—</span><div class="muted">No approved versions yet. On approval, text is submitted to DLT; the variant stays non-sending until DLT returns REGISTERED.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — DLT MISMATCH BLOCKED (REPORT READY · MARATHI)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Notifications › Templates › Report ready › Marathi (SMS)</div>
+      <div class="page-title">Report ready · मराठी · SMS <span class="chip red">BLOCKED — DLT MISMATCH</span></div>
+      <div class="page-sub">DLT template 11071722264204 · last synced 25 Jul 2026 06:00 IST</div>
+      <div class="banner danger"><b>Sending blocked: local text does not match the DLT-registered text.</b> Operators reject non-matching payloads and repeated rejects risk header suspension. Fix by reverting local text to the registered version, or submit the new text as a fresh DLT registration. Owner: K. Verma · <span class="chip red">OVERDUE 12 h</span> · escalated to M. Kulkarni.</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Local text (v2 — unapproved edit)</div>
+          <div class="small mono" style="background:#FEF2F2;border:1px solid #FCA5A5;border-radius:8px;padding:8px 10px">तुमचा अहवाल तयार आहे. Meridian Diagnostics — ऑर्डर {{order_last4}}. सुरक्षित लिंक: {{secure_link}} <b style="background:#FEE2E2">(लिंक ७२ तास वैध. कृपया शेअर करू नका.)</b> — MERDIA</div>
+          <div class="small muted" style="margin-top:6px">Diff: trailing sentence added on 22 Jul by K. Verma — not present in DLT registration.</div>
+        </div>
+        <div class="card grow">
+          <div class="card-title">DLT-registered text (11071722264204)</div>
+          <div class="small mono" style="background:#F0FDF4;border:1px solid #86EFAC;border-radius:8px;padding:8px 10px">तुमचा अहवाल तयार आहे. Meridian Diagnostics — ऑर्डर {{order_last4}}. सुरक्षित लिंक: {{secure_link}} — MERDIA</div>
+          <div class="small muted" style="margin-top:6px">Registered 04 Jun 2026 · principal entity 1101584930000012345 · header MERDIA</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px"><span class="btn primary">Revert local text to registered version</span><span class="btn">Submit new text to DLT (new template ID)</span><span class="btn ghost">Fallback: send Marathi recipients the English variant meanwhile</span></div>
+      <div class="small muted" style="margin-top:8px">While blocked, report-ready sends for Marathi-preference patients automatically fall back to the English variant; the fallback is noted per message in the delivery ledger.</div>
+    </div>
+  </div>
+</div>
+<p class="audit">Template edits, lint results, approvals (approver identity + timestamp), DLT submissions/sync results and test renders are versioned and recorded in the access log.</p>
+</section>
+<section class="screen" id="nt-04">
+<div class="screen-head"><h1><span class="sid">NT-04</span> Channels &amp; senders</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Admins manage the delivery channels behind every patient/referrer message: SMS via DLT-registered entity and header, WhatsApp via a BSP with credential-expiry countdown and auto-alerts, and transactional email with SPF/DKIM domain health. The screen sets failover order, offers a sandbox mode that routes messages to test numbers only, and runs connection tests with a result log so provider issues are caught before patients notice.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Delivery</div>
+      <div class="nav-item">Delivery ledger</div>
+      <div class="nav-item">Failures &amp; pickup <span class="nav-badge red">9</span></div>
+      <div class="sec-label">Configuration</div>
+      <div class="nav-item">Templates</div>
+      <div class="nav-item active">Channels &amp; senders</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Consent registry</div>
+      <div class="nav-item">Access log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Notifications › Channels &amp; senders</div>
+      <div class="page-title">Channels &amp; senders <span class="actions-right"><span class="btn small">Run all connection tests</span></span></div>
+      <div class="page-sub">Org-wide configuration · changes require admin role + step-up PIN · all providers process data within India</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">SMS — RouteSMS (primary) <span class="chip green">HEALTHY</span></div>
+          <dl class="kv" style="grid-template-columns:130px 1fr">
+            <dt>DLT entity</dt><dd class="mono">1101584930000012345 · Meridian Diagnostics Pvt Ltd</dd>
+            <dt>Header</dt><dd class="mono">MERDIA <span class="chip green">ACTIVE</span></dd>
+            <dt>Route</dt><dd>Transactional · India only</dd>
+            <dt>Last test</dt><dd>25 Jul 06:02 IST · <span class="chip green">OK 412 ms</span></dd>
+            <dt>24 h volume</dt><dd>1,847 sent · 96.1% delivered</dd>
+          </dl>
+          <div style="display:flex;gap:8px;margin-top:10px"><span class="btn small">Test connection</span><span class="btn small ghost">Rotate API key…</span></div>
+        </div>
+        <div class="card grow">
+          <div class="card-title">WhatsApp — Gupshup BSP <span class="chip green">HEALTHY</span></div>
+          <dl class="kv" style="grid-template-columns:130px 1fr">
+            <dt>WABA number</dt><dd class="mono">+91 22 4••• ••80 · verified ✓</dd>
+            <dt>Quality rating</dt><dd><span class="chip green">HIGH</span> · tier 10k/day</dd>
+            <dt>Credential</dt><dd>API token expires <b>18 Sep 2026</b> <span class="chip teal">55 days left</span></dd>
+            <dt>Auto-alert</dt><dd>Admins alerted at 30 / 14 / 7 / 1 days before expiry</dd>
+            <dt>Last test</dt><dd>25 Jul 06:02 IST · <span class="chip green">OK 688 ms</span></dd>
+          </dl>
+          <div style="display:flex;gap:8px;margin-top:10px"><span class="btn small">Test connection</span><span class="btn small ghost">Renew credential…</span></div>
+        </div>
+        <div class="card grow">
+          <div class="card-title">Email — mail.meridiandiagnostics.in <span class="chip green">HEALTHY</span></div>
+          <dl class="kv" style="grid-template-columns:130px 1fr">
+            <dt>From</dt><dd class="mono">no-reply@meridiandiagnostics.in</dd>
+            <dt>SPF</dt><dd><span class="chip green">PASS ✓</span> aligned</dd>
+            <dt>DKIM</dt><dd><span class="chip green">PASS ✓</span> selector <span class="mono">mg2026</span></dd>
+            <dt>DMARC</dt><dd><span class="chip green">p=quarantine</span></dd>
+            <dt>Last test</dt><dd>25 Jul 06:03 IST · <span class="chip green">OK 1.2 s</span></dd>
+          </dl>
+          <div style="display:flex;gap:8px;margin-top:10px"><span class="btn small">Test connection</span><span class="btn small ghost">DNS records…</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Failover order <span class="right">Applies per channel</span></div>
+          <table>
+            <tr><th>#</th><th>Channel</th><th>Primary</th><th>Failover</th><th>Trigger</th></tr>
+            <tr><td>1</td><td>SMS</td><td>RouteSMS (DLT)</td><td>Kaleyra (DLT, same header MERDIA)</td><td>3 consecutive 5xx or &gt; 5 min queue age</td></tr>
+            <tr><td>2</td><td>WhatsApp</td><td>Gupshup BSP</td><td>→ SMS (consented recipients only)</td><td>BSP timeout ×3 / template paused</td></tr>
+            <tr><td>3</td><td>Email</td><td>In-house SMTP (Mumbai DC)</td><td>→ SMS notification of pending email</td><td>SMTP unreachable 10 min</td></tr>
+          </table>
+          <div class="small muted" style="margin-top:6px">Failover never changes message content — the same approved template variant is used on the alternate provider.</div>
+        </div>
+        <div class="card" style="width:300px">
+          <div class="card-title">Sandbox / test mode</div>
+          <div class="check"><span class="box"></span> <span><b>Sandbox mode OFF</b> — live sending to patients. When ON, all messages route only to the registered test numbers below and rows are watermarked TEST in the ledger.</span></div>
+          <div class="small mono" style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:6px 8px;margin-top:8px">TEST: +91 98••• ••007 (K. Verma)<br>TEST: +91 98••• ••114 (QA shared)</div>
+          <div class="small muted" style="margin-top:8px">Toggling sandbox requires step-up PIN and auto-reverts after 4 h.</div>
+          <span class="btn small warn-outline" style="margin-top:8px">Enable sandbox…</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — WHATSAPP CREDENTIAL EXPIRING (AMBER) · ADMIN AUTO-NOTIFIED</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Notifications › Channels &amp; senders</div>
+      <div class="page-title">Channels &amp; senders</div>
+      <div class="banner warn"><b>WhatsApp BSP credential expires in 6 days (31 Jul 2026 23:59 IST).</b> Auto-alerts sent to admins K. Verma and M. Kulkarni on 24 Jul (7-day mark); next alert at 1 day. If not renewed, WhatsApp sends will fail over to SMS for consented recipients and all others route to the Failures worklist. <span class="chip amber">SLA: renew by 30 Jul</span> Owner: K. Verma · escalates to IT ops (central) 30 Jul 18:00.</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">WhatsApp — Gupshup BSP <span class="chip amber">CREDENTIAL EXPIRING</span></div>
+          <dl class="kv" style="grid-template-columns:130px 1fr">
+            <dt>Credential</dt><dd>API token expires <b>31 Jul 2026</b> <span class="chip amber">6 days left</span></dd>
+            <dt>Renewal</dt><dd>Initiated 24 Jul · awaiting BSP confirmation ref <span class="mono">GS-REN-20447</span></dd>
+            <dt>Alert history</dt><dd class="small">30-day ✓ 01 Jul · 14-day ✓ 17 Jul · 7-day ✓ 24 Jul · 1-day pending</dd>
+            <dt>Impact if lapsed</dt><dd class="small">~140 WhatsApp msgs/day reroute; report-ready links unaffected (SMS fallback)</dd>
+          </dl>
+          <div style="display:flex;gap:8px;margin-top:10px"><span class="btn small primary">Complete renewal…</span><span class="btn small ghost">Snooze alert 24 h (logged)</span></div>
+        </div>
+        <div class="card" style="width:300px">
+          <div class="card-title">Notified admins</div>
+          <div class="timeline">
+            <div class="ev"><span class="t">24 Jul 09:00</span><div>Email + in-app → K. Verma <span class="chip green" style="font-size:10px">READ</span></div></div>
+            <div class="ev"><span class="t">24 Jul 09:00</span><div>Email + in-app → M. Kulkarni <span class="chip amber" style="font-size:10px">UNREAD</span></div></div>
+            <div class="ev"><span class="t">31 Jul 09:00</span><div class="muted">1-day final alert (scheduled) + SMS to on-call</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — CONNECTION TEST RESULTS LOG</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Notifications › Channels &amp; senders › Connection tests</div>
+      <div class="page-title">Connection test — results log</div>
+      <div class="page-sub">Manual run by K. Verma · 25 Jul 2026 15:05 IST · scheduled tests run daily 06:00 IST</div>
+      <div class="banner success"><b>2 of 3 providers passed.</b> RouteSMS returned degraded latency — failover Kaleyra verified healthy; no action needed unless it persists past the 18:00 IST re-test.</div>
+      <table>
+        <tr><th>Time (IST)</th><th>Provider</th><th>Test</th><th>Result</th><th>Latency</th><th>Detail</th></tr>
+        <tr><td class="mono">15:05:11</td><td>RouteSMS (SMS primary)</td><td>Auth + template handshake</td><td><span class="chip amber">DEGRADED</span></td><td class="mono">2,914 ms</td><td class="small">Auth OK · submit queue depth high at operator; DLT scrub OK</td></tr>
+        <tr><td class="mono">15:05:14</td><td>Kaleyra (SMS failover)</td><td>Auth + test submit (sandbox number)</td><td><span class="chip green">PASS</span></td><td class="mono">389 ms</td><td class="small">Header MERDIA accepted · DLT entity matched</td></tr>
+        <tr><td class="mono">15:05:18</td><td>Gupshup (WhatsApp)</td><td>Token validity + template list fetch</td><td><span class="chip green">PASS</span></td><td class="mono">702 ms</td><td class="small">Token valid to 31 Jul · 6 approved templates returned</td></tr>
+        <tr><td class="mono">15:05:23</td><td>SMTP mail.meridiandiagnostics.in</td><td>TLS + SPF/DKIM probe to seed inbox</td><td><span class="chip green">PASS</span></td><td class="mono">1,188 ms</td><td class="small">TLS 1.3 · DKIM signature verified at seed</td></tr>
+        <tr class="dim"><td class="mono">06:02:40</td><td>RouteSMS (scheduled)</td><td>Auth + template handshake</td><td><span class="chip green">PASS</span></td><td class="mono">412 ms</td><td class="small">Daily 06:00 run</td></tr>
+        <tr class="dim"><td class="mono">06:02:44</td><td>Gupshup (scheduled)</td><td>Token validity</td><td><span class="chip green">PASS</span></td><td class="mono">688 ms</td><td class="small">Daily 06:00 run</td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Test messages go only to registered sandbox numbers — never to patient contacts. Result log retained 180 days.</div>
+    </div>
+  </div>
+</div>
+<p class="audit">Provider configuration changes, key rotations, sandbox toggles (with step-up PIN and auto-revert), failover edits and every connection test are recorded in the access log.</p>
+</section>
+<section class="screen" id="nt-05">
+<div class="screen-head"><h1><span class="sid">NT-05</span> Suppression &amp; consent cross-view</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single view of every destination Magnus will NOT message, and exactly why — consent withdrawal (DPDP), opt-out, missing destination or hard bounce. Staff can see what would lift a suppression, but can never override it here: consent-driven suppressions are lifted only by a recorded consent update at the front desk. Every attempted send against a suppressed destination is blocked and logged.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front Office) ▾</div></div>
+  <div class="body">
+  <div class="sidebar">
+    <div class="sec-label">Notifications</div>
+    <div class="nav-item">Delivery dashboard</div>
+    <div class="nav-item">Outbox &amp; queue <span class="nav-badge">38</span></div>
+    <div class="nav-item">Failures &amp; retries <span class="nav-badge red">4</span></div>
+    <div class="nav-item">Templates</div>
+    <div class="nav-item active">Suppression &amp; consent</div>
+    <div class="nav-item">Patient message log</div>
+    <div class="nav-item">Quiet hours &amp; rules</div>
+    <div class="nav-item">Send-test harness</div>
+    <div class="sec-label">Related</div>
+    <div class="nav-item">Consent registry ↗</div>
+    <div class="nav-item">Audit log ↗</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Notifications › Suppression &amp; consent</div>
+    <div class="page-title">Suppressed destinations <span class="actions-right"><span class="btn small">Export list (masked) ▾</span></span></div>
+    <div class="page-sub">Destinations excluded from all outbound messaging · masked view · read-only — suppression is lifted only by the source record, never from this screen</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">61</div><div class="l">Active suppressions</div><div class="s">across SMS · WhatsApp · Email</div></div>
+      <div class="kpi amber"><div class="n">9</div><div class="l">Consent-withdrawn (DPDP)</div><div class="s">lift only via consent update</div></div>
+      <div class="kpi"><div class="n">28</div><div class="l">Hard bounces</div><div class="s">lift via verified destination change</div></div>
+      <div class="kpi red"><div class="n">12</div><div class="l">Blocked send attempts (7d)</div><div class="s">all logged · none delivered</div></div>
+    </div>
+    <div class="banner reg"><b>DPDP Act 2023 — consent is the source of truth.</b> A destination suppressed for consent withdrawal cannot be re-enabled from the Notifications workspace. Direct the patient to the front desk (or patient portal) to record a fresh consent; the suppression lifts automatically when the consent record updates.</div>
+    <div class="card">
+      <div class="card-title">Suppression list <span class="right">61 rows · showing 6 · filter: all reasons</span></div>
+      <div class="row" style="margin-bottom:10px">
+        <input class="input" style="max-width:240px" value="" placeholder="Search MRN / masked destination"/>
+        <select class="select" style="max-width:180px"><option>Reason: All</option></select>
+        <select class="select" style="max-width:160px"><option>Channel: All</option></select>
+        <select class="select" style="max-width:170px"><option>Since: Last 90 days</option></select>
+      </div>
+      <table>
+        <tr><th>Patient</th><th>Destination (masked)</th><th>Channel</th><th>Reason</th><th>Since</th><th>What would unsuppress</th><th></th></tr>
+        <tr class="hl"><td><b>Sofia Rossi</b><br><span class="mono small muted">MRN-004822</span></td><td class="mono">+91 98••• ••231</td><td>SMS + WhatsApp</td><td><span class="chip red">CONSENT-WITHDRAWN</span><br><span class="small muted">DPDP ref CNS-2026-00184</span></td><td>18 Jul 2026</td><td class="small">New consent recorded at front desk → <span style="color:#0F766E;font-weight:700">Consent record CNS-2026-00184 ↗</span>. Cannot be overridden here.</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr><td><b>Mohammed Al-Rashid</b><br><span class="mono small muted">MRN-004790</span></td><td class="mono">m•••••d@gm•••.com</td><td>Email</td><td><span class="chip amber">OPTED-OUT</span><br><span class="small muted">STOP reply · 12 Jul</span></td><td>12 Jul 2026</td><td class="small">Patient re-opts in via portal preferences or signed preference form at front desk.</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr><td><b>Rajesh Gupta</b><br><span class="mono small muted">MRN-004795</span></td><td class="mono">+91 90••• ••118</td><td>SMS</td><td><span class="chip red">HARD-BOUNCE</span><br><span class="small muted">DND / number inactive ×3</span></td><td>09 Jul 2026</td><td class="small">Verified mobile number update in patient record (front desk, OTP-verified).</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr><td><b>Ananya Rao</b><br><span class="mono small muted">MRN-004819</span></td><td class="mono">— none on file —</td><td>All</td><td><span class="chip grey">NO-DESTINATION</span></td><td>02 Jul 2026</td><td class="small">Add a verified mobile or email to the patient record at registration desk.</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr><td><b>Priya Menon</b><br><span class="mono small muted">MRN-004828</span></td><td class="mono">+91 97••• ••604</td><td>WhatsApp</td><td><span class="chip amber">OPTED-OUT</span><br><span class="small muted">channel-level only</span></td><td>21 Jul 2026</td><td class="small">Channel opt-in via portal; SMS remains active for this patient.</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr><td><b>Aarav Sharma</b><br><span class="mono small muted">MRN-004821</span></td><td class="mono">a•••v.s@ya•••.in</td><td>Email</td><td><span class="chip red">HARD-BOUNCE</span><br><span class="small muted">mailbox does not exist</span></td><td>15 Jul 2026</td><td class="small">Corrected email address entered and verified in patient record.</td><td><span class="btn small ghost">Detail</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Destinations are always masked in this view. Full values are visible only in the patient record with a captured access reason.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Suppression events feed <span class="right">Last 24h · IST</span></div>
+      <div class="timeline">
+        <div class="ev"><span class="t">25 Jul 14:42</span><div><b>Suppression added</b> — Priya Menon (MRN-004828) · WhatsApp · opted-out via portal preference change. Linked to consent record CNS-2026-00203.</div></div>
+        <div class="ev"><span class="t">25 Jul 11:08</span><div><span class="chip red">BLOCKED</span> <b>Send attempt blocked</b> — report-ready SMS to Sofia Rossi (MRN-004822) suppressed at gateway. Reason: consent-withdrawn. Attempt logged, no message left Magnus.</div></div>
+        <div class="ev"><span class="t">24 Jul 18:31</span><div><b>Suppression lifted</b> — MRN-004760 · SMS · verified number updated at front desk by D. Nair; hard-bounce cleared automatically.</div></div>
+        <div class="ev"><span class="t">24 Jul 09:14</span><div><b>Suppression added</b> — Aarav Sharma (MRN-004821) · Email · hard bounce (5.1.1) after invoice-issued message.</div></div>
+      </div>
+    </div>
+  </div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — Suppression detail with bidirectional consent link</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:620px">
+    <h3>Suppression detail — SMS/WhatsApp · Sofia Rossi (MRN-004822)</h3>
+    <div class="kv" style="margin-bottom:10px">
+      <dt>Destination</dt><dd class="mono">+91 98••• ••231 (masked)</dd>
+      <dt>Reason</dt><dd><span class="chip red">CONSENT-WITHDRAWN</span></dd>
+      <dt>DPDP reference</dt><dd class="mono">CNS-2026-00184 · withdrawal recorded 18 Jul 2026, 10:22 IST</dd>
+      <dt>Recorded by</dt><dd>D. Nair (Front Office) · in person, patient-signed preference form</dd>
+      <dt>Scope</dt><dd>All non-clinical messaging on SMS &amp; WhatsApp. Statutorily required communications (e.g. billing documents on request) unaffected.</dd>
+      <dt>Consent record</dt><dd><span style="color:#0F766E;font-weight:700">Open consent record CNS-2026-00184 ↗</span> <span class="small muted">(that record links back to this suppression)</span></dd>
+      <dt>Blocked attempts</dt><dd>3 since 18 Jul — all logged, none delivered</dd>
+    </div>
+    <div class="banner warn"><b>What would unsuppress this destination</b>A new consent captured at the front desk or via the patient portal, recorded against CNS-2026-00184. There is no override control on this screen — by design.</div>
+    <div class="modal-actions"><span class="btn">View blocked attempts</span><span class="btn primary">Open consent record ↗</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — Attempted send blocked · audit trail</div>
+<div class="card">
+  <div class="card-title">Blocked-send audit — ACC-2026-91247 · report-ready notification <span class="right">Read-only</span></div>
+  <div class="banner danger"><b>Message blocked at suppression gateway — nothing was sent.</b> The report-ready SMS for accession ACC-2026-91247 (Sofia Rossi, MRN-004822) matched an active consent-withdrawn suppression. The event, not the message content, was written to the audit log.</div>
+  <table>
+    <tr><th>Time (IST)</th><th>Event</th><th>Template</th><th>Channel</th><th>Outcome</th><th>Actor</th></tr>
+    <tr><td class="mono">25 Jul 11:08:02</td><td>report-ready trigger fired</td><td class="mono">TPL-RPT-READY-v4 (en)</td><td>SMS</td><td><span class="chip grey">QUEUED</span></td><td>system (RIS event)</td></tr>
+    <tr class="hl"><td class="mono">25 Jul 11:08:03</td><td>suppression check</td><td class="mono">—</td><td>SMS</td><td><span class="chip red">BLOCKED · consent-withdrawn</span></td><td>gateway</td></tr>
+    <tr><td class="mono">25 Jul 11:08:03</td><td>fallback evaluation</td><td class="mono">—</td><td>WhatsApp / Email</td><td><span class="chip grey">NO ELIGIBLE CHANNEL</span></td><td>gateway</td></tr>
+    <tr><td class="mono">25 Jul 11:08:04</td><td>front-office task created</td><td class="mono">TASK-2026-7731</td><td>—</td><td><span class="chip amber">HANDOVER · call patient / collect at desk · owner D. Nair · SLA 4h</span></td><td>system</td></tr>
+  </table>
+  <div class="small muted" style="margin-top:8px">Patients with suppressed destinations still receive results — via front-desk handover workflow, never via an overridden message.</div>
+</div>
+<p class="audit">Every view of this list, every suppression detail opened and every blocked-send event is recorded in the access log with user, role, timestamp and patient reference. Suppressions cannot be edited or lifted from the Notifications workspace; lift events originate only from consent or patient-record updates and are recorded in the access log.</p>
+</section>
+<section class="screen" id="nt-06">
+<div class="screen-head"><h1><span class="sid">NT-06</span> Patient message log</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Per-patient history of every outbound message — event, channel, PHI-free template preview and delivery status — so front office can answer "did the patient get the link?" without opening the clinical record. Resends are governed by hard rules (max attempts + cooldown), and opening any patient's log requires a captured access reason.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front Office) ▾</div></div>
+  <div class="body">
+  <div class="sidebar">
+    <div class="sec-label">Notifications</div>
+    <div class="nav-item">Delivery dashboard</div>
+    <div class="nav-item">Outbox &amp; queue <span class="nav-badge">38</span></div>
+    <div class="nav-item">Failures &amp; retries <span class="nav-badge red">4</span></div>
+    <div class="nav-item">Templates</div>
+    <div class="nav-item">Suppression &amp; consent</div>
+    <div class="nav-item active">Patient message log</div>
+    <div class="nav-item">Quiet hours &amp; rules</div>
+    <div class="nav-item">Send-test harness</div>
+    <div class="sec-label">Related</div>
+    <div class="nav-item">Patient record ↗</div>
+    <div class="nav-item">Audit log ↗</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Notifications › Patient message log › Sofia Rossi</div>
+    <div class="page-title">Message log — Sofia Rossi <span class="mono muted" style="font-weight:400;font-size:13px">MRN-004822</span></div>
+    <div class="page-sub">Outbound history · access reason on file: "patient called asking about report link" · session expires in 14 min</div>
+    <div class="banner info"><b>PHI-free by design.</b> Messages sent by Magnus contain no diagnosis, no test names beyond category, and no attachments — only secure links that require the patient's own verification (DOB + OTP). Previews below show the exact template text as sent.</div>
+    <div class="row" style="margin-bottom:12px">
+      <div class="kpi grow"><div class="n">11</div><div class="l">Messages · 90 days</div><div class="s">SMS 6 · WhatsApp 4 · Email 1</div></div>
+      <div class="kpi grow"><div class="n">10</div><div class="l">Delivered</div><div class="s">1 failed → auto-fallback used</div></div>
+      <div class="kpi amber grow"><div class="n">2 / 3</div><div class="l">Resends used (report-ready)</div><div class="s">cooldown 30 min between resends</div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Outbound history <span class="right">Newest first · IST</span></div>
+      <table>
+        <tr><th>Sent (IST)</th><th>Event</th><th>Channel · destination</th><th>Content preview (as sent · PHI-free)</th><th>Status</th><th></th></tr>
+        <tr class="hl"><td class="mono">25 Jul 10:42</td><td>Report ready<br><span class="mono small muted">ACC-2026-91247</span></td><td>SMS<br><span class="mono small">+91 98••• ••231</span></td><td class="small">"Meridian Diagnostics: your report is ready. View securely: mgns.in/r/•••••. Link needs DOB verification. Help: 022-4000-1100"</td><td><span class="chip green">DELIVERED 10:42</span></td><td><span class="btn small">Resend ▾</span></td></tr>
+        <tr><td class="mono">25 Jul 10:12</td><td>Report ready<br><span class="mono small muted">ACC-2026-91247</span></td><td>SMS<br><span class="mono small">+91 98••• ••231</span></td><td class="small">same template · TPL-RPT-READY-v4 (en)</td><td><span class="chip amber">EXPIRED · no DLR in 25 min</span></td><td><span class="small muted">superseded</span></td></tr>
+        <tr><td class="mono">24 Jul 16:05</td><td>Payment receipt<br><span class="mono small muted">RCP/AND/26-27/0412</span></td><td>WhatsApp<br><span class="mono small">+91 98••• ••231</span></td><td class="small">"Payment of ₹3,540 received at Meridian Diagnostics, Andheri West. Receipt RCP/AND/26-27/0412: mgns.in/p/•••••"</td><td><span class="chip green">READ 16:11</span></td><td><span class="btn small">Resend ▾</span></td></tr>
+        <tr><td class="mono">24 Jul 09:31</td><td>Appointment reminder<br><span class="mono small muted">APPT-2026-51108</span></td><td>WhatsApp<br><span class="mono small">+91 98••• ••231</span></td><td class="small">"Reminder: your appointment at Meridian Diagnostics Andheri West is tomorrow 25 Jul, 10:00 AM. Reply 1 to confirm, 2 to reschedule."</td><td><span class="chip green">DELIVERED 09:31</span></td><td><span class="btn small">Resend ▾</span></td></tr>
+        <tr><td class="mono">22 Jul 14:18</td><td>Preparation instructions<br><span class="mono small muted">APPT-2026-51108</span></td><td>Email<br><span class="mono small">s•••a.r@gm•••.com</span></td><td class="small">"Preparation for your upcoming scan — fasting and arrival instructions (no report content in this email)."</td><td><span class="chip green">DELIVERED 14:19</span></td><td><span class="btn small">Resend ▾</span></td></tr>
+        <tr><td class="mono">22 Jul 14:02</td><td>Booking confirmation<br><span class="mono small muted">APPT-2026-51108</span></td><td>SMS<br><span class="mono small">+91 98••• ••231</span></td><td class="small">"Meridian Diagnostics: appointment confirmed for 25 Jul, 10:00 AM, Andheri West. Details: mgns.in/a/•••••"</td><td><span class="chip green">DELIVERED 14:02</span></td><td><span class="btn small">Resend ▾</span></td></tr>
+        <tr><td class="mono">18 Jul 11:47</td><td>Invoice issued<br><span class="mono small muted">INV/AND/26-27/0298</span></td><td>SMS<br><span class="mono small">+91 98••• ••231</span></td><td class="small">"Your invoice INV/AND/26-27/0298 from Meridian Diagnostics is available: mgns.in/i/•••••"</td><td><span class="chip red">FAILED · DND window</span> <span class="chip green">FALLBACK EMAIL ✓</span></td><td><span class="btn small ghost">Trace</span></td></tr>
+      </table>
+    </div>
+    <div class="row">
+      <div class="card grow">
+        <div class="card-title">Resend rules (enforced)</div>
+        <div class="kv">
+          <dt>Max resends</dt><dd>3 per event per channel (report-ready, invoice, receipt)</dd>
+          <dt>Cooldown</dt><dd>30 minutes between resends of the same event</dd>
+          <dt>Beyond limit</dt><dd>Escalate to front-office call task — never more messages</dd>
+          <dt>Suppression</dt><dd>Resend honours suppressions &amp; quiet hours; no override</dd>
+        </div>
+      </div>
+      <div class="card" style="width:300px">
+        <div class="card-title">Retention</div>
+        <div class="small">Message metadata and template version are retained 3 years for audit. Rendered secure-link tokens expire after 30 days and are never stored in this log. Access to this log is itself logged.</div>
+      </div>
+    </div>
+  </div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — Resend guard reached (max attempts / cooldown)</div>
+<div class="modal-wrap">
+  <div class="modal danger" style="max-width:600px">
+    <h3>Resend blocked — limit reached</h3>
+    <div class="banner danger"><b>3 of 3 resends used for "Report ready · ACC-2026-91247" on SMS.</b> Last resend 25 Jul 10:42 IST. A fourth message would breach the per-event resend rule and risks TRAI complaint flags.</div>
+    <div class="kv" style="margin-bottom:10px">
+      <dt>Cooldown</dt><dd>Also active — next resend window (any channel) opens 11:12 IST</dd>
+      <dt>Delivery evidence</dt><dd>Last attempt DELIVERED 10:42 (gateway DLR ref DLR-88412)</dd>
+      <dt>What you can do</dt><dd>Create a call task, or invite the patient to collect the report at the desk with ID verification.</dd>
+    </div>
+    <div class="check"><span class="box on">✓</span><span class="small">Create front-office call task (owner: D. Nair · SLA <span class="chip teal">4h</span>)</span></div>
+    <div class="modal-actions"><span class="btn">Close</span><span class="btn disabled">Resend (blocked)</span><span class="btn primary">Create call task</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — Access-reason prompt before opening a patient's log</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:560px">
+    <h3>Reason required — open message log for Priya Menon (MRN-004828)</h3>
+    <p class="small muted" style="margin-bottom:10px">You are not on this patient's active care/service team today. Under Meridian's DPDP access policy, a reason is required and will be visible to privacy audit and, on request, to the patient.</p>
+    <div class="field"><label>Reason category <span class="req">*</span></label>
+      <select class="select"><option>Patient phoned — delivery query</option><option>Billing follow-up</option><option>Complaint investigation</option><option>Other (describe)</option></select></div>
+    <div class="field"><label>Details <span class="req">*</span></label>
+      <textarea class="textarea">Patient called 15:20 asking why WhatsApp reminder was not received.</textarea>
+      <div class="hint">Minimum 20 characters · do not include clinical details</div></div>
+    <div class="check"><span class="box on">✓</span><span class="small">I understand this access is logged with my identity and reviewed in the weekly privacy audit sample.</span></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Record reason &amp; open log (15 min session)</span></div>
+  </div>
+</div>
+<p class="audit">Opening a patient message log, every resend, every blocked resend and every trace view is recorded in the access log with user, captured reason, timestamp and patient reference; log sessions auto-expire after 15 minutes.</p>
+</section>
+<section class="screen" id="nt-07">
+<div class="screen-head"><h1><span class="sid">NT-07</span> Quiet hours &amp; rate rules</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Central policy screen for when and how often Magnus may message patients. Non-urgent messages queue overnight (21:00–08:00 IST) and release in the morning; clinical alerts (critical results, STAT) are always exempt and never queued. Per-channel throttles and a per-patient daily cap protect patients and sender reputation, with a full audit of every exemption used.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Admin) ▾</div></div>
+  <div class="body">
+  <div class="sidebar">
+    <div class="sec-label">Notifications</div>
+    <div class="nav-item">Delivery dashboard</div>
+    <div class="nav-item">Outbox &amp; queue <span class="nav-badge">38</span></div>
+    <div class="nav-item">Failures &amp; retries</div>
+    <div class="nav-item">Templates</div>
+    <div class="nav-item">Suppression &amp; consent</div>
+    <div class="nav-item">Patient message log</div>
+    <div class="nav-item active">Quiet hours &amp; rules</div>
+    <div class="nav-item">Send-test harness</div>
+    <div class="sec-label">Admin</div>
+    <div class="nav-item">Policy change log ↗</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Notifications › Quiet hours &amp; rate rules</div>
+    <div class="page-title">Quiet hours &amp; rate rules <span class="actions-right"><span class="btn small">Change history</span> <span class="btn small primary">Save policy (dual approval)</span></span></div>
+    <div class="page-sub">Org-wide policy · applies to all branches · edits require Admin + Billing/Ops supervisor approval</div>
+    <div class="banner danger" style="border-width:2px"><b>⚠ CLINICAL ALERTS ARE EXEMPT — NEVER QUEUED.</b> Critical-result notifications to referrers and STAT workflow alerts bypass quiet hours, throttles and daily caps at all times. This exemption cannot be disabled. Every exempt send is individually audited (see State C).</div>
+    <div class="banner reg"><b>TRAI classification note.</b> All Magnus patient messages are <b>transactional/service</b> communications (appointment, preparation, report-ready, billing) tied to a service the patient requested — none are promotional. Meridian sends no marketing from Magnus; DLT templates are registered in the service/transactional category. Quiet hours below are Meridian's own patient-courtesy policy, stricter than the regulatory minimum for transactional messages.</div>
+    <div class="row">
+      <div class="card grow">
+        <div class="card-title">Quiet hours — non-urgent messages <span class="right">IST</span></div>
+        <div class="kv">
+          <dt>Window</dt><dd><span class="mono">21:00 → 08:00</span> daily · behaviour: <span class="chip teal">QUEUE UNTIL MORNING</span></dd>
+          <dt>Release</dt><dd>Queued items release from 08:00, oldest first, subject to throttles</dd>
+          <dt>Applies to</dt><dd>Appointment reminders · report-ready · billing (invoice/receipt) · preparation instructions</dd>
+          <dt>Exempt (always)</dt><dd><span class="chip red">CRITICAL RESULT</span> <span class="chip red">STAT ALERT</span> <span class="chip amber">OTP / secure-link verification</span></dd>
+          <dt>Timezone</dt><dd>Asia/Kolkata for all patients (single-country deployment)</dd>
+        </div>
+      </div>
+      <div class="card" style="width:320px">
+        <div class="card-title">Per-patient daily cap</div>
+        <div class="kv" style="grid-template-columns:130px 1fr">
+          <dt>Cap</dt><dd><b>5 messages / patient / day</b> across all channels</dd>
+          <dt>Exempt from cap</dt><dd>Clinical alerts · OTPs · patient-initiated replies</dd>
+          <dt>On breach</dt><dd>Lowest-priority message deferred to next day + front-office task if report-ready affected</dd>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Per-channel rate throttles <span class="right">org-level · protects gateway reputation</span></div>
+      <table>
+        <tr><th>Channel</th><th>Provider route</th><th>Throttle</th><th>Burst</th><th>Current load (last hr)</th><th>Status</th></tr>
+        <tr><td><b>SMS</b></td><td class="mono">DLT · MERDIA (transactional)</td><td>120 / min</td><td>300 / 5 min</td><td>64 / min peak<div class="progress"><i style="width:53%"></i></div></td><td><span class="chip green">HEALTHY</span></td></tr>
+        <tr><td><b>WhatsApp</b></td><td class="mono">BSP tier-2 (10k/day)</td><td>60 / min</td><td>150 / 5 min</td><td>41 / min peak<div class="progress"><i style="width:68%"></i></div></td><td><span class="chip green">HEALTHY</span></td></tr>
+        <tr class="hl"><td><b>Email</b></td><td class="mono">smtp.meridian.in (in-country)</td><td>200 / min</td><td>600 / 5 min</td><td>187 / min peak<div class="progress amber"><i style="width:94%"></i></div></td><td><span class="chip amber">NEAR LIMIT · owner: K. Verma · SLA <span class="mono">review 4h</span></span></td></tr>
+        <tr><td><b>Clinical alert lane</b></td><td class="mono">dedicated · all channels</td><td class="mono">unthrottled</td><td class="mono">—</td><td>3 sends</td><td><span class="chip red">EXEMPT LANE</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Throttled messages queue in priority order (clinical &gt; operational &gt; billing); nothing is dropped. Queue depth alerts fire at 500 items.</div>
+    </div>
+  </div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — Queued-overnight examples (this morning's release)</div>
+<div class="card">
+  <div class="card-title">Overnight queue — released 25 Jul 08:00 IST <span class="right">14 items queued 21:00–08:00 · all released by 08:06</span></div>
+  <table>
+    <tr><th>Queued (IST)</th><th>Patient</th><th>Event</th><th>Channel</th><th>Decision</th><th>Released · outcome</th></tr>
+    <tr><td class="mono">24 Jul 22:41</td><td>Aarav Sharma <span class="mono small muted">MRN-004821</span></td><td>Report ready · ACC-2026-91302</td><td>SMS</td><td><span class="chip grey">QUIET HOURS · queued</span></td><td class="mono small">08:00 → <span class="chip green">DELIVERED 08:01</span></td></tr>
+    <tr><td class="mono">24 Jul 23:15</td><td>Priya Menon <span class="mono small muted">MRN-004828</span></td><td>Invoice issued · INV/AND/26-27/0304</td><td>SMS</td><td><span class="chip grey">QUIET HOURS · queued</span></td><td class="mono small">08:02 → <span class="chip green">DELIVERED 08:02</span></td></tr>
+    <tr><td class="mono">25 Jul 06:30</td><td>Rajesh Gupta <span class="mono small muted">MRN-004795</span></td><td>Appointment reminder · APPT-2026-51190</td><td>WhatsApp</td><td><span class="chip grey">QUIET HOURS · queued</span></td><td class="mono small">08:03 → <span class="chip green">READ 08:22</span></td></tr>
+    <tr class="hl"><td class="mono">24 Jul 23:58</td><td><span class="muted">Referrer: Dr. Meera Nair</span></td><td><b>Critical result</b> · ACC-2026-91318</td><td>SMS + call task</td><td><span class="chip red">EXEMPT · SENT IMMEDIATELY</span></td><td class="mono small">23:58 → <span class="chip green">DELIVERED 23:58</span> · ack 00:04</td></tr>
+    <tr><td class="mono">25 Jul 07:12</td><td>Ananya Rao <span class="mono small muted">MRN-004819</span></td><td>Preparation instructions · APPT-2026-51204</td><td>Email</td><td><span class="chip grey">QUIET HOURS · queued</span></td><td class="mono small">08:04 → <span class="chip green">DELIVERED 08:05</span></td></tr>
+    <tr><td class="mono">24 Jul 21:36</td><td>Sofia Rossi <span class="mono small muted">MRN-004822</span></td><td>Receipt · RCP/AND/26-27/0415</td><td>WhatsApp</td><td><span class="chip grey">QUIET HOURS · queued</span></td><td class="mono small">08:05 → <span class="chip green">DELIVERED 08:05</span></td></tr>
+  </table>
+  <div class="small muted" style="margin-top:8px">Queue decisions are deterministic and logged; patients never receive non-urgent messages between 21:00 and 08:00 IST.</div>
+</div>
+
+<div class="state-tag">STATE C — Exemption audit (clinical-alert lane &amp; cap exemptions)</div>
+<div class="card">
+  <div class="card-title">Exemption audit — last 7 days <span class="right">read-only · weekly privacy review</span></div>
+  <div class="kpi-row">
+    <div class="kpi red"><div class="n">6</div><div class="l">Quiet-hours exemptions</div><div class="s">all clinical alerts · 0 misuse</div></div>
+    <div class="kpi"><div class="n">2</div><div class="l">Daily-cap exemptions</div><div class="s">OTP resends during portal login</div></div>
+    <div class="kpi"><div class="n">0</div><div class="l">Manual overrides</div><div class="s">no override control exists</div></div>
+  </div>
+  <table>
+    <tr><th>When (IST)</th><th>Exemption</th><th>Trigger</th><th>Recipient class</th><th>Justification (system)</th><th>Reviewed</th></tr>
+    <tr><td class="mono">24 Jul 23:58</td><td><span class="chip red">QUIET-HOURS</span></td><td>Critical result · ACC-2026-91318</td><td>Referrer (Dr. Meera Nair, verified +91 98••• ••412)</td><td class="small">Critical-result policy CR-POL-3: notify within 30 min of radiologist sign-off (Dr. V. Shetty, 23:52)</td><td><span class="chip green">OK · M. Kulkarni</span></td></tr>
+    <tr><td class="mono">23 Jul 02:14</td><td><span class="chip red">QUIET-HOURS</span></td><td>STAT alert · ACC-2026-91276</td><td>On-call radiologist</td><td class="small">STAT order breach warning at 75% of SLA — staff recipient, not patient</td><td><span class="chip green">OK · M. Kulkarni</span></td></tr>
+    <tr><td class="mono">22 Jul 21:47</td><td><span class="chip amber">DAILY-CAP</span></td><td>OTP resend ×2</td><td>Patient (MRN-004790)</td><td class="small">Patient-initiated portal login; OTPs exempt from cap by policy</td><td><span class="chip green">OK · auto-rule</span></td></tr>
+    <tr><td class="mono">21 Jul 23:03</td><td><span class="chip red">QUIET-HOURS</span></td><td>Critical result · ACC-2026-91201</td><td>Referrer (Dr. S. Iyer)</td><td class="small">CR-POL-3 · sign-off 22:58 · ack received 23:12</td><td><span class="chip amber">PENDING REVIEW · owner M. Kulkarni · SLA <span class="chip teal">48h</span></span></td></tr>
+  </table>
+</div>
+<p class="audit">Policy edits require dual approval (Admin + supervisor) and are versioned in the policy change log; every quiet-hours exemption, cap exemption and throttle-deferral decision is recorded in the access log with trigger reference and reviewer outcome.</p>
+</section>
+<section class="screen" id="nt-08">
+<div class="screen-head"><h1><span class="sid">NT-08</span> Send-test harness</h1><div class="meta"><span class="chip amber">CONDITIONAL</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Safe sandbox for testing message templates before they go live. Staff pick a template, language and variables, see a rendered per-channel preview (SMS segment count, WhatsApp bubble, email), then send only to registered sandbox recipients — staff numbers flagged TEST and excluded from all reports. Promotion to live requires DLT registration, a clean lint and a named approver.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Admin) ▾</div></div>
+  <div class="body">
+  <div class="sidebar">
+    <div class="sec-label">Notifications</div>
+    <div class="nav-item">Delivery dashboard</div>
+    <div class="nav-item">Outbox &amp; queue <span class="nav-badge">38</span></div>
+    <div class="nav-item">Failures &amp; retries</div>
+    <div class="nav-item">Templates</div>
+    <div class="nav-item">Suppression &amp; consent</div>
+    <div class="nav-item">Patient message log</div>
+    <div class="nav-item">Quiet hours &amp; rules</div>
+    <div class="nav-item active">Send-test harness</div>
+    <div class="sec-label">Admin</div>
+    <div class="nav-item">DLT template registry ↗</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Notifications › Send-test harness</div>
+    <div class="page-title">Send-test harness <span class="actions-right"><span class="btn small">Manage sandbox recipients</span></span></div>
+    <div class="page-sub">Sandbox only — tests can never reach a patient destination and never count in delivery reports</div>
+    <div class="stepper">
+      <div class="step cur"><span class="dot">1</span> Compose test</div><span class="step-line"></span>
+      <div class="step"><span class="dot">2</span> Send &amp; results</div><span class="step-line"></span>
+      <div class="step"><span class="dot">3</span> Promote to live</div>
+    </div>
+    <div class="row">
+      <div class="card" style="width:340px">
+        <div class="card-title">Test setup</div>
+        <div class="field"><label>Template <span class="req">*</span></label>
+          <select class="select"><option>TPL-RPT-READY-v5 · Report ready (draft)</option><option>TPL-APPT-REM-v3 · Appointment reminder</option><option>TPL-INV-ISSUED-v2 · Invoice issued</option></select></div>
+        <div class="field"><label>Language</label>
+          <select class="select"><option>English (en)</option><option>Hindi (hi)</option><option>Marathi (mr)</option></select></div>
+        <div class="field"><label>Variables (synthetic only)</label>
+          <div class="kv" style="grid-template-columns:110px 1fr;font-size:12px">
+            <dt>{{link}}</dt><dd class="mono">mgns.in/r/TEST01</dd>
+            <dt>{{branch}}</dt><dd class="mono">Andheri West</dd>
+            <dt>{{helpline}}</dt><dd class="mono">022-4000-1100</dd>
+          </div>
+          <div class="hint">Real patient data cannot be selected in the harness — variables come from the synthetic fixture set.</div></div>
+        <div class="field"><label>Channels</label>
+          <div class="check"><span class="box on">✓</span>SMS</div>
+          <div class="check"><span class="box on">✓</span>WhatsApp</div>
+          <div class="check"><span class="box">&nbsp;</span>Email</div></div>
+      </div>
+      <div class="card grow">
+        <div class="card-title">Rendered preview <span class="right">TPL-RPT-READY-v5 · en</span></div>
+        <div class="small bold" style="margin-bottom:4px">SMS <span class="chip grey">1 segment · 148/160 chars · GSM-7</span></div>
+        <div style="border:1px solid #E2E8F0;border-radius:8px;padding:10px 12px;background:#F8FAFC;font-size:12.5px;margin-bottom:12px" class="mono">Meridian Diagnostics: your report is ready. View securely: mgns.in/r/TEST01. Link needs DOB verification. Help: 022-4000-1100. No reply needed.</div>
+        <div class="small bold" style="margin-bottom:4px">WhatsApp bubble</div>
+        <div style="background:#DCFCE7;border:1px solid #86EFAC;border-radius:12px 12px 2px 12px;padding:10px 12px;max-width:340px;font-size:12.5px;margin-bottom:6px">🏥 <b>Meridian Diagnostics</b><br>Your report is ready to view.<br><br>🔒 The secure link asks for your date of birth before opening — your report is never attached to this chat.<br><br><span style="display:inline-block;background:#fff;border:1px solid #CBD5E1;border-radius:6px;padding:4px 12px;font-weight:700;color:#0F766E">View report ›</span><div class="small muted" style="text-align:right;margin-top:4px">18:12 ✓✓</div></div>
+        <div class="small muted">Email: channel not selected · lint: <span class="chip green">CLEAN — no PHI variables, opt-out footer n/a (transactional), link domain allow-listed</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Sandbox recipients registry <span class="right">tests deliver ONLY to these</span></div>
+      <table>
+        <tr><th>Name</th><th>Role</th><th>Destination</th><th>Flag</th><th>Excluded from reports</th><th>Last verified</th></tr>
+        <tr><td>K. Verma</td><td>Admin</td><td class="mono">+91 99••• ••870</td><td><span class="chip violet">TEST</span></td><td><span class="chip green">YES</span></td><td>21 Jul 2026</td></tr>
+        <tr><td>M. Kulkarni</td><td>Billing supervisor</td><td class="mono">+91 98••• ••334</td><td><span class="chip violet">TEST</span></td><td><span class="chip green">YES</span></td><td>21 Jul 2026</td></tr>
+        <tr><td>D. Nair</td><td>Front office</td><td class="mono">+91 97••• ••512</td><td><span class="chip violet">TEST</span></td><td><span class="chip green">YES</span></td><td>14 Jul 2026</td></tr>
+        <tr><td>QA shared inbox</td><td>QA</td><td class="mono">qa-notify@meridian.in</td><td><span class="chip violet">TEST</span></td><td><span class="chip green">YES</span></td><td>08 Jul 2026</td></tr>
+        <tr class="dim"><td>P. D'Souza</td><td>Cashier</td><td class="mono">+91 96••• ••091</td><td><span class="chip grey">EXPIRED</span></td><td><span class="chip green">YES</span></td><td>re-verify to use</td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Adding a sandbox recipient requires OTP proof of ownership; patient numbers are rejected against the patient registry.</div>
+    </div>
+    <div style="text-align:right"><span class="btn">Save draft</span> <span class="btn primary">Send test to 3 sandbox recipients →</span></div>
+  </div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — Test results</div>
+<div class="card">
+  <div class="card-title">Test run TST-2026-0147 — TPL-RPT-READY-v5 (en) <span class="right">25 Jul 18:12 IST · run by K. Verma</span></div>
+  <div class="banner success"><b>4 of 5 test sends delivered.</b> Results are sandbox-only and excluded from all delivery dashboards and reports.</div>
+  <table>
+    <tr><th>Recipient</th><th>Channel</th><th>Sent</th><th>Status</th><th>Latency</th><th>Gateway ref</th></tr>
+    <tr><td>K. Verma <span class="chip violet">TEST</span></td><td>SMS</td><td class="mono">18:12:04</td><td><span class="chip green">DELIVERED</span></td><td class="mono">2.1s</td><td class="mono small">DLR-TST-9931</td></tr>
+    <tr><td>K. Verma <span class="chip violet">TEST</span></td><td>WhatsApp</td><td class="mono">18:12:04</td><td><span class="chip green">READ 18:13</span></td><td class="mono">1.4s</td><td class="mono small">WA-TST-5520</td></tr>
+    <tr><td>M. Kulkarni <span class="chip violet">TEST</span></td><td>SMS</td><td class="mono">18:12:05</td><td><span class="chip green">DELIVERED</span></td><td class="mono">2.8s</td><td class="mono small">DLR-TST-9932</td></tr>
+    <tr class="hl"><td>D. Nair <span class="chip violet">TEST</span></td><td>WhatsApp</td><td class="mono">18:12:05</td><td><span class="chip red">FAILED · template not yet approved by BSP</span></td><td class="mono">—</td><td class="mono small">WA-TST-5521</td></tr>
+    <tr><td>M. Kulkarni <span class="chip violet">TEST</span></td><td>WhatsApp</td><td class="mono">18:12:06</td><td><span class="chip green">DELIVERED</span></td><td class="mono">1.9s</td><td class="mono small">WA-TST-5522</td></tr>
+  </table>
+  <div class="banner warn" style="margin-top:10px"><b>Action needed before promotion.</b> WhatsApp template variant awaits BSP approval (submitted 24 Jul, typical 24–48h). SMS variant is fully ready.</div>
+</div>
+
+<div class="state-tag">STATE C — Promotion-to-live checklist</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:620px">
+    <h3>Promote TPL-RPT-READY-v5 to live</h3>
+    <p class="small muted" style="margin-bottom:10px">Replaces TPL-RPT-READY-v4 for all report-ready sends org-wide. All gates must pass; promotion is a recorded, versioned change.</p>
+    <div class="check"><span class="box on">✓</span><span class="small"><b>DLT registered</b> — SMS content template ID <span class="mono">1107172026543218</span> matches rendered text exactly (header MERDIA, transactional)</span></div>
+    <div class="check"><span class="box on">✓</span><span class="small"><b>Lint clean</b> — no PHI variables, no diagnosis terms, link domain allow-listed, foetal-sex-safe wording check passed (obstetric template family)</span></div>
+    <div class="check"><span class="box on">✓</span><span class="small"><b>Successful sandbox test</b> — TST-2026-0147 · SMS delivered to 2+ recipients</span></div>
+    <div class="check"><span class="box">&nbsp;</span><span class="small"><b>WhatsApp BSP approval</b> — pending · promoting now goes live SMS-only, WhatsApp follows on approval</span></div>
+    <div class="check"><span class="box on">✓</span><span class="small"><b>Language variants</b> — en, hi, mr all tested; hi/mr previews reviewed by front-office lead</span></div>
+    <div class="field" style="margin-top:10px"><label>Approver (cannot be the requester) <span class="req">*</span></label>
+      <select class="select"><option>M. Kulkarni — Billing supervisor</option><option>K. Verma — Admin (blocked: requester)</option></select></div>
+    <div class="banner info"><b>Identity confirmation required.</b> Approver confirms with their own Magnus password + OTP at approval time; requester K. Verma cannot self-approve.</div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn warn-outline">Promote SMS-only</span><span class="btn disabled">Promote all channels (1 gate pending)</span></div>
+  </div>
+</div>
+<p class="audit">Test runs, sandbox-recipient changes, lint results and every promotion (with requester, approver, template diff and DLT ID) are recorded in the access log; TEST-flagged traffic is permanently excluded from delivery reports and billing reconciliation.</p>
+</section>
+</body></html>

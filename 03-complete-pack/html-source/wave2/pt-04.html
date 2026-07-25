@@ -1,0 +1,100 @@
+<section class="screen" id="pt-04">
+<div class="screen-head"><h1><span class="sid">PT-04</span> Receipt &amp; invoice via link</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G2 Patient-Facing — patient chrome (no sidebar)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> After OTP verification, the patient can view and download their tax invoice and receipts from the same secure link as the report. Documents show the clinic's GSTIN and the healthcare GST exemption exactly as printed at the desk. If a balance remains, a pay-now button leads to the secure UPI/card payment page (PT-06), and a history list shows every payment with its reference.</div>
+
+<div class="state-tag">STATE A — PAID IN FULL (receipt + invoice)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:1px solid #E2E8F0;padding:12px;text-align:center"><span class="brand">◎ Meridian Diagnostics</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="banner success"><b>Paid in full — thank you</b>No amount is due for this visit. You can download the invoice and receipt below for insurance or reimbursement.</div>
+    <div class="card">
+      <div class="card-title">Tax invoice <span class="chip green">PAID</span></div>
+      <div class="kv" style="grid-template-columns:140px 1fr;margin-bottom:10px">
+        <dt>Invoice no.</dt><dd class="mono bold">INV/AND/26-27/0412</dd>
+        <dt>Date</dt><dd>24 Jul 2026 · Andheri West branch</dd>
+        <dt>Billed to</dt><dd>Sofia Rossi · <span class="mono">MRN-004822</span> · Visit <span class="mono">VIS-2026-30871</span></dd>
+        <dt>GSTIN</dt><dd class="mono">27AAACM1234K1Z5</dd>
+      </div>
+      <table style="margin-bottom:10px">
+        <tr><th>Service</th><th>SAC</th><th>GST</th><th style="text-align:right">Amount</th></tr>
+        <tr><td>X-Ray Chest PA view</td><td class="mono">999316</td><td><span class="chip grey">Exempt (healthcare service)</span></td><td style="text-align:right" class="mono">₹850.00</td></tr>
+        <tr><td>Radiologist reporting fee</td><td class="mono">999316</td><td><span class="chip grey">Exempt (healthcare service)</span></td><td style="text-align:right" class="mono">₹400.00</td></tr>
+        <tr><td colspan="3" class="bold" style="text-align:right">Total</td><td style="text-align:right" class="mono bold">₹1,250.00</td></tr>
+        <tr><td colspan="3" class="bold" style="text-align:right">Paid</td><td style="text-align:right" class="mono bold">₹1,250.00</td></tr>
+        <tr><td colspan="3" class="bold" style="text-align:right">Balance due</td><td style="text-align:right" class="mono bold">₹0.00</td></tr>
+      </table>
+      <div class="small muted" style="margin-bottom:10px">Diagnostic services are exempt from GST as healthcare services — no CGST/SGST is charged. Amount in words: Rupees one thousand two hundred fifty only.</div>
+      <div class="kv" style="grid-template-columns:140px 1fr;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:10px;margin-bottom:12px">
+        <dt>Receipt</dt><dd class="mono">RCP/AND/26-27/0523 · 24 Jul 2026, 9:48 AM IST</dd>
+        <dt>Paid by</dt><dd>UPI · UTR <span class="mono">616407882914</span></dd>
+        <dt>Received by</dt><dd>P. D'Souza (cashier)</dd>
+      </div>
+      <div class="row">
+        <a class="btn primary grow" style="padding:12px">⬇ Invoice PDF</a>
+        <a class="btn grow" style="padding:12px">⬇ Receipt PDF</a>
+      </div>
+      <div class="small muted" style="margin-top:8px">🔒 Downloads are recorded. These documents show only billing details — your report stays on its own page.</div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:14px;font-size:11px;color:#64748B;border-top:1px solid #E2E8F0;background:#fff">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India<br><a style="color:#0F766E">Privacy</a> · <a style="color:#0F766E">Terms</a> · <a style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — BALANCE DUE (pay-now CTA → PT-06)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:1px solid #E2E8F0;padding:12px;text-align:center"><span class="brand">◎ Meridian Diagnostics</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="banner warn"><b>Balance due: ₹1,700.00</b>An advance was paid at the desk; the remaining amount can be paid securely below. Your report link is not affected by this balance.</div>
+    <div class="card">
+      <div class="card-title">Tax invoice <span class="chip amber">PART-PAID</span></div>
+      <div class="kv" style="grid-template-columns:140px 1fr;margin-bottom:10px">
+        <dt>Invoice no.</dt><dd class="mono bold">INV/AND/26-27/0418</dd>
+        <dt>Date</dt><dd>24 Jul 2026 · Andheri West branch</dd>
+        <dt>Billed to</dt><dd>Sofia Rossi · <span class="mono">MRN-004822</span> · Visit <span class="mono">VIS-2026-30871</span></dd>
+        <dt>GSTIN</dt><dd class="mono">27AAACM1234K1Z5</dd>
+      </div>
+      <table style="margin-bottom:10px">
+        <tr><th>Service</th><th>SAC</th><th>GST</th><th style="text-align:right">Amount</th></tr>
+        <tr><td>MRI Brain (plain)</td><td class="mono">999316</td><td><span class="chip grey">Exempt (healthcare service)</span></td><td style="text-align:right" class="mono">₹6,500.00</td></tr>
+        <tr><td>Radiologist reporting fee</td><td class="mono">999316</td><td><span class="chip grey">Exempt (healthcare service)</span></td><td style="text-align:right" class="mono">₹700.00</td></tr>
+        <tr><td colspan="3" class="bold" style="text-align:right">Total</td><td style="text-align:right" class="mono bold">₹7,200.00</td></tr>
+        <tr><td colspan="3" style="text-align:right">Advance paid (RCP/AND/26-27/0524 · UPI · UTR <span class="mono">616407919277</span>)</td><td style="text-align:right" class="mono">− ₹5,500.00</td></tr>
+        <tr class="hl"><td colspan="3" class="bold" style="text-align:right">Balance due</td><td style="text-align:right" class="mono bold" >₹1,700.00</td></tr>
+      </table>
+      <a class="btn primary" style="display:block;padding:13px;font-size:15px;margin-bottom:8px">Pay ₹1,700.00 now · UPI or card →</a>
+      <div class="small muted" style="text-align:center;margin-bottom:10px">Opens the secure Meridian payment page (PT-06). We never ask for card or UPI PINs by phone or SMS.</div>
+      <div class="row">
+        <a class="btn grow small">⬇ Invoice PDF</a>
+        <a class="btn grow small">⬇ Advance receipt PDF</a>
+      </div>
+      <div class="small muted" style="margin-top:8px">🔒 Before any payment, we re-confirm your identity with a one-time code — a standard step for money-related actions.</div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:14px;font-size:11px;color:#64748B;border-top:1px solid #E2E8F0;background:#fff">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India<br><a style="color:#0F766E">Privacy</a> · <a style="color:#0F766E">Terms</a> · <a style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="state-tag">STATE C — PAYMENT HISTORY</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:1px solid #E2E8F0;padding:12px;text-align:center"><span class="brand">◎ Meridian Diagnostics</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card">
+      <div class="card-title">Payment history — this visit <span class="right">VIS-2026-30871</span></div>
+      <table style="margin-bottom:10px">
+        <tr><th>Date (IST)</th><th>Reference</th><th>Mode</th><th style="text-align:right">Amount</th></tr>
+        <tr><td>24 Jul, 9:48 AM</td><td class="mono">RCP/AND/26-27/0524</td><td>UPI · UTR <span class="mono">616407919277</span></td><td style="text-align:right" class="mono">₹5,500.00</td></tr>
+        <tr><td>25 Jul, 4:21 PM</td><td class="mono">RCP/AND/26-27/0531</td><td>Card · Visa ••6120</td><td style="text-align:right" class="mono">₹1,700.00</td></tr>
+        <tr><td colspan="3" class="bold" style="text-align:right">Total paid</td><td style="text-align:right" class="mono bold">₹7,200.00</td></tr>
+        <tr><td colspan="3" class="bold" style="text-align:right">Balance due</td><td style="text-align:right" class="mono bold">₹0.00 <span class="chip green">SETTLED</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-bottom:10px">Refunds, if any, are issued to the original payment method with a credit note (CRN/AND/26-27/00xx) and appear here within 24 hours.</div>
+      <a class="btn" style="display:block;padding:11px">⬇ Download all receipts (1 PDF)</a>
+      <div class="small muted" style="margin-top:8px">🔒 Payment records shown here are exactly what the clinic's books show — same numbers, same series.</div>
+    </div>
+    <div class="banner info"><b>Question about a charge?</b>Call billing at <span class="mono">022-4890 2218</span> (Mon–Sat, 9 AM – 7 PM IST) and quote invoice <span class="mono">INV/AND/26-27/0418</span>. Supervisor: M. Kulkarni.</div>
+  </div>
+  <div style="text-align:center;padding:14px;font-size:11px;color:#64748B;border-top:1px solid #E2E8F0;background:#fff">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India<br><a style="color:#0F766E">Privacy</a> · <a style="color:#0F766E">Terms</a> · <a style="color:#0F766E">Help</a></div>
+</div>
+
+<p class="audit">Invoice and receipt views, downloads and pay-now taps on this link are recorded in the access log.</p>
+</section>

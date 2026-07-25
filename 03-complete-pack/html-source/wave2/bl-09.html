@@ -1,0 +1,157 @@
+<section class="screen" id="bl-09">
+<div class="screen-head"><h1><span class="sid">BL-09</span> Cash session &amp; end-of-day close</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Each cashier opens a cash session with a counted float and closes it end-of-day through a fixed stepper: count → reconcile → resolve → sign. System totals by mode are compared against counted cash and gateway-settled digital amounts; any non-zero variance demands a reason and a supervisor countersign. The close produces an immutable CSH-AND-2026-xxxx record, and gateway mismatches link straight into the BL-04 reconciliation ledger.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Billing dashboard</div>
+      <div class="nav-item">Invoices</div>
+      <div class="nav-item">Payments</div>
+      <div class="nav-item">Refunds</div>
+      <div class="nav-item">Credit notes</div>
+      <div class="nav-item">Approvals <span class="nav-badge">4</span></div>
+      <div class="nav-item active">Cash session</div>
+      <div class="sec-label">Setup</div>
+      <div class="nav-item">Price lists</div>
+      <div class="nav-item">Number series</div>
+      <div class="sec-label">Other</div>
+      <div class="nav-item">Reports</div>
+      <div class="nav-item">Audit log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Cash session › Today</div>
+      <div class="page-title">Cash session — Counter 2 <span class="chip green">OPEN</span></div>
+      <div class="page-sub">Session CSH-AND-2026-0619 · opened 25 Jul 2026, 08:02 IST by P. D'Souza · witnessed by D. Nair (Front office)</div>
+      <div class="row">
+        <div class="grow card">
+          <div class="card-title">Opening float <span class="right">COUNTED &amp; WITNESSED</span></div>
+          <dl class="kv" style="grid-template-columns:140px 1fr">
+            <dt>Float amount</dt><dd class="mono bold">₹3,000.00</dd>
+            <dt>Opened by</dt><dd>P. D'Souza (Cashier) · badge re-scan at open</dd>
+            <dt>Witness</dt><dd>D. Nair (Front office)</dd>
+            <dt>Drawer</dt><dd>Counter 2 · drawer key #C2-A</dd>
+            <dt>Previous session</dt><dd class="mono">CSH-AND-2026-0616 · closed clean, ₹0 variance</dd>
+          </dl>
+        </div>
+        <div class="grow card">
+          <div class="card-title">Live position — 16:45 IST</div>
+          <div class="kpi-row" style="margin-bottom:0">
+            <div class="kpi"><div class="n">₹18,450</div><div class="l">Cash in drawer (system)</div><div class="s">float + cash collections − cash refunds</div></div>
+            <div class="kpi"><div class="n">₹64,120</div><div class="l">Digital (UPI + card)</div><div class="s">41 transactions</div></div>
+            <div class="kpi"><div class="n">2</div><div class="l">Cash refunds paid</div><div class="s">₹1,600 total · both approved</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="card"><div class="card-title">Collections by mode — system view (running)</div>
+        <table>
+          <tr><th>Mode</th><th>Txns</th><th>System total</th><th>Counted / settled</th><th>Variance</th><th>Notes</th></tr>
+          <tr><td>Cash</td><td class="mono">28</td><td class="mono">₹17,050.00</td><td class="muted">— counted at close</td><td class="muted">—</td><td class="small">incl. ₹1,600 approved cash refunds out</td></tr>
+          <tr><td>UPI</td><td class="mono">33</td><td class="mono">₹41,870.00</td><td class="muted">— gateway settles T+1</td><td class="muted">—</td><td class="small">UTRs auto-captured per receipt</td></tr>
+          <tr><td>Card</td><td class="mono">8</td><td class="mono">₹22,250.00</td><td class="muted">— gateway settles T+1</td><td class="muted">—</td><td class="small">terminal TID MER-AND-02</td></tr>
+          <tr><td>Bank transfer</td><td class="mono">1</td><td class="mono">₹7,300.00</td><td class="muted">—</td><td class="muted">—</td><td class="small">corporate payer Zenith Corp Health</td></tr>
+        </table>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:flex-end"><span class="btn">Pause session (break)</span><span class="btn primary">Begin end-of-day close →</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — CLOSING · DENOMINATION COUNT WITH VARIANCE</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">End-of-day close — CSH-AND-2026-0619 <span class="chip amber">VARIANCE −₹200.00</span></div>
+  <div class="stepper">
+    <div class="step done"><span class="dot">✓</span> Count</div><span class="step-line"></span>
+    <div class="step cur"><span class="dot">2</span> Reconcile</div><span class="step-line"></span>
+    <div class="step"><span class="dot">3</span> Resolve</div><span class="step-line"></span>
+    <div class="step"><span class="dot">4</span> Sign</div>
+  </div>
+  <div class="split">
+    <div class="card">
+      <div class="card-title">Denomination count <span class="right">PHYSICAL DRAWER · 18:04 IST</span></div>
+      <table>
+        <tr><th>Denomination</th><th>Count</th><th>Value</th></tr>
+        <tr><td>₹500 note</td><td class="mono">26</td><td class="mono">₹13,000.00</td></tr>
+        <tr><td>₹200 note</td><td class="mono">14</td><td class="mono">₹2,800.00</td></tr>
+        <tr><td>₹100 note</td><td class="mono">19</td><td class="mono">₹1,900.00</td></tr>
+        <tr><td>₹50 note</td><td class="mono">7</td><td class="mono">₹350.00</td></tr>
+        <tr><td>₹20 note</td><td class="mono">6</td><td class="mono">₹120.00</td></tr>
+        <tr><td>₹10 note / coin</td><td class="mono">6</td><td class="mono">₹60.00</td></tr>
+        <tr><td>Coins (₹5/₹2/₹1)</td><td class="mono">—</td><td class="mono">₹20.00</td></tr>
+        <tr><td style="text-align:right"><b>Counted total</b></td><td></td><td class="mono bold">₹18,250.00</td></tr>
+      </table>
+    </div>
+    <div>
+      <div class="card">
+        <div class="card-title">Reconciliation — all modes</div>
+        <table>
+          <tr><th>Mode</th><th>System</th><th>Counted / gateway-settled</th><th>Variance</th></tr>
+          <tr class="hl"><td>Cash (incl. float)</td><td class="mono">₹18,450.00</td><td class="mono">₹18,250.00</td><td class="mono" style="color:#B91C1C">−₹200.00</td></tr>
+          <tr><td>UPI</td><td class="mono">₹41,870.00</td><td class="mono">₹41,870.00 <span class="chip green">MATCHED</span></td><td class="mono">₹0.00</td></tr>
+          <tr><td>Card</td><td class="mono">₹22,250.00</td><td class="mono">₹22,250.00 <span class="chip green">MATCHED</span></td><td class="mono">₹0.00</td></tr>
+          <tr><td>Bank transfer</td><td class="mono">₹7,300.00</td><td class="mono">₹7,300.00</td><td class="mono">₹0.00</td></tr>
+        </table>
+      </div>
+      <div class="banner warn"><b>Variance ≠ ₹0 — reason and supervisor countersign required</b>The session cannot be signed until the −₹200.00 cash variance carries a documented reason and M. Kulkarni countersigns. Variances are never silently absorbed.</div>
+      <div class="field"><label>Variance reason <span class="req">*</span></label><select class="select"><option>Excess change given — suspected during 14:10 rush (RCP/AND/26-27/0641)</option></select><div class="hint">Taxonomy: excess change · counterfeit note removed · counting error at open · unrecorded petty expense (disallowed — flag) · unknown (triggers review)</div></div>
+      <div class="field"><label>Supervisor countersign</label><div class="row"><input class="input" value="M. Kulkarni" style="max-width:200px"/><input class="input" type="password" value="••••••••" style="max-width:160px"/><span class="btn small warn-outline">Request countersign</span></div><div class="hint">Supervisor physically present or via step-up remote approval; recorded either way.</div></div>
+    </div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — SIGNED CLOSE · IMMUTABLE RECORD</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Session closed — CSH-AND-2026-0619 <span class="chip green">SIGNED &amp; LOCKED</span></div>
+  <div class="page-sub">Closed 25 Jul 2026, 18:21 IST · record is immutable · corrections require a supervisor adjustment entry in the next session</div>
+  <div class="stepper">
+    <div class="step done"><span class="dot">✓</span> Count 18:04</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Reconcile 18:09</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Resolve 18:15</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Sign 18:21</div>
+  </div>
+  <div class="row">
+    <div class="grow card">
+      <div class="card-title">Close summary</div>
+      <dl class="kv" style="grid-template-columns:170px 1fr">
+        <dt>Total collections</dt><dd class="mono">₹88,470.00 (70 receipts RCP/AND/26-27/0629–0698)</dd>
+        <dt>Cash to vault</dt><dd class="mono">₹15,250.00 (counted − float ₹3,000 retained)</dd>
+        <dt>Variance</dt><dd class="mono">−₹200.00 · excess change · countersigned M. Kulkarni</dd>
+        <dt>Cash refunds paid</dt><dd class="mono">₹1,600.00 (2, both approved via BL-08)</dd>
+        <dt>Digital pending settlement</dt><dd class="mono">₹64,120.00 · T+1 · tracked in BL-04</dd>
+      </dl>
+    </div>
+    <div style="width:300px">
+      <div class="card"><div class="card-title">Signatures</div>
+        <div class="small muted" style="margin-bottom:4px">Cashier</div>
+        <div class="sig-box signed">P. D'Souza · 18:21 IST</div>
+        <div class="small muted" style="margin:8px 0 4px">Supervisor (variance countersign)</div>
+        <div class="sig-box signed">M. Kulkarni · 18:19 IST</div>
+      </div>
+    </div>
+  </div>
+  <div class="banner success"><b>Record locked</b>CSH-AND-2026-0619 is now read-only and hash-chained to CSH-AND-2026-0616. Vault deposit slip printed; day-book entry posted to accounts.</div>
+</div></div></div>
+
+<div class="state-tag">STATE D — GATEWAY MISMATCH AT CLOSE (LINKS BL-04)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">End-of-day close — Counter 1 · CSH-AND-2026-0620 <span class="chip red">GATEWAY MISMATCH</span></div>
+  <div class="page-sub">Cashier D. Nair · 25 Jul 2026 · UPI settled total does not match system total</div>
+  <div class="banner danger"><b>UPI mismatch −₹2,400.00 against gateway settlement file</b>System shows 29 UPI receipts totalling ₹36,900.00; Razorpay settlement preview shows ₹34,500.00 (28 txns). One transaction — RCP/AND/26-27/0655, ₹2,400.00, patient A••av S••••a, 13:22 IST — has no matching UTR in the gateway file.</div>
+  <table>
+    <tr><th>Mode</th><th>System</th><th>Gateway-settled (preview)</th><th>Variance</th><th>Status</th></tr>
+    <tr class="hl"><td>UPI</td><td class="mono">₹36,900.00</td><td class="mono">₹34,500.00</td><td class="mono" style="color:#B91C1C">−₹2,400.00</td><td><span class="chip red">1 UNMATCHED RECEIPT</span></td></tr>
+    <tr><td>Card</td><td class="mono">₹18,700.00</td><td class="mono">₹18,700.00</td><td class="mono">₹0.00</td><td><span class="chip green">MATCHED</span></td></tr>
+    <tr><td>Cash</td><td class="mono">₹12,340.00</td><td class="mono">₹12,340.00 counted</td><td class="mono">₹0.00</td><td><span class="chip green">MATCHED</span></td></tr>
+  </table>
+  <div class="card" style="margin-top:12px"><div class="card-title">Resolution path</div>
+    <div class="check"><span class="box radio on"></span><div class="small"><b>Open in BL-04 gateway reconciliation</b> — dispute item GWR-2026-0142 auto-created; UTR trace requested from Razorpay (T+1 settlements can lag; item stays owned until settled). <span class="btn small primary" style="margin-left:8px">Open BL-04 item →</span></div></div>
+    <div class="check"><span class="box radio"></span><div class="small">Mark receipt as suspected failed-but-recorded payment — invoice reverts to unpaid, patient contacted (requires supervisor countersign)</div></div>
+    <div class="banner info" style="margin-top:10px"><b>Close can proceed with a flagged exception</b>The session may be signed with the UPI item carried as an open exception — the CSH record stores the link to GWR-2026-0142 and the day-book posts the digital total as "settlement pending". <span class="chip amber">SLA 4h · owner D. Nair · escalates to M. Kulkarni</span></div>
+  </div>
+</div></div></div>
+
+<p class="audit">Session open, every count entry, variance reason, supervisor countersign and the final hash-chained CSH record are immutable audit events; reopening or viewing a closed session's detail is recorded in the access log.</p>
+</section>

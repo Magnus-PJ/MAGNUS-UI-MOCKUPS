@@ -1,0 +1,137 @@
+<section class="screen" id="dd-03">
+<div class="screen-head"><h1><span class="sid">DD-03</span> Order from desk</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G8 Doctor Desk (Referrers)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The referrer places an imaging order on the same shared order form used by front office, so validation rules (forced laterality, STAT justification, safety mini-check) are identical everywhere. Duplicate interception compares against recent orders across the chain before submit. On confirm, the order receives an accession from the central registry and enters the scheduling queue — the branch contacts the patient.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">My patients</div>
+      <div class="nav-item">Results inbox <span class="nav-badge red">3</span></div>
+      <div class="nav-item active">New order</div>
+      <div class="nav-item">Order tracking <span class="nav-badge">7</span></div>
+      <div class="nav-item">Reports archive</div>
+      <div class="sec-label">Account</div>
+      <div class="nav-item">My referral profile</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › New order › Sofia Rossi</div>
+      <div class="page-title">New imaging order</div>
+      <div class="page-sub">Shared order form · same validations as front office · referrer Dr. Meera Nair (verified +91 98••• ••412)</div>
+
+      <div class="stepper">
+        <div class="step done"><span class="dot">✓</span> Patient</div><span class="step-line"></span>
+        <div class="step cur"><span class="dot">2</span> Order details</div><span class="step-line"></span>
+        <div class="step"><span class="dot">3</span> Safety check</div><span class="step-line"></span>
+        <div class="step"><span class="dot">4</span> Confirm</div>
+      </div>
+
+      <div class="row">
+        <div class="grow">
+          <div class="card">
+            <div class="card-title">Patient <span class="right">Selected</span></div>
+            <dl class="kv">
+              <dt>Patient</dt><dd><b>Sofia Rossi</b> · MRN-004822 · F · 34y · Aadhaar ••••&nbsp;7031</dd>
+              <dt>Consent</dt><dd><span class="chip green">General imaging consent on file · 21 Jul 2026</span></dd>
+            </dl>
+          </div>
+          <div class="card">
+            <div class="card-title">Order details</div>
+            <div class="field"><label>Procedure <span class="req">*</span></label>
+              <select class="select"><option>MRI Right Knee (non-contrast) — SAC 999316 · Exempt (healthcare service)</option></select>
+              <div class="hint">Catalogue price shown to patient at scheduling: ₹8,500 · GST-exempt healthcare service</div>
+            </div>
+            <div class="row">
+              <div class="grow field"><label>Laterality <span class="req">*</span> <span class="chip amber">FORCED for paired organs</span></label>
+                <div style="display:flex;gap:14px;padding-top:4px"><span class="check"><span class="box radio on"></span> Right</span><span class="check"><span class="box radio"></span> Left</span><span class="check"><span class="box radio"></span> Bilateral</span></div>
+                <div class="hint">Cannot submit without laterality — prevents wrong-side studies.</div>
+              </div>
+              <div class="grow field"><label>Priority <span class="req">*</span></label>
+                <select class="select"><option>STAT — same day</option></select>
+                <div class="hint" style="color:#92400E">STAT selected — justification becomes mandatory below.</div>
+              </div>
+            </div>
+            <div class="field"><label>STAT justification <span class="req">*</span></label>
+              <textarea class="textarea">Acute locking of right knee this morning with inability to bear weight; suspect displaced bucket-handle meniscal tear needing ortho review today.</textarea>
+            </div>
+            <div class="field"><label>Clinical indication <span class="req">*</span></label>
+              <textarea class="textarea">Recurrent right-knee pain post fall on 14 Jul 2026; prior X-ray no fracture; evaluate menisci and ligaments.</textarea>
+            </div>
+            <div class="field"><label>Preferred window</label>
+              <div class="row"><select class="select grow"><option>Today · 25 Jul 2026</option></select><select class="select grow"><option>14:00–18:00 IST</option></select><select class="select grow"><option>Branch: Andheri West</option></select></div>
+              <div class="hint">Scheduling team confirms the actual slot with the patient; you will see it in Order tracking.</div>
+            </div>
+          </div>
+        </div>
+        <div style="width:300px;flex-shrink:0">
+          <div class="card">
+            <div class="card-title">Safety mini-check <span class="right">Auto-flags</span></div>
+            <div class="check"><span class="box on">✓</span> No implanted device / pacemaker declared (patient record, 21 Jul 2026)</div>
+            <div class="check"><span class="box on">✓</span> No contrast planned — renal screen not required</div>
+            <div class="check"><span class="box">?</span> Pregnancy status to be confirmed at check-in (F, 34y) <span class="chip amber">FLAG</span></div>
+            <div class="check"><span class="box on">✓</span> No prior MRI adverse event on file</div>
+            <div class="hint" style="margin-top:6px">🔒 Flags travel with the order to the technologist's pre-scan checklist.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Duplicate scan <span class="right">Chain-wide</span></div>
+            <div class="banner warn" style="margin-bottom:0"><b>1 possible duplicate found</b>MRI Right Knee ordered 20 Jul 2026 (ACC-2026-91247, already reported). Interception modal will open on submit.</div>
+          </div>
+          <a class="btn primary" style="display:block">Review &amp; submit order</a>
+          <a class="btn" style="display:block;margin-top:8px">Save draft</a>
+        </div>
+      </div>
+      <p class="audit">Order draft for MRN-004822 created by Dr. Meera Nair · 25 Jul 2026 10:21 IST · safety flags evaluated — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — DUPLICATE INTERCEPTION MODAL</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Possible duplicate order — please review</h3>
+    <div class="banner warn" style="margin-bottom:12px"><b>A very similar study exists within the last 30 days</b>Same patient, same procedure and same laterality. Repeating may be clinically intended (post-intervention follow-up) — if so, record the reason; otherwise open the existing signed report instead.</div>
+    <table>
+      <tr><th></th><th>Existing order</th><th>Your new order</th></tr>
+      <tr><td class="bold">Procedure</td><td>MRI Right Knee (non-contrast)</td><td>MRI Right Knee (non-contrast)</td></tr>
+      <tr><td class="bold">Ordered</td><td>20 Jul 2026 · by you</td><td>25 Jul 2026 (draft)</td></tr>
+      <tr><td class="bold">Status</td><td><span class="chip green">SIGNED report · 22 Jul 10:14</span></td><td><span class="chip grey">Not yet submitted</span></td></tr>
+      <tr><td class="bold">Accession</td><td class="mono">ACC-2026-91247</td><td class="mono">— pending</td></tr>
+    </table>
+    <div class="field" style="margin-top:12px"><label>Reason to proceed anyway <span class="req">*</span></label>
+      <select class="select"><option>Clinical change since prior study (new acute symptoms)</option><option>Prior study technically inadequate</option><option>Pre-operative re-baseline requested by surgeon</option></select>
+      <div class="hint">The reason is stored on the order and visible to the radiologist and billing supervisor M. Kulkarni.</div>
+    </div>
+    <div class="modal-actions"><a class="btn ghost">Open existing report instead</a><a class="btn">Cancel new order</a><a class="btn primary">Proceed — record reason</a></div>
+  </div>
+</div>
+<p class="audit">Duplicate interception shown (ACC-2026-91247 vs new draft) · decision pending · 25 Jul 2026 10:22 IST — recorded in the access log.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — ORDER CONFIRMED · ACCESSION ISSUED · AWAITING SCHEDULING</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Doctor Desk › New order › Confirmation</div>
+      <div class="banner success"><b>✓ Order submitted — accession ACC-2026-91355</b>Issued from the central number-series registry at 10:24:10 IST, 25 Jul 2026. Duplicate-proceed reason recorded ("clinical change since prior study"). The Andheri West scheduling team will contact Sofia Rossi to confirm a slot in your preferred window.</div>
+      <div class="card">
+        <div class="card-title">Order summary <span class="right">Read-only</span></div>
+        <dl class="kv">
+          <dt>Accession</dt><dd class="mono">ACC-2026-91355</dd>
+          <dt>Patient</dt><dd>Sofia Rossi · MRN-004822</dd>
+          <dt>Procedure</dt><dd>MRI Right Knee (non-contrast) · Right · SAC 999316 · Exempt (healthcare service)</dd>
+          <dt>Priority</dt><dd><span class="chip red">STAT</span> justification recorded</dd>
+          <dt>Status</dt><dd><span class="chip amber">Awaiting scheduling · owner: front office D. Nair · SLA: contact patient within 2h (STAT)</span></dd>
+          <dt>Safety flags</dt><dd>Pregnancy status to confirm at check-in — passed to technologist checklist</dd>
+          <dt>Notifications</dt><dd>You'll receive Doctor Desk + SMS updates at scheduling, acquisition and sign-off</dd>
+        </dl>
+        <div style="margin-top:10px"><a class="btn primary small">Track this order</a> <a class="btn small">Place another order</a> <a class="btn small ghost">Download order slip (PDF)</a></div>
+      </div>
+      <p class="audit">Order ACC-2026-91355 submitted by Dr. Meera Nair · duplicate-proceed reason and STAT justification sealed with order · 25 Jul 2026 10:24 IST — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<p class="audit">All order submissions from Doctor Desk carry referrer identity, justification text and safety-flag snapshot, and are recorded in the access log.</p>
+</section>

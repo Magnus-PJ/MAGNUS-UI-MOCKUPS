@@ -1,0 +1,99 @@
+<section class="screen" id="pt-01">
+<div class="screen-head"><h1><span class="sid">PT-01</span> Secure link landing &amp; OTP</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G2 Patient-Facing — patient chrome (no sidebar)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> A patient taps the secure SMS link and lands here before anything private is shown. They verify a 6-digit OTP sent to their registered mobile; the link binds to this device only and expires 72 hours after the first send. Three wrong codes pause verification for 30 minutes with a call-the-clinic alternative — no report content is ever visible before verification.</div>
+
+<div class="state-tag">STATE A — LANDING (before verification)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:1px solid #E2E8F0;padding:12px;text-align:center"><span class="brand">◎ Meridian Diagnostics</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="text-align:center;padding:22px 20px">
+      <div style="font-size:34px;margin-bottom:8px">📄</div>
+      <div style="font-size:18px;font-weight:800;margin-bottom:4px">A report is ready for you</div>
+      <div class="muted" style="font-size:13px;margin-bottom:14px">Prepared for the patient registered with mobile number <span class="mono bold">•••• •••4821</span></div>
+      <div class="kv" style="text-align:left;grid-template-columns:130px 1fr;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:12px;margin-bottom:14px">
+        <dt>From</dt><dd>Meridian Diagnostics · Andheri West branch</dd>
+        <dt>Document</dt><dd>Imaging report · 1 study</dd>
+        <dt>Link valid until</dt><dd>Mon 27 Jul 2026, 6:42 PM IST <span class="chip teal">72-hour link</span></dd>
+      </div>
+      <a class="btn primary" style="display:block;padding:13px;font-size:15px;margin-bottom:10px">Send verification code to •••• •••4821</a>
+      <a class="btn ghost" style="display:block">This isn't my number — get help</a>
+      <div class="small muted" style="margin-top:12px;line-height:1.6">🔒 To protect your privacy, we never show a report before verifying it's you.<br>This link works only on the device it is first opened on and expires in 72 hours.</div>
+    </div>
+    <div class="banner info"><b>Why we ask you to verify</b>Your health information is private. A one-time code confirms this phone belongs to you before anything is displayed. Nothing about your visit appears in the SMS itself.</div>
+  </div>
+  <div style="text-align:center;padding:14px;font-size:11px;color:#64748B;border-top:1px solid #E2E8F0;background:#fff">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India<br><a style="color:#0F766E">Privacy</a> · <a style="color:#0F766E">Terms</a> · <a style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — OTP ENTRY (code sent)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:1px solid #E2E8F0;padding:12px;text-align:center"><span class="brand">◎ Meridian Diagnostics</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="text-align:center;padding:22px 20px">
+      <div style="font-size:18px;font-weight:800;margin-bottom:4px">Enter the 6-digit code</div>
+      <div class="muted" style="font-size:13px;margin-bottom:16px">Sent by SMS to <span class="mono bold">•••• •••4821</span> at 3:41 PM IST</div>
+      <div style="display:flex;gap:8px;justify-content:center;margin-bottom:8px">
+        <span class="input mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px">7</span>
+        <span class="input mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px">3</span>
+        <span class="input mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px">4</span>
+        <span class="input mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px;background:#F8FAFC">&nbsp;</span>
+        <span class="input mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px;background:#F8FAFC">&nbsp;</span>
+        <span class="input mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px;background:#F8FAFC">&nbsp;</span>
+      </div>
+      <div class="small muted" style="margin-bottom:14px">Code valid for 10 minutes · <span class="chip grey">3 attempts left</span></div>
+      <a class="btn primary" style="display:block;padding:13px;font-size:15px;margin-bottom:10px">Verify &amp; open securely</a>
+      <a class="btn disabled" style="display:block;margin-bottom:6px">Resend code (available in 0:42)</a>
+      <div class="small muted">Didn't get it? Check network signal, or call the clinic at <span class="mono">022-4890 2210</span> (8 AM – 9 PM IST).</div>
+      <div class="small muted" style="margin-top:12px">🔒 The code was sent only to your registered mobile. Meridian staff will never ask you to read this code out.</div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:14px;font-size:11px;color:#64748B;border-top:1px solid #E2E8F0;background:#fff">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India<br><a style="color:#0F766E">Privacy</a> · <a style="color:#0F766E">Terms</a> · <a style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="state-tag">STATE C — WRONG CODE (2 attempts left)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:1px solid #E2E8F0;padding:12px;text-align:center"><span class="brand">◎ Meridian Diagnostics</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="text-align:center;padding:22px 20px">
+      <div class="banner danger" style="text-align:left"><b>That code didn't match</b>Please check the most recent SMS — older codes stop working when a new one is sent. <span class="chip red">2 attempts left</span></div>
+      <div style="display:flex;gap:8px;justify-content:center;margin-bottom:8px">
+        <span class="input err mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px">1</span>
+        <span class="input err mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px">9</span>
+        <span class="input err mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px">0</span>
+        <span class="input err mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px">2</span>
+        <span class="input err mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px">8</span>
+        <span class="input err mono" style="width:46px;height:52px;font-size:22px;text-align:center;line-height:36px">5</span>
+      </div>
+      <div class="small" style="color:#B91C1C;margin-bottom:14px">After 3 incorrect codes, verification pauses for 30 minutes to keep your report safe.</div>
+      <a class="btn primary" style="display:block;padding:13px;font-size:15px;margin-bottom:10px">Try again</a>
+      <a class="btn" style="display:block">Resend a fresh code to •••• •••4821</a>
+      <div class="small muted" style="margin-top:12px">🔒 Incorrect attempts are recorded for your protection.</div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:14px;font-size:11px;color:#64748B;border-top:1px solid #E2E8F0;background:#fff">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India<br><a style="color:#0F766E">Privacy</a> · <a style="color:#0F766E">Terms</a> · <a style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="state-tag">STATE D — PAUSED AFTER 3 WRONG CODES (30-minute lock)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:1px solid #E2E8F0;padding:12px;text-align:center"><span class="brand">◎ Meridian Diagnostics</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="text-align:center;padding:22px 20px">
+      <div style="font-size:34px;margin-bottom:8px">⏸️</div>
+      <div style="font-size:18px;font-weight:800;margin-bottom:4px">Verification paused for 30 minutes</div>
+      <div class="muted" style="font-size:13px;margin-bottom:14px">Three codes in a row didn't match, so we've paused this link to protect your report. This is automatic and nothing is wrong with your report.</div>
+      <div class="kv" style="text-align:left;grid-template-columns:130px 1fr;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:12px;margin-bottom:14px">
+        <dt>Try again after</dt><dd class="bold">4:18 PM IST (in 29 min)</dd>
+        <dt>Link still valid</dt><dd>Yes — until Mon 27 Jul 2026, 6:42 PM IST</dd>
+        <dt>Need it sooner?</dt><dd>Call the clinic and confirm your identity by phone</dd>
+      </div>
+      <a class="btn primary" style="display:block;padding:13px;font-size:15px;margin-bottom:10px">📞 Call clinic · 022-4890 2210</a>
+      <a class="btn disabled" style="display:block">Enter code (paused — 29:12 remaining)</a>
+      <div class="small muted" style="margin-top:12px">🔒 If you didn't try these codes yourself, please tell the clinic — we'll review the link's activity with you.</div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:14px;font-size:11px;color:#64748B;border-top:1px solid #E2E8F0;background:#fff">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India<br><a style="color:#0F766E">Privacy</a> · <a style="color:#0F766E">Terms</a> · <a style="color:#0F766E">Help</a></div>
+</div>
+
+<p class="audit">Every OTP send, verification attempt, pause and device binding on this link is recorded in the access log.</p>
+</section>

@@ -1,0 +1,1597 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Magnus HMS — G8 · Doctor Desk (Referrers)</title><style>/* Magnus HMS — NS design pack shared design system */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
+.mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
+.muted{color:#64748B}.small{font-size:12px}.bold{font-weight:700}
+/* ---------- page / screen frame ---------- */
+.screen{page-break-after:always;padding:28px 34px;background:#fff;min-height:1000px}
+.screen-head{display:flex;justify-content:space-between;align-items:flex-start;border-left:5px solid #0F766E;padding:6px 0 6px 14px;margin-bottom:6px}
+.screen-head h1{font-size:22px;font-weight:800}
+.screen-head .sid{color:#0F766E;margin-right:10px}
+.screen-head .meta{text-align:right}
+.screen-head .meta .cluster{color:#64748B;font-size:12px;margin-top:3px}
+.gap-note{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:8px 12px;margin:10px 0 16px;font-size:12.5px;color:#7C2D12}
+.gap-note b{color:#9A3412}
+/* ---------- app chrome ---------- */
+.frame{border:1px solid #CBD5E1;border-radius:10px;overflow:hidden;background:#F4F6F8;box-shadow:0 1px 4px rgba(15,23,42,.08);margin-bottom:22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:2px solid #0F766E;padding:9px 16px}
+.brand{font-weight:800;color:#0F766E}.brand span{color:#1E293B}
+.org{font-size:12.5px;color:#334155;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px}
+.userchip{font-size:12.5px;color:#334155}
+.userchip .av{display:inline-block;background:#CCFBF1;color:#0F766E;font-weight:700;border-radius:5px;padding:2px 6px;margin-right:6px;font-size:11px}
+.body{display:flex;min-height:520px}
+.sidebar{width:196px;background:#fff;border-right:1px solid #E2E8F0;padding:12px 0;flex-shrink:0}
+.sec-label{font-size:10.5px;letter-spacing:.08em;color:#94A3B8;font-weight:700;padding:8px 16px 4px;text-transform:uppercase}
+.nav-item{padding:7px 16px;font-size:13px;color:#334155;display:flex;justify-content:space-between;align-items:center}
+.nav-item.active{background:#F0FDFA;color:#0F766E;font-weight:700;border-left:3px solid #0F766E;padding-left:13px}
+.nav-badge{background:#0F766E;color:#fff;border-radius:9px;font-size:10.5px;padding:1px 7px;font-weight:700}
+.nav-badge.red{background:#B91C1C}
+.main{flex:1;padding:16px 18px;min-width:0}
+.crumb{font-size:12px;color:#64748B;margin-bottom:8px}
+.page-title{font-size:19px;font-weight:800;margin-bottom:2px}
+.page-sub{font-size:12.5px;color:#64748B;margin-bottom:14px}
+.actions-right{float:right}
+/* ---------- components ---------- */
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card-title{font-weight:800;font-size:14.5px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.card-title .right{font-size:10.5px;letter-spacing:.07em;color:#94A3B8;font-weight:700;text-transform:uppercase}
+.row{display:flex;gap:14px}.row>*{min-width:0}.grow{flex:1}
+.btn{display:inline-block;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:700;border:1px solid #CBD5E1;background:#fff;color:#334155;text-align:center;white-space:nowrap}
+.btn.primary{background:#0F766E;border-color:#0F766E;color:#fff}
+.btn.danger{background:#B91C1C;border-color:#B91C1C;color:#fff}
+.btn.warn-outline{border-color:#F59E0B;color:#92400E;background:#FFFBEB}
+.btn.ghost{border:none;background:none;color:#0F766E;padding:7px 6px}
+.btn.small{padding:4px 10px;font-size:12px}
+.btn.disabled{opacity:.45}
+.chip{display:inline-block;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip.teal{background:#CCFBF1;color:#0F766E}
+.chip.green{background:#DCFCE7;color:#15803D}
+.chip.amber{background:#FEF3C7;color:#92400E}
+.chip.red{background:#FEE2E2;color:#B91C1C}
+.chip.grey{background:#F1F5F9;color:#475569}
+.chip.blue{background:#E0F2FE;color:#0369A1}
+.chip.violet{background:#EDE9FE;color:#6D28D9}
+.chip.outline-red{background:#fff;border:1.5px solid #B91C1C;color:#B91C1C}
+.banner{border-radius:8px;padding:10px 13px;font-size:12.5px;margin-bottom:12px;border:1px solid}
+.banner b{display:block;margin-bottom:2px;font-size:13px}
+.banner.info{background:#E0F2FE;border-color:#7DD3FC;color:#075985}
+.banner.warn{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+.banner.danger{background:#FEE2E2;border-color:#FCA5A5;color:#991B1B}
+.banner.success{background:#DCFCE7;border-color:#86EFAC;color:#166534}
+.banner.reg{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding:7px 9px;border-bottom:2px solid #E2E8F0;background:#F8FAFC}
+td{padding:8px 9px;border-bottom:1px solid #EEF2F6;vertical-align:top}
+tr.hl td{background:#F0FDFA}
+tr.dim td{color:#94A3B8}
+.kv{display:grid;grid-template-columns:150px 1fr;row-gap:6px;column-gap:12px;font-size:12.5px}
+.kv dt{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding-top:2px}
+.kv dd{margin:0}
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+.field label .req{color:#B91C1C}
+.field .hint{font-size:11px;color:#64748B;margin-top:3px}
+.input,.select,.textarea{width:100%;border:1px solid #CBD5E1;border-radius:7px;padding:7px 10px;font-size:13px;background:#fff;color:#1E293B}
+.input.err{border-color:#B91C1C;background:#FEF2F2}
+.textarea{min-height:64px}
+.check{font-size:12.5px;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.box{display:inline-block;width:14px;height:14px;border:1.6px solid #64748B;border-radius:3px;flex-shrink:0;margin-top:1px;text-align:center;line-height:12px;font-size:11px;font-weight:800}
+.box.on{background:#0F766E;border-color:#0F766E;color:#fff}
+.radio{border-radius:50%}
+.radio.on{background:#fff;border-color:#0F766E;box-shadow:inset 0 0 0 3.5px #0F766E;color:transparent}
+/* modal */
+.modal-wrap{background:#64748B22;border:1px dashed #94A3B8;border-radius:12px;padding:26px 40px;margin:14px 0}
+.modal{background:#fff;border-radius:12px;border-top:5px solid #0F766E;box-shadow:0 8px 30px rgba(15,23,42,.25);max-width:560px;margin:0 auto;padding:18px 20px}
+.modal.danger{border-top-color:#B91C1C}
+.modal h3{font-size:16px;margin-bottom:8px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+/* misc */
+.divider-label{text-align:center;color:#94A3B8;font-size:11.5px;margin:20px 0 14px;position:relative}
+.divider-label:before,.divider-label:after{content:"";display:inline-block;width:24%;border-top:1px dashed #CBD5E1;vertical-align:middle;margin:0 10px}
+.audit{font-size:11px;color:#8A6D1D;margin-top:10px}
+.audit:before{content:"🔒 "}
+.state-tag{font-size:10px;letter-spacing:.08em;font-weight:800;text-transform:uppercase;color:#94A3B8;text-align:right;margin-bottom:4px}
+.kpi-row{display:flex;gap:12px;margin-bottom:14px}
+.kpi{flex:1;background:#fff;border:1px solid #E2E8F0;border-left:4px solid #0F766E;border-radius:9px;padding:10px 13px}
+.kpi.amber{border-left-color:#F59E0B}.kpi.red{border-left-color:#B91C1C}
+.kpi .n{font-size:23px;font-weight:800}.kpi .l{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700}
+.kpi .s{font-size:11px;color:#64748B;margin-top:2px}
+.stepper{display:flex;gap:6px;align-items:center;font-size:12px;color:#64748B;margin-bottom:14px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:6px}
+.step .dot{width:20px;height:20px;border-radius:50%;background:#E2E8F0;color:#475569;font-size:11px;font-weight:800;text-align:center;line-height:20px}
+.step.done .dot{background:#15803D;color:#fff}.step.cur .dot{background:#0F766E;color:#fff}
+.step.cur{color:#0F766E;font-weight:700}
+.step-line{width:26px;border-top:2px solid #CBD5E1}
+.sig-box{border:1.5px dashed #94A3B8;border-radius:8px;min-height:64px;background:#F8FAFC;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:12px;font-style:italic}
+.sig-box.signed{border-style:solid;border-color:#15803D;color:#166534;background:#F0FDF4;font-family:'Segoe Script','Comic Sans MS',cursive;font-size:17px;font-style:normal}
+.ladder{border-left:3px solid #E2E8F0;margin-left:8px;padding-left:16px}
+.ladder .tier{margin-bottom:12px;position:relative}
+.ladder .tier:before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:#CBD5E1}
+.ladder .tier.done:before{background:#15803D}.ladder .tier.cur:before{background:#0F766E;box-shadow:0 0 0 3px #CCFBF1}
+.ladder .tier.fail:before{background:#B91C1C}
+.progress{height:7px;border-radius:4px;background:#E2E8F0;overflow:hidden;margin-top:4px}
+.progress i{display:block;height:100%;background:#0F766E}
+.progress.amber i{background:#F59E0B}.progress.red i{background:#B91C1C}
+.split{display:grid;grid-template-columns:1fr 300px;gap:14px}
+.timeline{font-size:12.5px}
+.timeline .ev{display:flex;gap:10px;margin-bottom:9px}
+.timeline .t{color:#64748B;white-space:nowrap;font-family:Consolas,monospace;font-size:11.5px;padding-top:1px}
+
+@page{size:A4;margin:0}@media print{body{background:#fff}}</style></head><body><section class="screen" id="cover">
+<div style="padding-top:120px"><div style="border-left:6px solid #0F766E;padding-left:22px">
+<div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">Magnus HMS · MVP 1 Complete Design Pack</div>
+<h1 style="font-size:36px;font-weight:800">G8 · Doctor Desk (Referrers)</h1>
+<p style="font-size:14px;color:#64748B;margin-top:10px">11 screens · every screen with alternate states · shared design system · synthetic data only (no PHI)</p></div>
+<div class="card" style="max-width:700px;margin-top:26px"><div class="card-title">Screens in this group</div>
+<table><tr><th style="width:70px">ID</th><th>Screen</th></tr><tr><td class="mono bold" style="color:#0F766E">DD-01</td><td>Patient summary — read-only</td></tr><tr><td class="mono bold" style="color:#0F766E">DD-02</td><td>Results inbox &amp; critical acknowledgement</td></tr><tr><td class="mono bold" style="color:#0F766E">DD-03</td><td>Order from desk</td></tr><tr><td class="mono bold" style="color:#0F766E">DD-04</td><td>Order status tracking</td></tr><tr><td class="mono bold" style="color:#0F766E">DD-05</td><td>Break-glass emergency access</td></tr><tr><td class="mono bold" style="color:#0F766E">DD-06</td><td>Access requests</td></tr><tr><td class="mono bold" style="color:#0F766E">DD-07</td><td>My patients</td></tr><tr><td class="mono bold" style="color:#0F766E">DD-08</td><td>Referral analytics</td></tr><tr><td class="mono bold" style="color:#0F766E">DD-09</td><td>Delivery preferences &amp; profile</td></tr><tr><td class="mono bold" style="color:#0F766E">DD-10</td><td>Delegation / locum access</td></tr><tr><td class="mono bold" style="color:#0F766E">DD-11</td><td>Basic SOAP note &amp; prescription</td></tr></table></div>
+<p class="muted small" style="margin-top:14px">Magnus Diagnostics → NUMINACORE · July 2026 · Prototype/reference — not committed product scope.</p></div></section><section class="screen" id="dd-01">
+<div class="screen-head"><h1><span class="sid">DD-01</span> Patient summary — read-only</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G8 Doctor Desk (Referrers)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> A verified referring doctor opens a read-only summary of a patient they referred — scoped strictly to their own orders and the results attached to them. Access requires an explicit purpose-of-use pick (Treatment / Follow-up review) before demographics render, and every open is written to the patient-visible access log. No editing, no export of raw DICOM; only signed report PDFs and a watermarked viewer link.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item active">My patients</div>
+      <div class="nav-item">Results inbox <span class="nav-badge red">3</span></div>
+      <div class="nav-item">New order</div>
+      <div class="nav-item">Order tracking <span class="nav-badge">7</span></div>
+      <div class="nav-item">Reports archive</div>
+      <div class="sec-label">Account</div>
+      <div class="nav-item">My referral profile</div>
+      <div class="nav-item">Notification preferences</div>
+      <div class="nav-item">Help &amp; support</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › My patients › Sofia Rossi</div>
+      <div class="page-title">Sofia Rossi <span class="mono muted" style="font-weight:400;font-size:13px">MRN-004822</span> <span class="chip green">✓ You are on the care team</span> <span class="chip violet">Purpose: Treatment · picked 09:41</span></div>
+      <div class="page-sub">F · 34y · Aadhaar ••••&nbsp;7031 · Referred by you on 20 Jul 2026 · Read-only view scoped to your referrals</div>
+
+      <div class="banner reg"><b>Read-only, purpose-bound access</b>You selected <b>Treatment</b> as purpose-of-use at 09:41 IST. This session expires after 30 min of inactivity. Viewing is limited to orders you referred; other episodes at Meridian are not shown. This open is visible to the patient in their access log.</div>
+
+      <div class="row">
+        <div class="grow card">
+          <div class="card-title">Referral summary <span class="right">Your latest referral</span></div>
+          <dl class="kv">
+            <dt>Referral reason</dt><dd>Recurrent right-knee pain post fall (14 Jul 2026); rule out meniscal tear. Clinical note attached to order.</dd>
+            <dt>Consent status</dt><dd><span class="chip green">General imaging consent · captured 21 Jul 2026</span> <span class="chip grey">Contrast consent — not required</span></dd>
+            <dt>Last visit</dt><dd>21 Jul 2026 · VIS-2026-33471 · MRI suite, Andheri West · completed 17:52 IST</dd>
+            <dt>Active accession</dt><dd class="mono">ACC-2026-91247 · MRI Right Knee (non-contrast)</dd>
+            <dt>Allergies on file</dt><dd>No known drug allergies (patient-declared, 21 Jul 2026)</dd>
+            <dt>Referrer of record</dt><dd>Dr. Meera Nair · verified +91 98••• ••412 · MMC Reg 2009/04412</dd>
+          </dl>
+        </div>
+        <div class="card" style="width:270px;flex-shrink:0">
+          <div class="card-title">Actions</div>
+          <a class="btn primary" style="display:block;margin-bottom:8px">＋ New order for this patient</a>
+          <a class="btn" style="display:block;margin-bottom:8px">🖼 Open imaging viewer (watermarked)</a>
+          <a class="btn" style="display:block;margin-bottom:8px">⬇ Download signed report PDF</a>
+          <div class="hint small muted" style="margin-top:6px">🔒 Downloads are watermarked with your name, time and IP, and are recorded in the patient's access log. Raw DICOM export is not available on Doctor Desk.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Orders you referred <span class="right">3 orders · this patient</span></div>
+        <table>
+          <tr><th>Accession</th><th>Procedure</th><th>Ordered</th><th>Status</th><th>Report</th><th></th></tr>
+          <tr class="hl"><td class="mono">ACC-2026-91247</td><td>MRI Right Knee (non-contrast) · SAC 999316</td><td>20 Jul 2026</td><td><span class="chip blue">Reported</span></td><td><span class="chip green">SIGNED · Dr. V. Shetty · 22 Jul 10:14</span></td><td><a class="btn small ghost">View report</a> · <a class="btn small ghost">Viewer</a></td></tr>
+          <tr><td class="mono">ACC-2026-90882</td><td>X-Ray Right Knee AP/LAT</td><td>15 Jul 2026</td><td><span class="chip blue">Reported</span></td><td><span class="chip green">SIGNED · Dr. V. Shetty · 15 Jul 19:02</span></td><td><a class="btn small ghost">View report</a> · <a class="btn small ghost">Viewer</a></td></tr>
+          <tr><td class="mono">ACC-2026-91302</td><td>USG Right Knee (soft tissue)</td><td>22 Jul 2026</td><td><span class="chip amber">Acquired · awaiting report</span></td><td><span class="chip grey">PRELIMINARY — UNSIGNED · not for clinical release</span></td><td><span class="muted small">Available when signed</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Signed reports are final and legally releasable. <b>Preliminary (unsigned)</b> drafts are shown status-only here per org policy; content unlocks on radiologist sign-off.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Results attached to your orders <span class="right">Signed vs preliminary clearly labelled</span></div>
+        <table>
+          <tr><th>Result</th><th>Accession</th><th>Version</th><th>Status</th><th>Signed by</th><th>Actions</th></tr>
+          <tr><td>MRI Right Knee — Report</td><td class="mono">ACC-2026-91247</td><td>v1</td><td><span class="chip green">SIGNED — FINAL</span></td><td>Dr. V. Shetty · 22 Jul 10:14 IST</td><td><a class="btn small ghost">Open</a> · <a class="btn small ghost">PDF</a></td></tr>
+          <tr><td>X-Ray Right Knee — Report</td><td class="mono">ACC-2026-90882</td><td>v1</td><td><span class="chip green">SIGNED — FINAL</span></td><td>Dr. V. Shetty · 15 Jul 19:02 IST</td><td><a class="btn small ghost">Open</a> · <a class="btn small ghost">PDF</a></td></tr>
+          <tr class="dim"><td>USG Right Knee — Draft</td><td class="mono">ACC-2026-91302</td><td>v0 (draft)</td><td><span class="chip grey">PRELIMINARY — UNSIGNED</span></td><td>—</td><td><span class="small">Suppressed until signed</span></td></tr>
+        </table>
+        <div class="banner reg" style="margin-top:10px;margin-bottom:0"><b>Regulated-OB note</b>For obstetric ultrasound studies, preliminary content is always suppressed on Doctor Desk regardless of org setting, and all reports pass foetal-sex non-disclosure screening (PCPNDT Act) before release. No foetal sex information is ever shown or transmitted.</div>
+      </div>
+      <p class="audit">Opened patient summary for MRN-004822 · purpose: Treatment · Dr. Meera Nair · 25 Jul 2026 09:41 IST · session DSK-88214 — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ACCESS RESTRICTED (NOT ON CARE TEAM · MASKED TOKEN, NO DEMOGRAPHICS)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item active">My patients</div>
+      <div class="nav-item">Results inbox <span class="nav-badge red">3</span></div>
+      <div class="nav-item">New order</div>
+      <div class="nav-item">Order tracking <span class="nav-badge">7</span></div>
+      <div class="nav-item">Reports archive</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › My patients › Restricted record</div>
+      <div class="page-title">Patient <span class="mono">MASKED · PX-7F3K-2210</span> <span class="chip red">ACCESS RESTRICTED</span></div>
+      <div class="page-sub">You are not on this patient's current care team. Demographics, MRN and clinical content are withheld.</div>
+      <div class="banner danger"><b>You do not have access to this record</b>This record was matched from your search, but you are not the referrer of record for any active order. To protect patient privacy, only a masked token ID is shown — no name, MRN, contact details or results. Repeated restricted-record lookups are reviewed by the privacy officer.</div>
+      <div class="card">
+        <div class="card-title">What you can do</div>
+        <dl class="kv">
+          <dt>Request access</dt><dd>Submit a care-relationship attestation. The patient (or front office D. Nair) must approve before anything is revealed. Typical turnaround: same day.</dd>
+          <dt>Wrong patient?</dt><dd>Return to search and refine by your own referral reference (ACC / APPT number).</dd>
+          <dt>Emergency</dt><dd>Break-glass access is not available on Doctor Desk. Call the branch: 022-4000 1122 (staffed 07:00–22:00 IST).</dd>
+        </dl>
+        <div style="margin-top:10px"><a class="btn primary">Request access with attestation</a> <a class="btn">Back to my patients</a></div>
+      </div>
+      <p class="audit">Restricted-record lookup on token PX-7F3K-2210 by Dr. Meera Nair · 25 Jul 2026 09:47 IST · no PHI disclosed — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — PRELIMINARY-VISIBILITY ORG SETTING (ADMIN-CONTROLLED NOTE)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Doctor Desk › My patients › Sofia Rossi › Results</div>
+      <div class="banner info"><b>Preliminary report visibility is an organisation setting</b>Meridian Diagnostics has set Doctor Desk preliminary visibility to <b>"Status only — content on sign-off"</b> (changed by admin K. Verma, 02 Jun 2026). You can see that a draft exists, but its text unlocks only when Dr. V. Shetty signs. Exception: regulated obstetric studies are always suppressed, regardless of this setting.</div>
+      <div class="card">
+        <div class="card-title">USG Right Knee — Draft <span class="right">ACC-2026-91302</span></div>
+        <dl class="kv">
+          <dt>Status</dt><dd><span class="chip grey">PRELIMINARY — UNSIGNED</span> <span class="chip amber">Reporting in progress · target TAT 24h · owner Dr. V. Shetty</span></dd>
+          <dt>Content</dt><dd><span class="muted">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ — suppressed by org setting until radiologist sign-off</span></dd>
+          <dt>You will be notified</dt><dd>SMS + Doctor Desk inbox on sign-off (your preference: both, set 12 May 2026)</dd>
+        </dl>
+      </div>
+      <p class="audit">Viewed preliminary-status stub for ACC-2026-91302 (content suppressed by org policy) · Dr. Meera Nair · 25 Jul 2026 09:52 IST — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<p class="audit">All patient-summary opens, viewer launches and PDF downloads on Doctor Desk carry referrer identity, purpose-of-use and timestamp, and are recorded in the access log.</p>
+</section>
+<section class="screen" id="dd-02">
+<div class="screen-head"><h1><span class="sid">DD-02</span> Results inbox &amp; critical acknowledgement</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G8 Doctor Desk (Referrers)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The referrer's single feed of signed results for their patients. Critical findings are pinned red and require an explicit read-back acknowledgement with identity confirmation; unacknowledged criticals escalate to phone contact after 15 minutes. Addenda replace prior versions with a visible diff, and routine results can be marked reviewed to close the communication loop.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">My patients</div>
+      <div class="nav-item active">Results inbox <span class="nav-badge red">3</span></div>
+      <div class="nav-item">New order</div>
+      <div class="nav-item">Order tracking <span class="nav-badge">7</span></div>
+      <div class="nav-item">Reports archive</div>
+      <div class="sec-label">Account</div>
+      <div class="nav-item">Notification preferences</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › Results inbox</div>
+      <div class="page-title">Results inbox <a class="btn small actions-right">⚙ Notification preferences</a></div>
+      <div class="page-sub">Signed results for patients you referred · Dr. Meera Nair · updated 25 Jul 2026 10:05 IST</div>
+
+      <div class="kpi-row">
+        <div class="kpi red"><div class="n">1</div><div class="l">Critical — unacknowledged</div><div class="s">Phone escalation in 09:12 if not acked</div></div>
+        <div class="kpi amber"><div class="n">2</div><div class="l">Unread (routine)</div><div class="s">Oldest 21h · target review 48h</div></div>
+        <div class="kpi"><div class="n">1</div><div class="l">Addenda</div><div class="s">1 report updated — replaces v1</div></div>
+        <div class="kpi"><div class="n">14</div><div class="l">Reviewed this week</div><div class="s">Closed-loop rate 100%</div></div>
+      </div>
+
+      <div style="display:flex;gap:8px;margin-bottom:12px">
+        <span class="chip teal">All (8)</span><span class="chip grey">Unread (2)</span><span class="chip red">Critical (1)</span><span class="chip violet">Addenda (1)</span>
+        <span class="grow"></span>
+        <input class="input" style="width:220px" value="Search patient / accession…">
+        <select class="select" style="width:150px"><option>Last 14 days</option></select>
+      </div>
+
+      <div class="banner danger"><b>⚠ 1 critical result requires acknowledgement</b>If not acknowledged within <b>15 minutes</b> of release, Meridian's closed-loop policy triggers <b>phone escalation</b>: front office D. Nair calls your verified number +91 98••• ••412, then escalates to your listed alternate. Ack timer started 10:02 IST.</div>
+
+      <table>
+        <tr><th></th><th>Patient</th><th>Result</th><th>Signed</th><th>Status</th><th>Action</th></tr>
+        <tr style="background:#FEF2F2"><td>📌</td><td><b>Mohammed Al-Rashid</b><br><span class="mono small">MRN-004790 · ACC-2026-91330</span></td><td><b>CT Head (plain)</b> — acute subdural haematoma, 8&nbsp;mm midline shift<br><span class="chip outline-red">CRITICAL FINDING</span></td><td>Dr. V. Shetty<br>25 Jul 10:02</td><td><span class="chip red">ACKNOWLEDGE REQUIRED · 09:12 left</span></td><td><a class="btn danger small">Acknowledge now</a></td></tr>
+        <tr class="hl"><td>●</td><td>Sofia Rossi<br><span class="mono small">MRN-004822 · ACC-2026-91247</span></td><td>MRI Right Knee — medial meniscal tear, grade II</td><td>Dr. V. Shetty<br>22 Jul 10:14</td><td><span class="chip amber">Unread · 21h</span></td><td><a class="btn small ghost">Open</a> · <a class="btn small">Mark reviewed</a></td></tr>
+        <tr class="hl"><td>●</td><td>Priya Menon<br><span class="mono small">MRN-004828 · ACC-2026-91288</span></td><td>USG Abdomen — mild fatty liver, no focal lesion</td><td>Dr. V. Shetty<br>24 Jul 18:41</td><td><span class="chip amber">Unread · 15h</span></td><td><a class="btn small ghost">Open</a> · <a class="btn small">Mark reviewed</a></td></tr>
+        <tr><td>↺</td><td>Rajesh Gupta<br><span class="mono small">MRN-004795 · ACC-2026-90754</span></td><td>X-Ray Chest PA — <span class="chip violet">UPDATED — replaces v1</span> addendum clarifies left-base opacity<br><a class="btn small ghost">View diff v1 → v2</a></td><td>Dr. V. Shetty<br>25 Jul 08:20 (v2)</td><td><span class="chip amber">Addendum unreviewed</span></td><td><a class="btn small ghost">Open v2</a> · <a class="btn small">Mark reviewed</a></td></tr>
+        <tr><td></td><td>Aarav Sharma<br><span class="mono small">MRN-004821 · ACC-2026-91101</span></td><td>MRI Lumbar Spine — L4-L5 disc bulge, no cord compression</td><td>Dr. V. Shetty<br>23 Jul 12:05</td><td><span class="chip green">Reviewed 23 Jul 14:30</span></td><td><a class="btn small ghost">Open</a></td></tr>
+        <tr><td></td><td>Ananya Rao<br><span class="mono small">MRN-004819 · ACC-2026-91056</span></td><td>USG Thyroid — TI-RADS 2, benign appearance</td><td>Dr. V. Shetty<br>22 Jul 17:48</td><td><span class="chip green">Reviewed 22 Jul 19:02</span></td><td><a class="btn small ghost">Open</a></td></tr>
+        <tr class="dim"><td></td><td>Sofia Rossi<br><span class="mono small">MRN-004822 · ACC-2026-90882</span></td><td>X-Ray Right Knee AP/LAT — no fracture</td><td>Dr. V. Shetty<br>15 Jul 19:02</td><td><span class="chip green">Reviewed 16 Jul 08:12</span></td><td><a class="btn small ghost">Open</a></td></tr>
+        <tr class="dim"><td></td><td>Rajesh Gupta<br><span class="mono small">MRN-004795 · ACC-2026-90754</span></td><td>X-Ray Chest PA — v1 <span class="chip grey">superseded by v2</span></td><td>Dr. V. Shetty<br>18 Jul 11:30</td><td><span class="chip grey">Superseded</span></td><td><a class="btn small ghost">History</a></td></tr>
+      </table>
+      <p class="audit">Inbox opened by Dr. Meera Nair · 25 Jul 2026 10:05 IST · critical row displayed, ack pending — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — CRITICAL ACKNOWLEDGEMENT MODAL (READ-BACK + IDENTITY CONFIRM)</div>
+<div class="modal-wrap">
+  <div class="modal danger">
+    <h3>⚠ Acknowledge critical result — CT Head, Mohammed Al-Rashid</h3>
+    <div class="banner danger" style="margin-bottom:12px"><b>Critical finding communicated</b>Acute subdural haematoma with 8&nbsp;mm midline shift. Released by Dr. V. Shetty at 10:02 IST, 25 Jul 2026. Phone escalation triggers at 10:17 IST if unacknowledged.</div>
+    <dl class="kv" style="margin-bottom:12px">
+      <dt>Patient</dt><dd>Mohammed Al-Rashid · MRN-004790 · M · 58y</dd>
+      <dt>Accession</dt><dd class="mono">ACC-2026-91330 · CT Head (plain) · STAT</dd>
+      <dt>Ack reference</dt><dd class="mono">ACK-2026-0187 (issued on confirm)</dd>
+    </dl>
+    <div class="field"><label>Read-back statement <span class="req">*</span></label>
+      <div class="check"><span class="box on">✓</span> I have read the full signed report, and I read back the critical finding as: <b>"acute subdural haematoma, 8&nbsp;mm midline shift — urgent neurosurgical referral advised."</b></div>
+      <div class="check"><span class="box on">✓</span> I accept clinical responsibility for the next action for this patient and will arrange urgent follow-up.</div>
+    </div>
+    <div class="field"><label>Identity confirmation <span class="req">*</span></label>
+      <input class="input" value="OTP sent to +91 98••• ••412 — enter 6-digit code: 4 8 2 • • •">
+      <div class="hint">🔒 Step-up identity confirmation is required for critical acknowledgements. Your name, registration number, IP and timestamp are sealed into the ack record.</div>
+    </div>
+    <dl class="kv"><dt>Timestamp</dt><dd>25 Jul 2026 10:07:44 IST (server time, tamper-evident)</dd></dl>
+    <div class="modal-actions"><a class="btn">Cancel</a><a class="btn danger">Confirm acknowledgement · issue ACK-2026-0187</a></div>
+  </div>
+</div>
+<p class="audit">Ack attempt started for ACC-2026-91330 · OTP challenge issued to verified number · 25 Jul 2026 10:07 IST — recorded in the access log.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — POST-ACK CLOSED-LOOP CHIP</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Doctor Desk › Results inbox</div>
+      <div class="banner success"><b>Critical result acknowledged — loop closed</b>ACK-2026-0187 recorded at 10:07:44 IST by Dr. Meera Nair (OTP-verified). Radiologist Dr. V. Shetty and front office D. Nair have been notified; the phone-escalation timer is cancelled. The ack is permanently linked to the report and visible in the audit trail.</div>
+      <table>
+        <tr><th></th><th>Patient</th><th>Result</th><th>Status</th><th>Action</th></tr>
+        <tr><td>✓</td><td>Mohammed Al-Rashid<br><span class="mono small">MRN-004790 · ACC-2026-91330</span></td><td>CT Head (plain) — critical finding</td><td><span class="chip green">✓ ACKNOWLEDGED · ACK-2026-0187 · 10:07 IST · closed loop</span></td><td><a class="btn small ghost">Open report</a> · <a class="btn small ghost">Ack certificate</a></td></tr>
+      </table>
+      <p class="audit">ACK-2026-0187 sealed: read-back text, OTP verification result, referrer identity and server timestamp — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE D — ADDENDUM ROW WITH DIFF</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Doctor Desk › Results inbox › Addendum · ACC-2026-90754</div>
+      <div class="banner warn"><b>Report updated — v2 replaces v1</b>Dr. V. Shetty issued an addendum on 25 Jul 08:20 IST. Version 1 (18 Jul 11:30) is retained read-only and marked superseded. If you acted on v1, please review the changed impression below.</div>
+      <div class="card">
+        <div class="card-title">X-Ray Chest PA — Rajesh Gupta · MRN-004795 <span class="right">Diff v1 → v2</span></div>
+        <table>
+          <tr><th>Section</th><th>v1 (superseded · 18 Jul 11:30)</th><th>v2 (current · 25 Jul 08:20)</th></tr>
+          <tr><td><b>Impression</b></td><td style="background:#FEE2E2">Left-base opacity, likely positional artefact. No follow-up required.</td><td style="background:#DCFCE7">Persistent left-base opacity on comparison; recommend HRCT chest within 2 weeks to exclude early consolidation.</td></tr>
+          <tr><td>Findings</td><td colspan="2" class="muted">Unchanged (lung fields, cardiac silhouette, bony thorax paragraphs identical)</td></tr>
+        </table>
+        <div style="margin-top:10px"><a class="btn primary small">Mark addendum reviewed</a> <a class="btn small">Order HRCT for this patient</a> <a class="btn small ghost">Open full v2 report</a></div>
+      </div>
+      <p class="audit">Addendum diff v1→v2 for ACC-2026-90754 viewed by Dr. Meera Nair · 25 Jul 2026 10:12 IST — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<p class="audit">Every inbox open, mark-reviewed, acknowledgement and diff view carries referrer identity and server timestamp, and is recorded in the access log.</p>
+</section>
+<section class="screen" id="dd-03">
+<div class="screen-head"><h1><span class="sid">DD-03</span> Order from desk</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G8 Doctor Desk (Referrers)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The referrer places an imaging order on the same shared order form used by front office, so validation rules (forced laterality, STAT justification, safety mini-check) are identical everywhere. Duplicate interception compares against recent orders across the chain before submit. On confirm, the order receives an accession from the central registry and enters the scheduling queue — the branch contacts the patient.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">My patients</div>
+      <div class="nav-item">Results inbox <span class="nav-badge red">3</span></div>
+      <div class="nav-item active">New order</div>
+      <div class="nav-item">Order tracking <span class="nav-badge">7</span></div>
+      <div class="nav-item">Reports archive</div>
+      <div class="sec-label">Account</div>
+      <div class="nav-item">My referral profile</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › New order › Sofia Rossi</div>
+      <div class="page-title">New imaging order</div>
+      <div class="page-sub">Shared order form · same validations as front office · referrer Dr. Meera Nair (verified +91 98••• ••412)</div>
+
+      <div class="stepper">
+        <div class="step done"><span class="dot">✓</span> Patient</div><span class="step-line"></span>
+        <div class="step cur"><span class="dot">2</span> Order details</div><span class="step-line"></span>
+        <div class="step"><span class="dot">3</span> Safety check</div><span class="step-line"></span>
+        <div class="step"><span class="dot">4</span> Confirm</div>
+      </div>
+
+      <div class="row">
+        <div class="grow">
+          <div class="card">
+            <div class="card-title">Patient <span class="right">Selected</span></div>
+            <dl class="kv">
+              <dt>Patient</dt><dd><b>Sofia Rossi</b> · MRN-004822 · F · 34y · Aadhaar ••••&nbsp;7031</dd>
+              <dt>Consent</dt><dd><span class="chip green">General imaging consent on file · 21 Jul 2026</span></dd>
+            </dl>
+          </div>
+          <div class="card">
+            <div class="card-title">Order details</div>
+            <div class="field"><label>Procedure <span class="req">*</span></label>
+              <select class="select"><option>MRI Right Knee (non-contrast) — SAC 999316 · Exempt (healthcare service)</option></select>
+              <div class="hint">Catalogue price shown to patient at scheduling: ₹8,500 · GST-exempt healthcare service</div>
+            </div>
+            <div class="row">
+              <div class="grow field"><label>Laterality <span class="req">*</span> <span class="chip amber">FORCED for paired organs</span></label>
+                <div style="display:flex;gap:14px;padding-top:4px"><span class="check"><span class="box radio on"></span> Right</span><span class="check"><span class="box radio"></span> Left</span><span class="check"><span class="box radio"></span> Bilateral</span></div>
+                <div class="hint">Cannot submit without laterality — prevents wrong-side studies.</div>
+              </div>
+              <div class="grow field"><label>Priority <span class="req">*</span></label>
+                <select class="select"><option>STAT — same day</option></select>
+                <div class="hint" style="color:#92400E">STAT selected — justification becomes mandatory below.</div>
+              </div>
+            </div>
+            <div class="field"><label>STAT justification <span class="req">*</span></label>
+              <textarea class="textarea">Acute locking of right knee this morning with inability to bear weight; suspect displaced bucket-handle meniscal tear needing ortho review today.</textarea>
+            </div>
+            <div class="field"><label>Clinical indication <span class="req">*</span></label>
+              <textarea class="textarea">Recurrent right-knee pain post fall on 14 Jul 2026; prior X-ray no fracture; evaluate menisci and ligaments.</textarea>
+            </div>
+            <div class="field"><label>Preferred window</label>
+              <div class="row"><select class="select grow"><option>Today · 25 Jul 2026</option></select><select class="select grow"><option>14:00–18:00 IST</option></select><select class="select grow"><option>Branch: Andheri West</option></select></div>
+              <div class="hint">Scheduling team confirms the actual slot with the patient; you will see it in Order tracking.</div>
+            </div>
+          </div>
+        </div>
+        <div style="width:300px;flex-shrink:0">
+          <div class="card">
+            <div class="card-title">Safety mini-check <span class="right">Auto-flags</span></div>
+            <div class="check"><span class="box on">✓</span> No implanted device / pacemaker declared (patient record, 21 Jul 2026)</div>
+            <div class="check"><span class="box on">✓</span> No contrast planned — renal screen not required</div>
+            <div class="check"><span class="box">?</span> Pregnancy status to be confirmed at check-in (F, 34y) <span class="chip amber">FLAG</span></div>
+            <div class="check"><span class="box on">✓</span> No prior MRI adverse event on file</div>
+            <div class="hint" style="margin-top:6px">🔒 Flags travel with the order to the technologist's pre-scan checklist.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Duplicate scan <span class="right">Chain-wide</span></div>
+            <div class="banner warn" style="margin-bottom:0"><b>1 possible duplicate found</b>MRI Right Knee ordered 20 Jul 2026 (ACC-2026-91247, already reported). Interception modal will open on submit.</div>
+          </div>
+          <a class="btn primary" style="display:block">Review &amp; submit order</a>
+          <a class="btn" style="display:block;margin-top:8px">Save draft</a>
+        </div>
+      </div>
+      <p class="audit">Order draft for MRN-004822 created by Dr. Meera Nair · 25 Jul 2026 10:21 IST · safety flags evaluated — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — DUPLICATE INTERCEPTION MODAL</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Possible duplicate order — please review</h3>
+    <div class="banner warn" style="margin-bottom:12px"><b>A very similar study exists within the last 30 days</b>Same patient, same procedure and same laterality. Repeating may be clinically intended (post-intervention follow-up) — if so, record the reason; otherwise open the existing signed report instead.</div>
+    <table>
+      <tr><th></th><th>Existing order</th><th>Your new order</th></tr>
+      <tr><td class="bold">Procedure</td><td>MRI Right Knee (non-contrast)</td><td>MRI Right Knee (non-contrast)</td></tr>
+      <tr><td class="bold">Ordered</td><td>20 Jul 2026 · by you</td><td>25 Jul 2026 (draft)</td></tr>
+      <tr><td class="bold">Status</td><td><span class="chip green">SIGNED report · 22 Jul 10:14</span></td><td><span class="chip grey">Not yet submitted</span></td></tr>
+      <tr><td class="bold">Accession</td><td class="mono">ACC-2026-91247</td><td class="mono">— pending</td></tr>
+    </table>
+    <div class="field" style="margin-top:12px"><label>Reason to proceed anyway <span class="req">*</span></label>
+      <select class="select"><option>Clinical change since prior study (new acute symptoms)</option><option>Prior study technically inadequate</option><option>Pre-operative re-baseline requested by surgeon</option></select>
+      <div class="hint">The reason is stored on the order and visible to the radiologist and billing supervisor M. Kulkarni.</div>
+    </div>
+    <div class="modal-actions"><a class="btn ghost">Open existing report instead</a><a class="btn">Cancel new order</a><a class="btn primary">Proceed — record reason</a></div>
+  </div>
+</div>
+<p class="audit">Duplicate interception shown (ACC-2026-91247 vs new draft) · decision pending · 25 Jul 2026 10:22 IST — recorded in the access log.</p>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — ORDER CONFIRMED · ACCESSION ISSUED · AWAITING SCHEDULING</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Doctor Desk › New order › Confirmation</div>
+      <div class="banner success"><b>✓ Order submitted — accession ACC-2026-91355</b>Issued from the central number-series registry at 10:24:10 IST, 25 Jul 2026. Duplicate-proceed reason recorded ("clinical change since prior study"). The Andheri West scheduling team will contact Sofia Rossi to confirm a slot in your preferred window.</div>
+      <div class="card">
+        <div class="card-title">Order summary <span class="right">Read-only</span></div>
+        <dl class="kv">
+          <dt>Accession</dt><dd class="mono">ACC-2026-91355</dd>
+          <dt>Patient</dt><dd>Sofia Rossi · MRN-004822</dd>
+          <dt>Procedure</dt><dd>MRI Right Knee (non-contrast) · Right · SAC 999316 · Exempt (healthcare service)</dd>
+          <dt>Priority</dt><dd><span class="chip red">STAT</span> justification recorded</dd>
+          <dt>Status</dt><dd><span class="chip amber">Awaiting scheduling · owner: front office D. Nair · SLA: contact patient within 2h (STAT)</span></dd>
+          <dt>Safety flags</dt><dd>Pregnancy status to confirm at check-in — passed to technologist checklist</dd>
+          <dt>Notifications</dt><dd>You'll receive Doctor Desk + SMS updates at scheduling, acquisition and sign-off</dd>
+        </dl>
+        <div style="margin-top:10px"><a class="btn primary small">Track this order</a> <a class="btn small">Place another order</a> <a class="btn small ghost">Download order slip (PDF)</a></div>
+      </div>
+      <p class="audit">Order ACC-2026-91355 submitted by Dr. Meera Nair · duplicate-proceed reason and STAT justification sealed with order · 25 Jul 2026 10:24 IST — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<p class="audit">All order submissions from Doctor Desk carry referrer identity, justification text and safety-flag snapshot, and are recorded in the access log.</p>
+</section>
+<section class="screen" id="dd-04">
+<div class="screen-head"><h1><span class="sid">DD-04</span> Order status tracking</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G8 Doctor Desk (Referrers)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> One table answering the referrer's question "where is my patient's study?" — every order they placed, with a five-stage status stepper (ordered → scheduled → acquired → reported → delivered), TAT against target, and delay flags with the reason where the branch has recorded one. When a report is signed, the row drills straight into the report; unsigned drafts stay status-only.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">My patients</div>
+      <div class="nav-item">Results inbox <span class="nav-badge red">3</span></div>
+      <div class="nav-item">New order</div>
+      <div class="nav-item active">Order tracking <span class="nav-badge">7</span></div>
+      <div class="nav-item">Reports archive</div>
+      <div class="sec-label">Account</div>
+      <div class="nav-item">Notification preferences</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › Order tracking</div>
+      <div class="page-title">My orders <a class="btn primary small actions-right">＋ New order</a></div>
+      <div class="page-sub">7 active · 2 delayed · Dr. Meera Nair · refreshed 25 Jul 2026 10:30 IST</div>
+
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">7</div><div class="l">Active orders</div><div class="s">Across 6 patients</div></div>
+        <div class="kpi amber"><div class="n">2</div><div class="l">Delayed vs target</div><div class="s">Reasons recorded on both</div></div>
+        <div class="kpi red"><div class="n">1</div><div class="l">Overdue &gt; 24h</div><div class="s">Escalated to M. Kulkarni</div></div>
+        <div class="kpi"><div class="n">96%</div><div class="l">On-time TAT (30d)</div><div class="s">Your orders at this branch</div></div>
+      </div>
+
+      <div style="display:flex;gap:8px;margin-bottom:12px">
+        <select class="select" style="width:160px"><option>All statuses</option><option>Awaiting scheduling</option><option>Scheduled</option><option>Acquired</option><option>Reported</option><option>Delivered</option></select>
+        <select class="select" style="width:150px"><option>All priorities</option><option>STAT</option><option>Urgent</option><option>Routine</option></select>
+        <select class="select" style="width:150px"><option>Last 30 days</option></select>
+        <input class="input grow" value="Search patient / accession…">
+        <a class="btn small">Apply</a>
+      </div>
+
+      <table>
+        <tr><th>Patient / accession</th><th>Procedure</th><th>Progress</th><th>TAT vs target</th><th>Status</th><th></th></tr>
+        <tr class="hl"><td><b>Sofia Rossi</b><br><span class="mono small">ACC-2026-91355 · STAT</span></td><td>MRI Right Knee (R)</td><td><span class="chip green">ordered</span>›<span class="chip grey">scheduled</span>›<span class="chip grey">acquired</span>›<span class="chip grey">reported</span>›<span class="chip grey">delivered</span></td><td>0h 06m / 2h to schedule<br><div class="progress"><i style="width:8%"></i></div></td><td><span class="chip teal">On track · owner D. Nair</span></td><td><a class="btn small ghost">Detail</a></td></tr>
+        <tr><td><b>Mohammed Al-Rashid</b><br><span class="mono small">ACC-2026-91330 · STAT</span></td><td>CT Head (plain)</td><td><span class="chip green">ordered</span>›<span class="chip green">scheduled</span>›<span class="chip green">acquired</span>›<span class="chip green">reported</span>›<span class="chip green">delivered</span></td><td>1h 47m / 4h<br><div class="progress"><i style="width:45%"></i></div></td><td><span class="chip green">✓ Delivered · ack ACK-2026-0187</span></td><td><a class="btn small ghost">Open report</a></td></tr>
+        <tr><td><b>Priya Menon</b><br><span class="mono small">ACC-2026-91344 · Routine</span></td><td>USG Abdomen f/u</td><td><span class="chip green">ordered</span>›<span class="chip green">scheduled</span>›<span class="chip grey">acquired</span>›<span class="chip grey">reported</span>›<span class="chip grey">delivered</span></td><td>18h / 72h<br><div class="progress"><i style="width:25%"></i></div></td><td><span class="chip teal">Slot 26 Jul 09:15 · APPT-2026-51218</span></td><td><a class="btn small ghost">Detail</a></td></tr>
+        <tr><td><b>Sofia Rossi</b><br><span class="mono small">ACC-2026-91302 · Routine</span></td><td>USG Right Knee (R)</td><td><span class="chip green">ordered</span>›<span class="chip green">scheduled</span>›<span class="chip green">acquired</span>›<span class="chip grey">reported</span>›<span class="chip grey">delivered</span></td><td>38h / 24h report TAT<br><div class="progress amber"><i style="width:100%"></i></div></td><td><span class="chip amber">DELAYED · reason: radiologist leave backlog · owner Dr. V. Shetty</span></td><td><a class="btn small ghost">Detail</a></td></tr>
+        <tr><td><b>Aarav Sharma</b><br><span class="mono small">ACC-2026-91290 · Urgent</span></td><td>MRI Brain (contrast)</td><td><span class="chip green">ordered</span>›<span class="chip green">scheduled</span>›<span class="chip grey">acquired</span>›<span class="chip grey">reported</span>›<span class="chip grey">delivered</span></td><td>27h / 24h to acquire<br><div class="progress red"><i style="width:100%"></i></div></td><td><span class="chip red">OVERDUE · patient rescheduled (fasting not done) · owner D. Nair · escalated to M. Kulkarni</span></td><td><a class="btn small ghost">Detail</a></td></tr>
+        <tr><td><b>Ananya Rao</b><br><span class="mono small">ACC-2026-91340 · Routine</span></td><td>USG Thyroid f/u</td><td><span class="chip green">ordered</span>›<span class="chip grey">scheduled</span>›<span class="chip grey">acquired</span>›<span class="chip grey">reported</span>›<span class="chip grey">delivered</span></td><td>4h / 24h to schedule<br><div class="progress"><i style="width:17%"></i></div></td><td><span class="chip teal">Awaiting scheduling · owner D. Nair</span></td><td><a class="btn small ghost">Detail</a></td></tr>
+        <tr class="dim"><td><b>Rajesh Gupta</b><br><span class="mono small">ACC-2026-90754 · Routine</span></td><td>X-Ray Chest PA</td><td><span class="chip green">ordered</span>›<span class="chip green">scheduled</span>›<span class="chip green">acquired</span>›<span class="chip green">reported</span>›<span class="chip green">delivered</span></td><td>6h / 24h ✓<br><div class="progress"><i style="width:25%"></i></div></td><td><span class="chip violet">v2 addendum delivered 25 Jul 08:20</span></td><td><a class="btn small ghost">Open report</a></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">"Open report" appears only when a report is <b>signed</b>. Unsigned drafts stay status-only per org policy (see DD-01 State C).</div>
+      <p class="audit">Order-tracking list viewed by Dr. Meera Nair · scope: own referrals only · 25 Jul 2026 10:30 IST — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — DELAYED ORDER DETAIL (AMBER, REASON KNOWN)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Doctor Desk › Order tracking › ACC-2026-91302</div>
+      <div class="page-title">USG Right Knee — Sofia Rossi <span class="chip amber">DELAYED · reporting TAT breached</span></div>
+      <div class="banner warn"><b>Reporting is 14h past the 24h target</b>Recorded reason: radiologist leave backlog (Dr. V. Shetty returned 25 Jul). Owner: Dr. V. Shetty · escalated to branch ops per SLA ladder at 24h. Revised estimate: signed by 25 Jul 18:00 IST. You will be notified on sign-off.</div>
+      <div class="row">
+        <div class="grow card">
+          <div class="card-title">Timeline</div>
+          <div class="timeline">
+            <div class="ev"><span class="t">22 Jul 10:40</span><span>Ordered by Dr. Meera Nair (Doctor Desk) · ACC-2026-91302</span></div>
+            <div class="ev"><span class="t">22 Jul 11:05</span><span>Scheduled · APPT-2026-51190 · slot 22 Jul 16:30</span></div>
+            <div class="ev"><span class="t">22 Jul 16:47</span><span>Acquired · USG room 2 · images in PACS</span></div>
+            <div class="ev"><span class="t">23 Jul 16:47</span><span><span class="chip amber">24h reporting target passed</span> · reason logged: radiologist leave backlog</span></div>
+            <div class="ev"><span class="t">24 Jul 16:47</span><span>Escalated to branch ops per SLA ladder (48h tier)</span></div>
+            <div class="ev"><span class="t">25 Jul 09:10</span><span>Draft in progress by Dr. V. Shetty · revised ETA 18:00 IST</span></div>
+          </div>
+        </div>
+        <div class="card" style="width:280px;flex-shrink:0">
+          <div class="card-title">SLA</div>
+          <dl class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Target</dt><dd>Report signed ≤ 24h from acquisition</dd>
+            <dt>Elapsed</dt><dd>38h 00m <span class="chip amber">+14h</span></dd>
+            <dt>Owner</dt><dd>Dr. V. Shetty</dd>
+            <dt>Escalated to</dt><dd>Branch ops (48h tier)</dd>
+          </dl>
+          <a class="btn small" style="display:block;margin-top:8px">Request status update from branch</a>
+        </div>
+      </div>
+      <p class="audit">Delay detail for ACC-2026-91302 viewed by Dr. Meera Nair · 25 Jul 2026 10:33 IST — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — COMPLETED ORDER · DRILL TO SIGNED REPORT</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Doctor Desk › Order tracking › ACC-2026-91330</div>
+      <div class="page-title">CT Head (plain) — Mohammed Al-Rashid <span class="chip green">✓ Completed · delivered &amp; acknowledged</span></div>
+      <div class="stepper">
+        <div class="step done"><span class="dot">✓</span> Ordered 08:15</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Scheduled 08:22</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Acquired 09:31</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Reported 10:02</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Delivered 10:02 · acked 10:07</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Completion summary <span class="right">25 Jul 2026</span></div>
+        <dl class="kv">
+          <dt>TAT</dt><dd>1h 47m end-to-end vs 4h STAT target <span class="chip green">ON TIME</span></dd>
+          <dt>Report</dt><dd><span class="chip green">SIGNED — FINAL</span> Dr. V. Shetty · 10:02 IST · critical finding communicated</dd>
+          <dt>Closed loop</dt><dd class="mono">ACK-2026-0187 · read-back + OTP · 10:07:44 IST</dd>
+          <dt>Delivery</dt><dd>Doctor Desk + SMS to +91 98••• ••412 · patient portal copy released after your ack</dd>
+        </dl>
+        <div style="margin-top:10px"><a class="btn primary small">Open signed report</a> <a class="btn small">Open imaging viewer (watermarked)</a> <a class="btn small ghost">Download PDF</a></div>
+      </div>
+      <p class="audit">Completed-order detail and report drill-through for ACC-2026-91330 by Dr. Meera Nair · 25 Jul 2026 10:35 IST — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<p class="audit">Order-tracking views are scoped to the signed-in referrer's own orders; every list view, detail open and report drill-through is recorded in the access log.</p>
+</section>
+<section class="screen" id="dd-05">
+<div class="screen-head"><h1><span class="sid">DD-05</span> Break-glass emergency access</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G8 Doctor Desk (Referrers) — workspace 'Doctor Desk'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> A verified referrer facing a clinical emergency can open a record outside their care-team scope without waiting for approval. Access is granted instantly but is loud: a persistent red banner, a 24-hour auto-expiry countdown, every action tagged, and mandatory post-hoc review by the branch privacy lead within 2 working days. Extending access requires fresh justification.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">Dashboard</div>
+      <div class="nav-item">My patients</div>
+      <div class="nav-item">Reports inbox <span class="nav-badge">3</span></div>
+      <div class="nav-item">New referral</div>
+      <div class="sec-label">Access</div>
+      <div class="nav-item">Access requests <span class="nav-badge">1</span></div>
+      <div class="nav-item active">Break-glass access <span class="nav-badge red">1</span></div>
+      <div class="sec-label">Insights</div>
+      <div class="nav-item">Referral analytics</div>
+      <div class="nav-item">Profile &amp; channels</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › Access › Break-glass emergency access</div>
+      <div class="page-title">Break-glass emergency access</div>
+      <div class="page-sub">For genuine clinical emergencies only. Every break-glass event is logged in full and reviewed by the branch privacy lead within 2 working days.</div>
+
+      <div class="banner danger"><b>⚠ Use only when a patient's immediate care depends on it.</b> Break-glass bypasses normal care-team access controls. Misuse is treated as a privacy incident under Meridian policy and the DPDP Act 2023 and may lead to suspension of Doctor Desk access.</div>
+
+      <div class="row">
+        <div class="card grow" style="max-width:340px">
+          <div class="card-title">Before you break the glass <span class="right">Checklist</span></div>
+          <div class="check"><span class="box on">✓</span>I have a genuine, time-critical clinical reason.</div>
+          <div class="check"><span class="box on">✓</span>The patient is not already on my care-team list (checked "My patients").</div>
+          <div class="check"><span class="box on">✓</span>A standard access request (4h SLA) would be too slow for this situation.</div>
+          <div class="check"><span class="box on">✓</span>I understand all my actions will be tagged and reviewed.</div>
+          <div class="field" style="margin-top:8px"><span class="hint">🔒 If this is not time-critical, use <b>Access requests</b> instead — the branch privacy lead approves most requests within 4 hours.</span></div>
+        </div>
+        <div class="card grow">
+          <div class="card-title">My break-glass history <span class="right">Last 12 months</span></div>
+          <table>
+            <tr><th>Event</th><th>Patient ref</th><th>Opened</th><th>Ended</th><th>Review outcome</th></tr>
+            <tr><td class="mono">BG-2026-00341</td><td class="mono">MRN-004790</td><td>02 Mar 2026, 22:41</td><td>Auto-expired 24h</td><td><span class="chip green">JUSTIFIED</span></td></tr>
+            <tr><td class="mono">BG-2025-00287</td><td class="mono">MRN-••••512</td><td>18 Nov 2025, 03:12</td><td>Ended by me (2h 10m)</td><td><span class="chip green">JUSTIFIED</span></td></tr>
+            <tr><td class="mono">BG-2025-00201</td><td class="mono">MRN-••••077</td><td>04 Aug 2025, 14:55</td><td>Auto-expired 24h</td><td><span class="chip amber">ADVISORY ISSUED</span></td></tr>
+          </table>
+          <p class="audit">History shows only events you initiated. Patient identifiers outside your current care team are masked; the review board sees full detail. All views recorded in the access log.</p>
+        </div>
+      </div>
+
+      <div class="modal-wrap">
+        <div class="modal danger">
+          <h3>🚨 Break-glass emergency access request</h3>
+          <div class="banner warn" style="margin-bottom:12px"><b>This action is irreversible once granted.</b> The event, your justification and every subsequent view will be sent to the Governance review queue.</div>
+          <div class="field"><label>Patient identifier <span class="req">*</span></label><input class="input mono" value="MRN-004830"><div class="hint">MRN, accession no. (ACC-2026-9xxxx) or registered mobile. Demographics stay masked until access is granted.</div></div>
+          <div class="field"><label>Reason category <span class="req">*</span></label>
+            <select class="select"><option>Medical emergency — patient deteriorating, prior imaging needed now</option></select>
+            <div class="hint">Other categories: Unconscious/unidentified patient · Critical result follow-up · Medico-legal emergency (police/court) — each is reviewed against the justification below.</div>
+          </div>
+          <div class="field"><label>Clinical justification <span class="req">*</span> <span class="muted small">(min 50 characters, shown verbatim to reviewers)</span></label>
+            <textarea class="textarea">Patient presented at my clinic at 21:40 with acute breathlessness and chest pain; needs comparison with the CT Chest performed at Meridian Andheri West on 18 Jul 2026 before I refer to emergency care. Family confirms scan; patient unable to grant portal access right now.</textarea>
+          </div>
+          <div class="field"><label>Expected duration of need</label><select class="select"><option>Up to 24 hours (maximum — auto-expiry)</option></select><div class="hint">Access always auto-expires at 24h. Shorter is better — you can end access early at any time.</div></div>
+          <div class="banner reg" style="margin:10px 0"><b>Identity confirmation required.</b> Re-enter your Doctor Desk PIN to sign this declaration as Dr. Meera Nair (verified +91 98••• ••412).</div>
+          <div class="field"><label>Doctor Desk PIN <span class="req">*</span></label><input class="input" style="max-width:180px" value="• • • • • •"></div>
+          <div class="check"><span class="box on">✓</span>I declare this is a genuine clinical emergency and accept post-hoc review by the branch privacy lead within 2 working days.</div>
+          <div class="modal-actions"><span class="btn">Cancel — use standard request instead</span><span class="btn danger">Break glass &amp; open record</span></div>
+        </div>
+      </div>
+      <p class="audit">Break-glass request BG-2026-00412 draft · initiated by Dr. Meera Nair (Referrer, verified) · 24 Jul 2026, 21:52 IST · device fingerprint and IP captured · recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ACCESS ACTIVE · PERSISTENT RED BANNER WITH 24H COUNTDOWN</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">Dashboard</div>
+      <div class="nav-item">My patients</div>
+      <div class="nav-item">Reports inbox <span class="nav-badge">3</span></div>
+      <div class="nav-item">New referral</div>
+      <div class="sec-label">Access</div>
+      <div class="nav-item">Access requests <span class="nav-badge">1</span></div>
+      <div class="nav-item active">Break-glass access <span class="nav-badge red">LIVE</span></div>
+      <div class="sec-label">Insights</div>
+      <div class="nav-item">Referral analytics</div>
+      <div class="nav-item">Profile &amp; channels</div>
+    </div>
+    <div class="main">
+      <div class="banner danger" style="border-width:2px"><b>🚨 BREAK-GLASS ACCESS ACTIVE — BG-2026-00412 · auto-expires in 21h 37m (25 Jul 2026, 21:58 IST)</b> Every record you open, view, download or share while this banner is visible is tagged <span class="chip outline-red">BREAK-GLASS</span> and queued for privacy-lead review. This banner stays on every Doctor Desk page until access ends. <span style="display:inline-block;margin-top:6px"><span class="btn small danger">End access now</span> <span class="btn small warn-outline">Extend — requires fresh justification</span></span></div>
+      <div class="crumb">Doctor Desk › Access › Break-glass · BG-2026-00412</div>
+      <div class="page-title">Rajesh Gupta <span class="chip outline-red">BREAK-GLASS SCOPE</span> <span class="chip grey">NOT ON MY CARE TEAM</span></div>
+      <div class="page-sub">MRN-004795 · M · 58y · opened under emergency access · read-only clinical view, no export of raw images</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Records visible under this grant <span class="right">Imaging only · 24h scope</span></div>
+          <table>
+            <tr><th>Date</th><th>Accession</th><th>Study</th><th>Report status</th><th>Action</th></tr>
+            <tr class="hl"><td>18 Jul 2026</td><td class="mono">ACC-2026-91104</td><td>CT Chest (plain)</td><td><span class="chip green">FINAL · Dr. V. Shetty</span></td><td><span class="btn small primary">View report</span></td></tr>
+            <tr><td>18 Jul 2026</td><td class="mono">ACC-2026-91104</td><td>CT Chest — key images (6)</td><td><span class="chip green">AVAILABLE</span></td><td><span class="btn small">View images</span></td></tr>
+            <tr><td>02 Mar 2026</td><td class="mono">ACC-2026-90233</td><td>Chest X-ray PA</td><td><span class="chip green">FINAL</span></td><td><span class="btn small">View report</span></td></tr>
+            <tr><td>02 Mar 2026</td><td class="mono">ACC-2026-90218</td><td>ECG (12-lead)</td><td><span class="chip green">FINAL</span></td><td><span class="btn small">View report</span></td></tr>
+            <tr class="dim"><td>11 Jan 2026</td><td class="mono">ACC-2026-90021</td><td>USG Abdomen</td><td><span class="chip grey">OUTSIDE EMERGENCY SCOPE</span></td><td><span class="btn small disabled">Not included</span></td></tr>
+          </table>
+        </div>
+        <div class="card" style="width:300px;flex-shrink:0">
+          <div class="card-title">Grant details</div>
+          <dl class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Event</dt><dd class="mono">BG-2026-00412</dd>
+            <dt>Opened</dt><dd>24 Jul 2026, 21:58 IST</dd>
+            <dt>Auto-expiry</dt><dd><b>25 Jul 2026, 21:58</b> <span class="chip amber">21h 37m LEFT</span></dd>
+            <dt>Reason</dt><dd>Medical emergency</dd>
+            <dt>Actions tagged</dt><dd>4 views · 1 report opened</dd>
+            <dt>Review</dt><dd>Governance queue · due <b>28 Jul 2026</b> (within 2 working days)</dd>
+            <dt>Reviewer</dt><dd>Branch privacy lead (K. Verma)</dd>
+          </dl>
+          <div style="margin-top:10px"><span class="btn danger" style="width:100%">End access now</span></div>
+          <div class="hint" style="margin-top:6px">Ending early is noted favourably in the review. Unused time is discarded.</div>
+        </div>
+      </div>
+      <p class="audit">All 5 actions in this session tagged BREAK-GLASS/BG-2026-00412 · patient notification will be sent when access ends unless the reviewer defers it on clinical-safety grounds · recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — EXPIRED · AUTO-END AT 24H, EXTEND REQUIRES RE-JUSTIFICATION</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="banner warn"><b>⏱ Break-glass access BG-2026-00412 has auto-expired.</b> The 24-hour window ended on 25 Jul 2026, 21:58 IST. The record of Rajesh Gupta (MRN-004795) is no longer accessible and has been removed from your recent items. 5 tagged actions were captured for review.</div>
+      <div class="modal-wrap">
+        <div class="modal">
+          <h3>Need continued access?</h3>
+          <p class="small muted" style="margin-bottom:10px">Extensions are never automatic. Choose one path — both require fresh justification and are reviewed separately from the original event.</p>
+          <div class="card" style="margin-bottom:10px">
+            <div class="card-title">Option 1 — Standard access request <span class="chip teal">RECOMMENDED</span></div>
+            <p class="small">Approved by the branch privacy lead, usually within the 4-hour SLA. Time-boxed to the duration you request (max 24h per grant).</p>
+            <div style="margin-top:8px"><span class="btn primary small">Start standard request</span></div>
+          </div>
+          <div class="card" style="margin-bottom:0">
+            <div class="card-title">Option 2 — New break-glass event <span class="chip red">EMERGENCY ONLY</span></div>
+            <p class="small">Only if the emergency is ongoing. You must write a <b>new</b> justification — the previous one is not carried over — and re-confirm identity with your Doctor Desk PIN. Repeated events on the same patient are flagged to the reviewer.</p>
+            <div style="margin-top:8px"><span class="btn danger small">Break glass again — new justification required</span></div>
+          </div>
+          <div class="modal-actions"><span class="btn">No further access needed</span></div>
+        </div>
+      </div>
+      <p class="audit">Auto-expiry executed by system at 25 Jul 2026, 21:58:00 IST · no user action required · expiry event appended to BG-2026-00412 and recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE D — POST-HOC REVIEW OUTCOME NOTICE (GOVERNANCE QUEUE, WITHIN 2 DAYS)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="crumb">Doctor Desk › Access › Break-glass · BG-2026-00412 · Review outcome</div>
+      <div class="page-title">Review outcome — BG-2026-00412</div>
+      <div class="page-sub">Reviewed by the branch privacy lead under the mandatory 2-working-day post-hoc review</div>
+      <div class="banner success"><b>✔ Outcome: JUSTIFIED — no further action.</b> Reviewed by K. Verma (Branch privacy lead) on 27 Jul 2026, 11:20 IST, within SLA (due 28 Jul). Your justification and all 5 tagged actions were found consistent with a genuine medical emergency.</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Review summary</div>
+          <dl class="kv">
+            <dt>Event</dt><dd class="mono">BG-2026-00412 · patient MRN-004795</dd>
+            <dt>Duration used</dt><dd>24h 0m (auto-expired; 4 views + 1 report open, all within first 40 minutes)</dd>
+            <dt>Reviewer notes</dt><dd>"Justification specific and time-critical. Actions limited to relevant imaging. Patient notified on 26 Jul; no objection received."</dd>
+            <dt>Patient notified</dt><dd>Yes — SMS + portal notice, 26 Jul 2026, 09:00 IST</dd>
+            <dt>Outcome recorded</dt><dd>Governance case GV-2026-0764 · closed</dd>
+          </dl>
+        </div>
+        <div class="card" style="width:300px;flex-shrink:0">
+          <div class="card-title">Possible outcomes <span class="right">Reference</span></div>
+          <div class="check"><span class="chip green">JUSTIFIED</span></div>
+          <p class="small muted" style="margin:2px 0 8px">No action; event closed.</p>
+          <div class="check"><span class="chip amber">ADVISORY ISSUED</span></div>
+          <p class="small muted" style="margin:2px 0 8px">Coaching note; pattern monitored for 6 months.</p>
+          <div class="check"><span class="chip red">NOT JUSTIFIED</span></div>
+          <p class="small muted" style="margin:2px 0 0">Privacy incident raised (GV queue), Doctor Desk access may be suspended; patient informed of the finding.</p>
+        </div>
+      </div>
+      <p class="audit">Review outcome delivered to Dr. Meera Nair on 27 Jul 2026, 11:21 IST · outcome, reviewer identity and notes are immutable once the governance case closes · recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<p class="audit">All break-glass lifecycle events (request, grant, each tagged action, expiry/early end, extension attempts, review outcome) are written to the tamper-evident audit trail and recorded in the access log.</p>
+</section>
+<section class="screen" id="dd-06">
+<div class="screen-head"><h1><span class="sid">DD-06</span> Access requests</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G8 Doctor Desk (Referrers) — workspace 'Doctor Desk'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> When a referrer tries to open a record outside their care team, Magnus shows a fully masked denial (zero demographics) and offers a structured access request instead. Requests go to the branch privacy lead with a 4-hour SLA; approvals are time-boxed to a maximum of 24 hours with a live countdown. The doctor can track the full lifecycle — pending, approved, denied, expired — from one list.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">Dashboard</div>
+      <div class="nav-item">My patients</div>
+      <div class="nav-item">Reports inbox <span class="nav-badge">3</span></div>
+      <div class="nav-item">New referral</div>
+      <div class="sec-label">Access</div>
+      <div class="nav-item active">Access requests <span class="nav-badge">1</span></div>
+      <div class="nav-item">Break-glass access</div>
+      <div class="sec-label">Insights</div>
+      <div class="nav-item">Referral analytics</div>
+      <div class="nav-item">Profile &amp; channels</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › Access › Access requests › New request</div>
+      <div class="page-title">Record not in your care-team scope</div>
+      <div class="page-sub">You searched for a record you did not refer and are not on the care team for. Nothing about the patient is shown until access is approved.</div>
+
+      <div class="card" style="max-width:620px;border-left:4px solid #B91C1C">
+        <div class="card-title">🔒 Access denied — record masked <span class="right">Zero-demographics card</span></div>
+        <dl class="kv">
+          <dt>Record</dt><dd class="mono bold">MRN-••••30</dd>
+          <dt>Patient name</dt><dd class="muted">•••••• •••••• (hidden until approved)</dd>
+          <dt>Age / sex</dt><dd class="muted">•• / • (hidden)</dd>
+          <dt>Contact</dt><dd class="muted">+91 ••••• ••••• (hidden)</dd>
+          <dt>Studies</dt><dd class="muted">•• record(s) exist at Meridian Diagnostics (count masked)</dd>
+          <dt>Why denied</dt><dd>You are not the referrer and are not on this patient's care team. Care-team scope is enforced under Meridian's least-privilege policy (DPDP Act 2023).</dd>
+        </dl>
+        <p class="audit">This denied attempt (Dr. Meera Nair, 25 Jul 2026, 10:04 IST) has been recorded in the access log. Repeated denied lookups are flagged to the privacy lead.</p>
+      </div>
+
+      <div class="card" style="max-width:620px">
+        <div class="card-title">Request access to MRN-••••30 <span class="right">4h decision SLA</span></div>
+        <div class="field"><label>Reason category <span class="req">*</span></label>
+          <select class="select"><option>Continuity of care — patient consulted me with prior Meridian imaging</option></select>
+          <div class="hint">Other categories: Second opinion requested by patient · Referral follow-up (report not delivered) · Multidisciplinary discussion · Administrative correction.</div>
+        </div>
+        <div class="field"><label>Justification <span class="req">*</span> <span class="muted small">(shown verbatim to the branch privacy lead)</span></label>
+          <textarea class="textarea">Patient attended my OPD today (25 Jul) carrying a Meridian receipt for an MRI Brain done last week; the printed report was not brought. I need the final report to plan treatment. Patient has verbally consented and can confirm by OTP if needed.</textarea>
+        </div>
+        <div class="row">
+          <div class="field grow"><label>Duration requested <span class="req">*</span></label>
+            <select class="select"><option>24 hours (maximum)</option></select>
+            <div class="hint">Grants are always time-boxed; max 24h per grant. Access auto-expires — re-request if needed again.</div>
+          </div>
+          <div class="field grow"><label>Scope requested</label>
+            <select class="select"><option>Reports only (no raw images)</option></select>
+            <div class="hint">Narrower scope is approved faster.</div>
+          </div>
+        </div>
+        <div class="check"><span class="box on">✓</span>I confirm the patient is aware I am requesting their Meridian records.</div>
+        <div class="modal-actions" style="justify-content:flex-start"><span class="btn primary">Submit request to branch privacy lead</span><span class="btn">Cancel</span><span class="btn ghost">Emergency? Use break-glass →</span></div>
+      </div>
+      <p class="audit">Draft request ARQ-2026-1187 · not yet submitted · request text, requester identity and target record ref will be recorded in the access log on submit.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — MY REQUESTS · FULL LIFECYCLE LIST</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="crumb">Doctor Desk › Access › Access requests</div>
+      <div class="page-title">My access requests</div>
+      <div class="page-sub">All requests you have raised in the last 90 days · decisions by the branch privacy lead · 4-hour SLA on pending requests</div>
+      <div class="kpi-row">
+        <div class="kpi amber"><div class="n">1</div><div class="l">Pending decision</div><div class="s">SLA due 14:04 IST today</div></div>
+        <div class="kpi"><div class="n">1</div><div class="l">Active grant</div><div class="s">expires in 16h 22m</div></div>
+        <div class="kpi"><div class="n">6</div><div class="l">Decided (90 days)</div><div class="s">5 approved · 1 denied</div></div>
+        <div class="kpi"><div class="n">3h 06m</div><div class="l">Median decision time</div><div class="s">well within 4h SLA</div></div>
+      </div>
+      <table>
+        <tr><th>Request</th><th>Record</th><th>Reason category</th><th>Duration asked</th><th>Status</th><th>SLA / countdown</th><th>Action</th></tr>
+        <tr class="hl"><td class="mono">ARQ-2026-1187<br><span class="muted small">25 Jul, 10:11</span></td><td class="mono">MRN-••••30</td><td>Continuity of care</td><td>24h · reports only</td><td><span class="chip amber">PENDING</span></td><td><span class="chip amber">SLA 3h 49m left</span><br><span class="small muted">owner: branch privacy lead</span></td><td><span class="btn small">Withdraw</span></td></tr>
+        <tr><td class="mono">ARQ-2026-1164<br><span class="muted small">24 Jul, 16:30</span></td><td class="mono">MRN-004819<br><span class="small">Ananya Rao</span></td><td>Second opinion (patient requested)</td><td>24h · reports only</td><td><span class="chip green">APPROVED · TIME-BOXED</span></td><td><span class="chip teal">EXPIRES IN 16h 22m</span><br><span class="small muted">granted 24 Jul, 18:41 · 24h box</span></td><td><span class="btn small primary">Open record</span></td></tr>
+        <tr><td class="mono">ARQ-2026-1121<br><span class="muted small">19 Jul, 09:02</span></td><td class="mono">MRN-••••66</td><td>Multidisciplinary discussion</td><td>24h · full imaging</td><td><span class="chip red">DENIED</span></td><td><span class="small">decided in 2h 51m</span></td><td><span class="btn small ghost">View reason</span></td></tr>
+        <tr class="dim"><td class="mono">ARQ-2026-1093<br><span class="muted small">14 Jul, 11:47</span></td><td class="mono">MRN-004790<br><span class="small">Mohammed Al-Rashid</span></td><td>Referral follow-up</td><td>12h · reports only</td><td><span class="chip grey">EXPIRED</span></td><td><span class="small">grant ended 15 Jul, 02:10</span></td><td><span class="btn small">Re-request</span></td></tr>
+        <tr class="dim"><td class="mono">ARQ-2026-1052<br><span class="muted small">08 Jul, 15:20</span></td><td class="mono">MRN-004795<br><span class="small">Rajesh Gupta</span></td><td>Continuity of care</td><td>24h · reports only</td><td><span class="chip grey">EXPIRED</span></td><td><span class="small">grant ended 09 Jul, 17:33</span></td><td><span class="btn small">Re-request</span></td></tr>
+        <tr class="dim"><td class="mono">ARQ-2026-1018<br><span class="muted small">02 Jul, 08:15</span></td><td class="mono">MRN-••••41</td><td>Administrative correction</td><td>4h · reports only</td><td><span class="chip grey">WITHDRAWN</span></td><td><span class="small">withdrawn by me before decision</span></td><td>—</td></tr>
+      </table>
+      <div class="banner info" style="margin-top:12px"><b>Denied request ARQ-2026-1121 — reason from the privacy lead:</b> "Care-team link not evidenced; patient has not listed you as a treating doctor and no referral exists. Please ask the patient to share the report from their portal, or have them add you as a care-team member at the front desk."</div>
+      <p class="audit">Patient names appear only on approved/active grants; pending, denied and withdrawn rows stay masked. If the pending SLA lapses it escalates to admin K. Verma automatically. All list views recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — APPROVER-SIDE MINI-QUEUE (BRANCH PRIVACY LEAD) · IDENTITY CONFIRM ON DECISION</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>GOVERNANCE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Privacy lead) ▾</div></div>
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="crumb">Governance › Access requests queue</div>
+      <div class="page-title">Access requests awaiting decision <span class="chip amber">2 IN QUEUE</span></div>
+      <div class="page-sub">Decide within the 4-hour SLA · lapses escalate to admin K. Verma's deputy and are reported weekly</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">ARQ-2026-1187 · Dr. Meera Nair <span class="chip amber">SLA 3h 49m left · owner: K. Verma</span></div>
+          <dl class="kv">
+            <dt>Requester</dt><dd>Dr. Meera Nair · verified referrer · +91 98••• ••412 · KYC on file</dd>
+            <dt>Target record</dt><dd class="mono">MRN-004830 <span class="small muted">(full MRN visible to approver only)</span></dd>
+            <dt>Category</dt><dd>Continuity of care</dd>
+            <dt>Duration / scope</dt><dd>24h · reports only</dd>
+            <dt>Justification</dt><dd>"Patient attended my OPD today carrying a Meridian receipt for an MRI Brain done last week; the printed report was not brought…"</dd>
+            <dt>Signals</dt><dd><span class="chip green">NO PRIOR DENIALS</span> <span class="chip green">1 PRIOR GRANT, USED APPROPRIATELY</span></dd>
+          </dl>
+          <div class="modal-actions" style="justify-content:flex-start"><span class="btn primary">Approve — time-boxed 24h</span><span class="btn danger">Deny with reason</span><span class="btn ghost">Ask requester a question</span></div>
+        </div>
+        <div class="card" style="width:280px;flex-shrink:0">
+          <div class="card-title">Also in queue</div>
+          <table>
+            <tr><th>Req</th><th>SLA</th></tr>
+            <tr><td class="mono small">ARQ-2026-1189<br><span class="muted">Dr. Farida Khan</span></td><td><span class="chip red">OVERDUE 0h 22m</span><br><span class="small muted">escalated to: deputy privacy lead</span></td></tr>
+          </table>
+          <p class="small muted" style="margin-top:8px">Overdue items are auto-escalated and flagged in the weekly governance report.</p>
+        </div>
+      </div>
+      <div class="modal-wrap">
+        <div class="modal">
+          <h3>Confirm approval — identity check</h3>
+          <p class="small" style="margin-bottom:10px">You are granting Dr. Meera Nair time-boxed access (24h, reports only) to <span class="mono">MRN-004830</span>. This is a legally significant access decision — confirm your identity to sign it.</p>
+          <div class="field"><label>Your Magnus password <span class="req">*</span></label><input class="input" style="max-width:220px" value="••••••••••"></div>
+          <div class="field"><label>Decision note (visible to requester)</label><input class="input" value="Approved for report retrieval only. Patient OTP confirmation not required — receipt evidence adequate."></div>
+          <div class="check"><span class="box on">✓</span>Notify the patient that this grant was issued (SMS + portal notice).</div>
+          <div class="modal-actions"><span class="btn">Back</span><span class="btn primary">Sign &amp; approve — starts 24h countdown</span></div>
+        </div>
+      </div>
+      <p class="audit">Decision, decision note, approver identity (K. Verma) and password-confirmed signature are appended to ARQ-2026-1187 · patient notification queued · recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<p class="audit">Every denied lookup, request submission, decision, grant activation, expiry and re-request is written to the tamper-evident audit trail and recorded in the access log.</p>
+</section>
+<section class="screen" id="dd-07">
+<div class="screen-head"><h1><span class="sid">DD-07</span> My patients</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G8 Doctor Desk (Referrers) — workspace 'Doctor Desk'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The referrer's home list: only patients they referred or are formally on the care team for, with last order, latest result status and next appointment at a glance. Search runs strictly within this list — it never queries the wider Meridian patient index. Ending a care relationship removes the patient and immediately ends record access.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">Dashboard</div>
+      <div class="nav-item active">My patients <span class="nav-badge">14</span></div>
+      <div class="nav-item">Reports inbox <span class="nav-badge">3</span></div>
+      <div class="nav-item">New referral</div>
+      <div class="sec-label">Access</div>
+      <div class="nav-item">Access requests <span class="nav-badge">1</span></div>
+      <div class="nav-item">Break-glass access</div>
+      <div class="sec-label">Insights</div>
+      <div class="nav-item">Referral analytics</div>
+      <div class="nav-item">Profile &amp; channels</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › My patients</div>
+      <div class="page-title">My patients <span class="chip teal">14 ACTIVE CARE RELATIONSHIPS</span> <span class="actions-right"><span class="btn primary small">+ New referral</span></span></div>
+      <div class="page-sub">Patients you referred to Meridian Diagnostics or are on the care team for · sorted by latest activity</div>
+      <div class="banner info"><b>🔒 Care-team-only scope.</b> This list — and the search box below — covers only your own patients. You cannot browse or search the wider Meridian patient index. To reach any other record, raise an <b>access request</b> (4h SLA) or, in a genuine emergency, use <b>break-glass</b>.</div>
+      <div class="row" style="margin-bottom:12px">
+        <input class="input grow" placeholder="🔍 Search within my patients only — name, MRN, or accession no.">
+        <select class="select" style="max-width:170px"><option>All modalities</option></select>
+        <select class="select" style="max-width:180px"><option>All result statuses</option></select>
+      </div>
+      <table>
+        <tr><th>Patient</th><th>Relationship</th><th>Last order</th><th>Latest result</th><th>Next appointment</th><th>Actions</th></tr>
+        <tr class="hl"><td><b>Sofia Rossi</b><br><span class="mono small">MRN-004822</span> · F · 34y</td><td>Referred by me<br><span class="small muted">since 12 May 2026</span></td><td>MRI Brain (contrast)<br><span class="mono small">ACC-2026-91188 · 23 Jul</span></td><td><span class="chip green">FINAL · Dr. V. Shetty</span><br><span class="small muted">delivered 24 Jul, 09:12</span></td><td>Review visit at my clinic<br><span class="small muted">(self-noted) 29 Jul</span></td><td><span class="btn small primary">Open</span></td></tr>
+        <tr><td><b>Aarav Sharma</b><br><span class="mono small">MRN-004821</span> · M · 41y</td><td>Referred by me<br><span class="small muted">since 03 Feb 2026</span></td><td>CT KUB (plain)<br><span class="mono small">ACC-2026-91201 · 24 Jul</span></td><td><span class="chip amber">PRELIMINARY</span><br><span class="small muted">final due by 25 Jul, 18:00</span></td><td><span class="mono small">APPT-2026-51240</span><br>USG follow-up · 08 Aug, 10:30</td><td><span class="btn small primary">Open</span></td></tr>
+        <tr><td><b>Priya Menon</b><br><span class="mono small">MRN-004828</span> · F · 29y</td><td>Care team<br><span class="small muted">patient-added 20 Jun 2026</span></td><td>USG Obstetric (Level II)<br><span class="mono small">ACC-2026-91166 · 21 Jul</span></td><td><span class="chip green">FINAL</span><br><span class="small muted">foetal-sex details withheld per PCPNDT Act</span></td><td><span class="mono small">APPT-2026-51302</span><br>Growth scan · 18 Aug, 09:00</td><td><span class="btn small primary">Open</span></td></tr>
+        <tr><td><b>Mohammed Al-Rashid</b><br><span class="mono small">MRN-004790</span> · M · 52y</td><td>Referred by me<br><span class="small muted">since 09 Jan 2026</span></td><td>Chest X-ray PA<br><span class="mono small">ACC-2026-91142 · 19 Jul</span></td><td><span class="chip violet">ADDENDUM ISSUED</span><br><span class="small muted">v2 supersedes v1 · read 20 Jul</span></td><td>None scheduled</td><td><span class="btn small primary">Open</span></td></tr>
+        <tr><td><b>Rajesh Gupta</b><br><span class="mono small">MRN-004795</span> · M · 58y</td><td>Care team<br><span class="small muted">post break-glass, patient-confirmed 26 Jul</span></td><td>CT Chest (plain)<br><span class="mono small">ACC-2026-91104 · 18 Jul</span></td><td><span class="chip green">FINAL</span></td><td><span class="mono small">APPT-2026-51355</span><br>HRCT review · 01 Aug, 11:15</td><td><span class="btn small primary">Open</span></td></tr>
+        <tr><td><b>Ananya Rao</b><br><span class="mono small">MRN-004819</span> · F · 47y</td><td>Referred by me<br><span class="small muted">since 24 Jul 2026</span></td><td>Mammography bilateral<br><span class="mono small">ACC-2026-91215 · 24 Jul</span></td><td><span class="chip amber">REPORTING · P90 on track</span></td><td>None scheduled</td><td><span class="btn small primary">Open</span></td></tr>
+        <tr class="dim"><td><b>Vikram Joshi</b><br><span class="mono small">MRN-004761</span> · M · 63y</td><td>Referred by me<br><span class="small muted">since 11 Nov 2025</span></td><td>MRI Lumbar spine<br><span class="mono small">ACC-2026-90882 · 14 Jun</span></td><td><span class="chip green">FINAL</span> <span class="small muted">no activity 41 days</span></td><td>None scheduled</td><td><span class="btn small">Open</span></td></tr>
+      </table>
+      <div class="row" style="margin-top:10px;justify-content:space-between">
+        <span class="small muted">Showing 7 of 14 · dimmed rows have no activity for 30+ days</span>
+        <span class="btn small ghost">Load 7 more</span>
+      </div>
+      <p class="audit">Opening any patient row is logged with purpose "care-team view". This list never includes patients who ended the relationship or opted out of referrer sharing. Recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SEARCH WITHIN MY PATIENTS ONLY</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="crumb">Doctor Desk › My patients › Search</div>
+      <div class="page-title">Search results — "sharma"</div>
+      <div class="page-sub">Searched within your 14 care-relationship patients only · 1 match</div>
+      <div class="row" style="margin-bottom:12px">
+        <input class="input grow" value="sharma">
+        <span class="btn primary">Search my patients</span>
+      </div>
+      <table>
+        <tr><th>Patient</th><th>Relationship</th><th>Last order</th><th>Latest result</th><th>Next appointment</th><th>Actions</th></tr>
+        <tr class="hl"><td><b>Aarav Sharma</b><br><span class="mono small">MRN-004821</span> · M · 41y</td><td>Referred by me</td><td>CT KUB (plain) · 24 Jul<br><span class="mono small">ACC-2026-91201</span></td><td><span class="chip amber">PRELIMINARY</span></td><td><span class="mono small">APPT-2026-51240</span> · 08 Aug, 10:30</td><td><span class="btn small primary">Open</span></td></tr>
+      </table>
+      <div class="banner warn" style="margin-top:12px"><b>Looking for a different Sharma?</b> This search covers only your own patients. Other patients named Sharma may exist at Meridian, but Magnus will not confirm or list them here (zero-demographics policy). If a patient of yours is missing, they may not have listed you as referrer at registration — ask them to add you at the front desk, or raise an <b>access request</b> with their MRN or accession number. <span class="btn small" style="margin-left:6px">Raise access request</span></div>
+      <p class="audit">Search terms are logged against your profile for pattern review; searches never touch records outside your care-team scope. Recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — REMOVE FROM MY LIST · RELATIONSHIP ENDED, ACCESS ENDS</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="crumb">Doctor Desk › My patients › Vikram Joshi › End care relationship</div>
+      <div class="modal-wrap">
+        <div class="modal danger">
+          <h3>End care relationship — Vikram Joshi (MRN-004761)</h3>
+          <div class="banner warn" style="margin-bottom:12px"><b>What happens when you remove this patient:</b> the care relationship is marked ended today, the patient disappears from "My patients", and your access to their records <b>ends immediately</b>. Past reports you already downloaded remain your clinical responsibility to store securely. The patient is notified.</div>
+          <div class="field"><label>Reason for ending <span class="req">*</span></label>
+            <select class="select"><option>Treatment episode complete — no ongoing care</option></select>
+            <div class="hint">Other reasons: Patient transferred to another doctor · Patient requested removal · Added in error.</div>
+          </div>
+          <div class="field"><label>Note (optional, kept in the relationship record)</label><input class="input" value="Lumbar spine episode concluded 14 Jun 2026; no follow-up planned."></div>
+          <div class="check"><span class="box on">✓</span>I understand my access to this patient's records ends immediately and future access would need a new referral or an approved access request.</div>
+          <div class="modal-actions"><span class="btn">Cancel</span><span class="btn danger">End relationship &amp; remove from my list</span></div>
+        </div>
+      </div>
+      <div class="banner success"><b>✔ Relationship ended.</b> Vikram Joshi (MRN-004761) was removed from your list on 25 Jul 2026, 10:32 IST. Record access revoked at the same instant; open sessions on this record were terminated. The patient has been notified by SMS and portal notice.</div>
+      <table style="max-width:760px">
+        <tr><th>Patient</th><th>Relationship</th><th>Ended</th><th>Access</th><th>If needed again</th></tr>
+        <tr class="dim"><td><b>Vikram Joshi</b> <span class="mono small">MRN-004761</span></td><td><span class="chip grey">ENDED — episode complete</span></td><td>25 Jul 2026, 10:32 IST</td><td><span class="chip red">REVOKED</span></td><td><span class="btn small">New referral</span> <span class="btn small">Access request</span></td></tr>
+      </table>
+      <p class="audit">Relationship end (who, when, reason, note), the access revocation and the patient notification are appended to the relationship record and recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<p class="audit">Care relationships are the sole basis of Doctor Desk record visibility; every creation, view and termination is written to the tamper-evident audit trail and recorded in the access log.</p>
+</section>
+<section class="screen" id="dd-08">
+<div class="screen-head"><h1><span class="sid">DD-08</span> Referral analytics</h1><div class="meta"><span class="chip grey">CONDITIONAL</span><div class="cluster">G8 Doctor Desk (Referrers) — workspace 'Doctor Desk'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Gives the referrer an aggregate, accessible-table view of their own referral activity: monthly volumes by modality, the turnaround time their patients actually experienced (P50/P90), addendum rate on their reports, and delivery-channel success. Strictly self-only — no comparisons with other doctors and no patient-level drill-down from this screen.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">Dashboard</div>
+      <div class="nav-item">My patients <span class="nav-badge">14</span></div>
+      <div class="nav-item">Reports inbox <span class="nav-badge">3</span></div>
+      <div class="nav-item">New referral</div>
+      <div class="sec-label">Access</div>
+      <div class="nav-item">Access requests</div>
+      <div class="nav-item">Break-glass access</div>
+      <div class="sec-label">Insights</div>
+      <div class="nav-item active">Referral analytics</div>
+      <div class="nav-item">Profile &amp; channels</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › Insights › Referral analytics</div>
+      <div class="page-title">Referral analytics — July 2026 (month to date) <span class="actions-right"><select class="select" style="width:160px"><option>July 2026</option></select></span></div>
+      <div class="page-sub">Your referrals to Meridian Diagnostics, Andheri West · data as of 25 Jul 2026, 08:00 IST · aggregates only</div>
+      <div class="banner reg"><b>🔒 Privacy note — aggregate only.</b> These figures cover only patients you referred, computed as counts and percentiles with no patient identifiers. Magnus does not show you other doctors' volumes, rankings or any comparison — referrer analytics are strictly self-referential by policy.</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">38</div><div class="l">Referrals this month</div><div class="s">Jun 2026: 41</div></div>
+        <div class="kpi"><div class="n">19h 40m</div><div class="l">TAT experienced · P50</div><div class="s">order placed → final report delivered</div></div>
+        <div class="kpi amber"><div class="n">42h 15m</div><div class="l">TAT experienced · P90</div><div class="s">driven by 3 contrast MRI cases</div></div>
+        <div class="kpi"><div class="n">2.6%</div><div class="l">Addendum rate</div><div class="s">1 of 38 reports · Jun: 0%</div></div>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Referral volume by modality — July 2026 <span class="right">Accessible table</span></div>
+          <table>
+            <tr><th>Modality</th><th>Referrals</th><th>Completed</th><th>TAT P50</th><th>TAT P90</th><th>Share of month</th></tr>
+            <tr><td>Ultrasound (incl. obstetric)</td><td>12</td><td>12</td><td>4h 05m</td><td>9h 30m</td><td>32% <div class="progress" style="max-width:120px"><i style="width:32%"></i></div></td></tr>
+            <tr><td>X-ray</td><td>9</td><td>9</td><td>2h 20m</td><td>5h 45m</td><td>24% <div class="progress" style="max-width:120px"><i style="width:24%"></i></div></td></tr>
+            <tr><td>CT</td><td>8</td><td>7</td><td>22h 10m</td><td>38h 00m</td><td>21% <div class="progress" style="max-width:120px"><i style="width:21%"></i></div></td></tr>
+            <tr><td>MRI</td><td>6</td><td>5</td><td>30h 45m</td><td>46h 20m</td><td>16% <div class="progress amber" style="max-width:120px"><i style="width:16%"></i></div></td></tr>
+            <tr><td>Mammography</td><td>3</td><td>2</td><td>21h 00m</td><td>26h 30m</td><td>8% <div class="progress" style="max-width:120px"><i style="width:8%"></i></div></td></tr>
+            <tr><td class="bold">All modalities</td><td class="bold">38</td><td class="bold">35</td><td class="bold">19h 40m</td><td class="bold">42h 15m</td><td>100%</td></tr>
+          </table>
+          <p class="small muted" style="margin-top:6px">TAT experienced = time from order acceptance to final report delivered on your chosen channel. 3 studies still in progress are excluded from percentiles.</p>
+        </div>
+        <div class="card" style="width:300px;flex-shrink:0">
+          <div class="card-title">Delivery-channel success <span class="right">July 2026</span></div>
+          <table>
+            <tr><th>Channel</th><th>Sent</th><th>Delivered</th><th>Success</th></tr>
+            <tr><td>Doctor Desk inbox</td><td>35</td><td>35</td><td><span class="chip green">100%</span></td></tr>
+            <tr><td>Secure e-mail link</td><td>28</td><td>27</td><td><span class="chip green">96%</span></td></tr>
+            <tr><td>WhatsApp (consented)</td><td>19</td><td>17</td><td><span class="chip amber">89%</span></td></tr>
+            <tr><td>Printed copy at desk</td><td>4</td><td>4</td><td><span class="chip green">100%</span></td></tr>
+          </table>
+          <div class="banner warn" style="margin-top:10px;margin-bottom:0"><b>1 e-mail bounce, 2 WhatsApp failures.</b> Check your channels in Profile &amp; channels — failed deliveries fall back to Doctor Desk inbox automatically.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Report addenda on my patients — July 2026 <span class="right">1 event</span></div>
+        <table>
+          <tr><th>When</th><th>Study type</th><th>Addendum category</th><th>What changed</th><th>You were notified</th></tr>
+          <tr><td>20 Jul 2026</td><td>Chest X-ray PA</td><td><span class="chip violet">CLARIFICATION</span></td><td>Measurement corrected; impression unchanged. v2 supersedes v1.</td><td><span class="chip green">READ 20 JUL, 14:02</span></td></tr>
+        </table>
+        <p class="small muted" style="margin-top:6px">Addendum rate 2.6% (1/38). Patient identity is not shown here — open the tagged report from your Reports inbox for clinical detail.</p>
+      </div>
+      <p class="audit">Analytics are computed nightly from de-identified aggregates of your own referrals; viewing this page is recorded in the access log. No export contains patient identifiers.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — 6-MONTH TREND TABLE</div>
+<div class="frame">
+  <div class="body">
+    <div class="main" style="padding:16px 18px">
+      <div class="crumb">Doctor Desk › Insights › Referral analytics › Trend</div>
+      <div class="page-title">6-month trend — Feb to Jul 2026 <span class="actions-right"><span class="btn small">Download CSV (aggregates only)</span></span></div>
+      <div class="page-sub">Your own referral aggregates, month by month · accessible-table format, no charts required</div>
+      <div class="card">
+        <div class="card-title">Volume, turnaround and quality by month <span class="right">Self-only · no peer comparison</span></div>
+        <table>
+          <tr><th>Month</th><th>Referrals</th><th>Top modality</th><th>TAT P50</th><th>TAT P90</th><th>Addendum rate</th><th>Delivery success (all channels)</th></tr>
+          <tr><td>Feb 2026</td><td>29</td><td>Ultrasound (11)</td><td>21h 10m</td><td>44h 05m</td><td>0.0%</td><td>95%</td></tr>
+          <tr><td>Mar 2026</td><td>33</td><td>Ultrasound (12)</td><td>20h 30m</td><td>43h 50m</td><td>3.0% (1)</td><td>96%</td></tr>
+          <tr><td>Apr 2026</td><td>31</td><td>X-ray (10)</td><td>19h 55m</td><td>41h 10m</td><td>0.0%</td><td>97%</td></tr>
+          <tr><td>May 2026</td><td>36</td><td>Ultrasound (13)</td><td>18h 40m</td><td>40h 25m</td><td>2.8% (1)</td><td>97%</td></tr>
+          <tr><td>Jun 2026</td><td>41</td><td>Ultrasound (14)</td><td>18h 05m</td><td>39h 30m</td><td>0.0%</td><td>98%</td></tr>
+          <tr class="hl"><td>Jul 2026 (MTD)</td><td>38</td><td>Ultrasound (12)</td><td>19h 40m</td><td>42h 15m</td><td>2.6% (1)</td><td>96%</td></tr>
+        </table>
+        <p class="small muted" style="margin-top:6px">P50/P90 are computed on completed studies only. Months with fewer than 5 referrals in a modality suppress that modality's percentile cell to avoid small-number identification.</p>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Reading this table</div>
+          <div class="check"><span class="box on">✓</span><span><b>TAT experienced</b> is patient-experienced turnaround (order → report delivered), not the lab's internal reporting TAT — it includes delivery-channel delays.</span></div>
+          <div class="check"><span class="box on">✓</span><span><b>Addendum rate</b> counts clarification and correction addenda on final reports for your patients; a low, non-zero rate is normal.</span></div>
+          <div class="check"><span class="box on">✓</span><span><b>Delivery success</b> is first-attempt success across your enabled channels; failures always fall back to your Doctor Desk inbox.</span></div>
+        </div>
+        <div class="card" style="width:320px;flex-shrink:0">
+          <div class="card-title">Privacy &amp; scope <span class="right">Policy</span></div>
+          <p class="small">This page shows aggregates of your own referrals only. Magnus never shows referrers league tables, other doctors' figures, or incentive-linked metrics; referral analytics carry no payment linkage, consistent with Meridian's anti-inducement policy. CSV downloads contain the aggregate rows above and nothing else.</p>
+        </div>
+      </div>
+      <p class="audit">Trend view and CSV downloads (aggregates only, no identifiers) by Dr. Meera Nair on 25 Jul 2026 are recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<p class="audit">Referral analytics access is itself audited; any attempt to query another referrer's aggregates is denied and recorded in the access log.</p>
+</section>
+<section class="screen" id="dd-09">
+<div class="screen-head"><h1><span class="sid">DD-09</span> Delivery preferences &amp; profile</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G8 Doctor Desk (Referrers)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> A referring doctor manages their own profile — registration details shown read-only, letterhead details used on printed prescriptions, and delivery preferences for report copies. Changing the verified mobile number forces an OTP re-verification on <i>both</i> the old and new number (report-hijack guard). Critical-result calls always ring the designated critical-call number regardless of working hours.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">My Patients</div>
+      <div class="nav-item">Results Inbox <span class="nav-badge">4</span></div>
+      <div class="nav-item">Critical Alerts <span class="nav-badge red">1</span></div>
+      <div class="nav-item">Refer a Patient</div>
+      <div class="sec-label">Account</div>
+      <div class="nav-item active">Profile &amp; Delivery</div>
+      <div class="nav-item">Delegation / Locum</div>
+      <div class="nav-item">Notes &amp; Prescriptions</div>
+      <div class="sec-label">Support</div>
+      <div class="nav-item">Help &amp; Contact</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › Account › Profile &amp; delivery preferences</div>
+      <div class="page-title">My profile &amp; delivery preferences <span class="actions-right"><span class="btn small">Discard</span> <span class="btn primary small">Save changes</span></span></div>
+      <div class="page-sub">Registration details are verified by Meridian and read-only. Delivery preferences apply to all future report copies sent to you.</div>
+
+      <div class="banner info"><b>Why we verify your mobile</b>Your verified mobile is where patient report links and critical-result calls go. Changing it requires OTP confirmation on the old and the new number — this protects your patients from report hijacking.</div>
+
+      <div class="row">
+        <div class="grow">
+          <div class="card">
+            <div class="card-title">Registration &amp; identity <span class="right">Verified · read-only</span></div>
+            <dl class="kv">
+              <dt>Full name</dt><dd>Dr. Meera Nair, MD (Obstetrics &amp; Gynaecology)</dd>
+              <dt>Council reg. no.</dt><dd><span class="mono">MMC/2009/41172</span> · Maharashtra Medical Council <span class="chip green">Verified 12 Mar 2026</span></dd>
+              <dt>NMC (MCI) UID</dt><dd><span class="mono">NMC-7-41172-2009</span></dd>
+              <dt>Verified mobile</dt><dd><span class="mono">+91 98••• ••412</span> <span class="chip green">OTP verified</span> <span class="btn ghost small">Change number…</span></dd>
+              <dt>Email</dt><dd>dr.meera.nair@nairclinic.in <span class="chip grey">Secondary channel</span></dd>
+              <dt>Referrer ID</dt><dd><span class="mono">REF-MD-0117</span> · linked to 214 patient records</dd>
+            </dl>
+            <div class="hint small muted" style="margin-top:8px">To correct registration details, contact the Meridian referrer relations team — changes need document re-verification by admin K. Verma.</div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Letterhead details for prescriptions <span class="right">Printed on Rx (DD-11)</span></div>
+            <div class="row">
+              <div class="grow">
+                <div class="field"><label>Clinic name</label><div class="input">Nair Women's Clinic</div></div>
+                <div class="field"><label>Clinic address</label><div class="textarea">2nd Floor, Sunrise Arcade, JP Road,<br>Andheri West, Mumbai 400058</div></div>
+              </div>
+              <div class="grow">
+                <div class="field"><label>Qualifications line</label><div class="input">MBBS, MD (Obst. &amp; Gynae.) · Reg. MMC/2009/41172</div></div>
+                <div class="field"><label>Clinic phone (printed)</label><div class="input">+91 22 2673 4410</div></div>
+                <div class="field"><label>Clinic timings (printed)</label><div class="input">Mon–Sat 10:00–13:00, 17:00–20:00</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Report delivery preferences</div>
+            <table>
+              <tr><th>Channel</th><th>Destination</th><th>Used for</th><th>Status</th></tr>
+              <tr class="hl"><td><span class="box on">✓</span> Doctor Desk inbox</td><td>This portal</td><td>All finalised reports (always on)</td><td><span class="chip teal">Default</span></td></tr>
+              <tr><td><span class="box on">✓</span> SMS link</td><td class="mono">+91 98••• ••412</td><td>Finalised report link (OTP-gated view)</td><td><span class="chip green">Active</span></td></tr>
+              <tr><td><span class="box on">✓</span> Email (PDF, password-protected)</td><td>dr.meera.nair@nairclinic.in</td><td>Finalised report PDF</td><td><span class="chip green">Active</span></td></tr>
+              <tr><td><span class="box"></span> WhatsApp Business</td><td class="mono">+91 98••• ••412</td><td>Report-ready notification only</td><td><span class="chip grey">Off</span></td></tr>
+              <tr><td><span class="box"></span> Fax</td><td>—</td><td>Legacy</td><td><span class="chip grey">Off</span></td></tr>
+            </table>
+            <div class="hint small muted" style="margin-top:8px">🔒 Report links are OTP-gated and expire in 72 hours. Full PDFs are never sent over plain SMS or WhatsApp.</div>
+          </div>
+        </div>
+
+        <div style="width:300px;flex-shrink:0">
+          <div class="card">
+            <div class="card-title">Critical-result calls</div>
+            <div class="field"><label>Critical-call number <span class="req">*</span></label><div class="input mono">+91 98••• ••412</div><div class="hint">Radiologist / duty doctor calls this number for red-flag findings. Always rings — working hours do not apply.</div></div>
+            <div class="field"><label>Backup contact (optional)</label><div class="input">Clinic reception · +91 22 2673 4410</div><div class="hint">Tried if the critical-call number is unreachable after 2 attempts in 15 min.</div></div>
+            <span class="chip red">Critical path — 30 min SLA</span>
+          </div>
+          <div class="card">
+            <div class="card-title">Working hours (non-urgent calls)</div>
+            <table>
+              <tr><th>Day</th><th>Hours</th></tr>
+              <tr><td>Mon–Fri</td><td>10:00 – 20:00 IST</td></tr>
+              <tr><td>Saturday</td><td>10:00 – 14:00 IST</td></tr>
+              <tr><td>Sunday</td><td><span class="chip grey">No calls</span></td></tr>
+            </table>
+            <div class="check" style="margin-top:8px"><span class="box on">✓</span><span>Hold non-urgent calls &amp; SMS outside these hours; deliver next working morning.</span></div>
+            <div class="check"><span class="box on">✓</span><span>Critical results always override working hours.</span></div>
+          </div>
+          <div class="card">
+            <div class="card-title">Recent profile changes</div>
+            <div class="timeline">
+              <div class="ev"><span class="t">18 Jul 10:04</span><span>Email channel enabled (self)</span></div>
+              <div class="ev"><span class="t">12 Mar 09:41</span><span>MMC registration re-verified (K. Verma)</span></div>
+              <div class="ev"><span class="t">04 Feb 16:20</span><span>Mobile verified via OTP (self)</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — CHANGE MOBILE: DUAL OTP RE-VERIFY (REPORT-HIJACK GUARD)</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Change verified mobile number</h3>
+    <div class="banner warn"><b>Identity confirmation required</b>Report links and critical-result calls follow this number. We verify the old and the new number before switching — no reports are delivered to the new number until both OTPs pass.</div>
+    <div class="stepper">
+      <span class="step done"><span class="dot">✓</span> New number entered</span><span class="step-line"></span>
+      <span class="step done"><span class="dot">✓</span> OTP to current number</span><span class="step-line"></span>
+      <span class="step cur"><span class="dot">3</span> OTP to new number</span><span class="step-line"></span>
+      <span class="step"><span class="dot">4</span> Switched</span>
+    </div>
+    <dl class="kv">
+      <dt>Current number</dt><dd class="mono">+91 98••• ••412 <span class="chip green">OTP verified 14:32</span></dd>
+      <dt>New number</dt><dd class="mono">+91 99••• ••305</dd>
+    </dl>
+    <div class="field" style="margin-top:10px"><label>Enter 6-digit OTP sent to +91 99••• ••305</label><div class="input mono" style="max-width:180px;letter-spacing:6px">4 8 2 ▮ _ _</div><div class="hint">OTP expires in 08:42 · <span class="btn ghost small">Resend (1 of 3)</span></div></div>
+    <div class="check"><span class="box on">✓</span><span>I confirm this number belongs to me, Dr. Meera Nair (MMC/2009/41172), and not to staff or third parties.</span></div>
+    <div class="hint small muted">🔒 If you did not request this change, tap "This wasn't me" — the change is blocked and Meridian security is alerted.</div>
+    <div class="modal-actions"><span class="btn ghost">This wasn't me</span><span class="btn">Cancel</span><span class="btn primary">Verify &amp; switch number</span></div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — SAVED CONFIRMATION</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Account</div>
+      <div class="nav-item active">Profile &amp; Delivery</div>
+      <div class="nav-item">Delegation / Locum</div>
+      <div class="nav-item">Notes &amp; Prescriptions</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › Account › Profile &amp; delivery preferences</div>
+      <div class="page-title">My profile &amp; delivery preferences</div>
+      <div class="page-sub">Saved 24 Jul 2026, 14:41 IST</div>
+      <div class="banner success"><b>Preferences saved &amp; mobile updated</b>Verified mobile changed to +91 99••• ••305 (dual-OTP passed 14:39). SMS report links and critical calls now route to the new number. A confirmation SMS was sent to the old number with a 72-hour dispute link.</div>
+      <div class="card">
+        <div class="card-title">What changed <span class="right">3 fields</span></div>
+        <table>
+          <tr><th>Field</th><th>Before</th><th>After</th><th>Verified by</th></tr>
+          <tr><td>Verified mobile</td><td class="mono">+91 98••• ••412</td><td class="mono">+91 99••• ••305</td><td>Dual OTP (old + new)</td></tr>
+          <tr><td>WhatsApp notifications</td><td>Off</td><td>On (notification only, no PDF)</td><td>Self</td></tr>
+          <tr><td>Saturday working hours</td><td>10:00 – 14:00</td><td>10:00 – 13:00</td><td>Self</td></tr>
+        </table>
+      </div>
+      <div class="banner info"><b>Pending report links</b>2 unopened report links sent to the old number were revoked and re-issued to +91 99••• ••305 (Sofia Rossi MRN-004822 · ACC-2026-91247; Ananya Rao MRN-004819 · ACC-2026-91214).</div>
+    </div>
+  </div>
+</div>
+
+<p class="audit">Profile edits, channel toggles, both OTP verifications (masked numbers, device fingerprint) and the revoke/re-issue of pending report links are recorded in the access log.</p>
+</section>
+<section class="screen" id="dd-10">
+<div class="screen-head"><h1><span class="sid">DD-10</span> Delegation / locum access</h1><div class="meta"><span class="chip amber">Conditional</span><div class="cluster">G8 Doctor Desk (Referrers)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> A referrer going on leave grants scoped, time-boxed access to a named registered doctor (locum): read access to my-patients, with an optional toggle to acknowledge results on my behalf. The delegate logs in under their own identity, sees a persistent acts-as banner, and every action is audited against both identities. Access auto-expires (max 30 days) and can be revoked at any time.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">My Patients</div>
+      <div class="nav-item">Results Inbox <span class="nav-badge">4</span></div>
+      <div class="nav-item">Critical Alerts <span class="nav-badge red">1</span></div>
+      <div class="nav-item">Refer a Patient</div>
+      <div class="sec-label">Account</div>
+      <div class="nav-item">Profile &amp; Delivery</div>
+      <div class="nav-item active">Delegation / Locum</div>
+      <div class="nav-item">Notes &amp; Prescriptions</div>
+      <div class="sec-label">Support</div>
+      <div class="nav-item">Help &amp; Contact</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › Account › Delegation / locum access</div>
+      <div class="page-title">Delegation / locum access <span class="actions-right"><span class="btn primary small">+ Grant delegate access</span></span></div>
+      <div class="page-sub">Grant a named, registered doctor temporary access to your Doctor Desk patients while you are away. Maximum validity 30 days; auto-expires.</div>
+
+      <div class="banner reg"><b>How delegation works</b>The delegate signs in with their <i>own</i> verified Doctor Desk identity — credentials are never shared. They see your patients read-only, cannot change your delivery preferences, cannot re-delegate, and cannot download bulk exports. Every view and acknowledgement is logged against both names.</div>
+
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">1</div><div class="l">Active delegation</div><div class="s">Dr. S. Iyer · ends 09 Aug</div></div>
+        <div class="kpi"><div class="n">17</div><div class="l">Delegate actions (this grant)</div><div class="s">14 views · 3 result acks</div></div>
+        <div class="kpi amber"><div class="n">16d</div><div class="l">Time remaining</div><div class="s">Auto-expiry 09 Aug 2026, 23:59 IST</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Delegation history <span class="right">Last 12 months</span></div>
+        <table>
+          <tr><th>Delegate</th><th>Reg. no.</th><th>Scope</th><th>Validity</th><th>Actions logged</th><th>Status</th></tr>
+          <tr class="hl"><td>Dr. S. Iyer</td><td class="mono">MMC/2013/58204</td><td>My-patients read + results-ack</td><td>24 Jul – 09 Aug 2026</td><td>17</td><td><span class="chip green">Active</span></td></tr>
+          <tr><td>Dr. Farida Khan</td><td class="mono">MMC/2011/47720</td><td>My-patients read only</td><td>02 – 16 May 2026</td><td>41</td><td><span class="chip grey">Expired</span></td></tr>
+          <tr><td>Dr. S. Iyer</td><td class="mono">MMC/2013/58204</td><td>My-patients read only</td><td>10 – 12 Jan 2026</td><td>6</td><td><span class="chip red">Revoked early</span></td></tr>
+          <tr><td>Dr. Farida Khan</td><td class="mono">MMC/2011/47720</td><td>My-patients read + results-ack</td><td>18 Aug – 01 Sep 2025</td><td>58</td><td><span class="chip grey">Expired</span></td></tr>
+        </table>
+        <div class="hint small muted" style="margin-top:8px">🔒 Delegates must already hold a verified Doctor Desk account. You cannot delegate to unregistered persons, clinic staff, or yourself.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — GRANT DELEGATE ACCESS MODAL</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Grant delegate / locum access</h3>
+    <div class="field"><label>Delegate (registered doctor) <span class="req">*</span></label><div class="input">Dr. S. Iyer · MMC/2013/58204 · Iyer Diagnostics Clinic, Vile Parle</div><div class="hint">Search by name or council registration number. Only verified Doctor Desk accounts appear.</div></div>
+    <div class="field"><label>Scope</label>
+      <div class="check"><span class="box on">✓</span><span><b>My-patients — read</b> (always included): reports, images link, referral history for patients referred by me.</span></div>
+      <div class="check"><span class="box on">✓</span><span><b>Results acknowledgement</b> (optional): delegate may acknowledge finalised &amp; critical results on my behalf. Ack records show "Dr. S. Iyer for Dr. Meera Nair".</span></div>
+      <div class="check"><span class="box"></span><span class="muted"><b>Notes &amp; prescriptions</b> — not delegable. Delegate writes under their own authorship only.</span></div>
+    </div>
+    <div class="row">
+      <div class="grow"><div class="field"><label>Valid from <span class="req">*</span></label><div class="input">24 Jul 2026, 18:00 IST</div></div></div>
+      <div class="grow"><div class="field"><label>Valid until <span class="req">*</span></label><div class="input">09 Aug 2026, 23:59 IST</div><div class="hint">Maximum 30 days. Auto-expires — no action needed.</div></div></div>
+    </div>
+    <div class="field"><label>Reason (shown to delegate &amp; in audit)</label><div class="input">Annual leave — overseas conference</div></div>
+    <div class="banner warn"><b>Step-up confirmation</b>Granting access to patient records requires OTP confirmation on your verified mobile +91 98••• ••412.</div>
+    <div class="field"><label>OTP</label><div class="input mono" style="max-width:160px;letter-spacing:6px">7 3 1 9 0 2</div></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Confirm &amp; grant access</span></div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — DELEGATE'S VIEW: ACTS-AS BANNER (DR. S. IYER SIGNED IN)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av" style="background:#EDE9FE;color:#6D28D9">SI</span>Dr. S. Iyer ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">My Patients</div>
+      <div class="nav-item active">Acting for: Dr. M. Nair <span class="nav-badge">4</span></div>
+      <div class="nav-item">Refer a Patient</div>
+      <div class="sec-label">Account</div>
+      <div class="nav-item">Profile &amp; Delivery</div>
+    </div>
+    <div class="main">
+      <div class="banner reg"><b>⚠ Acting as delegate for Dr. Meera Nair (MMC/2009/41172)</b>You are signed in as <b>Dr. S. Iyer</b> with read + results-ack access to Dr. Nair's patients until <b>09 Aug 2026, 23:59 IST</b>. Reason: Annual leave — overseas conference. Every action here is logged against both identities. <span class="btn ghost small">Exit delegate view</span></div>
+      <div class="crumb">Doctor Desk › Acting for Dr. M. Nair › Results inbox</div>
+      <div class="page-title">Dr. Nair's results inbox <span class="chip violet">DELEGATE VIEW · READ + ACK</span></div>
+      <div class="page-sub">Read-only patient records. You may acknowledge results; acknowledgements are recorded as "Dr. S. Iyer for Dr. Meera Nair".</div>
+      <table>
+        <tr><th>Patient</th><th>Accession</th><th>Study</th><th>Finalised</th><th>Priority</th><th>SLA (ack)</th><th>Action</th></tr>
+        <tr class="hl"><td>Sofia Rossi · MRN-004822</td><td class="mono">ACC-2026-91247</td><td>MRI Brain w/ contrast</td><td>24 Jul 11:38</td><td><span class="chip red">Critical finding</span></td><td><span class="chip red">OVERDUE 42m</span> owner: Dr. S. Iyer (for Dr. Nair) · escalated-to: Dr. V. Shetty</td><td><span class="btn primary small">View &amp; acknowledge</span></td></tr>
+        <tr><td>Aarav Sharma · MRN-004821</td><td class="mono">ACC-2026-91232</td><td>CT KUB plain</td><td>24 Jul 09:12</td><td><span class="chip grey">Routine</span></td><td><span class="chip teal">Due in 22h</span> owner: Dr. S. Iyer (for Dr. Nair)</td><td><span class="btn small">View</span></td></tr>
+        <tr><td>Priya Menon · MRN-004828</td><td class="mono">ACC-2026-91201</td><td>USG Obstetric (anomaly scan)</td><td>23 Jul 17:05</td><td><span class="chip amber">Abnormal</span></td><td><span class="chip amber">Due in 3h</span> owner: Dr. S. Iyer (for Dr. Nair)</td><td><span class="btn small">View</span></td></tr>
+        <tr><td>Rajesh Gupta · MRN-004795</td><td class="mono">ACC-2026-91188</td><td>X-Ray Chest PA</td><td>23 Jul 12:44</td><td><span class="chip grey">Routine</span></td><td><span class="chip green">Acked 23 Jul 18:02</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      </table>
+      <div class="hint small muted" style="margin-top:8px">🔒 Foetal sex is never disclosed on obstetric studies (PCPNDT Act). Bulk export, delivery-preference changes and re-delegation are disabled in delegate view.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE D — DELEGATION REVOKED</div>
+<div class="modal-wrap">
+  <div class="modal danger">
+    <h3>Revoke delegate access now?</h3>
+    <p style="font-size:13px;margin-bottom:10px">Dr. S. Iyer's access to your patients ends immediately. Any open sessions are terminated within 60 seconds. This does not delete the audit trail of actions already taken.</p>
+    <dl class="kv">
+      <dt>Delegate</dt><dd>Dr. S. Iyer · MMC/2013/58204</dd>
+      <dt>Granted</dt><dd>24 Jul 2026, 18:00 IST · scope: read + results-ack</dd>
+      <dt>Actions logged</dt><dd>17 (14 views, 3 acknowledgements) — view full trail after revoking</dd>
+      <dt>Reason for revoke</dt><dd><div class="input">Returned from leave early</div></dd>
+    </dl>
+    <div class="banner warn" style="margin-top:10px"><b>Step-up confirmation</b>OTP sent to +91 98••• ••412 to confirm it is you revoking access.</div>
+    <div class="modal-actions"><span class="btn">Keep access</span><span class="btn danger">Revoke access now</span></div>
+  </div>
+</div>
+<div class="banner success" style="max-width:760px"><b>Delegation revoked — 25 Jul 2026, 09:14 IST</b>Dr. S. Iyer's session was terminated and they were notified by SMS. 1 result acknowledgement made during the delegation remains attributed as "Dr. S. Iyer for Dr. Meera Nair". Full delegate action trail: 17 entries, exportable as PDF.</div>
+
+<p class="audit">Grant, scope toggles, OTP step-up, every delegate view/acknowledgement (dual identity: delegate + principal), session termination and auto-expiry events are recorded in the access log.</p>
+</section>
+<section class="screen" id="dd-11">
+<div class="screen-head"><h1><span class="sid">DD-11</span> Basic SOAP note &amp; prescription</h1><div class="meta"><span class="chip amber">Conditional</span><div class="cluster">G8 Doctor Desk (Referrers)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> After reviewing a result, the referring doctor can capture a quick SOAP note linked to the report and build a simple prescription (free-text drugs with strength/frequency/duration). Known allergies from the Meridian record are surfaced inline. The prescription prints on the doctor's own letterhead with a digital-signature line, and both note and Rx save to the patient record under the doctor's authorship.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">My Patients</div>
+      <div class="nav-item">Results Inbox <span class="nav-badge">4</span></div>
+      <div class="nav-item">Critical Alerts <span class="nav-badge red">1</span></div>
+      <div class="nav-item">Refer a Patient</div>
+      <div class="sec-label">Account</div>
+      <div class="nav-item">Profile &amp; Delivery</div>
+      <div class="nav-item">Delegation / Locum</div>
+      <div class="nav-item active">Notes &amp; Prescriptions</div>
+      <div class="sec-label">Support</div>
+      <div class="nav-item">Help &amp; Contact</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › My Patients › Sofia Rossi (MRN-004822) › New SOAP note</div>
+      <div class="page-title">SOAP note — Sofia Rossi <span class="actions-right"><span class="btn small">Save draft</span> <span class="btn primary small">Sign &amp; save to record</span></span></div>
+      <div class="page-sub">Patient: Sofia Rossi · F 34 · MRN-004822 · linked result: <span class="mono">ACC-2026-91247</span> MRI Brain w/ contrast (finalised 24 Jul 11:38, Dr. V. Shetty)</div>
+
+      <div class="banner danger"><b>Allergy on record</b>Penicillin — anaphylaxis (recorded 09 Feb 2026, Meridian Andheri West). Shown from the Meridian record; verify with patient before prescribing.</div>
+
+      <div class="split">
+        <div>
+          <div class="card">
+            <div class="card-title">SOAP note <span class="right">Author: Dr. Meera Nair</span></div>
+            <div class="field"><label>S — Subjective</label><div class="textarea">Persistent right-sided headache 3 weeks, worse mornings; two episodes of blurred vision. No seizures, no vomiting. Sleep disturbed. No history of trauma.</div></div>
+            <div class="field"><label>O — Objective</label><div class="textarea">BP 118/76, afebrile. Neuro exam grossly intact; mild papilloedema right fundus. MRI Brain (ACC-2026-91247): 14 mm extra-axial dural-based lesion right frontal convexity, likely meningioma; no midline shift.</div></div>
+            <div class="field"><label>A — Assessment</label><div class="textarea">Probable right frontal convexity meningioma, symptomatic (headache, early papilloedema). Differential: dural metastasis — low suspicion.</div></div>
+            <div class="field"><label>P — Plan</label><div class="textarea">Neurosurgery referral (Dr. A. Kelkar, Kokilaben Hospital) within 1 week. Symptomatic analgesia — see Rx. Repeat contrast MRI in 3 months if surgery deferred. Advised to report any seizure, worsening vision or vomiting immediately.</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Linked result</div>
+            <dl class="kv" style="grid-template-columns:110px 1fr">
+              <dt>Accession</dt><dd class="mono">ACC-2026-91247</dd>
+              <dt>Study</dt><dd>MRI Brain w/ contrast</dd>
+              <dt>Reported by</dt><dd>Dr. V. Shetty</dd>
+              <dt>Status</dt><dd><span class="chip red">Critical finding</span> <span class="chip green">Acked 24 Jul 12:20</span></dd>
+            </dl>
+            <span class="btn ghost small">Open full report ↗</span>
+          </div>
+          <div class="card">
+            <div class="card-title">Note options</div>
+            <div class="check"><span class="box on">✓</span><span>Link this note to accession ACC-2026-91247</span></div>
+            <div class="check"><span class="box on">✓</span><span>Visible to Meridian radiologist (clinical context for future studies)</span></div>
+            <div class="check"><span class="box"></span><span>Share copy with patient portal</span></div>
+            <div class="hint small muted" style="margin-top:6px">🔒 Notes are authored under your verified identity and cannot be edited after signing — corrections are appended as addenda.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Prescription <span class="right"><span class="chip violet">Interactions check — Roadmap</span></span></div>
+            <table>
+              <tr><th>Drug (free text)</th><th>Strength</th><th>Freq</th><th>Days</th></tr>
+              <tr><td>Tab. Paracetamol</td><td>650 mg</td><td>1-0-1</td><td>7</td></tr>
+              <tr><td>Tab. Naproxen (after food)</td><td>250 mg</td><td>0-0-1 SOS</td><td>5</td></tr>
+              <tr><td>Tab. Pantoprazole</td><td>40 mg</td><td>1-0-0</td><td>7</td></tr>
+            </table>
+            <div style="margin-top:8px"><span class="btn small">+ Add drug row</span> <span class="btn small">Preview print</span></div>
+            <div class="hint small muted" style="margin-top:6px">⚠ Allergy flag applied: penicillin-class drugs will show a red warning if entered.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PRESCRIPTION PRINT PREVIEW (DOCTOR'S LETTERHEAD)</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:620px">
+    <h3>Print preview — prescription</h3>
+    <div class="card" style="border:1.5px solid #94A3B8">
+      <div style="text-align:center;border-bottom:2px solid #0F766E;padding-bottom:8px;margin-bottom:10px">
+        <div class="bold" style="font-size:16px">Nair Women's Clinic</div>
+        <div class="small">Dr. Meera Nair · MBBS, MD (Obst. &amp; Gynae.) · Reg. MMC/2009/41172</div>
+        <div class="small muted">2nd Floor, Sunrise Arcade, JP Road, Andheri West, Mumbai 400058 · +91 22 2673 4410 · Mon–Sat 10:00–13:00, 17:00–20:00</div>
+      </div>
+      <dl class="kv" style="grid-template-columns:120px 1fr">
+        <dt>Patient</dt><dd>Sofia Rossi · F 34 · MRN-004822</dd>
+        <dt>Date</dt><dd>24 Jul 2026, 15:05 IST · Rx ref <span class="mono">RX-DD-2026-00318</span></dd>
+        <dt>Allergy</dt><dd><span class="chip red">Penicillin — anaphylaxis</span></dd>
+      </dl>
+      <div style="font-size:22px;font-weight:800;margin:10px 0 4px">℞</div>
+      <table>
+        <tr><th>#</th><th>Drug</th><th>Strength</th><th>Frequency</th><th>Duration</th></tr>
+        <tr><td>1</td><td>Tab. Paracetamol</td><td>650 mg</td><td>1-0-1 (morning–night)</td><td>7 days</td></tr>
+        <tr><td>2</td><td>Tab. Naproxen — after food</td><td>250 mg</td><td>0-0-1 SOS headache</td><td>5 days</td></tr>
+        <tr><td>3</td><td>Tab. Pantoprazole — before breakfast</td><td>40 mg</td><td>1-0-0</td><td>7 days</td></tr>
+      </table>
+      <div class="small" style="margin:8px 0">Advice: hydration, avoid analgesic overuse (&gt;10 days/month). Review with neurosurgery opinion in 1 week. Report seizures / worsening vision immediately.</div>
+      <div class="row" style="margin-top:12px">
+        <div class="grow"><div class="sig-box signed">Dr. Meera Nair</div><div class="small muted" style="margin-top:4px">Digital signature · Aadhaar-eSign · 24 Jul 2026, 15:05 IST</div></div>
+        <div class="grow small muted" style="padding-top:6px">This electronic prescription is not a substitute for the rules governing controlled substances (NDPS Act / Schedule X) — such drugs require a physically signed prescription. Not valid for medico-legal purposes without verification at nairclinic.in/verify with ref RX-DD-2026-00318.</div>
+      </div>
+    </div>
+    <div class="modal-actions"><span class="btn">Back to edit</span><span class="btn">Download PDF</span><span class="btn primary">🖨 Print prescription</span></div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — SIGNED &amp; SAVED TO PATIENT RECORD</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">My Patients</div>
+      <div class="nav-item">Results Inbox <span class="nav-badge">3</span></div>
+      <div class="nav-item active">Notes &amp; Prescriptions</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › My Patients › Sofia Rossi (MRN-004822) › Notes &amp; prescriptions</div>
+      <div class="page-title">Saved to patient record</div>
+      <div class="page-sub">Sofia Rossi · MRN-004822 · authored by Dr. Meera Nair (MMC/2009/41172)</div>
+      <div class="banner success"><b>SOAP note NOTE-DD-2026-00512 and prescription RX-DD-2026-00318 saved</b>Signed 24 Jul 2026, 15:05 IST. Linked to ACC-2026-91247. The note is locked; corrections can be added as addenda only. Prescription PDF stored and available to the patient on request.</div>
+      <div class="card">
+        <div class="card-title">Notes &amp; prescriptions for this patient <span class="right">Authored by me</span></div>
+        <table>
+          <tr><th>Date</th><th>Type</th><th>Ref</th><th>Linked result</th><th>Summary</th><th>Status</th></tr>
+          <tr class="hl"><td>24 Jul 2026</td><td>SOAP note</td><td class="mono">NOTE-DD-2026-00512</td><td class="mono">ACC-2026-91247</td><td>Probable rt. frontal meningioma — neurosurgery referral</td><td><span class="chip green">Signed</span></td></tr>
+          <tr class="hl"><td>24 Jul 2026</td><td>Prescription</td><td class="mono">RX-DD-2026-00318</td><td class="mono">ACC-2026-91247</td><td>Paracetamol / Naproxen SOS / Pantoprazole · 3 items</td><td><span class="chip green">Signed &amp; printed</span></td></tr>
+          <tr><td>09 Feb 2026</td><td>SOAP note</td><td class="mono">NOTE-DD-2026-00341</td><td class="mono">ACC-2026-90412</td><td>Migraine w/o aura — trial prophylaxis</td><td><span class="chip green">Signed</span></td></tr>
+          <tr><td>09 Feb 2026</td><td>Prescription</td><td class="mono">RX-DD-2026-00204</td><td class="mono">ACC-2026-90412</td><td>Propranolol 40 mg · 1 item</td><td><span class="chip grey">Expired</span></td></tr>
+        </table>
+        <div style="margin-top:10px"><span class="btn small">+ New SOAP note</span> <span class="btn small">+ New prescription</span> <span class="btn ghost small">Add addendum to NOTE-DD-2026-00512</span></div>
+      </div>
+      <div class="banner info"><b>Visibility</b>Meridian radiologists see your note as clinical context on future studies for this patient. The patient sees the prescription only if you enable portal sharing or hand them the print.</div>
+    </div>
+  </div>
+</div>
+
+<p class="audit">Note drafts, signature event (Aadhaar-eSign hash), allergy-flag display, prescription prints/downloads and any addenda are recorded in the access log under Dr. Meera Nair's authorship.</p>
+</section>
+</body></html>

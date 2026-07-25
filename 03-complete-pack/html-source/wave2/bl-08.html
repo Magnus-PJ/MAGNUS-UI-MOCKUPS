@@ -1,0 +1,87 @@
+<section class="screen" id="bl-08">
+<div class="screen-head"><h1><span class="sid">BL-08</span> Billing approvals queue</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> All money-sensitive requests — discounts over limit, refunds, invoice cancellations and write-offs — land in one async queue for the billing supervisor. The approver confirms identity before acting; rejections require a reason and bounce back to the requester with a notification. Requests untouched for 30 minutes past their hold window auto-void so counters are never blocked, and cashiers track everything in a my-requests view.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni (Billing supervisor) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Billing dashboard</div>
+      <div class="nav-item">Invoices</div>
+      <div class="nav-item">Payments</div>
+      <div class="nav-item">Refunds</div>
+      <div class="nav-item">Credit notes</div>
+      <div class="nav-item active">Approvals <span class="nav-badge red">4</span></div>
+      <div class="nav-item">Cash session</div>
+      <div class="sec-label">Setup</div>
+      <div class="nav-item">Price lists</div>
+      <div class="nav-item">Number series</div>
+      <div class="sec-label">Other</div>
+      <div class="nav-item">Reports</div>
+      <div class="nav-item">Audit log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Approvals</div>
+      <div class="page-title">Approvals queue <span class="chip red">4 PENDING</span> <span class="chip amber">1 NEARING SLA</span></div>
+      <div class="page-sub">Your approval limit: ₹10,000 (refund/discount/write-off) · above limit auto-routes to K. Verma (Branch admin) · 4h SLA per request</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">4</div><div class="l">Pending</div><div class="s">oldest 3h 41m</div></div>
+        <div class="kpi"><div class="n">12m</div><div class="l">Median decision time</div><div class="s">today · target &lt; 30m</div></div>
+        <div class="kpi amber"><div class="n">1</div><div class="l">SLA breach risk</div><div class="s">discount · due 12:12 IST</div></div>
+        <div class="kpi red"><div class="n">2</div><div class="l">Auto-voided today</div><div class="s">30-min counter hold expired</div></div>
+      </div>
+      <div class="banner warn"><b>Identity confirmation armed for this session</b>You re-authenticated at 11:32 IST. Approvals are countersigned as M. Kulkarni; the session step-up expires after 15 minutes of inactivity and every decision is individually logged.</div>
+      <table>
+        <tr><th>Req #</th><th>Type</th><th>Requester</th><th>Patient</th><th>Amount vs limit</th><th>Reason</th><th>Age / SLA 4h</th><th>Action</th></tr>
+        <tr class="hl"><td class="mono">APR-1207</td><td><span class="chip amber">DISCOUNT</span></td><td>P. D'Souza (Cashier)</td><td>S••••a R•••i · MRN-••4822</td><td class="mono">₹1,180 / your ₹10,000 ✓</td><td>Repeat-scan waiver (motion artefact)</td><td><span class="chip amber">3h 41m · owner M. Kulkarni · escalates to K. Verma at 4h</span></td><td><span class="btn primary small">Approve</span> <span class="btn small">Reject…</span></td></tr>
+        <tr><td class="mono">APR-1209</td><td><span class="chip blue">REFUND</span></td><td>P. D'Souza (Cashier)</td><td>S••••a R•••i · MRN-••4822</td><td class="mono">₹1,500 / your ₹10,000 ✓</td><td>Service not performed</td><td><span class="chip teal">0h 35m</span></td><td><span class="btn primary small">Approve</span> <span class="btn small">Reject…</span></td></tr>
+        <tr><td class="mono">APR-1210</td><td><span class="chip red">CANCEL + CRN</span></td><td>P. D'Souza (Cashier)</td><td>P••ya M•••n · MRN-••4828</td><td class="mono">₹7,300 / your ₹10,000 ✓</td><td>Payer/scheme change</td><td><span class="chip teal">0h 12m</span></td><td><span class="btn primary small">Approve</span> <span class="btn small">Reject…</span></td></tr>
+        <tr><td class="mono">APR-1211</td><td><span class="chip violet">WRITE-OFF</span></td><td>D. Nair (Front office)</td><td>M••••••d A•-R••••d · MRN-••4790</td><td class="mono">₹14,750 / your ₹10,000 ✗</td><td>Corporate payer insolvent — 90+ days</td><td><span class="chip teal">1h 02m</span></td><td><span class="btn small disabled">Above limit</span> <span class="btn small">Forward to K. Verma</span></td></tr>
+        <tr class="dim"><td class="mono">APR-1205</td><td><span class="chip amber">DISCOUNT</span></td><td>D. Nair (Front office)</td><td>A••av S••••a · MRN-••4821</td><td class="mono">₹500</td><td>Referrer courtesy — Dr. S. Iyer</td><td><span class="chip red">OVERDUE · escalated to K. Verma 10:55</span></td><td class="small muted">With K. Verma</td></tr>
+        <tr class="dim"><td class="mono">APR-1203</td><td><span class="chip blue">REFUND</span></td><td>P. D'Souza (Cashier)</td><td>R••••h G••ta · MRN-••4795</td><td class="mono">₹1,150</td><td>Overcharge / price error</td><td class="small muted">Decided 09:58</td><td><span class="chip green">APPROVED</span></td></tr>
+        <tr class="dim"><td class="mono">APR-1201</td><td><span class="chip amber">DISCOUNT</span></td><td>D. Nair (Front office)</td><td>Walk-in · MRN masked</td><td class="mono">₹2,000</td><td>No documented basis</td><td class="small muted">Expired 09:24</td><td><span class="chip grey">AUTO-VOIDED 30m</span></td></tr>
+      </table>
+      <div class="hint muted small" style="margin-top:8px">Patient names and MRNs are masked in the queue — approvers see enough to decide, not to browse. Opening a request's full detail is access-logged with purpose "approval review".</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — REJECT WITH REASON (RETURNS TO REQUESTER)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="modal-wrap"><div class="modal danger">
+    <h3>Reject APR-1207 — discount ₹1,180?</h3>
+    <div class="small muted" style="margin-bottom:10px">Requested by P. D'Souza · repeat-scan waiver (motion artefact) · Sofia Rossi (unmasked for decision — this view is logged) · invoice INV/AND/26-27/0412</div>
+    <div class="field"><label>Rejection reason <span class="req">*</span></label><select class="select"><option>Insufficient evidence — attach radiologist repeat-scan note</option></select><div class="hint">Taxonomy: insufficient evidence · wrong amount · policy not applicable · duplicate request · needs higher approver · other (needs note)</div></div>
+    <div class="field"><label>Message to requester</label><textarea class="textarea">Please attach Dr. V. Shetty's note confirming the repeat was due to motion artefact, not patient request. Resubmit and I'll clear it within the hour.</textarea></div>
+    <div class="check"><span class="box on">✓</span><div class="small">Notify P. D'Souza now (in-app + WhatsApp work channel) and return the request as <b>REJECTED — RESUBMITTABLE</b></div></div>
+    <div class="banner warn" style="margin:10px 0"><b>Countersign rejection</b>Decision recorded as M. Kulkarni · step-up session valid (verified 11:32 IST) · <span class="chip green">IDENTITY CONFIRMED</span></div>
+    <div class="modal-actions"><span class="btn">Back to queue</span><span class="btn danger">Reject &amp; notify requester</span></div>
+  </div></div>
+  <div class="hint muted small">A rejected request keeps its APR number; resubmission appends a new revision (APR-1207-R2) so the negotiation history stays in one thread.</div>
+</div></div></div>
+
+<div class="state-tag">STATE C — REQUESTER VIEW (CASHIER "MY REQUESTS")</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="body"><div class="main">
+  <div class="page-title">My requests — P. D'Souza</div>
+  <div class="page-sub">Counter 2 · today 25 Jul 2026 · requests you raised and their live status</div>
+  <div class="banner info"><b>Counter never blocks on approvals</b>While a request is pending you can <b>park the invoice</b> and serve the next patient; Magnus re-opens the parked invoice automatically the moment a decision lands. Requests idle past the 30-minute counter hold auto-void — just re-request if the patient is still present.</div>
+  <table>
+    <tr><th>Req #</th><th>Type</th><th>Patient / document</th><th>Amount</th><th>Raised</th><th>Status</th><th>Next step</th></tr>
+    <tr><td class="mono">APR-1209</td><td><span class="chip blue">REFUND</span></td><td>Sofia Rossi · REF-draft on INV/…/0412</td><td class="mono">₹1,500.00</td><td>10:12</td><td><span class="chip amber">PENDING · with M. Kulkarni · SLA 4h (0h 35m)</span></td><td class="small muted">Invoice parked · slot 2</td></tr>
+    <tr class="hl"><td class="mono">APR-1207-R2</td><td><span class="chip amber">DISCOUNT</span></td><td>Sofia Rossi · INV/…/0412</td><td class="mono">₹1,180.00</td><td>11:58</td><td><span class="chip red">REJECTED → RESUBMITTED</span></td><td class="small">Radiologist note attached ✓ · awaiting re-review</td></tr>
+    <tr><td class="mono">APR-1210</td><td><span class="chip red">CANCEL + CRN</span></td><td>Priya Menon · INV/…/0361</td><td class="mono">₹7,300.00</td><td>11:42</td><td><span class="chip green">APPROVED 11:58</span></td><td class="small">CRN/AND/26-27/0021 finalised — reissue done</td></tr>
+    <tr><td class="mono">APR-1203</td><td><span class="chip blue">REFUND</span></td><td>Rajesh Gupta · INV/…/0401</td><td class="mono">₹1,150.00</td><td>09:41</td><td><span class="chip green">APPROVED 09:58</span></td><td class="small">Refund completed (cash, justified)</td></tr>
+    <tr class="dim"><td class="mono">APR-1198</td><td><span class="chip amber">DISCOUNT</span></td><td>Walk-in · draft invoice</td><td class="mono">₹350.00</td><td>08:49</td><td><span class="chip grey">AUTO-VOIDED · 30-min hold expired</span></td><td class="small">Patient left — re-request when they return</td></tr>
+  </table>
+  <div class="card" style="margin-top:12px"><div class="card-title">Rejection message — APR-1207 <span class="right">FROM M. KULKARNI · 11:47 IST</span></div>
+    <div class="small">"Please attach Dr. V. Shetty's note confirming the repeat was due to motion artefact, not patient request. Resubmit and I'll clear it within the hour."</div>
+    <div style="margin-top:8px"><span class="chip green">RESUBMITTED AS APR-1207-R2 · 11:58 with attachment</span></div>
+  </div>
+</div></div></div>
+
+<p class="audit">Every approval, rejection, forward, auto-void and resubmission is written to the financial audit trail with the approver's step-up identity confirmation timestamp; unmasking a patient inside a request is recorded in the access log.</p>
+</section>

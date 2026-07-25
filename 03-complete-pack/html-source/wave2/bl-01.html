@@ -1,0 +1,151 @@
+<section class="screen" id="bl-01">
+<div class="screen-head"><h1><span class="sid">BL-01</span> Billing worklist &amp; outstanding dues</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single queue for the cash desk: every invoice in the branch grouped by financial state, with an awaiting-confirmation tab for payments stuck between the patient and the payment provider. Cashier selects a row, sees the invoice summary in the right rail and jumps straight to Collect, Open or Dispute. Station lock protects the drawer session when the cashier steps away.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item active">Billing worklist <span class="nav-badge">23</span></div>
+      <div class="nav-item">Create invoice</div>
+      <div class="nav-item">Collect payment</div>
+      <div class="nav-item">Pending payments <span class="nav-badge red">4</span></div>
+      <div class="nav-item">Receipts &amp; reprints</div>
+      <div class="nav-item">Credit notes</div>
+      <div class="sec-label">Cash desk</div>
+      <div class="nav-item">Drawer session</div>
+      <div class="nav-item">Day close</div>
+      <div class="sec-label">Setup</div>
+      <div class="nav-item">Number series</div>
+      <div class="nav-item">Tariff &amp; catalog</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Worklist › Outstanding dues</div>
+      <div class="page-title">Billing worklist <span class="actions-right"><span class="btn small">⟳ Refresh</span> <span class="btn small warn-outline">🔒 Lock station</span></span></div>
+      <div class="page-sub">Sat 25 Jul 2026 · 11:42 IST · Drawer session <span class="mono">DRW-AND-0725-02</span> open since 08:03 (P. D'Souza) · counter 2</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">₹48,930</div><div class="l">Outstanding today</div><div class="s">23 invoices, oldest 09:12</div></div>
+        <div class="kpi amber"><div class="n">₹6,150</div><div class="l">Part-paid balance</div><div class="s">5 invoices carrying balance</div></div>
+        <div class="kpi red"><div class="n">4</div><div class="l">Awaiting confirmation</div><div class="s">UPI/card not yet confirmed</div></div>
+        <div class="kpi"><div class="n">₹1,12,480</div><div class="l">Collected today</div><div class="s">Cash ₹31,200 · UPI ₹58,080 · Card ₹23,200</div></div>
+      </div>
+      <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">
+        <span class="btn small primary">Outstanding · 23</span>
+        <span class="btn small">Draft · 3</span>
+        <span class="btn small">Issued · 12</span>
+        <span class="btn small">Part-paid · 5</span>
+        <span class="btn small">Paid · 61</span>
+        <span class="btn small">Cancelled · 2</span>
+        <span class="btn small warn-outline">⏳ Awaiting confirmation · 4</span>
+        <span style="flex:1"></span>
+        <input class="input" style="width:220px" value="Search MRN / invoice / phone…"/>
+      </div>
+      <div class="split">
+        <div>
+          <table>
+            <tr><th>Invoice</th><th>Patient (MRN)</th><th>Service summary</th><th>Payer</th><th>Amount ₹</th><th>Due ₹</th><th>Status</th><th>SLA</th></tr>
+            <tr class="hl"><td class="mono">INV/AND/26-27/0412</td><td>Sofia Rossi<br><span class="muted small mono">MRN-004822</span></td><td>MRI Brain (plain) + contrast consumables</td><td><span class="chip grey">Self-pay</span> <span class="chip blue">Foreign patient</span></td><td>13,500.00</td><td class="bold">13,500.00</td><td><span class="chip amber">ISSUED · UNPAID</span></td><td><span class="chip amber">32m · own: P. D'Souza</span></td></tr>
+            <tr><td class="mono">INV/AND/26-27/0411</td><td>Aarav Sharma<br><span class="muted small mono">MRN-004821</span></td><td>CT KUB (plain)</td><td><span class="chip grey">Self-pay</span></td><td>4,200.00</td><td class="bold">4,200.00</td><td><span class="chip amber">ISSUED · UNPAID</span></td><td><span class="chip teal">12m · own: P. D'Souza</span></td></tr>
+            <tr><td class="mono">INV/AND/26-27/0409</td><td>Priya Menon<br><span class="muted small mono">MRN-004828</span></td><td>USG Obstetric (Level II) — foetal-sex non-disclosure applies</td><td><span class="chip grey">Self-pay</span></td><td>2,800.00</td><td>1,300.00</td><td><span class="chip blue">PART-PAID</span></td><td><span class="chip teal">On track · own: P. D'Souza</span></td></tr>
+            <tr><td class="mono">INV/AND/26-27/0406</td><td>Mohammed Al-Rashid<br><span class="muted small mono">MRN-004790</span></td><td>X-Ray Chest PA + Radiologist reporting</td><td><span class="chip violet">Corporate credit · GulfCare TPA</span></td><td>950.00</td><td>0.00 (on credit)</td><td><span class="chip violet">CREDIT · TO PAYER</span></td><td><span class="chip teal">On track · own: M. Kulkarni</span></td></tr>
+            <tr><td class="mono">INV/AND/26-27/0403</td><td>Rajesh Gupta<br><span class="muted small mono">MRN-004795</span></td><td>MRI Lumbar Spine + screening whole spine</td><td><span class="chip grey">Self-pay</span></td><td>9,800.00</td><td class="bold">9,800.00</td><td><span class="chip amber">ISSUED · UNPAID</span></td><td><span class="chip red">OVERDUE 1h 05m · own: P. D'Souza · escalated-to: M. Kulkarni</span></td></tr>
+            <tr><td class="mono">INV/AND/26-27/0401</td><td>Ananya Rao<br><span class="muted small mono">MRN-004819</span></td><td>USG Abdomen + Pelvis</td><td><span class="chip grey">Self-pay</span></td><td>2,400.00</td><td>1,200.00</td><td><span class="chip blue">PART-PAID</span></td><td><span class="chip amber">41m · own: D. Nair</span></td></tr>
+            <tr><td class="mono">INV/AND/26-27/0398</td><td>Aarav Sharma<br><span class="muted small mono">MRN-004821</span></td><td>Doppler Carotid bilateral</td><td><span class="chip grey">Self-pay</span></td><td>3,600.00</td><td class="bold">3,600.00</td><td><span class="chip amber">ISSUED · UNPAID</span></td><td><span class="chip teal">On track · own: P. D'Souza</span></td></tr>
+            <tr class="dim"><td class="mono">INV/AND/26-27/0396</td><td>Rajesh Gupta<br><span class="muted small mono">MRN-004795</span></td><td>X-Ray Knee AP/LAT (duplicate order)</td><td><span class="chip grey">Self-pay</span></td><td>600.00</td><td>—</td><td><span class="chip grey">CANCELLED</span></td><td>—</td></tr>
+          </table>
+          <div class="card" style="margin-top:12px;background:#F8FAFC">
+            <div class="row" style="justify-content:space-between;font-size:12.5px">
+              <div><span class="muted small">FOOTER TOTALS (INR ONLY)</span><br><b>Outstanding ₹48,930.00</b> · Part-paid balance ₹6,150.00 · On corporate credit ₹18,240.00</div>
+              <div style="text-align:right"><span class="chip blue">Foreign-patient bucket</span><br><span class="small muted">1 invoice (Sofia Rossi) settles in INR at desk; any foreign-currency advance is held in a separate per-currency bucket and is <b>never summed</b> into INR totals.</span></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card" style="border-top:3px solid #0F766E">
+            <div class="card-title">INV/AND/26-27/0412 <span class="chip amber">ISSUED · UNPAID</span></div>
+            <dl class="kv">
+              <dt>Patient</dt><dd>Sofia Rossi · <span class="mono">MRN-004822</span> · F/34</dd>
+              <dt>Visit</dt><dd><span class="mono">VIS-2026-30871</span> · walk-in</dd>
+              <dt>Accession</dt><dd><span class="mono">ACC-2026-91247</span> MRI Brain</dd>
+              <dt>Referrer</dt><dd>Dr. Meera Nair <span class="chip green">verified</span></dd>
+              <dt>Issued</dt><dd>25 Jul 2026 11:10 IST · P. D'Souza</dd>
+              <dt>GST</dt><dd>Exempt (healthcare service) · SAC 999316</dd>
+              <dt>Amount due</dt><dd class="bold">₹13,500.00</dd>
+              <dt>Payer</dt><dd>Self-pay · foreign patient (Italy) — collect INR only</dd>
+            </dl>
+            <div style="display:flex;gap:8px;margin-top:12px">
+              <span class="btn primary" style="flex:1">Collect ₹13,500</span>
+              <span class="btn">Open</span>
+              <span class="btn warn-outline">Dispute</span>
+            </div>
+            <div class="small muted" style="margin-top:8px">🔒 Opening this invoice records a purpose-of-access entry against your billing role.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Station</div>
+            <dl class="kv" style="grid-template-columns:110px 1fr">
+              <dt>Drawer</dt><dd><span class="mono">DRW-AND-0725-02</span> <span class="chip green">OPEN</span></dd>
+              <dt>Float</dt><dd>₹5,000.00 counted 08:03</dd>
+              <dt>Auto-lock</dt><dd>after 3 min idle</dd>
+            </dl>
+            <span class="btn warn-outline small" style="width:100%;margin-top:6px">🔒 Lock station now</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — AWAITING-CONFIRMATION TAB FOCUSED</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item active">Billing worklist <span class="nav-badge">23</span></div>
+      <div class="nav-item">Pending payments <span class="nav-badge red">4</span></div>
+      <div class="nav-item">Receipts &amp; reprints</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Worklist › Awaiting confirmation</div>
+      <div class="page-title">Awaiting confirmation (4)</div>
+      <div class="page-sub">Payments initiated but not yet confirmed by the provider. Do <b>not</b> re-collect until state resolves — see BL-04 for stuck-payment handling.</div>
+      <div class="banner warn"><b>2 payments past the 3-minute confirmation window.</b> They have moved to UNCONFIRMED and need action on the Pending payments screen (BL-04). Owner: P. D'Souza · escalated-to: M. Kulkarni.</div>
+      <table>
+        <tr><th>Invoice</th><th>Patient (MRN)</th><th>Mode</th><th>Initiated</th><th>Age</th><th>Provider state</th><th>SLA</th><th></th></tr>
+        <tr><td class="mono">INV/AND/26-27/0407</td><td>Ananya Rao · <span class="mono small">MRN-004819</span></td><td>UPI · ₹2,400.00</td><td class="mono">11:39:12</td><td>2m 48s</td><td><span class="chip amber">AWAITING</span> countdown 0:12</td><td><span class="chip teal">In window · own: P. D'Souza</span></td><td><span class="btn small">View</span></td></tr>
+        <tr><td class="mono">INV/AND/26-27/0405</td><td>Aarav Sharma · <span class="mono small">MRN-004821</span></td><td>Card · ₹3,600.00</td><td class="mono">11:36:04</td><td>5m 56s</td><td><span class="chip red">UNCONFIRMED</span> terminal no response</td><td><span class="chip red">OVERDUE 2m 56s · own: P. D'Souza · escalated-to: M. Kulkarni</span></td><td><span class="btn small warn-outline">Resolve →</span></td></tr>
+        <tr><td class="mono">INV/AND/26-27/0402</td><td>Rajesh Gupta · <span class="mono small">MRN-004795</span></td><td>UPI · ₹9,800.00</td><td class="mono">11:31:47</td><td>10m 13s</td><td><span class="chip red">UNCONFIRMED</span> no callback</td><td><span class="chip red">OVERDUE 7m 13s · own: P. D'Souza · escalated-to: M. Kulkarni</span></td><td><span class="btn small warn-outline">Resolve →</span></td></tr>
+        <tr><td class="mono">INV/AND/26-27/0399</td><td>Priya Menon · <span class="mono small">MRN-004828</span></td><td>UPI · ₹1,500.00</td><td class="mono">11:40:55</td><td>1m 05s</td><td><span class="chip amber">AWAITING</span> countdown 1:55</td><td><span class="chip teal">In window · own: D. Nair</span></td><td><span class="btn small">View</span></td></tr>
+      </table>
+      <p class="small muted" style="margin-top:8px">Rows auto-refresh every 10s from the payment-status poller. A late provider webhook auto-resolves the row and issues the receipt without cashier action.</p>
+    </div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — EMPTY (ALL DUES CLEARED)</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item active">Billing worklist</div>
+      <div class="nav-item">Day close</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Worklist › Outstanding dues</div>
+      <div class="page-title">Billing worklist</div>
+      <div class="page-sub">Sat 25 Jul 2026 · 20:26 IST</div>
+      <div class="card" style="text-align:center;padding:44px 20px">
+        <div style="font-size:34px">✅</div>
+        <div class="bold" style="font-size:16px;margin:6px 0">No outstanding dues</div>
+        <div class="muted small">All 74 invoices for 25 Jul are settled or on approved corporate credit. Awaiting-confirmation queue is empty.</div>
+        <div style="margin-top:14px"><span class="btn primary">Start day close →</span> <span class="btn">View paid invoices</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="audit">Worklist views, invoice detail opens, station lock/unlock and tab filters are recorded in the access log with user, station and drawer-session reference. Payment-state transitions are recorded in the access log.</p>
+</section>

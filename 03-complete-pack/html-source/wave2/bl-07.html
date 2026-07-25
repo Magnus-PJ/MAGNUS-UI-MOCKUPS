@@ -1,0 +1,131 @@
+<section class="screen" id="bl-07">
+<div class="screen-head"><h1><span class="sid">BL-07</span> Cancel invoice &amp; credit note</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Cancelling an invoice always requires a reason and never hard-deletes anything. Same-day, pre-GST-filing invoices can be voided in place; anything already in the filed/locked period auto-drafts a credit note (CRN/AND/26-27/ series) that carries the original lines forward. The reissue-corrected flow links old invoice → credit note → new invoice into one auditable chain.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Billing dashboard</div>
+      <div class="nav-item active">Invoices</div>
+      <div class="nav-item">Payments</div>
+      <div class="nav-item">Refunds</div>
+      <div class="nav-item">Credit notes</div>
+      <div class="nav-item">Approvals <span class="nav-badge">4</span></div>
+      <div class="nav-item">Cash session</div>
+      <div class="sec-label">Setup</div>
+      <div class="nav-item">Price lists</div>
+      <div class="nav-item">Number series</div>
+      <div class="sec-label">Other</div>
+      <div class="nav-item">Reports</div>
+      <div class="nav-item">Audit log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Invoices › INV/AND/26-27/0418 › Cancel</div>
+      <div class="page-title">Cancel invoice INV/AND/26-27/0418</div>
+      <div class="page-sub">Aarav Sharma · MRN-004821 · issued today 25 Jul 2026, 09:22 IST · ₹2,900.00 · unpaid · GSTIN 27AAACM1234K1Z5</div>
+      <div class="banner info"><b>Same-day, pre-filing invoice</b>This invoice was raised today and the July GST period is not yet filed, so it qualifies for an in-place <b>VOID</b>. The invoice number is retained in the series (numbers are never reused) and the document is stamped VOID — it is not deleted.</div>
+      <div class="modal-wrap"><div class="modal danger">
+        <h3>Void invoice INV/AND/26-27/0418?</h3>
+        <div class="small muted" style="margin-bottom:10px">Wrong service selected at counter — CT Head billed instead of X-Ray Chest PA. Invoice is unpaid; no receipt exists, so no refund is triggered.</div>
+        <div class="field"><label>Cancellation reason <span class="req">*</span></label><select class="select"><option>Wrong service / data-entry error</option></select><div class="hint">Taxonomy: data-entry error · duplicate invoice · patient did not avail service · payer/scheme change · price correction · other (needs note)</div></div>
+        <div class="field"><label>Note</label><textarea class="textarea">Front office selected CT Head from favourites in error; correct order is X-Ray Chest PA per Dr. Meera Nair's referral.</textarea></div>
+        <div class="check"><span class="box on">✓</span><div class="small">Raise a <b>corrected replacement invoice</b> immediately after void (opens billing counter pre-filled with visit VIS-2026-30302).</div></div>
+        <div class="banner warn" style="margin:10px 0"><b>Confirm your identity to proceed</b>Voiding a tax document is a legal action. Re-enter your Magnus password to countersign as P. D'Souza.<div style="margin-top:6px"><input class="input" type="password" value="••••••••" style="max-width:220px;display:inline-block"/> <span class="chip green">VERIFIED 09:41 IST</span></div></div>
+        <div class="modal-actions"><span class="btn">Keep invoice</span><span class="btn danger">Void invoice</span></div>
+      </div></div>
+      <div class="hint muted small">If even one rupee had been collected against this invoice, the void path would be blocked and Magnus would route you to the credit-note flow plus a refund (BL-06) instead.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — POST-FILING CANCEL → CREDIT NOTE AUTO-DRAFTED</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Credit note draft CRN/AND/26-27/0021 <span class="chip amber">DRAFT — PENDING APPROVAL</span></div>
+  <div class="page-sub">Against INV/AND/26-27/0361 · issued 08 Jul 2026 (period filed) · Priya Menon · MRN-004828</div>
+  <div class="banner warn"><b>Void not available — GST period already filed</b>INV/AND/26-27/0361 sits in a filed period, so Magnus auto-drafted a credit note instead. The original invoice stays untouched and legally valid; the credit note reverses it. Number drawn from the central number-series registry: <span class="mono">CRN/AND/26-27/0021</span>.</div>
+  <div class="split">
+    <div class="card">
+      <div class="card-title">Lines carried forward from original invoice <span class="right">FULL REVERSAL</span></div>
+      <table>
+        <tr><th>Service</th><th>SAC</th><th>Tax treatment</th><th>Original</th><th>Credit</th></tr>
+        <tr><td>MRI Lumbar Spine (plain)</td><td class="mono">999316</td><td><span class="chip grey">Exempt (healthcare service)</span></td><td class="mono">₹6,500.00</td><td class="mono">₹6,500.00</td></tr>
+        <tr><td>Radiologist reporting — MRI</td><td class="mono">999316</td><td><span class="chip grey">Exempt (healthcare service)</span></td><td class="mono">₹800.00</td><td class="mono">₹800.00</td></tr>
+        <tr><td colspan="3" style="text-align:right"><b>Credit note total</b></td><td class="mono">₹7,300.00</td><td class="mono bold">₹7,300.00</td></tr>
+      </table>
+      <div class="field" style="margin-top:10px"><label>Credit note reason <span class="req">*</span></label><select class="select"><option>Payer/scheme change — corporate payer to bill instead of patient</option></select></div>
+      <div class="check"><span class="box radio on"></span><div class="small"><b>Reissue corrected invoice</b> — new invoice to Zenith Corp Health scheme, patient share ₹0</div></div>
+      <div class="check"><span class="box radio"></span><div class="small">Credit only (no reissue) — invoice fully reversed, collected amount routes to refund BL-06</div></div>
+      <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:10px"><span class="btn">Save draft</span><span class="btn primary">Submit for approval →</span></div>
+    </div>
+    <div>
+      <div class="card"><div class="card-title">Document facts</div>
+        <dl class="kv" style="grid-template-columns:120px 1fr">
+          <dt>CRN number</dt><dd class="mono">CRN/AND/26-27/0021</dd>
+          <dt>Against invoice</dt><dd class="mono">INV/AND/26-27/0361</dd>
+          <dt>GSTIN</dt><dd class="mono">27AAACM1234K1Z5</dd>
+          <dt>Patient</dt><dd>Priya Menon · MRN-004828</dd>
+          <dt>Collected so far</dt><dd class="mono">₹7,300.00 (card, RCP/AND/26-27/0589)</dd>
+          <dt>Approver</dt><dd>M. Kulkarni (Billing supervisor)</dd>
+          <dt>SLA</dt><dd><span class="chip teal">4h · 0h 12m elapsed</span> owner M. Kulkarni</dd>
+        </dl>
+      </div>
+      <div class="banner reg"><b>Never hard-deleted</b>Neither invoices nor credit notes can be deleted or renumbered. Cancellation is always an offsetting document, keeping the GST return, the patient statement and the audit trail consistent.</div>
+    </div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — REISSUE CHAIN VIEW (OLD → CRN → NEW)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Correction chain — visit VIS-2026-30278</div>
+  <div class="page-sub">Priya Menon · MRN-004828 · chain closed 25 Jul 2026, 12:05 IST · net patient effect ₹7,300.00 refund-in-progress</div>
+  <div class="row" style="align-items:stretch">
+    <div class="grow card" style="border-top:4px solid #94A3B8;margin-bottom:0">
+      <div class="card-title">1 · Original invoice <span class="chip grey">SUPERSEDED</span></div>
+      <dl class="kv" style="grid-template-columns:95px 1fr">
+        <dt>Number</dt><dd class="mono">INV/AND/26-27/0361</dd>
+        <dt>Date</dt><dd>08 Jul 2026</dd>
+        <dt>Billed to</dt><dd>Patient (self-pay)</dd>
+        <dt>Amount</dt><dd class="mono">₹7,300.00</dd>
+        <dt>Status</dt><dd>Paid · RCP/…/0589</dd>
+      </dl>
+    </div>
+    <div style="align-self:center;font-size:20px;color:#94A3B8">→</div>
+    <div class="grow card" style="border-top:4px solid #B91C1C;margin-bottom:0">
+      <div class="card-title">2 · Credit note <span class="chip red">REVERSES #1</span></div>
+      <dl class="kv" style="grid-template-columns:95px 1fr">
+        <dt>Number</dt><dd class="mono">CRN/AND/26-27/0021</dd>
+        <dt>Date</dt><dd>25 Jul 2026</dd>
+        <dt>Reason</dt><dd>Payer/scheme change</dd>
+        <dt>Amount</dt><dd class="mono">₹7,300.00</dd>
+        <dt>Approved by</dt><dd>M. Kulkarni · 11:58 IST</dd>
+      </dl>
+    </div>
+    <div style="align-self:center;font-size:20px;color:#94A3B8">→</div>
+    <div class="grow card" style="border-top:4px solid #0F766E;margin-bottom:0">
+      <div class="card-title">3 · Corrected invoice <span class="chip teal">ACTIVE</span></div>
+      <dl class="kv" style="grid-template-columns:95px 1fr">
+        <dt>Number</dt><dd class="mono">INV/AND/26-27/0421</dd>
+        <dt>Date</dt><dd>25 Jul 2026</dd>
+        <dt>Billed to</dt><dd>Zenith Corp Health (scheme)</dd>
+        <dt>Amount</dt><dd class="mono">₹7,300.00</dd>
+        <dt>Patient share</dt><dd class="mono">₹0.00</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="banner success" style="margin-top:14px"><b>Chain integrity verified</b>All three documents cross-reference each other on their printed PDFs ("Issued against…", "Superseded by…"). The patient's original ₹7,300.00 card payment is now unallocated and has auto-opened refund request REF/AND/26-27/0089 in BL-06.</div>
+  <div class="card"><div class="card-title">Chain events</div>
+    <div class="timeline">
+      <div class="ev"><span class="t">11:41</span><div>Cancel requested on INV/…/0361 by P. D'Souza · reason: payer/scheme change · period filed → credit-note path forced</div></div>
+      <div class="ev"><span class="t">11:42</span><div>CRN/AND/26-27/0021 auto-drafted · lines carried forward 1:1 · sent to approvals queue (BL-08)</div></div>
+      <div class="ev"><span class="t">11:58</span><div>Approved by M. Kulkarni after identity confirmation · CRN finalised &amp; numbered</div></div>
+      <div class="ev"><span class="t">12:04</span><div>Corrected invoice INV/…/0421 issued to Zenith Corp Health · linked to chain</div></div>
+      <div class="ev"><span class="t">12:05</span><div>Refund REF/AND/26-27/0089 opened for unallocated ₹7,300.00 · patient notified by SMS</div></div>
+    </div>
+  </div>
+</div></div></div>
+
+<p class="audit">Voids, credit notes and reissues are countersigned with step-up identity confirmation and stored as immutable linked documents — nothing in the invoice series is ever hard-deleted or renumbered, and every chain view opened here is recorded in the access log.</p>
+</section>

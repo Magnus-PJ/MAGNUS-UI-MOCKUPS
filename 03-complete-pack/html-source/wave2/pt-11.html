@@ -1,0 +1,102 @@
+<section class="screen" id="pt-11">
+<div class="screen-head"><h1><span class="sid">PT-11</span> Language &amp; accessibility</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G2 Patient-Facing — patient chrome (no sidebar)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Patients choose the language (English / हिन्दी / मराठी in MVP1) and text size for all patient-facing pages; the choice re-renders the page chrome immediately and is remembered on this device only — no account or login needed. The page also states plainly what works with screen readers and high-contrast settings, and what to do at the branch if a patient needs help reading or signing.</div>
+
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="border-top:4px solid #0F766E">
+      <div class="card-title">Choose your language · अपनी भाषा चुनें · तुमची भाषा निवडा</div>
+      <div class="card" style="margin-bottom:10px;border-color:#99F6E4;background:#F0FDFA">
+        <div class="check" style="margin:0"><span class="box radio on"></span><div><b>English</b><div class="small muted">All pages, SMS links and receipts in English.</div></div></div>
+      </div>
+      <div class="card" style="margin-bottom:10px">
+        <div class="check" style="margin:0"><span class="box radio"></span><div><b>हिन्दी</b><div class="small muted">सभी पेज, SMS लिंक और रसीदें हिन्दी में।</div></div></div>
+      </div>
+      <div class="card" style="margin-bottom:12px">
+        <div class="check" style="margin:0"><span class="box radio"></span><div><b>मराठी</b><div class="small muted">सर्व पाने, SMS लिंक आणि पावत्या मराठीत.</div></div></div>
+      </div>
+      <div class="hint small muted">Medical report content itself is written by the radiologist and stays in English; the pages around it, and all instructions, follow your choice.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Text size · अक्षर का आकार</div>
+      <div class="row">
+        <div class="card grow" style="border-color:#99F6E4;background:#F0FDFA;text-align:center;margin-bottom:0"><span class="box radio on" style="margin-bottom:6px"></span><div style="font-size:14px"><b>Standard</b></div><div class="small muted">Aa — fits more on screen</div></div>
+        <div class="card grow" style="text-align:center;margin-bottom:0"><span class="box radio" style="margin-bottom:6px"></span><div style="font-size:18px"><b>Large</b></div><div style="font-size:14px;color:#64748B">Aa — easier to read</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Accessibility</div>
+      <div class="check"><span class="box on">✓</span><div class="small"><b>Screen readers:</b> these pages work with TalkBack (Android) and VoiceOver (iPhone). Buttons and OTP fields are labelled and announced.</div></div>
+      <div class="check"><span class="box on">✓</span><div class="small"><b>High contrast:</b> if your phone is set to high-contrast or dark mode, the pages respect it. Colour is never the only signal — status is always written in words too.</div></div>
+      <div class="check"><span class="box on">✓</span><div class="small"><b>At the branch:</b> if reading or signing is difficult, our front office will read forms aloud and a thumb impression with a witness is accepted where the law allows.</div></div>
+    </div>
+
+    <div class="card" style="background:#F8FAFC">
+      <div class="check" style="margin-bottom:8px"><span class="box on">✓</span><div class="small"><b>Remember my choice on this device.</b> Saved only in this browser — no account, no login, nothing sent to our servers. Clearing your browser data resets it.</div></div>
+      <a class="btn primary" href="#" style="width:100%;padding:12px 14px">Save &amp; continue</a>
+    </div>
+    <p class="small muted" style="text-align:center">🔒 Your language choice is not linked to your medical record and is never used to profile you.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — हिन्दी RENDER SAMPLE (PAGE CHROME RE-RENDERED)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ मेरिडियन डायग्नोस्टिक्स <span class="muted small" style="font-weight:400">· अंधेरी वेस्ट शाखा</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="banner success"><b>भाषा बदल दी गई है — हिन्दी।</b> यह चुनाव इसी डिवाइस पर याद रखा गया है। · Language switched to Hindi, remembered on this device. <a href="#" style="color:#166534;font-weight:700">English पर वापस जाएँ</a></div>
+    <div class="card" style="border-top:4px solid #0F766E">
+      <div class="card-title">आपकी अपॉइंटमेंट <span class="chip teal">पक्की है</span></div>
+      <div class="kv">
+        <dt>मरीज़</dt><dd><b>आरव श.</b> <span class="muted small">(आपकी गोपनीयता के लिए नाम छोटा किया गया)</span></dd>
+        <dt>जाँच</dt><dd><b>CT Chest (plain)</b></dd>
+        <dt>दिनांक व समय</dt><dd><b>सोम, 27 जुलाई 2026 · दोपहर 12:15 बजे</b> <span class="muted small">कृपया 15 मिनट पहले पहुँचें</span></dd>
+        <dt>शाखा</dt><dd>मेरिडियन डायग्नोस्टिक्स, अंधेरी वेस्ट · <a href="#" style="color:#0F766E;font-weight:700">📍 रास्ता देखें</a></dd>
+        <dt>संदर्भ</dt><dd class="mono">APPT-2026-51302</dd>
+      </div>
+      <div class="row" style="margin-top:14px">
+        <a class="btn primary grow" href="#" style="padding:12px 14px">📅 कैलेंडर में जोड़ें</a>
+        <a class="btn grow" href="#" style="padding:12px 14px">दूसरा समय चाहिए</a>
+      </div>
+      <div class="hint small muted" style="margin-top:8px">"दूसरा समय चाहिए" दबाने पर हमारा फ्रंट ऑफिस 2 कार्य-घंटों के भीतर आपको फोन करेगा।</div>
+    </div>
+    <div class="banner info"><b>देर हो रही है या तबीयत ठीक नहीं?</b> शाखा को 022-4XXX XX20 पर फोन करें। पहले से बताने का कोई शुल्क नहीं है।</div>
+    <p class="small muted" style="text-align:center">🔒 हम SMS पर कभी मेडिकल जानकारी नहीं भेजते — केवल यह सुरक्षित लिंक। आपका डेटा भारत में ही रहता है।</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 मेरिडियन डायग्नोस्टिक्स · Magnus HMS द्वारा संचालित · आपका डेटा भारत में रहता है · <a href="#" style="color:#0F766E">गोपनीयता</a> · <a href="#" style="color:#0F766E">नियम</a> · <a href="#" style="color:#0F766E">सहायता</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — LARGE-TEXT SAMPLE (SAME CONTENT, TEXT-SIZE TOGGLE ON)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:14px 16px;text-align:center;font-weight:800;color:#0F766E;font-size:19px">◎ Meridian Diagnostics <span class="muted" style="font-weight:400;font-size:14px">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto;font-size:17px;line-height:1.55">
+    <div class="banner success" style="font-size:15.5px"><b style="font-size:16.5px">Large text is on.</b> Everything on our pages now shows bigger. Saved on this device. <a href="#" style="color:#166534;font-weight:700">Switch back to standard</a></div>
+    <div class="card" style="border-top:4px solid #0F766E;padding:18px 18px">
+      <div class="card-title" style="font-size:18px">Your appointment <span class="chip teal" style="font-size:13px;padding:3px 12px">CONFIRMED</span></div>
+      <div class="kv" style="font-size:15.5px;row-gap:9px">
+        <dt style="font-size:12px">Patient</dt><dd><b>Rajesh G.</b></dd>
+        <dt style="font-size:12px">Test</dt><dd><b>X-Ray Chest PA</b></dd>
+        <dt style="font-size:12px">Date &amp; time</dt><dd><b>Wed, 29 Jul 2026 · 11:00 AM IST</b></dd>
+        <dt style="font-size:12px">Reference</dt><dd class="mono">APPT-2026-51317</dd>
+      </div>
+      <div class="row" style="margin-top:16px">
+        <a class="btn primary grow" href="#" style="padding:15px 14px;font-size:16px">📅 Add to calendar</a>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <a class="btn grow" href="#" style="padding:15px 14px;font-size:16px">Request a different time</a>
+      </div>
+    </div>
+    <p style="text-align:center;color:#64748B;font-size:14px">🔒 Text size is saved only in this browser. It changes nothing in your medical record.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:12px 16px;text-align:center;font-size:13.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<p class="audit">Language and text-size choices are stored in this browser only (local storage) and never written to the patient record. Page opens via tokenised links remain subject to the normal link-open logging, and any change made by staff on a patient's behalf at the branch is recorded in the access log.</p>
+</section>

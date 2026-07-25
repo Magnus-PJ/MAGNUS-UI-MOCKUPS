@@ -1,0 +1,118 @@
+<section class="screen" id="pt-10">
+<div class="screen-head"><h1><span class="sid">PT-10</span> Request tracking</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G2 Patient-Facing — patient chrome (no sidebar)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Patients check the progress of a data-rights request by entering their <span class="mono">DPDP-CR</span> reference and an OTP sent to the registered mobile. The page shows an honest status timeline (received → identity verified → in progress → completed / partially completed with reasons) and a live SLA countdown. If the 30-day deadline is breached, an escalate-to-DPO button appears automatically, with a further grievance path to the Data Protection Board.</div>
+
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="border-top:4px solid #0F766E">
+      <div class="card-title">Track your data-rights request</div>
+      <div class="field"><label>Tracking reference <span class="req">*</span></label><input class="input mono" value="DPDP-CR-00417"><div class="hint">Starts with DPDP-CR — it was shown when you submitted, and sent to you by SMS.</div></div>
+      <div class="field"><label>One-time code (OTP) <span class="req">*</span></label><input class="input mono" placeholder="6-digit code" style="max-width:180px;letter-spacing:4px"><div class="hint">Sent to your registered mobile +91 98••• ••102. Valid for 10 minutes. <a href="#" style="color:#0F766E;font-weight:700">Resend code</a></div></div>
+      <a class="btn primary" href="#" style="width:100%;padding:12px 14px">Show my request status →</a>
+      <div class="hint small muted" style="margin-top:8px">🔒 The OTP protects your request details — a reference number alone is never enough to see them.</div>
+    </div>
+    <div class="banner info"><b>Lost your reference?</b> Call the clinic on 022-4XXX XX20 (Mon–Sat, 8 AM–8 PM) or visit with photo ID and we will look it up for you.</div>
+    <p class="small muted" style="text-align:center">🔒 Handled in India by our privacy team. Your data stays in India.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — IN PROGRESS (HONEST SLA COUNTDOWN)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="border-top:4px solid #0F766E">
+      <div class="card-title">Request <span class="mono">DPDP-CR-00417</span> <span class="chip blue">IN PROGRESS</span></div>
+      <div class="kv" style="margin-bottom:12px">
+        <dt>Type</dt><dd>Correction — name spelling</dd>
+        <dt>Submitted</dt><dd>25 Jul 2026, 10:26 AM IST</dd>
+        <dt>Respond by</dt><dd><b>24 Aug 2026</b> · <span class="chip teal">21 DAYS LEFT</span></dd>
+      </div>
+      <div class="progress" style="margin-bottom:14px"><i style="width:30%"></i></div>
+      <div class="ladder">
+        <div class="tier done"><b>Received</b><div class="small muted">25 Jul, 10:26 AM — reference issued, SMS confirmation sent.</div></div>
+        <div class="tier done"><b>Identity verified</b><div class="small muted">25 Jul, 10:26 AM — OTP matched to your registered mobile.</div></div>
+        <div class="tier cur"><b>In progress</b><div class="small muted">28 Jul — records team is checking the correction against your visit documents. No action needed from you right now.</div></div>
+        <div class="tier"><b>Completed</b><div class="small muted">We'll SMS you the moment this is done, with what changed.</div></div>
+      </div>
+    </div>
+    <div class="banner info"><b>Being honest about timing:</b> most corrections finish well before the deadline, but if we ever need more time within the 30 days, we'll say so here — not go quiet.</div>
+    <p class="small muted" style="text-align:center">🔒 This status view expires when you close the page. Checking again needs a fresh OTP.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — COMPLETED, PARTIALLY (DELETION REQUEST WITH CLEAR REASONS)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="border-top:4px solid #15803D">
+      <div class="card-title">Request <span class="mono">DPDP-CR-00389</span> <span class="chip amber">PARTIALLY COMPLETED</span></div>
+      <div class="kv" style="margin-bottom:12px">
+        <dt>Type</dt><dd>Deletion of my data</dd>
+        <dt>Submitted</dt><dd>02 Jul 2026 · <b>Closed 21 Jul 2026</b> (within the 30-day window)</dd>
+      </div>
+      <div class="ladder">
+        <div class="tier done"><b>Received</b><div class="small muted">02 Jul, 6:41 PM</div></div>
+        <div class="tier done"><b>Identity verified</b><div class="small muted">02 Jul, 6:44 PM — OTP + second OTP confirmation for deletion.</div></div>
+        <div class="tier done"><b>In progress</b><div class="small muted">03–20 Jul — privacy team reviewed every category of your data.</div></div>
+        <div class="tier done"><b>Partially completed</b><div class="small muted">21 Jul, 3:10 PM — outcome letter sent by SMS link.</div></div>
+      </div>
+      <div class="card" style="background:#F0FDF4;border-color:#86EFAC;margin-top:12px">
+        <div class="card-title" style="margin-bottom:6px">✅ Deleted now</div>
+        <div class="small">Marketing &amp; reminder preferences · WhatsApp opt-in · secondary contact details · analytics identifiers · your data removed from all research datasets.</div>
+      </div>
+      <div class="card" style="background:#FFFBEB;border-color:#FCD34D">
+        <div class="card-title" style="margin-bottom:6px">⏳ Kept for now — and why</div>
+        <table>
+          <tr><th>Record</th><th>Deleted on</th><th>Reason</th></tr>
+          <tr><td>Scan reports (2 visits)</td><td class="mono">after 14 Mar 2029</td><td>3-yr medical retention</td></tr>
+          <tr><td>Invoices INV/AND/26-27/0114, /0182</td><td class="mono">after 31 Mar 2035</td><td>8-yr GST / tax rules</td></tr>
+          <tr><td>Signed consent forms</td><td class="mono">with the records they cover</td><td>proof of consent</td></tr>
+        </table>
+        <div class="small" style="margin-top:6px">These are <b>locked</b>: no marketing, no research, no routine access — opened only if the law requires. Deletion then happens automatically; you don't need to ask again.</div>
+      </div>
+    </div>
+    <div class="banner info"><b>Disagree with what was kept?</b> <a href="#" style="color:#075985;font-weight:700">Raise it with our Data Protection Officer</a> — or file a grievance with the <a href="#" style="color:#075985;font-weight:700">Data Protection Board of India</a>.</div>
+    <p class="small muted" style="text-align:center">🔒 The outcome letter with full detail was sent as a secure link — this page shows a summary only.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE D — OVERDUE (SLA BREACHED, ESCALATE TO DPO)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="banner danger"><b>We are late, and we're sorry.</b> This request passed its 30-day legal deadline on <b>22 Jul 2026</b>. You do not have to wait — you can escalate right now, below.</div>
+    <div class="card" style="border-top:4px solid #B91C1C">
+      <div class="card-title">Request <span class="mono">DPDP-CR-00352</span> <span class="chip red">OVERDUE · 3 DAYS PAST DEADLINE</span></div>
+      <div class="kv" style="margin-bottom:12px">
+        <dt>Type</dt><dd>Copy of my records</dd>
+        <dt>Submitted</dt><dd>22 Jun 2026 · deadline was <b>22 Jul 2026</b></dd>
+        <dt>Now with</dt><dd>Privacy queue (M. Kulkarni) · <span class="chip red">ESCALATED TO: DPO, auto on day 30</span></dd>
+      </div>
+      <div class="progress red" style="margin-bottom:14px"><i style="width:100%"></i></div>
+      <div class="ladder">
+        <div class="tier done"><b>Received</b><div class="small muted">22 Jun, 9:14 AM</div></div>
+        <div class="tier done"><b>Identity verified</b><div class="small muted">22 Jun, 9:16 AM</div></div>
+        <div class="tier cur"><b>In progress — delayed</b><div class="small muted">Last update 18 Jul: "compiling imaging access history across two branches". No update since. This is below our standard and has been flagged to management.</div></div>
+        <div class="tier fail"><b>Deadline missed</b><div class="small muted">22 Jul — automatic escalation to the Data Protection Officer was triggered the same day.</div></div>
+      </div>
+      <a class="btn danger" href="#" style="width:100%;padding:12px 14px;margin-top:12px">Escalate to the Data Protection Officer now</a>
+      <div class="hint small" style="margin-top:6px">One tap sends your case, with full history, to <b>dpo@meridiandiagnostics.in</b>. The DPO must reply to you directly within <b>7 days</b>.</div>
+      <a class="btn ghost" href="#" style="width:100%;text-align:center;margin-top:4px">File a grievance with the Data Protection Board of India →</a>
+    </div>
+    <p class="small muted" style="text-align:center">🔒 Escalating never affects your care or how you are treated at any Meridian branch.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<p class="audit">Every status lookup (reference, OTP result, device, timestamp) and every escalation tap is recorded in the access log. SLA breach on DPDP-CR-00352 auto-escalated to the DPO on day 30; owner M. Kulkarni; the patient-initiated escalation is stamped separately and both are visible to the auditor.</p>
+</section>

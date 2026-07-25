@@ -1,0 +1,107 @@
+<section class="screen" id="nt-03">
+<div class="screen-head"><h1><span class="sid">NT-03</span> Template admin</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Admins manage one template per notification event (report-ready, reminder, token, payment), with a variant per language, each carrying its own TRAI DLT template ID. A lint panel blocks publishing on PHI leakage, unknown variables or segment-length issues, and any DLT registered-text mismatch hard-blocks sending on SMS. Every version change requires an approver and is kept in history with test-renders per variant.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Delivery</div>
+      <div class="nav-item">Delivery ledger</div>
+      <div class="nav-item">Failures &amp; pickup <span class="nav-badge red">9</span></div>
+      <div class="sec-label">Configuration</div>
+      <div class="nav-item active">Templates</div>
+      <div class="nav-item">Channels &amp; senders</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Consent registry</div>
+      <div class="nav-item">Access log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Notifications › Templates</div>
+      <div class="page-title">Message templates <span class="actions-right"><span class="btn small primary">+ New template variant</span></span></div>
+      <div class="page-sub">Org-wide (all branches) · SMS variants require an approved DLT template ID before they can send</div>
+      <div class="banner info"><b>DLT sync ran 25 Jul 2026 06:00 IST.</b> 11 of 13 SMS variants match their registered DLT text. 1 pending registration, 1 mismatch (blocked from sending).</div>
+      <table>
+        <tr><th>Event</th><th>Variant / language</th><th>Channel</th><th>DLT template ID</th><th>Version</th><th>Lint</th><th>Status</th><th></th></tr>
+        <tr><td rowspan="3" class="bold">Report ready</td><td>English</td><td><span class="chip grey">SMS</span></td><td class="mono small">11071722264189 <span class="chip green">REGISTERED ✓</span></td><td>v4 · appr. M. Kulkarni</td><td><span class="chip green">PASS</span></td><td><span class="chip green">LIVE</span></td><td><span class="btn small ghost">Edit</span> <span class="btn small ghost">Test render</span></td></tr>
+        <tr><td>हिन्दी (Hindi)</td><td><span class="chip grey">SMS</span></td><td class="mono small">11071722264190 <span class="chip green">REGISTERED ✓</span></td><td>v3 · appr. M. Kulkarni</td><td><span class="chip green">PASS</span></td><td><span class="chip green">LIVE</span></td><td><span class="btn small ghost">Edit</span> <span class="btn small ghost">Test render</span></td></tr>
+        <tr class="hl"><td>मराठी (Marathi)</td><td><span class="chip grey">SMS</span></td><td class="mono small">11071722264204 <span class="chip red">MISMATCH ✕</span></td><td>v2 · appr. K. Verma</td><td><span class="chip green">PASS</span></td><td><span class="chip red">BLOCKED</span></td><td><span class="btn small">Resolve…</span></td></tr>
+        <tr><td rowspan="2" class="bold">Appointment reminder</td><td>English</td><td><span class="chip grey">SMS</span></td><td class="mono small">11071722264191 <span class="chip green">REGISTERED ✓</span></td><td>v6 · appr. M. Kulkarni</td><td><span class="chip green">PASS</span></td><td><span class="chip green">LIVE</span></td><td><span class="btn small ghost">Edit</span> <span class="btn small ghost">Test render</span></td></tr>
+        <tr><td>English</td><td><span class="chip blue">WhatsApp</span></td><td class="mono small">BSP appr. <span class="chip green">APPROVED ✓</span></td><td>v2 · appr. K. Verma</td><td><span class="chip green">PASS</span></td><td><span class="chip green">LIVE</span></td><td><span class="btn small ghost">Edit</span> <span class="btn small ghost">Test render</span></td></tr>
+        <tr><td class="bold">Queue token</td><td>English</td><td><span class="chip grey">SMS</span></td><td class="mono small">11071722264195 <span class="chip green">REGISTERED ✓</span></td><td>v2 · appr. M. Kulkarni</td><td><span class="chip green">PASS</span></td><td><span class="chip green">LIVE</span></td><td><span class="btn small ghost">Edit</span> <span class="btn small ghost">Test render</span></td></tr>
+        <tr><td rowspan="2" class="bold">Payment receipt</td><td>English</td><td><span class="chip grey">SMS</span></td><td class="mono small">11071722264198 <span class="chip green">REGISTERED ✓</span></td><td>v5 · appr. M. Kulkarni</td><td><span class="chip green">PASS</span></td><td><span class="chip green">LIVE</span></td><td><span class="btn small ghost">Edit</span> <span class="btn small ghost">Test render</span></td></tr>
+        <tr><td>हिन्दी (Hindi)</td><td><span class="chip grey">SMS</span></td><td class="mono small">— <span class="chip amber">PENDING DLT</span></td><td>v1 draft · unapproved</td><td><span class="chip amber">2 WARN</span></td><td><span class="chip grey">DRAFT</span></td><td><span class="btn small ghost">Edit</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Sender header for all SMS: <span class="mono">MERDIA</span> · Principal entity DLT: <span class="mono">1101584930000012345</span>. Templates never contain patient names, test names, results or foetal-sex references (lint rule NT-L1).</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — EDIT VARIANT WITH LINT ERRORS (PAYMENT RECEIPT · HINDI · DRAFT v1)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Notifications › Templates › Payment receipt › Hindi (SMS)</div>
+      <div class="page-title">Edit variant — Payment receipt · हिन्दी · SMS <span class="chip grey">DRAFT v1</span></div>
+      <div class="page-sub">Changes require approval by billing supervisor M. Kulkarni before DLT submission</div>
+      <div class="split">
+        <div class="card">
+          <div class="card-title">Template body</div>
+          <div class="textarea mono small" style="min-height:110px">प्रिय {{patient_name}}, Meridian Diagnostics को ₹{{amount}} का भुगतान प्राप्त हुआ। रसीद {{receipt_no}} देखें: {{secure_link}}। लिंक 72 घंटे मान्य। धन्यवाद। — MERDIA</div>
+          <div class="row" style="margin-top:10px">
+            <div class="field grow"><label>Allowed variables</label><div class="small mono">{{amount}} {{receipt_no}} {{secure_link}} {{order_last4}}</div></div>
+            <div class="field" style="width:160px"><label>Language</label><div class="select">हिन्दी ▾</div></div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:6px"><span class="btn small">Save draft</span><span class="btn small primary disabled">Submit for approval</span><span class="btn small ghost">Test render</span></div>
+          <div class="hint">Submit is disabled until all lint errors are cleared.</div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Lint panel <span class="chip red">2 ERRORS · 1 WARN</span></div>
+            <div class="banner danger" style="margin-bottom:8px"><b>NT-L1 · PHI in template</b> Variable <span class="mono">{{patient_name}}</span> is not permitted in SMS templates. Replace with <span class="mono">{{order_last4}}</span> or remove.</div>
+            <div class="banner danger" style="margin-bottom:8px"><b>NT-L2 · Unknown variable</b> <span class="mono">{{receipt_no}}</span> — did you mean <span class="mono">{{receipt_number}}</span>? Unmapped variables render blank at send time.</div>
+            <div class="banner warn" style="margin-bottom:0"><b>NT-L4 · Length / segments</b> 214 chars in Unicode (UCS-2) → 4 SMS segments. Recommended ≤ 2 segments (134 chars). Cost impact ~₹0.48/msg.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Version history</div>
+            <div class="timeline">
+              <div class="ev"><span class="t">25 Jul 12:10</span><div>v1 draft created — K. Verma</div></div>
+              <div class="ev"><span class="t">—</span><div class="muted">No approved versions yet. On approval, text is submitted to DLT; the variant stays non-sending until DLT returns REGISTERED.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — DLT MISMATCH BLOCKED (REPORT READY · MARATHI)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Notifications › Templates › Report ready › Marathi (SMS)</div>
+      <div class="page-title">Report ready · मराठी · SMS <span class="chip red">BLOCKED — DLT MISMATCH</span></div>
+      <div class="page-sub">DLT template 11071722264204 · last synced 25 Jul 2026 06:00 IST</div>
+      <div class="banner danger"><b>Sending blocked: local text does not match the DLT-registered text.</b> Operators reject non-matching payloads and repeated rejects risk header suspension. Fix by reverting local text to the registered version, or submit the new text as a fresh DLT registration. Owner: K. Verma · <span class="chip red">OVERDUE 12 h</span> · escalated to M. Kulkarni.</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Local text (v2 — unapproved edit)</div>
+          <div class="small mono" style="background:#FEF2F2;border:1px solid #FCA5A5;border-radius:8px;padding:8px 10px">तुमचा अहवाल तयार आहे. Meridian Diagnostics — ऑर्डर {{order_last4}}. सुरक्षित लिंक: {{secure_link}} <b style="background:#FEE2E2">(लिंक ७२ तास वैध. कृपया शेअर करू नका.)</b> — MERDIA</div>
+          <div class="small muted" style="margin-top:6px">Diff: trailing sentence added on 22 Jul by K. Verma — not present in DLT registration.</div>
+        </div>
+        <div class="card grow">
+          <div class="card-title">DLT-registered text (11071722264204)</div>
+          <div class="small mono" style="background:#F0FDF4;border:1px solid #86EFAC;border-radius:8px;padding:8px 10px">तुमचा अहवाल तयार आहे. Meridian Diagnostics — ऑर्डर {{order_last4}}. सुरक्षित लिंक: {{secure_link}} — MERDIA</div>
+          <div class="small muted" style="margin-top:6px">Registered 04 Jun 2026 · principal entity 1101584930000012345 · header MERDIA</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px"><span class="btn primary">Revert local text to registered version</span><span class="btn">Submit new text to DLT (new template ID)</span><span class="btn ghost">Fallback: send Marathi recipients the English variant meanwhile</span></div>
+      <div class="small muted" style="margin-top:8px">While blocked, report-ready sends for Marathi-preference patients automatically fall back to the English variant; the fallback is noted per message in the delivery ledger.</div>
+    </div>
+  </div>
+</div>
+<p class="audit">Template edits, lint results, approvals (approver identity + timestamp), DLT submissions/sync results and test renders are versioned and recorded in the access log.</p>
+</section>

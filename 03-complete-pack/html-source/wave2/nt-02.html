@@ -1,0 +1,104 @@
+<section class="screen" id="nt-02">
+<div class="screen-head"><h1><span class="sid">NT-02</span> Failures &amp; counter-pickup worklist</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Every failed, suppressed or counter-routed delivery lands here so no patient silently misses a report. Front office works the Failed tab daily (fix contact via OTP-verified change link, switch channel, or move to counter pickup), and the counter queue enforces an ID-verify checklist with pickup code, collector details and signature before hand-over. Suppressed rows are read-only and link to the consent registry — they are never resent from this screen.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Delivery</div>
+      <div class="nav-item">Delivery ledger</div>
+      <div class="nav-item active">Failures &amp; pickup <span class="nav-badge red">9</span></div>
+      <div class="sec-label">Configuration</div>
+      <div class="nav-item">Templates</div>
+      <div class="nav-item">Channels &amp; senders</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Consent registry</div>
+      <div class="nav-item">Access log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Notifications › Failures &amp; counter pickup</div>
+      <div class="page-title">Failures &amp; counter-pickup worklist</div>
+      <div class="page-sub">Daily review required · Andheri West · owner: front office (D. Nair)</div>
+      <div class="banner warn"><b>Daily-review SLA: 6 failed items are unreviewed for &gt; 18 h.</b> Policy: every failed delivery must be actioned within 24 h of failure. <span class="chip amber">SLA 05:12 left</span> Owner: D. Nair · escalates to branch manager K. Verma at 26 Jul 10:00 IST if unactioned.</div>
+      <div style="display:flex;gap:8px;margin-bottom:12px">
+        <span class="btn small primary">Failed (9)</span><span class="btn small">Print-at-counter (4)</span><span class="btn small">Suppressed (3)</span><span class="btn small">Resolved · 7 days (41)</span>
+      </div>
+      <table>
+        <tr><th>Failed at (IST)</th><th>Accession / event</th><th>Patient</th><th>Channel</th><th>Error taxonomy</th><th>SLA</th><th>Actions</th></tr>
+        <tr class="hl"><td class="mono">25 Jul 14:33</td><td class="mono">ACC-2026-91236<br><span class="small muted">Report ready</span></td><td>Aarav Sharma<br><span class="small muted">MRN-004821 · +91 91••• ••204</span></td><td><span class="chip grey">SMS</span></td><td><span class="chip red">UNDELIVERABLE</span><br><span class="small muted">carrier 21 · number inactive</span></td><td><span class="chip teal">22:40 left</span></td><td><span class="btn small primary">Fix contact &amp; resend</span> <span class="btn small">Switch channel</span> <span class="btn small ghost">To counter</span></td></tr>
+        <tr><td class="mono">25 Jul 11:19</td><td class="mono">ACC-2026-91221<br><span class="small muted">Report ready</span></td><td>Priya Menon<br><span class="small muted">MRN-004828 · +91 99••• ••871</span></td><td><span class="chip grey">SMS</span></td><td><span class="chip amber">DND BLOCKED</span><br><span class="small muted">TRAI DND list · transactional header rejected</span></td><td><span class="chip teal">19:26 left</span></td><td><span class="btn small">Switch channel</span> <span class="btn small ghost">To counter</span></td></tr>
+        <tr><td class="mono">25 Jul 09:47</td><td class="mono">APPT-2026-53322<br><span class="small muted">Reminder T-24h</span></td><td>Mohammed Al-Rashid<br><span class="small muted">MRN-004790 · m.alrashid••@•••</span></td><td><span class="chip violet">Email</span></td><td><span class="chip red">UNDELIVERABLE</span><br><span class="small muted">550 mailbox not found</span></td><td><span class="chip teal">17:54 left</span></td><td><span class="btn small primary">Fix contact &amp; resend</span> <span class="btn small">Switch channel</span></td></tr>
+        <tr><td class="mono">24 Jul 19:02</td><td class="mono">ACC-2026-91190<br><span class="small muted">Report ready</span></td><td>Rajesh Gupta<br><span class="small muted">MRN-004795 · +91 90••• ••662</span></td><td><span class="chip blue">WhatsApp</span></td><td><span class="chip amber">PROVIDER DOWN</span><br><span class="small muted">BSP timeout · auto-retry ×3 exhausted</span></td><td><span class="chip amber">03:58 left</span></td><td><span class="btn small">Retry via failover</span> <span class="btn small">Switch channel</span></td></tr>
+        <tr><td class="mono">24 Jul 16:38</td><td class="mono">ACC-2026-91184<br><span class="small muted">Report ready</span></td><td>Ananya Rao<br><span class="small muted">MRN-004819 · +91 97••• ••530</span></td><td><span class="chip grey">SMS</span></td><td><span class="chip red">UNDELIVERABLE</span><br><span class="small muted">carrier 34 · handset switched off &gt; 48 h</span></td><td><span class="chip red">OVERDUE 01:22</span><br><span class="small muted">escalated to K. Verma</span></td><td><span class="btn small primary">Fix contact &amp; resend</span> <span class="btn small ghost">To counter</span></td></tr>
+        <tr><td class="mono">24 Jul 15:10</td><td class="mono">VIS-2026-33098<br><span class="small muted">Payment receipt</span></td><td>Sofia Rossi<br><span class="small muted">MRN-004822 · +91 98••• ••318</span></td><td><span class="chip grey">SMS</span></td><td><span class="chip amber">PROVIDER DOWN</span><br><span class="small muted">RouteSMS 5xx · queued on failover Kaleyra</span></td><td><span class="chip red">OVERDUE 02:50</span><br><span class="small muted">escalated to K. Verma</span></td><td><span class="btn small">Retry via failover</span> <span class="btn small ghost">To counter</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">3 more failed rows · "Fix contact &amp; resend" sends an OTP-verified phone-change link to the patient's alternate contact or requires in-person OTP at the counter — staff never free-type a new number without verification.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PRINT-AT-COUNTER TAB + PICKUP HANDOVER MODAL</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Notifications › Failures &amp; counter pickup › Print-at-counter</div>
+      <div class="page-title">Counter pickup queue (4)</div>
+      <div class="page-sub">Reports routed for physical collection · verify identity before hand-over · every hand-over is signed</div>
+      <table>
+        <tr><th>Routed</th><th>Pickup code</th><th>Accession</th><th>Patient</th><th>Reason routed</th><th>Waiting</th><th></th></tr>
+        <tr class="hl"><td class="mono">24 Jul 16:50</td><td class="mono bold">PKP-4471</td><td class="mono">ACC-2026-91184</td><td>Ananya Rao · MRN-004819</td><td>SMS undeliverable, no alt contact</td><td><span class="chip amber">22 h</span></td><td><span class="btn small primary">Hand over…</span></td></tr>
+        <tr><td class="mono">24 Jul 12:05</td><td class="mono bold">PKP-4468</td><td class="mono">ACC-2026-91162</td><td>Rajesh Gupta · MRN-004795</td><td>Patient requested paper copy</td><td><span class="chip amber">27 h</span></td><td><span class="btn small primary">Hand over…</span></td></tr>
+        <tr><td class="mono">23 Jul 18:20</td><td class="mono bold">PKP-4465</td><td class="mono">ACC-2026-91120</td><td>Mohammed Al-Rashid · MRN-004790</td><td>Email bounced, patient opted counter</td><td><span class="chip red">44 h · call patient</span></td><td><span class="btn small primary">Hand over…</span></td></tr>
+        <tr><td class="mono">23 Jul 10:11</td><td class="mono bold">PKP-4460</td><td class="mono">ACC-2026-91101</td><td>Priya Menon · MRN-004828</td><td>Consent: no digital delivery</td><td><span class="chip red">52 h · call patient</span></td><td><span class="btn small primary">Hand over…</span></td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="modal-wrap">
+  <div class="modal">
+    <h3>Hand over report — PKP-4471 · ACC-2026-91184</h3>
+    <div class="small muted" style="margin-bottom:10px">Ananya Rao · MRN-004819 · USG Abdomen · reported 24 Jul 2026 by Dr. V. Shetty</div>
+    <div class="field"><label>Pickup code quoted by collector <span class="req">*</span></label><div class="input mono">PKP-4471 ✓ matches</div></div>
+    <div class="bold small" style="margin-bottom:6px">ID-verify checklist <span class="req">*</span></div>
+    <div class="check"><span class="box on">✓</span> Government photo ID sighted (not photocopied, not retained)</div>
+    <div class="check"><span class="box on">✓</span> Name on ID matches patient / authorised collector</div>
+    <div class="check"><span class="box on">✓</span> DOB or registered mobile last-4 confirmed verbally</div>
+    <div class="check"><span class="box"></span> Sealed envelope handed over intact</div>
+    <div class="field" style="margin-top:10px"><label>Collector</label>
+      <div class="check"><span class="box radio"></span> Patient in person</div>
+      <div class="check"><span class="box radio on"></span> Someone else on patient's behalf</div>
+    </div>
+    <div class="row">
+      <div class="field grow"><label>Collector name <span class="req">*</span></label><div class="input">Suresh Rao</div></div>
+      <div class="field" style="width:150px"><label>Relation <span class="req">*</span></label><div class="select">Spouse ▾</div></div>
+      <div class="field" style="width:130px"><label>ID last-4 <span class="req">*</span></label><div class="input mono">••7391</div><div class="hint">Aadhaar last-4 only</div></div>
+    </div>
+    <div class="field"><label>Collector signature <span class="req">*</span></label><div class="sig-box signed">Suresh Rao</div></div>
+    <div class="banner info" style="margin-top:8px"><b>Step-up confirmation.</b> Handing over a medical record to a third party requires your PIN re-entry. Actor: D. Nair (front office).</div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Confirm PIN &amp; mark collected</span></div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — SUPPRESSED TAB (CONSENT-DRIVEN, READ-ONLY)</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Notifications › Failures &amp; counter pickup › Suppressed</div>
+      <div class="page-title">Suppressed deliveries (3)</div>
+      <div class="page-sub">Messages withheld by consent or policy — these cannot be resent from this screen</div>
+      <div class="banner reg"><b>Consent-governed.</b> A suppression lifts only when the patient's consent record changes in the Consent registry. Do not work around suppressions by calling or messaging from personal devices — that is a reportable privacy breach.</div>
+      <table>
+        <tr><th>Suppressed at</th><th>Accession / event</th><th>Patient</th><th>Channel</th><th>Suppression reason</th><th></th></tr>
+        <tr><td class="mono">25 Jul 11:05</td><td class="mono">ACC-2026-91214 · Report ready</td><td>Ananya Rao · MRN-004819</td><td><span class="chip grey">SMS</span></td><td><span class="chip grey">Consent withdrawn — digital delivery</span><br><span class="small muted">recorded 18 Jul 2026 · counter pickup only</span></td><td><span class="btn small ghost">Open consent record ↗</span></td></tr>
+        <tr><td class="mono">24 Jul 17:30</td><td class="mono">ACC-2026-91177 · Report ready</td><td>Sofia Rossi · MRN-004822</td><td><span class="chip blue">WhatsApp</span></td><td><span class="chip grey">Channel consent absent — WhatsApp</span><br><span class="small muted">SMS fallback delivered 24 Jul 17:31 ✓</span></td><td><span class="btn small ghost">Open consent record ↗</span></td></tr>
+        <tr><td class="mono">23 Jul 09:15</td><td class="mono">ACC-2026-91144 · Report ready</td><td>Priya Menon · MRN-004828</td><td><span class="chip grey">SMS</span></td><td><span class="chip grey">Obstetric non-disclosure policy</span><br><span class="small muted">report released to referrer Dr. Farida Khan only; foetal-sex non-disclosure applies</span></td><td><span class="btn small ghost">Open policy note ↗</span></td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+<p class="audit">Failure actions (fix-contact OTP requests, channel switches, counter routing), hand-overs with collector identity and signature, and every suppressed-row view are recorded in the access log.</p>
+</section>

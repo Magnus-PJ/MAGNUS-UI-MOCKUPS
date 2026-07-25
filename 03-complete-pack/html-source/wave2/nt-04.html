@@ -1,0 +1,137 @@
+<section class="screen" id="nt-04">
+<div class="screen-head"><h1><span class="sid">NT-04</span> Channels &amp; senders</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Admins manage the delivery channels behind every patient/referrer message: SMS via DLT-registered entity and header, WhatsApp via a BSP with credential-expiry countdown and auto-alerts, and transactional email with SPF/DKIM domain health. The screen sets failover order, offers a sandbox mode that routes messages to test numbers only, and runs connection tests with a result log so provider issues are caught before patients notice.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Delivery</div>
+      <div class="nav-item">Delivery ledger</div>
+      <div class="nav-item">Failures &amp; pickup <span class="nav-badge red">9</span></div>
+      <div class="sec-label">Configuration</div>
+      <div class="nav-item">Templates</div>
+      <div class="nav-item active">Channels &amp; senders</div>
+      <div class="sec-label">Governance</div>
+      <div class="nav-item">Consent registry</div>
+      <div class="nav-item">Access log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Notifications › Channels &amp; senders</div>
+      <div class="page-title">Channels &amp; senders <span class="actions-right"><span class="btn small">Run all connection tests</span></span></div>
+      <div class="page-sub">Org-wide configuration · changes require admin role + step-up PIN · all providers process data within India</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">SMS — RouteSMS (primary) <span class="chip green">HEALTHY</span></div>
+          <dl class="kv" style="grid-template-columns:130px 1fr">
+            <dt>DLT entity</dt><dd class="mono">1101584930000012345 · Meridian Diagnostics Pvt Ltd</dd>
+            <dt>Header</dt><dd class="mono">MERDIA <span class="chip green">ACTIVE</span></dd>
+            <dt>Route</dt><dd>Transactional · India only</dd>
+            <dt>Last test</dt><dd>25 Jul 06:02 IST · <span class="chip green">OK 412 ms</span></dd>
+            <dt>24 h volume</dt><dd>1,847 sent · 96.1% delivered</dd>
+          </dl>
+          <div style="display:flex;gap:8px;margin-top:10px"><span class="btn small">Test connection</span><span class="btn small ghost">Rotate API key…</span></div>
+        </div>
+        <div class="card grow">
+          <div class="card-title">WhatsApp — Gupshup BSP <span class="chip green">HEALTHY</span></div>
+          <dl class="kv" style="grid-template-columns:130px 1fr">
+            <dt>WABA number</dt><dd class="mono">+91 22 4••• ••80 · verified ✓</dd>
+            <dt>Quality rating</dt><dd><span class="chip green">HIGH</span> · tier 10k/day</dd>
+            <dt>Credential</dt><dd>API token expires <b>18 Sep 2026</b> <span class="chip teal">55 days left</span></dd>
+            <dt>Auto-alert</dt><dd>Admins alerted at 30 / 14 / 7 / 1 days before expiry</dd>
+            <dt>Last test</dt><dd>25 Jul 06:02 IST · <span class="chip green">OK 688 ms</span></dd>
+          </dl>
+          <div style="display:flex;gap:8px;margin-top:10px"><span class="btn small">Test connection</span><span class="btn small ghost">Renew credential…</span></div>
+        </div>
+        <div class="card grow">
+          <div class="card-title">Email — mail.meridiandiagnostics.in <span class="chip green">HEALTHY</span></div>
+          <dl class="kv" style="grid-template-columns:130px 1fr">
+            <dt>From</dt><dd class="mono">no-reply@meridiandiagnostics.in</dd>
+            <dt>SPF</dt><dd><span class="chip green">PASS ✓</span> aligned</dd>
+            <dt>DKIM</dt><dd><span class="chip green">PASS ✓</span> selector <span class="mono">mg2026</span></dd>
+            <dt>DMARC</dt><dd><span class="chip green">p=quarantine</span></dd>
+            <dt>Last test</dt><dd>25 Jul 06:03 IST · <span class="chip green">OK 1.2 s</span></dd>
+          </dl>
+          <div style="display:flex;gap:8px;margin-top:10px"><span class="btn small">Test connection</span><span class="btn small ghost">DNS records…</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">Failover order <span class="right">Applies per channel</span></div>
+          <table>
+            <tr><th>#</th><th>Channel</th><th>Primary</th><th>Failover</th><th>Trigger</th></tr>
+            <tr><td>1</td><td>SMS</td><td>RouteSMS (DLT)</td><td>Kaleyra (DLT, same header MERDIA)</td><td>3 consecutive 5xx or &gt; 5 min queue age</td></tr>
+            <tr><td>2</td><td>WhatsApp</td><td>Gupshup BSP</td><td>→ SMS (consented recipients only)</td><td>BSP timeout ×3 / template paused</td></tr>
+            <tr><td>3</td><td>Email</td><td>In-house SMTP (Mumbai DC)</td><td>→ SMS notification of pending email</td><td>SMTP unreachable 10 min</td></tr>
+          </table>
+          <div class="small muted" style="margin-top:6px">Failover never changes message content — the same approved template variant is used on the alternate provider.</div>
+        </div>
+        <div class="card" style="width:300px">
+          <div class="card-title">Sandbox / test mode</div>
+          <div class="check"><span class="box"></span> <span><b>Sandbox mode OFF</b> — live sending to patients. When ON, all messages route only to the registered test numbers below and rows are watermarked TEST in the ledger.</span></div>
+          <div class="small mono" style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:6px 8px;margin-top:8px">TEST: +91 98••• ••007 (K. Verma)<br>TEST: +91 98••• ••114 (QA shared)</div>
+          <div class="small muted" style="margin-top:8px">Toggling sandbox requires step-up PIN and auto-reverts after 4 h.</div>
+          <span class="btn small warn-outline" style="margin-top:8px">Enable sandbox…</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — WHATSAPP CREDENTIAL EXPIRING (AMBER) · ADMIN AUTO-NOTIFIED</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Notifications › Channels &amp; senders</div>
+      <div class="page-title">Channels &amp; senders</div>
+      <div class="banner warn"><b>WhatsApp BSP credential expires in 6 days (31 Jul 2026 23:59 IST).</b> Auto-alerts sent to admins K. Verma and M. Kulkarni on 24 Jul (7-day mark); next alert at 1 day. If not renewed, WhatsApp sends will fail over to SMS for consented recipients and all others route to the Failures worklist. <span class="chip amber">SLA: renew by 30 Jul</span> Owner: K. Verma · escalates to IT ops (central) 30 Jul 18:00.</div>
+      <div class="row">
+        <div class="card grow">
+          <div class="card-title">WhatsApp — Gupshup BSP <span class="chip amber">CREDENTIAL EXPIRING</span></div>
+          <dl class="kv" style="grid-template-columns:130px 1fr">
+            <dt>Credential</dt><dd>API token expires <b>31 Jul 2026</b> <span class="chip amber">6 days left</span></dd>
+            <dt>Renewal</dt><dd>Initiated 24 Jul · awaiting BSP confirmation ref <span class="mono">GS-REN-20447</span></dd>
+            <dt>Alert history</dt><dd class="small">30-day ✓ 01 Jul · 14-day ✓ 17 Jul · 7-day ✓ 24 Jul · 1-day pending</dd>
+            <dt>Impact if lapsed</dt><dd class="small">~140 WhatsApp msgs/day reroute; report-ready links unaffected (SMS fallback)</dd>
+          </dl>
+          <div style="display:flex;gap:8px;margin-top:10px"><span class="btn small primary">Complete renewal…</span><span class="btn small ghost">Snooze alert 24 h (logged)</span></div>
+        </div>
+        <div class="card" style="width:300px">
+          <div class="card-title">Notified admins</div>
+          <div class="timeline">
+            <div class="ev"><span class="t">24 Jul 09:00</span><div>Email + in-app → K. Verma <span class="chip green" style="font-size:10px">READ</span></div></div>
+            <div class="ev"><span class="t">24 Jul 09:00</span><div>Email + in-app → M. Kulkarni <span class="chip amber" style="font-size:10px">UNREAD</span></div></div>
+            <div class="ev"><span class="t">31 Jul 09:00</span><div class="muted">1-day final alert (scheduled) + SMS to on-call</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — CONNECTION TEST RESULTS LOG</div>
+<div class="frame">
+  <div class="body">
+    <div class="main">
+      <div class="crumb">Notifications › Channels &amp; senders › Connection tests</div>
+      <div class="page-title">Connection test — results log</div>
+      <div class="page-sub">Manual run by K. Verma · 25 Jul 2026 15:05 IST · scheduled tests run daily 06:00 IST</div>
+      <div class="banner success"><b>2 of 3 providers passed.</b> RouteSMS returned degraded latency — failover Kaleyra verified healthy; no action needed unless it persists past the 18:00 IST re-test.</div>
+      <table>
+        <tr><th>Time (IST)</th><th>Provider</th><th>Test</th><th>Result</th><th>Latency</th><th>Detail</th></tr>
+        <tr><td class="mono">15:05:11</td><td>RouteSMS (SMS primary)</td><td>Auth + template handshake</td><td><span class="chip amber">DEGRADED</span></td><td class="mono">2,914 ms</td><td class="small">Auth OK · submit queue depth high at operator; DLT scrub OK</td></tr>
+        <tr><td class="mono">15:05:14</td><td>Kaleyra (SMS failover)</td><td>Auth + test submit (sandbox number)</td><td><span class="chip green">PASS</span></td><td class="mono">389 ms</td><td class="small">Header MERDIA accepted · DLT entity matched</td></tr>
+        <tr><td class="mono">15:05:18</td><td>Gupshup (WhatsApp)</td><td>Token validity + template list fetch</td><td><span class="chip green">PASS</span></td><td class="mono">702 ms</td><td class="small">Token valid to 31 Jul · 6 approved templates returned</td></tr>
+        <tr><td class="mono">15:05:23</td><td>SMTP mail.meridiandiagnostics.in</td><td>TLS + SPF/DKIM probe to seed inbox</td><td><span class="chip green">PASS</span></td><td class="mono">1,188 ms</td><td class="small">TLS 1.3 · DKIM signature verified at seed</td></tr>
+        <tr class="dim"><td class="mono">06:02:40</td><td>RouteSMS (scheduled)</td><td>Auth + template handshake</td><td><span class="chip green">PASS</span></td><td class="mono">412 ms</td><td class="small">Daily 06:00 run</td></tr>
+        <tr class="dim"><td class="mono">06:02:44</td><td>Gupshup (scheduled)</td><td>Token validity</td><td><span class="chip green">PASS</span></td><td class="mono">688 ms</td><td class="small">Daily 06:00 run</td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Test messages go only to registered sandbox numbers — never to patient contacts. Result log retained 180 days.</div>
+    </div>
+  </div>
+</div>
+<p class="audit">Provider configuration changes, key rotations, sandbox toggles (with step-up PIN and auto-revert), failover edits and every connection test are recorded in the access log.</p>
+</section>

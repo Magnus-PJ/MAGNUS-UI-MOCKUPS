@@ -1,0 +1,140 @@
+<section class="screen" id="bl-04">
+<div class="screen-head"><h1><span class="sid">BL-04</span> Payment pending &amp; reconciliation</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Home for payments that did not confirm in the window: initiated → awaiting → 3-min timeout → UNCONFIRMED. Cashier can re-query the provider, mark received with evidence (UTR mandatory, supervisor approves asynchronously, with an explicit double-collection warning), or cancel-and-collect-cash under a duplicate-auto-refund guard. Late provider webhooks auto-resolve rows without cashier action.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Billing worklist <span class="nav-badge">23</span></div>
+      <div class="nav-item">Collect payment</div>
+      <div class="nav-item active">Pending payments <span class="nav-badge red">4</span></div>
+      <div class="nav-item">Receipts &amp; reprints</div>
+      <div class="sec-label">Cash desk</div>
+      <div class="nav-item">Drawer session</div>
+      <div class="nav-item">Day close</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Pending payments › PAY-2026-77094</div>
+      <div class="page-title">Stuck payment — PAY-2026-77094 <span class="chip red">UNCONFIRMED</span></div>
+      <div class="page-sub">UPI ₹9,800.00 against <span class="mono">INV/AND/26-27/0402</span> · Rajesh Gupta · <span class="mono">MRN-004795</span> · owner P. D'Souza · escalated-to M. Kulkarni</div>
+      <div class="split">
+        <div>
+          <div class="card">
+            <div class="card-title">Payment timeline</div>
+            <div class="ladder">
+              <div class="tier done"><b>11:31:47 — INITIATED</b><div class="small muted">Dynamic QR ₹9,800.00 · ref PAY-2026-77094 · provider RazorPG</div></div>
+              <div class="tier done"><b>11:31:59 — AWAITING CONFIRMATION</b><div class="small muted">Collect request delivered to patient UPI app; polling every 5s</div></div>
+              <div class="tier fail"><b>11:34:47 — TIMEOUT (3:00 window elapsed)</b><div class="small muted">18 polls, all PENDING; no webhook received</div></div>
+              <div class="tier cur"><b>11:34:47 — UNCONFIRMED (current)</b><div class="small muted">Invoice remains UNPAID; patient claims app shows "success" and quotes a UTR. Aging 10m 55s.</div></div>
+            </div>
+          </div>
+          <div class="banner danger"><b>Double-collection warning.</b> If the patient's money actually left their account, collecting again creates a duplicate. Prefer <b>Re-query</b> first; use <b>Mark received with evidence</b> only with a UTR; <b>Cancel &amp; collect cash</b> is protected by the duplicate-auto-refund guard below.</div>
+          <div class="card">
+            <div class="card-title">Actions</div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <span class="btn primary">⟳ Re-query provider (last: 11:45:02 → PENDING)</span>
+              <span class="btn warn-outline">Mark received with evidence…</span>
+              <span class="btn">Cancel &amp; collect cash…</span>
+            </div>
+            <p class="small muted" style="margin-top:8px">If a late webhook confirms after either manual action, Magnus auto-detects the duplicate and initiates a refund to source — see State D.</p>
+          </div>
+        </div>
+        <div>
+          <div class="card" style="border-top:3px solid #B91C1C">
+            <div class="card-title">Pending confirmations <span class="chip red">4</span></div>
+            <table>
+              <tr><th>Ref</th><th>₹</th><th>Aging</th><th>State</th></tr>
+              <tr class="hl"><td class="mono small">PAY-2026-77094</td><td>9,800</td><td><span class="chip red">10m 55s</span></td><td>UNCONFIRMED</td></tr>
+              <tr><td class="mono small">PAY-2026-77101</td><td>3,600</td><td><span class="chip red">6m 40s</span></td><td>UNCONFIRMED (card)</td></tr>
+              <tr><td class="mono small">PAY-2026-77112</td><td>2,400</td><td><span class="chip amber">2m 10s</span></td><td>AWAITING</td></tr>
+              <tr><td class="mono small">PAY-2026-77118</td><td>1,500</td><td><span class="chip teal">0m 48s</span></td><td>AWAITING</td></tr>
+            </table>
+            <p class="small muted" style="margin-top:6px">Rows older than 15 min page the billing supervisor (M. Kulkarni). Unresolved rows block day close.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Patient claim</div>
+            <dl class="kv" style="grid-template-columns:96px 1fr">
+              <dt>Claims</dt><dd>App shows "Payment successful"</dd>
+              <dt>Quoted UTR</dt><dd class="mono">616309771254</dd>
+              <dt>Bank</dt><dd>HDFC (patient statement shown at desk)</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — MARK-RECEIVED-WITH-EVIDENCE MODAL</div>
+<div class="modal-wrap">
+  <div class="modal danger">
+    <h3>Mark ₹9,800.00 as received — evidence required</h3>
+    <div class="banner danger" style="margin-top:8px"><b>Risk: double collection.</b> You are asserting money arrived although the provider has not confirmed. If the provider later reports FAILED, this invoice reverts to UNPAID and you are accountable for the drawer variance.</div>
+    <div class="field"><label>UTR / bank reference <span class="req">*</span></label><input class="input" value="616309771254"/><div class="hint">Mandatory. Verified against provider settlement file at T+1.</div></div>
+    <div class="field"><label>Evidence sighted <span class="req">*</span></label><select class="select"><option>Patient bank app success screen + statement entry</option></select></div>
+    <div class="field"><label>Note</label><textarea class="textarea">Patient showed HDFC app debit of ₹9,800.00 at 11:32, UTR matches quoted ref. Provider still PENDING after 3 re-queries.</textarea></div>
+    <div class="check"><span class="box on">✓</span> I understand receipt will show "subject to reconciliation" until supervisor approval.</div>
+    <div class="field"><label>Your password (step-up identity confirmation) <span class="req">*</span></label><input class="input" value="••••••••"/></div>
+    <div class="banner warn" style="margin-top:6px"><b>Supervisor async approval.</b> Request goes to M. Kulkarni; the payment posts as PROVISIONAL now and finalises only on approval + settlement match.</div>
+    <div class="modal-actions"><span class="btn">Back</span><span class="btn danger">Mark received (provisional)</span></div>
+  </div>
+</div>
+
+<div class="state-tag">STATE C — AUTO-RESOLVED BY LATE WEBHOOK</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item active">Pending payments <span class="nav-badge">2</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Pending payments › PAY-2026-77101</div>
+      <div class="page-title">PAY-2026-77101 <span class="chip green">AUTO-RESOLVED</span></div>
+      <div class="banner success"><b>Late confirmation received — no cashier action needed.</b> Provider webhook arrived 11:49:31 IST confirming card payment ₹3,600.00 (auth code <span class="mono">A84412</span>, RRN <span class="mono">620614887301</span>). Invoice <span class="mono">INV/AND/26-27/0405</span> marked PAID; receipt <span class="mono">RCP/AND/26-27/0892</span> issued automatically and SMS sent per consent.</div>
+      <div class="card" style="max-width:640px">
+        <div class="card-title">Resolution trail</div>
+        <div class="timeline">
+          <div class="ev"><span class="t">11:36:04</span><span>Card payment initiated at terminal T-AND-02</span></div>
+          <div class="ev"><span class="t">11:39:04</span><span>Timeout → UNCONFIRMED · owner P. D'Souza · escalated-to M. Kulkarni</span></div>
+          <div class="ev"><span class="t">11:44:18</span><span>Manual re-query → provider PENDING</span></div>
+          <div class="ev"><span class="t">11:49:31</span><span><b>Webhook: CAPTURED</b> — auto-resolve, receipt issued, queue row cleared</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="state-tag">STATE D — DUPLICATE DETECTED → AUTO-REFUND INITIATED</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni (Billing supervisor) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item active">Pending payments <span class="nav-badge">2</span></div>
+      <div class="nav-item">Refunds</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Pending payments › PAY-2026-77094 › Duplicate</div>
+      <div class="page-title">Duplicate collection detected <span class="chip red">REFUND INITIATED</span></div>
+      <div class="banner warn"><b>Cashier used "Cancel &amp; collect cash" at 11:52; the original UPI then confirmed at 11:57.</b> The duplicate-auto-refund guard fired: invoice keeps the cash receipt <span class="mono">RCP/AND/26-27/0893</span>; the UPI amount is auto-queued for refund to source. No supervisor discretion is required to refund — only to cancel the refund.</div>
+      <div class="card" style="max-width:700px">
+        <div class="card-title">Refund to source</div>
+        <dl class="kv">
+          <dt>Refund ref</dt><dd class="mono">RFD-2026-00417</dd>
+          <dt>Amount</dt><dd class="bold">₹9,800.00 → back to payer UPI (UTR 616309771254)</dd>
+          <dt>Reason</dt><dd>Duplicate collection — cash taken during unconfirmed window (system-detected)</dd>
+          <dt>Status</dt><dd><span class="chip amber">INITIATED with provider · ETA 1-3 working days</span></dd>
+          <dt>Patient notified</dt><dd>SMS sent 11:58 per consent · desk apology script AND-CS-04 shown to cashier</dd>
+          <dt>Approvals</dt><dd>Auto-approved by guard policy · reviewed by M. Kulkarni (identity confirmed) 12:02</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="audit">Timeline transitions, re-query attempts, evidence submissions with UTR, supervisor approvals, webhook auto-resolutions and duplicate-refund events are recorded in the access log.</p>
+</section>

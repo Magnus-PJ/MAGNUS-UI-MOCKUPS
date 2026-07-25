@@ -1,0 +1,152 @@
+<section class="screen" id="bl-19">
+<div class="screen-head"><h1><span class="sid">BL-19</span> GST summary export</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The billing supervisor selects a GST period and reviews the exempt-supplies summary (value by SAC), the small set of taxable exceptions with tax computed, and credit-note adjustments, before exporting a GSTR-1-ready CSV for the CA. Export locks the period against back-dated changes; re-opening a locked period requires org-admin approval with identity confirmation.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Billing</div>
+    <div class="nav-item">Invoices</div>
+    <div class="nav-item">Payments &amp; receipts</div>
+    <div class="nav-item">Credit notes</div>
+    <div class="nav-item">Write-offs</div>
+    <div class="sec-label">Reports</div>
+    <div class="nav-item">Day book</div>
+    <div class="nav-item active">GST summary</div>
+    <div class="nav-item">Referrer analytics</div>
+    <div class="sec-label">Admin</div>
+    <div class="nav-item">Number series</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Billing › Reports › GST summary</div>
+    <div class="page-title">GST summary — June 2026 <span class="chip green">RECONCILED</span> <span class="actions-right"><span class="select" style="width:190px;display:inline-block">Period: Jun 2026 ▾</span></span></div>
+    <div class="page-sub">GSTIN 27AAACM1234K1Z5 · Meridian Diagnostics Pvt Ltd, Andheri West · Period 01–30 Jun 2026 · Status: open (not yet exported/locked)</div>
+    <div class="banner reg"><b>e-Invoicing roadmap</b>IRP e-invoicing (IRN + QR) for B2B taxable supplies is planned for MVP-2 (target Oct 2026). Current taxable B2B volume is below the notification threshold; Magnus already stores buyer GSTINs so the cut-over needs no data backfill.</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">₹47,82,300</div><div class="l">Exempt supplies</div><div class="s">98.9% of turnover · healthcare services</div></div>
+      <div class="kpi amber"><div class="n">₹52,900</div><div class="l">Taxable supplies</div><div class="s">31 invoices · non-healthcare lines</div></div>
+      <div class="kpi"><div class="n">₹9,522</div><div class="l">Tax payable</div><div class="s">CGST ₹4,761 + SGST ₹4,761</div></div>
+      <div class="kpi"><div class="n">−₹41,900</div><div class="l">CRN adjustments</div><div class="s">6 credit notes in period</div></div>
+    </div>
+    <div class="row">
+      <div class="grow">
+        <div class="card">
+          <div class="card-title">Exempt supplies — value by SAC <span class="right">Nil-rated/exempt table of GSTR-1</span></div>
+          <table>
+            <tr><th>SAC</th><th>Description</th><th style="text-align:right">Invoices</th><th style="text-align:right">Value (₹)</th><th>Treatment on invoice</th></tr>
+            <tr><td class="mono">999316</td><td>Diagnostic imaging services (MRI, CT, X-ray, ultrasound)</td><td style="text-align:right">1,842</td><td style="text-align:right">41,26,800.00</td><td>Exempt (healthcare service)</td></tr>
+            <tr><td class="mono">999316</td><td>Radiologist reporting &amp; second-read services</td><td style="text-align:right">1,714</td><td style="text-align:right">4,88,500.00</td><td>Exempt (healthcare service)</td></tr>
+            <tr><td class="mono">999316</td><td>Contrast administration &amp; procedure consumables (composite)</td><td style="text-align:right">402</td><td style="text-align:right">1,38,200.00</td><td>Exempt (healthcare service)</td></tr>
+            <tr><td class="mono">999316</td><td>Sample collection for outsourced pathology</td><td style="text-align:right">238</td><td style="text-align:right">28,800.00</td><td>Exempt (healthcare service)</td></tr>
+            <tr class="hl"><td colspan="3" style="text-align:right"><b>Total exempt</b></td><td style="text-align:right"><b>47,82,300.00</b></td><td></td></tr>
+          </table>
+          <div class="small muted" style="margin-top:6px">Exempt lines never print CGST/SGST rows — invoices carry the literal "Exempt (healthcare service)" annotation with SAC 999316.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Taxable exceptions — tax computed</div>
+          <table>
+            <tr><th>SAC/HSN</th><th>Description</th><th style="text-align:right">Taxable value (₹)</th><th style="text-align:right">Rate</th><th style="text-align:right">CGST (₹)</th><th style="text-align:right">SGST (₹)</th></tr>
+            <tr><td class="mono">998912</td><td>CD / film / printed media copies of studies</td><td style="text-align:right">31,400.00</td><td style="text-align:right">18%</td><td style="text-align:right">2,826.00</td><td style="text-align:right">2,826.00</td></tr>
+            <tr><td class="mono">997212</td><td>Kiosk space licence — pharmacy counter (B2B, GSTIN on record)</td><td style="text-align:right">15,000.00</td><td style="text-align:right">18%</td><td style="text-align:right">1,350.00</td><td style="text-align:right">1,350.00</td></tr>
+            <tr><td class="mono">999295</td><td>CME workshop registration fees (non-clinical)</td><td style="text-align:right">6,500.00</td><td style="text-align:right">18%</td><td style="text-align:right">585.00</td><td style="text-align:right">585.00</td></tr>
+            <tr class="hl"><td colspan="2" style="text-align:right"><b>Total taxable</b></td><td style="text-align:right"><b>52,900.00</b></td><td></td><td style="text-align:right"><b>4,761.00</b></td><td style="text-align:right"><b>4,761.00</b></td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-title">Credit-note adjustments in period</div>
+          <table>
+            <tr><th>Credit note</th><th>Against invoice</th><th style="text-align:right">Value (₹)</th><th>Category</th><th>Reason</th></tr>
+            <tr><td class="mono">CRN/AND/26-27/0038</td><td class="mono">INV/AND/26-27/0611</td><td style="text-align:right">−12,400.00</td><td>Exempt</td><td>Scan series not performed</td></tr>
+            <tr><td class="mono">CRN/AND/26-27/0039</td><td class="mono">INV/AND/26-27/0640</td><td style="text-align:right">−9,800.00</td><td>Exempt</td><td>Payer rate correction (Star Health TPA)</td></tr>
+            <tr><td class="mono">CRN/AND/26-27/0040</td><td class="mono">INV/AND/26-27/0655</td><td style="text-align:right">−8,200.00</td><td>Exempt</td><td>Duplicate billing</td></tr>
+            <tr><td class="mono">CRN/AND/26-27/0041</td><td class="mono">INV/AND/26-27/0668</td><td style="text-align:right">−6,300.00</td><td>Exempt</td><td>Concession applied post-invoice</td></tr>
+            <tr><td class="mono">CRN/AND/26-27/0042</td><td class="mono">INV/AND/26-27/0671</td><td style="text-align:right">−4,500.00</td><td>Exempt</td><td>Visit cancelled after invoicing</td></tr>
+            <tr><td class="mono">CRN/AND/26-27/0043</td><td class="mono">INV/AND/26-27/0864</td><td style="text-align:right">−700.00</td><td>Taxable (18%)</td><td>Media-copy line error · tax reversed ₹63 + ₹63</td></tr>
+          </table>
+        </div>
+      </div>
+      <div style="width:300px;flex-shrink:0">
+        <div class="card">
+          <div class="card-title">Period checks</div>
+          <div class="check"><span class="box on">✓</span> Invoice series INV/AND/26-27/0601–0748 continuous, no gaps (central number-series registry)</div>
+          <div class="check"><span class="box on">✓</span> All 31 taxable invoices carry SAC/HSN and rate</div>
+          <div class="check"><span class="box on">✓</span> 6/6 credit notes linked to original invoices</div>
+          <div class="check"><span class="box on">✓</span> Day book totals reconcile with invoice register</div>
+          <div class="check"><span class="box"></span> CA sign-off (outside Magnus)</div>
+          <div style="margin-top:10px"><span class="btn primary" style="width:100%">Export GSTR-1 CSV &amp; lock period</span></div>
+          <div class="hint" style="margin-top:6px">Export freezes June 2026 against back-dated invoices, credit notes and edits.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Period history</div>
+          <table>
+            <tr><th>Period</th><th>Status</th></tr>
+            <tr><td>Jun 2026</td><td><span class="chip amber">OPEN</span></td></tr>
+            <tr><td>May 2026</td><td><span class="chip grey">LOCKED 08 Jun</span></td></tr>
+            <tr><td>Apr 2026</td><td><span class="chip grey">LOCKED 09 May</span></td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PERIOD LOCKED · RE-OPEN REQUIRES ORG-ADMIN APPROVAL</div>
+<div class="frame">
+  <div class="body"><div class="main" style="padding:16px 18px">
+    <div class="page-title">GST summary — June 2026 <span class="chip grey">LOCKED</span></div>
+    <div class="page-sub">Locked 25 Jul 2026, 11:32 IST on export by M. Kulkarni · Lock ref LCK-GST-2606-AND</div>
+    <div class="banner warn"><b>Period is locked</b>No invoice, credit note, receipt or void may be posted into June 2026. Attempts to back-date documents into this period are blocked at save and logged. Re-opening requires org-admin approval with identity confirmation; on re-lock a delta report of everything changed while open is generated automatically.</div>
+    <div class="modal-wrap"><div class="modal danger">
+      <h3>Request to re-open locked period — June 2026</h3>
+      <p class="small" style="margin-bottom:8px">Requested by M. Kulkarni, 25 Jul 2026 16:05 IST. Approval by K. Verma (org admin) required.</p>
+      <div class="field"><label>Reason for re-opening <span class="req">*</span></label><div class="textarea small">CA identified one credit note (payer rate correction for Star Health TPA, ₹9,800) that must be dated 30 Jun per the payer agreement. Single document; period will be re-locked same day.</div></div>
+      <div class="field"><label>K. Verma — identity confirmation <span class="req">*</span></label><div class="input mono">Password ••••••••</div><div class="hint">Plus OTP to registered mobile. Step-up required — re-opening a fiscal period is a legal-impact action.</div></div>
+      <div class="check"><span class="box on">✓</span> Re-lock deadline set: 26 Jul 2026, 18:00 IST · <span class="chip amber">SLA 26h · owner M. Kulkarni</span> · escalates to K. Verma if not re-locked</div>
+      <div class="modal-actions"><span class="btn">Deny</span><span class="btn danger">Approve re-open</span></div>
+    </div></div>
+    <div class="card">
+      <div class="card-title">Lock &amp; re-open trail</div>
+      <div class="timeline">
+        <div class="ev"><span class="t">25 Jul 11:32</span><span>Period locked automatically on GSTR-1 CSV export · M. Kulkarni</span></div>
+        <div class="ev"><span class="t">25 Jul 14:48</span><span>Blocked: attempt to back-date CRN into 30 Jun by billing user (rejected at save, user notified)</span></div>
+        <div class="ev"><span class="t">25 Jul 16:05</span><span>Re-open request submitted with reason · pending K. Verma</span></div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="state-tag">STATE C — GSTR-1-READY CSV EXPORT · LOGGED</div>
+<div class="frame">
+  <div class="body"><div class="main" style="padding:16px 18px">
+    <div class="page-title">Export GSTR-1-ready CSV — June 2026</div>
+    <div class="modal-wrap"><div class="modal">
+      <h3>Confirm export &amp; period lock</h3>
+      <dl class="kv" style="grid-template-columns:170px 1fr;margin-bottom:10px">
+        <dt>GSTIN</dt><dd class="mono">27AAACM1234K1Z5</dd>
+        <dt>File</dt><dd class="mono">GSTR1_27AAACM1234K1Z5_JUN2026_AND.csv</dd>
+        <dt>Sections included</dt><dd>B2B taxable (1 GSTIN buyer) · B2C small · Nil-rated/exempt · CDNR (credit notes) · Document series summary</dd>
+        <dt>Rows</dt><dd>1,879 invoice rows · 6 CRN rows · 1 exempt summary row</dd>
+        <dt>Control totals</dt><dd>Exempt ₹47,82,300.00 · Taxable ₹52,900.00 · Tax ₹9,522.00</dd>
+        <dt>Recipient</dt><dd>CA firm — Deshpande &amp; Associates (registered recipient, secure link, expires 7 days)</dd>
+      </dl>
+      <div class="check"><span class="box on">✓</span> Lock period June 2026 on export (required)</div>
+      <div class="check"><span class="box on">✓</span> I confirm control totals against the on-screen summary</div>
+      <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Export &amp; lock</span></div>
+    </div></div>
+    <div class="banner success"><b>Export completed &amp; period locked</b>25 Jul 2026, 11:32 IST · sha256 e41a…77c9 · Secure link sent to Deshpande &amp; Associates. Period June 2026 is now locked (see State B for re-open flow).</div>
+    <div class="card">
+      <div class="card-title">GST export log <span class="right">Visible to org admin</span></div>
+      <table>
+        <tr><th>When (IST)</th><th>Period</th><th>Who</th><th>File</th><th>Checksum</th><th>Lock</th></tr>
+        <tr class="hl"><td>25 Jul 11:32</td><td>Jun 2026</td><td>M. Kulkarni</td><td class="mono small">GSTR1_…_JUN2026_AND.csv</td><td class="mono small">e41a…77c9</td><td><span class="chip grey">LOCKED</span></td></tr>
+        <tr><td>08 Jun 10:15</td><td>May 2026</td><td>M. Kulkarni</td><td class="mono small">GSTR1_…_MAY2026_AND.csv</td><td class="mono small">b902…4f1e</td><td><span class="chip grey">LOCKED</span></td></tr>
+        <tr><td>09 May 09:58</td><td>Apr 2026</td><td>M. Kulkarni</td><td class="mono small">GSTR1_…_APR2026_AND.csv</td><td class="mono small">3d7c…a884</td><td><span class="chip grey">LOCKED</span></td></tr>
+      </table>
+      <div class="small muted" style="margin-top:6px">Exports contain fiscal data only — no clinical information ever leaves the billing module. Re-export of a locked period produces an identical, checksum-matched file.</div>
+    </div>
+  </div></div>
+</div>
+
+<p class="audit">Period views, export generation (file name, checksum, recipient), automatic period locks, blocked back-dating attempts and re-open approvals with step-up identity confirmation are recorded in the access log.</p>
+</section>

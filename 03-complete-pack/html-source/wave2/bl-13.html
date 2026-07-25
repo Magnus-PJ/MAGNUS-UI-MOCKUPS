@@ -1,0 +1,139 @@
+<section class="screen" id="bl-13">
+<div class="screen-head"><h1><span class="sid">BL-13</span> Tax &amp; document numbering setup</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Org-admin-only setup for the branch GST profile and the central document number-series registry. Healthcare diagnostic services default to GST-exempt; only a curated taxable-exceptions list (e.g. cosmetic procedures) attracts GST. Number series are gapless, FY-scoped and can never be changed retroactively — the edit guard enforces this.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Billing dashboard</div>
+      <div class="nav-item">New invoice</div>
+      <div class="nav-item">Payments &amp; receipts</div>
+      <div class="nav-item">Refunds &amp; credit notes</div>
+      <div class="nav-item">Advances &amp; deposits</div>
+      <div class="nav-item">Patient statements</div>
+      <div class="sec-label">Masters &amp; setup</div>
+      <div class="nav-item">Payer &amp; scheme master</div>
+      <div class="nav-item">Discount rules</div>
+      <div class="nav-item active">Tax &amp; numbering</div>
+      <div class="nav-item">Approvals queue <span class="nav-badge">3</span></div>
+      <div class="sec-label">Reports</div>
+      <div class="nav-item">Day close</div>
+      <div class="nav-item">GST &amp; exempt register</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Masters &amp; setup › Tax &amp; document numbering</div>
+      <div class="page-title">GST profile — Andheri West branch <span class="actions-right"><span class="btn small">View change history</span> <span class="btn primary small">Save profile</span></span></div>
+      <div class="page-sub">Org admin only · applies to all documents issued by this branch · FY 2026-27</div>
+      <div class="split">
+        <div>
+          <div class="card">
+            <div class="card-title">Registration</div>
+            <dl class="kv">
+              <dt>GSTIN</dt><dd class="mono bold">27AAACM1234K1Z5 <span class="chip green">Verified 04 Apr 2026</span></dd>
+              <dt>Legal name</dt><dd>Meridian Diagnostics Private Limited</dd>
+              <dt>Trade name</dt><dd>Meridian Diagnostics — Andheri West</dd>
+              <dt>State of registration</dt><dd>27 — Maharashtra</dd>
+              <dt>Default SAC</dt><dd class="mono">999316 — Medical laboratory &amp; diagnostic-imaging services</dd>
+              <dt>Shown on documents</dt><dd>GSTIN + SAC printed on every invoice, credit note and receipt</dd>
+            </dl>
+          </div>
+          <div class="card">
+            <div class="card-title">Place of supply rule <span class="right">explainer</span></div>
+            <div class="banner info" style="margin-bottom:10px"><b>CGST/SGST vs IGST — how Magnus decides</b>If the recipient's place of supply is Maharashtra (state code 27, same as our GSTIN), a taxable line splits into CGST + SGST. If the recipient is registered in another state (e.g. a corporate payer with a Karnataka GSTIN), IGST applies. For walk-in patients, place of supply is the branch location — always Maharashtra, hence CGST/SGST.</div>
+            <table>
+              <tr><th>Recipient</th><th>Place of supply</th><th>Taxable lines get</th></tr>
+              <tr><td>Walk-in patient (B2C)</td><td>Maharashtra (branch)</td><td>CGST + SGST</td></tr>
+              <tr><td>Payer with MH GSTIN (e.g. TechNova, 27…)</td><td>Maharashtra</td><td>CGST + SGST</td></tr>
+              <tr><td>Payer with other-state GSTIN</td><td>Recipient's state</td><td>IGST</td></tr>
+              <tr class="dim"><td>Exempt healthcare lines (any recipient)</td><td>—</td><td>No tax rows printed — "Exempt (healthcare service)"</td></tr>
+            </table>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Exempt-by-default healthcare</div>
+            <div class="check"><span class="box on">✓</span> <span><b>All diagnostic services exempt by default</b><br/><span class="small muted">Lines print "Exempt (healthcare service)" — never a 0% CGST/SGST row. Notification 12/2017-CT(Rate), entry 74.</span></span></div>
+            <div class="card-title" style="margin-top:12px">Taxable exceptions list <span class="right">3 items</span></div>
+            <table>
+              <tr><th>Service</th><th>SAC</th><th>GST</th></tr>
+              <tr><td>Cosmetic skin-imaging package</td><td class="mono">999722</td><td>18%</td></tr>
+              <tr><td>Medico-legal report certified copy (non-treatment)</td><td class="mono">999799</td><td>18%</td></tr>
+              <tr><td>Report courier — international</td><td class="mono">996812</td><td>18%</td></tr>
+            </table>
+            <span class="btn small" style="margin-top:8px">+ Add exception (step-up)</span>
+            <div class="small muted" style="margin-top:6px">Adding/removing exceptions requires Org admin step-up PIN and a reason; the GST &amp; exempt register recomputes prospectively only.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">e-Invoicing (IRN / QR)</div>
+            <div class="check"><span class="box"></span> Generate IRN + signed QR for B2B invoices <span class="chip violet">Roadmap</span></div>
+            <div class="small muted">Meridian is below the current e-invoicing turnover threshold. When enabled, IRN/QR will apply to payer (B2B) invoices only.</div>
+          </div>
+        </div>
+      </div>
+      <p class="audit">GST profile viewed by K. Verma (Org admin) · profile edits are dual-logged with before/after values — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — CENTRAL NUMBER-SERIES REGISTRY</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Masters &amp; setup</div>
+      <div class="nav-item active">Tax &amp; numbering</div>
+      <div class="nav-item">Payer &amp; scheme master</div>
+      <div class="nav-item">Discount rules</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Tax &amp; numbering › Number-series registry</div>
+      <div class="page-title">Central number-series registry <span class="actions-right"><span class="btn small">Gap audit</span> <span class="btn primary small">+ New series (next FY)</span></span></div>
+      <div class="page-sub">All document numbers across Magnus are issued from this registry · FY 2026-27 · Andheri West prefix AND</div>
+      <div class="banner reg" style="margin-bottom:12px"><b>No-gap policy</b>Numbers are issued transactionally at document finalisation — never at draft. A failed finalisation releases nothing because nothing was issued. Cancelled documents keep their number and appear as CANCELLED in registers; numbers are never reused or backfilled.</div>
+      <div class="card">
+        <div class="card-title">Active series — FY 2026-27 <span class="right">reset to 0001 on 01 Apr each FY</span></div>
+        <table>
+          <tr><th>Document</th><th>Series format</th><th>Next number (preview)</th><th>Issued FY-to-date</th><th>FY reset</th><th>Gaps</th><th>Status</th><th></th></tr>
+          <tr><td class="bold">Tax/exempt invoice</td><td class="mono">INV/AND/26-27/0xxx</td><td class="mono">INV/AND/26-27/0913</td><td>912</td><td>01 Apr, auto</td><td><span class="chip green">0 gaps</span></td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr><td class="bold">Receipt</td><td class="mono">RCP/AND/26-27/0xxx</td><td class="mono">RCP/AND/26-27/1478</td><td>1,477</td><td>01 Apr, auto</td><td><span class="chip green">0 gaps</span></td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr><td class="bold">Credit note</td><td class="mono">CRN/AND/26-27/00xx</td><td class="mono">CRN/AND/26-27/0042</td><td>41</td><td>01 Apr, auto</td><td><span class="chip green">0 gaps</span></td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr><td class="bold">Diagnostic report</td><td class="mono">RPT/AND/26-27/0xxxx</td><td class="mono">RPT/AND/26-27/08321</td><td>8,320</td><td>01 Apr, auto</td><td><span class="chip green">0 gaps</span></td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr class="hl"><td class="bold">Form F (PCPNDT)</td><td class="mono">FRMF/AND/26-27/0xxx</td><td class="mono">FRMF/AND/26-27/0288</td><td>287</td><td>01 Apr, auto</td><td><span class="chip green">0 gaps</span></td><td><span class="chip green">Active · statutory</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr class="dim"><td>Tax/exempt invoice (FY 25-26)</td><td class="mono">INV/AND/25-26/0xxx</td><td>closed at 3,914</td><td>3,914</td><td>closed 31 Mar 26</td><td><span class="chip green">0 gaps</span></td><td><span class="chip grey">Archived</span></td><td><span class="btn ghost small">View</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Form F series is statutory under PCPNDT and additionally mirrored to the compliance register; obstetric documents carry the foetal-sex non-disclosure notice regardless of series.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Registry integrity</div>
+        <div class="row">
+          <div class="grow"><dl class="kv" style="grid-template-columns:170px 1fr">
+            <dt>Last gap audit</dt><dd>25 Jul 2026, 06:00 IST (nightly) — <span class="chip green">PASS</span></dd>
+            <dt>Cancelled, number kept</dt><dd>INV: 7 · RCP: 3 · CRN: 0 this FY</dd>
+            <dt>Issuing branches</dt><dd>AND (this branch) · BND · POW — each with own prefix, same policy</dd>
+          </dl></div>
+        </div>
+      </div>
+      <p class="audit">Series registry viewed by K. Verma · nightly gap-audit results retained 8 years — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — SERIES EDIT GUARD (NO RETROACTIVE CHANGE)</div>
+<div class="modal-wrap">
+  <div class="modal danger">
+    <h3>Edit series — INV/AND/26-27 · restricted</h3>
+    <div class="banner danger" style="margin-bottom:10px"><b>Retroactive changes are blocked</b>912 documents have already been issued on this series. The format, prefix and counter cannot be altered for the current FY — renumbering issued documents would break the gapless statutory sequence and invalidate documents already shared with patients and payers.</div>
+    <div class="field"><label>What you can change now</label>
+      <div class="check"><span class="box on">✓</span> Prepare next-FY series (INV/AND/27-28/0xxx) — takes effect automatically 01 Apr 2027</div>
+      <div class="check"><span class="box on">✓</span> Update print label text (e.g. "Invoice" → "Invoice / Bill of Supply") — prospective only</div>
+      <div class="check"><span class="box"></span> Change prefix, padding or counter for FY 26-27 — <span class="chip red">Blocked</span></div>
+    </div>
+    <div class="field"><label>Step-up identity confirmation <span class="req">*</span></label><input class="input" value="Enter Magnus PIN — K. Verma (Org admin)"/><div class="hint">🔒 Even permitted prospective edits require step-up; the attempt below is logged whether or not you proceed.</div></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn disabled">Save FY 26-27 change (blocked)</span><span class="btn primary">Prepare next-FY series →</span></div>
+  </div>
+</div>
+<p class="audit">All GST-profile edits, exception-list changes and series operations (including blocked attempts) are recorded in the access log with step-up results.</p>
+</section>

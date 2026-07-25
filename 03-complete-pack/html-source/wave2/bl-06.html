@@ -1,0 +1,146 @@
+<section class="screen" id="bl-06">
+<div class="screen-head"><h1><span class="sid">BL-06</span> Refunds</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Cashier raises a refund against a paid invoice/receipt — amount can never exceed the collected balance and a reason from the taxonomy is mandatory. Refunds route through the async approvals queue (BL-08); once approved they process on the original payment mode by preference, with a justified cash fallback. Failed bank/UPI refunds bounce into a recovery state with retry or alternate-method options, and every refund lands in the immutable refund register.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Billing dashboard</div>
+      <div class="nav-item">Invoices</div>
+      <div class="nav-item">Payments</div>
+      <div class="nav-item active">Refunds</div>
+      <div class="nav-item">Credit notes</div>
+      <div class="nav-item">Approvals <span class="nav-badge">4</span></div>
+      <div class="nav-item">Cash session</div>
+      <div class="sec-label">Setup</div>
+      <div class="nav-item">Price lists</div>
+      <div class="nav-item">Number series</div>
+      <div class="sec-label">Other</div>
+      <div class="nav-item">Reports</div>
+      <div class="nav-item">Audit log</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Invoices › INV/AND/26-27/0412 › Refund request</div>
+      <div class="page-title">New refund request <span class="chip amber">PENDING APPROVAL ON SUBMIT</span></div>
+      <div class="page-sub">Refund against receipt RCP/AND/26-27/0637 · linked invoice INV/AND/26-27/0412 · GSTIN 27AAACM1234K1Z5</div>
+
+      <div class="banner info"><b>Refund ceiling enforced</b>Maximum refundable = collected on this invoice minus prior refunds: <span class="mono bold">₹4,720.00</span>. Amounts above this are blocked at entry — Magnus never issues negative-balance refunds.</div>
+
+      <div class="split">
+        <div>
+          <div class="card">
+            <div class="card-title">Refund details <span class="right">REF-DRAFT · not yet numbered</span></div>
+            <div class="row">
+              <div class="grow field"><label>Refund amount (₹) <span class="req">*</span></label><input class="input mono" value="1,500.00"/><div class="hint">≤ ₹4,720.00 refundable · ₹ Indian format</div></div>
+              <div class="grow field"><label>Reason (taxonomy) <span class="req">*</span></label><select class="select"><option>Service not performed — scan cancelled by patient</option></select><div class="hint">Taxonomy: not performed · duplicate payment · overcharge/price error · quality/repeat waiver · doctor-advised cancellation · other (needs note)</div></div>
+            </div>
+            <div class="field"><label>Line(s) being refunded</label>
+              <table>
+                <tr><th></th><th>Service</th><th>SAC</th><th>Tax</th><th>Collected</th><th>Refund</th></tr>
+                <tr class="hl"><td><span class="box on">✓</span></td><td>USG Abdomen &amp; Pelvis (cancelled at counter)</td><td class="mono">999316</td><td><span class="chip grey">Exempt (healthcare service)</span></td><td class="mono">₹1,500.00</td><td class="mono">₹1,500.00</td></tr>
+                <tr class="dim"><td><span class="box"></span></td><td>MRI Brain (plain) — performed 21 Jul</td><td class="mono">999316</td><td><span class="chip grey">Exempt (healthcare service)</span></td><td class="mono">₹3,220.00</td><td class="mono">—</td></tr>
+              </table>
+            </div>
+            <div class="field"><label>Note to approver</label><textarea class="textarea">Patient fainted before USG; radiologist Dr. V. Shetty advised rescheduling. Patient opted for refund instead of credit-on-account.</textarea></div>
+          </div>
+          <div class="card">
+            <div class="card-title">Refund method <span class="right">ORIGINAL MODE PREFERRED</span></div>
+            <div class="check"><span class="box radio on"></span><div><b>UPI — reverse to original VPA</b> (original payment UPI, UTR 617234598812, 24 Jul 2026 09:41 IST). Reversal typically settles in 1–3 working days.</div></div>
+            <div class="check"><span class="box radio"></span><div><b>Bank transfer (NEFT/IMPS)</b> — patient supplies account; needed only if original VPA is inactive.</div></div>
+            <div class="check"><span class="box radio"></span><div><b>Cash at counter</b> — fallback only; requires written justification and reduces the open cash session (BL-09).</div></div>
+            <div class="field" style="margin-top:8px"><label>Cash-fallback justification (required only if cash selected)</label><input class="input" placeholder="e.g., patient has no UPI/bank access; supervisor informed" disabled style="background:#F8FAFC"/></div>
+          </div>
+          <div style="display:flex;gap:10px;justify-content:flex-end"><span class="btn">Save draft</span><span class="btn">Cancel</span><span class="btn primary">Submit for approval →</span></div>
+          <div class="hint muted small" style="text-align:right;margin-top:6px">Submitting routes to M. Kulkarni (Billing supervisor) · 4h approval SLA · refund executes only after approval + identity re-confirmation.</div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Source money trail</div>
+            <dl class="kv" style="grid-template-columns:110px 1fr">
+              <dt>Patient</dt><dd>Sofia Rossi · <span class="mono">MRN-004822</span></dd>
+              <dt>Visit</dt><dd class="mono">VIS-2026-30291</dd>
+              <dt>Invoice</dt><dd class="mono">INV/AND/26-27/0412</dd>
+              <dt>Receipt</dt><dd class="mono">RCP/AND/26-27/0637</dd>
+              <dt>Collected</dt><dd class="mono">₹4,720.00 (UPI)</dd>
+              <dt>UTR</dt><dd class="mono">617234598812</dd>
+              <dt>Prior refunds</dt><dd class="mono">₹0.00</dd>
+              <dt>Refundable</dt><dd class="mono bold">₹4,720.00</dd>
+            </dl>
+          </div>
+          <div class="banner reg"><b>Privacy</b>Patient contact is masked here (so••••@g•••.com, +91 98••• ••114). Full details visible only on the payout execution step, and that view is access-logged.</div>
+          <div class="card">
+            <div class="card-title">Policy limits</div>
+            <div class="small">Cashier self-approve limit: <b>₹0</b> (all refunds need approval)<br/>Supervisor limit: <b>₹10,000</b><br/>Above ₹10,000: Branch admin K. Verma<br/>Cash refunds above ₹2,000: not permitted — bank/UPI only (income-tax cash rules).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — APPROVED · PROCESSING → COMPLETED</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Refund REF/AND/26-27/0088 <span class="chip blue">PROCESSING</span> <span class="chip green">APPROVED by M. Kulkarni</span></div>
+  <div class="page-sub">₹1,500.00 · UPI reversal to original VPA · Sofia Rossi (MRN-004822) · INV/AND/26-27/0412</div>
+  <div class="stepper">
+    <div class="step done"><span class="dot">✓</span> Requested 25 Jul 10:12</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Approved 25 Jul 10:47</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Identity re-confirmed (P. D'Souza)</div><span class="step-line"></span>
+    <div class="step cur"><span class="dot">4</span> Gateway processing</div><span class="step-line"></span>
+    <div class="step"><span class="dot">5</span> Completed + patient notified</div>
+  </div>
+  <div class="banner info"><b>Sent to gateway 25 Jul 2026, 10:49 IST</b>Razorpay refund id <span class="mono">rfnd_QX81mm02ab</span> · expected settlement 1–3 working days · reversal UTR will be recorded here on completion. Patient SMS/WhatsApp status: "Refund initiated" sent 10:49.</div>
+  <div class="card"><div class="card-title">Refund timeline</div>
+    <div class="timeline">
+      <div class="ev"><span class="t">10:12</span><div>Request raised by P. D'Souza · reason: service not performed · amount ₹1,500.00 (≤ refundable ₹4,720.00)</div></div>
+      <div class="ev"><span class="t">10:47</span><div>Approved by M. Kulkarni (Billing supervisor) via approvals queue BL-08 · within ₹10,000 limit</div></div>
+      <div class="ev"><span class="t">10:48</span><div>Step-up identity confirmation: P. D'Souza re-entered password + OTP before executing payout (money-moving action)</div></div>
+      <div class="ev"><span class="t">10:49</span><div>UPI reversal instructed against original UTR 617234598812 · gateway ref <span class="mono">rfnd_QX81mm02ab</span></div></div>
+      <div class="ev"><span class="t">—</span><div class="muted">Awaiting gateway settlement webhook · auto-reconciles in BL-04 gateway ledger</div></div>
+    </div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — REFUND-FAILED · RECOVERY OPTIONS</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Refund REF/AND/26-27/0081 <span class="chip red">REFUND-FAILED</span> <span class="chip amber">SLA 4h · owner P. D'Souza · escalated to M. Kulkarni</span></div>
+  <div class="page-sub">₹2,850.00 · Mohammed Al-Rashid (MRN-004790) · INV/AND/26-27/0398 · attempted 24 Jul 17:05 IST</div>
+  <div class="banner danger"><b>Bank bounce — reversal rejected by beneficiary bank</b>Gateway response: <span class="mono">RF03 — account closed / VPA inactive</span>. Funds returned to Meridian settlement account on 25 Jul 07:20 IST. Patient auto-notified: "Your refund could not be completed — the clinic will contact you for an alternate account." No amount has been debited to the patient.</div>
+  <div class="card"><div class="card-title">Recovery actions</div>
+    <div class="row">
+      <div class="grow card" style="margin-bottom:0"><b>↻ Retry same method</b><div class="small muted" style="margin:6px 0">Retry the UPI reversal once (useful for transient bank errors). Attempt 1 of 2 used.</div><span class="btn small">Retry UPI reversal</span></div>
+      <div class="grow card" style="margin-bottom:0;border-color:#0F766E"><b>⇄ Switch to bank transfer</b><div class="small muted" style="margin:6px 0">Capture patient's NEFT/IMPS details (verified via penny-drop) and re-execute. No fresh approval needed — amount &amp; reason unchanged.</div><span class="btn primary small">Collect bank details</span></div>
+      <div class="grow card" style="margin-bottom:0"><b>₹ Cash at counter</b><div class="small muted" style="margin:6px 0">Amount exceeds ₹2,000 cash-refund cap — cash option disabled by policy.</div><span class="btn small disabled">Not permitted</span></div>
+    </div>
+    <div class="hint muted small" style="margin-top:10px">Changing the refund <i>amount</i> or <i>reason</i> voids this approval and creates a fresh request in the approvals queue.</div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE D — REFUND REGISTER</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Refund register — Andheri West</div>
+  <div class="page-sub">01–25 Jul 2026 · immutable register · exports to daily cash &amp; gateway reconciliation</div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">₹41,270</div><div class="l">Refunded MTD</div><div class="s">23 refunds</div></div>
+    <div class="kpi"><div class="n">3</div><div class="l">Processing</div><div class="s">awaiting gateway settlement</div></div>
+    <div class="kpi amber"><div class="n">1</div><div class="l">Failed — recovery</div><div class="s">REF/…/0081 · owner P. D'Souza</div></div>
+    <div class="kpi"><div class="n">0.9%</div><div class="l">Refund rate</div><div class="s">of collections · target &lt; 1.5%</div></div>
+  </div>
+  <table>
+    <tr><th>Refund #</th><th>Patient</th><th>Invoice / receipt</th><th>Amount</th><th>Method</th><th>Reason</th><th>Approved by</th><th>Status</th></tr>
+    <tr><td class="mono">REF/AND/26-27/0088</td><td>Sofia Rossi · MRN-004822</td><td class="mono small">INV/…/0412 · RCP/…/0637</td><td class="mono">₹1,500.00</td><td>UPI reversal</td><td>Not performed</td><td>M. Kulkarni</td><td><span class="chip blue">PROCESSING</span></td></tr>
+    <tr><td class="mono">REF/AND/26-27/0087</td><td>Ananya Rao · MRN-004819</td><td class="mono small">INV/…/0407 · RCP/…/0630</td><td class="mono">₹600.00</td><td>UPI reversal</td><td>Duplicate payment</td><td>M. Kulkarni</td><td><span class="chip green">COMPLETED · UTR 6183342201</span></td></tr>
+    <tr><td class="mono">REF/AND/26-27/0086</td><td>Rajesh Gupta · MRN-004795</td><td class="mono small">INV/…/0401 · RCP/…/0622</td><td class="mono">₹1,150.00</td><td>Cash (justified)</td><td>Overcharge / price error</td><td>M. Kulkarni</td><td><span class="chip green">COMPLETED</span></td></tr>
+    <tr><td class="mono">REF/AND/26-27/0085</td><td>Priya Menon · MRN-004828</td><td class="mono small">INV/…/0396 · RCP/…/0618</td><td class="mono">₹3,400.00</td><td>Bank NEFT</td><td>Doctor-advised cancellation</td><td>M. Kulkarni</td><td><span class="chip green">COMPLETED · UTR 6177019945</span></td></tr>
+    <tr class="hl"><td class="mono">REF/AND/26-27/0081</td><td>Mohammed Al-Rashid · MRN-004790</td><td class="mono small">INV/…/0398 · RCP/…/0611</td><td class="mono">₹2,850.00</td><td>UPI → bank (switching)</td><td>Not performed</td><td>M. Kulkarni</td><td><span class="chip red">FAILED — RECOVERY</span></td></tr>
+    <tr><td class="mono">REF/AND/26-27/0080</td><td>Aarav Sharma · MRN-004821</td><td class="mono small">INV/…/0389 · RCP/…/0602</td><td class="mono">₹450.00</td><td>UPI reversal</td><td>Quality / repeat waiver</td><td>K. Verma</td><td><span class="chip green">COMPLETED · UTR 6169984412</span></td></tr>
+    <tr><td class="mono">REF/AND/26-27/0079</td><td>Walk-in · MRN masked</td><td class="mono small">INV/…/0384 · RCP/…/0597</td><td class="mono">₹12,300.00</td><td>Bank NEFT</td><td>Not performed (CT pkg)</td><td>K. Verma (above ₹10k)</td><td><span class="chip green">COMPLETED · UTR 6161230078</span></td></tr>
+  </table>
+  <div class="hint muted small" style="margin-top:8px">Register rows are append-only; a completed refund is never edited — corrections go through a fresh credit-note/refund cycle (BL-07).</div>
+</div></div></div>
+
+<p class="audit">Every refund request, approval, identity re-confirmation, gateway attempt, failure code and payout UTR is written to the immutable financial audit trail; viewing a patient's unmasked bank/VPA details on the payout step is recorded in the access log.</p>
+</section>

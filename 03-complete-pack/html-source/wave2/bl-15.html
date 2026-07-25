@@ -1,0 +1,128 @@
+<section class="screen" id="bl-15">
+<div class="screen-head"><h1><span class="sid">BL-15</span> Patient statement &amp; ledger</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single financial view per patient: every invoice, receipt, advance, refund and credit note with a running balance and aging buckets. Cashiers and supervisors resolve "what do I owe?" questions here, flag disputed rows, and share a statement only over a consent-checked channel. Clinical content never appears — line descriptions are service names only.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item">Billing dashboard</div>
+      <div class="nav-item">New invoice</div>
+      <div class="nav-item">Payments &amp; receipts</div>
+      <div class="nav-item">Refunds &amp; credit notes</div>
+      <div class="nav-item">Advances &amp; deposits</div>
+      <div class="nav-item active">Patient statements</div>
+      <div class="sec-label">Masters &amp; setup</div>
+      <div class="nav-item">Payer &amp; scheme master</div>
+      <div class="nav-item">Discount rules</div>
+      <div class="nav-item">Tax &amp; numbering</div>
+      <div class="nav-item">Approvals queue <span class="nav-badge">3</span></div>
+      <div class="sec-label">Reports</div>
+      <div class="nav-item">Day close</div>
+      <div class="nav-item">GST &amp; exempt register</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Patient statements › Aarav Sharma</div>
+      <div class="page-title">Ledger — Aarav Sharma <span class="chip grey">MRN-004821</span> <span class="actions-right"><span class="btn small">Flag dispute</span> <span class="btn small">Share statement</span> <span class="btn primary small">Print statement</span></span></div>
+      <div class="page-sub">All branches · FY 2026-27 · Aadhaar ••••-••••-2093 (last 4 only) · self-pay + SCH-SRCIT eligible from 2031</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">₹31,700</div><div class="l">Billed FY-to-date</div><div class="s">6 invoices · all Exempt (healthcare service)</div></div>
+        <div class="kpi"><div class="n">₹24,200</div><div class="l">Paid</div><div class="s">5 receipts · UPI ×3, card ×1, cash ×1</div></div>
+        <div class="kpi"><div class="n">₹6,500</div><div class="l">Advance held</div><div class="s">RCP/AND/26-27/1390 · unapplied</div></div>
+        <div class="kpi amber"><div class="n">₹1,000</div><div class="l">Balance due</div><div class="s">oldest item 12 days · owner P. D'Souza</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Full ledger <span class="right">newest last · running balance (Dr = patient owes)</span></div>
+        <table>
+          <tr><th>Date</th><th>Document</th><th>Type</th><th>Details</th><th>Debit</th><th>Credit</th><th>Running balance</th><th></th></tr>
+          <tr><td>08 Apr 26</td><td class="mono">INV/AND/26-27/0119</td><td><span class="chip grey">Invoice</span></td><td>X-Ray chest PA · SAC 999316 · Exempt (healthcare service)</td><td>₹800</td><td>—</td><td>₹800 Dr</td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td>08 Apr 26</td><td class="mono">RCP/AND/26-27/0201</td><td><span class="chip green">Receipt</span></td><td>UPI · UTR 402218837745</td><td>—</td><td>₹800</td><td>₹0</td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td>02 Jun 26</td><td class="mono">INV/AND/26-27/0544</td><td><span class="chip grey">Invoice</span></td><td>Cardiac screening package (ECG + Echo + lipids)</td><td>₹7,400</td><td>—</td><td>₹7,400 Dr</td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td>02 Jun 26</td><td class="mono">RCP/AND/26-27/0817</td><td><span class="chip green">Receipt</span></td><td>Card ending 4412 · auth 067231</td><td>—</td><td>₹7,400</td><td>₹0</td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td>06 Jul 26</td><td class="mono">RCP/AND/26-27/1390</td><td><span class="chip teal">Advance</span></td><td>Cardiac package part-pay · UPI UTR 559102446781 · unapplied</td><td>—</td><td>₹6,500</td><td>₹6,500 Cr</td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr class="hl"><td>13 Jul 26</td><td class="mono">INV/AND/26-27/0790</td><td><span class="chip grey">Invoice</span></td><td>MRI knee (rt) · Exempt (healthcare service) <span class="chip outline-red">Disputed</span></td><td>₹8,200</td><td>—</td><td>₹1,700 Dr</td><td><span class="btn ghost small">Dispute ↗</span></td></tr>
+          <tr><td>13 Jul 26</td><td class="mono">RCP/AND/26-27/1311</td><td><span class="chip green">Receipt</span></td><td>Cash · counter 2 · P. D'Souza</td><td>—</td><td>₹7,200</td><td>₹1,000 Dr… (net of advance ₹6,500 Cr held separately)</td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td>18 Jul 26</td><td class="mono">CRN/AND/26-27/0038</td><td><span class="chip amber">Credit note</span></td><td>Against INV/…/0602 — duplicate lipid panel · approved M. Kulkarni</td><td>—</td><td>₹450</td><td>₹550 Dr</td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td>18 Jul 26</td><td class="mono">RFV/AND/26-27/0027</td><td><span class="chip red">Refund</span></td><td>CRN payout to source UPI · UTR 581220994102</td><td>₹450</td><td>—</td><td>₹1,000 Dr</td><td><span class="btn ghost small">Open</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Balance due <b>₹1,000</b> relates to disputed INV/AND/26-27/0790 (patient contests contrast charge). Advance of ₹6,500 is <i>not</i> auto-set-off against disputed amounts — supervisor may apply it with patient consent.</div>
+      </div>
+      <p class="audit">Ledger for MRN-004821 viewed by P. D'Souza · financial data only, no clinical records accessed — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — AGED BALANCE (AMBER) WITH FOLLOW-UP OWNER</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Billing</div>
+      <div class="nav-item active">Patient statements</div>
+      <div class="nav-item">Approvals queue <span class="nav-badge">3</span></div>
+      <div class="sec-label">Reports</div>
+      <div class="nav-item">Day close</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Billing › Patient statements › Rajesh Gupta › Aging</div>
+      <div class="page-title">Ledger — Rajesh Gupta <span class="chip grey">MRN-004795</span> <span class="chip amber">Aged balance</span></div>
+      <div class="page-sub">Balance due ₹5,600 · oldest unpaid item 47 days · follow-up owner P. D'Souza</div>
+      <div class="banner warn"><b>Aging alert — 31–60 bucket</b>₹4,100 has been outstanding 47 days (INV/AND/26-27/0468, USG abdomen + reports). SLA: <span class="chip amber">Follow-up due 27 Jul</span> · owner P. D'Souza · escalated-to M. Kulkarni at 60 days. Two payment reminders sent via consented SMS (12 Jul, 20 Jul).</div>
+      <div class="card">
+        <div class="card-title">Aging buckets</div>
+        <table>
+          <tr><th>Bucket</th><th>Amount</th><th>Items</th><th>Share</th><th>Action</th></tr>
+          <tr><td>0–30 days</td><td>₹1,500</td><td>1 invoice (INV/…/0812)</td><td><div class="progress" style="max-width:180px"><i style="width:27%"></i></div></td><td>Collect at next visit 29 Jul</td></tr>
+          <tr class="hl"><td>31–60 days</td><td class="bold">₹4,100</td><td>1 invoice (INV/…/0468)</td><td><div class="progress amber" style="max-width:180px"><i style="width:73%"></i></div></td><td>Call scheduled 27 Jul · offer UPI link</td></tr>
+          <tr><td>61–90 days</td><td>₹0</td><td>—</td><td><div class="progress" style="max-width:180px"><i style="width:0%"></i></div></td><td>—</td></tr>
+          <tr><td>&gt;90 days</td><td>₹0</td><td>—</td><td><div class="progress" style="max-width:180px"><i style="width:0%"></i></div></td><td>—</td></tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Note: patient also holds unapplied advance ₹1,500 (RCP/AND/26-27/1067, purpose changed) — see BL-14; applying it needs patient consent because the purpose differs.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Collection timeline</div>
+        <div class="timeline">
+          <div class="ev"><span class="t">08 Jun 10:12</span><span>INV/AND/26-27/0468 issued · ₹4,100 · part-paid ₹0 at counter (patient requested credit till month-end — approved by M. Kulkarni, dual-logged)</span></div>
+          <div class="ev"><span class="t">12 Jul 09:30</span><span>Reminder 1 · SMS to consented number +91 98••• ••7xx · delivery confirmed</span></div>
+          <div class="ev"><span class="t">20 Jul 09:30</span><span>Reminder 2 · SMS + UPI payment link (expires in 7 days) · link opened, not paid</span></div>
+          <div class="ev"><span class="t">27 Jul (due)</span><span>Follow-up call · owner P. D'Souza · script: offer advance set-off with consent, or instalment via supervisor</span></div>
+        </div>
+      </div>
+      <p class="audit">Aging view + reminder history for MRN-004795 viewed by M. Kulkarni — recorded in the access log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE C — STATEMENT PRINT PREVIEW + CONSENT-CHECKED SHARE</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:640px">
+    <h3>Statement of account — print preview</h3>
+    <div class="card" style="margin-bottom:12px">
+      <div style="text-align:center;border-bottom:1px solid #E2E8F0;padding-bottom:8px;margin-bottom:10px">
+        <div class="bold">Meridian Diagnostics Private Limited — Andheri West</div>
+        <div class="small muted">GSTIN 27AAACM1234K1Z5 · Statement of account (not a tax document) · Period 01 Apr – 25 Jul 2026</div>
+        <div class="small muted">Patient: Aarav Sharma · MRN-004821 · Generated 25 Jul 2026, 14:22 IST</div>
+      </div>
+      <table>
+        <tr><th>Date</th><th>Document</th><th>Description</th><th>Debit</th><th>Credit</th><th>Balance</th></tr>
+        <tr><td>08 Apr</td><td class="mono">INV/…/0119</td><td>X-Ray chest PA — Exempt (healthcare service)</td><td>₹800</td><td>—</td><td>₹800</td></tr>
+        <tr><td>08 Apr</td><td class="mono">RCP/…/0201</td><td>Payment — UPI</td><td>—</td><td>₹800</td><td>₹0</td></tr>
+        <tr><td>13 Jul</td><td class="mono">INV/…/0790</td><td>MRI knee (rt) — under dispute, marked ◆</td><td>₹8,200</td><td>—</td><td>₹8,200</td></tr>
+        <tr><td>13 Jul</td><td class="mono">RCP/…/1311</td><td>Payment — cash</td><td>—</td><td>₹7,200</td><td>₹1,000</td></tr>
+        <tr><td>18 Jul</td><td class="mono">CRN/…/0038 + RFV/…/0027</td><td>Credit note ₹450 refunded to source UPI</td><td>₹450</td><td>₹450</td><td class="bold">₹1,000 due</td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Advance held (not adjusted): ₹6,500 vide RCP/AND/26-27/1390. ◆ Disputed items are shown but marked; totals include them until resolution. Service descriptions only — no clinical findings appear on statements.</div>
+    </div>
+    <div class="field"><label>Share via (consent-checked channels only)</label>
+      <div class="check"><span class="box on">✓</span> WhatsApp to +91 98••• ••7xx — <span class="chip green">consent on file · 03 Apr 2026</span></div>
+      <div class="check"><span class="box"></span> Email — <span class="chip grey">no consent recorded</span> <span class="small muted">— capture consent at FO desk to enable</span></div>
+      <div class="check"><span class="box on">✓</span> Print at counter (hand to patient after ID check)</div>
+    </div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn">Download PDF</span><span class="btn primary">Print + send via WhatsApp</span></div>
+    <p class="small" style="margin-top:8px;color:#64748B">🔒 Shared statements carry a per-share watermark (recipient, channel, timestamp). Sharing to a non-consented channel is blocked, not just warned.</p>
+  </div>
+</div>
+<p class="audit">Statement generation, every share attempt (channel, consent check result, recipient masked) and dispute-flag changes are recorded in the access log.</p>
+</section>

@@ -1,0 +1,106 @@
+<section class="screen" id="nt-08">
+<div class="screen-head"><h1><span class="sid">NT-08</span> Send-test harness</h1><div class="meta"><span class="chip amber">CONDITIONAL</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Safe sandbox for testing message templates before they go live. Staff pick a template, language and variables, see a rendered per-channel preview (SMS segment count, WhatsApp bubble, email), then send only to registered sandbox recipients — staff numbers flagged TEST and excluded from all reports. Promotion to live requires DLT registration, a clean lint and a named approver.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Admin) ▾</div></div>
+  <div class="body">
+  <div class="sidebar">
+    <div class="sec-label">Notifications</div>
+    <div class="nav-item">Delivery dashboard</div>
+    <div class="nav-item">Outbox &amp; queue <span class="nav-badge">38</span></div>
+    <div class="nav-item">Failures &amp; retries</div>
+    <div class="nav-item">Templates</div>
+    <div class="nav-item">Suppression &amp; consent</div>
+    <div class="nav-item">Patient message log</div>
+    <div class="nav-item">Quiet hours &amp; rules</div>
+    <div class="nav-item active">Send-test harness</div>
+    <div class="sec-label">Admin</div>
+    <div class="nav-item">DLT template registry ↗</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Notifications › Send-test harness</div>
+    <div class="page-title">Send-test harness <span class="actions-right"><span class="btn small">Manage sandbox recipients</span></span></div>
+    <div class="page-sub">Sandbox only — tests can never reach a patient destination and never count in delivery reports</div>
+    <div class="stepper">
+      <div class="step cur"><span class="dot">1</span> Compose test</div><span class="step-line"></span>
+      <div class="step"><span class="dot">2</span> Send &amp; results</div><span class="step-line"></span>
+      <div class="step"><span class="dot">3</span> Promote to live</div>
+    </div>
+    <div class="row">
+      <div class="card" style="width:340px">
+        <div class="card-title">Test setup</div>
+        <div class="field"><label>Template <span class="req">*</span></label>
+          <select class="select"><option>TPL-RPT-READY-v5 · Report ready (draft)</option><option>TPL-APPT-REM-v3 · Appointment reminder</option><option>TPL-INV-ISSUED-v2 · Invoice issued</option></select></div>
+        <div class="field"><label>Language</label>
+          <select class="select"><option>English (en)</option><option>Hindi (hi)</option><option>Marathi (mr)</option></select></div>
+        <div class="field"><label>Variables (synthetic only)</label>
+          <div class="kv" style="grid-template-columns:110px 1fr;font-size:12px">
+            <dt>{{link}}</dt><dd class="mono">mgns.in/r/TEST01</dd>
+            <dt>{{branch}}</dt><dd class="mono">Andheri West</dd>
+            <dt>{{helpline}}</dt><dd class="mono">022-4000-1100</dd>
+          </div>
+          <div class="hint">Real patient data cannot be selected in the harness — variables come from the synthetic fixture set.</div></div>
+        <div class="field"><label>Channels</label>
+          <div class="check"><span class="box on">✓</span>SMS</div>
+          <div class="check"><span class="box on">✓</span>WhatsApp</div>
+          <div class="check"><span class="box">&nbsp;</span>Email</div></div>
+      </div>
+      <div class="card grow">
+        <div class="card-title">Rendered preview <span class="right">TPL-RPT-READY-v5 · en</span></div>
+        <div class="small bold" style="margin-bottom:4px">SMS <span class="chip grey">1 segment · 148/160 chars · GSM-7</span></div>
+        <div style="border:1px solid #E2E8F0;border-radius:8px;padding:10px 12px;background:#F8FAFC;font-size:12.5px;margin-bottom:12px" class="mono">Meridian Diagnostics: your report is ready. View securely: mgns.in/r/TEST01. Link needs DOB verification. Help: 022-4000-1100. No reply needed.</div>
+        <div class="small bold" style="margin-bottom:4px">WhatsApp bubble</div>
+        <div style="background:#DCFCE7;border:1px solid #86EFAC;border-radius:12px 12px 2px 12px;padding:10px 12px;max-width:340px;font-size:12.5px;margin-bottom:6px">🏥 <b>Meridian Diagnostics</b><br>Your report is ready to view.<br><br>🔒 The secure link asks for your date of birth before opening — your report is never attached to this chat.<br><br><span style="display:inline-block;background:#fff;border:1px solid #CBD5E1;border-radius:6px;padding:4px 12px;font-weight:700;color:#0F766E">View report ›</span><div class="small muted" style="text-align:right;margin-top:4px">18:12 ✓✓</div></div>
+        <div class="small muted">Email: channel not selected · lint: <span class="chip green">CLEAN — no PHI variables, opt-out footer n/a (transactional), link domain allow-listed</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Sandbox recipients registry <span class="right">tests deliver ONLY to these</span></div>
+      <table>
+        <tr><th>Name</th><th>Role</th><th>Destination</th><th>Flag</th><th>Excluded from reports</th><th>Last verified</th></tr>
+        <tr><td>K. Verma</td><td>Admin</td><td class="mono">+91 99••• ••870</td><td><span class="chip violet">TEST</span></td><td><span class="chip green">YES</span></td><td>21 Jul 2026</td></tr>
+        <tr><td>M. Kulkarni</td><td>Billing supervisor</td><td class="mono">+91 98••• ••334</td><td><span class="chip violet">TEST</span></td><td><span class="chip green">YES</span></td><td>21 Jul 2026</td></tr>
+        <tr><td>D. Nair</td><td>Front office</td><td class="mono">+91 97••• ••512</td><td><span class="chip violet">TEST</span></td><td><span class="chip green">YES</span></td><td>14 Jul 2026</td></tr>
+        <tr><td>QA shared inbox</td><td>QA</td><td class="mono">qa-notify@meridian.in</td><td><span class="chip violet">TEST</span></td><td><span class="chip green">YES</span></td><td>08 Jul 2026</td></tr>
+        <tr class="dim"><td>P. D'Souza</td><td>Cashier</td><td class="mono">+91 96••• ••091</td><td><span class="chip grey">EXPIRED</span></td><td><span class="chip green">YES</span></td><td>re-verify to use</td></tr>
+      </table>
+      <div class="small muted" style="margin-top:8px">Adding a sandbox recipient requires OTP proof of ownership; patient numbers are rejected against the patient registry.</div>
+    </div>
+    <div style="text-align:right"><span class="btn">Save draft</span> <span class="btn primary">Send test to 3 sandbox recipients →</span></div>
+  </div></div>
+</div>
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — Test results</div>
+<div class="card">
+  <div class="card-title">Test run TST-2026-0147 — TPL-RPT-READY-v5 (en) <span class="right">25 Jul 18:12 IST · run by K. Verma</span></div>
+  <div class="banner success"><b>4 of 5 test sends delivered.</b> Results are sandbox-only and excluded from all delivery dashboards and reports.</div>
+  <table>
+    <tr><th>Recipient</th><th>Channel</th><th>Sent</th><th>Status</th><th>Latency</th><th>Gateway ref</th></tr>
+    <tr><td>K. Verma <span class="chip violet">TEST</span></td><td>SMS</td><td class="mono">18:12:04</td><td><span class="chip green">DELIVERED</span></td><td class="mono">2.1s</td><td class="mono small">DLR-TST-9931</td></tr>
+    <tr><td>K. Verma <span class="chip violet">TEST</span></td><td>WhatsApp</td><td class="mono">18:12:04</td><td><span class="chip green">READ 18:13</span></td><td class="mono">1.4s</td><td class="mono small">WA-TST-5520</td></tr>
+    <tr><td>M. Kulkarni <span class="chip violet">TEST</span></td><td>SMS</td><td class="mono">18:12:05</td><td><span class="chip green">DELIVERED</span></td><td class="mono">2.8s</td><td class="mono small">DLR-TST-9932</td></tr>
+    <tr class="hl"><td>D. Nair <span class="chip violet">TEST</span></td><td>WhatsApp</td><td class="mono">18:12:05</td><td><span class="chip red">FAILED · template not yet approved by BSP</span></td><td class="mono">—</td><td class="mono small">WA-TST-5521</td></tr>
+    <tr><td>M. Kulkarni <span class="chip violet">TEST</span></td><td>WhatsApp</td><td class="mono">18:12:06</td><td><span class="chip green">DELIVERED</span></td><td class="mono">1.9s</td><td class="mono small">WA-TST-5522</td></tr>
+  </table>
+  <div class="banner warn" style="margin-top:10px"><b>Action needed before promotion.</b> WhatsApp template variant awaits BSP approval (submitted 24 Jul, typical 24–48h). SMS variant is fully ready.</div>
+</div>
+
+<div class="state-tag">STATE C — Promotion-to-live checklist</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:620px">
+    <h3>Promote TPL-RPT-READY-v5 to live</h3>
+    <p class="small muted" style="margin-bottom:10px">Replaces TPL-RPT-READY-v4 for all report-ready sends org-wide. All gates must pass; promotion is a recorded, versioned change.</p>
+    <div class="check"><span class="box on">✓</span><span class="small"><b>DLT registered</b> — SMS content template ID <span class="mono">1107172026543218</span> matches rendered text exactly (header MERDIA, transactional)</span></div>
+    <div class="check"><span class="box on">✓</span><span class="small"><b>Lint clean</b> — no PHI variables, no diagnosis terms, link domain allow-listed, foetal-sex-safe wording check passed (obstetric template family)</span></div>
+    <div class="check"><span class="box on">✓</span><span class="small"><b>Successful sandbox test</b> — TST-2026-0147 · SMS delivered to 2+ recipients</span></div>
+    <div class="check"><span class="box">&nbsp;</span><span class="small"><b>WhatsApp BSP approval</b> — pending · promoting now goes live SMS-only, WhatsApp follows on approval</span></div>
+    <div class="check"><span class="box on">✓</span><span class="small"><b>Language variants</b> — en, hi, mr all tested; hi/mr previews reviewed by front-office lead</span></div>
+    <div class="field" style="margin-top:10px"><label>Approver (cannot be the requester) <span class="req">*</span></label>
+      <select class="select"><option>M. Kulkarni — Billing supervisor</option><option>K. Verma — Admin (blocked: requester)</option></select></div>
+    <div class="banner info"><b>Identity confirmation required.</b> Approver confirms with their own Magnus password + OTP at approval time; requester K. Verma cannot self-approve.</div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn warn-outline">Promote SMS-only</span><span class="btn disabled">Promote all channels (1 gate pending)</span></div>
+  </div>
+</div>
+<p class="audit">Test runs, sandbox-recipient changes, lint results and every promotion (with requester, approver, template diff and DLT ID) are recorded in the access log; TEST-flagged traffic is permanently excluded from delivery reports and billing reconciliation.</p>
+</section>

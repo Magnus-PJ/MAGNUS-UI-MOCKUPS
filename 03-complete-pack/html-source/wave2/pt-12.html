@@ -1,0 +1,99 @@
+<section class="screen" id="pt-12">
+<div class="screen-head"><h1><span class="sid">PT-12</span> Help &amp; troubleshooting</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G2 Patient-Facing — patient chrome (no sidebar)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The Help link in the footer of every patient page lands here. It answers the four most common problems (no OTP, wrong/old mobile number, expired link, stuck payment) with plain checklists, gives the clinic's phone number and hours, and lets the patient report a problem — which creates a tracked grievance (<span class="mono">GRV</span>) reference. A clear disclaimer states this page is never for medical emergencies.</div>
+
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="banner danger"><b>⚠ This page is not for medical emergencies.</b> If someone is seriously unwell, call <b>108</b> (ambulance) or go to the nearest hospital emergency department now.</div>
+
+    <div class="card" style="border-top:4px solid #0F766E">
+      <div class="card-title">Common problems — tap to open</div>
+
+      <div class="card" style="margin-bottom:10px;border-color:#99F6E4;background:#F0FDFA">
+        <div style="display:flex;justify-content:space-between;align-items:center;font-weight:800">I didn't get the OTP code <span>▴</span></div>
+        <div class="small" style="margin-top:8px">
+          <div class="check"><span class="box on">✓</span><div>Wait <b>60 seconds</b> — SMS can be slow at busy times. Then tap <b>Resend code</b> (allowed 3 times).</div></div>
+          <div class="check"><span class="box on">✓</span><div>Check the phone with the number <b>ending in the digits shown on screen</b> — the OTP goes to your registered mobile, which may not be the phone in your hand.</div></div>
+          <div class="check"><span class="box on">✓</span><div>If you use SMS-blocking / DND apps, check the blocked folder for sender <b>MRDIAG</b>.</div></div>
+          <div class="check"><span class="box on">✓</span><div>Still nothing after 3 tries? Call the clinic below — we can verify you by phone and re-send.</div></div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:10px">
+        <div style="display:flex;justify-content:space-between;align-items:center;font-weight:800">My registered mobile number is wrong or old <span>▾</span></div>
+        <div class="small muted" style="margin-top:6px">For your safety we cannot change your number over the internet. Visit any Meridian branch with a <b>photo ID</b> (any one of passport, driving licence, voter ID, or Aadhaar — we record only the last 4 digits). The front office updates it in minutes and OTPs work immediately after.</div>
+      </div>
+
+      <div class="card" style="margin-bottom:10px">
+        <div style="display:flex;justify-content:space-between;align-items:center;font-weight:800">The link says it has expired <span>▾</span></div>
+        <div class="small muted" style="margin-top:6px">Report and reminder links stop working after a set time to protect you. Ask for a fresh link by calling the clinic, or collect a printed copy at the branch with photo ID. Expired links can never be revived — a new one is always issued instead.</div>
+      </div>
+
+      <div class="card" style="margin-bottom:0">
+        <div style="display:flex;justify-content:space-between;align-items:center;font-weight:800">My payment is stuck / money left my account <span>▾</span></div>
+        <div class="small muted" style="margin-top:6px">If UPI money was debited but the page didn't confirm: <b>don't pay again</b>. Failed UPI payments auto-return within 2–5 working days by NPCI rules. Note your UPI/UTR reference from your bank app and call us — receipt <span class="mono">RCP/AND/26-27/0xxx</span> is issued the moment the money is confirmed on our side.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Talk to a person</div>
+      <div class="kv">
+        <dt>Call the clinic</dt><dd><b style="font-size:16px">022-4XXX XX20</b></dd>
+        <dt>Hours</dt><dd>Mon–Sat 8:00 AM – 8:00 PM · Sun 8:00 AM – 2:00 PM IST</dd>
+        <dt>At the branch</dt><dd>Front office desk, 2nd floor, Link Road, Andheri West</dd>
+        <dt>Keep handy</dt><dd class="small muted">Your reference (APPT / ACC / DPDP-CR / GRV) — never share OTPs with anyone, including our staff. We will never ask for an OTP on a call.</dd>
+      </div>
+      <a class="btn primary" href="#" style="width:100%;padding:12px 14px;margin-top:10px">📞 Call now</a>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Report a problem</div>
+      <div class="field"><label>What went wrong? <span class="req">*</span></label>
+        <select class="select"><option>Payment problem</option></select>
+        <div class="hint">Other choices: OTP / link problem · wrong details on a document · staff behaviour · privacy concern · something else</div>
+      </div>
+      <div class="field"><label>Tell us briefly <span class="req">*</span></label><textarea class="textarea">Paid ₹2,500 by UPI for my X-ray today but the page showed an error. Money has left my account. UTR 617234598812.</textarea></div>
+      <div class="field"><label>Mobile number for updates <span class="req">*</span></label><input class="input" value="+91 98••• ••318"><div class="hint">We'll send an OTP to confirm before submitting, and SMS you a tracking reference.</div></div>
+      <div class="field"><label>Related reference <span class="muted small" style="font-weight:400">(optional)</span></label><input class="input mono" value="VIS-2026-30455"></div>
+      <a class="btn primary" href="#" style="width:100%;padding:12px 14px">Verify with OTP &amp; submit</a>
+      <div class="hint small muted" style="margin-top:8px">🔒 Your report goes to the branch grievance owner, not to a shared inbox. Reporting a problem never affects your care.</div>
+    </div>
+    <p class="small muted" style="text-align:center">🔒 We never ask for full Aadhaar numbers, card PINs or OTPs on this page or on calls.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PROBLEM SUBMITTED (GRIEVANCE REFERENCE ISSUED)</div>
+<div class="frame">
+  <div style="background:#fff;border-bottom:2px solid #0F766E;padding:12px 16px;text-align:center;font-weight:800;color:#0F766E">◎ Meridian Diagnostics <span class="muted small" style="font-weight:400">· Andheri West branch</span></div>
+  <div style="max-width:560px;margin:24px auto">
+    <div class="card" style="border-top:4px solid #15803D;text-align:center;padding:22px 18px">
+      <div style="font-size:34px;margin-bottom:6px">📨</div>
+      <div style="font-size:17px;font-weight:800;margin-bottom:6px">Thank you — we've logged your problem</div>
+      <span class="chip green">SUBMITTED · 25 Jul 2026, 4:37 PM IST</span>
+      <div class="kv" style="margin-top:14px;text-align:left">
+        <dt>Tracking ref</dt><dd class="mono bold" style="font-size:15px">GRV-2026-00214</dd>
+        <dt>Category</dt><dd>Payment problem — UPI debited, not confirmed</dd>
+        <dt>Your evidence</dt><dd class="mono">UTR 617234598812 · VIS-2026-30455</dd>
+        <dt>Identity</dt><dd>Verified by OTP to mobile ending ••318</dd>
+        <dt>First reply by</dt><dd><b>Tue, 28 Jul 2026</b> <span class="chip teal">2 WORKING DAYS</span></dd>
+        <dt>Handled by</dt><dd>Grievance owner, Andheri West (escalates to branch manager, then the Data Protection Officer for privacy matters)</dd>
+      </div>
+      <div class="row" style="margin-top:16px">
+        <a class="btn primary grow" href="#" style="padding:12px 14px">Track GRV-2026-00214</a>
+        <a class="btn grow" href="#" style="padding:12px 14px">Back to help</a>
+      </div>
+      <div class="hint small muted" style="margin-top:10px">An SMS with this reference and the tracking link has been sent to +91 98••• ••318.</div>
+    </div>
+    <div class="banner info"><b>About your payment:</b> because you gave a UTR, our cashier team checks it against the bank feed first. If the money reached us, your receipt <span class="mono">RCP/AND/26-27/0xxx</span> is issued and sent the same day; if it failed, NPCI returns it to your account in 2–5 working days.</div>
+    <div class="banner danger" style="margin-bottom:0"><b>⚠ Reminder:</b> this page is not for medical emergencies — call <b>108</b> if someone is seriously unwell.</div>
+    <p class="small muted" style="text-align:center;margin-top:10px">🔒 Only the grievance owner and people they escalate to can read your report.</p>
+  </div>
+  <div style="background:#fff;border-top:1px solid #E2E8F0;padding:10px 16px;text-align:center;font-size:11.5px;color:#64748B">© 2026 Meridian Diagnostics · Powered by Magnus HMS · your data stays in India · <a href="#" style="color:#0F766E">Privacy</a> · <a href="#" style="color:#0F766E">Terms</a> · <a href="#" style="color:#0F766E">Help</a></div>
+</div>
+
+<p class="audit">Grievance GRV-2026-00214 (category, narrative, UTR evidence, OTP verification, device, timestamps) and every later status view are recorded in the access log. The 2-working-day first-response SLA is owned by the branch grievance owner; breach escalates to the branch manager and, for privacy matters, to the DPO.</p>
+</section>

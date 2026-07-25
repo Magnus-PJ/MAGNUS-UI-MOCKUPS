@@ -1,0 +1,140 @@
+<section class="screen" id="dd-11">
+<div class="screen-head"><h1><span class="sid">DD-11</span> Basic SOAP note &amp; prescription</h1><div class="meta"><span class="chip amber">Conditional</span><div class="cluster">G8 Doctor Desk (Referrers)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> After reviewing a result, the referring doctor can capture a quick SOAP note linked to the report and build a simple prescription (free-text drugs with strength/frequency/duration). Known allergies from the Meridian record are surfaced inline. The prescription prints on the doctor's own letterhead with a digital-signature line, and both note and Rx save to the patient record under the doctor's authorship.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">My Patients</div>
+      <div class="nav-item">Results Inbox <span class="nav-badge">4</span></div>
+      <div class="nav-item">Critical Alerts <span class="nav-badge red">1</span></div>
+      <div class="nav-item">Refer a Patient</div>
+      <div class="sec-label">Account</div>
+      <div class="nav-item">Profile &amp; Delivery</div>
+      <div class="nav-item">Delegation / Locum</div>
+      <div class="nav-item active">Notes &amp; Prescriptions</div>
+      <div class="sec-label">Support</div>
+      <div class="nav-item">Help &amp; Contact</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › My Patients › Sofia Rossi (MRN-004822) › New SOAP note</div>
+      <div class="page-title">SOAP note — Sofia Rossi <span class="actions-right"><span class="btn small">Save draft</span> <span class="btn primary small">Sign &amp; save to record</span></span></div>
+      <div class="page-sub">Patient: Sofia Rossi · F 34 · MRN-004822 · linked result: <span class="mono">ACC-2026-91247</span> MRI Brain w/ contrast (finalised 24 Jul 11:38, Dr. V. Shetty)</div>
+
+      <div class="banner danger"><b>Allergy on record</b>Penicillin — anaphylaxis (recorded 09 Feb 2026, Meridian Andheri West). Shown from the Meridian record; verify with patient before prescribing.</div>
+
+      <div class="split">
+        <div>
+          <div class="card">
+            <div class="card-title">SOAP note <span class="right">Author: Dr. Meera Nair</span></div>
+            <div class="field"><label>S — Subjective</label><div class="textarea">Persistent right-sided headache 3 weeks, worse mornings; two episodes of blurred vision. No seizures, no vomiting. Sleep disturbed. No history of trauma.</div></div>
+            <div class="field"><label>O — Objective</label><div class="textarea">BP 118/76, afebrile. Neuro exam grossly intact; mild papilloedema right fundus. MRI Brain (ACC-2026-91247): 14 mm extra-axial dural-based lesion right frontal convexity, likely meningioma; no midline shift.</div></div>
+            <div class="field"><label>A — Assessment</label><div class="textarea">Probable right frontal convexity meningioma, symptomatic (headache, early papilloedema). Differential: dural metastasis — low suspicion.</div></div>
+            <div class="field"><label>P — Plan</label><div class="textarea">Neurosurgery referral (Dr. A. Kelkar, Kokilaben Hospital) within 1 week. Symptomatic analgesia — see Rx. Repeat contrast MRI in 3 months if surgery deferred. Advised to report any seizure, worsening vision or vomiting immediately.</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Linked result</div>
+            <dl class="kv" style="grid-template-columns:110px 1fr">
+              <dt>Accession</dt><dd class="mono">ACC-2026-91247</dd>
+              <dt>Study</dt><dd>MRI Brain w/ contrast</dd>
+              <dt>Reported by</dt><dd>Dr. V. Shetty</dd>
+              <dt>Status</dt><dd><span class="chip red">Critical finding</span> <span class="chip green">Acked 24 Jul 12:20</span></dd>
+            </dl>
+            <span class="btn ghost small">Open full report ↗</span>
+          </div>
+          <div class="card">
+            <div class="card-title">Note options</div>
+            <div class="check"><span class="box on">✓</span><span>Link this note to accession ACC-2026-91247</span></div>
+            <div class="check"><span class="box on">✓</span><span>Visible to Meridian radiologist (clinical context for future studies)</span></div>
+            <div class="check"><span class="box"></span><span>Share copy with patient portal</span></div>
+            <div class="hint small muted" style="margin-top:6px">🔒 Notes are authored under your verified identity and cannot be edited after signing — corrections are appended as addenda.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Prescription <span class="right"><span class="chip violet">Interactions check — Roadmap</span></span></div>
+            <table>
+              <tr><th>Drug (free text)</th><th>Strength</th><th>Freq</th><th>Days</th></tr>
+              <tr><td>Tab. Paracetamol</td><td>650 mg</td><td>1-0-1</td><td>7</td></tr>
+              <tr><td>Tab. Naproxen (after food)</td><td>250 mg</td><td>0-0-1 SOS</td><td>5</td></tr>
+              <tr><td>Tab. Pantoprazole</td><td>40 mg</td><td>1-0-0</td><td>7</td></tr>
+            </table>
+            <div style="margin-top:8px"><span class="btn small">+ Add drug row</span> <span class="btn small">Preview print</span></div>
+            <div class="hint small muted" style="margin-top:6px">⚠ Allergy flag applied: penicillin-class drugs will show a red warning if entered.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PRESCRIPTION PRINT PREVIEW (DOCTOR'S LETTERHEAD)</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:620px">
+    <h3>Print preview — prescription</h3>
+    <div class="card" style="border:1.5px solid #94A3B8">
+      <div style="text-align:center;border-bottom:2px solid #0F766E;padding-bottom:8px;margin-bottom:10px">
+        <div class="bold" style="font-size:16px">Nair Women's Clinic</div>
+        <div class="small">Dr. Meera Nair · MBBS, MD (Obst. &amp; Gynae.) · Reg. MMC/2009/41172</div>
+        <div class="small muted">2nd Floor, Sunrise Arcade, JP Road, Andheri West, Mumbai 400058 · +91 22 2673 4410 · Mon–Sat 10:00–13:00, 17:00–20:00</div>
+      </div>
+      <dl class="kv" style="grid-template-columns:120px 1fr">
+        <dt>Patient</dt><dd>Sofia Rossi · F 34 · MRN-004822</dd>
+        <dt>Date</dt><dd>24 Jul 2026, 15:05 IST · Rx ref <span class="mono">RX-DD-2026-00318</span></dd>
+        <dt>Allergy</dt><dd><span class="chip red">Penicillin — anaphylaxis</span></dd>
+      </dl>
+      <div style="font-size:22px;font-weight:800;margin:10px 0 4px">℞</div>
+      <table>
+        <tr><th>#</th><th>Drug</th><th>Strength</th><th>Frequency</th><th>Duration</th></tr>
+        <tr><td>1</td><td>Tab. Paracetamol</td><td>650 mg</td><td>1-0-1 (morning–night)</td><td>7 days</td></tr>
+        <tr><td>2</td><td>Tab. Naproxen — after food</td><td>250 mg</td><td>0-0-1 SOS headache</td><td>5 days</td></tr>
+        <tr><td>3</td><td>Tab. Pantoprazole — before breakfast</td><td>40 mg</td><td>1-0-0</td><td>7 days</td></tr>
+      </table>
+      <div class="small" style="margin:8px 0">Advice: hydration, avoid analgesic overuse (&gt;10 days/month). Review with neurosurgery opinion in 1 week. Report seizures / worsening vision immediately.</div>
+      <div class="row" style="margin-top:12px">
+        <div class="grow"><div class="sig-box signed">Dr. Meera Nair</div><div class="small muted" style="margin-top:4px">Digital signature · Aadhaar-eSign · 24 Jul 2026, 15:05 IST</div></div>
+        <div class="grow small muted" style="padding-top:6px">This electronic prescription is not a substitute for the rules governing controlled substances (NDPS Act / Schedule X) — such drugs require a physically signed prescription. Not valid for medico-legal purposes without verification at nairclinic.in/verify with ref RX-DD-2026-00318.</div>
+      </div>
+    </div>
+    <div class="modal-actions"><span class="btn">Back to edit</span><span class="btn">Download PDF</span><span class="btn primary">🖨 Print prescription</span></div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — SIGNED &amp; SAVED TO PATIENT RECORD</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>DOCTOR DESK</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MN</span>Dr. Meera Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Doctor Desk</div>
+      <div class="nav-item">My Patients</div>
+      <div class="nav-item">Results Inbox <span class="nav-badge">3</span></div>
+      <div class="nav-item active">Notes &amp; Prescriptions</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Doctor Desk › My Patients › Sofia Rossi (MRN-004822) › Notes &amp; prescriptions</div>
+      <div class="page-title">Saved to patient record</div>
+      <div class="page-sub">Sofia Rossi · MRN-004822 · authored by Dr. Meera Nair (MMC/2009/41172)</div>
+      <div class="banner success"><b>SOAP note NOTE-DD-2026-00512 and prescription RX-DD-2026-00318 saved</b>Signed 24 Jul 2026, 15:05 IST. Linked to ACC-2026-91247. The note is locked; corrections can be added as addenda only. Prescription PDF stored and available to the patient on request.</div>
+      <div class="card">
+        <div class="card-title">Notes &amp; prescriptions for this patient <span class="right">Authored by me</span></div>
+        <table>
+          <tr><th>Date</th><th>Type</th><th>Ref</th><th>Linked result</th><th>Summary</th><th>Status</th></tr>
+          <tr class="hl"><td>24 Jul 2026</td><td>SOAP note</td><td class="mono">NOTE-DD-2026-00512</td><td class="mono">ACC-2026-91247</td><td>Probable rt. frontal meningioma — neurosurgery referral</td><td><span class="chip green">Signed</span></td></tr>
+          <tr class="hl"><td>24 Jul 2026</td><td>Prescription</td><td class="mono">RX-DD-2026-00318</td><td class="mono">ACC-2026-91247</td><td>Paracetamol / Naproxen SOS / Pantoprazole · 3 items</td><td><span class="chip green">Signed &amp; printed</span></td></tr>
+          <tr><td>09 Feb 2026</td><td>SOAP note</td><td class="mono">NOTE-DD-2026-00341</td><td class="mono">ACC-2026-90412</td><td>Migraine w/o aura — trial prophylaxis</td><td><span class="chip green">Signed</span></td></tr>
+          <tr><td>09 Feb 2026</td><td>Prescription</td><td class="mono">RX-DD-2026-00204</td><td class="mono">ACC-2026-90412</td><td>Propranolol 40 mg · 1 item</td><td><span class="chip grey">Expired</span></td></tr>
+        </table>
+        <div style="margin-top:10px"><span class="btn small">+ New SOAP note</span> <span class="btn small">+ New prescription</span> <span class="btn ghost small">Add addendum to NOTE-DD-2026-00512</span></div>
+      </div>
+      <div class="banner info"><b>Visibility</b>Meridian radiologists see your note as clinical context on future studies for this patient. The patient sees the prescription only if you enable portal sharing or hand them the print.</div>
+    </div>
+  </div>
+</div>
+
+<p class="audit">Note drafts, signature event (Aadhaar-eSign hash), allergy-flag display, prescription prints/downloads and any addenda are recorded in the access log under Dr. Meera Nair's authorship.</p>
+</section>
