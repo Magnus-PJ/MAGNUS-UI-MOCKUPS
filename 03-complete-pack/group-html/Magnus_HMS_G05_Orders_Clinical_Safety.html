@@ -1,0 +1,1987 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Magnus HMS — G5 · Orders & Clinical Safety</title><style>/* Magnus HMS — NS design pack shared design system */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
+.mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
+.muted{color:#64748B}.small{font-size:12px}.bold{font-weight:700}
+/* ---------- page / screen frame ---------- */
+.screen{page-break-after:always;padding:28px 34px;background:#fff;min-height:1000px}
+.screen-head{display:flex;justify-content:space-between;align-items:flex-start;border-left:5px solid #0F766E;padding:6px 0 6px 14px;margin-bottom:6px}
+.screen-head h1{font-size:22px;font-weight:800}
+.screen-head .sid{color:#0F766E;margin-right:10px}
+.screen-head .meta{text-align:right}
+.screen-head .meta .cluster{color:#64748B;font-size:12px;margin-top:3px}
+.gap-note{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:8px 12px;margin:10px 0 16px;font-size:12.5px;color:#7C2D12}
+.gap-note b{color:#9A3412}
+/* ---------- app chrome ---------- */
+.frame{border:1px solid #CBD5E1;border-radius:10px;overflow:hidden;background:#F4F6F8;box-shadow:0 1px 4px rgba(15,23,42,.08);margin-bottom:22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:2px solid #0F766E;padding:9px 16px}
+.brand{font-weight:800;color:#0F766E}.brand span{color:#1E293B}
+.org{font-size:12.5px;color:#334155;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px}
+.userchip{font-size:12.5px;color:#334155}
+.userchip .av{display:inline-block;background:#CCFBF1;color:#0F766E;font-weight:700;border-radius:5px;padding:2px 6px;margin-right:6px;font-size:11px}
+.body{display:flex;min-height:520px}
+.sidebar{width:196px;background:#fff;border-right:1px solid #E2E8F0;padding:12px 0;flex-shrink:0}
+.sec-label{font-size:10.5px;letter-spacing:.08em;color:#94A3B8;font-weight:700;padding:8px 16px 4px;text-transform:uppercase}
+.nav-item{padding:7px 16px;font-size:13px;color:#334155;display:flex;justify-content:space-between;align-items:center}
+.nav-item.active{background:#F0FDFA;color:#0F766E;font-weight:700;border-left:3px solid #0F766E;padding-left:13px}
+.nav-badge{background:#0F766E;color:#fff;border-radius:9px;font-size:10.5px;padding:1px 7px;font-weight:700}
+.nav-badge.red{background:#B91C1C}
+.main{flex:1;padding:16px 18px;min-width:0}
+.crumb{font-size:12px;color:#64748B;margin-bottom:8px}
+.page-title{font-size:19px;font-weight:800;margin-bottom:2px}
+.page-sub{font-size:12.5px;color:#64748B;margin-bottom:14px}
+.actions-right{float:right}
+/* ---------- components ---------- */
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card-title{font-weight:800;font-size:14.5px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.card-title .right{font-size:10.5px;letter-spacing:.07em;color:#94A3B8;font-weight:700;text-transform:uppercase}
+.row{display:flex;gap:14px}.row>*{min-width:0}.grow{flex:1}
+.btn{display:inline-block;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:700;border:1px solid #CBD5E1;background:#fff;color:#334155;text-align:center;white-space:nowrap}
+.btn.primary{background:#0F766E;border-color:#0F766E;color:#fff}
+.btn.danger{background:#B91C1C;border-color:#B91C1C;color:#fff}
+.btn.warn-outline{border-color:#F59E0B;color:#92400E;background:#FFFBEB}
+.btn.ghost{border:none;background:none;color:#0F766E;padding:7px 6px}
+.btn.small{padding:4px 10px;font-size:12px}
+.btn.disabled{opacity:.45}
+.chip{display:inline-block;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip.teal{background:#CCFBF1;color:#0F766E}
+.chip.green{background:#DCFCE7;color:#15803D}
+.chip.amber{background:#FEF3C7;color:#92400E}
+.chip.red{background:#FEE2E2;color:#B91C1C}
+.chip.grey{background:#F1F5F9;color:#475569}
+.chip.blue{background:#E0F2FE;color:#0369A1}
+.chip.violet{background:#EDE9FE;color:#6D28D9}
+.chip.outline-red{background:#fff;border:1.5px solid #B91C1C;color:#B91C1C}
+.banner{border-radius:8px;padding:10px 13px;font-size:12.5px;margin-bottom:12px;border:1px solid}
+.banner b{display:block;margin-bottom:2px;font-size:13px}
+.banner.info{background:#E0F2FE;border-color:#7DD3FC;color:#075985}
+.banner.warn{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+.banner.danger{background:#FEE2E2;border-color:#FCA5A5;color:#991B1B}
+.banner.success{background:#DCFCE7;border-color:#86EFAC;color:#166534}
+.banner.reg{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding:7px 9px;border-bottom:2px solid #E2E8F0;background:#F8FAFC}
+td{padding:8px 9px;border-bottom:1px solid #EEF2F6;vertical-align:top}
+tr.hl td{background:#F0FDFA}
+tr.dim td{color:#94A3B8}
+.kv{display:grid;grid-template-columns:150px 1fr;row-gap:6px;column-gap:12px;font-size:12.5px}
+.kv dt{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding-top:2px}
+.kv dd{margin:0}
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+.field label .req{color:#B91C1C}
+.field .hint{font-size:11px;color:#64748B;margin-top:3px}
+.input,.select,.textarea{width:100%;border:1px solid #CBD5E1;border-radius:7px;padding:7px 10px;font-size:13px;background:#fff;color:#1E293B}
+.input.err{border-color:#B91C1C;background:#FEF2F2}
+.textarea{min-height:64px}
+.check{font-size:12.5px;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.box{display:inline-block;width:14px;height:14px;border:1.6px solid #64748B;border-radius:3px;flex-shrink:0;margin-top:1px;text-align:center;line-height:12px;font-size:11px;font-weight:800}
+.box.on{background:#0F766E;border-color:#0F766E;color:#fff}
+.radio{border-radius:50%}
+.radio.on{background:#fff;border-color:#0F766E;box-shadow:inset 0 0 0 3.5px #0F766E;color:transparent}
+/* modal */
+.modal-wrap{background:#64748B22;border:1px dashed #94A3B8;border-radius:12px;padding:26px 40px;margin:14px 0}
+.modal{background:#fff;border-radius:12px;border-top:5px solid #0F766E;box-shadow:0 8px 30px rgba(15,23,42,.25);max-width:560px;margin:0 auto;padding:18px 20px}
+.modal.danger{border-top-color:#B91C1C}
+.modal h3{font-size:16px;margin-bottom:8px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+/* misc */
+.divider-label{text-align:center;color:#94A3B8;font-size:11.5px;margin:20px 0 14px;position:relative}
+.divider-label:before,.divider-label:after{content:"";display:inline-block;width:24%;border-top:1px dashed #CBD5E1;vertical-align:middle;margin:0 10px}
+.audit{font-size:11px;color:#8A6D1D;margin-top:10px}
+.audit:before{content:"🔒 "}
+.state-tag{font-size:10px;letter-spacing:.08em;font-weight:800;text-transform:uppercase;color:#94A3B8;text-align:right;margin-bottom:4px}
+.kpi-row{display:flex;gap:12px;margin-bottom:14px}
+.kpi{flex:1;background:#fff;border:1px solid #E2E8F0;border-left:4px solid #0F766E;border-radius:9px;padding:10px 13px}
+.kpi.amber{border-left-color:#F59E0B}.kpi.red{border-left-color:#B91C1C}
+.kpi .n{font-size:23px;font-weight:800}.kpi .l{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700}
+.kpi .s{font-size:11px;color:#64748B;margin-top:2px}
+.stepper{display:flex;gap:6px;align-items:center;font-size:12px;color:#64748B;margin-bottom:14px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:6px}
+.step .dot{width:20px;height:20px;border-radius:50%;background:#E2E8F0;color:#475569;font-size:11px;font-weight:800;text-align:center;line-height:20px}
+.step.done .dot{background:#15803D;color:#fff}.step.cur .dot{background:#0F766E;color:#fff}
+.step.cur{color:#0F766E;font-weight:700}
+.step-line{width:26px;border-top:2px solid #CBD5E1}
+.sig-box{border:1.5px dashed #94A3B8;border-radius:8px;min-height:64px;background:#F8FAFC;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:12px;font-style:italic}
+.sig-box.signed{border-style:solid;border-color:#15803D;color:#166534;background:#F0FDF4;font-family:'Segoe Script','Comic Sans MS',cursive;font-size:17px;font-style:normal}
+.ladder{border-left:3px solid #E2E8F0;margin-left:8px;padding-left:16px}
+.ladder .tier{margin-bottom:12px;position:relative}
+.ladder .tier:before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:#CBD5E1}
+.ladder .tier.done:before{background:#15803D}.ladder .tier.cur:before{background:#0F766E;box-shadow:0 0 0 3px #CCFBF1}
+.ladder .tier.fail:before{background:#B91C1C}
+.progress{height:7px;border-radius:4px;background:#E2E8F0;overflow:hidden;margin-top:4px}
+.progress i{display:block;height:100%;background:#0F766E}
+.progress.amber i{background:#F59E0B}.progress.red i{background:#B91C1C}
+.split{display:grid;grid-template-columns:1fr 300px;gap:14px}
+.timeline{font-size:12.5px}
+.timeline .ev{display:flex;gap:10px;margin-bottom:9px}
+.timeline .t{color:#64748B;white-space:nowrap;font-family:Consolas,monospace;font-size:11.5px;padding-top:1px}
+
+@page{size:A4;margin:0}@media print{body{background:#fff}}</style></head><body><section class="screen" id="cover">
+<div style="padding-top:120px"><div style="border-left:6px solid #0F766E;padding-left:22px">
+<div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">Magnus HMS · MVP 1 Complete Design Pack</div>
+<h1 style="font-size:36px;font-weight:800">G5 · Orders & Clinical Safety</h1>
+<p style="font-size:14px;color:#64748B;margin-top:10px">14 screens · every screen with alternate states · shared design system · synthetic data only (no PHI)</p></div>
+<div class="card" style="max-width:700px;margin-top:26px"><div class="card-title">Screens in this group</div>
+<table><tr><th style="width:70px">ID</th><th>Screen</th></tr><tr><td class="mono bold" style="color:#0F766E">OR-01</td><td>Order entry — shared path</td></tr><tr><td class="mono bold" style="color:#0F766E">OR-02</td><td>Duplicate &amp; safety interception</td></tr><tr><td class="mono bold" style="color:#0F766E">OR-03</td><td>Order detail &amp; timeline</td></tr><tr><td class="mono bold" style="color:#0F766E">OR-04</td><td>Orders worklist</td></tr><tr><td class="mono bold" style="color:#0F766E">OR-05</td><td>Order modify / cancel</td></tr><tr><td class="mono bold" style="color:#0F766E">OR-06</td><td>Order sets &amp; prep protocols admin</td></tr><tr><td class="mono bold" style="color:#0F766E">OR-07</td><td>STAT &amp; priority governance</td></tr><tr><td class="mono bold" style="color:#0F766E">OR-08</td><td>External / paper referral digitisation</td></tr><tr><td class="mono bold" style="color:#0F766E">CS-01</td><td>Contrast &amp; general screening</td></tr><tr><td class="mono bold" style="color:#0F766E">CS-02</td><td>MR safety screening</td></tr><tr><td class="mono bold" style="color:#0F766E">CS-03</td><td>Procedure &amp; contrast consent</td></tr><tr><td class="mono bold" style="color:#0F766E">CS-04</td><td>Physician override — blocked screening</td></tr><tr><td class="mono bold" style="color:#0F766E">CS-05</td><td>Adverse reaction record</td></tr><tr><td class="mono bold" style="color:#0F766E">CS-06</td><td>Form F — statutory (PC-PNDT)</td></tr></table></div>
+<p class="muted small" style="margin-top:14px">Magnus Diagnostics → NUMINACORE · July 2026 · Prototype/reference — not committed product scope.</p></div></section><section class="screen" id="or-01">
+<div class="screen-head"><h1><span class="sid">OR-01</span> Order entry — shared path</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety — workspace 'Orders'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office and clinical staff create imaging/diagnostic orders against a registered patient from the procedure catalog. The form must guarantee a complete, safe order: clinical indication is mandatory, laterality is forced for paired-organ procedures, STAT priority requires justification, and the referrer is resolved from the directory (with registration number) or explicitly marked self-referred. Place-order is idempotent — a retry after a network/service failure reuses the same idempotency reference and can never create a duplicate accession.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Orders</div>
+      <div class="nav-item active">New order</div>
+      <div class="nav-item">Orders worklist <span class="nav-badge">38</span></div>
+      <div class="nav-item">Awaiting scheduling <span class="nav-badge red">6</span></div>
+      <div class="nav-item">Safety flags</div>
+      <div class="sec-label">Reference</div>
+      <div class="nav-item">Procedure catalog</div>
+      <div class="nav-item">Referrer directory</div>
+      <div class="nav-item">Prep instruction library</div>
+      <div class="sec-label">Today</div>
+      <div class="nav-item">My drafts <span class="nav-badge">2</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Orders › New order › MRN-004822</div>
+      <div class="page-title">New order — CT Brain (Plain) <span class="actions-right"><span class="chip grey">DRAFT · autosaved 14:32 IST</span></span></div>
+      <div class="page-sub">Order entry · shared path for front office, referrer portal &amp; ward requests · all fields validated before placement</div>
+
+      <div class="card" style="border-left:4px solid #0F766E">
+        <div class="card-title">Patient <span class="right">verified via visit VIS-2026-30412</span></div>
+        <div class="row">
+          <div class="grow"><div class="kv">
+            <dt>Patient</dt><dd><b>Sofia Rossi</b> · F · 34y · <span class="mono">MRN-004822</span></dd>
+            <dt>Contact</dt><dd>+91 98•••• ••42 <span class="muted small">(masked — no billing purpose on this role)</span></dd>
+            <dt>ID on file</dt><dd>Aadhaar ····-····-8213 (last-4 only) · verified 12-Jul-2026</dd>
+          </div></div>
+          <div style="width:280px"><div class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Allergies</dt><dd><span class="chip red">Iodinated contrast — prior reaction</span></dd>
+            <dt>Alerts</dt><dd><span class="chip amber">eGFR pending</span> <span class="chip grey">No implants recorded</span></dd>
+            <dt>Open orders</dt><dd>1 active (checked at place-order)</dd>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="grow">
+          <div class="card">
+            <div class="card-title">Procedure &amp; priority</div>
+            <div class="row">
+              <div class="grow"><div class="field"><label>Procedure (from catalog) <span class="req">*</span></label>
+                <div class="input">CT Brain (Plain) — <span class="mono">CT-BRN-P</span></div>
+                <div class="hint">Modality auto-set: <b>CT</b> · est. duration 15 min · price ₹3,200 <span class="muted">(price visible: front-office role, billing purpose)</span></div>
+              </div></div>
+              <div style="width:170px"><div class="field"><label>Laterality</label><div class="select" style="color:#94A3B8">Not applicable</div><div class="hint">Forced only for paired-organ procedures</div></div></div>
+            </div>
+            <div class="row">
+              <div style="width:200px"><div class="field"><label>Priority <span class="req">*</span></label><div class="select">Routine ▾</div></div></div>
+              <div class="grow"><div class="field"><label>STAT justification</label><div class="input" style="color:#94A3B8;background:#F8FAFC">Required only when priority = STAT</div></div></div>
+            </div>
+            <div class="field"><label>Clinical indication <span class="req">*</span></label>
+              <div class="textarea">Persistent right-sided headache × 3 weeks, worse in mornings; rule out space-occupying lesion. No trauma. Neuro exam normal per referrer note.</div>
+              <div class="hint">Minimum 20 characters · shown to radiologist verbatim · never included on printed invoice</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Referring doctor &amp; performing branch</div>
+            <div class="row">
+              <div class="grow"><div class="field"><label>Referring doctor <span class="req">*</span></label>
+                <div class="input">Dr. Meera Nair — MBBS, MD (Med) · Reg no. <span class="mono">MMC-2009-18455</span> ▾</div>
+                <div class="hint">From referrer directory · or select <b>“Self-referred walk-in”</b> (recorded as such on the report)</div>
+              </div></div>
+              <div style="width:230px"><div class="field"><label>Performing branch <span class="req">*</span></label><div class="select">Andheri West — CT available ▾</div><div class="hint">Only branches with modality CT listed</div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="width:300px">
+          <div class="card" style="background:#F8FAFC">
+            <div class="card-title">Prep instructions preview</div>
+            <div class="small" style="line-height:1.6">
+              <b>CT Brain (Plain) — patient prep</b><br>
+              • No fasting required.<br>
+              • Remove hairpins, earrings, dentures before scan.<br>
+              • Inform technologist of any prior head surgery.<br>
+              • Carry previous imaging (CD/films) if available.<br>
+              <span class="muted">Language: English ▾ · also available in हिन्दी, मराठी</span>
+            </div>
+            <div style="margin-top:8px"><span class="btn small">Print with order</span></div>
+          </div>
+          <div class="card">
+            <div class="card-title">Order summary</div>
+            <div class="kv" style="grid-template-columns:110px 1fr">
+              <dt>Procedure</dt><dd>CT Brain (Plain)</dd>
+              <dt>Modality</dt><dd>CT (auto)</dd>
+              <dt>Priority</dt><dd>Routine</dd>
+              <dt>Est. price</dt><dd>₹3,200 (excl. GST-exempt)</dd>
+              <dt>Idempotency</dt><dd class="mono small">ord-idem-7f3a91c4</dd>
+            </div>
+            <div class="hint" style="margin-top:6px">Idempotency ref generated at draft creation — retries reuse it; a duplicate accession is impossible.</div>
+            <div style="margin-top:10px;display:flex;gap:8px"><span class="btn primary grow">Place order</span><span class="btn">Save draft</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — VALIDATION ERRORS ON PLACE-ORDER</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner danger"><b>3 issues block placement — nothing was submitted</b>Fix the highlighted fields. The draft and idempotency reference <span class="mono">ord-idem-7f3a91c4</span> are preserved.</div>
+  <div class="card">
+    <div class="field"><label>Clinical indication <span class="req">*</span></label><div class="input err">—</div><div class="hint" style="color:#B91C1C">Required. A radiologist cannot protocol or justify this study without an indication (AERB justification rule).</div></div>
+    <div class="row">
+      <div style="width:200px"><div class="field"><label>Priority <span class="req">*</span></label><div class="select" style="border-color:#B91C1C;background:#FEF2F2">STAT ▾</div></div></div>
+      <div class="grow"><div class="field"><label>STAT justification <span class="req">*</span></label><div class="input err">—</div><div class="hint" style="color:#B91C1C">Required for STAT — state the clinical urgency (e.g. “suspected acute bleed, GCS dropping”). Logged with orderer identity.</div></div></div>
+    </div>
+    <div class="field"><label>Referring doctor <span class="req">*</span></label><div class="input err">—</div><div class="hint" style="color:#B91C1C">Select from directory or choose “Self-referred walk-in”. Free-text referrer names are not accepted.</div></div>
+    <div style="display:flex;gap:8px;justify-content:flex-end"><span class="btn">Save draft</span><span class="btn primary">Re-validate &amp; place order</span></div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — SUCCESS: ACCESSION ISSUED</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner success"><b>Order placed — accession ACC-2026-91847</b>CT Brain (Plain) for Sofia Rossi (MRN-004822) · Routine · idempotency ref <span class="mono">ord-idem-7f3a91c4</span> consumed. Next gate: <b>Scheduling</b> — slot must be booked <span class="chip teal">due in 4h</span> (owner: front office · Andheri West).</div>
+  <div class="card">
+    <div class="card-title">What happens next</div>
+    <div class="stepper">
+      <div class="step done"><span class="dot">✓</span> Ordered</div><span class="step-line"></span>
+      <div class="step cur"><span class="dot">2</span> Scheduled</div><span class="step-line"></span>
+      <div class="step"><span class="dot">3</span> Arrived</div><span class="step-line"></span>
+      <div class="step"><span class="dot">4</span> Acquired</div><span class="step-line"></span>
+      <div class="step"><span class="dot">5</span> Reported</div><span class="step-line"></span>
+      <div class="step"><span class="dot">6</span> Delivered</div>
+    </div>
+    <div style="display:flex;gap:8px"><span class="btn primary">Book slot now</span><span class="btn">Print prep instructions</span><span class="btn">Open order ACC-2026-91847</span><span class="btn ghost">New order for same patient</span></div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE D — SERVICE DOWN · RETRY-SAFE</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner warn"><b>Order service did not respond (timeout after 8s)</b>Your order was <b>not lost</b>. Retrying will resend with the <u>same idempotency key</u> <span class="mono">ord-idem-7f3a91c4</span> — if the first attempt actually succeeded on the server, you will receive the existing accession instead of a duplicate.</div>
+  <div class="banner info"><b>Working offline is supported</b> — actions queue and sync when reconnected. This order is held in the local outbox (position 1 of 1).</div>
+  <div class="card">
+    <div class="kv">
+      <dt>Attempt</dt><dd>2 of 5 · next auto-retry in 00:12</dd>
+      <dt>Idempotency key</dt><dd class="mono">ord-idem-7f3a91c4 (unchanged across retries)</dd>
+      <dt>Draft integrity</dt><dd>All field values checksummed locally · <span class="chip green">intact</span></dd>
+    </div>
+    <div style="margin-top:10px;display:flex;gap:8px"><span class="btn primary">Retry now</span><span class="btn">Keep in outbox</span><span class="btn ghost">Copy incident ref INC-0725-114</span></div>
+  </div>
+</div></div></div>
+
+<p class="audit">Order placement, every validation failure, each retry attempt (with idempotency key), and the price-visibility check for role Front Office (D. Nair) are recorded in the access log.</p>
+</section>
+<section class="screen" id="or-02">
+<div class="screen-head"><h1><span class="sid">OR-02</span> Duplicate &amp; safety interception</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety — workspace 'Orders'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Fires synchronously at place-order for any staff member. It must guarantee (1) no accidental repeat radiation — active same-procedure orders are surfaced with Open-existing / Link / Create-distinct-with-reason choices; (2) laterality can never be omitted on paired-organ procedures (hard block, not a warning); (3) a 3-question safety mini-check (pacemaker/implant, pregnancy possibility, prior contrast reaction) is answered before the accession is issued, setting flags that pre-populate technologist screening.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Orders</div>
+      <div class="nav-item active">New order</div>
+      <div class="nav-item">Orders worklist <span class="nav-badge">38</span></div>
+      <div class="nav-item">Awaiting scheduling <span class="nav-badge red">6</span></div>
+      <div class="nav-item">Safety flags</div>
+      <div class="sec-label">Reference</div>
+      <div class="nav-item">Procedure catalog</div>
+      <div class="nav-item">Referrer directory</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Orders › New order › MRN-004821 › Place order</div>
+      <div class="page-title">Placing: X-Ray Chest PA — Aarav Sharma <span class="mono">MRN-004821</span></div>
+      <div class="page-sub">Duplicate check runs against all <b>active</b> (not cancelled / not delivered) orders for the same patient + same procedure code across all Meridian branches.</div>
+
+      <div class="modal-wrap"><div class="modal" style="max-width:640px">
+        <h3>⚠ Possible duplicate — 2 active orders for X-Ray Chest PA</h3>
+        <p class="small muted" style="margin-bottom:10px">Repeating an X-ray without clinical need exposes the patient to avoidable radiation. Review before continuing.</p>
+        <table>
+          <tr><th>Ref</th><th>Scheduled</th><th>Ordered by</th><th>Status</th><th></th></tr>
+          <tr class="hl"><td class="mono">ACC-2026-91802</td><td>26-Jul-2026 09:40 IST · Andheri West</td><td>Dr. S. Iyer (referrer)</td><td><span class="chip blue">Scheduled</span></td><td><span class="btn small">Open existing</span></td></tr>
+          <tr><td class="mono">ACC-2026-91695</td><td>Not yet scheduled · Bandra</td><td>D. Nair (front office)</td><td><span class="chip amber">Awaiting scheduling</span></td><td><span class="btn small">Open existing</span></td></tr>
+        </table>
+        <div class="field" style="margin-top:12px"><label>If a new order is genuinely needed, select the reason <span class="req">*</span></label>
+          <div class="select">— Select reason — ▾</div>
+          <div class="hint">Repeat post-treatment · Different clinical question · Prior study technically inadequate · Referrer explicitly requested repeat (note ref required)</div>
+        </div>
+        <div class="modal-actions">
+          <span class="btn">Link this request to ACC-2026-91802</span>
+          <span class="btn ghost">Cancel place-order</span>
+          <span class="btn primary disabled">Create distinct order</span>
+        </div>
+        <p class="small muted" style="margin-top:8px">“Create distinct order” stays disabled until a reason is selected. Your choice and reason are written to the order record and the access log.</p>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — LATERALITY HARD BLOCK (PAIRED-ORGAN PROCEDURE)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Orders › New order › MRN-004828 › Place order</div>
+  <div class="page-title">Placing: X-Ray Knee AP/Lateral — Priya Menon <span class="mono">MRN-004828</span></div>
+  <div class="banner danger"><b>Blocked: laterality is required for X-Ray Knee AP/Lateral</b>This procedure targets a paired organ. The order cannot be placed as “unspecified” — wrong-side imaging is a never-event. There is no override for this rule.</div>
+  <div class="card">
+    <div class="field"><label>Laterality <span class="req">*</span></label>
+      <div style="display:flex;gap:16px">
+        <span class="check"><span class="box radio"></span> Left</span>
+        <span class="check"><span class="box radio"></span> Right</span>
+        <span class="check"><span class="box radio"></span> Bilateral (both sides, single order)</span>
+      </div>
+      <div class="hint" style="color:#B91C1C">Select the side stated on the referral. If the referral note is ambiguous, contact Dr. Farida Khan before placing — do not guess.</div>
+    </div>
+    <div class="kv" style="margin-top:8px">
+      <dt>Referral says</dt><dd>“Rt knee pain 2/12, ? OA changes” — Dr. Farida Khan, 24-Jul-2026</dd>
+      <dt>Prior imaging</dt><dd>X-Ray Knee (Right) — 14-Mar-2026, ACC-2026-90211 (comparison available)</dd>
+    </div>
+    <div style="margin-top:10px;display:flex;gap:8px;justify-content:flex-end"><span class="btn">Back to form</span><span class="btn primary disabled">Place order</span></div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — ORDER-TIME SAFETY MINI-CHECK · FLAGS SET</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Orders › New order › MRN-004790 › Place order</div>
+  <div class="page-title">Placing: MRI Lumbar Spine (Contrast) — Mohammed Al-Rashid <span class="mono">MRN-004790</span></div>
+  <div class="modal-wrap"><div class="modal" style="max-width:620px">
+    <h3>Order-time safety mini-check (3 questions)</h3>
+    <p class="small muted" style="margin-bottom:10px">Answered by D. Nair with the patient/attendant present. These answers set flags only — the full technologist screening (SF-xx) still happens before acquisition and can overturn them.</p>
+    <table>
+      <tr><th style="width:55%">Question</th><th>Answer</th><th>Flag set</th></tr>
+      <tr><td>1. Pacemaker, cochlear implant, aneurysm clip or any implanted metal device?</td><td><span class="check" style="margin:0"><span class="box on">✓</span> Yes — “cardiac stent, 2021”</span></td><td><span class="chip red">MR-CONDITIONAL DEVICE — verify make/model</span></td></tr>
+      <tr><td>2. Any possibility of pregnancy? <span class="muted small">(asked per protocol regardless of presentation; recorded respectfully)</span></td><td><span class="check" style="margin:0"><span class="box on">✓</span> Not applicable</span></td><td><span class="chip grey">No flag</span></td></tr>
+      <tr><td>3. Previous reaction to contrast media (iodinated or gadolinium)?</td><td><span class="check" style="margin:0"><span class="box on">✓</span> Yes — “rash after CT dye, 2023”</span></td><td><span class="chip red">PRIOR CONTRAST REACTION — radiologist review before injection</span></td></tr>
+    </table>
+    <div class="banner warn" style="margin-top:12px;margin-bottom:0"><b>2 safety flags will travel with accession</b>Technologist screening is pre-populated; the study cannot start until T. Okafor confirms or clears each flag, and Dr. V. Shetty approves contrast given the 2023 reaction.</div>
+    <div class="modal-actions"><span class="btn ghost">Back</span><span class="btn primary">Confirm answers &amp; place order</span></div>
+  </div></div>
+  <div class="banner success" style="max-width:640px;margin:0 auto"><b>Order placed with flags — ACC-2026-91853</b>Flags: MR-conditional device · prior contrast reaction. Visible on the technologist worklist and the order timeline.</div>
+</div></div></div>
+
+<p class="audit">Duplicate-modal decisions (open / link / create-distinct + reason), the laterality block event, and all three safety answers with the answering staff identity (D. Nair) and timestamp are versioned on the order and recorded in the access log.</p>
+</section>
+<section class="screen" id="or-03">
+<div class="screen-head"><h1><span class="sid">OR-03</span> Order detail &amp; timeline</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety — workspace 'Orders'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The single source of truth for one order, used by front office, technologists and radiologists throughout the visit. It must guarantee a complete picture: order facts (kv), the six-stage status stepper, every linked artifact (appointment, screening, consent, Form F where applicable, study, report, invoice), and a tamper-evident event trail with actor + timestamp for each transition. Terminal states (completed, cancelled) are immutable except for annotations.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Orders</div>
+      <div class="nav-item">New order</div>
+      <div class="nav-item active">Orders worklist <span class="nav-badge">38</span></div>
+      <div class="nav-item">Awaiting scheduling <span class="nav-badge red">6</span></div>
+      <div class="nav-item">Safety flags</div>
+      <div class="sec-label">Reference</div>
+      <div class="nav-item">Procedure catalog</div>
+      <div class="nav-item">Referrer directory</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Orders › Worklist › ACC-2026-91847</div>
+      <div class="page-title">ACC-2026-91847 · CT Brain (Plain) <span class="actions-right"><span class="btn small">Modify</span> <span class="btn small warn-outline">Cancel order</span> <span class="btn small">Print prep</span></span></div>
+      <div class="page-sub">Sofia Rossi · <span class="mono">MRN-004822</span> · F · 34y · ordered 25-Jul-2026 14:41 IST · <span class="chip teal">SLA: report due in 6h</span> owner: Dr. V. Shetty</div>
+
+      <div class="stepper">
+        <div class="step done"><span class="dot">✓</span> Ordered</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Scheduled</div><span class="step-line"></span>
+        <div class="step done"><span class="dot">✓</span> Arrived</div><span class="step-line"></span>
+        <div class="step cur"><span class="dot">4</span> Acquired</div><span class="step-line"></span>
+        <div class="step"><span class="dot">5</span> Reported</div><span class="step-line"></span>
+        <div class="step"><span class="dot">6</span> Delivered</div>
+      </div>
+
+      <div class="split">
+        <div>
+          <div class="card">
+            <div class="card-title">Order facts <span class="right">version 3 · view versions</span></div>
+            <div class="kv">
+              <dt>Accession</dt><dd class="mono">ACC-2026-91847</dd>
+              <dt>Procedure</dt><dd>CT Brain (Plain) — <span class="mono">CT-BRN-P</span> · modality CT · laterality n/a</dd>
+              <dt>Priority</dt><dd><span class="chip grey">Routine</span></dd>
+              <dt>Clinical indication</dt><dd>Persistent right-sided headache × 3 weeks; rule out space-occupying lesion. No trauma.</dd>
+              <dt>Ordered by</dt><dd>D. Nair (front office) on behalf of referrer</dd>
+              <dt>Referring doctor</dt><dd>Dr. Meera Nair · Reg no. <span class="mono">MMC-2009-18455</span></dd>
+              <dt>Performing branch</dt><dd>Andheri West · CT-01 (Siemens go.Up)</dd>
+              <dt>Safety flags</dt><dd><span class="chip amber">Prior iodinated-contrast reaction on file</span> (no contrast in this order)</dd>
+              <dt>Idempotency ref</dt><dd class="mono">ord-idem-7f3a91c4</dd>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Event trail <span class="right">append-only · exportable</span></div>
+            <div class="timeline">
+              <div class="ev"><span class="t">25-Jul 14:41</span><span><b>Ordered</b> — placed by D. Nair (front office) · safety mini-check completed, 0 flags raised at order time</span></div>
+              <div class="ev"><span class="t">25-Jul 14:48</span><span><b>Scheduled</b> — APPT-2026-51204, 25-Jul 17:30 IST, CT-01 · booked by D. Nair</span></div>
+              <div class="ev"><span class="t">25-Jul 17:12</span><span><b>Arrived</b> — check-in token <span class="mono">C-042</span> issued · identity re-verified (Aadhaar last-4 8213) by D. Nair</span></div>
+              <div class="ev"><span class="t">25-Jul 17:26</span><span><b>Screening cleared</b> — technologist checklist signed by T. Okafor · no contraindications</span></div>
+              <div class="ev"><span class="t">25-Jul 17:41</span><span><b>Acquired</b> — study STU-2026-88410, 128 images, DLP 812 mGy·cm · performed by T. Okafor</span></div>
+              <div class="ev"><span class="t">25-Jul 17:42</span><span><b>Assigned for reporting</b> — Dr. V. Shetty (RMC MH-44721) · auto-assignment rule CT-routine</span></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Linked artifacts</div>
+            <table>
+              <tr><th>Artifact</th><th>Ref / status</th></tr>
+              <tr><td>Appointment</td><td class="mono">APPT-2026-51204 <span class="chip green">honoured</span></td></tr>
+              <tr><td>Visit</td><td class="mono">VIS-2026-30412</td></tr>
+              <tr><td>Safety screening</td><td><span class="chip green">Cleared · T. Okafor</span></td></tr>
+              <tr><td>Consent</td><td><span class="chip grey">Not required (plain CT)</span></td></tr>
+              <tr><td>Form F (PC-PNDT)</td><td><span class="chip grey">n/a — not obstetric US</span></td></tr>
+              <tr><td>Study</td><td class="mono">STU-2026-88410 <span class="chip green">stored</span></td></tr>
+              <tr><td>Report</td><td><span class="chip amber">Drafting — Dr. V. Shetty</span></td></tr>
+              <tr><td>Invoice</td><td class="mono">INV/AND/26-27/0491 <span class="chip green">paid ₹3,200</span></td></tr>
+            </table>
+            <div class="hint" style="margin-top:6px">Artifact links open in their own workspaces subject to that workspace's role &amp; purpose checks.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — COMPLETED (DELIVERED, TERMINAL)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">ACC-2026-91710 · USG Abdomen — Rajesh Gupta <span class="mono">MRN-004795</span> <span class="chip green">COMPLETED</span></div>
+  <div class="stepper">
+    <div class="step done"><span class="dot">✓</span> Ordered</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Scheduled</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Arrived</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Acquired</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Reported</div><span class="step-line"></span>
+    <div class="step done"><span class="dot">✓</span> Delivered</div>
+  </div>
+  <div class="banner success"><b>Order closed 23-Jul-2026 19:05 IST</b>Report signed by Dr. A. Rao and delivered via patient portal + printed copy. Order is now immutable — Modify and Cancel are disabled; annotations only. SLA met: reported 3h 12m after acquisition (target 6h).</div>
+  <div class="card"><div class="card-title">Closing entries</div>
+    <div class="timeline">
+      <div class="ev"><span class="t">23-Jul 18:47</span><span><b>Reported</b> — final report signed by Dr. A. Rao · addendum window open 72h</span></div>
+      <div class="ev"><span class="t">23-Jul 19:05</span><span><b>Delivered</b> — portal delivery acknowledged by patient OTP; hard copy collected, signature on file</span></div>
+    </div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — CANCELLED (TERMINAL, WITH REASON)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">ACC-2026-91695 · X-Ray Chest PA — Aarav Sharma <span class="mono">MRN-004821</span> <span class="chip red">CANCELLED</span></div>
+  <div class="banner danger"><b>Cancelled 25-Jul-2026 11:20 IST — before acquisition, no radiation delivered</b>Reason: <b>Duplicate of ACC-2026-91802</b> (taxonomy: duplicate-order) · cancelled by K. Verma (admin) after front-office request. Linked forward to the surviving order.</div>
+  <div class="card"><div class="card-title">Downstream effects applied</div>
+    <table>
+      <tr><th>Effect</th><th>Result</th></tr>
+      <tr><td>Scheduled slot</td><td>Not booked — nothing to release</td></tr>
+      <tr><td>Invoice</td><td class="mono">INV/AND/26-27/0463 — credit note CN/AND/26-27/0021 issued ₹450</td></tr>
+      <tr><td>Report</td><td>Not applicable — never reached reporting</td></tr>
+      <tr><td>Duplicate link</td><td>Cross-referenced to <span class="mono">ACC-2026-91802</span> on both timelines</td></tr>
+    </table>
+    <div class="hint" style="margin-top:6px">Cancellation was confirmed with step-up identity (K. Verma re-entered credentials). Record is retained for 8 years per policy; it never disappears from history.</div>
+  </div>
+</div></div></div>
+
+<p class="audit">Every view of this order detail (viewer, role, purpose), each status transition with actor and device, and all artifact link openings are recorded in the access log.</p>
+</section>
+<section class="screen" id="or-04">
+<div class="screen-head"><h1><span class="sid">OR-04</span> Orders worklist</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety — workspace 'Orders'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Department-level operational queue used by front office and the branch coordinator through the day to keep every order moving. It must guarantee visibility of gate status (scheduling, screening, consent, payment) per order, honest aging on anything awaiting scheduling, and bulk printing of prep instructions for tomorrow's booked patients. Filters by status, modality, priority and date drive all triage.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Orders</div>
+      <div class="nav-item">New order</div>
+      <div class="nav-item active">Orders worklist <span class="nav-badge">38</span></div>
+      <div class="nav-item">Awaiting scheduling <span class="nav-badge red">6</span></div>
+      <div class="nav-item">Safety flags <span class="nav-badge">3</span></div>
+      <div class="sec-label">Reference</div>
+      <div class="nav-item">Procedure catalog</div>
+      <div class="nav-item">Referrer directory</div>
+      <div class="nav-item">Prep instruction library</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Orders › Worklist › Today + open</div>
+      <div class="page-title">Orders worklist — Imaging, Andheri West <span class="actions-right"><span class="btn small primary">Bulk print prep (4 selected)</span> <span class="btn small">Export CSV</span></span></div>
+      <div class="page-sub">Fri 25-Jul-2026 · refreshed 15:02 IST · showing open orders, all modalities</div>
+
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">38</div><div class="l">Open orders</div><div class="s">across CT · MRI · US · XR</div></div>
+        <div class="kpi amber"><div class="n">6</div><div class="l">Awaiting scheduling</div><div class="s">2 aging &gt; 4h target</div></div>
+        <div class="kpi red"><div class="n">1</div><div class="l">STAT in queue</div><div class="s">CT — must acquire ≤ 60 min</div></div>
+        <div class="kpi"><div class="n">11</div><div class="l">Scheduled tomorrow</div><div class="s">prep print pending: 4</div></div>
+      </div>
+
+      <div class="card" style="padding:10px 12px">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+          <div class="select" style="width:150px">Status: Open ▾</div>
+          <div class="select" style="width:140px">Modality: All ▾</div>
+          <div class="select" style="width:140px">Priority: All ▾</div>
+          <div class="select" style="width:170px">Date: 25–26 Jul 2026 ▾</div>
+          <div class="input" style="width:220px;color:#94A3B8">Search MRN / accession / name…</div>
+          <span class="btn small ghost">Clear filters</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <table>
+          <tr><th><span class="box on" style="margin:0">✓</span></th><th>Accession</th><th>Patient</th><th>Procedure · Mod</th><th>Priority</th><th>Status</th><th>Gates: Sch·Scr·Con·Pay</th><th>Aging / SLA</th></tr>
+          <tr style="background:#FEF2F2"><td><span class="box" style="margin:0"></span></td><td class="mono">ACC-2026-91861</td><td>Kwame Osei · <span class="mono">MRN-004823</span></td><td>CT Head (Plain) · CT</td><td><span class="chip red">STAT</span></td><td><span class="chip blue">Scheduled 15:20</span></td><td><span class="chip green">✓</span> <span class="chip amber">●</span> <span class="chip grey">n/a</span> <span class="chip green">✓</span></td><td><span class="chip red">acquire in 00:18</span><br><span class="small muted">owner: T. Okafor</span></td></tr>
+          <tr><td><span class="box on" style="margin:0">✓</span></td><td class="mono">ACC-2026-91847</td><td>Sofia Rossi · <span class="mono">MRN-004822</span></td><td>CT Brain (Plain) · CT</td><td><span class="chip grey">Routine</span></td><td><span class="chip violet">Acquired</span></td><td><span class="chip green">✓</span> <span class="chip green">✓</span> <span class="chip grey">n/a</span> <span class="chip green">✓</span></td><td><span class="chip teal">report due in 6h</span><br><span class="small muted">owner: Dr. V. Shetty</span></td></tr>
+          <tr><td><span class="box on" style="margin:0">✓</span></td><td class="mono">ACC-2026-91853</td><td>Mohammed Al-Rashid · <span class="mono">MRN-004790</span></td><td>MRI L-Spine (Contrast) · MRI</td><td><span class="chip grey">Routine</span></td><td><span class="chip blue">Scheduled 26-Jul 08:15</span></td><td><span class="chip green">✓</span> <span class="chip red">2 flags</span> <span class="chip amber">●</span> <span class="chip amber">●</span></td><td><span class="chip teal">due in 17h</span><br><span class="small muted">owner: front office</span></td></tr>
+          <tr><td><span class="box on" style="margin:0">✓</span></td><td class="mono">ACC-2026-91850</td><td>Ananya Rao · <span class="mono">MRN-004819</span></td><td>USG Obstetric (anomaly) · US</td><td><span class="chip grey">Routine</span></td><td><span class="chip blue">Scheduled 26-Jul 10:00</span></td><td><span class="chip green">✓</span> <span class="chip grey">—</span> <span class="chip amber">Form F ●</span> <span class="chip green">✓</span></td><td><span class="chip teal">due in 19h</span><br><span class="small muted">Form F before scan · foetal-sex non-disclosure applies</span></td></tr>
+          <tr><td><span class="box on" style="margin:0">✓</span></td><td class="mono">ACC-2026-91844</td><td>Elena Novak · <span class="mono">MRN-004830</span></td><td>X-Ray Chest PA · XR</td><td><span class="chip grey">Routine</span></td><td><span class="chip blue">Scheduled 26-Jul 09:10</span></td><td><span class="chip green">✓</span> <span class="chip grey">—</span> <span class="chip grey">n/a</span> <span class="chip green">✓</span></td><td><span class="chip teal">due in 18h</span></td></tr>
+          <tr><td><span class="box" style="margin:0"></span></td><td class="mono">ACC-2026-91838</td><td>Rajesh Gupta · <span class="mono">MRN-004795</span></td><td>USG Abdomen · US</td><td><span class="chip grey">Routine</span></td><td><span class="chip amber">Awaiting scheduling</span></td><td><span class="chip amber">●</span> <span class="chip grey">—</span> <span class="chip grey">n/a</span> <span class="chip amber">●</span></td><td>1h 40m open<br><span class="small muted">target ≤ 4h</span></td></tr>
+          <tr><td><span class="box" style="margin:0"></span></td><td class="mono">ACC-2026-91829</td><td>Priya Menon · <span class="mono">MRN-004828</span></td><td>X-Ray Knee (Right) · XR</td><td><span class="chip grey">Routine</span></td><td><span class="chip amber">Awaiting scheduling</span></td><td><span class="chip amber">●</span> <span class="chip grey">—</span> <span class="chip grey">n/a</span> <span class="chip green">✓</span></td><td>2h 55m open<br><span class="small muted">target ≤ 4h</span></td></tr>
+          <tr><td><span class="box" style="margin:0"></span></td><td class="mono">ACC-2026-91802</td><td>Aarav Sharma · <span class="mono">MRN-004821</span></td><td>X-Ray Chest PA · XR</td><td><span class="chip grey">Routine</span></td><td><span class="chip blue">Scheduled 26-Jul 09:40</span></td><td><span class="chip green">✓</span> <span class="chip grey">—</span> <span class="chip grey">n/a</span> <span class="chip green">✓</span></td><td><span class="chip teal">due in 18h</span></td></tr>
+        </table>
+        <div class="small muted" style="margin-top:8px">Gate legend: <span class="chip green">✓</span> cleared · <span class="chip amber">●</span> pending · <span class="chip red">flags</span> needs action · <span class="chip grey">n/a / —</span> not applicable or not yet due. Clinical indications are not shown in the list view — open an order (logged) to read them.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — OVERDUE SCHEDULING · AMBER ROWS &amp; ESCALATION</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Awaiting scheduling — aging view</div>
+  <div class="banner warn"><b>2 orders have breached the 4h scheduling target</b>Patients may be waiting on calls that were never made. Overdue rows escalate automatically at +2h beyond target.</div>
+  <div class="card">
+    <table>
+      <tr><th>Accession</th><th>Patient</th><th>Procedure</th><th>Ordered</th><th>Aging</th><th>Owner / escalation</th><th></th></tr>
+      <tr style="background:#FFFBEB"><td class="mono">ACC-2026-91771</td><td>Kwame Osei · <span class="mono">MRN-004823</span></td><td>MRI Brain (Plain)</td><td>25-Jul 09:12</td><td><span class="chip red">OVERDUE 01:50</span></td><td>D. Nair<br><span class="small muted">Escalated to K. Verma (branch admin) at 15:12 IST</span></td><td><span class="btn small primary">Book slot</span></td></tr>
+      <tr style="background:#FFFBEB"><td class="mono">ACC-2026-91785</td><td>Ananya Rao · <span class="mono">MRN-004819</span></td><td>USG Pelvis</td><td>25-Jul 10:05</td><td><span class="chip red">OVERDUE 00:57</span></td><td>D. Nair<br><span class="small muted">Escalated to K. Verma (branch admin) at 15:02 IST</span></td><td><span class="btn small primary">Book slot</span></td></tr>
+      <tr><td class="mono">ACC-2026-91829</td><td>Priya Menon · <span class="mono">MRN-004828</span></td><td>X-Ray Knee (Right)</td><td>25-Jul 12:07</td><td><span class="chip amber">due in 1h 05m</span></td><td>D. Nair</td><td><span class="btn small">Book slot</span></td></tr>
+      <tr><td class="mono">ACC-2026-91838</td><td>Rajesh Gupta · <span class="mono">MRN-004795</span></td><td>USG Abdomen</td><td>25-Jul 13:22</td><td><span class="chip teal">due in 2h 20m</span></td><td>D. Nair</td><td><span class="btn small">Book slot</span></td></tr>
+    </table>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — EMPTY (FILTERS MATCH NOTHING)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="page-title">Orders worklist — Imaging, Andheri West</div>
+  <div class="card" style="text-align:center;padding:38px 20px">
+    <div style="font-size:30px;margin-bottom:8px">🗂️</div>
+    <div class="bold" style="margin-bottom:4px">No orders match: Status = Cancelled · Modality = MRI · Date = 25-Jul-2026</div>
+    <div class="muted small" style="margin-bottom:12px">Nothing was hidden by permissions — this filter combination genuinely has zero results today.</div>
+    <span class="btn">Clear filters</span> <span class="btn ghost">Show all open orders</span>
+  </div>
+  <div class="banner info" style="margin-top:4px"><b>Working offline is supported</b> — actions queue and sync when reconnected. Worklist shows the last synced snapshot with its timestamp when offline.</div>
+</div></div></div>
+
+<p class="audit">Worklist filter usage, each order opened from this list, bulk prep-print jobs (accessions included, printed by, printer), and escalation notifications are recorded in the access log.</p>
+</section>
+<section class="screen" id="or-05">
+<div class="screen-head"><h1><span class="sid">OR-05</span> Order modify / cancel</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety — workspace 'Orders'</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Controlled change surface for an existing order, used by front office and branch admins. It must guarantee that what can change depends strictly on order status (indication editable until acquired; a procedure change is always cancel + new linked order, never an in-place edit), that cancellation states its reason from a fixed taxonomy and lists every downstream effect, and that post-acquisition cancellation is guarded because radiation has already been delivered. Every change produces a new order version.</div>
+
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="body">
+    <div class="sidebar">
+      <div class="sec-label">Orders</div>
+      <div class="nav-item">New order</div>
+      <div class="nav-item active">Orders worklist <span class="nav-badge">38</span></div>
+      <div class="nav-item">Awaiting scheduling <span class="nav-badge red">6</span></div>
+      <div class="nav-item">Safety flags</div>
+      <div class="sec-label">Reference</div>
+      <div class="nav-item">Procedure catalog</div>
+      <div class="nav-item">Referrer directory</div>
+    </div>
+    <div class="main">
+      <div class="crumb">Orders › ACC-2026-91853 › Modify</div>
+      <div class="page-title">Modify order — ACC-2026-91853 · MRI L-Spine (Contrast)</div>
+      <div class="page-sub">Mohammed Al-Rashid · <span class="mono">MRN-004790</span> · current status <span class="chip blue">Scheduled</span> · version 2 → editing creates version 3</div>
+
+      <div class="card">
+        <div class="card-title">Permitted changes at status “Scheduled” <span class="right">matrix enforced server-side</span></div>
+        <table>
+          <tr><th>Field</th><th>Ordered</th><th>Scheduled</th><th>Arrived</th><th>Acquired +</th><th>Rule</th></tr>
+          <tr><td>Clinical indication</td><td><span class="chip green">edit</span></td><td><span class="chip green">edit</span></td><td><span class="chip green">edit</span></td><td><span class="chip red">locked</span></td><td>Editable until acquisition; every edit versioned</td></tr>
+          <tr class="hl"><td>Priority</td><td><span class="chip green">edit</span></td><td><span class="chip green">edit</span></td><td><span class="chip amber">upgrade only</span></td><td><span class="chip red">locked</span></td><td>Raising to STAT requires justification</td></tr>
+          <tr><td>Referring doctor</td><td><span class="chip green">edit</span></td><td><span class="chip green">edit</span></td><td><span class="chip red">locked</span></td><td><span class="chip red">locked</span></td><td>Correction-of-record after arrival goes via admin</td></tr>
+          <tr><td>Performing branch</td><td><span class="chip green">edit</span></td><td><span class="chip amber">rebook</span></td><td><span class="chip red">locked</span></td><td><span class="chip red">locked</span></td><td>Branch change releases &amp; rebooks the slot</td></tr>
+          <tr><td>Laterality</td><td><span class="chip green">edit</span></td><td><span class="chip amber">with reason</span></td><td><span class="chip amber">with reason</span></td><td><span class="chip red">locked</span></td><td>Side change alerts technologist worklist</td></tr>
+          <tr><td>Procedure</td><td colspan="4" style="text-align:center"><span class="chip red">never edited in place</span></td><td>Always cancel + new linked order (preserves both audit trails)</td></tr>
+        </table>
+      </div>
+
+      <div class="row">
+        <div class="grow"><div class="card">
+          <div class="card-title">Editable now</div>
+          <div class="field"><label>Clinical indication</label><div class="textarea">Chronic low-back pain radiating to left leg × 6 months; failed conservative therapy. ? disc prolapse L4-L5. <b>Added 25-Jul:</b> new left foot drop noted by referrer — please expedite.</div><div class="hint">Change reason required on save · previous text kept in version 2</div></div>
+          <div class="row">
+            <div style="width:180px"><div class="field"><label>Priority</label><div class="select">Urgent ▾ <span class="muted small">(was Routine)</span></div></div></div>
+            <div class="grow"><div class="field"><label>Reason for change <span class="req">*</span></label><div class="select">New neurological deficit reported by referrer ▾</div></div></div>
+          </div>
+          <div style="display:flex;justify-content:flex-end;gap:8px"><span class="btn">Discard</span><span class="btn primary">Save as version 3</span></div>
+        </div></div>
+        <div style="width:280px"><div class="card" style="background:#F8FAFC">
+          <div class="card-title">Need a different procedure?</div>
+          <p class="small" style="margin-bottom:8px">Procedure cannot be edited. Use <b>Cancel + create linked order</b>: this order closes with reason “procedure changed”, and the new order carries a link both ways, reuses the referral and safety answers, and prompts re-pricing.</p>
+          <span class="btn small warn-outline">Cancel + create linked order…</span>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — CANCEL MODAL (PRE-ACQUISITION)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="modal-wrap"><div class="modal danger" style="max-width:600px">
+    <h3>Cancel order ACC-2026-91829 — X-Ray Knee (Right), Priya Menon</h3>
+    <div class="field"><label>Cancellation reason <span class="req">*</span></label>
+      <div class="select">Patient request — unable to attend ▾</div>
+      <div class="hint">Taxonomy: patient request · duplicate order · referrer withdrew · clinical contraindication found · booking error · payment not completed · other (note required)</div>
+    </div>
+    <div class="card" style="margin-bottom:0;background:#FFF7F7;border-color:#FCA5A5">
+      <div class="card-title">Downstream effects — applied automatically on confirm</div>
+      <table>
+        <tr><td>Scheduled slot</td><td>APPT-2026-51188 (26-Jul 11:20, XR-02) — <b>released</b> back to availability</td></tr>
+        <tr><td>Invoice</td><td class="mono">INV/AND/26-27/0478</td></tr>
+        <tr><td></td><td>Paid ₹450 — <b>credit-note prompt</b> opens next (refund vs adjust against future visit)</td></tr>
+        <tr><td>Report</td><td>Not applicable — order never reached reporting</td></tr>
+        <tr><td>Patient notice</td><td>SMS in preferred language confirming cancellation; no clinical details in the message</td></tr>
+      </table>
+    </div>
+    <div class="field" style="margin-top:12px"><label>Step-up identity confirmation <span class="req">*</span></label><div class="input" style="width:260px;color:#94A3B8">Re-enter your Magnus password…</div><div class="hint">Cancellation is a destructive action — D. Nair must re-confirm identity; the confirmation is itself logged.</div></div>
+    <div class="modal-actions"><span class="btn ghost">Keep order</span><span class="btn danger">Confirm cancellation</span></div>
+  </div></div>
+</div></div></div>
+
+<div class="state-tag">STATE C — POST-ACQUISITION GUARD (RADIATION ALREADY DELIVERED)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Orders › ACC-2026-91847 › Cancel</div>
+  <div class="page-title">Cancel request — ACC-2026-91847 · CT Brain (Plain), Sofia Rossi <span class="mono">MRN-004822</span></div>
+  <div class="banner danger"><b>Guard: acquisition already completed — radiation dose has been delivered (DLP 812 mGy·cm)</b>A post-acquisition cancellation does not undo exposure and would orphan an acquired study. Standard cancellation is blocked for front office at this status.</div>
+  <div class="card">
+    <div class="card-title">Available paths instead</div>
+    <table>
+      <tr><th>Path</th><th>Effect</th><th>Who can do it</th></tr>
+      <tr><td><b>Continue to reporting</b> (recommended)</td><td>Study is reported normally; dispute handled on billing side only</td><td>Default — no action needed</td></tr>
+      <tr><td>Mark “reported not required — referrer withdrew”</td><td>Study retained &amp; dose logged; report step waived with referrer's written note attached; invoice credit-note prompt</td><td>Branch admin (K. Verma) + radiologist countersign (Dr. V. Shetty)</td></tr>
+      <tr><td>Administrative void</td><td>Only for wrong-patient/wrong-record incidents — opens an incident record, never deletes the study or dose entry</td><td>Admin with step-up confirmation; reviewed in weekly safety meeting</td></tr>
+    </table>
+    <div class="hint" style="margin-top:6px">Whatever path is chosen, the dose record and acquired study STU-2026-88410 are immutable. All three paths create order version entries.</div>
+    <div style="margin-top:10px;display:flex;gap:8px;justify-content:flex-end"><span class="btn">Back to order</span><span class="btn warn-outline">Request admin review</span><span class="btn danger disabled">Cancel order</span></div>
+  </div>
+</div></div></div>
+
+<p class="audit">All modifications (field, old value, new value, reason, version number), cancellation reasons, step-up identity confirmations, and post-acquisition guard encounters are versioned on the order and recorded in the access log.</p>
+</section>
+<section class="screen" id="or-06">
+<div class="screen-head"><h1><span class="sid">OR-06</span> Order sets &amp; prep protocols admin</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Admin (K. Verma) and the chief radiologist maintain per-procedure prep protocols: fasting rules, multi-language patient prep instructions, contrast defaults, mandatory safety questionnaires, slot-template and price-list links. Every protocol is versioned with effective dates — a booked appointment always carries the version that was live at booking time. Branch overrides must never weaken a safety flag set at chain level.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Admin) ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Orders</div>
+    <div class="nav-item">Order worklist</div>
+    <div class="nav-item">STAT governance</div>
+    <div class="nav-item">Referral intake</div>
+    <div class="sec-label">Catalogue admin</div>
+    <div class="nav-item active">Prep protocols</div>
+    <div class="nav-item">Procedure master</div>
+    <div class="nav-item">Price lists</div>
+    <div class="nav-item">Slot templates</div>
+    <div class="sec-label">Clinical safety</div>
+    <div class="nav-item">Screening forms</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Catalogue admin › Prep protocols</div>
+    <div class="page-title">Prep protocols &amp; order sets <span class="actions-right"><span class="btn small">Export catalogue</span> <span class="btn primary small">+ New protocol</span></span></div>
+    <div class="page-sub">42 active protocols · chain scope: Meridian Diagnostics (7 branches) · viewing branch overlay: Andheri West</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">42</div><div class="l">Active protocols</div><div class="s">across 6 modalities</div></div>
+      <div class="kpi"><div class="n">3</div><div class="l">Draft versions</div><div class="s">pending effective date</div></div>
+      <div class="kpi amber"><div class="n">2</div><div class="l">Branch overrides</div><div class="s">Andheri West only</div></div>
+      <div class="kpi red"><div class="n">1</div><div class="l">Missing language</div><div class="s">Marathi text absent</div></div>
+    </div>
+    <div class="row" style="margin-bottom:12px">
+      <div class="grow"><input class="input" value="🔍 Search protocol, procedure code…"></div>
+      <div style="width:150px"><select class="select"><option>Modality: All</option></select></div>
+      <div style="width:150px"><select class="select"><option>Contrast: Any</option></select></div>
+      <div style="width:170px"><select class="select"><option>Status: Active + Draft</option></select></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Protocol cards <span class="right">version live at booking is always honoured</span></div>
+      <table>
+        <tr><th>Protocol / procedure</th><th>Prep &amp; fasting</th><th>Contrast default</th><th>Safety questionnaire</th><th>Languages</th><th>Links</th><th>Version</th><th></th></tr>
+        <tr class="hl"><td><b>CT Abdomen + Pelvis (contrast)</b><div class="small muted mono">CT-ABD-PEL-C · CPT-equiv 74178</div></td><td>Fasting 6h solids / 2h clear fluids<div class="small muted">Hydration 500 ml before arrival</div></td><td><span class="chip blue">Iohexol 350 · weight-based</span></td><td><span class="chip red">CS-01 required · hard gate</span></td><td>EN · HI · MR</td><td class="small">Slot: CT-30min · Price: GEN-26-27</td><td><span class="mono">v7</span> <span class="chip green">Active</span><div class="small muted">eff. 01-Jul-2026</div></td><td><span class="btn ghost small">Edit</span> <span class="btn ghost small">History</span></td></tr>
+        <tr><td><b>MRI Brain (plain)</b><div class="small muted mono">MR-BRAIN-P</div></td><td>No fasting<div class="small muted">Remove metallic objects; arrive 30 min early</div></td><td><span class="chip grey">None</span></td><td><span class="chip red">CS-02 MR safety · hard gate</span></td><td>EN · HI · MR</td><td class="small">Slot: MR-45min · Price: GEN-26-27</td><td><span class="mono">v4</span> <span class="chip green">Active</span><div class="small muted">eff. 15-May-2026</div></td><td><span class="btn ghost small">Edit</span> <span class="btn ghost small">History</span></td></tr>
+        <tr><td><b>MRI Brain + Contrast</b><div class="small muted mono">MR-BRAIN-C</div></td><td>Fasting 4h<div class="small muted">Bring prior reports &amp; implant cards</div></td><td><span class="chip blue">Gadobutrol 0.1 mmol/kg</span></td><td><span class="chip red">CS-01 + CS-02 · hard gates</span></td><td>EN · HI · MR</td><td class="small">Slot: MR-60min · Price: GEN-26-27</td><td><span class="mono">v6</span> <span class="chip green">Active</span><div class="small muted">eff. 01-Jul-2026</div></td><td><span class="btn ghost small">Edit</span> <span class="btn ghost small">History</span></td></tr>
+        <tr><td><b>US Obstetric — Growth scan</b><div class="small muted mono">US-OB-GROWTH</div></td><td>No fasting · full bladder not required &gt;14 wks</td><td><span class="chip grey">None</span></td><td><span class="chip violet">PCPNDT Form F · mandatory</span><div class="small muted">Foetal-sex non-disclosure notice printed on prep sheet</div></td><td>EN · HI · MR</td><td class="small">Slot: US-OB-30 · Price: GEN-26-27</td><td><span class="mono">v9</span> <span class="chip green">Active</span><div class="small muted">eff. 01-Apr-2026</div></td><td><span class="btn ghost small">Edit</span> <span class="btn ghost small">History</span></td></tr>
+        <tr><td><b>CT KUB (plain)</b><div class="small muted mono">CT-KUB-P</div></td><td>No fasting · full bladder preferred</td><td><span class="chip grey">None</span></td><td><span class="chip amber">Pregnancy check only</span></td><td>EN · HI · MR</td><td class="small">Slot: CT-15min · Price: GEN-26-27</td><td><span class="mono">v3</span> <span class="chip green">Active</span><div class="small muted">eff. 10-Feb-2026</div></td><td><span class="btn ghost small">Edit</span> <span class="btn ghost small">History</span></td></tr>
+        <tr><td><b>CT Coronary Angio</b><div class="small muted mono">CT-CORO-C</div></td><td>Fasting 4h · no caffeine 12h<div class="small muted">Beta-blocker protocol if HR &gt; 65 — physician order</div></td><td><span class="chip blue">Iohexol 350 · bolus-tracked</span></td><td><span class="chip red">CS-01 required · hard gate</span></td><td>EN · HI <span class="chip red">MR missing</span></td><td class="small">Slot: CT-45min · Price: CARD-26-27</td><td><span class="mono">v2</span> <span class="chip green">Active</span><div class="small muted">eff. 20-Jun-2026</div></td><td><span class="btn ghost small">Edit</span> <span class="btn ghost small">History</span></td></tr>
+        <tr><td><b>X-ray Chest PA</b><div class="small muted mono">XR-CHEST-PA</div></td><td>None</td><td><span class="chip grey">None</span></td><td><span class="chip amber">Pregnancy check only</span></td><td>EN · HI · MR</td><td class="small">Slot: XR-10min · Price: GEN-26-27</td><td><span class="mono">v2</span> <span class="chip green">Active</span><div class="small muted">eff. 01-Jan-2026</div></td><td><span class="btn ghost small">Edit</span> <span class="btn ghost small">History</span></td></tr>
+        <tr class="dim"><td><b>MRI Whole Spine screening</b><div class="small muted mono">MR-SPINE-WS</div></td><td>No fasting</td><td><span class="chip grey">None</span></td><td><span class="chip red">CS-02 MR safety</span></td><td>EN · HI · MR</td><td class="small">Slot: MR-60min · Price: GEN-26-27</td><td><span class="mono">v1</span> <span class="chip grey">Draft</span><div class="small muted">eff. 01-Aug-2026</div></td><td><span class="btn ghost small">Edit</span> <span class="btn ghost small">History</span></td></tr>
+      </table>
+    </div>
+    <div class="banner warn"><b>Branch override in effect — Andheri West</b>CT Abdomen + Pelvis (contrast): fasting extended to 8h for evening slots (chief radiologist memo 14-Jul-2026). Overrides may tighten but never relax chain-level safety flags — the override editor blocks any attempt to remove a required questionnaire.</div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — EDIT PROTOCOL (CT ABDOMEN + PELVIS CONTRAST, DRAFTING v8)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="crumb">Catalogue admin › Prep protocols › CT-ABD-PEL-C › Edit</div>
+    <div class="page-title">Edit protocol — CT Abdomen + Pelvis (contrast) <span class="chip grey">drafting v8 (from v7)</span></div>
+    <div class="page-sub">Changes take effect only from the effective date; existing bookings retain v7. Publishing requires chief radiologist countersign.</div>
+    <div class="stepper">
+      <div class="step done"><span class="dot">1</span> Prep &amp; fasting</div><span class="step-line"></span>
+      <div class="step cur"><span class="dot">2</span> Contrast &amp; safety</div><span class="step-line"></span>
+      <div class="step"><span class="dot">3</span> Languages</div><span class="step-line"></span>
+      <div class="step"><span class="dot">4</span> Links &amp; publish</div>
+    </div>
+    <div class="row">
+      <div class="grow">
+        <div class="card">
+          <div class="card-title">Contrast default</div>
+          <div class="row">
+            <div class="grow"><div class="field"><label>Agent <span class="req">*</span></label><select class="select"><option>Iohexol 350 mgI/ml</option></select></div></div>
+            <div class="grow"><div class="field"><label>Dosing rule <span class="req">*</span></label><select class="select"><option>Weight-based — 1.2 ml/kg, cap 120 ml</option></select></div></div>
+          </div>
+          <div class="field"><label>Radiologist override allowed</label><div class="check"><span class="box on">✓</span> Yes — protocolling radiologist may change agent/volume with reason code</div></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Safety questionnaire flags <span class="right">chain-level · locked for branch overrides</span></div>
+          <div class="check"><span class="box on">✓</span> <b>CS-01 Contrast &amp; general screening required</b> — hard gate; acquisition console blocks start until Cleared/Precautions recorded</div>
+          <div class="check"><span class="box on">✓</span> eGFR staleness rule: result older than <b>90 days</b> treated as unavailable (point-of-care creatinine or physician risk-acceptance pathway)</div>
+          <div class="check"><span class="box on">✓</span> Pregnancy/LMP question mandatory for patients 12–55 recorded female at registration</div>
+          <div class="check"><span class="box">&nbsp;</span> CS-02 MR safety screening (not applicable to CT)</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Patient prep instructions — multi-language</div>
+          <div class="field"><label>English <span class="req">*</span></label><textarea class="textarea">Do not eat solid food for 6 hours before your scan. You may drink clear fluids up to 2 hours before. Drink 500 ml of water 1 hour before arrival. Bring your previous reports and kidney function (creatinine/eGFR) report if done in the last 3 months.</textarea></div>
+          <div class="field"><label>हिन्दी (Hindi) <span class="req">*</span></label><textarea class="textarea">स्कैन से 6 घंटे पहले ठोस भोजन न करें। 2 घंटे पहले तक साफ़ तरल पदार्थ ले सकते हैं। आने से 1 घंटा पहले 500 मि.ली. पानी पिएँ। पिछली रिपोर्ट और किडनी (क्रिएटिनिन/eGFR) रिपोर्ट साथ लाएँ।</textarea></div>
+          <div class="field"><label>मराठी (Marathi) <span class="req">*</span></label><textarea class="textarea">स्कॅनच्या 6 तास आधी घन आहार घेऊ नका. 2 तास आधीपर्यंत स्वच्छ द्रव चालतील. येण्याच्या 1 तास आधी 500 मि.ली. पाणी प्या. मागील अहवाल व किडनी (क्रिएटिनिन/eGFR) अहवाल सोबत आणा.</textarea></div>
+        </div>
+      </div>
+      <div style="width:300px;flex-shrink:0">
+        <div class="card">
+          <div class="card-title">Version &amp; publish</div>
+          <dl class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Editing</dt><dd><span class="mono">v8 (draft)</span></dd>
+            <dt>Based on</dt><dd><span class="mono">v7</span> active since 01-Jul-2026</dd>
+            <dt>Effective from</dt><dd><input class="input" value="01-08-2026 00:00 IST"></dd>
+            <dt>Scope</dt><dd>Chain-wide (7 branches)</dd>
+            <dt>Countersign</dt><dd><span class="chip amber">Awaiting Dr. V. Shetty</span></dd>
+          </dl>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><span class="btn primary">Save draft</span><span class="btn disabled">Publish v8</span></div>
+          <div class="small muted" style="margin-top:8px">Publish is enabled after chief radiologist countersign (step-up identity confirmation required).</div>
+        </div>
+        <div class="banner info"><b>Booking behaviour</b>Appointments booked before the effective date keep v7 prep text and fasting rules; reminder messages re-send automatically only if the patient's booked version changes safety-relevant content.</div>
+        <div class="card">
+          <div class="card-title">Links</div>
+          <dl class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Slot template</dt><dd>CT-30min (Andheri West: 08:00–21:00)</dd>
+            <dt>Price list</dt><dd>GEN-26-27 · ₹8,500 base · contrast ₹2,200</dd>
+            <dt>Order set</dt><dd>Abdo pain panel (CT-ABD-PEL-C + US-ABD)</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — VERSION HISTORY (CT ABDOMEN + PELVIS CONTRAST)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="crumb">Catalogue admin › Prep protocols › CT-ABD-PEL-C › Version history</div>
+    <div class="page-title">Version history — CT Abdomen + Pelvis (contrast)</div>
+    <div class="page-sub">Full immutable trail. Any version can be viewed read-only; rollback creates a new version, it never deletes history.</div>
+    <div class="card">
+      <table>
+        <tr><th>Ver</th><th>Effective</th><th>Superseded</th><th>Key changes</th><th>Edited by</th><th>Countersigned</th><th>Bookings on ver</th><th></th></tr>
+        <tr class="dim"><td class="mono">v8</td><td>01-Aug-2026 (planned)</td><td>—</td><td>Marathi prep text refreshed; hydration guidance added; eGFR staleness window restated at 90 days</td><td>K. Verma · 25-Jul-2026 14:12</td><td><span class="chip amber">Pending Dr. V. Shetty</span></td><td>0</td><td><span class="btn ghost small">Open draft</span></td></tr>
+        <tr class="hl"><td class="mono">v7</td><td>01-Jul-2026</td><td>—</td><td>Contrast default moved to weight-based dosing (was fixed 100 ml); CS-01 made hard gate at console</td><td>K. Verma · 24-Jun-2026 11:05</td><td>Dr. V. Shetty (RMC MH-44721) · 24-Jun-2026 16:40</td><td>212 active</td><td><span class="btn ghost small">View</span></td></tr>
+        <tr><td class="mono">v6</td><td>02-Apr-2026</td><td>01-Jul-2026</td><td>Fasting reduced 8h → 6h per updated chain guideline; Hindi text corrected</td><td>K. Verma · 28-Mar-2026</td><td>Dr. A. Rao · 30-Mar-2026</td><td>0 (all completed)</td><td><span class="btn ghost small">View</span> <span class="btn ghost small">Rollback → new ver</span></td></tr>
+        <tr><td class="mono">v5</td><td>05-Jan-2026</td><td>02-Apr-2026</td><td>Price link moved to GEN-26-27; slot template CT-30min</td><td>K. Verma · 02-Jan-2026</td><td>Dr. V. Shetty · 03-Jan-2026</td><td>0 (all completed)</td><td><span class="btn ghost small">View</span></td></tr>
+        <tr><td class="mono">v4</td><td>11-Sep-2025</td><td>05-Jan-2026</td><td>Marathi language pack added; metformin question wording aligned with CS-01 v3</td><td>Chain admin (HQ)</td><td>Dr. V. Shetty · 10-Sep-2025</td><td>0 (all completed)</td><td><span class="btn ghost small">View</span></td></tr>
+      </table>
+    </div>
+    <div class="banner reg"><b>Diff — v6 → v7 (safety-relevant lines highlighted)</b>− Contrast default: Iohexol 350, fixed 100 ml &nbsp;→&nbsp; + Iohexol 350, weight-based 1.2 ml/kg cap 120 ml · + CS-01 enforcement point changed from "front office check-in" to "acquisition console hard gate".</div>
+  </div></div>
+</div>
+<p class="audit">All protocol edits, countersigns, branch overrides and rollbacks are versioned and recorded in the access log with editor identity, timestamp (IST) and before/after diff. Viewing patient-free catalogue data requires no purpose declaration; publish actions require step-up identity confirmation.</p>
+</section>
+<section class="screen" id="or-07">
+<div class="screen-head"><h1><span class="sid">OR-07</span> STAT &amp; priority governance</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The chief radiologist and admin review STAT usage weekly to keep the priority lane meaningful: who orders STAT, how often, and whether urgency was clinically justified. Flagged over-users get a documented review; the policy card defines who may mark STAT and the auto-downgrade rule, which always requires a radiologist's explicit confirmation before any priority is lowered.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Orders</div>
+    <div class="nav-item">Order worklist <span class="nav-badge">37</span></div>
+    <div class="nav-item active">STAT governance</div>
+    <div class="nav-item">Referral intake</div>
+    <div class="nav-item">Prep protocols</div>
+    <div class="sec-label">Clinical safety</div>
+    <div class="nav-item">Contrast screening</div>
+    <div class="nav-item">MR safety</div>
+    <div class="sec-label">Reporting</div>
+    <div class="nav-item">My reporting queue <span class="nav-badge red">4</span></div>
+  </div>
+  <div class="main">
+    <div class="crumb">Orders › STAT &amp; priority governance</div>
+    <div class="page-title">STAT usage report <span class="actions-right"><span class="btn small">Export CSV</span> <span class="btn small">Policy card</span></span></div>
+    <div class="page-sub">Period 01–24 Jul 2026 · Andheri West · all modalities · reviewed weekly by chief radiologist</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">118</div><div class="l">STAT orders</div><div class="s">of 2,340 total (5.0%)</div></div>
+      <div class="kpi"><div class="n">76%</div><div class="l">True-urgency on review</div><div class="s">target ≥ 80%</div></div>
+      <div class="kpi amber"><div class="n">3</div><div class="l">Orderers flagged</div><div class="s">&gt;12% STAT rate or &lt;60% true-urgency</div></div>
+      <div class="kpi red"><div class="n">2</div><div class="l">Reviews overdue</div><div class="s">owner: Dr. V. Shetty</div></div>
+    </div>
+    <div class="banner warn"><b>SLA — weekly governance review</b><span class="chip amber">due in 6h</span> Owner: Dr. V. Shetty · If not completed by Fri 18:00 IST, <b>Escalated to</b> Chief of Radiology (chain) per governance SOP.</div>
+    <div class="card">
+      <div class="card-title">STAT usage by orderer <span class="right">median true-urgency = reviewer agreement that STAT was warranted</span></div>
+      <table>
+        <tr><th>Orderer</th><th>Role / source</th><th>STAT vol</th><th>% of their orders</th><th>Median review verdict</th><th>Trend vs Jun</th><th>Status</th><th></th></tr>
+        <tr class="hl"><td><b>Dr. S. Iyer</b></td><td>External referrer · Iyer Clinic, Versova</td><td>31</td><td><b>18.2%</b><div class="progress red" style="width:90px"><i style="width:91%"></i></div></td><td>42% true-urgency</td><td>▲ +6.1 pts</td><td><span class="chip red">Flagged — overuse</span></td><td><span class="btn warn-outline small">Review</span></td></tr>
+        <tr class="hl"><td><b>Dr. Farida Khan</b></td><td>External referrer · Khan Polyclinic</td><td>19</td><td><b>13.5%</b><div class="progress amber" style="width:90px"><i style="width:67%"></i></div></td><td>58% true-urgency</td><td>▲ +2.3 pts</td><td><span class="chip amber">Flagged — watch</span></td><td><span class="btn warn-outline small">Review</span></td></tr>
+        <tr><td><b>Casualty desk (walk-in)</b></td><td>Internal · front office D. Nair (on physician instruction)</td><td>27</td><td>9.8%</td><td>88% true-urgency</td><td>▬ stable</td><td><span class="chip green">Within policy</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+        <tr><td><b>Dr. Meera Nair</b></td><td>External referrer · Nair Ortho Centre</td><td>14</td><td>6.9%</td><td>86% true-urgency</td><td>▼ −1.4 pts</td><td><span class="chip green">Within policy</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+        <tr><td><b>Dr. A. Rao</b></td><td>Internal radiologist (add-on sequences)</td><td>11</td><td>4.1%</td><td>95% true-urgency</td><td>▬ stable</td><td><span class="chip green">Within policy</span></td><td><span class="btn ghost small">Detail</span></td></tr>
+        <tr class="hl"><td><b>Suvarna Nursing Home</b></td><td>Institutional referrer · bulk account</td><td>16</td><td><b>12.7%</b><div class="progress amber" style="width:90px"><i style="width:63%"></i></div></td><td>51% true-urgency</td><td>▲ +4.0 pts</td><td><span class="chip amber">Flagged — watch</span></td><td><span class="btn warn-outline small">Review</span></td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="card-title">Sample justification texts — Dr. S. Iyer (last 5 STAT orders) <span class="right">patient identifiers masked — no clinical purpose declared for this report view</span></div>
+      <table>
+        <tr><th>Accession</th><th>Procedure</th><th>Patient</th><th>Justification entered</th><th>Reviewer verdict</th></tr>
+        <tr><td class="mono">ACC-2026-91247</td><td>CT Brain plain</td><td class="mono">MRN-••4821 · A•••v S.</td><td>"Sudden severe headache, ?bleed"</td><td><span class="chip green">Warranted</span></td></tr>
+        <tr><td class="mono">ACC-2026-91302</td><td>US Abdomen</td><td class="mono">MRN-••4795 · R•••h G.</td><td>"Patient travelling tomorrow"</td><td><span class="chip red">Not warranted — convenience</span></td></tr>
+        <tr><td class="mono">ACC-2026-91318</td><td>X-ray Chest PA</td><td class="mono">MRN-••4823 · K•••e O.</td><td>"Pre-employment, urgent joining"</td><td><span class="chip red">Not warranted — administrative</span></td></tr>
+        <tr><td class="mono">ACC-2026-91334</td><td>CT KUB</td><td class="mono">MRN-••4828 · P•••a M.</td><td>"Acute flank pain, ?ureteric calculus"</td><td><span class="chip green">Warranted</span></td></tr>
+        <tr><td class="mono">ACC-2026-91351</td><td>MRI L-S Spine</td><td class="mono">MRN-••4790 · M•••d A.</td><td>"" (blank — flagged at entry)</td><td><span class="chip red">Not warranted — no justification</span></td></tr>
+      </table>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — REVIEW MODAL (FLAGGED ORDERER: DR. S. IYER)</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:620px">
+    <h3>Governance review — Dr. S. Iyer (referrer ID REF-0142)</h3>
+    <div class="banner danger" style="margin-top:8px"><b>Flag: STAT overuse</b>18.2% of orders marked STAT in Jul (policy threshold 12%); true-urgency agreement 42% (threshold 60%). Second consecutive flagged month.</div>
+    <dl class="kv">
+      <dt>Period</dt><dd>01–24 Jul 2026 · 31 STAT of 170 orders</dd>
+      <dt>Common patterns</dt><dd>Travel/administrative reasons (7), blank justification (4), duplicate-day STAT (2)</dd>
+      <dt>Prior action</dt><dd>Advisory note sent 30-Jun-2026 by K. Verma (acknowledged 02-Jul)</dd>
+    </dl>
+    <div class="field" style="margin-top:10px"><label>Review outcome <span class="req">*</span></label><select class="select"><option>Counsel referrer — send governance letter + relationship manager call</option><option>Enable per-order radiologist confirmation for this referrer (30 days)</option><option>No action — verdicts re-adjudicated as warranted</option></select></div>
+    <div class="field"><label>Reviewer note <span class="req">*</span></label><textarea class="textarea">Pattern of administrative-convenience STATs persists after June advisory. Enable mandatory radiologist confirmation on all STAT orders from REF-0142 for 30 days; relationship manager to brief clinic staff on priority criteria.</textarea></div>
+    <div class="banner reg"><b>Step-up identity confirmation</b>This action changes ordering privileges for a referrer and is signed as: Dr. V. Shetty, Chief Radiologist (RMC MH-44721). Re-enter Magnus PIN to record the decision.</div>
+    <div class="field"><label>Magnus PIN <span class="req">*</span></label><input class="input" style="width:180px" value="••••••"></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Sign &amp; record decision</span></div>
+  </div>
+</div>
+<div class="small muted" style="margin:0 4px 8px">Decision letters are generated from templates; the referrer's copy never includes patient-identifying rows — only aggregate counts.</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — POLICY CARD (WHO MAY STAT · AUTO-DOWNGRADE RULE)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="crumb">Orders › STAT &amp; priority governance › Policy</div>
+    <div class="page-title">Priority policy — chain level <span class="chip green">v3 · effective 01-Jun-2026</span></div>
+    <div class="page-sub">Maintained by chain medical board; branch admins cannot edit. Displayed read-only at every order-entry point.</div>
+    <div class="row">
+      <div class="grow">
+        <div class="card">
+          <div class="card-title">Who may mark STAT</div>
+          <table>
+            <tr><th>Actor</th><th>May mark STAT?</th><th>Conditions</th></tr>
+            <tr><td>Internal radiologist</td><td><span class="chip green">Yes</span></td><td>Justification text mandatory (free text ≥ 15 chars)</td></tr>
+            <tr><td>Verified external referrer</td><td><span class="chip green">Yes</span></td><td>Justification mandatory; subject to monthly governance thresholds (≤12% rate, ≥60% true-urgency)</td></tr>
+            <tr><td>Front office (D. Nair et al.)</td><td><span class="chip amber">Only on physician instruction</span></td><td>Must capture instructing physician's name + callback number in the order</td></tr>
+            <tr><td>Unverified / pending referrer (OR-08)</td><td><span class="chip red">No</span></td><td>Priority capped at Urgent until directory verification completes</td></tr>
+            <tr><td>Patient self-request</td><td><span class="chip red">No</span></td><td>Never — convenience is not urgency</td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-title">Auto-downgrade rule <span class="right">radiologist confirm always required</span></div>
+          <div class="ladder">
+            <div class="tier done"><b>1 · Detect</b><div class="small muted">System flags a STAT order when justification is blank, matches an administrative-reason lexicon, or the orderer is under a governance restriction.</div></div>
+            <div class="tier cur"><b>2 · Radiologist confirm</b><div class="small muted">The flagged order is queued to the duty radiologist with the justification text and clinical context. <b>No priority is ever lowered automatically.</b> The radiologist either confirms STAT or downgrades to Urgent/Routine with a reason code, signed under their own identity.</div></div>
+            <div class="tier"><b>3 · Notify</b><div class="small muted">Orderer is notified of the downgrade with the reason; the event feeds the monthly governance report. Downgrade never delays an already-checked-in patient's safety screening.</div></div>
+          </div>
+        </div>
+      </div>
+      <div style="width:300px;flex-shrink:0">
+        <div class="card">
+          <div class="card-title">Priority ladder &amp; SLAs</div>
+          <dl class="kv" style="grid-template-columns:90px 1fr">
+            <dt>STAT</dt><dd>Acquire ≤ 60 min · report ≤ 2h · <span class="chip red">OVERDUE 00:42</span> example: ACC-2026-91366, owner Dr. A. Rao · Escalated to Dr. V. Shetty</dd>
+            <dt>Urgent</dt><dd>Acquire same day · report ≤ 6h · <span class="chip amber">due in 3h</span></dd>
+            <dt>Routine</dt><dd>Report ≤ 24h · <span class="chip teal">due in 18h</span></dd>
+          </dl>
+        </div>
+        <div class="banner info"><b>Why governance matters</b>When 1 in 5 orders is STAT, none are. Thresholds are reviewed quarterly by the medical board.</div>
+        <div class="card">
+          <div class="card-title">Policy version history</div>
+          <div class="timeline">
+            <div class="ev"><span class="t">01-Jun-26</span><span><b>v3</b> — added referrer restriction mechanism (30-day radiologist confirm)</span></div>
+            <div class="ev"><span class="t">10-Feb-26</span><span><b>v2</b> — administrative-reason lexicon introduced</span></div>
+            <div class="ev"><span class="t">01-Nov-25</span><span><b>v1</b> — initial policy, thresholds 12% / 60%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+<p class="audit">Every STAT flag, review verdict, privilege restriction and priority downgrade is signed with the acting clinician's identity and reason code; report views with masked patient identifiers, and any unmasking (which requires a declared clinical purpose), are recorded in the access log.</p>
+</section>
+<section class="screen" id="or-08">
+<div class="screen-head"><h1><span class="sid">OR-08</span> External / paper referral digitisation</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office (D. Nair) digitises paper referral slips scanned at the counter (FO-18) into structured orders before or during patient registration. The screen guarantees the original scan stays attached to the order forever, unknown referrers enter the directory in a pending-verify state (no payouts, STAT capped), and every transcription names the transcriber.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front office) ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Front office</div>
+    <div class="nav-item">Today's visits</div>
+    <div class="nav-item">Appointments</div>
+    <div class="nav-item">Scan inbox (FO-18) <span class="nav-badge">5</span></div>
+    <div class="sec-label">Orders</div>
+    <div class="nav-item active">Referral intake <span class="nav-badge red">9</span></div>
+    <div class="nav-item">Order worklist</div>
+    <div class="sec-label">Directory</div>
+    <div class="nav-item">Referrers</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Orders › External referral intake</div>
+    <div class="page-title">Paper referral intake queue <span class="actions-right"><span class="btn small">Rescan / re-upload</span></span></div>
+    <div class="page-sub">9 scanned referrals awaiting transcription · sourced from FO-18 counter scanner · Fri 25-Jul-2026, 11:20 IST</div>
+    <div class="banner info"><b>Working offline is supported</b> — actions queue and sync when reconnected. Scans captured offline upload automatically once the link returns.</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">9</div><div class="l">Awaiting transcription</div><div class="s">oldest 38 min</div></div>
+      <div class="kpi amber"><div class="n">2</div><div class="l">Patient at counter</div><div class="s">transcribe-before-register</div></div>
+      <div class="kpi"><div class="n">1</div><div class="l">Unknown referrer</div><div class="s">pending directory verify</div></div>
+      <div class="kpi"><div class="n">96%</div><div class="l">Same-visit completion</div><div class="s">this week</div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Intake queue <span class="right">SLA: transcribe within 45 min of scan while patient waits</span></div>
+      <table>
+        <tr><th>Scan ref</th><th>Received</th><th>Patient (as written)</th><th>Referrer (as written)</th><th>Legibility</th><th>Patient link</th><th>SLA</th><th></th></tr>
+        <tr class="hl"><td class="mono">SCN-2026-7741</td><td>10:42 · Counter 2</td><td>Sofia Rossi</td><td>Dr. Meera Nair · Nair Ortho Centre</td><td><span class="chip green">Good</span></td><td><span class="chip green">Matched MRN-004822</span></td><td><span class="chip amber">due in 0h 07m</span><div class="small muted">Owner: D. Nair</div></td><td><span class="btn primary small">Transcribe</span></td></tr>
+        <tr class="hl"><td class="mono">SCN-2026-7742</td><td>10:51 · Counter 1</td><td>Md. Al-Rashid</td><td>Dr. Farida Khan · Khan Polyclinic</td><td><span class="chip amber">Partly legible</span></td><td><span class="chip green">Matched MRN-004790</span></td><td><span class="chip teal">due in 0h 16m</span></td><td><span class="btn primary small">Transcribe</span></td></tr>
+        <tr><td class="mono">SCN-2026-7738</td><td>10:12 · WhatsApp intake</td><td>Ananya Rao</td><td><b>Dr. P. Deshmukh</b> — not in directory</td><td><span class="chip green">Good</span></td><td><span class="chip green">Matched MRN-004819</span></td><td><span class="chip red">OVERDUE 00:23</span><div class="small muted">Owner: D. Nair · Escalated to shift lead R. Pillai</div></td><td><span class="btn warn-outline small">Transcribe</span></td></tr>
+        <tr><td class="mono">SCN-2026-7736</td><td>09:58 · Counter 2</td><td>Rajesh Gupta</td><td>Dr. S. Iyer · Iyer Clinic</td><td><span class="chip green">Good</span></td><td><span class="chip green">Matched MRN-004795</span></td><td><span class="chip teal">due in 0h 23m</span></td><td><span class="btn primary small">Transcribe</span></td></tr>
+        <tr><td class="mono">SCN-2026-7735</td><td>09:47 · Counter 3</td><td>"E. Novak" (new to Meridian)</td><td>Dr. Meera Nair</td><td><span class="chip green">Good</span></td><td><span class="chip amber">No match — register new</span></td><td><span class="chip teal">due in 0h 12m</span></td><td><span class="btn primary small">Transcribe</span></td></tr>
+        <tr><td class="mono">SCN-2026-7729</td><td>09:20 · Courier batch</td><td>Priya Menon</td><td>Dr. Farida Khan</td><td><span class="chip red">Poor — request callback</span></td><td><span class="chip green">Matched MRN-004828</span></td><td><span class="chip teal">due in 1h 40m</span><div class="small muted">non-waiting batch</div></td><td><span class="btn ghost small">Open</span></td></tr>
+        <tr class="dim"><td class="mono">SCN-2026-7712</td><td>Yesterday 18:44</td><td>Kwame Osei</td><td>Suvarna Nursing Home (stamp only)</td><td><span class="chip amber">Stamp unclear</span></td><td><span class="chip green">Matched MRN-004823</span></td><td><span class="chip grey">held — awaiting clinic callback</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      </table>
+    </div>
+    <div class="banner warn"><b>Duplicate guard</b>SCN-2026-7736 resembles order ACC-2026-91334 (same patient, CT KUB, same referrer, 3 days ago). Transcriber must mark "new order" or "duplicate of existing" before saving.</div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — TRANSCRIBE VIEW (SCAN + FORM SIDE-BY-SIDE, SOFIA ROSSI)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="crumb">Orders › Referral intake › SCN-2026-7741 › Transcribe</div>
+    <div class="page-title">Transcribe to order — SCN-2026-7741</div>
+    <div class="page-sub">Patient waiting at Counter 2 · token U-018 · transcriber identity D. Nair is stamped on the resulting order</div>
+    <div class="row">
+      <div class="grow" style="flex:1.1">
+        <div class="card">
+          <div class="card-title">Original scan <span class="right">immutable · stays attached to order</span></div>
+          <div class="sig-box" style="min-height:280px">[ Scanned referral slip — Nair Ortho Centre letterhead · pinch-zoom, rotate, enhance contrast ]</div>
+          <div class="small muted" style="margin-top:6px">Captured 25-Jul-2026 10:42 IST at Counter 2 scanner · 2 pages · quality check passed</div>
+          <div style="margin-top:8px;display:flex;gap:8px"><span class="btn small">Rotate</span><span class="btn small">Enhance</span><span class="btn small">Page 2</span><span class="btn small">Flag illegible</span></div>
+        </div>
+      </div>
+      <div class="grow" style="flex:1.3">
+        <div class="card">
+          <div class="card-title">Order details (as transcribed)</div>
+          <div class="banner success" style="padding:7px 10px"><b>Patient linked</b>Sofia Rossi · MRN-004822 · F · 34y · ✔ identity confirmed at counter (Aadhaar last-4 ••7714). <span class="btn ghost small">Change link</span></div>
+          <div class="row">
+            <div class="grow"><div class="field"><label>Referrer <span class="req">*</span></label><select class="select"><option>Dr. Meera Nair — Nair Ortho Centre (verified)</option></select><div class="hint">Verified referrer · RMC registration on file</div></div></div>
+            <div style="width:150px"><div class="field"><label>Referral date</label><input class="input" value="24-07-2026"></div></div>
+          </div>
+          <div class="field"><label>Procedure(s) <span class="req">*</span></label>
+            <table>
+              <tr><th>Procedure</th><th>Laterality</th><th>Priority</th><th></th></tr>
+              <tr><td>MRI Knee (plain) <span class="mono small">MR-KNEE-P</span></td><td><select class="select" style="width:90px"><option>Right</option></select></td><td><select class="select" style="width:110px"><option>Routine</option><option>Urgent</option><option>STAT</option></select></td><td><span class="btn ghost small">✕</span></td></tr>
+              <tr><td>X-ray Knee AP/Lat <span class="mono small">XR-KNEE-2V</span></td><td><select class="select" style="width:90px"><option>Right</option></select></td><td><select class="select" style="width:110px"><option>Routine</option></select></td><td><span class="btn ghost small">✕</span></td></tr>
+            </table>
+            <span class="btn ghost small">+ Add procedure</span>
+          </div>
+          <div class="field"><label>Clinical notes from slip <span class="req">*</span></label><textarea class="textarea">R knee pain 3 weeks post twisting injury; ?meniscal tear. On examination: joint-line tenderness, McMurray positive. No prior imaging.</textarea><div class="hint">Transcribe verbatim; do not interpret. Radiologist sees both this text and the scan.</div></div>
+          <div class="check"><span class="box on">✓</span> This is a <b>new order</b> — duplicate check returned no similar order in 90 days</div>
+          <div class="check"><span class="box">&nbsp;</span> Referrer requested report copy by courier (default: portal + WhatsApp PDF)</div>
+          <div style="display:flex;gap:8px;margin-top:10px"><span class="btn primary">Create order &amp; continue to billing</span><span class="btn">Save draft</span><span class="btn">Return to queue</span></div>
+          <div class="small muted" style="margin-top:8px">On save: order ACC-2026-9xxxx is created with source = "paper referral SCN-2026-7741", transcriber = D. Nair, and the scan permanently attached.</div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — UNKNOWN REFERRER · QUICK-ADD PENDING VERIFICATION (SCN-2026-7738)</div>
+<div class="modal-wrap">
+  <div class="modal" style="max-width:600px">
+    <h3>Add unknown referrer to directory — pending verification</h3>
+    <div class="banner warn" style="margin-top:8px"><b>"Dr. P. Deshmukh" not found in referrer directory</b>Quick-add lets the order proceed now. The entry stays <b>Pending verify</b> until admin confirms RMC registration — until then: no referrer payouts accrue, no report portal access, and STAT priority is capped at Urgent.</div>
+    <div class="row">
+      <div class="grow"><div class="field"><label>Name as on slip <span class="req">*</span></label><input class="input" value="Dr. Prakash Deshmukh"></div></div>
+      <div class="grow"><div class="field"><label>Qualification (if legible)</label><input class="input" value="MS Ortho"></div></div>
+    </div>
+    <div class="row">
+      <div class="grow"><div class="field"><label>Clinic / institution</label><input class="input" value="Deshmukh Bone &amp; Joint Clinic, Jogeshwari E"></div></div>
+      <div style="width:170px"><div class="field"><label>Phone (from slip)</label><input class="input" value="+91 98•• ••3321"></div></div>
+    </div>
+    <div class="field"><label>RMC / council registration no.</label><input class="input" value=""><div class="hint">Leave blank if not on slip — verification team will obtain it. Payouts cannot be enabled without it.</div></div>
+    <div class="check"><span class="box on">✓</span> Attach scan SCN-2026-7738 as evidence for the verification team</div>
+    <div class="check"><span class="box on">✓</span> Notify directory admin (K. Verma) — verification SLA <span class="chip teal">due in 48h</span></div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Add as Pending verify &amp; continue order</span></div>
+  </div>
+</div>
+<div class="frame" style="margin-top:14px">
+  <div class="body"><div class="main">
+    <div class="page-title" style="font-size:15px">Resulting directory entry &amp; order state</div>
+    <div class="row">
+      <div class="grow"><div class="card">
+        <div class="card-title">Referrer — Dr. Prakash Deshmukh <span class="chip amber">Pending verify</span></div>
+        <dl class="kv">
+          <dt>Added by</dt><dd>D. Nair (front office) · 25-Jul-2026 11:31 IST · via paper-referral quick-add</dd>
+          <dt>Evidence</dt><dd>Scan SCN-2026-7738 attached</dd>
+          <dt>Restrictions</dt><dd>No payouts · no portal access · STAT capped at Urgent · flagged in monthly governance report until verified</dd>
+          <dt>Verification</dt><dd>Assigned K. Verma · <span class="chip teal">due in 48h</span></dd>
+        </dl>
+      </div></div>
+      <div class="grow"><div class="card">
+        <div class="card-title">Order created</div>
+        <dl class="kv">
+          <dt>Accession</dt><dd class="mono">ACC-2026-91402</dd>
+          <dt>Patient</dt><dd>Ananya Rao · MRN-004819</dd>
+          <dt>Procedure</dt><dd>US Abdomen + Pelvis · Routine</dd>
+          <dt>Source</dt><dd>Paper referral SCN-2026-7738 · transcriber D. Nair</dd>
+          <dt>Referrer state</dt><dd><span class="chip amber">Pending-verify referrer linked</span> — link auto-upgrades when verification completes; if verification fails, order keeps an "unverified referrer" annotation for audit</dd>
+        </dl>
+      </div></div>
+    </div>
+  </div></div>
+</div>
+<p class="audit">Each transcription stores the transcriber's identity, the immutable source scan, patient-link decisions and duplicate-check outcome; quick-added referrers, their restrictions and later verification results are all recorded in the access log.</p>
+</section>
+<section class="screen" id="cs-01">
+<div class="screen-head"><h1><span class="sid">CS-01</span> Contrast &amp; general screening</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Technologist (T. Okafor) or nurse completes this screening with the patient before any contrast-enhanced study; the acquisition console will not start until a decision exists. It must guarantee: allergies and prior reactions surfaced, eGFR fresh (hard 90-day staleness rule) or an explicit no-result pathway (point-of-care creatinine OR named-physician risk acceptance), pregnancy/LMP and metformin captured, and the screener's role recorded on the decision.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>CLINICAL SAFETY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (Technologist) ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Clinical safety</div>
+    <div class="nav-item active">Contrast screening <span class="nav-badge">3</span></div>
+    <div class="nav-item">MR safety</div>
+    <div class="nav-item">Reaction register</div>
+    <div class="sec-label">Worklists</div>
+    <div class="nav-item">CT worklist <span class="nav-badge">6</span></div>
+    <div class="nav-item">Injector log</div>
+    <div class="sec-label">Reference</div>
+    <div class="nav-item">Prep protocols</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Clinical safety › Contrast screening › ACC-2026-91288</div>
+    <div class="page-title">Contrast &amp; general screening — Sofia Rossi</div>
+    <div class="page-sub">MRN-004822 · F · 34y · 62 kg · CT Abdomen + Pelvis (contrast) · ACC-2026-91288 · APPT-2026-51244 · slot 12:30 IST · referrer Dr. Meera Nair</div>
+    <div class="banner info"><b>Working offline is supported</b> — actions queue and sync when reconnected. A Blocked decision made offline holds locally at the console immediately.</div>
+    <div class="stepper">
+      <div class="step done"><span class="dot">1</span> Allergies &amp; reactions</div><span class="step-line"></span>
+      <div class="step done"><span class="dot">2</span> Renal function</div><span class="step-line"></span>
+      <div class="step done"><span class="dot">3</span> Pregnancy &amp; meds</div><span class="step-line"></span>
+      <div class="step cur"><span class="dot">4</span> Decision</div>
+    </div>
+    <div class="row">
+      <div class="grow">
+        <div class="card">
+          <div class="card-title">1 · Allergies &amp; prior contrast reactions</div>
+          <div class="check"><span class="box on">✓</span> Asked: prior iodinated contrast exposure — <b>Yes, CT in 2023, no reaction</b></div>
+          <div class="check"><span class="box on">✓</span> Prior contrast reaction — <b>No</b></div>
+          <div class="check"><span class="box on">✓</span> Other allergies — <b>Penicillin (rash, 2019)</b> · not a contrast contraindication, noted for chart</div>
+          <div class="check"><span class="box on">✓</span> Asthma / atopy — <b>No</b></div>
+        </div>
+        <div class="card">
+          <div class="card-title">2 · Renal function <span class="right">hard staleness rule: 90 days</span></div>
+          <dl class="kv">
+            <dt>eGFR</dt><dd><b>92 ml/min/1.73m²</b> <span class="chip green">≥ 45 — no restriction</span></dd>
+            <dt>Measured date</dt><dd>02-Jul-2026 (23 days old) <span class="chip green">Within 90-day window</span></dd>
+            <dt>Source</dt><dd>Uploaded lab report (Metropolis) · verified by T. Okafor against original</dd>
+            <dt>Serum creatinine</dt><dd>0.7 mg/dL</dd>
+          </dl>
+        </div>
+        <div class="card">
+          <div class="card-title">3 · Pregnancy, metformin, weight</div>
+          <dl class="kv">
+            <dt>Pregnancy possible</dt><dd><b>No</b> — LMP 11-Jul-2026 (14 days ago) · patient attests not pregnant</dd>
+            <dt>Metformin</dt><dd><b>Not taking</b></dd>
+            <dt>Weight (measured)</dt><dd>62 kg · scale AND-CT-01, today 12:04 IST · contrast dose calc: 74 ml (1.2 ml/kg)</dd>
+            <dt>Other</dt><dd>No thyroid disease · not breastfeeding · no prior nephrectomy</dd>
+          </dl>
+        </div>
+      </div>
+      <div style="width:300px;flex-shrink:0">
+        <div class="banner success"><b>Decision: CLEARED for iodinated contrast</b>Iohexol 350 · 74 ml weight-based · no premedication required.</div>
+        <div class="card">
+          <div class="card-title">Decision record</div>
+          <dl class="kv" style="grid-template-columns:105px 1fr">
+            <dt>Decision</dt><dd><span class="chip green">Cleared</span></dd>
+            <dt>Screener</dt><dd>T. Okafor · <b>Radiographer/Technologist</b> (role captured)</dd>
+            <dt>Time</dt><dd>25-Jul-2026 12:11 IST</dd>
+            <dt>Valid for</dt><dd>This accession only (ACC-2026-91288)</dd>
+            <dt>Console gate</dt><dd><span class="chip green">Released</span> — CT-01 may start</dd>
+          </dl>
+          <div style="margin-top:10px"><span class="btn primary" style="width:100%">Sign decision &amp; release to console</span></div>
+          <div class="small muted" style="margin-top:6px">Signing uses your logged-in identity; no shared logins at the console.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Decision options</div>
+          <div class="check"><span class="box radio on">●</span> <b>Cleared</b> — proceed per protocol</div>
+          <div class="check"><span class="box radio">&nbsp;</span> <b>Precautions</b> — proceed with conditions (premedication, reduced dose, radiologist present)</div>
+          <div class="check"><span class="box radio">&nbsp;</span> <b>Blocked</b> — do not administer contrast; notify radiologist + referrer</div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — BLOCKED (PRIOR SEVERE REACTION, RAJESH GUPTA)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="crumb">Clinical safety › Contrast screening › ACC-2026-91355</div>
+    <div class="page-title">Contrast &amp; general screening — Rajesh Gupta</div>
+    <div class="page-sub">MRN-004795 · M · 58y · 81 kg · CT Coronary Angio · ACC-2026-91355 · referrer Dr. S. Iyer</div>
+    <div class="banner danger"><b>Decision: BLOCKED — contrast must not be administered</b>Prior severe reaction to iodinated contrast (bronchospasm + hypotension, 2021, treated with adrenaline at an outside hospital; patient carries an alert card). Premedication does not clear a prior severe reaction under chain policy — radiologist consultation is mandatory.</div>
+    <div class="row">
+      <div class="grow">
+        <div class="card">
+          <div class="card-title">Trigger findings</div>
+          <table>
+            <tr><th>Item</th><th>Response</th><th>Rule fired</th></tr>
+            <tr class="hl"><td>Prior contrast reaction</td><td><b>Yes — severe</b> (bronchospasm, hypotension, 2021)</td><td><span class="chip red">HARD BLOCK · CS-R-01</span></td></tr>
+            <tr><td>eGFR</td><td>58 ml/min/1.73m² · measured 30-Jun-2026</td><td><span class="chip amber">Caution band 45–59 (moot while blocked)</span></td></tr>
+            <tr><td>Metformin</td><td>Yes — 1g BD</td><td><span class="chip amber">Would require 48h hold advice (moot)</span></td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-title">Required next actions</div>
+          <div class="check"><span class="box on">✓</span> Duty radiologist Dr. A. Rao notified 12:26 IST — reviewing alternative (CT calcium score plain ± stress echo referral back to Dr. S. Iyer)</div>
+          <div class="check"><span class="box on">✓</span> Referrer notification queued to Dr. S. Iyer with reason "contrast contraindicated — prior severe reaction"</div>
+          <div class="check"><span class="box">&nbsp;</span> Reaction history added to permanent safety flags on MRN-004795 (pending radiologist confirm)</div>
+          <div class="check"><span class="box">&nbsp;</span> Billing hold placed on contrast component of INV/AND/26-27/0231</div>
+        </div>
+      </div>
+      <div style="width:300px;flex-shrink:0">
+        <div class="card">
+          <div class="card-title">Decision record</div>
+          <dl class="kv" style="grid-template-columns:105px 1fr">
+            <dt>Decision</dt><dd><span class="chip red">Blocked</span></dd>
+            <dt>Screener</dt><dd>T. Okafor · Technologist</dd>
+            <dt>Time</dt><dd>25-Jul-2026 12:24 IST</dd>
+            <dt>Console gate</dt><dd><span class="chip red">Locked</span> — contrast injector disabled for this accession</dd>
+            <dt>Review SLA</dt><dd><span class="chip amber">due in 1h</span> · Owner: Dr. A. Rao<div class="small muted">Escalated to Dr. V. Shetty if unactioned</div></dd>
+          </dl>
+        </div>
+        <div class="banner reg"><b>Override policy</b>A Blocked decision cannot be overridden by front office or technologist. Only a radiologist may replace it with Precautions, with documented rationale and step-up identity confirmation.</div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — NO eGFR RESULT AVAILABLE · PATHWAY CHOICE (PRIYA MENON)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="crumb">Clinical safety › Contrast screening › ACC-2026-91361</div>
+    <div class="page-title">Contrast &amp; general screening — Priya Menon</div>
+    <div class="page-sub">MRN-004828 · F · 46y · 70 kg · CT Abdomen + Pelvis (contrast) · ACC-2026-91361 · referrer Dr. Farida Khan</div>
+    <div class="banner warn"><b>No valid eGFR on file</b>Last result 14-Mar-2026 (133 days old) — exceeds the hard 90-day staleness rule and is treated as unavailable. Patient reports no known kidney disease, but self-report alone does not clear contrast. Choose a pathway below; the decision cannot be signed until one completes.</div>
+    <div class="row">
+      <div class="grow"><div class="card" style="border-color:#0F766E">
+        <div class="card-title">Pathway A — Point-of-care creatinine <span class="chip teal">recommended</span></div>
+        <dl class="kv" style="grid-template-columns:120px 1fr">
+          <dt>Order</dt><dd>POC creatinine · analyser AND-POC-02 · result in ~10 min</dd>
+          <dt>Cost</dt><dd>₹250 · added to INV/AND/26-27/0244 (patient informed &amp; consented)</dd>
+          <dt>Then</dt><dd>eGFR auto-computed (CKD-EPI) and this form resumes at step 2</dd>
+        </dl>
+        <div style="margin-top:10px"><span class="btn primary">Order POC creatinine now</span></div>
+        <div class="small muted" style="margin-top:6px">Ordered by T. Okafor under standing order SO-CT-04 (approved by Dr. V. Shetty, 01-Jun-2026).</div>
+      </div></div>
+      <div class="grow"><div class="card">
+        <div class="card-title">Pathway B — Physician risk acceptance</div>
+        <div class="field"><label>Accepting physician (named, verified identity) <span class="req">*</span></label><select class="select"><option>Dr. A. Rao — Radiologist on duty (RMC MH-51830)</option><option>Dr. V. Shetty — Chief Radiologist (RMC MH-44721)</option></select><div class="hint">Free-text names are not accepted — the physician must countersign in-app under their own login.</div></div>
+        <div class="field"><label>Clinical rationale <span class="req">*</span></label><textarea class="textarea">e.g. No history of renal disease, diabetes or hypertension; emergency indication outweighs delay for POC testing.</textarea></div>
+        <div class="check"><span class="box">&nbsp;</span> Physician confirms risk acceptance with step-up identity confirmation (PIN)</div>
+        <div style="margin-top:6px"><span class="btn warn-outline">Request physician countersign</span></div>
+      </div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Screening progress (held)</div>
+      <dl class="kv">
+        <dt>Steps 1 &amp; 3</dt><dd>Complete — no prior reactions, no allergies; LMP 06-Jul-2026, not pregnant; metformin: No; weight 70 kg measured</dd>
+        <dt>Step 2 renal</dt><dd><span class="chip amber">Awaiting pathway A or B</span></dd>
+        <dt>Decision</dt><dd><span class="chip grey">Cannot sign — renal step incomplete</span> · slot auto-held 20 min; front office notified of possible delay</dd>
+      </dl>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE D — DRAFT IN PROGRESS (AUTOSAVED, PATIENT STEPPED OUT)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="crumb">Clinical safety › Contrast screening › ACC-2026-91377</div>
+    <div class="page-title">Contrast &amp; general screening — Mohammed Al-Rashid <span class="chip grey">Draft</span></div>
+    <div class="page-sub">MRN-004790 · M · 51y · CT Urography · ACC-2026-91377 · started 12:40 IST by T. Okafor</div>
+    <div class="banner info"><b>Draft autosaved 12:47 IST</b>Patient stepped out to collect an old lab report. Draft locks to screener T. Okafor for 2 hours, then returns to the screening queue. No console release occurs from a draft.</div>
+    <div class="stepper">
+      <div class="step done"><span class="dot">1</span> Allergies &amp; reactions</div><span class="step-line"></span>
+      <div class="step cur"><span class="dot">2</span> Renal function</div><span class="step-line"></span>
+      <div class="step"><span class="dot">3</span> Pregnancy &amp; meds</div><span class="step-line"></span>
+      <div class="step"><span class="dot">4</span> Decision</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Captured so far</div>
+      <dl class="kv">
+        <dt>Allergies</dt><dd>None reported · no prior contrast exposure</dd>
+        <dt>eGFR</dt><dd><span class="chip amber">Awaiting patient's outside lab report (claims test done 10-Jul-2026)</span> — if report not produced, staleness pathway (State C) applies</dd>
+        <dt>Weight</dt><dd>Not yet measured — self-reported 78 kg <span class="chip amber">must be measured before dose calc</span></dd>
+        <dt>Decision</dt><dd><span class="chip grey">None — console gate remains locked</span></dd>
+      </dl>
+      <div style="display:flex;gap:8px;margin-top:10px"><span class="btn primary">Resume screening</span><span class="btn">Release draft back to queue</span></div>
+    </div>
+  </div></div>
+</div>
+<p class="audit">Every question response, pathway choice, POC order, physician risk-acceptance countersign and final decision is stored with the screener's identity and role, timestamps (IST) and the accession it applies to; console gate releases and blocked-decision overrides are recorded in the access log.</p>
+</section>
+<section class="screen" id="cs-02">
+<div class="screen-head"><h1><span class="sid">CS-02</span> MR safety screening</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Technologist (T. Okafor) screens every person entering Zone III/IV — patients and accompanying adults — before any MR study. It must guarantee: the implant/device checklist is answered item-by-item, device cards are captured with MR-conditional parameters, conditional devices get a radiologist countersign before scanning, and absolute contraindications produce a hard block with an alternative-modality suggestion routed back to the referrer.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>CLINICAL SAFETY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (Technologist) ▾</div></div>
+  <div class="body"><div class="sidebar">
+    <div class="sec-label">Clinical safety</div>
+    <div class="nav-item">Contrast screening</div>
+    <div class="nav-item active">MR safety <span class="nav-badge">2</span></div>
+    <div class="nav-item">Reaction register</div>
+    <div class="sec-label">Worklists</div>
+    <div class="nav-item">MR worklist <span class="nav-badge">4</span></div>
+    <div class="nav-item">Zone access log</div>
+    <div class="sec-label">Reference</div>
+    <div class="nav-item">Device MR database</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Clinical safety › MR safety › ACC-2026-91290</div>
+    <div class="page-title">MR safety screening — Aarav Sharma</div>
+    <div class="page-sub">MRN-004821 · M · 41y · MRI Brain (plain) · ACC-2026-91290 · APPT-2026-51239 · 3.0T scanner MR-01 · referrer Dr. Meera Nair</div>
+    <div class="banner info"><b>Working offline is supported</b> — actions queue and sync when reconnected. Zone gate decisions hold locally at the MR console.</div>
+    <div class="card">
+      <div class="card-title">Implant &amp; device checklist <span class="right">answered with patient · verified against body inspection where applicable</span></div>
+      <table>
+        <tr><th>Item</th><th>Response</th><th>Assessment</th></tr>
+        <tr><td>Cardiac pacemaker / ICD / leads (incl. abandoned)</td><td><b>No</b></td><td><span class="chip green">Clear</span></td></tr>
+        <tr><td>Intracranial aneurysm clip</td><td><b>No</b></td><td><span class="chip green">Clear</span></td></tr>
+        <tr><td>Cochlear / auditory implant</td><td><b>No</b></td><td><span class="chip green">Clear</span></td></tr>
+        <tr><td>Implanted drug pump (insulin, baclofen)</td><td><b>No</b></td><td><span class="chip green">Clear</span></td></tr>
+        <tr><td>Neurostimulator / spinal cord stimulator</td><td><b>No</b></td><td><span class="chip green">Clear</span></td></tr>
+        <tr><td>Metallic fragments / shrapnel / orbital metal history</td><td><b>No</b> — never metal worker; no eye injury history</td><td><span class="chip green">Clear — no orbital X-ray needed</span></td></tr>
+        <tr><td>Surgery in last 6 weeks / recent stent or clip</td><td><b>No</b></td><td><span class="chip green">Clear</span></td></tr>
+        <tr><td>Projectile risk items (keys, phone, pens, cards, coins, hearing aid)</td><td>Removed · locker L-14 · changed to gown</td><td><span class="chip green">Zone III ready</span></td></tr>
+        <tr><td>Tattoos / permanent makeup (large, &lt;6 wks old)</td><td>Small tattoo, left forearm, 2018</td><td><span class="chip green">Proceed — advise report if warmth felt</span></td></tr>
+        <tr><td>Claustrophobia / needs companion in Zone III</td><td>No companion required</td><td><span class="chip green">Clear</span></td></tr>
+      </table>
+    </div>
+    <div class="row">
+      <div class="grow">
+        <div class="banner success"><b>Decision: CLEAR — no implants, safe for 3.0T</b>Screened by T. Okafor (Technologist) · 25-Jul-2026 09:52 IST · valid for this accession and today's Zone III entry only.</div>
+        <div class="banner reg"><b>Zone signage acknowledgement</b>Patient shown Zone III/IV signage (bilingual EN/HI/MR) and briefed: "The magnet is ALWAYS ON." Wristband Z3-GREEN issued at 09:53 IST.</div>
+      </div>
+      <div style="width:300px;flex-shrink:0">
+        <div class="card">
+          <div class="card-title">Gate status</div>
+          <dl class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Screening</dt><dd><span class="chip green">Clear</span></dd>
+            <dt>Countersign</dt><dd>Not required (no conditional devices)</dd>
+            <dt>Zone III entry</dt><dd><span class="chip green">Authorised</span> · escort T. Okafor</dd>
+            <dt>Console</dt><dd><span class="chip green">Released</span> — MR-01 may proceed</dd>
+          </dl>
+          <div style="margin-top:10px"><span class="btn primary" style="width:100%">Sign &amp; release to MR console</span></div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — MR-CONDITIONAL DEVICE · RADIOLOGIST COUNTERSIGN (ELENA NOVAK)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="crumb">Clinical safety › MR safety › ACC-2026-91344</div>
+    <div class="page-title">MR safety screening — Elena Novak <span class="chip amber">Conditional — countersign required</span></div>
+    <div class="page-sub">MRN-004830 · F · 63y · MRI L-S Spine · ACC-2026-91344 · 3.0T scanner MR-01 · referrer Dr. Farida Khan</div>
+    <div class="banner warn"><b>MR-conditional device declared: cardiac pacemaker</b>Patient carries the device card. Scan may proceed ONLY within the manufacturer's MR-conditional parameters, after radiologist countersign and with cardiology-mode programming confirmed.</div>
+    <div class="row">
+      <div class="grow">
+        <div class="card">
+          <div class="card-title">Device-card capture <span class="right">photograph of card attached · DEV-2026-0187</span></div>
+          <dl class="kv">
+            <dt>Device</dt><dd>Medtronic Azure XT DR MRI SureScan · pacemaker, dual chamber</dd>
+            <dt>Model / serial</dt><dd class="mono">W2DR01 · SN PZK73••42 (masked in list views)</dd>
+            <dt>Leads</dt><dd>CapSureFix Novus MRI SureScan × 2 · implanted 14-Nov-2023, Lilavati Hospital</dd>
+            <dt>MR-conditional parameters</dt><dd>1.5T <b>and</b> 3.0T eligible · max SAR 2.0 W/kg (whole body, normal mode) · no scan-region exclusion for this model · continuous monitoring required</dd>
+            <dt>Pre-scan requirement</dt><dd>Device programmed to MRI mode by cardiac technician — confirmation slip uploaded 10:35 IST (Dr. Bhandari, cardiology, Lilavati)</dd>
+            <dt>Card verified by</dt><dd>T. Okafor against physical card · 25-Jul-2026 10:28 IST</dd>
+          </dl>
+        </div>
+        <div class="card">
+          <div class="card-title">Conditions applied to this scan</div>
+          <div class="check"><span class="box on">✓</span> Normal operating mode only · SAR capped 2.0 W/kg (protocol MR-LSSPINE-COND loaded)</div>
+          <div class="check"><span class="box on">✓</span> Continuous pulse-ox + ECG monitoring; crash cart checked outside Zone IV</div>
+          <div class="check"><span class="box on">✓</span> Post-scan device interrogation booked with cardiology (slip to patient)</div>
+          <div class="check"><span class="box on">✓</span> Second staff member present throughout (D. Nair paged for chaperone slot)</div>
+        </div>
+      </div>
+      <div style="width:300px;flex-shrink:0">
+        <div class="card">
+          <div class="card-title">Two-signature gate</div>
+          <div class="small bold" style="margin-bottom:4px">1 · Screener</div>
+          <div class="sig-box signed">T. Okafor — 10:41 IST</div>
+          <div class="small bold" style="margin:10px 0 4px">2 · Radiologist (conditional devices)</div>
+          <div class="sig-box">Awaiting Dr. V. Shetty — step-up PIN required</div>
+          <dl class="kv" style="grid-template-columns:110px 1fr;margin-top:10px">
+            <dt>Countersign SLA</dt><dd><span class="chip amber">due in 0h 20m</span> · Owner: Dr. V. Shetty<div class="small muted">Escalated to Dr. A. Rao if unactioned — slot 11:15 at risk</div></dd>
+            <dt>Console</dt><dd><span class="chip amber">Held</span> — releases only after both signatures</dd>
+          </dl>
+        </div>
+        <div class="banner reg"><b>Countersign scope</b>Dr. V. Shetty (RMC MH-44721) confirms the device's conditional parameters are compatible with MR-01 (3.0T) and the loaded protocol. The countersign is recorded verbatim with the device-card image.</div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE C — HARD BLOCK · ALTERNATIVE MODALITY SUGGESTED (KWAME OSEI)</div>
+<div class="frame">
+  <div class="body"><div class="main">
+    <div class="crumb">Clinical safety › MR safety › ACC-2026-91369</div>
+    <div class="page-title">MR safety screening — Kwame Osei <span class="chip red">BLOCKED</span></div>
+    <div class="page-sub">MRN-004823 · M · 37y · MRI Orbits · ACC-2026-91369 · referrer Dr. S. Iyer</div>
+    <div class="banner danger"><b>Decision: BLOCKED — absolute contraindication for MR</b>Occupational history: metal grinding (workshop, 8 years) with prior left-eye foreign-body injury (2020, incompletely documented removal). Orbital X-ray performed today at 11:05 (XR-2026-4471, Dr. A. Rao wet-read): <b>retained metallic fragment, left orbit, 2 mm</b>. Patient must not enter Zone IV. Wristband Z3-RED issued; escorted out of Zone II at 11:22 IST.</div>
+    <div class="row">
+      <div class="grow">
+        <div class="card">
+          <div class="card-title">Blocking findings</div>
+          <table>
+            <tr><th>Item</th><th>Finding</th><th>Rule</th></tr>
+            <tr class="hl"><td>Metallic fragments / orbital metal</td><td>Retained metallic FB, left orbit (orbital X-ray XR-2026-4471)</td><td><span class="chip red">ABSOLUTE BLOCK · MR-R-03</span></td></tr>
+            <tr><td>Projectile risk items</td><td>Cleared to locker L-09 (moot)</td><td><span class="chip grey">—</span></td></tr>
+            <tr><td>Other implants</td><td>None declared</td><td><span class="chip grey">—</span></td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-title">Alternative-modality suggestion → referrer</div>
+          <dl class="kv">
+            <dt>Suggested</dt><dd><b>CT Orbits (plain, thin-slice)</b> — answers the clinical question "?left orbital mass vs FB granuloma" without magnetic risk · slot available today 13:00, CT-01</dd>
+            <dt>Drafted by</dt><dd>Dr. A. Rao (duty radiologist) · sent to Dr. S. Iyer 11:31 IST via referrer portal + SMS</dd>
+            <dt>Referrer reply</dt><dd><span class="chip amber">Awaiting — due in 2h</span> · if approved, order converts to CT-ORBITS-P and MRI charge on INV/AND/26-27/0252 is reversed</dd>
+            <dt>Patient safety flag</dt><dd>Permanent flag "retained orbital metallic FB — MR contraindicated" added to MRN-004823 (visible on all future MR orders chain-wide)</dd>
+          </dl>
+        </div>
+      </div>
+      <div style="width:300px;flex-shrink:0">
+        <div class="card">
+          <div class="card-title">Decision record</div>
+          <dl class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Decision</dt><dd><span class="chip red">Blocked — absolute</span></dd>
+            <dt>Screener</dt><dd>T. Okafor · Technologist</dd>
+            <dt>Confirmed by</dt><dd>Dr. A. Rao (radiologist) · 11:28 IST — block confirmations on imaging evidence require radiologist identity</dd>
+            <dt>Zone status</dt><dd><span class="chip red">Zone III/IV entry denied</span> · zone access log updated</dd>
+            <dt>Console</dt><dd><span class="chip red">Locked</span> for ACC-2026-91369</dd>
+          </dl>
+        </div>
+        <div class="banner reg"><b>No override path</b>Absolute contraindications cannot be overridden at branch level. Re-evaluation requires new imaging evidence and chain medical-board review.</div>
+      </div>
+    </div>
+  </div></div>
+</div>
+<p class="audit">Checklist answers, device-card images and parameters, zone wristband issuance, both signatures on conditional clearances, block confirmations and alternative-modality communications are stored against the accession with actor identity and IST timestamps, and recorded in the access log. Device serials are masked in list views for staff without a declared clinical purpose.</p>
+</section>
+<section class="screen" id="cs-03">
+<div class="screen-head"><h1><span class="sid">CS-03</span> Procedure &amp; contrast consent</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Clinical Safety</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Technologists and front office capture informed consent for a procedure (and contrast, where applicable) immediately before the study, in the patient's chosen language. The screen must guarantee that consent text is rendered — not merely referenced — in the selected language, that risks, alternatives and the right to refuse are shown before signature, and that a refusal or pre-scan withdrawal hard-blocks the study, notifies the referrer, and preserves the record permanently. Guardians must state their relation; interpreters must attest.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>CLINICAL SAFETY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (Technologist) ▾</div></div>
+  <div class="body">
+  <div class="sidebar">
+    <div class="sec-label">Clinical Safety</div>
+    <div class="nav-item">Safety worklist <span class="nav-badge">6</span></div>
+    <div class="nav-item">Screening forms</div>
+    <div class="nav-item active">Consents <span class="nav-badge">3</span></div>
+    <div class="nav-item">Physician overrides</div>
+    <div class="nav-item">Adverse reactions</div>
+    <div class="sec-label">Statutory</div>
+    <div class="nav-item">Form F register</div>
+    <div class="nav-item">PNDT compliance</div>
+    <div class="sec-label">Records</div>
+    <div class="nav-item">Consent archive</div>
+    <div class="nav-item">Audit trail</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Clinical Safety › Consents › ACC-2026-91247 · CT Abdomen w/ contrast</div>
+    <div class="page-title">Consent capture — CT Abdomen &amp; Pelvis with IV contrast <span class="chip amber" style="margin-left:8px">DRAFT — not yet signed</span></div>
+    <div class="page-sub">Sofia Rossi · MRN-004822 · F 38y · APPT-2026-51108 · Referrer: Dr. Meera Nair · Scheduled 24 Jul 2026, 11:30 IST · <span class="chip teal">SLA: due in 0h 25m · owner T. Okafor</span></div>
+    <div class="banner info"><b>Working offline is supported</b> — actions queue and sync when reconnected. Signature strokes are captured locally and hashed at sign time.</div>
+    <div class="stepper">
+      <div class="step done"><span class="dot">1</span> Identity verified</div><span class="step-line"></span>
+      <div class="step done"><span class="dot">2</span> Contrast screening (CS-02) cleared</div><span class="step-line"></span>
+      <div class="step cur"><span class="dot">3</span> Consent</div><span class="step-line"></span>
+      <div class="step"><span class="dot">4</span> Study release</div>
+    </div>
+    <div class="split">
+      <div>
+        <div class="card">
+          <div class="card-title">Consent document — rendered in selected language <span class="right">v3.2 · CT-IV-CONTRAST</span></div>
+          <div class="field"><label>Language of consent <span class="req">*</span></label>
+            <div style="display:flex;gap:8px"><span class="btn small">English</span><span class="btn small primary">हिन्दी (hi)</span><span class="btn small">मराठी (mr)</span><span class="btn small">ગુજરાતી (gu)</span></div>
+            <div class="hint">The full legal text below re-renders in the chosen script. The signed PDF stores this language code.</div>
+          </div>
+          <div class="card" style="background:#F8FAFC;margin-bottom:10px">
+            <div class="small muted" style="margin-bottom:6px">Rendering: <b>हिन्दी</b> (hi-IN)</div>
+            <p style="font-size:13px;margin-bottom:8px"><b>प्रक्रिया:</b> पेट और श्रोणि का सीटी स्कैन, नस के द्वारा कंट्रास्ट (आयोडीन युक्त दवा) के साथ। यह दवा चित्रों को स्पष्ट बनाती है।</p>
+            <p style="font-size:13px;margin-bottom:8px"><b>जोखिम:</b> हल्की गर्मी या धातु जैसा स्वाद (सामान्य); मतली, खुजली, चकत्ते (असामान्य); गंभीर एलर्जी प्रतिक्रिया या गुर्दे पर प्रभाव (दुर्लभ)। आपातकालीन दवाएँ और प्रशिक्षित कर्मचारी उपलब्ध हैं।</p>
+            <p style="font-size:13px;margin-bottom:8px"><b>विकल्प:</b> बिना कंट्रास्ट का सीटी, अल्ट्रासाउंड या एमआरआई — इनकी सीमाएँ आपके डॉक्टर ने समझाई हैं।</p>
+            <p style="font-size:13px"><b>मना करने का अधिकार:</b> आप किसी भी समय, बिना कारण बताए, यह जाँच मना कर सकते हैं या स्कैन शुरू होने से पहले सहमति वापस ले सकते हैं। इससे आपकी आगे की चिकित्सा पर कोई दंडात्मक प्रभाव नहीं पड़ेगा।</p>
+          </div>
+          <div class="card" style="background:#F8FAFC">
+            <div class="small muted" style="margin-bottom:6px">Preview if <b>मराठी</b> (mr-IN) selected — same clause, Marathi rendering:</div>
+            <p style="font-size:13px"><b>नकार देण्याचा अधिकार:</b> तुम्ही कोणतेही कारण न देता, कधीही ही तपासणी नाकारू शकता किंवा स्कॅन सुरू होण्यापूर्वी संमती मागे घेऊ शकता. याचा तुमच्या पुढील उपचारांवर कोणताही विपरीत परिणाम होणार नाही.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Acknowledgements (read aloud if patient cannot read)</div>
+          <div class="check"><span class="box on">✓</span> Procedure, contrast agent and purpose explained in the selected language.</div>
+          <div class="check"><span class="box on">✓</span> Risks including rare severe allergic reaction and contrast-induced kidney effects explained.</div>
+          <div class="check"><span class="box on">✓</span> Alternatives (non-contrast CT / US / MRI) and their limitations explained.</div>
+          <div class="check"><span class="box">&nbsp;</span> Patient confirms the right to refuse or withdraw at any time before the scan, without penalty.</div>
+          <div class="check"><span class="box">&nbsp;</span> Opportunity given to ask questions; all questions answered.</div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">Signer</div>
+          <div class="field"><label>Who is signing? <span class="req">*</span></label>
+            <div class="check"><span class="box radio on">&nbsp;</span> Patient (Sofia Rossi)</div>
+            <div class="check"><span class="box radio">&nbsp;</span> Guardian / representative</div>
+          </div>
+          <div class="field"><label>Guardian relation (if guardian)</label><select class="select" disabled><option>— select relation —</option></select><div class="hint">Required for minors and patients lacking capacity; relation is printed on the consent PDF.</div></div>
+          <div class="field"><label>Patient signature <span class="req">*</span></label><div class="sig-box">tap to sign — stylus / finger pad</div></div>
+          <div class="field"><label>Witness (staff, not the performing technologist's subordinate)</label><div class="sig-box">witness pad — D. Nair, Front Office</div></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Interpreter attestation</div>
+          <div class="check"><span class="box">&nbsp;</span> An interpreter assisted this consent.</div>
+          <div class="field"><label>Interpreter name &amp; language pair</label><input class="input" placeholder="e.g. R. Kulkarni · English ↔ हिन्दी"></div>
+          <div class="hint" style="font-size:11px;color:#64748B">Interpreter signs a separate attestation pad and is recorded on the consent record.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Outcome</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span class="btn primary disabled">Record consent — SIGNED (2 acknowledgements pending)</span>
+            <span class="btn danger">Patient declines — record REFUSAL</span>
+          </div>
+          <div class="hint" style="margin-top:8px;font-size:11px;color:#64748B">Refusal is terminal for this accession: study is blocked, referrer Dr. Meera Nair is notified, and the refusal record is retained permanently.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SIGNED · consent recorded, study released</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner success"><b>Consent recorded — SIGNED · 24 Jul 2026, 11:12 IST</b> ACC-2026-91247 released to modality worklist. Signed PDF (hi-IN) sealed with hash <span class="mono">SHA-256 e3b41f…9c2a</span> and locked against edits.</div>
+  <div class="card"><div class="card-title">Consent summary <span class="right">CONSENT-2026-70441</span></div>
+    <dl class="kv">
+      <dt>Patient</dt><dd>Sofia Rossi · MRN-004822</dd>
+      <dt>Signer</dt><dd>Patient (self) — capacity confirmed</dd>
+      <dt>Language</dt><dd>हिन्दी (hi-IN) · full text rendered &amp; read</dd>
+      <dt>Patient signature</dt><dd><span class="sig-box signed" style="min-height:38px;padding:4px 14px;display:inline-flex">Sofia Rossi</span></dd>
+      <dt>Witness</dt><dd><span class="sig-box signed" style="min-height:38px;padding:4px 14px;display:inline-flex">D. Nair</span> · Front Office · 11:12 IST</dd>
+      <dt>Interpreter</dt><dd>Not used — patient reads हिन्दी</dd>
+      <dt>Acknowledgements</dt><dd>5 of 5 confirmed, incl. right to refuse/withdraw</dd>
+      <dt>Withdrawal window</dt><dd><span class="chip teal">Open until contrast administration begins</span></dd>
+    </dl>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — REFUSED · terminal outcome, study blocked</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner danger"><b>Consent REFUSED — study permanently blocked for this accession</b> Aarav Sharma · MRN-004821 · ACC-2026-91252 · CT Brain w/ contrast · refused 24 Jul 2026, 12:04 IST after risks read in English. No signature was requested after refusal.</div>
+  <div class="card"><div class="card-title">Refusal record (retained permanently)</div>
+    <dl class="kv">
+      <dt>Refused by</dt><dd>Patient (self) — verbal refusal, witnessed</dd>
+      <dt>Reason (optional)</dt><dd>"Prefer to discuss alternatives with my physician first." — patient chose to state a reason; none is required</dd>
+      <dt>Witness</dt><dd>T. Okafor (Technologist) · D. Nair (Front Office)</dd>
+      <dt>Study status</dt><dd><span class="chip red">BLOCKED — CONSENT REFUSED</span> cannot be reopened; a new order requires a new accession and fresh consent</dd>
+      <dt>Referrer notified</dt><dd>Dr. Meera Nair — secure message + fax at 12:06 IST <span class="chip green">DELIVERED</span></dd>
+      <dt>Billing</dt><dd>INV/AND/26-27/0412 line voided; refund of ₹4,850.00 queued to original payment mode</dd>
+    </dl>
+  </div>
+  <div class="banner info"><b>No penalty rule.</b> Refusal must never affect the patient's future scheduling priority or pricing. This record is visible to Clinical Safety and the referrer only.</div>
+</div></div></div>
+
+<div class="state-tag">STATE D — WITHDRAWAL · consent withdrawn pre-scan (after signing)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner warn"><b>Consent WITHDRAWN before scan — study halted</b> Priya Menon · MRN-004828 · ACC-2026-91260 · signed 10:41 IST, withdrew 10:58 IST on the table, before contrast administration. Withdrawal honoured immediately; no contrast given.</div>
+  <div class="modal-wrap"><div class="modal">
+    <h3>Record pre-scan withdrawal</h3>
+    <p class="small muted" style="margin-bottom:10px">Withdrawal cancels the signed consent CONSENT-2026-70448 without deleting it. The original signed document is preserved with a superseding withdrawal note.</p>
+    <div class="field"><label>Withdrawal confirmed by <span class="req">*</span></label><input class="input" value="Patient, verbally, on table — witnessed by T. Okafor"></div>
+    <div class="field"><label>Scan stage at withdrawal <span class="req">*</span></label><select class="select"><option>Before contrast administration (pre-scan)</option></select></div>
+    <div class="check"><span class="box on">✓</span> Referrer Dr. S. Iyer will be notified automatically.</div>
+    <div class="check"><span class="box on">✓</span> Step-up identity confirmation: staff re-entered Magnus PIN to record this legal action.</div>
+    <div class="modal-actions"><span class="btn">Cancel</span><span class="btn warn-outline">Record withdrawal &amp; halt study</span></div>
+  </div></div>
+  <p class="small muted">Rebooking is offered without prejudice; withdrawal reason is optional and never mandatory.</p>
+</div></div></div>
+
+<p class="audit">Every render of consent text (language, version, timestamp), each signature stroke hash, refusal, withdrawal, and referrer notification for MRN-004822 / MRN-004821 / MRN-004828 is recorded in the access log. Consent PDFs are immutable; corrections are made by superseding record only.</p>
+</section>
+<section class="screen" id="cs-04">
+<div class="screen-head"><h1><span class="sid">CS-04</span> Physician override — blocked screening</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Clinical Safety</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> When a safety screening (contrast, MRI, pregnancy) blocks a study, the technologist or desk can only <i>request</i> an override — they can never grant one. The request lands in a physician queue; the physician reviews the underlying screening data, must confirm their identity, give a clinical reason, and acknowledge the risk statement. A grant is time-boxed and stamped onto the study as a banner; every step is fully audited.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>CLINICAL SAFETY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (Technologist) ▾</div></div>
+  <div class="body">
+  <div class="sidebar">
+    <div class="sec-label">Clinical Safety</div>
+    <div class="nav-item">Safety worklist <span class="nav-badge">6</span></div>
+    <div class="nav-item">Screening forms</div>
+    <div class="nav-item">Consents</div>
+    <div class="nav-item active">Physician overrides <span class="nav-badge red">2</span></div>
+    <div class="nav-item">Adverse reactions</div>
+    <div class="sec-label">Statutory</div>
+    <div class="nav-item">Form F register</div>
+    <div class="nav-item">PNDT compliance</div>
+    <div class="sec-label">Records</div>
+    <div class="nav-item">Audit trail</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Clinical Safety › Physician overrides › New request</div>
+    <div class="page-title">Request physician override <span class="chip red" style="margin-left:8px">STUDY BLOCKED BY SCREENING</span></div>
+    <div class="page-sub">Mohammed Al-Rashid · MRN-004790 · M 61y · ACC-2026-91266 · CT Angio w/ contrast · Referrer: Dr. Farida Khan · 24 Jul 2026</div>
+    <div class="banner danger"><b>Blocked by contrast screening rule R-eGFR-30</b> eGFR 27 mL/min/1.73m² (lab, 22 Jul 2026) is below the branch threshold of 30 for IV iodinated contrast. Technologists cannot proceed and <u>cannot self-override</u>. Only a physician may grant a time-boxed override.</div>
+    <div class="split">
+      <div>
+        <div class="card">
+          <div class="card-title">Screening data that triggered the block <span class="right">from CS-02 · read-only</span></div>
+          <dl class="kv">
+            <dt>Rule fired</dt><dd><span class="mono">R-eGFR-30</span> — eGFR &lt; 30 blocks iodinated IV contrast</dd>
+            <dt>eGFR</dt><dd>27 mL/min/1.73m² · SRL Labs · 22 Jul 2026 · verified original seen</dd>
+            <dt>Creatinine</dt><dd>2.4 mg/dL</dd>
+            <dt>Diabetic / metformin</dt><dd>Yes / held 48h per protocol</dd>
+            <dt>Prior contrast reaction</dt><dd>None recorded</dd>
+            <dt>Allergy flags</dt><dd><span class="chip grey">None on file</span></dd>
+            <dt>Screened by</dt><dd>T. Okafor · 24 Jul 2026, 09:44 IST</dd>
+          </dl>
+        </div>
+        <div class="card">
+          <div class="card-title">Override request (technologist section only)</div>
+          <div class="field"><label>Why is an override being requested? <span class="req">*</span></label><textarea class="textarea">Referrer Dr. Farida Khan states CT angiogram is urgent for suspected mesenteric ischaemia; nephrology aware. Requesting physician review of risk-benefit.</textarea></div>
+          <div class="field"><label>Route to physician <span class="req">*</span></label><select class="select"><option>Dr. V. Shetty — Radiologist on duty (RMC MH-44721)</option><option>Dr. A. Rao — Radiologist</option><option>Branch medical lead</option></select></div>
+          <div class="check"><span class="box on">✓</span> I understand I am requesting review only; I cannot authorise this study myself.</div>
+          <div style="display:flex;gap:10px;margin-top:8px"><span class="btn primary">Send to physician queue</span><span class="btn">Cancel — keep study blocked</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">Physician queue <span class="right">On duty: Dr. V. Shetty</span></div>
+          <table>
+            <tr><th>Req</th><th>Patient</th><th>Rule</th><th>SLA</th></tr>
+            <tr class="hl"><td class="mono">OVR-2026-0087</td><td>M. Al-Rashid<br><span class="small muted">MRN-004790</span></td><td>R-eGFR-30</td><td><span class="chip teal">due in 1h</span></td></tr>
+            <tr><td class="mono">OVR-2026-0086</td><td>R. Gupta<br><span class="small muted">MRN-004795</span></td><td>R-MRI-IMPLANT</td><td><span class="chip amber">due in 0h 20m</span></td></tr>
+            <tr><td class="mono">OVR-2026-0085</td><td>K. Osei<br><span class="small muted">MRN-004823</span></td><td>R-ALLERGY-HX</td><td><span class="chip red">OVERDUE 00:34</span><br><span class="small muted">owner Dr. V. Shetty · Escalated to branch medical lead</span></td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-title">Rules of this workflow</div>
+          <div class="check"><span class="box on">✓</span> Overrides are physician-only; identity step-up required at grant.</div>
+          <div class="check"><span class="box on">✓</span> Every grant is time-boxed (max 24h, single accession).</div>
+          <div class="check"><span class="box on">✓</span> The blocking rule and screening snapshot are frozen into the override record.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — PHYSICIAN REVIEW · override decision modal (Dr. V. Shetty's session)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="modal-wrap"><div class="modal danger" style="max-width:620px">
+    <h3>Override request OVR-2026-0087 — physician decision</h3>
+    <p class="small muted" style="margin-bottom:10px">Mohammed Al-Rashid · MRN-004790 · ACC-2026-91266 · CT Angio w/ contrast · blocked by <span class="mono">R-eGFR-30</span> (eGFR 27). Full screening snapshot shown above this modal; review before deciding.</p>
+    <div class="field"><label>Clinical reason for override <span class="req">*</span></label><textarea class="textarea">Suspected acute mesenteric ischaemia; delay risks bowel infarction. Benefit outweighs CI-AKI risk. Pre/post-hydration protocol ordered; lowest-dose iso-osmolar agent; nephrology informed per Dr. Khan.</textarea></div>
+    <div class="field"><label>Validity window <span class="req">*</span></label><select class="select"><option>4 hours — this accession only (expires 24 Jul 2026, 15:10 IST)</option><option>8 hours — this accession only</option><option>24 hours — this accession only (maximum)</option></select></div>
+    <div class="check"><span class="box on">✓</span> <b>Risk acknowledgement:</b> I have read the risk statement for contrast administration at eGFR &lt; 30, including contrast-associated acute kidney injury, and accept clinical responsibility for this study.</div>
+    <div class="check"><span class="box on">✓</span> Mitigations documented above will be attached to the technologist's worklist entry.</div>
+    <div class="field"><label>Identity confirmation (step-up) <span class="req">*</span></label><input class="input" value="Dr. V. Shetty · RMC MH-44721 · Magnus PIN ••••• verified 11:09 IST"></div>
+    <div class="modal-actions"><span class="btn">Deny — keep blocked</span><span class="btn danger">Grant time-boxed override</span></div>
+  </div></div>
+  <p class="small muted">The technologist's screen updates in real time; they never see or enter the physician's credentials.</p>
+</div></div></div>
+
+<div class="state-tag">STATE C — GRANTED · time-boxed override banner shown on the study</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner warn"><b>⚠ PHYSICIAN OVERRIDE ACTIVE — OVR-2026-0087</b> Rule <span class="mono">R-eGFR-30</span> overridden by <b>Dr. V. Shetty (RMC MH-44721)</b> at 11:10 IST · valid until <b>15:10 IST, 24 Jul 2026</b> · this accession only. Reason: urgent CT angio for suspected mesenteric ischaemia; hydration protocol + iso-osmolar agent mandated. If the study has not started by expiry, the block re-applies automatically and a new request is required.</div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">04:00</div><div class="l">Validity window</div><div class="s">counts down on the study header</div></div>
+    <div class="kpi amber"><div class="n">2</div><div class="l">Mandated mitigations</div><div class="s">hydration · iso-osmolar low dose</div></div>
+    <div class="kpi"><div class="n">1</div><div class="l">Accession covered</div><div class="s">ACC-2026-91266 only</div></div>
+  </div>
+  <div class="card"><div class="card-title">Override audit trail <span class="right">immutable</span></div>
+    <div class="timeline">
+      <div class="ev"><span class="t">09:44</span><span>Screening blocked study — rule R-eGFR-30 · T. Okafor</span></div>
+      <div class="ev"><span class="t">09:51</span><span>Override requested by T. Okafor (Technologist) → queue of Dr. V. Shetty</span></div>
+      <div class="ev"><span class="t">11:06</span><span>Dr. V. Shetty opened screening snapshot (read logged)</span></div>
+      <div class="ev"><span class="t">11:09</span><span>Step-up identity verified — Dr. V. Shetty, RMC MH-44721</span></div>
+      <div class="ev"><span class="t">11:10</span><span>Override GRANTED · 4h · risk statement acknowledged · reason recorded</span></div>
+      <div class="ev"><span class="t">11:10</span><span>Referrer Dr. Farida Khan notified; banner stamped on ACC-2026-91266</span></div>
+    </div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE D — DENIED · block stands</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner danger"><b>Override DENIED — study remains blocked</b> OVR-2026-0085 · Kwame Osei · MRN-004823 · MRI Brain w/ contrast · rule <span class="mono">R-ALLERGY-HX</span> (prior moderate gadolinium reaction). Denied by Dr. A. Rao at 12:22 IST: "Non-urgent indication; reaction history not adequately characterised. Recommend allergist review and premedication protocol before rebooking."</div>
+  <dl class="kv" style="max-width:640px">
+    <dt>Study status</dt><dd><span class="chip red">BLOCKED — OVERRIDE DENIED</span> technologist worklist entry locked</dd>
+    <dt>Next steps</dt><dd>Referrer Dr. S. Iyer notified with denial reason; rebooking allowed only after premedication plan is attached</dd>
+    <dt>Re-request</dt><dd>Permitted only with new clinical information; the prior denial stays linked to any new request</dd>
+  </dl>
+</div></div></div>
+
+<p class="audit">Request, every physician view of screening data, step-up identity check, grant/denial with reason, validity window, expiry re-block and all notifications for OVR-2026-0085/0086/0087 are recorded in the access log. Technologist accounts have no code path to grant an override.</p>
+</section>
+<section class="screen" id="cs-05">
+<div class="screen-head"><h1><span class="sid">CS-05</span> Adverse reaction record</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Clinical Safety</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Technologists and radiologists record any adverse reaction during or after a procedure — onset, severity, the exact agent and lot (pulled from TK-06 stock issue), interventions, outcome and reporter. The system must auto-alert the covering radiologist and branch medical lead, write a permanent allergy flag to the patient record with a propagation preview, and queue a pharmacovigilance export. Severe reactions surface an emergency checklist first, documentation second.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>CLINICAL SAFETY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (Technologist) ▾</div></div>
+  <div class="body">
+  <div class="sidebar">
+    <div class="sec-label">Clinical Safety</div>
+    <div class="nav-item">Safety worklist <span class="nav-badge">6</span></div>
+    <div class="nav-item">Screening forms</div>
+    <div class="nav-item">Consents</div>
+    <div class="nav-item">Physician overrides</div>
+    <div class="nav-item active">Adverse reactions <span class="nav-badge red">1</span></div>
+    <div class="sec-label">Statutory</div>
+    <div class="nav-item">Form F register</div>
+    <div class="nav-item">PNDT compliance</div>
+    <div class="sec-label">Records</div>
+    <div class="nav-item">Pharmacovigilance</div>
+    <div class="nav-item">Audit trail</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Clinical Safety › Adverse reactions › New record</div>
+    <div class="page-title">Record adverse reaction <span class="chip amber" style="margin-left:8px">IN PROGRESS — mild</span></div>
+    <div class="page-sub">Ananya Rao · MRN-004819 · F 45y · ACC-2026-91271 · CT Chest w/ contrast · 24 Jul 2026 · performing: T. Okafor · reading: Dr. V. Shetty</div>
+    <div class="banner info"><b>Working offline is supported</b> — actions queue and sync when reconnected. Alerts fire over SMS fallback if the network is down.</div>
+    <div class="split">
+      <div>
+        <div class="card">
+          <div class="card-title">Reaction details</div>
+          <div class="row">
+            <div class="grow field"><label>Onset <span class="req">*</span></label><select class="select"><option>During injection</option><option selected>Within 20 min post-injection</option><option>20–60 min post</option><option>&gt; 1 h (delayed)</option></select></div>
+            <div class="grow field"><label>Time noted <span class="req">*</span></label><input class="input" value="24 Jul 2026 · 12:38 IST"></div>
+          </div>
+          <div class="field"><label>Severity <span class="req">*</span></label>
+            <div style="display:flex;gap:8px"><span class="btn small primary">Mild</span><span class="btn small">Moderate</span><span class="btn small">Severe</span></div>
+            <div class="hint">Selecting Severe opens the emergency checklist and pages the branch medical lead immediately.</div>
+          </div>
+          <div class="field"><label>Signs &amp; symptoms <span class="req">*</span></label>
+            <div class="check"><span class="box on">✓</span> Urticaria / hives (localised, forearms)</div>
+            <div class="check"><span class="box on">✓</span> Pruritus</div>
+            <div class="check"><span class="box">&nbsp;</span> Nausea / vomiting</div>
+            <div class="check"><span class="box">&nbsp;</span> Bronchospasm / wheeze</div>
+            <div class="check"><span class="box">&nbsp;</span> Hypotension</div>
+          </div>
+          <div class="field"><label>Interventions given</label><textarea class="textarea">Injection stopped at 60 mL. Observed; oral cetirizine 10 mg given per standing order at 12:44 IST. Vitals stable (BP 122/78, SpO₂ 98%).</textarea></div>
+          <div class="row">
+            <div class="grow field"><label>Outcome at record time <span class="req">*</span></label><select class="select"><option>Recovered, discharged after observation</option><option>Under observation</option><option>Transferred for higher care</option></select></div>
+            <div class="grow field"><label>Reporter <span class="req">*</span></label><input class="input" value="T. Okafor · Technologist · on-file ID verified"></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">Agent &amp; lot <span class="right">from TK-06 stock issue</span></div>
+          <dl class="kv" style="grid-template-columns:110px 1fr">
+            <dt>Agent</dt><dd>Iohexol 350 mg I/mL (Omnipaque™)</dd>
+            <dt>Volume</dt><dd>60 mL of 90 mL issued</dd>
+            <dt>Lot / batch</dt><dd class="mono">LOT-OMN-26F-4471</dd>
+            <dt>Expiry</dt><dd>11/2027</dd>
+            <dt>Issued by</dt><dd>TK-06 issue #STK-8834 · 12:19 IST</dd>
+          </dl>
+          <div class="hint" style="font-size:11px;color:#64748B;margin-top:6px">Lot is linked automatically; remaining stock of this lot is flagged for watch, not quarantined, at mild severity.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Auto-alerts on save</div>
+          <table>
+            <tr><th>Recipient</th><th>Channel</th><th>Status</th></tr>
+            <tr><td>Dr. V. Shetty (reading radiologist)</td><td>In-app + SMS</td><td><span class="chip grey">queued</span></td></tr>
+            <tr><td>Branch medical lead</td><td>In-app</td><td><span class="chip grey">queued</span></td></tr>
+            <tr><td>Referrer Dr. Meera Nair</td><td>Report addendum</td><td><span class="chip grey">on sign-off</span></td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-title">On save, this record will also…</div>
+          <div class="check"><span class="box on">✓</span> Write a <b>permanent allergy flag</b> to MRN-004819 (preview before commit).</div>
+          <div class="check"><span class="box on">✓</span> Queue a pharmacovigilance export (PvPI/ADR schema) for K. Verma to review — patient identifiers pseudonymised in the export.</div>
+          <div style="margin-top:10px;display:flex;gap:10px"><span class="btn primary">Save reaction record</span><span class="btn ghost">Save draft</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SEVERE REACTION · emergency checklist takes over</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner danger"><b>🚨 SEVERE REACTION — emergency mode</b> Rajesh Gupta · MRN-004795 · ACC-2026-91274 · bronchospasm + hypotension at 13:02 IST during iohexol injection. Branch medical lead and Dr. A. Rao paged at 13:02:41. Documentation can be completed after the patient is stable — timestamps are captured automatically.</div>
+  <div class="split">
+    <div>
+      <div class="card"><div class="card-title">Emergency checklist (tap as done — times auto-stamped)</div>
+        <div class="check"><span class="box on">✓</span> Stop injection · 13:02 IST</div>
+        <div class="check"><span class="box on">✓</span> Call for help — crash trolley to CT-1 · 13:03 IST</div>
+        <div class="check"><span class="box on">✓</span> O₂ 10 L/min non-rebreather · 13:03 IST</div>
+        <div class="check"><span class="box on">✓</span> IV access maintained; NS bolus started · 13:04 IST</div>
+        <div class="check"><span class="box on">✓</span> Adrenaline 0.5 mg IM (1:1000) — physician order Dr. A. Rao · 13:05 IST</div>
+        <div class="check"><span class="box">&nbsp;</span> Repeat vitals q5min; document rhythm</div>
+        <div class="check"><span class="box">&nbsp;</span> Decide transfer: Kokilaben Hospital ambulance on standby (ETA 9 min)</div>
+      </div>
+    </div>
+    <div>
+      <div class="card"><div class="card-title">Live status</div>
+        <dl class="kv" style="grid-template-columns:120px 1fr">
+          <dt>Severity</dt><dd><span class="chip red">SEVERE</span></dd>
+          <dt>Lot</dt><dd class="mono">LOT-OMN-26F-4471</dd>
+          <dt>Lot action</dt><dd><span class="chip amber">AUTO-QUARANTINED</span> remaining 14 units held branch-wide pending review</dd>
+          <dt>Paged</dt><dd>Dr. A. Rao ✓ ack 13:03 · Medical lead ✓ ack 13:04</dd>
+          <dt>Reporter</dt><dd>T. Okafor</dd>
+        </dl>
+      </div>
+      <div class="banner warn"><b>Same-lot alert.</b> 2 other patients received LOT-OMN-26F-4471 today — worklist flag applied; both asymptomatic, observation extended to 60 min.</div>
+    </div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — SAVED · allergy flag propagated, pharmacovigilance queued</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner success"><b>Reaction record ADR-2026-0142 saved · allergy flag written to MRN-004819</b> Alerts delivered: Dr. V. Shetty (12:52 IST, ack), branch medical lead (12:52 IST, ack). Pharmacovigilance export queued for admin review.</div>
+  <div class="card"><div class="card-title">Allergy flag — propagation preview (as committed)</div>
+    <dl class="kv">
+      <dt>Flag</dt><dd><span class="chip outline-red">ALLERGY: Iodinated contrast (iohexol) — mild urticaria 24 Jul 2026</span> permanent; may be annotated, never deleted</dd>
+      <dt>Propagates to</dt><dd>Booking (warn on contrast orders) · CS-02 screening (hard prompt) · Modality worklist header · Radiologist reading view · Discharge summary</dd>
+      <dt>Does NOT appear in</dt><dd>Invoices, SMS/WhatsApp confirmations, referrer portal list views — clinical detail is disclosed on purpose-of-care access only</dd>
+      <dt>Future orders</dt><dd>Any iodinated-contrast order for MRN-004819 will require premedication review or physician override (CS-04)</dd>
+    </dl>
+  </div>
+  <div class="card"><div class="card-title">Pharmacovigilance export <span class="right">PvPI / ADR reporting form schema</span></div>
+    <table>
+      <tr><th>Export</th><th>Contents</th><th>Identifiers</th><th>Status</th></tr>
+      <tr><td class="mono">PV-2026-071</td><td>ADR-2026-0142 · agent, lot LOT-OMN-26F-4471, timeline, outcome</td><td>Pseudonymised (age/sex only; MRN withheld)</td><td><span class="chip amber">awaiting review — K. Verma</span> <span class="chip teal">due in 48h</span></td></tr>
+    </table>
+    <div class="hint" style="font-size:11px;color:#64748B;margin-top:6px">Submission to the ADR monitoring centre is a manual, admin-approved step; the queue entry cannot be deleted, only marked submitted or not-reportable with reason.</div>
+  </div>
+</div></div></div>
+
+<p class="audit">Reaction capture, severity changes, every emergency-checklist stamp, pages and acknowledgements, lot quarantine, the allergy-flag write to MRN-004819/MRN-004795 and the pharmacovigilance export queue entry are recorded in the access log with reporter identity.</p>
+</section>
+<section class="screen" id="cs-06">
+<div class="screen-head"><h1><span class="sid">CS-06</span> Form F — statutory (PC-PNDT)</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Clinical Safety</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Before any obstetric ultrasound, the front office and performing doctor complete the statutory PC-PNDT Form F: centre and machine registration (validated for <i>this</i> centre), full patient particulars with address and ID (type + last-4 only), obstetric history G/P/L/A, an approved indication, the doctor's declaration and the patient's signed undertaking rendered in her language. The scan is hard-blocked until Form F is complete, the record is tamper-evident, and it feeds the monthly district submission. Foetal sex is never determined or disclosed.</div>
+<div class="frame">
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ Magnus <span>CLINICAL SAFETY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front Office) ▾</div></div>
+  <div class="body">
+  <div class="sidebar">
+    <div class="sec-label">Clinical Safety</div>
+    <div class="nav-item">Safety worklist <span class="nav-badge">6</span></div>
+    <div class="nav-item">Screening forms</div>
+    <div class="nav-item">Consents</div>
+    <div class="nav-item">Physician overrides</div>
+    <div class="nav-item">Adverse reactions</div>
+    <div class="sec-label">Statutory</div>
+    <div class="nav-item active">Form F register <span class="nav-badge">4</span></div>
+    <div class="nav-item">PNDT compliance</div>
+    <div class="nav-item">Monthly submission</div>
+    <div class="sec-label">Records</div>
+    <div class="nav-item">Audit trail</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Clinical Safety › Form F register › New Form F · ACC-2026-91278</div>
+    <div class="page-title">Form F — required before scan <span class="chip red" style="margin-left:8px">SCAN BLOCKED UNTIL COMPLETE</span></div>
+    <div class="page-sub">Priya Menon · MRN-004828 · F 29y · Obstetric USG (anomaly scan) · APPT-2026-51126 · Referrer: Dr. S. Iyer · 24 Jul 2026, 14:00 IST · <span class="chip amber">due in 0h 40m · owner D. Nair</span></div>
+    <div class="banner reg"><b>PC-PNDT Act notice — non-disclosure of foetal sex.</b> This centre does not conduct sex determination. Foetal sex will not be determined or disclosed to anyone by words, signs, images or any other manner. This notice prints on Form F and is displayed at the centre.</div>
+    <div class="stepper">
+      <div class="step done"><span class="dot">1</span> Centre &amp; machine</div><span class="step-line"></span>
+      <div class="step cur"><span class="dot">2</span> Patient &amp; history</div><span class="step-line"></span>
+      <div class="step"><span class="dot">3</span> Indication</div><span class="step-line"></span>
+      <div class="step"><span class="dot">4</span> Declarations &amp; signatures</div><span class="step-line"></span>
+      <div class="step"><span class="dot">5</span> Seal &amp; release scan</div>
+    </div>
+    <div class="split">
+      <div>
+        <div class="card">
+          <div class="card-title">1 · Centre &amp; machine registration <span class="right">validated for this centre</span></div>
+          <dl class="kv">
+            <dt>Centre reg. no.</dt><dd class="mono">MH/MUM/PNDT/2019/1187 <span class="chip green">VALID · renews 03/2027</span></dd>
+            <dt>Centre</dt><dd>Meridian Diagnostics, Andheri West, Mumbai 400058</dd>
+            <dt>Machine</dt><dd>GE Voluson S8 · serial <span class="mono">VS8-22-88410</span> · registered at THIS centre <span class="chip green">MATCH</span></dd>
+            <dt>Performing doctor</dt><dd>Dr. V. Shetty · RMC MH-44721 · PNDT-registered at this centre <span class="chip green">VERIFIED</span></dd>
+          </dl>
+        </div>
+        <div class="card">
+          <div class="card-title">2 · Patient particulars</div>
+          <div class="row">
+            <div class="grow field"><label>Full name <span class="req">*</span></label><input class="input" value="Priya Menon"></div>
+            <div class="field" style="width:110px"><label>Age <span class="req">*</span></label><input class="input" value="29"></div>
+          </div>
+          <div class="field"><label>Full postal address <span class="req">*</span></label><textarea class="textarea">B-704, Lotus Residency, J.P. Road, Andheri West, Mumbai 400058, Maharashtra</textarea></div>
+          <div class="row">
+            <div class="grow field"><label>ID particulars — type <span class="req">*</span></label><select class="select"><option>Aadhaar (last-4 stored only)</option><option>Passport</option><option>Voter ID</option><option>Driving licence</option></select></div>
+            <div class="grow field"><label>ID last-4 <span class="req">*</span></label><input class="input" value="•••• •••• 7314"><div class="hint">Full Aadhaar is never stored or printed; original sighted by D. Nair.</div></div>
+          </div>
+          <div class="field"><label>Obstetric history <span class="req">*</span></label>
+            <div class="row">
+              <div class="grow"><label class="small bold">G (gravida)</label><input class="input" value="2"></div>
+              <div class="grow"><label class="small bold">P (para)</label><input class="input" value="1"></div>
+              <div class="grow"><label class="small bold">L (living)</label><input class="input" value="1"></div>
+              <div class="grow"><label class="small bold">A (abortions)</label><input class="input" value="0"></div>
+            </div>
+            <div class="hint">Number of living children: 1 (daughter, 3y) — captured as required by Form F.</div>
+          </div>
+          <div class="row">
+            <div class="grow field"><label>LMP</label><input class="input" value="02 Mar 2026"></div>
+            <div class="grow field"><label>Gestational age</label><input class="input" value="20w 4d (by dating scan)"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">3 · Indication for this procedure <span class="right">approved list — Rule 9</span></div>
+          <div class="check"><span class="box radio">&nbsp;</span> Advanced maternal age (≥ 35 years)</div>
+          <div class="check"><span class="box radio on">&nbsp;</span> Routine anomaly scan (18–22 weeks) — screening for congenital malformations</div>
+          <div class="check"><span class="box radio">&nbsp;</span> Previous child with congenital anomaly / genetic disorder</div>
+          <div class="check"><span class="box radio">&nbsp;</span> Exposure to potentially teratogenic agents</div>
+          <div class="check"><span class="box radio">&nbsp;</span> Family history of genetic disease</div>
+          <div class="check"><span class="box radio">&nbsp;</span> Other (specify — free text is reviewed in monthly audit)</div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">4 · Declarations &amp; signatures</div>
+          <div class="field"><label>Language of patient undertaking <span class="req">*</span></label>
+            <div style="display:flex;gap:8px"><span class="btn small">English</span><span class="btn small primary">हिन्दी</span><span class="btn small">मराठी</span></div>
+          </div>
+          <div class="card" style="background:#F8FAFC;margin-bottom:10px">
+            <div class="small muted" style="margin-bottom:4px">Patient's undertaking — rendered in हिन्दी:</div>
+            <p style="font-size:12.5px">मैं, प्रिया मेनन, घोषणा करती हूँ कि मैं अपने गर्भ में पल रहे भ्रूण का लिंग जानना नहीं चाहती, और न ही मुझे इसकी जानकारी दी गई है। मैं समझती हूँ कि भ्रूण का लिंग बताना कानूनन अपराध है।</p>
+          </div>
+          <div class="field"><label>Patient signature / thumb impression <span class="req">*</span></label><div class="sig-box">signature pad · or 👍 thumb-impression capture</div></div>
+          <div class="field"><label>Witness / interpreter</label><div class="sig-box">witness pad — optional interpreter attests language rendering</div></div>
+          <div class="field"><label>Doctor's declaration</label>
+            <div class="check"><span class="box">&nbsp;</span> I, Dr. V. Shetty, declare that while conducting this procedure I have neither detected nor disclosed the sex of the foetus to anybody in any manner.</div>
+            <div class="hint">Doctor signs with step-up PIN at completion — cannot be pre-ticked by front office.</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">5 · Seal &amp; statutory linkage</div>
+          <dl class="kv" style="grid-template-columns:120px 1fr">
+            <dt>FF reference</dt><dd class="mono">FF/AND/2026/07-0412 <span class="chip grey">reserved</span></dd>
+            <dt>Tamper evidence</dt><dd>Sealed PDF hash-chained to previous FF entry; edits create a superseding version, never overwrite</dd>
+            <dt>Monthly return</dt><dd>Auto-included in July 2026 submission to Appropriate Authority, Mumbai Suburban (due 5 Aug 2026)</dd>
+          </dl>
+          <span class="btn primary disabled" style="width:100%;margin-top:6px">Seal Form F &amp; release scan (signatures pending)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — COMPLETED · Form F sealed with signatures, scan released</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner success"><b>Form F sealed — FF/AND/2026/07-0412 · scan released</b> Priya Menon · MRN-004828 · ACC-2026-91278 · sealed 24 Jul 2026, 13:52 IST · hash <span class="mono">SHA-256 91cc07…4be1</span> chained to FF/AND/2026/07-0411.</div>
+  <div class="card"><div class="card-title">Sealed record summary</div>
+    <dl class="kv">
+      <dt>Indication</dt><dd>Routine anomaly scan (18–22 weeks) — approved list item 2</dd>
+      <dt>Obstetric history</dt><dd>G2 P1 L1 A0 · GA 20w 4d</dd>
+      <dt>ID particulars</dt><dd>Aadhaar · last-4 <span class="mono">7314</span> · original sighted</dd>
+      <dt>Patient undertaking</dt><dd>Rendered हिन्दी · <span class="sig-box signed" style="min-height:36px;padding:3px 14px;display:inline-flex">Priya Menon</span></dd>
+      <dt>Witness</dt><dd><span class="sig-box signed" style="min-height:36px;padding:3px 14px;display:inline-flex">D. Nair</span> · interpreter not required</dd>
+      <dt>Doctor declaration</dt><dd><span class="sig-box signed" style="min-height:36px;padding:3px 14px;display:inline-flex">Dr. V. Shetty</span> · RMC MH-44721 · step-up PIN verified 13:51 IST</dd>
+      <dt>Non-disclosure</dt><dd><span class="chip violet">FOETAL SEX: NOT DETERMINED · NOT DISCLOSED</span> notice printed on sealed PDF</dd>
+      <dt>Monthly return</dt><dd>Queued in July 2026 register · line 412 of 412 · <span class="chip teal">submission due in 12 days</span> · owner K. Verma</dd>
+    </dl>
+  </div>
+  <div class="card"><div class="card-title">July 2026 Form F register (latest entries) <span class="right">monthly-submission linkage</span></div>
+    <table>
+      <tr><th>FF ref</th><th>Date</th><th>Patient</th><th>Indication</th><th>Doctor</th><th>Status</th></tr>
+      <tr class="hl"><td class="mono">FF/AND/2026/07-0412</td><td>24 Jul</td><td>P. Menon · MRN-004828</td><td>Anomaly scan 18–22w</td><td>Dr. V. Shetty</td><td><span class="chip green">SEALED</span></td></tr>
+      <tr><td class="mono">FF/AND/2026/07-0411</td><td>24 Jul</td><td>S. R•••• · MRN-0048••</td><td>Advanced maternal age</td><td>Dr. V. Shetty</td><td><span class="chip green">SEALED</span></td></tr>
+      <tr><td class="mono">FF/AND/2026/07-0410</td><td>23 Jul</td><td>A. R•• · MRN-0048••</td><td>Prior anomaly</td><td>Dr. A. Rao</td><td><span class="chip green">SEALED</span></td></tr>
+      <tr><td class="mono">FF/AND/2026/07-0409</td><td>23 Jul</td><td>E. N•••• · MRN-0048••</td><td>Anomaly scan 18–22w</td><td>Dr. A. Rao</td><td><span class="chip amber">DOCTOR SIGN PENDING</span></td></tr>
+      <tr><td class="mono">FF/AND/2026/07-0408</td><td>22 Jul</td><td>masked — no purpose</td><td>Teratogen exposure</td><td>Dr. V. Shetty</td><td><span class="chip green">SEALED</span></td></tr>
+    </table>
+    <div class="hint" style="font-size:11px;color:#64748B;margin-top:6px">Register names are masked for viewers without a statutory-audit purpose; K. Verma (PNDT compliance role) sees full particulars.</div>
+  </div>
+</div></div></div>
+
+<div class="state-tag">STATE C — BLOCKED · performing doctor not PNDT-registered at this centre</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="banner danger"><b>Form F cannot be completed — doctor not PNDT-registered at Andheri West</b> Elena Novak · MRN-004830 · Obstetric USG (dating scan) · APPT-2026-51131. Selected doctor <b>Dr. A. Rao</b> is PNDT-registered at the Bandra centre (MH/MUM/PNDT/2020/0763) but <u>not</u> on the Andheri West centre registration. The scan remains blocked; this cannot be overridden — not even via CS-04.</div>
+  <dl class="kv" style="max-width:680px">
+    <dt>Why blocked</dt><dd>PC-PNDT registration is centre-specific: doctor, machine and centre must all match the local certificate</dd>
+    <dt>Allowed actions</dt><dd>Reassign to Dr. V. Shetty (registered here) · reschedule at Bandra with Dr. A. Rao · or hold appointment <span class="chip amber">due in 1h · owner D. Nair</span></dd>
+    <dt>Not allowed</dt><dd>Physician override, proceeding "subject to paperwork", or editing the registered-doctor list from this screen (admin K. Verma + certificate upload only)</dd>
+    <dt>Patient comms</dt><dd>Templated apology + rebooking options; statutory reason described generically to the patient</dd>
+  </dl>
+  <div style="display:flex;gap:10px;margin-top:8px"><span class="btn primary">Reassign to Dr. V. Shetty</span><span class="btn">Offer Bandra slot</span><span class="btn ghost">Notify referrer Dr. Farida Khan</span></div>
+</div></div></div>
+
+<p class="audit">Form F creation, every field edit before sealing, signature captures, the seal hash, register masking decisions, the blocked-doctor event for APPT-2026-51131 and inclusion in the July 2026 monthly return are recorded in the access log. Sealed Forms F are retained per PC-PNDT rules and are never deletable.</p>
+</section>
+</body></html>
