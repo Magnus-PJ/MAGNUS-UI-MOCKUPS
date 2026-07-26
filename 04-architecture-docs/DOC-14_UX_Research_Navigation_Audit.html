@@ -1,0 +1,132 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DOC-14 World-Class UX Research & Navigation Audit — MagnusPRO</title><style>/* Magnus HMS — NS design pack shared design system */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
+.mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
+.muted{color:#64748B}.small{font-size:12px}.bold{font-weight:700}
+/* ---------- page / screen frame ---------- */
+.screen{page-break-after:always;padding:28px 34px;background:#fff;min-height:1000px}
+.screen-head{display:flex;justify-content:space-between;align-items:flex-start;border-left:5px solid #0F766E;padding:6px 0 6px 14px;margin-bottom:6px}
+.screen-head h1{font-size:22px;font-weight:800}
+.screen-head .sid{color:#0F766E;margin-right:10px}
+.screen-head .meta{text-align:right}
+.screen-head .meta .cluster{color:#64748B;font-size:12px;margin-top:3px}
+.gap-note{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:8px 12px;margin:10px 0 16px;font-size:12.5px;color:#7C2D12}
+.gap-note b{color:#9A3412}
+/* ---------- app chrome ---------- */
+.frame{border:1px solid #CBD5E1;border-radius:10px;overflow:hidden;background:#F4F6F8;box-shadow:0 1px 4px rgba(15,23,42,.08);margin-bottom:22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:2px solid #0F766E;padding:9px 16px}
+.brand{font-weight:800;color:#0F766E}.brand span{color:#1E293B}
+.org{font-size:12.5px;color:#334155;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px}
+.userchip{font-size:12.5px;color:#334155}
+.userchip .av{display:inline-block;background:#CCFBF1;color:#0F766E;font-weight:700;border-radius:5px;padding:2px 6px;margin-right:6px;font-size:11px}
+.body{display:flex;min-height:520px}
+.sidebar{width:196px;background:#fff;border-right:1px solid #E2E8F0;padding:12px 0;flex-shrink:0}
+.sec-label{font-size:10.5px;letter-spacing:.08em;color:#94A3B8;font-weight:700;padding:8px 16px 4px;text-transform:uppercase}
+.nav-item{padding:7px 16px;font-size:13px;color:#334155;display:flex;justify-content:space-between;align-items:center}
+.nav-item.active{background:#F0FDFA;color:#0F766E;font-weight:700;border-left:3px solid #0F766E;padding-left:13px}
+.nav-badge{background:#0F766E;color:#fff;border-radius:9px;font-size:10.5px;padding:1px 7px;font-weight:700}
+.nav-badge.red{background:#B91C1C}
+.main{flex:1;padding:16px 18px;min-width:0}
+.crumb{font-size:12px;color:#64748B;margin-bottom:8px}
+.page-title{font-size:19px;font-weight:800;margin-bottom:2px}
+.page-sub{font-size:12.5px;color:#64748B;margin-bottom:14px}
+.actions-right{float:right}
+/* ---------- components ---------- */
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card-title{font-weight:800;font-size:14.5px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.card-title .right{font-size:10.5px;letter-spacing:.07em;color:#94A3B8;font-weight:700;text-transform:uppercase}
+.row{display:flex;gap:14px}.row>*{min-width:0}.grow{flex:1}
+.btn{display:inline-block;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:700;border:1px solid #CBD5E1;background:#fff;color:#334155;text-align:center;white-space:nowrap}
+.btn.primary{background:#0F766E;border-color:#0F766E;color:#fff}
+.btn.danger{background:#B91C1C;border-color:#B91C1C;color:#fff}
+.btn.warn-outline{border-color:#F59E0B;color:#92400E;background:#FFFBEB}
+.btn.ghost{border:none;background:none;color:#0F766E;padding:7px 6px}
+.btn.small{padding:4px 10px;font-size:12px}
+.btn.disabled{opacity:.45}
+.chip{display:inline-block;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip.teal{background:#CCFBF1;color:#0F766E}
+.chip.green{background:#DCFCE7;color:#15803D}
+.chip.amber{background:#FEF3C7;color:#92400E}
+.chip.red{background:#FEE2E2;color:#B91C1C}
+.chip.grey{background:#F1F5F9;color:#475569}
+.chip.blue{background:#E0F2FE;color:#0369A1}
+.chip.violet{background:#EDE9FE;color:#6D28D9}
+.chip.outline-red{background:#fff;border:1.5px solid #B91C1C;color:#B91C1C}
+.banner{border-radius:8px;padding:10px 13px;font-size:12.5px;margin-bottom:12px;border:1px solid}
+.banner b{display:block;margin-bottom:2px;font-size:13px}
+.banner.info{background:#E0F2FE;border-color:#7DD3FC;color:#075985}
+.banner.warn{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+.banner.danger{background:#FEE2E2;border-color:#FCA5A5;color:#991B1B}
+.banner.success{background:#DCFCE7;border-color:#86EFAC;color:#166534}
+.banner.reg{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding:7px 9px;border-bottom:2px solid #E2E8F0;background:#F8FAFC}
+td{padding:8px 9px;border-bottom:1px solid #EEF2F6;vertical-align:top}
+tr.hl td{background:#F0FDFA}
+tr.dim td{color:#94A3B8}
+.kv{display:grid;grid-template-columns:150px 1fr;row-gap:6px;column-gap:12px;font-size:12.5px}
+.kv dt{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding-top:2px}
+.kv dd{margin:0}
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+.field label .req{color:#B91C1C}
+.field .hint{font-size:11px;color:#64748B;margin-top:3px}
+.input,.select,.textarea{width:100%;border:1px solid #CBD5E1;border-radius:7px;padding:7px 10px;font-size:13px;background:#fff;color:#1E293B}
+.input.err{border-color:#B91C1C;background:#FEF2F2}
+.textarea{min-height:64px}
+.check{font-size:12.5px;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.box{display:inline-block;width:14px;height:14px;border:1.6px solid #64748B;border-radius:3px;flex-shrink:0;margin-top:1px;text-align:center;line-height:12px;font-size:11px;font-weight:800}
+.box.on{background:#0F766E;border-color:#0F766E;color:#fff}
+.radio{border-radius:50%}
+.radio.on{background:#fff;border-color:#0F766E;box-shadow:inset 0 0 0 3.5px #0F766E;color:transparent}
+/* modal */
+.modal-wrap{background:#64748B22;border:1px dashed #94A3B8;border-radius:12px;padding:26px 40px;margin:14px 0}
+.modal{background:#fff;border-radius:12px;border-top:5px solid #0F766E;box-shadow:0 8px 30px rgba(15,23,42,.25);max-width:560px;margin:0 auto;padding:18px 20px}
+.modal.danger{border-top-color:#B91C1C}
+.modal h3{font-size:16px;margin-bottom:8px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+/* misc */
+.divider-label{text-align:center;color:#94A3B8;font-size:11.5px;margin:20px 0 14px;position:relative}
+.divider-label:before,.divider-label:after{content:"";display:inline-block;width:24%;border-top:1px dashed #CBD5E1;vertical-align:middle;margin:0 10px}
+.audit{font-size:11px;color:#8A6D1D;margin-top:10px}
+.audit:before{content:"🔒 "}
+.state-tag{font-size:10px;letter-spacing:.08em;font-weight:800;text-transform:uppercase;color:#94A3B8;text-align:right;margin-bottom:4px}
+.kpi-row{display:flex;gap:12px;margin-bottom:14px}
+.kpi{flex:1;background:#fff;border:1px solid #E2E8F0;border-left:4px solid #0F766E;border-radius:9px;padding:10px 13px}
+.kpi.amber{border-left-color:#F59E0B}.kpi.red{border-left-color:#B91C1C}
+.kpi .n{font-size:23px;font-weight:800}.kpi .l{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700}
+.kpi .s{font-size:11px;color:#64748B;margin-top:2px}
+.stepper{display:flex;gap:6px;align-items:center;font-size:12px;color:#64748B;margin-bottom:14px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:6px}
+.step .dot{width:20px;height:20px;border-radius:50%;background:#E2E8F0;color:#475569;font-size:11px;font-weight:800;text-align:center;line-height:20px}
+.step.done .dot{background:#15803D;color:#fff}.step.cur .dot{background:#0F766E;color:#fff}
+.step.cur{color:#0F766E;font-weight:700}
+.step-line{width:26px;border-top:2px solid #CBD5E1}
+.sig-box{border:1.5px dashed #94A3B8;border-radius:8px;min-height:64px;background:#F8FAFC;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:12px;font-style:italic}
+.sig-box.signed{border-style:solid;border-color:#15803D;color:#166534;background:#F0FDF4;font-family:'Segoe Script','Comic Sans MS',cursive;font-size:17px;font-style:normal}
+.ladder{border-left:3px solid #E2E8F0;margin-left:8px;padding-left:16px}
+.ladder .tier{margin-bottom:12px;position:relative}
+.ladder .tier:before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:#CBD5E1}
+.ladder .tier.done:before{background:#15803D}.ladder .tier.cur:before{background:#0F766E;box-shadow:0 0 0 3px #CCFBF1}
+.ladder .tier.fail:before{background:#B91C1C}
+.progress{height:7px;border-radius:4px;background:#E2E8F0;overflow:hidden;margin-top:4px}
+.progress i{display:block;height:100%;background:#0F766E}
+.progress.amber i{background:#F59E0B}.progress.red i{background:#B91C1C}
+.split{display:grid;grid-template-columns:1fr 300px;gap:14px}
+.timeline{font-size:12.5px}
+.timeline .ev{display:flex;gap:10px;margin-bottom:9px}
+.timeline .t{color:#64748B;white-space:nowrap;font-family:Consolas,monospace;font-size:11.5px;padding-top:1px}
+ body{background:#F4F6F8;padding:30px}.doc{max-width:1150px;margin:0 auto}</style></head><body><div class="doc">
+<div style="background:#fff;border-left:6px solid #0F766E;border-radius:0 10px 10px 0;padding:16px 18px;margin-bottom:18px">
+<div style="font-size:11px;letter-spacing:.12em;font-weight:800;color:#0F766E;text-transform:uppercase">MagnusPRO · MVP 1 · Architecture &amp; Workflow Documentation</div>
+<h1 style="font-size:26px;margin:6px 0">DOC-14 — World-Class Healthcare UX Research &amp; Navigation Audit</h1>
+<p class="muted" style="font-size:13px">Deep research on leading global &amp; Indian platforms (navigation, single-page IA, click efficiency, search, AI), audited against the 232-screen pack, with the prioritised improvement backlog UX-1…UX-10. Version 1.0 · 26 July 2026.</p></div>
+<div class="banner success"><b>Executive summary</b>The world's best healthcare UX converges on five ideas: <b>one-page patient context with progressive disclosure, task-inbox-first navigation, a global role-scoped search/command layer, measured click budgets, and zero-scroll decision screens</b>. MagnusPRO is already at or ahead of par on worklists, the radiology single-pane loop, safety gating and responsive design — but the audit confirms your observation: <b>search exists on only 8 of 232 screens, there is no global omni-search, no unified task inbox, no recents, and 12+ screens are scroll-heavy</b>. Closing UX-1…UX-10 below is what separates a very good HMS from a world-class one — and in the Indian market, where incumbent UX is weak, it is the differentiator.</div>
+<div class="card"><div class="card-title">1 · Benchmark landscape (world-class platforms studied)</div><table><tr><th>Platform (class)</th><th>Navigation & IA signature</th><th>What we take from it</th></tr><tr><td><b>Epic (Hyperspace→Hyperdrive)</b> — global #1 hospital EHR</td><td><b>Storyboard</b>: persistent left patient-context rail (who/why/alerts) visible on every chart page; activity tabs; Chart Search; SmartTools; web-based Hyperdrive migration focused on speed + reduced friction</td><td>① A persistent patient-context bar so users NEVER lose who they're working on; ② chart-wide search inside a record; ③ role-configured home 'dashboards first, drill second'</td></tr><tr><td><b>Oracle Health / Cerner</b></td><td>PowerChart + MPages: component dashboards assembling everything about the patient on ONE configurable page; Clinical Digital Assistant (voice/AI) entering nav commands</td><td>One-page patient 360 assembled from widgets; voice/NLQ as a nav layer</td></tr><tr><td><b>MEDITECH Expanse</b></td><td>True web UI, tile-based home per role, mobile-first parity, minimal chrome</td><td>Role home = actionable tiles (counts → click-through), tablet-native from day one</td></tr><tr><td><b>athenahealth athenaOne</b></td><td>Inbox/task-driven: the product runs on work queues ('what needs me now'), not menus; 5-stage patient encounter rail</td><td>A unified per-role TASK INBOX beats deep menus; stage rails for encounters</td></tr><tr><td><b>RamSoft OmegaAI / Blume</b> — cloud RIS/PACS</td><td>'Single pane of glass': RIS+PACS+VNA+portal in ONE browser app, zero-footprint viewer, worklist→viewer→report without app switching</td><td>Radiology loop must be one surface: worklist→viewer→report→sign with zero context switches (our RD chain already close)</td></tr><tr><td><b>Sectra / Intelerad</b> — enterprise imaging leaders</td><td>Radiologist-personalised worklists, hanging protocols, one-monitor-context reading, SLA-driven sorting</td><td>Personalised worklists + keyboard-first reading (our RD-01/06 aligned; extend keyboard map product-wide)</td></tr><tr><td><b>India: KareXpert, Attune, CrelioHealth, MEDQR, Healthray; open-source Bahmni</b></td><td>Diagnostics-chain focus: fast registration, token boards, WhatsApp delivery, GST billing; UX often dated — many-click, menu-deep</td><td>The India bar is LOW on UX — world-class navigation is the differentiator MagnusPRO can win on; feature parity is table stakes</td></tr></table></div>
+<div class="card"><div class="card-title">2 · The navigation &amp; IA patterns that define world-class</div><table><tr><th>#</th><th>World-class pattern</th><th>Definition / evidence</th></tr><tr><td>P1</td><td><b>Patient-360 one page + progressive disclosure</b></td><td>Everything about the patient on one page as summary cards; details open as overlay panels/drawers (not new pages) — Epic Storyboard, Cerner MPages. Sub-pages only for legally distinct acts (sign, consent, pay)</td></tr><tr><td>P2</td><td><b>Persistent context header</b></td><td>Patient/visit identity + alerts pinned on every screen in a flow; eliminates wrong-patient errors and re-orientation time</td></tr><tr><td>P3</td><td><b>Global omni-search / command palette (Ctrl+K)</b></td><td>One box that finds patients, orders, invoices, reports, screens and ACTIONS, scoped to the user's role & purpose; modern SaaS standard, appearing in healthcare (Ottehr et al.)</td></tr><tr><td>P4</td><td><b>Task-inbox-first navigation</b></td><td>Users open 'what needs me' (worklists/queues with counts), not module menus — athenaOne model; our worklists exist but there is no single 'My tasks' aggregation</td></tr><tr><td>P5</td><td><b>Click budgets</b></td><td>Evidence: ED physicians ≈4,000 clicks/shift (Hill et al.); KLAS Arch Collaborative case studies target click reduction as the #1 efficiency lever. Rule: top-20 tasks each get a click budget (e.g., register→token ≤12, sign routine report ≤5, collect cash ≤6) and are tested against it</td></tr><tr><td>P6</td><td><b>Zero-scroll above-the-fold for decisions</b></td><td>Primary decision + primary action visible without scrolling at 1366×768; long content = tabs/accordions/drawers, sticky action bar at bottom</td></tr><tr><td>P7</td><td><b>Keyboard-first for high-volume roles</b></td><td>Reading, billing, registration all fully keyboard-drivable; shortcuts discoverable in the palette</td></tr><tr><td>P8</td><td><b>Recents & favourites</b></td><td>Last 5 patients/studies/invoices one click away per user; removes the most common search entirely</td></tr><tr><td>P9</td><td><b>Every list has find-as-you-type</b></td><td>No table without an instant filter; server search for cross-record queries, purpose-logged</td></tr><tr><td>P10</td><td><b>NLQ / 'ask the record'</b></td><td>Emerging: natural-language questions over the chart (Oracle CDA, Epic AI charting) — roadmap hook, not MVP</td></tr></table></div>
+<div class="card"><div class="card-title">3 · Click-budget evidence</div><p style="font-size:12.5px">The seminal ED study measured ≈<b>4,000 clicks per 10-hour shift</b> (Hill et al., AJEM 2013); KLAS Arch Collaborative case studies repeatedly show click-reduction programs as the highest-yield EHR-experience lever, and its 2025 physician guidebook ties satisfaction primarily to efficiency-of-navigation, not features. Conclusion: adopt explicit budgets per task and test them (UX-8).</p><table><tr><th>Task</th><th>Clicks in current design (walked)</th><th>World-class budget</th><th>Path</th></tr><tr><td>Find existing patient → open record</td><td>3–4</td><td>≤3</td><td>Ctrl+K → type → Enter (UX-1 makes it 2)</td></tr><tr><td>Walk-in register → token</td><td>~14 across 5 screens</td><td>≤12</td><td>FO-15 fast-track already close; UX-5 trims fields above fold</td></tr><tr><td>Sign a routine report</td><td>6 (worklist→viewer→draft→checks→sign)</td><td>≤5</td><td>Pre-sign checks inline when all-green (RD-08 fast path exists)</td></tr><tr><td>Collect cash & receipt</td><td>7</td><td>≤6</td><td>Amount-preset chips on BL-03</td></tr><tr><td>Acknowledge critical result (referrer)</td><td>3 from inbox</td><td>≤3</td><td>AT BUDGET (DD-02)</td></tr><tr><td>Issue duplicate receipt</td><td>4</td><td>≤3</td><td>Recents (UX-7) removes the search</td></tr><tr><td>Front-office EOD close</td><td>9</td><td>≤8</td><td>Pre-validated checklist auto-collapses clean sections</td></tr></table></div>
+<div class="card"><div class="card-title">4 · AI-integratable areas (mentioned as requested — mapped, not built)</div><table><tr><th>Area</th><th>AI use (industry state)</th><th>MagnusPRO hook (screen)</th></tr><tr><td>Ambient documentation</td><td>Abridge / Nuance DAX / Epic ambient notes — draft notes from conversation</td><td>DD-11 SOAP, RD dictation (vendor RA-roadmap; consent-gated)</td></tr><tr><td>Radiology triage & draft reads</td><td>FDA-cleared triage (ICH, PE), draft preliminary reports</td><td>RD-01 priority re-rank, RD-07 draft assist — vendor RA-S screens already reserve this (Post-MVP1)</td></tr><tr><td>Report quality & coding</td><td>Auto SNOMED/ICD suggestions, impression-consistency checks</td><td>RD-07/RD-08 code suggestions; BL-02 SAC/claims coding later</td></tr><tr><td>Scheduling intelligence</td><td>No-show prediction, smart overbooking, slot optimisation</td><td>SC-07 rules → model-driven; FO-19 waitlist auto-offer ranking (checklist #197)</td></tr><tr><td>Patient communication</td><td>Message drafting, Malayalam translation QA, WhatsApp bots</td><td>NT-03 template assist, PT pages translation review</td></tr><tr><td>Revenue & ops analytics</td><td>Denial prediction, collection risk, demand forecasting</td><td>BL-18/AD-13 forecast widgets (checklist #199)</td></tr><tr><td>Omni-search & NLQ</td><td>Semantic search over records with purpose enforcement</td><td>GS-01 (proposed) phase 2 — 'find Asha's last chest X-ray' in plain language</td></tr><tr><td>Governance guardrail</td><td>ALL of the above behind the vendor's AI-governance frame (consent-scoped, human-in-the-loop, audit) — already designed in the RA-S concept screens</td><td>GV-12 DPIA triggers on any AI enablement</td></tr></table></div>
+<div class="card"><div class="card-title">5 · MagnusPRO current-status audit</div><table><tr><th>Dimension</th><th>MagnusPRO today (232 screens)</th><th>Verdict vs world-class</th></tr><tr><td>Role-scoped worklists & queues</td><td>Excellent — every role has purpose-built queues with SLA chips</td><td><span class='chip green'>AT PAR / AHEAD</span></td></tr><tr><td>Radiology single-pane loop</td><td>RD-01→03→07→09→13 one chain, keyboard shortcuts on reading</td><td><span class='chip green'>AT PAR</span> (matches OmegaAI-class pattern)</td></tr><tr><td>Patient 360</td><td>FO-16 visit summary + FO-06 record exist as separate pages</td><td><span class='chip amber'>PARTIAL</span> — needs one Patient-360 with progressive-disclosure drawers (P1)</td></tr><tr><td>Persistent context header</td><td>Patient banners exist per screen but not specified as a pinned cross-flow component</td><td><span class='chip amber'>PARTIAL</span> (P2)</td></tr><tr><td>Global search</td><td><b>Only 8 of 232 screens have a search field</b> (FO-02 patient, RD-14 reports, BL-01, NT-01, AD-20, OR-04, DD, AU-17); NO role-scoped omni-search; prototype 'Jump to screen' is builder-only</td><td><span class='chip red'>GAP — the #1 finding</span> (P3, P9)</td></tr><tr><td>Task inbox</td><td>Counts live on sidebars; no single 'My tasks' aggregation per role</td><td><span class='chip red'>GAP</span> (P4)</td></tr><tr><td>Click budgets</td><td>Flows are short by design but never measured against budgets</td><td><span class='chip amber'>ADD DISCIPLINE</span> (P5)</td></tr><tr><td>Scroll behaviour</td><td><b>12+ screens have very long default states</b> (rd-01, tk-01, fo-01, bl-20, ir-05/06, ad-01, cs-06…) — the scrolling you noticed; states already tabbed in prototype but in-state content still stacks vertically</td><td><span class='chip amber'>FIX</span> (P6: above-fold + sticky actions + in-page tabs)</td></tr><tr><td>Keyboard-first</td><td>Reading has shortcuts; rest unmapped</td><td><span class='chip amber'>PARTIAL</span> (P7)</td></tr><tr><td>Recents/favourites</td><td>Absent</td><td><span class='chip red'>GAP</span> (P8)</td></tr><tr><td>Mobile/tablet</td><td>Prototype responsive (v1.2) — phone/iPad verified</td><td><span class='chip green'>DONE at prototype level</span>; carry rules into build</td></tr></table></div>
+<div class="card"><div class="card-title">6 · Prioritised improvement backlog</div><table><tr><th>ID</th><th>Improvement (prioritised)</th><th>What it is</th><th>Where</th></tr><tr><td>UX-1</td><td><b>Global omni-search & command palette (Ctrl+K)</b> — NEW screen GS-01 + DS pattern</td><td>Role-scoped, purpose-logged: patients (masked until reason), orders/ACC, invoices, reports, screens, ACTIONS ('collect payment', 'issue token'); recents on open; NLQ phase 2</td><td>New GS-01 + hook on every topbar</td></tr><tr><td>UX-2</td><td><b>Patient 360 with progressive disclosure</b> — upgrade FO-16/FO-06</td><td>One page: identity+alerts header, summary cards (visits, orders, results, money, consent, comms), each expanding as a DRAWER not a new page; role-filtered variants</td><td>FO-16 v2</td></tr><tr><td>UX-3</td><td><b>Pinned patient-context bar</b> (Epic-Storyboard-style) as a DS pattern</td><td>Sticky mini-bar (name·MRN·age/sex·alerts·balance·allergy chip) across every screen of an active patient flow</td><td>DS-12 (new pattern page)</td></tr><tr><td>UX-4</td><td><b>'My tasks' unified inbox per role</b></td><td>Aggregates every queue that pages the user (criticals awaiting me, approvals, exceptions, overdue SLAs) with counts + deep links</td><td>New screen per-role widget (one template)</td></tr><tr><td>UX-5</td><td><b>Zero-scroll rule + sticky action bars</b></td><td>DS rule: decision + primary action above the fold @1366×768; long screens get in-page tabs/accordions; sticky bottom action bar on forms</td><td>DS-05 addition + retrofit list (the 12 scroll-heavy screens)</td></tr><tr><td>UX-6</td><td><b>Find-as-you-type on every table</b></td><td>Standard table header filter component; server search where cross-record</td><td>DS-02 component + retrofit</td></tr><tr><td>UX-7</td><td><b>Recents & favourites</b></td><td>Per-user last-5 patients/studies/invoices in topbar dropdown</td><td>Topbar spec + GS-01 integration</td></tr><tr><td>UX-8</td><td><b>Click-budget table in DOC-10</b></td><td>Top-20 tasks with budgets; measured at UAT</td><td>DOC-10 annex</td></tr><tr><td>UX-9</td><td><b>Product-wide keyboard map</b></td><td>Extend RD shortcuts to FO/BL/TK; '?' overlay lists them; palette executes them</td><td>DS-02/GS-01</td></tr><tr><td>UX-10</td><td><b>AI hook placement map</b></td><td>The 8 AI areas above marked on their host screens as 'AI-ready (roadmap)' chips so the build wires extension points</td><td>DOC-14 map → screens later</td></tr></table>
+<div class="banner warn"><b>Freeze note (D-38)</b>UX-1 (GS-01), UX-4 and DS-12 are net-new surfaces → need your unfreeze approval. UX-5/6/7/9 are design-system rules + retrofits to existing screens (improvement-round class). UX-8/10 are document additions. Recommend building UX-1…UX-9 as improvement round v1.3; UX-10 rides along.</div></div>
+<p class="audit">Research 26 Jul 2026 · sources listed in repo commit + chat · synthetic data only.</p></div></body></html>
