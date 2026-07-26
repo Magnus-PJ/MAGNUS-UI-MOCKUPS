@@ -789,7 +789,7 @@ tr.dim td{color:#94A3B8}
     <tr><td class="bold">Sensitive reveal (unmask)</td><td><span class="audit" style="margin:0;display:block">Revealing the full mobile number requires a stated purpose and is individually logged with a 30-day review flag — recorded in the access log.</span></td><td>Reveal events log per-field, not per-screen, and always carry a purpose picked from a closed list (never free-text only).</td></tr>
     <tr><td class="bold">Destructive / irreversible</td><td><span class="audit" style="margin:0;display:block">Cancellation is irreversible and requires step-up confirmation and a second approver; the full request, both identities and the reason are chained into the tamper-evident audit record and recorded in the access log.</span></td><td>Says "irreversible" plainly, names both controls (step-up + four-eyes) before the user commits.</td></tr>
     <tr><td class="bold">Export / bulk</td><td><span class="audit" style="margin:0;display:block">This export (214 rows, PHI masked per your role) is watermarked with your identity and expires in 72 h — generation and every download are recorded in the access log.</span></td><td>States row count, masking level, watermark and expiry — exports are the highest-leak surface.</td></tr>
-    <tr><td class="bold">Operator (platform)</td><td><span class="audit" style="margin:0;display:block">Operator actions on tenant Meridian Diagnostics run under a support-access grant that expires 18:00 IST; the tenant's org admin sees this session in their operator-access report — recorded in the access log.</span></td><td>Operator lines always disclose the grant, its expiry, and tenant-side visibility.</td></tr>
+    <tr><td class="bold">Operator (platform)</td><td><span class="audit" style="margin:0;display:block">Operator actions on tenant Magnus Diagnostics run under a support-access grant that expires 18:00 IST; the tenant's org admin sees this session in their operator-access report — recorded in the access log.</span></td><td>Operator lines always disclose the grant, its expiry, and tenant-side visibility.</td></tr>
   </table>
   <div class="small muted" style="margin-top:10px">Rules: exactly one footer per screen; always ends "…recorded in the access log."; always begins with 🔒 (supplied by the <span class="mono">.audit</span> class); never legal boilerplate — each line is specific to what THIS screen records. A screen with no consequential access (e.g. this documentation page) may omit it.</div>
 </div>
@@ -920,7 +920,7 @@ tr.dim td{color:#94A3B8}
 <div class="modal-wrap">
 <div class="modal">
 <h3>Reveal patient contact number</h3>
-<p class="small muted" style="margin-bottom:10px">Record <span class="mono">#MRN-••••30</span> · Meridian Diagnostics · Andheri West branch</p>
+<p class="small muted" style="margin-bottom:10px">Record <span class="mono">#MRN-••••30</span> · Magnus Diagnostics · North Paravoor</p>
 <div class="field"><label>Purpose of access <span class="req">*</span></label>
 <span class="chip teal">TREATMENT</span> <span class="chip blue">BILLING</span> <span class="chip violet">AUDIT</span> <span class="chip amber">SUPPORT ✓</span></div>
 <div class="field"><label>Reason <span class="req">*</span></label><input class="input" value="Patient callback — report delivery SMS failed twice (DLT route error), confirming number."></div>
@@ -938,8 +938,8 @@ tr.dim td{color:#94A3B8}
 <div class="banner danger" style="margin-bottom:10px"><b>Hard rule</b>Outbound SMS/WhatsApp never contains diagnosis, test name, report content, or full MRN. Links are short-lived tokenised URLs behind patient OTP (separate patient realm).</div>
 <table>
 <tr><th style="width:70px">Verdict</th><th>Template</th></tr>
-<tr><td><span class="chip green">PASS</span></td><td class="mono">Meridian Diagnostics: Your report for visit V-0412 is ready. View securely: mgns.in/r/8kq2 (OTP to this number). Helpdesk 022-4000 1100 — MERIDN</td></tr>
-<tr><td><span class="chip green">PASS</span></td><td class="mono">Meridian Diagnostics: Appointment confirmed 28 Jul 2026, 10:30 AM, Andheri West. Token Q-047. Reschedule: mgns.in/a/3fp9 — MERIDN</td></tr>
+<tr><td><span class="chip green">PASS</span></td><td class="mono">Magnus Diagnostics: Your report for visit V-0412 is ready. View securely: mgns.in/r/8kq2 (OTP to this number). Helpdesk 022-4000 1100 — MERIDN</td></tr>
+<tr><td><span class="chip green">PASS</span></td><td class="mono">Magnus Diagnostics: Appointment confirmed 28 Jul 2026, 10:30 AM, North Paravoor. Token Q-047. Reschedule: mgns.in/a/3fp9 — MERIDN</td></tr>
 <tr><td><span class="chip red">FAIL</span></td><td class="mono"><s>Your CT Brain report shows no abnormality. MRN-2026-004530…</s> <span class="small" style="color:#B91C1C">✕ test name + finding + full MRN in transit</span></td></tr>
 <tr><td><span class="chip red">FAIL</span></td><td class="mono"><s>Dear Ananya Subramanian, your HIV screening result is available…</s> <span class="small" style="color:#B91C1C">✕ full name + sensitive test category</span></td></tr>
 </table>
@@ -1018,7 +1018,7 @@ tr.dim td{color:#94A3B8}
 <div class="field"><label>Payee name <span class="req">*</span></label><input class="input" value="Ananya Subramanian"></div>
 <div class="row">
 <div class="field grow"><label>Mobile number <span class="req">*</span></label><input class="input err" value="+91 98200 1234"><div class="hint" style="color:#B91C1C">Enter a 10-digit mobile number starting 6–9, e.g. 98200 12345.</div></div>
-<div class="field grow"><label>PIN code</label><input class="input" value="400 058"><div class="hint">Andheri West, Mumbai, Maharashtra ✓</div></div>
+<div class="field grow"><label>PIN code</label><input class="input" value="400 058"><div class="hint">North Paravoor, Kochi, Kerala ✓</div></div>
 </div>
 <div class="row">
 <div class="field grow"><label>IFSC <span class="req">*</span></label><input class="input err" value="HDFC000024"><div class="hint" style="color:#B91C1C">IFSC is 11 characters (4 letters + 0 + 6 more) — this has 10. Example: HDFC0000240.</div></div>
@@ -1049,7 +1049,7 @@ tr.dim td{color:#94A3B8}
 <div class="card-title">A4 document zone model <span class="right">template engine: DocRender v5 · zones are fixed, content is tenant-versioned</span></div>
 <table>
 <tr><th style="width:60px">Zone</th><th style="width:180px">Name</th><th style="width:150px">Position / size</th><th>Required content</th><th style="width:210px">Rules</th></tr>
-<tr><td class="mono">Z1</td><td><b>Org identity</b></td><td>Header · 28 mm</td><td>Tenant logo, legal name “Meridian Diagnostics Pvt Ltd”, branch address, phone, NABL/NABH accreditation marks where held</td><td>Logo max 22 mm high; monochrome fallback auto-generated for thermal. Branch line pulled from branch master — never hand-typed in templates.</td></tr>
+<tr><td class="mono">Z1</td><td><b>Org identity</b></td><td>Header · 28 mm</td><td>Tenant logo, legal name “Magnus Diagnostics Pvt Ltd”, branch address, phone, NABL/NABH accreditation marks where held</td><td>Logo max 22 mm high; monochrome fallback auto-generated for thermal. Branch line pulled from branch master — never hand-typed in templates.</td></tr>
 <tr><td class="mono">Z2</td><td><b>Document band</b></td><td>Below header · 12 mm</td><td>Document type (RADIOLOGY REPORT / TAX INVOICE / RECEIPT), document no., issue date-time IST, page x of y</td><td>Document numbers are branch-prefixed and gapless per statutory series (INV-AW-2026-07-01184).</td></tr>
 <tr><td class="mono">Z3</td><td><b>Subject block</b></td><td>Left column · flexible</td><td>Patient name, MRN, age/sex, referrer, visit ID; QR code linking to verification URL (token, no PHI in QR payload)</td><td>Identity fields obey <a href="#ds-07" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">DS-07</a> masking for duplicate copies requested by third parties.</td></tr>
 <tr><td class="mono">Z4</td><td><b>Body</b></td><td>Main flow</td><td>Report narrative / line items / consent text</td><td>Body styles locked to template typography set; no per-user fonts. Tables must not split a line item across pages.</td></tr>

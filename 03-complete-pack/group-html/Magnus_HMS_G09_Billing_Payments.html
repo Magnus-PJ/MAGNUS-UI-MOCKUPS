@@ -128,7 +128,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#bl-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-01</a></span> Billing worklist &amp; outstanding dues</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S1 worklist (single MRN identity, D-11)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single queue for the cash desk: every invoice in the branch grouped by financial state, with an awaiting-confirmation tab for payments stuck between the patient and the payment provider. Cashier selects a row, sees the invoice summary in the right rail and jumps straight to Collect, Open or Dispute. Station lock protects the drawer session when the cashier steps away.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -170,14 +170,14 @@ tr.dim td{color:#94A3B8}
         <div>
           <table>
             <tr><th>Invoice</th><th>Patient (MRN)</th><th>Service summary</th><th>Payer</th><th>Amount ₹</th><th>Due ₹</th><th>Status</th><th>SLA</th></tr>
-            <tr class="hl"><td class="mono">INV/AND/26-27/0412</td><td>Sofia Rossi<br><span class="muted small mono">MRN-004822</span></td><td>MRI Brain (plain) + contrast consumables</td><td><span class="chip grey">Self-pay</span> <span class="chip blue">Foreign patient</span></td><td>13,500.00</td><td class="bold">13,500.00</td><td><span class="chip amber">ISSUED · UNPAID</span></td><td><span class="chip amber">32m · own: P. D'Souza</span></td></tr>
-            <tr><td class="mono">INV/AND/26-27/0411</td><td>Aarav Sharma<br><span class="muted small mono">MRN-004821</span></td><td>CT KUB (plain)</td><td><span class="chip grey">Self-pay</span></td><td>4,200.00</td><td class="bold">4,200.00</td><td><span class="chip amber">ISSUED · UNPAID</span></td><td><span class="chip teal">12m · own: P. D'Souza</span></td></tr>
-            <tr><td class="mono">INV/AND/26-27/0409</td><td>Priya Menon<br><span class="muted small mono">MRN-004828</span></td><td>USG Obstetric (Level II) — foetal-sex non-disclosure applies</td><td><span class="chip grey">Self-pay</span></td><td>2,800.00</td><td>1,300.00</td><td><span class="chip blue">PART-PAID</span></td><td><span class="chip teal">On track · own: P. D'Souza</span></td></tr>
-            <tr><td class="mono">INV/AND/26-27/0406</td><td>Mohammed Al-Rashid<br><span class="muted small mono">MRN-004790</span></td><td>X-Ray Chest PA + Radiologist reporting</td><td><span class="chip violet">Corporate credit · GulfCare TPA</span></td><td>950.00</td><td>0.00 (on credit)</td><td><span class="chip violet">CREDIT · TO PAYER</span></td><td><span class="chip teal">On track · own: M. Kulkarni</span></td></tr>
-            <tr><td class="mono">INV/AND/26-27/0403</td><td>Rajesh Gupta<br><span class="muted small mono">MRN-004795</span></td><td>MRI Lumbar Spine + screening whole spine</td><td><span class="chip grey">Self-pay</span></td><td>9,800.00</td><td class="bold">9,800.00</td><td><span class="chip amber">ISSUED · UNPAID</span></td><td><span class="chip red">OVERDUE 1h 05m · own: P. D'Souza · escalated-to: M. Kulkarni</span></td></tr>
-            <tr><td class="mono">INV/AND/26-27/0401</td><td>Ananya Rao<br><span class="muted small mono">MRN-004819</span></td><td>USG Abdomen + Pelvis</td><td><span class="chip grey">Self-pay</span></td><td>2,400.00</td><td>1,200.00</td><td><span class="chip blue">PART-PAID</span></td><td><span class="chip amber">41m · own: D. Nair</span></td></tr>
-            <tr><td class="mono">INV/AND/26-27/0398</td><td>Aarav Sharma<br><span class="muted small mono">MRN-004821</span></td><td>Doppler Carotid bilateral</td><td><span class="chip grey">Self-pay</span></td><td>3,600.00</td><td class="bold">3,600.00</td><td><span class="chip amber">ISSUED · UNPAID</span></td><td><span class="chip teal">On track · own: P. D'Souza</span></td></tr>
-            <tr class="dim"><td class="mono">INV/AND/26-27/0396</td><td>Rajesh Gupta<br><span class="muted small mono">MRN-004795</span></td><td>X-Ray Knee AP/LAT (duplicate order)</td><td><span class="chip grey">Self-pay</span></td><td>600.00</td><td>—</td><td><span class="chip grey">CANCELLED</span></td><td>—</td></tr>
+            <tr class="hl"><td class="mono">INV/NPV/26-27/0412</td><td>Sofia Rossi<br><span class="muted small mono">MRN-004822</span></td><td>MRI Brain (plain) + contrast consumables</td><td><span class="chip grey">Self-pay</span> <span class="chip blue">Foreign patient</span></td><td>13,500.00</td><td class="bold">13,500.00</td><td><span class="chip amber">ISSUED · UNPAID</span></td><td><span class="chip amber">32m · own: P. D'Souza</span></td></tr>
+            <tr><td class="mono">INV/NPV/26-27/0411</td><td>Aarav Sharma<br><span class="muted small mono">MRN-004821</span></td><td>CT KUB (plain)</td><td><span class="chip grey">Self-pay</span></td><td>4,200.00</td><td class="bold">4,200.00</td><td><span class="chip amber">ISSUED · UNPAID</span></td><td><span class="chip teal">12m · own: P. D'Souza</span></td></tr>
+            <tr><td class="mono">INV/NPV/26-27/0409</td><td>Priya Menon<br><span class="muted small mono">MRN-004828</span></td><td>USG Obstetric (Level II) — foetal-sex non-disclosure applies</td><td><span class="chip grey">Self-pay</span></td><td>2,800.00</td><td>1,300.00</td><td><span class="chip blue">PART-PAID</span></td><td><span class="chip teal">On track · own: P. D'Souza</span></td></tr>
+            <tr><td class="mono">INV/NPV/26-27/0406</td><td>Mohammed Al-Rashid<br><span class="muted small mono">MRN-004790</span></td><td>X-Ray Chest PA + Radiologist reporting</td><td><span class="chip violet">Corporate credit · GulfCare TPA</span></td><td>950.00</td><td>0.00 (on credit)</td><td><span class="chip violet">CREDIT · TO PAYER</span></td><td><span class="chip teal">On track · own: M. Kulkarni</span></td></tr>
+            <tr><td class="mono">INV/NPV/26-27/0403</td><td>Rajesh Gupta<br><span class="muted small mono">MRN-004795</span></td><td>MRI Lumbar Spine + screening whole spine</td><td><span class="chip grey">Self-pay</span></td><td>9,800.00</td><td class="bold">9,800.00</td><td><span class="chip amber">ISSUED · UNPAID</span></td><td><span class="chip red">OVERDUE 1h 05m · own: P. D'Souza · escalated-to: M. Kulkarni</span></td></tr>
+            <tr><td class="mono">INV/NPV/26-27/0401</td><td>Ananya Rao<br><span class="muted small mono">MRN-004819</span></td><td>USG Abdomen + Pelvis</td><td><span class="chip grey">Self-pay</span></td><td>2,400.00</td><td>1,200.00</td><td><span class="chip blue">PART-PAID</span></td><td><span class="chip amber">41m · own: D. Nair</span></td></tr>
+            <tr><td class="mono">INV/NPV/26-27/0398</td><td>Aarav Sharma<br><span class="muted small mono">MRN-004821</span></td><td>Doppler Carotid bilateral</td><td><span class="chip grey">Self-pay</span></td><td>3,600.00</td><td class="bold">3,600.00</td><td><span class="chip amber">ISSUED · UNPAID</span></td><td><span class="chip teal">On track · own: P. D'Souza</span></td></tr>
+            <tr class="dim"><td class="mono">INV/NPV/26-27/0396</td><td>Rajesh Gupta<br><span class="muted small mono">MRN-004795</span></td><td>X-Ray Knee AP/LAT (duplicate order)</td><td><span class="chip grey">Self-pay</span></td><td>600.00</td><td>—</td><td><span class="chip grey">CANCELLED</span></td><td>—</td></tr>
           </table>
           <div class="card" style="margin-top:12px;background:#F8FAFC">
             <div class="row" style="justify-content:space-between;font-size:12.5px">
@@ -188,7 +188,7 @@ tr.dim td{color:#94A3B8}
         </div>
         <div>
           <div class="card" style="border-top:3px solid #0F766E">
-            <div class="card-title">INV/AND/26-27/0412 <span class="chip amber">ISSUED · UNPAID</span></div>
+            <div class="card-title">INV/NPV/26-27/0412 <span class="chip amber">ISSUED · UNPAID</span></div>
             <dl class="kv">
               <dt>Patient</dt><dd>Sofia Rossi · <span class="mono">MRN-004822</span> · F/34</dd>
               <dt>Visit</dt><dd><span class="mono">VIS-2026-30871</span> · walk-in</dd>
@@ -225,7 +225,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE B — AWAITING-CONFIRMATION TAB FOCUSED</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -240,10 +240,10 @@ tr.dim td{color:#94A3B8}
       <div class="banner warn"><b>2 payments past the 3-minute confirmation window.</b> They have moved to UNCONFIRMED and need action on the Pending payments screen (<a href="#bl-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-04</a>). Owner: P. D'Souza · escalated-to: M. Kulkarni.</div>
       <table>
         <tr><th>Invoice</th><th>Patient (MRN)</th><th>Mode</th><th>Initiated</th><th>Age</th><th>Provider state</th><th>SLA</th><th></th></tr>
-        <tr><td class="mono">INV/AND/26-27/0407</td><td>Ananya Rao · <span class="mono small">MRN-004819</span></td><td>UPI · ₹2,400.00</td><td class="mono">11:39:12</td><td>2m 48s</td><td><span class="chip amber">AWAITING</span> countdown 0:12</td><td><span class="chip teal">In window · own: P. D'Souza</span></td><td><span class="btn small">View</span></td></tr>
-        <tr><td class="mono">INV/AND/26-27/0405</td><td>Aarav Sharma · <span class="mono small">MRN-004821</span></td><td>Card · ₹3,600.00</td><td class="mono">11:36:04</td><td>5m 56s</td><td><span class="chip red">UNCONFIRMED</span> terminal no response</td><td><span class="chip red">OVERDUE 2m 56s · own: P. D'Souza · escalated-to: M. Kulkarni</span></td><td><span class="btn small warn-outline">Resolve →</span></td></tr>
-        <tr><td class="mono">INV/AND/26-27/0402</td><td>Rajesh Gupta · <span class="mono small">MRN-004795</span></td><td>UPI · ₹9,800.00</td><td class="mono">11:31:47</td><td>10m 13s</td><td><span class="chip red">UNCONFIRMED</span> no callback</td><td><span class="chip red">OVERDUE 7m 13s · own: P. D'Souza · escalated-to: M. Kulkarni</span></td><td><span class="btn small warn-outline">Resolve →</span></td></tr>
-        <tr><td class="mono">INV/AND/26-27/0399</td><td>Priya Menon · <span class="mono small">MRN-004828</span></td><td>UPI · ₹1,500.00</td><td class="mono">11:40:55</td><td>1m 05s</td><td><span class="chip amber">AWAITING</span> countdown 1:55</td><td><span class="chip teal">In window · own: D. Nair</span></td><td><span class="btn small">View</span></td></tr>
+        <tr><td class="mono">INV/NPV/26-27/0407</td><td>Ananya Rao · <span class="mono small">MRN-004819</span></td><td>UPI · ₹2,400.00</td><td class="mono">11:39:12</td><td>2m 48s</td><td><span class="chip amber">AWAITING</span> countdown 0:12</td><td><span class="chip teal">In window · own: P. D'Souza</span></td><td><span class="btn small">View</span></td></tr>
+        <tr><td class="mono">INV/NPV/26-27/0405</td><td>Aarav Sharma · <span class="mono small">MRN-004821</span></td><td>Card · ₹3,600.00</td><td class="mono">11:36:04</td><td>5m 56s</td><td><span class="chip red">UNCONFIRMED</span> terminal no response</td><td><span class="chip red">OVERDUE 2m 56s · own: P. D'Souza · escalated-to: M. Kulkarni</span></td><td><span class="btn small warn-outline">Resolve →</span></td></tr>
+        <tr><td class="mono">INV/NPV/26-27/0402</td><td>Rajesh Gupta · <span class="mono small">MRN-004795</span></td><td>UPI · ₹9,800.00</td><td class="mono">11:31:47</td><td>10m 13s</td><td><span class="chip red">UNCONFIRMED</span> no callback</td><td><span class="chip red">OVERDUE 7m 13s · own: P. D'Souza · escalated-to: M. Kulkarni</span></td><td><span class="btn small warn-outline">Resolve →</span></td></tr>
+        <tr><td class="mono">INV/NPV/26-27/0399</td><td>Priya Menon · <span class="mono small">MRN-004828</span></td><td>UPI · ₹1,500.00</td><td class="mono">11:40:55</td><td>1m 05s</td><td><span class="chip amber">AWAITING</span> countdown 1:55</td><td><span class="chip teal">In window · own: D. Nair</span></td><td><span class="btn small">View</span></td></tr>
       </table>
       <p class="small muted" style="margin-top:8px">Rows auto-refresh every 10s from the payment-status poller. A late provider webhook auto-resolves the row and issues the receipt without cashier action.</p>
     </div>
@@ -252,7 +252,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE C — EMPTY (ALL DUES CLEARED)</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -279,7 +279,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#bl-02" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-02</a></span> Invoice creation &amp; detail</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S2 invoice + C-5 GST fixes</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Cashier builds the invoice from the ordered services (rates and SAC codes pulled from the service catalog — no free-typed amounts), applies any discount which carries its own approval state, then issues the document. Issue is a legal, money-moving act: it pulls the next number from the central series registry and requires a step-up identity confirmation. Diagnostic services carry "Exempt (healthcare service)" labeling — never a 0% CGST/SGST row.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -296,7 +296,7 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Billing › Create invoice › Draft</div>
       <div class="page-title">New invoice — draft <span class="chip grey">DRAFT · no number reserved</span></div>
-      <div class="page-sub">Number is assigned only on issue, from central series <span class="mono">INV/AND/26-27/</span> (next: <span class="mono">0413</span>). Drafts carry a temporary ref <span class="mono">DFT-AND-8841</span>.</div>
+      <div class="page-sub">Number is assigned only on issue, from central series <span class="mono">INV/NPV/26-27/</span> (next: <span class="mono">0413</span>). Drafts carry a temporary ref <span class="mono">DFT-AND-8841</span>.</div>
       <div class="stepper">
         <div class="step done"><span class="dot">✓</span> Patient &amp; visit</div><span class="step-line"></span>
         <div class="step done"><span class="dot">✓</span> Services</div><span class="step-line"></span>
@@ -307,8 +307,8 @@ tr.dim td{color:#94A3B8}
         <div>
           <div class="card" style="border:1px solid #CBD5E1">
             <div style="display:flex;justify-content:space-between;border-bottom:2px solid #0F766E;padding-bottom:8px;margin-bottom:10px">
-              <div><b style="color:#0F766E">◎ Meridian Diagnostics</b><br><span class="small muted">14 Veera Desai Road, Andheri West, Mumbai 400053<br>GSTIN 27AAACM1234K1Z5 · State: 27-Maharashtra</span></div>
-              <div style="text-align:right" class="small muted">TAX INVOICE (healthcare)<br>Series <span class="mono">INV/AND/26-27/</span> — number on issue<br>Date: 25 Jul 2026 IST</div>
+              <div><b style="color:#0F766E">◎ Magnus Diagnostics</b><br><span class="small muted">14 Veera Desai Road, North Paravoor, Kochi 400053<br>GSTIN 32AAACM1234K1Z7 · State: 27-Kerala</span></div>
+              <div style="text-align:right" class="small muted">TAX INVOICE (healthcare)<br>Series <span class="mono">INV/NPV/26-27/</span> — number on issue<br>Date: 25 Jul 2026 IST</div>
             </div>
             <dl class="kv" style="margin-bottom:10px">
               <dt>Patient</dt><dd>Aarav Sharma · <span class="mono">MRN-004821</span> · M/41 · Aadhaar ••••-••••-4417 (last-4 only)</dd>
@@ -320,7 +320,7 @@ tr.dim td{color:#94A3B8}
               <tr><td>1</td><td>CT KUB (plain) — <span class="mono small">ACC-2026-91242</span></td><td class="mono">999316</td><td>1</td><td>4,200.00</td><td><span class="chip green">Exempt (healthcare service)</span></td><td>4,200.00</td><td><span class="btn ghost small">✕</span></td></tr>
               <tr><td>2</td><td>Doppler Carotid bilateral — <span class="mono small">ACC-2026-91243</span></td><td class="mono">999316</td><td>1</td><td>3,600.00</td><td><span class="chip green">Exempt (healthcare service)</span></td><td>3,600.00</td><td><span class="btn ghost small">✕</span></td></tr>
               <tr><td>3</td><td>Radiologist reporting — Dr. V. Shetty</td><td class="mono">999316</td><td>2</td><td>350.00</td><td><span class="chip green">Exempt (healthcare service)</span></td><td>700.00</td><td><span class="btn ghost small">✕</span></td></tr>
-              <tr><td colspan="8"><span class="btn ghost small">＋ Add service from catalog…</span> <span class="small muted">rates locked to Andheri West tariff v2026-Q2; manual rate edits are not permitted at cashier role</span></td></tr>
+              <tr><td colspan="8"><span class="btn ghost small">＋ Add service from catalog…</span> <span class="small muted">rates locked to North Paravoor tariff v2026-Q2; manual rate edits are not permitted at cashier role</span></td></tr>
               <tr><td colspan="6" style="text-align:right" class="bold">Gross</td><td class="bold">8,500.00</td><td></td></tr>
               <tr><td colspan="6" style="text-align:right">Discount — referrer courtesy 5% <span class="chip amber">PENDING APPROVAL · M. Kulkarni</span></td><td>−425.00</td><td><span class="btn ghost small">✕</span></td></tr>
               <tr><td colspan="6" style="text-align:right" class="bold">Net payable (INR)</td><td class="bold" style="font-size:14px">₹8,075.00</td><td></td></tr>
@@ -349,7 +349,7 @@ tr.dim td{color:#94A3B8}
             <div class="card-title">Issue</div>
             <span class="btn primary disabled" style="width:100%">Issue invoice — blocked by pending discount</span>
             <span class="btn" style="width:100%;margin-top:8px">Save draft</span>
-            <div class="small muted" style="margin-top:8px">🔒 Issuing requires step-up identity confirmation and reserves the next number from the central series registry. Issued invoices cannot be edited — only credit-noted (CRN/AND/26-27/00xx).</div>
+            <div class="small muted" style="margin-top:8px">🔒 Issuing requires step-up identity confirmation and reserves the next number from the central series registry. Issued invoices cannot be edited — only credit-noted (CRN/NPV/26-27/00xx).</div>
           </div>
         </div>
       </div>
@@ -362,7 +362,7 @@ tr.dim td{color:#94A3B8}
 <div class="state-tag">STATE B — ISSUED INVOICE (READ-ONLY) + STEP-UP CONFIRM MODAL AT ISSUE</div>
 <div class="modal-wrap">
   <div class="modal">
-    <h3>Confirm your identity to issue INV/AND/26-27/0413</h3>
+    <h3>Confirm your identity to issue INV/NPV/26-27/0413</h3>
     <p class="small muted">Issuing an invoice is a legal financial document action. Confirm it is you, P. D'Souza, at counter 2.</p>
     <div class="banner info" style="margin-top:10px"><b>Document summary</b>Aarav Sharma · MRN-004821 · Net ₹8,075.00 · Exempt (healthcare service) · discount approved by M. Kulkarni 11:58 IST.</div>
     <div class="field"><label>Magnus password <span class="req">*</span></label><input class="input" value="••••••••"/></div>
@@ -372,7 +372,7 @@ tr.dim td{color:#94A3B8}
   </div>
 </div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -380,14 +380,14 @@ tr.dim td{color:#94A3B8}
       <div class="nav-item">Collect payment</div>
     </div>
     <div class="main">
-      <div class="crumb">Billing › Invoice › INV/AND/26-27/0413</div>
-      <div class="page-title">Invoice INV/AND/26-27/0413 <span class="chip amber">ISSUED · UNPAID</span> <span class="actions-right"><span class="btn small primary">Collect ₹8,075 →</span> <span class="btn small">Print</span> <span class="btn small">Credit note…</span></span></div>
-      <div class="page-sub">Issued 25 Jul 2026 12:01 IST by P. D'Souza · identity confirmed · number reserved from central series registry (INV/AND/26-27, branch AND).</div>
-      <div class="banner success"><b>Issued and locked.</b> Line items, rates and discount are frozen. Corrections require a credit note CRN/AND/26-27/00xx with supervisor approval.</div>
+      <div class="crumb">Billing › Invoice › INV/NPV/26-27/0413</div>
+      <div class="page-title">Invoice INV/NPV/26-27/0413 <span class="chip amber">ISSUED · UNPAID</span> <span class="actions-right"><span class="btn small primary">Collect ₹8,075 →</span> <span class="btn small">Print</span> <span class="btn small">Credit note…</span></span></div>
+      <div class="page-sub">Issued 25 Jul 2026 12:01 IST by P. D'Souza · identity confirmed · number reserved from central series registry (INV/NPV/26-27, branch AND).</div>
+      <div class="banner success"><b>Issued and locked.</b> Line items, rates and discount are frozen. Corrections require a credit note CRN/NPV/26-27/00xx with supervisor approval.</div>
       <div class="card" style="max-width:760px">
         <div style="display:flex;justify-content:space-between;border-bottom:2px solid #0F766E;padding-bottom:8px;margin-bottom:10px">
-          <div><b style="color:#0F766E">◎ Meridian Diagnostics</b><br><span class="small muted">14 Veera Desai Road, Andheri West, Mumbai 400053 · GSTIN 27AAACM1234K1Z5</span></div>
-          <div style="text-align:right" class="small"><b class="mono">INV/AND/26-27/0413</b><br><span class="muted">25 Jul 2026 · 12:01 IST · TAX INVOICE (healthcare)</span></div>
+          <div><b style="color:#0F766E">◎ Magnus Diagnostics</b><br><span class="small muted">14 Veera Desai Road, North Paravoor, Kochi 400053 · GSTIN 32AAACM1234K1Z7</span></div>
+          <div style="text-align:right" class="small"><b class="mono">INV/NPV/26-27/0413</b><br><span class="muted">25 Jul 2026 · 12:01 IST · TAX INVOICE (healthcare)</span></div>
         </div>
         <table>
           <tr><th>#</th><th>Service</th><th>SAC</th><th>Qty</th><th>Rate ₹</th><th>GST treatment</th><th>Amount ₹</th></tr>
@@ -405,7 +405,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE C — CREDIT-INVOICE VARIANT (CORPORATE PAYER)</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni (Billing supervisor) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni (Billing supervisor) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -413,8 +413,8 @@ tr.dim td{color:#94A3B8}
       <div class="nav-item">Credit notes</div>
     </div>
     <div class="main">
-      <div class="crumb">Billing › Invoice › INV/AND/26-27/0406</div>
-      <div class="page-title">Invoice INV/AND/26-27/0406 <span class="chip violet">CREDIT · BILL TO PAYER</span></div>
+      <div class="crumb">Billing › Invoice › INV/NPV/26-27/0406</div>
+      <div class="page-title">Invoice INV/NPV/26-27/0406 <span class="chip violet">CREDIT · BILL TO PAYER</span></div>
       <div class="page-sub">Patient: Mohammed Al-Rashid · <span class="mono">MRN-004790</span> · payer <span class="chip violet">GulfCare TPA · agreement GC-MRD-2026-11</span> · patient co-pay ₹0.</div>
       <div class="banner info"><b>Nothing to collect from patient at desk.</b> Amount ₹950.00 posts to the GulfCare TPA credit ledger (30-day terms, credit limit ₹2,50,000, utilised ₹64,300). Pre-authorisation <span class="mono">GC-PA-88412</span> attached.</div>
       <div class="card" style="max-width:760px">
@@ -440,7 +440,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#bl-03" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-03</a></span> Payment collection</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S3 payment collection + cash UI</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Cashier collects against an issued invoice using CASH (tender/change with drawer session ref), CARD (terminal handshake) or UPI (dynamic QR with live status poll and a 3-minute countdown). Part-payments require a reason. On success Magnus issues a receipt from the RCP series and sends an SMS only if the patient's messaging consent allows it.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -454,8 +454,8 @@ tr.dim td{color:#94A3B8}
       <div class="nav-item">Day close</div>
     </div>
     <div class="main">
-      <div class="crumb">Billing › Collect › INV/AND/26-27/0413</div>
-      <div class="page-title">Collect payment — INV/AND/26-27/0413</div>
+      <div class="crumb">Billing › Collect › INV/NPV/26-27/0413</div>
+      <div class="page-title">Collect payment — INV/NPV/26-27/0413</div>
       <div class="page-sub">Aarav Sharma · <span class="mono">MRN-004821</span> · net payable <b>₹8,075.00</b> · drawer session <span class="mono">DRW-AND-0725-02</span> · counter 2</div>
       <div class="split">
         <div>
@@ -489,7 +489,7 @@ tr.dim td{color:#94A3B8}
               <span class="btn primary" style="flex:1">Record cash ₹8,075.00 &amp; issue receipt</span>
               <span class="btn">Switch to part-payment</span>
             </div>
-            <div class="small muted" style="margin-top:8px">🔒 Receipt will be issued as next <span class="mono">RCP/AND/26-27/0xxx</span> from the central number-series registry. SMS receipt link goes to +91 98••• ••231 — patient consent: <span class="chip green">SMS ALLOWED</span>.</div>
+            <div class="small muted" style="margin-top:8px">🔒 Receipt will be issued as next <span class="mono">RCP/NPV/26-27/0xxx</span> from the central number-series registry. SMS receipt link goes to +91 98••• ••231 — patient consent: <span class="chip green">SMS ALLOWED</span>.</div>
           </div>
           <div class="card">
             <div class="card-title">Part-payment (if collecting less than due) <span class="chip grey">COLLAPSED — SHOWN FOR SPEC</span></div>
@@ -504,7 +504,7 @@ tr.dim td{color:#94A3B8}
           <div class="card" style="border-top:3px solid #0F766E">
             <div class="card-title">Invoice summary</div>
             <dl class="kv" style="grid-template-columns:110px 1fr">
-              <dt>Invoice</dt><dd class="mono">INV/AND/26-27/0413</dd>
+              <dt>Invoice</dt><dd class="mono">INV/NPV/26-27/0413</dd>
               <dt>Patient</dt><dd>Aarav Sharma · <span class="mono">MRN-004821</span></dd>
               <dt>Net due</dt><dd class="bold">₹8,075.00</dd>
               <dt>GST</dt><dd>Exempt (healthcare service)</dd>
@@ -533,7 +533,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE B — UPI AWAITING CONFIRMATION WITH COUNTDOWN</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -541,7 +541,7 @@ tr.dim td{color:#94A3B8}
       <div class="nav-item">Pending payments <span class="nav-badge red">4</span></div>
     </div>
     <div class="main">
-      <div class="crumb">Billing › Collect › INV/AND/26-27/0412 › UPI</div>
+      <div class="crumb">Billing › Collect › INV/NPV/26-27/0412 › UPI</div>
       <div class="page-title">UPI collection — ₹13,500.00</div>
       <div class="page-sub">Sofia Rossi · <span class="mono">MRN-004822</span> · payment ref <span class="mono">PAY-2026-77120</span> · initiated 11:44:03 IST</div>
       <div class="row">
@@ -576,7 +576,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE C — SUCCESS · RECEIPT ISSUED</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -584,20 +584,20 @@ tr.dim td{color:#94A3B8}
       <div class="nav-item">Receipts &amp; reprints</div>
     </div>
     <div class="main">
-      <div class="crumb">Billing › Collect › INV/AND/26-27/0412 › Success</div>
+      <div class="crumb">Billing › Collect › INV/NPV/26-27/0412 › Success</div>
       <div class="page-title">Payment received ✅</div>
       <div class="page-sub">Confirmed by provider at 11:46:12 IST · UPI · UTR <span class="mono">616309882741</span></div>
-      <div class="banner success"><b>₹13,500.00 collected in full — invoice INV/AND/26-27/0412 is now PAID.</b> Receipt <span class="mono">RCP/AND/26-27/0891</span> issued from the central number-series registry.</div>
+      <div class="banner success"><b>₹13,500.00 collected in full — invoice INV/NPV/26-27/0412 is now PAID.</b> Receipt <span class="mono">RCP/NPV/26-27/0891</span> issued from the central number-series registry.</div>
       <div class="row">
         <div class="card grow">
-          <div class="card-title">Receipt RCP/AND/26-27/0891</div>
+          <div class="card-title">Receipt RCP/NPV/26-27/0891</div>
           <dl class="kv">
             <dt>Patient</dt><dd>Sofia Rossi · <span class="mono">MRN-004822</span></dd>
-            <dt>Against</dt><dd class="mono">INV/AND/26-27/0412</dd>
+            <dt>Against</dt><dd class="mono">INV/NPV/26-27/0412</dd>
             <dt>Amount</dt><dd class="bold">₹13,500.00 (Rupees Thirteen Thousand Five Hundred Only)</dd>
             <dt>Mode / ref</dt><dd>UPI · UTR <span class="mono">616309882741</span></dd>
             <dt>Collected by</dt><dd>P. D'Souza · counter 2 · drawer <span class="mono">DRW-AND-0725-02</span></dd>
-            <dt>GST</dt><dd>Exempt (healthcare service) · GSTIN 27AAACM1234K1Z5</dd>
+            <dt>GST</dt><dd>Exempt (healthcare service) · GSTIN 32AAACM1234K1Z7</dd>
           </dl>
           <div style="display:flex;gap:10px;margin-top:12px"><span class="btn primary">Print receipt</span><span class="btn">Open invoice</span><span class="btn ghost">Next patient →</span></div>
         </div>
@@ -620,7 +620,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#bl-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-04</a></span> Payment pending &amp; reconciliation</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S3 pending → NS-09 UPI recovery</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Home for payments that did not confirm in the window: initiated → awaiting → 3-min timeout → UNCONFIRMED. Cashier can re-query the provider, mark received with evidence (UTR mandatory, supervisor approves asynchronously, with an explicit double-collection warning), or cancel-and-collect-cash under a duplicate-auto-refund guard. Late provider webhooks auto-resolve rows without cashier action.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -635,7 +635,7 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Billing › Pending payments › PAY-2026-77094</div>
       <div class="page-title">Stuck payment — PAY-2026-77094 <span class="chip red">UNCONFIRMED</span></div>
-      <div class="page-sub">UPI ₹9,800.00 against <span class="mono">INV/AND/26-27/0402</span> · Rajesh Gupta · <span class="mono">MRN-004795</span> · owner P. D'Souza · escalated-to M. Kulkarni</div>
+      <div class="page-sub">UPI ₹9,800.00 against <span class="mono">INV/NPV/26-27/0402</span> · Rajesh Gupta · <span class="mono">MRN-004795</span> · owner P. D'Souza · escalated-to M. Kulkarni</div>
       <div class="split">
         <div>
           <div class="card">
@@ -703,7 +703,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE C — AUTO-RESOLVED BY LATE WEBHOOK</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -712,7 +712,7 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Billing › Pending payments › PAY-2026-77101</div>
       <div class="page-title">PAY-2026-77101 <span class="chip green">AUTO-RESOLVED</span></div>
-      <div class="banner success"><b>Late confirmation received — no cashier action needed.</b> Provider webhook arrived 11:49:31 IST confirming card payment ₹3,600.00 (auth code <span class="mono">A84412</span>, RRN <span class="mono">620614887301</span>). Invoice <span class="mono">INV/AND/26-27/0405</span> marked PAID; receipt <span class="mono">RCP/AND/26-27/0892</span> issued automatically and SMS sent per consent.</div>
+      <div class="banner success"><b>Late confirmation received — no cashier action needed.</b> Provider webhook arrived 11:49:31 IST confirming card payment ₹3,600.00 (auth code <span class="mono">A84412</span>, RRN <span class="mono">620614887301</span>). Invoice <span class="mono">INV/NPV/26-27/0405</span> marked PAID; receipt <span class="mono">RCP/NPV/26-27/0892</span> issued automatically and SMS sent per consent.</div>
       <div class="card" style="max-width:640px">
         <div class="card-title">Resolution trail</div>
         <div class="timeline">
@@ -728,7 +728,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE D — DUPLICATE DETECTED → AUTO-REFUND INITIATED</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni (Billing supervisor) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni (Billing supervisor) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -738,7 +738,7 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Billing › Pending payments › PAY-2026-77094 › Duplicate</div>
       <div class="page-title">Duplicate collection detected <span class="chip red">REFUND INITIATED</span></div>
-      <div class="banner warn"><b>Cashier used "Cancel &amp; collect cash" at 11:52; the original UPI then confirmed at 11:57.</b> The duplicate-auto-refund guard fired: invoice keeps the cash receipt <span class="mono">RCP/AND/26-27/0893</span>; the UPI amount is auto-queued for refund to source. No supervisor discretion is required to refund — only to cancel the refund.</div>
+      <div class="banner warn"><b>Cashier used "Cancel &amp; collect cash" at 11:52; the original UPI then confirmed at 11:57.</b> The duplicate-auto-refund guard fired: invoice keeps the cash receipt <span class="mono">RCP/NPV/26-27/0893</span>; the UPI amount is auto-queued for refund to source. No supervisor discretion is required to refund — only to cancel the refund.</div>
       <div class="card" style="max-width:700px">
         <div class="card-title">Refund to source</div>
         <dl class="kv">
@@ -760,7 +760,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#bl-05" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-05</a></span> Receipts &amp; reprints</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S4 receipts + duplicate watermark</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Search and render any receipt on clinic letterhead with exempt labeling, payment mode + reference/UTR and collected-by details. Reprints always carry a DUPLICATE COPY watermark and append to the reprint log (who/when/why). Voiding a receipt is rare: it needs supervisor approval, a reason, and a cross-reference to the replacement document.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -774,9 +774,9 @@ tr.dim td{color:#94A3B8}
       <div class="nav-item">Day close</div>
     </div>
     <div class="main">
-      <div class="crumb">Billing › Receipts › RCP/AND/26-27/0891</div>
-      <div class="page-title">Receipt RCP/AND/26-27/0891 <span class="chip green">ORIGINAL · VALID</span> <span class="actions-right"><span class="btn small primary">Print original</span> <span class="btn small">Reprint (duplicate)…</span> <span class="btn small danger">Void…</span></span></div>
-      <div class="page-sub">Issued 25 Jul 2026 11:46 IST · against <span class="mono">INV/AND/26-27/0412</span> · printed 1× · reprinted 0×</div>
+      <div class="crumb">Billing › Receipts › RCP/NPV/26-27/0891</div>
+      <div class="page-title">Receipt RCP/NPV/26-27/0891 <span class="chip green">ORIGINAL · VALID</span> <span class="actions-right"><span class="btn small primary">Print original</span> <span class="btn small">Reprint (duplicate)…</span> <span class="btn small danger">Void…</span></span></div>
+      <div class="page-sub">Issued 25 Jul 2026 11:46 IST · against <span class="mono">INV/NPV/26-27/0412</span> · printed 1× · reprinted 0×</div>
       <div style="display:flex;gap:8px;margin-bottom:12px">
         <input class="input" style="width:260px" value="Search receipt no / MRN / UTR / phone…"/>
         <select class="select" style="width:140px"><option>All modes</option></select>
@@ -787,12 +787,12 @@ tr.dim td{color:#94A3B8}
         <div>
           <div class="card" style="border:1px solid #CBD5E1">
             <div style="display:flex;justify-content:space-between;border-bottom:2px solid #0F766E;padding-bottom:8px;margin-bottom:10px">
-              <div><b style="color:#0F766E">◎ Meridian Diagnostics</b><br><span class="small muted">14 Veera Desai Road, Andheri West, Mumbai 400053<br>GSTIN 27AAACM1234K1Z5 · +91 22 4890 1200</span></div>
-              <div style="text-align:right" class="small"><b>PAYMENT RECEIPT</b><br><span class="mono bold">RCP/AND/26-27/0891</span><br><span class="muted">25 Jul 2026 · 11:46 IST</span></div>
+              <div><b style="color:#0F766E">◎ Magnus Diagnostics</b><br><span class="small muted">14 Veera Desai Road, North Paravoor, Kochi 400053<br>GSTIN 32AAACM1234K1Z7 · +91 22 4890 1200</span></div>
+              <div style="text-align:right" class="small"><b>PAYMENT RECEIPT</b><br><span class="mono bold">RCP/NPV/26-27/0891</span><br><span class="muted">25 Jul 2026 · 11:46 IST</span></div>
             </div>
             <dl class="kv">
               <dt>Received from</dt><dd>Sofia Rossi · <span class="mono">MRN-004822</span></dd>
-              <dt>Against invoice</dt><dd class="mono">INV/AND/26-27/0412 — MRI Brain (plain) + contrast consumables</dd>
+              <dt>Against invoice</dt><dd class="mono">INV/NPV/26-27/0412 — MRI Brain (plain) + contrast consumables</dd>
               <dt>Amount</dt><dd class="bold" style="font-size:15px">₹13,500.00</dd>
               <dt>In words</dt><dd>Rupees Thirteen Thousand Five Hundred Only</dd>
               <dt>Mode / reference</dt><dd>UPI · UTR <span class="mono">616309882741</span> · provider RazorPG</dd>
@@ -830,7 +830,7 @@ tr.dim td{color:#94A3B8}
 <div class="state-tag">STATE B — DUPLICATE REPRINT (WATERMARK + REASON + LOG)</div>
 <div class="modal-wrap">
   <div class="modal">
-    <h3>Reprint RCP/AND/26-27/0891 as DUPLICATE COPY</h3>
+    <h3>Reprint RCP/NPV/26-27/0891 as DUPLICATE COPY</h3>
     <div class="field"><label>Reason for reprint <span class="req">*</span></label><select class="select"><option>Patient lost original — requested at desk</option></select></div>
     <div class="field"><label>Requested by</label><div class="input" style="background:#F8FAFC">Patient in person · identity checked (MRN-004822, DOB match)</div></div>
     <div class="check"><span class="box on">✓</span> Print will carry a diagonal DUPLICATE COPY watermark and reprint counter.</div>
@@ -839,20 +839,20 @@ tr.dim td{color:#94A3B8}
   </div>
 </div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
       <div class="nav-item active">Receipts &amp; reprints</div>
     </div>
     <div class="main">
-      <div class="crumb">Billing › Receipts › RCP/AND/26-27/0891 › Duplicate</div>
+      <div class="crumb">Billing › Receipts › RCP/NPV/26-27/0891 › Duplicate</div>
       <div class="page-title">Duplicate print preview</div>
       <div class="card" style="max-width:680px;position:relative;overflow:hidden">
         <div style="position:absolute;top:38%;left:8%;right:8%;text-align:center;transform:rotate(-18deg);font-size:34px;font-weight:800;color:#B91C1C;opacity:.18;letter-spacing:.2em">DUPLICATE COPY</div>
         <div style="display:flex;justify-content:space-between;border-bottom:2px solid #0F766E;padding-bottom:8px;margin-bottom:10px">
-          <div><b style="color:#0F766E">◎ Meridian Diagnostics</b><br><span class="small muted">GSTIN 27AAACM1234K1Z5 · Andheri West</span></div>
-          <div style="text-align:right" class="small"><b>PAYMENT RECEIPT — DUPLICATE</b><br><span class="mono bold">RCP/AND/26-27/0891</span><br><span class="muted">Reprint #1 · 25 Jul 2026 14:22 IST</span></div>
+          <div><b style="color:#0F766E">◎ Magnus Diagnostics</b><br><span class="small muted">GSTIN 32AAACM1234K1Z7 · North Paravoor</span></div>
+          <div style="text-align:right" class="small"><b>PAYMENT RECEIPT — DUPLICATE</b><br><span class="mono bold">RCP/NPV/26-27/0891</span><br><span class="muted">Reprint #1 · 25 Jul 2026 14:22 IST</span></div>
         </div>
         <dl class="kv">
           <dt>Received from</dt><dd>Sofia Rossi · <span class="mono">MRN-004822</span></dd>
@@ -876,33 +876,33 @@ tr.dim td{color:#94A3B8}
 <div class="state-tag">STATE C — VOID RECEIPT (APPROVAL + CROSS-REF REPLACEMENT) &amp; VOID TRAIL</div>
 <div class="modal-wrap">
   <div class="modal danger">
-    <h3>Void receipt RCP/AND/26-27/0888 — supervisor approval required</h3>
+    <h3>Void receipt RCP/NPV/26-27/0888 — supervisor approval required</h3>
     <div class="banner danger" style="margin-top:8px"><b>Voiding is rare and permanent.</b> The receipt stays in the series (numbers are never reused) marked VOID, cross-referenced to its replacement. The invoice's paid state is recalculated.</div>
     <div class="field"><label>Reason <span class="req">*</span></label><select class="select"><option>Wrong patient selected — payment belonged to MRN-004828</option></select></div>
-    <div class="field"><label>Replacement document <span class="req">*</span></label><div class="input" style="background:#F8FAFC">RCP/AND/26-27/0890 (correct patient: Priya Menon, MRN-004828)</div></div>
+    <div class="field"><label>Replacement document <span class="req">*</span></label><div class="input" style="background:#F8FAFC">RCP/NPV/26-27/0890 (correct patient: Priya Menon, MRN-004828)</div></div>
     <div class="field"><label>Supervisor approval — M. Kulkarni <span class="req">*</span></label><input class="input" value="••••••••"/><div class="hint">Step-up identity confirmation of the approving supervisor at this station.</div></div>
     <div class="modal-actions"><span class="btn">Cancel</span><span class="btn danger">Void receipt</span></div>
   </div>
 </div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni (Billing supervisor) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni (Billing supervisor) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
       <div class="nav-item active">Receipts &amp; reprints</div>
     </div>
     <div class="main">
-      <div class="crumb">Billing › Receipts › RCP/AND/26-27/0888 › Void trail</div>
-      <div class="page-title">Receipt RCP/AND/26-27/0888 <span class="chip outline-red">VOID</span></div>
-      <div class="page-sub">Cash ₹950.00 · originally recorded against Ananya Rao (<span class="mono">MRN-004819</span>) in error · replaced by <span class="mono">RCP/AND/26-27/0890</span></div>
+      <div class="crumb">Billing › Receipts › RCP/NPV/26-27/0888 › Void trail</div>
+      <div class="page-title">Receipt RCP/NPV/26-27/0888 <span class="chip outline-red">VOID</span></div>
+      <div class="page-sub">Cash ₹950.00 · originally recorded against Ananya Rao (<span class="mono">MRN-004819</span>) in error · replaced by <span class="mono">RCP/NPV/26-27/0890</span></div>
       <div class="card" style="max-width:680px">
         <div class="card-title">Void trail</div>
         <div class="timeline">
           <div class="ev"><span class="t">11:31:10</span><span>Receipt issued by P. D'Souza · cash ₹950.00 · counter 2</span></div>
           <div class="ev"><span class="t">11:35:44</span><span>Error reported: payment belonged to Priya Menon (MRN-004828), wrong patient row selected</span></div>
           <div class="ev"><span class="t">11:38:02</span><span>Void requested by P. D'Souza · reason recorded</span></div>
-          <div class="ev"><span class="t">11:39:17</span><span><b>Approved &amp; voided by M. Kulkarni</b> (identity confirmed) · cross-ref replacement <span class="mono">RCP/AND/26-27/0890</span> issued to correct patient</span></div>
-          <div class="ev"><span class="t">11:39:18</span><span>Invoice INV/AND/26-27/0401 paid-state recalculated · drawer session unaffected (net cash unchanged)</span></div>
+          <div class="ev"><span class="t">11:39:17</span><span><b>Approved &amp; voided by M. Kulkarni</b> (identity confirmed) · cross-ref replacement <span class="mono">RCP/NPV/26-27/0890</span> issued to correct patient</span></div>
+          <div class="ev"><span class="t">11:39:18</span><span>Invoice INV/NPV/26-27/0401 paid-state recalculated · drawer session unaffected (net cash unchanged)</span></div>
         </div>
         <p class="small muted" style="margin-top:8px">VOID receipts remain visible in receipt search and the day-close pack; the series registry shows number 0888 as consumed-void.</p>
       </div>
@@ -916,7 +916,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#bl-06" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-06</a></span> Refunds</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S5 refunds + failure state</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Cashier raises a refund against a paid invoice/receipt — amount can never exceed the collected balance and a reason from the taxonomy is mandatory. Refunds route through the async approvals queue (<a href="#bl-08" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-08</a>); once approved they process on the original payment mode by preference, with a justified cash fallback. Failed bank/UPI refunds bounce into a recovery state with retry or alternate-method options, and every refund lands in the immutable refund register.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -935,9 +935,9 @@ tr.dim td{color:#94A3B8}
       <div class="nav-item">Audit log</div>
     </div>
     <div class="main">
-      <div class="crumb">Billing › Invoices › INV/AND/26-27/0412 › Refund request</div>
+      <div class="crumb">Billing › Invoices › INV/NPV/26-27/0412 › Refund request</div>
       <div class="page-title">New refund request <span class="chip amber">PENDING APPROVAL ON SUBMIT</span></div>
-      <div class="page-sub">Refund against receipt RCP/AND/26-27/0637 · linked invoice INV/AND/26-27/0412 · GSTIN 27AAACM1234K1Z5</div>
+      <div class="page-sub">Refund against receipt RCP/NPV/26-27/0637 · linked invoice INV/NPV/26-27/0412 · GSTIN 32AAACM1234K1Z7</div>
 
       <div class="banner info"><b>Refund ceiling enforced</b>Maximum refundable = collected on this invoice minus prior refunds: <span class="mono bold">₹4,720.00</span>. Amounts above this are blocked at entry — Magnus never issues negative-balance refunds.</div>
 
@@ -974,8 +974,8 @@ tr.dim td{color:#94A3B8}
             <dl class="kv" style="grid-template-columns:110px 1fr">
               <dt>Patient</dt><dd>Sofia Rossi · <span class="mono">MRN-004822</span></dd>
               <dt>Visit</dt><dd class="mono">VIS-2026-30291</dd>
-              <dt>Invoice</dt><dd class="mono">INV/AND/26-27/0412</dd>
-              <dt>Receipt</dt><dd class="mono">RCP/AND/26-27/0637</dd>
+              <dt>Invoice</dt><dd class="mono">INV/NPV/26-27/0412</dd>
+              <dt>Receipt</dt><dd class="mono">RCP/NPV/26-27/0637</dd>
               <dt>Collected</dt><dd class="mono">₹4,720.00 (UPI)</dd>
               <dt>UTR</dt><dd class="mono">617234598812</dd>
               <dt>Prior refunds</dt><dd class="mono">₹0.00</dd>
@@ -998,7 +998,7 @@ tr.dim td{color:#94A3B8}
 <div class="state-tag">STATE B — APPROVED · PROCESSING → COMPLETED</div>
 <div class="frame"><div class="body"><div class="main">
   <div class="page-title">Refund REF/AND/26-27/0088 <span class="chip blue">PROCESSING</span> <span class="chip green">APPROVED by M. Kulkarni</span></div>
-  <div class="page-sub">₹1,500.00 · UPI reversal to original VPA · Sofia Rossi (MRN-004822) · INV/AND/26-27/0412</div>
+  <div class="page-sub">₹1,500.00 · UPI reversal to original VPA · Sofia Rossi (MRN-004822) · INV/NPV/26-27/0412</div>
   <div class="stepper">
     <div class="step done"><span class="dot">✓</span> Requested 25 Jul 10:12</div><span class="step-line"></span>
     <div class="step done"><span class="dot">✓</span> Approved 25 Jul 10:47</div><span class="step-line"></span>
@@ -1021,8 +1021,8 @@ tr.dim td{color:#94A3B8}
 <div class="state-tag">STATE C — REFUND-FAILED · RECOVERY OPTIONS</div>
 <div class="frame"><div class="body"><div class="main">
   <div class="page-title">Refund REF/AND/26-27/0081 <span class="chip red">REFUND-FAILED</span> <span class="chip amber">SLA 4h · owner P. D'Souza · escalated to M. Kulkarni</span></div>
-  <div class="page-sub">₹2,850.00 · Mohammed Al-Rashid (MRN-004790) · INV/AND/26-27/0398 · attempted 24 Jul 17:05 IST</div>
-  <div class="banner danger"><b>Bank bounce — reversal rejected by beneficiary bank</b>Gateway response: <span class="mono">RF03 — account closed / VPA inactive</span>. Funds returned to Meridian settlement account on 25 Jul 07:20 IST. Patient auto-notified: "Your refund could not be completed — the clinic will contact you for an alternate account." No amount has been debited to the patient.</div>
+  <div class="page-sub">₹2,850.00 · Mohammed Al-Rashid (MRN-004790) · INV/NPV/26-27/0398 · attempted 24 Jul 17:05 IST</div>
+  <div class="banner danger"><b>Bank bounce — reversal rejected by beneficiary bank</b>Gateway response: <span class="mono">RF03 — account closed / VPA inactive</span>. Funds returned to Magnus settlement account on 25 Jul 07:20 IST. Patient auto-notified: "Your refund could not be completed — the clinic will contact you for an alternate account." No amount has been debited to the patient.</div>
   <div class="card"><div class="card-title">Recovery actions</div>
     <div class="row">
       <div class="grow card" style="margin-bottom:0"><b>↻ Retry same method</b><div class="small muted" style="margin:6px 0">Retry the UPI reversal once (useful for transient bank errors). Attempt 1 of 2 used.</div><span class="btn small">Retry UPI reversal</span></div>
@@ -1035,7 +1035,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE D — REFUND REGISTER</div>
 <div class="frame"><div class="body"><div class="main">
-  <div class="page-title">Refund register — Andheri West</div>
+  <div class="page-title">Refund register — North Paravoor</div>
   <div class="page-sub">01–25 Jul 2026 · immutable register · exports to daily cash &amp; gateway reconciliation</div>
   <div class="kpi-row">
     <div class="kpi"><div class="n">₹41,270</div><div class="l">Refunded MTD</div><div class="s">23 refunds</div></div>
@@ -1060,9 +1060,9 @@ tr.dim td{color:#94A3B8}
 </section>
 <section class="screen" id="bl-07">
 <div class="screen-head"><h1><span class="sid"><a href="#bl-07" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-07</a></span> Cancel invoice &amp; credit note</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S6 cancel + R-05 credit notes</div></div></div>
-<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Cancelling an invoice always requires a reason and never hard-deletes anything. Same-day, pre-GST-filing invoices can be voided in place; anything already in the filed/locked period auto-drafts a credit note (CRN/AND/26-27/ series) that carries the original lines forward. The reissue-corrected flow links old invoice → credit note → new invoice into one auditable chain.</div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Cancelling an invoice always requires a reason and never hard-deletes anything. Same-day, pre-GST-filing invoices can be voided in place; anything already in the filed/locked period auto-drafts a credit note (CRN/NPV/26-27/ series) that carries the original lines forward. The reissue-corrected flow links old invoice → credit note → new invoice into one auditable chain.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -1081,12 +1081,12 @@ tr.dim td{color:#94A3B8}
       <div class="nav-item">Audit log</div>
     </div>
     <div class="main">
-      <div class="crumb">Billing › Invoices › INV/AND/26-27/0418 › Cancel</div>
-      <div class="page-title">Cancel invoice INV/AND/26-27/0418</div>
-      <div class="page-sub">Aarav Sharma · MRN-004821 · issued today 25 Jul 2026, 09:22 IST · ₹2,900.00 · unpaid · GSTIN 27AAACM1234K1Z5</div>
+      <div class="crumb">Billing › Invoices › INV/NPV/26-27/0418 › Cancel</div>
+      <div class="page-title">Cancel invoice INV/NPV/26-27/0418</div>
+      <div class="page-sub">Aarav Sharma · MRN-004821 · issued today 25 Jul 2026, 09:22 IST · ₹2,900.00 · unpaid · GSTIN 32AAACM1234K1Z7</div>
       <div class="banner info"><b>Same-day, pre-filing invoice</b>This invoice was raised today and the July GST period is not yet filed, so it qualifies for an in-place <b>VOID</b>. The invoice number is retained in the series (numbers are never reused) and the document is stamped VOID — it is not deleted.</div>
       <div class="modal-wrap"><div class="modal danger">
-        <h3>Void invoice INV/AND/26-27/0418?</h3>
+        <h3>Void invoice INV/NPV/26-27/0418?</h3>
         <div class="small muted" style="margin-bottom:10px">Wrong service selected at counter — CT Head billed instead of X-Ray Chest PA. Invoice is unpaid; no receipt exists, so no refund is triggered.</div>
         <div class="field"><label>Cancellation reason <span class="req">*</span></label><select class="select"><option>Wrong service / data-entry error</option></select><div class="hint">Taxonomy: data-entry error · duplicate invoice · patient did not avail service · payer/scheme change · price correction · other (needs note)</div></div>
         <div class="field"><label>Note</label><textarea class="textarea">Front office selected CT Head from favourites in error; correct order is X-Ray Chest PA per Dr. Meera Nair's referral.</textarea></div>
@@ -1103,9 +1103,9 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE B — POST-FILING CANCEL → CREDIT NOTE AUTO-DRAFTED</div>
 <div class="frame"><div class="body"><div class="main">
-  <div class="page-title">Credit note draft CRN/AND/26-27/0021 <span class="chip amber">DRAFT — PENDING APPROVAL</span></div>
-  <div class="page-sub">Against INV/AND/26-27/0361 · issued 08 Jul 2026 (period filed) · Priya Menon · MRN-004828</div>
-  <div class="banner warn"><b>Void not available — GST period already filed</b>INV/AND/26-27/0361 sits in a filed period, so Magnus auto-drafted a credit note instead. The original invoice stays untouched and legally valid; the credit note reverses it. Number drawn from the central number-series registry: <span class="mono">CRN/AND/26-27/0021</span>.</div>
+  <div class="page-title">Credit note draft CRN/NPV/26-27/0021 <span class="chip amber">DRAFT — PENDING APPROVAL</span></div>
+  <div class="page-sub">Against INV/NPV/26-27/0361 · issued 08 Jul 2026 (period filed) · Priya Menon · MRN-004828</div>
+  <div class="banner warn"><b>Void not available — GST period already filed</b>INV/NPV/26-27/0361 sits in a filed period, so Magnus auto-drafted a credit note instead. The original invoice stays untouched and legally valid; the credit note reverses it. Number drawn from the central number-series registry: <span class="mono">CRN/NPV/26-27/0021</span>.</div>
   <div class="split">
     <div class="card">
       <div class="card-title">Lines carried forward from original invoice <span class="right">FULL REVERSAL</span></div>
@@ -1123,11 +1123,11 @@ tr.dim td{color:#94A3B8}
     <div>
       <div class="card"><div class="card-title">Document facts</div>
         <dl class="kv" style="grid-template-columns:120px 1fr">
-          <dt>CRN number</dt><dd class="mono">CRN/AND/26-27/0021</dd>
-          <dt>Against invoice</dt><dd class="mono">INV/AND/26-27/0361</dd>
-          <dt>GSTIN</dt><dd class="mono">27AAACM1234K1Z5</dd>
+          <dt>CRN number</dt><dd class="mono">CRN/NPV/26-27/0021</dd>
+          <dt>Against invoice</dt><dd class="mono">INV/NPV/26-27/0361</dd>
+          <dt>GSTIN</dt><dd class="mono">32AAACM1234K1Z7</dd>
           <dt>Patient</dt><dd>Priya Menon · MRN-004828</dd>
-          <dt>Collected so far</dt><dd class="mono">₹7,300.00 (card, RCP/AND/26-27/0589)</dd>
+          <dt>Collected so far</dt><dd class="mono">₹7,300.00 (card, RCP/NPV/26-27/0589)</dd>
           <dt>Approver</dt><dd>M. Kulkarni (Billing supervisor)</dd>
           <dt>SLA</dt><dd><span class="chip teal">4h · 0h 12m elapsed</span> owner M. Kulkarni</dd>
         </dl>
@@ -1145,7 +1145,7 @@ tr.dim td{color:#94A3B8}
     <div class="grow card" style="border-top:4px solid #94A3B8;margin-bottom:0">
       <div class="card-title">1 · Original invoice <span class="chip grey">SUPERSEDED</span></div>
       <dl class="kv" style="grid-template-columns:95px 1fr">
-        <dt>Number</dt><dd class="mono">INV/AND/26-27/0361</dd>
+        <dt>Number</dt><dd class="mono">INV/NPV/26-27/0361</dd>
         <dt>Date</dt><dd>08 Jul 2026</dd>
         <dt>Billed to</dt><dd>Patient (self-pay)</dd>
         <dt>Amount</dt><dd class="mono">₹7,300.00</dd>
@@ -1156,7 +1156,7 @@ tr.dim td{color:#94A3B8}
     <div class="grow card" style="border-top:4px solid #B91C1C;margin-bottom:0">
       <div class="card-title">2 · Credit note <span class="chip red">REVERSES #1</span></div>
       <dl class="kv" style="grid-template-columns:95px 1fr">
-        <dt>Number</dt><dd class="mono">CRN/AND/26-27/0021</dd>
+        <dt>Number</dt><dd class="mono">CRN/NPV/26-27/0021</dd>
         <dt>Date</dt><dd>25 Jul 2026</dd>
         <dt>Reason</dt><dd>Payer/scheme change</dd>
         <dt>Amount</dt><dd class="mono">₹7,300.00</dd>
@@ -1167,7 +1167,7 @@ tr.dim td{color:#94A3B8}
     <div class="grow card" style="border-top:4px solid #0F766E;margin-bottom:0">
       <div class="card-title">3 · Corrected invoice <span class="chip teal">ACTIVE</span></div>
       <dl class="kv" style="grid-template-columns:95px 1fr">
-        <dt>Number</dt><dd class="mono">INV/AND/26-27/0421</dd>
+        <dt>Number</dt><dd class="mono">INV/NPV/26-27/0421</dd>
         <dt>Date</dt><dd>25 Jul 2026</dd>
         <dt>Billed to</dt><dd>Zenith Corp Health (scheme)</dd>
         <dt>Amount</dt><dd class="mono">₹7,300.00</dd>
@@ -1179,7 +1179,7 @@ tr.dim td{color:#94A3B8}
   <div class="card"><div class="card-title">Chain events</div>
     <div class="timeline">
       <div class="ev"><span class="t">11:41</span><div>Cancel requested on INV/…/0361 by P. D'Souza · reason: payer/scheme change · period filed → credit-note path forced</div></div>
-      <div class="ev"><span class="t">11:42</span><div>CRN/AND/26-27/0021 auto-drafted · lines carried forward 1:1 · sent to approvals queue (<a href="#bl-08" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-08</a>)</div></div>
+      <div class="ev"><span class="t">11:42</span><div>CRN/NPV/26-27/0021 auto-drafted · lines carried forward 1:1 · sent to approvals queue (<a href="#bl-08" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-08</a>)</div></div>
       <div class="ev"><span class="t">11:58</span><div>Approved by M. Kulkarni after identity confirmation · CRN finalised &amp; numbered</div></div>
       <div class="ev"><span class="t">12:04</span><div>Corrected invoice INV/…/0421 issued to Zenith Corp Health · linked to chain</div></div>
       <div class="ev"><span class="t">12:05</span><div>Refund REF/AND/26-27/0089 opened for unallocated ₹7,300.00 · patient notified by SMS</div></div>
@@ -1193,7 +1193,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#bl-08" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-08</a></span> Billing approvals queue</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S2/S5 approvals → NS-06 async queue</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> All money-sensitive requests — discounts over limit, refunds, invoice cancellations and write-offs — land in one async queue for the billing supervisor. The approver confirms identity before acting; rejections require a reason and bounce back to the requester with a notification. Requests untouched for 30 minutes past their hold window auto-void so counters are never blocked, and cashiers track everything in a my-requests view.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni (Billing supervisor) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni (Billing supervisor) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -1243,7 +1243,7 @@ tr.dim td{color:#94A3B8}
 <div class="frame"><div class="body"><div class="main">
   <div class="modal-wrap"><div class="modal danger">
     <h3>Reject APR-1207 — discount ₹1,180?</h3>
-    <div class="small muted" style="margin-bottom:10px">Requested by P. D'Souza · repeat-scan waiver (motion artefact) · Sofia Rossi (unmasked for decision — this view is logged) · invoice INV/AND/26-27/0412</div>
+    <div class="small muted" style="margin-bottom:10px">Requested by P. D'Souza · repeat-scan waiver (motion artefact) · Sofia Rossi (unmasked for decision — this view is logged) · invoice INV/NPV/26-27/0412</div>
     <div class="field"><label>Rejection reason <span class="req">*</span></label><select class="select"><option>Insufficient evidence — attach radiologist repeat-scan note</option></select><div class="hint">Taxonomy: insufficient evidence · wrong amount · policy not applicable · duplicate request · needs higher approver · other (needs note)</div></div>
     <div class="field"><label>Message to requester</label><textarea class="textarea">Please attach Dr. V. Shetty's note confirming the repeat was due to motion artefact, not patient request. Resubmit and I'll clear it within the hour.</textarea></div>
     <div class="check"><span class="box on">✓</span><div class="small">Notify P. D'Souza now (in-app + WhatsApp work channel) and return the request as <b>REJECTED — RESUBMITTABLE</b></div></div>
@@ -1255,7 +1255,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE C — REQUESTER VIEW (CASHIER "MY REQUESTS")</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body"><div class="main">
   <div class="page-title">My requests — P. D'Souza</div>
   <div class="page-sub">Counter 2 · today 25 Jul 2026 · requests you raised and their live status</div>
@@ -1264,7 +1264,7 @@ tr.dim td{color:#94A3B8}
     <tr><th>Req #</th><th>Type</th><th>Patient / document</th><th>Amount</th><th>Raised</th><th>Status</th><th>Next step</th></tr>
     <tr><td class="mono">APR-1209</td><td><span class="chip blue">REFUND</span></td><td>Sofia Rossi · REF-draft on INV/…/0412</td><td class="mono">₹1,500.00</td><td>10:12</td><td><span class="chip amber">PENDING · with M. Kulkarni · SLA 4h (0h 35m)</span></td><td class="small muted">Invoice parked · slot 2</td></tr>
     <tr class="hl"><td class="mono">APR-1207-R2</td><td><span class="chip amber">DISCOUNT</span></td><td>Sofia Rossi · INV/…/0412</td><td class="mono">₹1,180.00</td><td>11:58</td><td><span class="chip red">REJECTED → RESUBMITTED</span></td><td class="small">Radiologist note attached ✓ · awaiting re-review</td></tr>
-    <tr><td class="mono">APR-1210</td><td><span class="chip red">CANCEL + CRN</span></td><td>Priya Menon · INV/…/0361</td><td class="mono">₹7,300.00</td><td>11:42</td><td><span class="chip green">APPROVED 11:58</span></td><td class="small">CRN/AND/26-27/0021 finalised — reissue done</td></tr>
+    <tr><td class="mono">APR-1210</td><td><span class="chip red">CANCEL + CRN</span></td><td>Priya Menon · INV/…/0361</td><td class="mono">₹7,300.00</td><td>11:42</td><td><span class="chip green">APPROVED 11:58</span></td><td class="small">CRN/NPV/26-27/0021 finalised — reissue done</td></tr>
     <tr><td class="mono">APR-1203</td><td><span class="chip blue">REFUND</span></td><td>Rajesh Gupta · INV/…/0401</td><td class="mono">₹1,150.00</td><td>09:41</td><td><span class="chip green">APPROVED 09:58</span></td><td class="small">Refund completed (cash, justified)</td></tr>
     <tr class="dim"><td class="mono">APR-1198</td><td><span class="chip amber">DISCOUNT</span></td><td>Walk-in · draft invoice</td><td class="mono">₹350.00</td><td>08:49</td><td><span class="chip grey">AUTO-VOIDED · 30-min hold expired</span></td><td class="small">Patient left — re-request when they return</td></tr>
   </table>
@@ -1278,9 +1278,9 @@ tr.dim td{color:#94A3B8}
 </section>
 <section class="screen" id="bl-09">
 <div class="screen-head"><h1><span class="sid"><a href="#bl-09" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-09</a></span> Cash session &amp; end-of-day close</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · NS-08 cash session & EOD close</div></div></div>
-<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Each cashier opens a cash session with a counted float and closes it end-of-day through a fixed stepper: count → reconcile → resolve → sign. System totals by mode are compared against counted cash and gateway-settled digital amounts; any non-zero variance demands a reason and a supervisor countersign. The close produces an immutable CSH-AND-2026-xxxx record, and gateway mismatches link straight into the <a href="#bl-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-04</a> reconciliation ledger.</div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Each cashier opens a cash session with a counted float and closes it end-of-day through a fixed stepper: count → reconcile → resolve → sign. System totals by mode are compared against counted cash and gateway-settled digital amounts; any non-zero variance demands a reason and a supervisor countersign. The close produces an immutable CSH-NPV-2026-xxxx record, and gateway mismatches link straight into the <a href="#bl-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-04</a> reconciliation ledger.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza (Cashier) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -1301,7 +1301,7 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Billing › Cash session › Today</div>
       <div class="page-title">Cash session — Counter 2 <span class="chip green">OPEN</span></div>
-      <div class="page-sub">Session CSH-AND-2026-0619 · opened 25 Jul 2026, 08:02 IST by P. D'Souza · witnessed by D. Nair (Front office)</div>
+      <div class="page-sub">Session CSH-NPV-2026-0619 · opened 25 Jul 2026, 08:02 IST by P. D'Souza · witnessed by D. Nair (Front office)</div>
       <div class="row">
         <div class="grow card">
           <div class="card-title">Opening float <span class="right">COUNTED &amp; WITNESSED</span></div>
@@ -1310,7 +1310,7 @@ tr.dim td{color:#94A3B8}
             <dt>Opened by</dt><dd>P. D'Souza (Cashier) · badge re-scan at open</dd>
             <dt>Witness</dt><dd>D. Nair (Front office)</dd>
             <dt>Drawer</dt><dd>Counter 2 · drawer key #C2-A</dd>
-            <dt>Previous session</dt><dd class="mono">CSH-AND-2026-0616 · closed clean, ₹0 variance</dd>
+            <dt>Previous session</dt><dd class="mono">CSH-NPV-2026-0616 · closed clean, ₹0 variance</dd>
           </dl>
         </div>
         <div class="grow card">
@@ -1340,7 +1340,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE B — CLOSING · DENOMINATION COUNT WITH VARIANCE</div>
 <div class="frame"><div class="body"><div class="main">
-  <div class="page-title">End-of-day close — CSH-AND-2026-0619 <span class="chip amber">VARIANCE −₹200.00</span></div>
+  <div class="page-title">End-of-day close — CSH-NPV-2026-0619 <span class="chip amber">VARIANCE −₹200.00</span></div>
   <div class="stepper">
     <div class="step done"><span class="dot">✓</span> Count</div><span class="step-line"></span>
     <div class="step cur"><span class="dot">2</span> Reconcile</div><span class="step-line"></span>
@@ -1374,7 +1374,7 @@ tr.dim td{color:#94A3B8}
         </table>
       </div>
       <div class="banner warn"><b>Variance ≠ ₹0 — reason and supervisor countersign required</b>The session cannot be signed until the −₹200.00 cash variance carries a documented reason and M. Kulkarni countersigns. Variances are never silently absorbed.</div>
-      <div class="field"><label>Variance reason <span class="req">*</span></label><select class="select"><option>Excess change given — suspected during 14:10 rush (RCP/AND/26-27/0641)</option></select><div class="hint">Taxonomy: excess change · counterfeit note removed · counting error at open · unrecorded petty expense (disallowed — flag) · unknown (triggers review)</div></div>
+      <div class="field"><label>Variance reason <span class="req">*</span></label><select class="select"><option>Excess change given — suspected during 14:10 rush (RCP/NPV/26-27/0641)</option></select><div class="hint">Taxonomy: excess change · counterfeit note removed · counting error at open · unrecorded petty expense (disallowed — flag) · unknown (triggers review)</div></div>
       <div class="field"><label>Supervisor countersign</label><div class="row"><input class="input" value="M. Kulkarni" style="max-width:200px"/><input class="input" type="password" value="••••••••" style="max-width:160px"/><span class="btn small warn-outline">Request countersign</span></div><div class="hint">Supervisor physically present or via step-up remote approval; recorded either way.</div></div>
     </div>
   </div>
@@ -1382,7 +1382,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE C — SIGNED CLOSE · IMMUTABLE RECORD</div>
 <div class="frame"><div class="body"><div class="main">
-  <div class="page-title">Session closed — CSH-AND-2026-0619 <span class="chip green">SIGNED &amp; LOCKED</span></div>
+  <div class="page-title">Session closed — CSH-NPV-2026-0619 <span class="chip green">SIGNED &amp; LOCKED</span></div>
   <div class="page-sub">Closed 25 Jul 2026, 18:21 IST · record is immutable · corrections require a supervisor adjustment entry in the next session</div>
   <div class="stepper">
     <div class="step done"><span class="dot">✓</span> Count 18:04</div><span class="step-line"></span>
@@ -1394,7 +1394,7 @@ tr.dim td{color:#94A3B8}
     <div class="grow card">
       <div class="card-title">Close summary</div>
       <dl class="kv" style="grid-template-columns:170px 1fr">
-        <dt>Total collections</dt><dd class="mono">₹88,470.00 (70 receipts RCP/AND/26-27/0629–0698)</dd>
+        <dt>Total collections</dt><dd class="mono">₹88,470.00 (70 receipts RCP/NPV/26-27/0629–0698)</dd>
         <dt>Cash to vault</dt><dd class="mono">₹15,250.00 (counted − float ₹3,000 retained)</dd>
         <dt>Variance</dt><dd class="mono">−₹200.00 · excess change · countersigned M. Kulkarni</dd>
         <dt>Cash refunds paid</dt><dd class="mono">₹1,600.00 (2, both approved via <a href="#bl-08" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-08</a>)</dd>
@@ -1410,14 +1410,14 @@ tr.dim td{color:#94A3B8}
       </div>
     </div>
   </div>
-  <div class="banner success"><b>Record locked</b>CSH-AND-2026-0619 is now read-only and hash-chained to CSH-AND-2026-0616. Vault deposit slip printed; day-book entry posted to accounts.</div>
+  <div class="banner success"><b>Record locked</b>CSH-NPV-2026-0619 is now read-only and hash-chained to CSH-NPV-2026-0616. Vault deposit slip printed; day-book entry posted to accounts.</div>
 </div></div></div>
 
 <div class="state-tag">STATE D — GATEWAY MISMATCH AT CLOSE (LINKS <a href="#bl-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-04</a>)</div>
 <div class="frame"><div class="body"><div class="main">
-  <div class="page-title">End-of-day close — Counter 1 · CSH-AND-2026-0620 <span class="chip red">GATEWAY MISMATCH</span></div>
+  <div class="page-title">End-of-day close — Counter 1 · CSH-NPV-2026-0620 <span class="chip red">GATEWAY MISMATCH</span></div>
   <div class="page-sub">Cashier D. Nair · 25 Jul 2026 · UPI settled total does not match system total</div>
-  <div class="banner danger"><b>UPI mismatch −₹2,400.00 against gateway settlement file</b>System shows 29 UPI receipts totalling ₹36,900.00; Razorpay settlement preview shows ₹34,500.00 (28 txns). One transaction — RCP/AND/26-27/0655, ₹2,400.00, patient A••av S••••a, 13:22 IST — has no matching UTR in the gateway file.</div>
+  <div class="banner danger"><b>UPI mismatch −₹2,400.00 against gateway settlement file</b>System shows 29 UPI receipts totalling ₹36,900.00; Razorpay settlement preview shows ₹34,500.00 (28 txns). One transaction — RCP/NPV/26-27/0655, ₹2,400.00, patient A••av S••••a, 13:22 IST — has no matching UTR in the gateway file.</div>
   <table>
     <tr><th>Mode</th><th>System</th><th>Gateway-settled (preview)</th><th>Variance</th><th>Status</th></tr>
     <tr class="hl"><td>UPI</td><td class="mono">₹36,900.00</td><td class="mono">₹34,500.00</td><td class="mono" style="color:#B91C1C">−₹2,400.00</td><td><span class="chip red">1 UNMATCHED RECEIPT</span></td></tr>
@@ -1437,7 +1437,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#bl-10" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-10</a></span> Service catalog &amp; price lists</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S7 catalog & price lists</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The catalog is the single source of truth for billable services — code, SAC, modality, duration and base price — feeding the billing counter, appointment slots and GST documents. Prices change only through versioned price lists with effective dates (future-dated publish supported), branch overrides and payer/scheme columns. Every price change requires approval and lands in the change audit; nothing is edited in place on a live list.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Branch admin) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Branch admin) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -1458,7 +1458,7 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Billing › Setup › Service catalog &amp; price lists</div>
       <div class="page-title">Service catalog <span class="chip green">ACTIVE LIST: PL-STD v2026.3 · effective 01 Jul 2026</span></div>
-      <div class="page-sub">142 active services · radiology-first · SAC 999316 (diagnostic imaging) · most services GST-exempt healthcare · GSTIN 27AAACM1234K1Z5</div>
+      <div class="page-sub">142 active services · radiology-first · SAC 999316 (diagnostic imaging) · most services GST-exempt healthcare · GSTIN 32AAACM1234K1Z7</div>
       <div class="kpi-row">
         <div class="kpi"><div class="n">142</div><div class="l">Active services</div><div class="s">9 retired (never deleted)</div></div>
         <div class="kpi"><div class="n">v2026.3</div><div class="l">Live price list</div><div class="s">standard walk-in tariff</div></div>
@@ -1480,7 +1480,7 @@ tr.dim td{color:#94A3B8}
       </table>
       <div class="card" style="margin-top:12px"><div class="card-title">Payer / scheme price preview — RAD-CT-001 · CT Head (plain) <span class="right">EFFECTIVE TODAY · 25 JUL 2026</span></div>
         <table>
-          <tr><th>Price list</th><th>Price</th><th>Basis</th><th>Branch override (Andheri West)</th><th>Effective</th></tr>
+          <tr><th>Price list</th><th>Price</th><th>Basis</th><th>Branch override (North Paravoor)</th><th>Effective</th></tr>
           <tr><td>Standard walk-in (PL-STD v2026.3)</td><td class="mono">₹2,900.00</td><td>Base</td><td class="muted">—</td><td>01 Jul 2026 →</td></tr>
           <tr><td>Zenith Corp Health</td><td class="mono">₹2,610.00</td><td>Base −10% (contract)</td><td class="muted">—</td><td>01 Apr 2026 →</td></tr>
           <tr><td>MediAssist TPA</td><td class="mono">₹2,750.00</td><td>Negotiated flat</td><td class="mono">₹2,700.00 (this branch)</td><td>01 Jun 2026 →</td></tr>
@@ -1509,7 +1509,7 @@ tr.dim td{color:#94A3B8}
     </div>
     <div class="field"><label>Reason for change <span class="req">*</span></label><select class="select"><option>Annual tariff revision — helium &amp; AMC cost increase</option></select></div>
     <div class="check"><span class="box on">✓</span><div class="small">Cascade to payer lists using their contract formulas (Zenith −10% → ₹5,580.00; CGHS unaffected — fixed rate card)</div></div>
-    <div class="check"><span class="box"></span><div class="small">Apply branch override for Andheri West only (other branches keep v2026.3 pricing)</div></div>
+    <div class="check"><span class="box"></span><div class="small">Apply branch override for North Paravoor only (other branches keep v2026.3 pricing)</div></div>
     <div class="banner warn" style="margin:10px 0"><b>Approval required before publish</b>Price changes route to M. Kulkarni (Billing supervisor) and require your step-up identity confirmation as proposer. Patients already invoiced are never repriced.</div>
     <div class="modal-actions"><span class="btn">Discard</span><span class="btn">Save to draft v2026.4</span><span class="btn primary">Submit v2026.4 for approval →</span></div>
   </div></div>
@@ -1545,9 +1545,9 @@ tr.dim td{color:#94A3B8}
 </section>
 <section class="screen" id="bl-11">
 <div class="screen-head"><h1><span class="sid"><a href="#bl-11" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-11</a></span> Payer &amp; scheme master</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S9 payers (re-scoped minimal into MVP1)</div></div></div>
-<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Central registry of corporate accounts, TPAs and government/CSR schemes that Meridian bills on credit. MVP-1 scope is deliberately minimal: credit-billing terms and per-payer rate lists only — claim submission, pre-authorisation and EDI integrations are deferred to a later wave. Billing supervisors maintain payer records; cashiers only consume them at invoice time.</div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Central registry of corporate accounts, TPAs and government/CSR schemes that Magnus bills on credit. MVP-1 scope is deliberately minimal: credit-billing terms and per-payer rate lists only — claim submission, pre-authorisation and EDI integrations are deferred to a later wave. Billing supervisors maintain payer records; cashiers only consume them at invoice time.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -1578,7 +1578,7 @@ tr.dim td{color:#94A3B8}
         <div class="kpi red"><div class="n">1</div><div class="l">On hold</div><div class="s">invoicing blocked — overdue &gt;90d</div></div>
       </div>
       <div class="card">
-        <div class="card-title">Payer directory <span class="right">14 records · Andheri West + shared org-level</span></div>
+        <div class="card-title">Payer directory <span class="right">14 records · North Paravoor + shared org-level</span></div>
         <div class="row" style="margin-bottom:10px">
           <input class="input" style="max-width:260px" value="Search payer name / code…"/>
           <select class="select" style="max-width:150px"><option>Type: All</option></select>
@@ -1593,7 +1593,7 @@ tr.dim td{color:#94A3B8}
           <tr><td class="mono">PAY-SCH-001</td><td class="bold">Sr. Citizen Health Camp (BMC ward K/W)</td><td><span class="chip teal">Scheme</span></td><td>RL-CAMP-26 · 38 items</td><td>Prepaid grant · n/a</td><td>—</td><td>✖ Bill patient ₹0</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Open</span></td></tr>
           <tr><td class="mono">PAY-CORP-011</td><td class="bold">Suryadeep Textiles Ltd</td><td><span class="chip blue">Corporate</span></td><td>RL-STD-26 (standard)</td><td>30 days · ₹1,00,000</td><td>₹1,12,300 (112%)</td><td>✔ Consolidated monthly</td><td><span class="chip red">On hold</span></td><td><span class="btn ghost small">Open</span></td></tr>
           <tr><td class="mono">PAY-CORP-002</td><td class="bold">Arvind Logistics Group</td><td><span class="chip blue">Corporate</span></td><td>RL-ARVIND-26 · 96 items</td><td>30 days · ₹2,50,000</td><td>₹41,200 (16%)</td><td>✔ Per-visit</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Open</span></td></tr>
-          <tr><td class="mono">PAY-SCH-002</td><td class="bold">Meridian Staff &amp; Dependants Scheme</td><td><span class="chip teal">Scheme</span></td><td>RL-STAFF-26 · all items</td><td>Internal · n/a</td><td>—</td><td>✖ Internal transfer</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td class="mono">PAY-SCH-002</td><td class="bold">Magnus Staff &amp; Dependants Scheme</td><td><span class="chip teal">Scheme</span></td><td>RL-STAFF-26 · all items</td><td>Internal · n/a</td><td>—</td><td>✖ Internal transfer</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Open</span></td></tr>
           <tr class="dim"><td class="mono">PAY-TPA-001</td><td>Paramount Health TPA</td><td><span class="chip violet">TPA</span></td><td>RL-STD-25 (expired)</td><td>60 days · ₹2,00,000</td><td>₹0</td><td>✔ Per-visit</td><td><span class="chip grey">Inactive</span></td><td><span class="btn ghost small">Open</span></td></tr>
         </table>
         <div class="small muted" style="margin-top:8px">Credit-limit % is computed on unpaid credit invoices net of credit notes. Payers at &gt;100% are automatically set to <b>On hold</b>; new credit invoices require supervisor override via <a href="#bl-08" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-08</a>.</div>
@@ -1606,7 +1606,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE B — PAYER DETAIL (TECHNOVA SOLUTIONS, CORPORATE)</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Masters &amp; setup</div>
@@ -1626,10 +1626,10 @@ tr.dim td{color:#94A3B8}
             <dl class="kv">
               <dt>Legal name</dt><dd>TechNova Solutions Private Limited</dd>
               <dt>Payer GSTIN</dt><dd class="mono">27AABCT4590P1ZK <span class="chip grey">B2B — GSTIN shown on invoice</span></dd>
-              <dt>Billing address</dt><dd>7th Floor, Ozone Tower, Veera Desai Rd, Andheri West, Mumbai 400053</dd>
+              <dt>Billing address</dt><dd>7th Floor, Ozone Tower, Veera Desai Rd, North Paravoor, Kochi 400053</dd>
               <dt>Billing contact</dt><dd>Ms. R. Kelkar, HR Ops · accounts@technova.in · +91 22 4… (masked)</dd>
               <dt>Invoices to payer</dt><dd><span class="box on">✓</span> On — <b>consolidated monthly invoice</b> (last working day) · patient sees ₹0-due summary</dd>
-              <dt>Invoice series</dt><dd class="mono">INV/AND/26-27/0xxx (shared branch series — see <a href="#bl-13" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-13</a>)</dd>
+              <dt>Invoice series</dt><dd class="mono">INV/NPV/26-27/0xxx (shared branch series — see <a href="#bl-13" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-13</a>)</dd>
             </dl>
           </div>
           <div class="card">
@@ -1663,7 +1663,7 @@ tr.dim td{color:#94A3B8}
             <dl class="kv" style="grid-template-columns:130px 1fr">
               <dt>Outstanding</dt><dd class="bold">₹1,84,600</dd>
               <dt>Limit used</dt><dd>62% <div class="progress"><i style="width:62%"></i></div></dd>
-              <dt>Oldest unpaid</dt><dd>INV/AND/26-27/0871 · 22 days</dd>
+              <dt>Oldest unpaid</dt><dd>INV/NPV/26-27/0871 · 22 days</dd>
               <dt>Last payment</dt><dd>₹96,400 · NEFT UTR AXISN02657114 · 10 Jul 2026</dd>
             </dl>
           </div>
@@ -1687,7 +1687,7 @@ tr.dim td{color:#94A3B8}
     <h3>Claims &amp; pre-authorisation — not in MVP-1 <span class="chip violet">Post-MVP1</span></h3>
     <p class="small" style="margin-bottom:10px">Magnus MVP-1 supports <b>credit billing with payer rate lists</b> only. Claim creation, TPA pre-auth, EDI file exchange and claim-status reconciliation arrive in a later release on the product roadmap.</p>
     <div class="banner info" style="margin-bottom:10px"><b>What you can do today</b>Raise credit invoices against this payer, track outstanding vs credit limit, record payer payments with bank/UTR references, and export the payer ledger (CSV) for manual claim filing.</div>
-    <div class="check"><span class="box on">✓</span> Notify me when claims module is enabled for Meridian Diagnostics</div>
+    <div class="check"><span class="box on">✓</span> Notify me when claims module is enabled for Magnus Diagnostics</div>
     <div class="modal-actions"><span class="btn">Export payer ledger (CSV)</span><span class="btn primary">Back to payer detail</span></div>
   </div>
 </div>
@@ -1697,7 +1697,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#bl-12" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-12</a></span> Discount &amp; concession rules</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S2 discounts → rules & limits</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Defines who may discount how much, and which named concession schemes exist (staff, senior citizen, camps). Cashiers apply discounts within their role cap at invoice time; anything above the cap auto-routes to the approvals queue (<a href="#bl-08" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-08</a>) with a mandatory reason. Every applied discount is attributable to a rule or scheme — no free-text "adjustments".</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -1719,7 +1719,7 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Billing › Masters &amp; setup › Discount &amp; concession rules</div>
       <div class="page-title">Discount &amp; concession rules <span class="actions-right"><span class="btn small">Usage report</span> <span class="btn primary small">+ New scheme</span></span></div>
-      <div class="page-sub">Role caps + named schemes · effective at Andheri West branch · FY 2026-27</div>
+      <div class="page-sub">Role caps + named schemes · effective at North Paravoor · FY 2026-27</div>
       <div class="card">
         <div class="card-title">Role-based discount limits <span class="right">applies to line + invoice-level discounts</span></div>
         <table>
@@ -1735,7 +1735,7 @@ tr.dim td{color:#94A3B8}
         <div class="card-title">Named concession schemes <span class="right">4 active · 1 expired</span></div>
         <table>
           <tr><th>Scheme code</th><th>Name</th><th>Benefit</th><th>Validity</th><th>Eligibility note</th><th>Used (Jul)</th><th>Status</th><th></th></tr>
-          <tr><td class="mono">SCH-STAFF</td><td class="bold">Staff &amp; dependants</td><td>50% on all diagnostics</td><td>01 Apr 26 – 31 Mar 27</td><td>Meridian staff ID + HR dependant list; max 2 dependants</td><td>31 uses · ₹48,210</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr><td class="mono">SCH-STAFF</td><td class="bold">Staff &amp; dependants</td><td>50% on all diagnostics</td><td>01 Apr 26 – 31 Mar 27</td><td>Magnus staff ID + HR dependant list; max 2 dependants</td><td>31 uses · ₹48,210</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
           <tr class="hl"><td class="mono">SCH-SRCIT</td><td class="bold">Senior citizen (60+)</td><td>10% on imaging &amp; pathology</td><td>01 Apr 26 – 31 Mar 27</td><td>Govt photo ID showing DOB; auto-suggested when age ≥ 60 from registration DOB</td><td>142 uses · ₹1,12,480</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
           <tr><td class="mono">SCH-CAMP-K</td><td class="bold">Health camp — BMC ward K/W</td><td>Fixed camp tariff (RL-CAMP-26)</td><td>15 Jul 26 – 15 Aug 26</td><td>Camp token issued at registration desk; one visit per token</td><td>67 uses · ₹94,300</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
           <tr><td class="mono">SCH-REFDR</td><td class="bold">Referrer professional courtesy</td><td>25% · self &amp; immediate family of verified referrers</td><td>01 Apr 26 – 31 Mar 27</td><td>Referrer must be Verified in referrer master (e.g. Dr. Meera Nair)</td><td>6 uses · ₹9,840</td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
@@ -1765,7 +1765,7 @@ tr.dim td{color:#94A3B8}
     </div>
     <div class="field"><label>Eligibility note (shown to cashier at apply time) <span class="req">*</span></label>
       <textarea class="textarea">Any government photo ID showing date of birth (Aadhaar — record last 4 digits only, PAN, passport, voter ID). System auto-suggests scheme when registered DOB gives age ≥ 60. Do not photocopy/scan the ID; tick 'sighted' only.</textarea>
-      <div class="hint">🔒 ID documents are sighted, not stored. Aadhaar: last-4 only, per Meridian data-minimisation policy.</div>
+      <div class="hint">🔒 ID documents are sighted, not stored. Aadhaar: last-4 only, per Magnus data-minimisation policy.</div>
     </div>
     <div class="check"><span class="box on">✓</span> Auto-suggest at billing when patient age ≥ 60 (from registration DOB)</div>
     <div class="check"><span class="box"></span> Allow stacking with manual discount (counts against role cap) — currently off</div>
@@ -1777,7 +1777,7 @@ tr.dim td{color:#94A3B8}
 <div class="divider-label">prototype: alternate states below</div>
 <div class="state-tag">STATE C — PER-SCHEME USAGE REPORT (JULY 2026 MTD)</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Masters &amp; setup</div>
@@ -1789,7 +1789,7 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Billing › Discount rules › Usage report</div>
       <div class="page-title">Discount usage — July 2026 (MTD) <span class="actions-right"><span class="btn small">Export CSV</span> <span class="btn small">Print</span></span></div>
-      <div class="page-sub">01–25 Jul 2026 · Andheri West · all roles &amp; schemes</div>
+      <div class="page-sub">01–25 Jul 2026 · North Paravoor · all roles &amp; schemes</div>
       <div class="kpi-row">
         <div class="kpi"><div class="n">₹2,64,830</div><div class="l">Total concession value</div><div class="s">3.9% of gross billed (₹67.8L)</div></div>
         <div class="kpi"><div class="n">246</div><div class="l">Discounted invoices</div><div class="s">of 2,113 invoices MTD</div></div>
@@ -1819,7 +1819,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#bl-13" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-13</a></span> Tax &amp; document numbering setup</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · BL-S8 setup + C-5c/d numbering & tax</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Org-admin-only setup for the branch GST profile and the central document number-series registry. Healthcare diagnostic services default to GST-exempt; only a curated taxable-exceptions list (e.g. cosmetic procedures) attracts GST. Number series are gapless, FY-scoped and can never be changed retroactively — the edit guard enforces this.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -1840,28 +1840,28 @@ tr.dim td{color:#94A3B8}
     </div>
     <div class="main">
       <div class="crumb">Billing › Masters &amp; setup › Tax &amp; document numbering</div>
-      <div class="page-title">GST profile — Andheri West branch <span class="actions-right"><span class="btn small">View change history</span> <span class="btn primary small">Save profile</span></span></div>
+      <div class="page-title">GST profile — North Paravoor <span class="actions-right"><span class="btn small">View change history</span> <span class="btn primary small">Save profile</span></span></div>
       <div class="page-sub">Org admin only · applies to all documents issued by this branch · FY 2026-27</div>
       <div class="split">
         <div>
           <div class="card">
             <div class="card-title">Registration</div>
             <dl class="kv">
-              <dt>GSTIN</dt><dd class="mono bold">27AAACM1234K1Z5 <span class="chip green">Verified 04 Apr 2026</span></dd>
-              <dt>Legal name</dt><dd>Meridian Diagnostics Private Limited</dd>
-              <dt>Trade name</dt><dd>Meridian Diagnostics — Andheri West</dd>
-              <dt>State of registration</dt><dd>27 — Maharashtra</dd>
+              <dt>GSTIN</dt><dd class="mono bold">32AAACM1234K1Z7 <span class="chip green">Verified 04 Apr 2026</span></dd>
+              <dt>Legal name</dt><dd>Magnus Diagnostics Private Limited</dd>
+              <dt>Trade name</dt><dd>Magnus Diagnostics — North Paravoor</dd>
+              <dt>State of registration</dt><dd>27 — Kerala</dd>
               <dt>Default SAC</dt><dd class="mono">999316 — Medical laboratory &amp; diagnostic-imaging services</dd>
               <dt>Shown on documents</dt><dd>GSTIN + SAC printed on every invoice, credit note and receipt</dd>
             </dl>
           </div>
           <div class="card">
             <div class="card-title">Place of supply rule <span class="right">explainer</span></div>
-            <div class="banner info" style="margin-bottom:10px"><b>CGST/SGST vs IGST — how Magnus decides</b>If the recipient's place of supply is Maharashtra (state code 27, same as our GSTIN), a taxable line splits into CGST + SGST. If the recipient is registered in another state (e.g. a corporate payer with a Karnataka GSTIN), IGST applies. For walk-in patients, place of supply is the branch location — always Maharashtra, hence CGST/SGST.</div>
+            <div class="banner info" style="margin-bottom:10px"><b>CGST/SGST vs IGST — how Magnus decides</b>If the recipient's place of supply is Kerala (state code 27, same as our GSTIN), a taxable line splits into CGST + SGST. If the recipient is registered in another state (e.g. a corporate payer with a Karnataka GSTIN), IGST applies. For walk-in patients, place of supply is the branch location — always Kerala, hence CGST/SGST.</div>
             <table>
               <tr><th>Recipient</th><th>Place of supply</th><th>Taxable lines get</th></tr>
-              <tr><td>Walk-in patient (B2C)</td><td>Maharashtra (branch)</td><td>CGST + SGST</td></tr>
-              <tr><td>Payer with MH GSTIN (e.g. TechNova, 27…)</td><td>Maharashtra</td><td>CGST + SGST</td></tr>
+              <tr><td>Walk-in patient (B2C)</td><td>Kerala (branch)</td><td>CGST + SGST</td></tr>
+              <tr><td>Payer with MH GSTIN (e.g. TechNova, 27…)</td><td>Kerala</td><td>CGST + SGST</td></tr>
               <tr><td>Payer with other-state GSTIN</td><td>Recipient's state</td><td>IGST</td></tr>
               <tr class="dim"><td>Exempt healthcare lines (any recipient)</td><td>—</td><td>No tax rows printed — "Exempt (healthcare service)"</td></tr>
             </table>
@@ -1884,7 +1884,7 @@ tr.dim td{color:#94A3B8}
           <div class="card">
             <div class="card-title">e-Invoicing (IRN / QR)</div>
             <div class="check"><span class="box"></span> Generate IRN + signed QR for B2B invoices <span class="chip violet">Roadmap</span></div>
-            <div class="small muted">Meridian is below the current e-invoicing turnover threshold. When enabled, IRN/QR will apply to payer (B2B) invoices only.</div>
+            <div class="small muted">Magnus is below the current e-invoicing turnover threshold. When enabled, IRN/QR will apply to payer (B2B) invoices only.</div>
           </div>
         </div>
       </div>
@@ -1896,7 +1896,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE B — CENTRAL NUMBER-SERIES REGISTRY</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Masters &amp; setup</div>
@@ -1907,18 +1907,18 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Billing › Tax &amp; numbering › Number-series registry</div>
       <div class="page-title">Central number-series registry <span class="actions-right"><span class="btn small">Gap audit</span> <span class="btn primary small">+ New series (next FY)</span></span></div>
-      <div class="page-sub">All document numbers across Magnus are issued from this registry · FY 2026-27 · Andheri West prefix AND</div>
+      <div class="page-sub">All document numbers across Magnus are issued from this registry · FY 2026-27 · North Paravoor prefix AND</div>
       <div class="banner reg" style="margin-bottom:12px"><b>No-gap policy</b>Numbers are issued transactionally at document finalisation — never at draft. A failed finalisation releases nothing because nothing was issued. Cancelled documents keep their number and appear as CANCELLED in registers; numbers are never reused or backfilled.</div>
       <div class="card">
         <div class="card-title">Active series — FY 2026-27 <span class="right">reset to 0001 on 01 Apr each FY</span></div>
         <table>
           <tr><th>Document</th><th>Series format</th><th>Next number (preview)</th><th>Issued FY-to-date</th><th>FY reset</th><th>Gaps</th><th>Status</th><th></th></tr>
-          <tr><td class="bold">Tax/exempt invoice</td><td class="mono">INV/AND/26-27/0xxx</td><td class="mono">INV/AND/26-27/0913</td><td>912</td><td>01 Apr, auto</td><td><span class="chip green">0 gaps</span></td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
-          <tr><td class="bold">Receipt</td><td class="mono">RCP/AND/26-27/0xxx</td><td class="mono">RCP/AND/26-27/1478</td><td>1,477</td><td>01 Apr, auto</td><td><span class="chip green">0 gaps</span></td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
-          <tr><td class="bold">Credit note</td><td class="mono">CRN/AND/26-27/00xx</td><td class="mono">CRN/AND/26-27/0042</td><td>41</td><td>01 Apr, auto</td><td><span class="chip green">0 gaps</span></td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr><td class="bold">Tax/exempt invoice</td><td class="mono">INV/NPV/26-27/0xxx</td><td class="mono">INV/NPV/26-27/0913</td><td>912</td><td>01 Apr, auto</td><td><span class="chip green">0 gaps</span></td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr><td class="bold">Receipt</td><td class="mono">RCP/NPV/26-27/0xxx</td><td class="mono">RCP/NPV/26-27/1478</td><td>1,477</td><td>01 Apr, auto</td><td><span class="chip green">0 gaps</span></td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
+          <tr><td class="bold">Credit note</td><td class="mono">CRN/NPV/26-27/00xx</td><td class="mono">CRN/NPV/26-27/0042</td><td>41</td><td>01 Apr, auto</td><td><span class="chip green">0 gaps</span></td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
           <tr><td class="bold">Diagnostic report</td><td class="mono">RPT/AND/26-27/0xxxx</td><td class="mono">RPT/AND/26-27/08321</td><td>8,320</td><td>01 Apr, auto</td><td><span class="chip green">0 gaps</span></td><td><span class="chip green">Active</span></td><td><span class="btn ghost small">Edit</span></td></tr>
           <tr class="hl"><td class="bold">Form F (PCPNDT)</td><td class="mono">FRMF/AND/26-27/0xxx</td><td class="mono">FRMF/AND/26-27/0288</td><td>287</td><td>01 Apr, auto</td><td><span class="chip green">0 gaps</span></td><td><span class="chip green">Active · statutory</span></td><td><span class="btn ghost small">Edit</span></td></tr>
-          <tr class="dim"><td>Tax/exempt invoice (FY 25-26)</td><td class="mono">INV/AND/25-26/0xxx</td><td>closed at 3,914</td><td>3,914</td><td>closed 31 Mar 26</td><td><span class="chip green">0 gaps</span></td><td><span class="chip grey">Archived</span></td><td><span class="btn ghost small">View</span></td></tr>
+          <tr class="dim"><td>Tax/exempt invoice (FY 25-26)</td><td class="mono">INV/NPV/25-26/0xxx</td><td>closed at 3,914</td><td>3,914</td><td>closed 31 Mar 26</td><td><span class="chip green">0 gaps</span></td><td><span class="chip grey">Archived</span></td><td><span class="btn ghost small">View</span></td></tr>
         </table>
         <div class="small muted" style="margin-top:8px">Form F series is statutory under PCPNDT and additionally mirrored to the compliance register; obstetric documents carry the foetal-sex non-disclosure notice regardless of series.</div>
       </div>
@@ -1941,10 +1941,10 @@ tr.dim td{color:#94A3B8}
 <div class="state-tag">STATE C — SERIES EDIT GUARD (NO RETROACTIVE CHANGE)</div>
 <div class="modal-wrap">
   <div class="modal danger">
-    <h3>Edit series — INV/AND/26-27 · restricted</h3>
+    <h3>Edit series — INV/NPV/26-27 · restricted</h3>
     <div class="banner danger" style="margin-bottom:10px"><b>Retroactive changes are blocked</b>912 documents have already been issued on this series. The format, prefix and counter cannot be altered for the current FY — renumbering issued documents would break the gapless statutory sequence and invalidate documents already shared with patients and payers.</div>
     <div class="field"><label>What you can change now</label>
-      <div class="check"><span class="box on">✓</span> Prepare next-FY series (INV/AND/27-28/0xxx) — takes effect automatically 01 Apr 2027</div>
+      <div class="check"><span class="box on">✓</span> Prepare next-FY series (INV/NPV/27-28/0xxx) — takes effect automatically 01 Apr 2027</div>
       <div class="check"><span class="box on">✓</span> Update print label text (e.g. "Invoice" → "Invoice / Bill of Supply") — prospective only</div>
       <div class="check"><span class="box"></span> Change prefix, padding or counter for FY 26-27 — <span class="chip red">Blocked</span></div>
     </div>
@@ -1958,7 +1958,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#bl-14" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-14</a></span> Advances &amp; deposits</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · advances & deposits</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Cashiers collect advances (e.g. for high-value MRI packages or multi-visit protocols) against a purpose, issuing a receipt from the central series. The advance sits in the patient's advance ledger until applied to an invoice at billing or refunded. Refund of unused advance is a money-moving action: supervisor approval + step-up, paid preferentially back to the original instrument.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -1999,8 +1999,8 @@ tr.dim td{color:#94A3B8}
               <div class="field grow"><label>Payment mode <span class="req">*</span></label><select class="select"><option>UPI</option><option>Card</option><option>Cash</option><option>Bank transfer</option></select></div>
               <div class="field grow"><label>UPI reference (UTR)</label><input class="input" value="UTR 618842907733 · collected 25 Jul 13:04"/></div>
             </div>
-            <div class="check"><span class="box on">✓</span> Patient informed: advance is adjustable against any Meridian invoice or refundable if unused (refund needs approval, 3–5 working days to source instrument)</div>
-            <div class="banner info" style="margin:10px 0 0"><b>Receipt from central series</b>On confirm, receipt <span class="mono">RCP/AND/26-27/1478</span> is issued (see <a href="#bl-13" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-13</a> registry). Advances are not invoices — no GST document is created; the amount is held as a patient credit.</div>
+            <div class="check"><span class="box on">✓</span> Patient informed: advance is adjustable against any Magnus invoice or refundable if unused (refund needs approval, 3–5 working days to source instrument)</div>
+            <div class="banner info" style="margin:10px 0 0"><b>Receipt from central series</b>On confirm, receipt <span class="mono">RCP/NPV/26-27/1478</span> is issued (see <a href="#bl-13" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-13</a> registry). Advances are not invoices — no GST document is created; the amount is held as a patient credit.</div>
           </div>
         </div>
         <div>
@@ -2020,10 +2020,10 @@ tr.dim td{color:#94A3B8}
               <dt>Advance amount</dt><dd class="bold">₹5,000</dd>
               <dt>Mode</dt><dd>UPI · UTR 618842907733</dd>
               <dt>Collected by</dt><dd>P. D'Souza (Cashier)</dd>
-              <dt>Receipt no.</dt><dd class="mono">RCP/AND/26-27/1478 (on confirm)</dd>
+              <dt>Receipt no.</dt><dd class="mono">RCP/NPV/26-27/1478 (on confirm)</dd>
             </dl>
             <div style="display:flex;gap:10px;margin-top:12px"><span class="btn">Cancel</span><span class="btn primary grow" style="flex:1">Confirm &amp; issue receipt</span></div>
-            <div class="small muted" style="margin-top:8px">🔒 Receipt shows GSTIN 27AAACM1234K1Z5 and "Advance against services — adjustable/refundable". No clinical details are printed.</div>
+            <div class="small muted" style="margin-top:8px">🔒 Receipt shows GSTIN 32AAACM1234K1Z7 and "Advance against services — adjustable/refundable". No clinical details are printed.</div>
           </div>
         </div>
       </div>
@@ -2031,7 +2031,7 @@ tr.dim td{color:#94A3B8}
         <div class="card-title">Advance ledger — Sofia Rossi <span class="right">after confirmation</span></div>
         <table>
           <tr><th>Date</th><th>Ref</th><th>Purpose</th><th>In</th><th>Applied / out</th><th>Balance</th><th>Status</th></tr>
-          <tr class="hl"><td>25 Jul 2026</td><td class="mono">RCP/AND/26-27/1478</td><td>Booking deposit — MRI Brain w/ contrast</td><td>₹5,000</td><td>—</td><td class="bold">₹5,000</td><td><span class="chip teal">Unapplied</span></td></tr>
+          <tr class="hl"><td>25 Jul 2026</td><td class="mono">RCP/NPV/26-27/1478</td><td>Booking deposit — MRI Brain w/ contrast</td><td>₹5,000</td><td>—</td><td class="bold">₹5,000</td><td><span class="chip teal">Unapplied</span></td></tr>
         </table>
       </div>
       <p class="audit">Advance collection by P. D'Souza · UTR evidence stored with receipt — recorded in the access log.</p>
@@ -2044,18 +2044,18 @@ tr.dim td{color:#94A3B8}
 <div class="modal-wrap">
   <div class="modal" style="max-width:620px">
     <h3>Apply advance — invoice draft for Sofia Rossi (MRN-004822)</h3>
-    <p class="small muted" style="margin-bottom:10px">Invoice draft: MRI Brain with contrast · SAC 999316 · Exempt (healthcare service) · total <b>₹9,500</b> · will issue as <span class="mono">INV/AND/26-27/0913</span></p>
+    <p class="small muted" style="margin-bottom:10px">Invoice draft: MRI Brain with contrast · SAC 999316 · Exempt (healthcare service) · total <b>₹9,500</b> · will issue as <span class="mono">INV/NPV/26-27/0913</span></p>
     <table style="margin-bottom:10px">
       <tr><th></th><th>Advance ref</th><th>Purpose</th><th>Available</th><th>Apply now</th></tr>
-      <tr class="hl"><td><span class="box on radio">✓</span></td><td class="mono">RCP/AND/26-27/1478 · 25 Jul</td><td>Booking deposit — MRI Brain w/ contrast</td><td>₹5,000</td><td><input class="input" style="width:90px" value="5,000"/></td></tr>
-      <tr class="dim"><td><span class="box radio"></span></td><td class="mono">RCP/AND/26-27/1201 · 02 Jun</td><td>Health-check package (earmarked, APPT-2026-50914)</td><td>₹2,000</td><td><span class="small">earmarked — needs supervisor release</span></td></tr>
+      <tr class="hl"><td><span class="box on radio">✓</span></td><td class="mono">RCP/NPV/26-27/1478 · 25 Jul</td><td>Booking deposit — MRI Brain w/ contrast</td><td>₹5,000</td><td><input class="input" style="width:90px" value="5,000"/></td></tr>
+      <tr class="dim"><td><span class="box radio"></span></td><td class="mono">RCP/NPV/26-27/1201 · 02 Jun</td><td>Health-check package (earmarked, APPT-2026-50914)</td><td>₹2,000</td><td><span class="small">earmarked — needs supervisor release</span></td></tr>
     </table>
     <dl class="kv" style="grid-template-columns:180px 1fr">
       <dt>Invoice total</dt><dd>₹9,500</dd>
-      <dt>Advance applied</dt><dd>− ₹5,000 <span class="small muted">(from RCP/AND/26-27/1478)</span></dd>
+      <dt>Advance applied</dt><dd>− ₹5,000 <span class="small muted">(from RCP/NPV/26-27/1478)</span></dd>
       <dt>Balance to collect</dt><dd class="bold">₹4,500 · UPI/card/cash at counter</dd>
     </dl>
-    <div class="banner success" style="margin-top:10px;margin-bottom:0"><b>Cross-reference printed</b>The invoice will show "Advance adjusted ₹5,000 vide RCP/AND/26-27/1478"; the advance ledger row flips to Applied with the invoice number.</div>
+    <div class="banner success" style="margin-top:10px;margin-bottom:0"><b>Cross-reference printed</b>The invoice will show "Advance adjusted ₹5,000 vide RCP/NPV/26-27/1478"; the advance ledger row flips to Applied with the invoice number.</div>
     <div class="modal-actions"><span class="btn">Skip advance</span><span class="btn primary">Apply ₹5,000 &amp; continue to payment</span></div>
   </div>
 </div>
@@ -2063,7 +2063,7 @@ tr.dim td{color:#94A3B8}
 <div class="divider-label">prototype: alternate states below</div>
 <div class="state-tag">STATE C — REFUND UNUSED ADVANCE (APPROVAL + STEP-UP) &amp; AGING REPORT</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -2074,7 +2074,7 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Billing › Advances &amp; deposits › Unapplied advances</div>
       <div class="page-title">Unapplied advances — aging <span class="actions-right"><span class="btn small">Export CSV</span></span></div>
-      <div class="page-sub">Andheri West · 25 Jul 2026 · advances held as patient credit, oldest first</div>
+      <div class="page-sub">North Paravoor · 25 Jul 2026 · advances held as patient credit, oldest first</div>
       <div class="kpi-row">
         <div class="kpi"><div class="n">₹41,500</div><div class="l">Unapplied total</div><div class="s">17 advances across 15 patients</div></div>
         <div class="kpi"><div class="n">₹28,000</div><div class="l">0–30 days</div><div class="s">11 advances</div></div>
@@ -2085,18 +2085,18 @@ tr.dim td{color:#94A3B8}
         <div class="card-title">Aging detail</div>
         <table>
           <tr><th>Patient</th><th>Advance ref</th><th>Purpose</th><th>Amount</th><th>Age</th><th>SLA</th><th>Owner</th><th></th></tr>
-          <tr><td>Priya Menon · <span class="mono">MRN-004828</span></td><td class="mono">RCP/AND/26-27/1462</td><td>CT abdomen deposit</td><td>₹3,000</td><td>4 d</td><td><span class="chip teal">OK</span></td><td>P. D'Souza</td><td><span class="btn ghost small">Ledger</span></td></tr>
-          <tr><td>Aarav Sharma · <span class="mono">MRN-004821</span></td><td class="mono">RCP/AND/26-27/1390</td><td>Cardiac package part-pay</td><td>₹6,500</td><td>19 d</td><td><span class="chip teal">OK</span></td><td>P. D'Souza</td><td><span class="btn ghost small">Ledger</span></td></tr>
-          <tr><td>Ananya Rao · <span class="mono">MRN-004819</span></td><td class="mono">RCP/AND/26-27/1288</td><td>Follow-up USG series</td><td>₹2,500</td><td>44 d</td><td><span class="chip amber">Review</span></td><td>P. D'Souza</td><td><span class="btn ghost small">Ledger</span></td></tr>
-          <tr class="hl"><td>Mohammed Al-Rashid · <span class="mono">MRN-004790</span></td><td class="mono">RCP/AND/26-27/1104</td><td>MRI slot deposit — appointment cancelled 12 May</td><td>₹2,500</td><td>96 d</td><td><span class="chip red">OVERDUE</span> · owner P. D'Souza · escalated-to M. Kulkarni</td><td>P. D'Souza</td><td><span class="btn small warn-outline">Refund</span></td></tr>
-          <tr><td>Rajesh Gupta · <span class="mono">MRN-004795</span></td><td class="mono">RCP/AND/26-27/1067</td><td>Package deposit — plan changed</td><td>₹1,500</td><td>103 d</td><td><span class="chip red">OVERDUE</span> · owner P. D'Souza · escalated-to M. Kulkarni</td><td>P. D'Souza</td><td><span class="btn small warn-outline">Refund</span></td></tr>
+          <tr><td>Priya Menon · <span class="mono">MRN-004828</span></td><td class="mono">RCP/NPV/26-27/1462</td><td>CT abdomen deposit</td><td>₹3,000</td><td>4 d</td><td><span class="chip teal">OK</span></td><td>P. D'Souza</td><td><span class="btn ghost small">Ledger</span></td></tr>
+          <tr><td>Aarav Sharma · <span class="mono">MRN-004821</span></td><td class="mono">RCP/NPV/26-27/1390</td><td>Cardiac package part-pay</td><td>₹6,500</td><td>19 d</td><td><span class="chip teal">OK</span></td><td>P. D'Souza</td><td><span class="btn ghost small">Ledger</span></td></tr>
+          <tr><td>Ananya Rao · <span class="mono">MRN-004819</span></td><td class="mono">RCP/NPV/26-27/1288</td><td>Follow-up USG series</td><td>₹2,500</td><td>44 d</td><td><span class="chip amber">Review</span></td><td>P. D'Souza</td><td><span class="btn ghost small">Ledger</span></td></tr>
+          <tr class="hl"><td>Mohammed Al-Rashid · <span class="mono">MRN-004790</span></td><td class="mono">RCP/NPV/26-27/1104</td><td>MRI slot deposit — appointment cancelled 12 May</td><td>₹2,500</td><td>96 d</td><td><span class="chip red">OVERDUE</span> · owner P. D'Souza · escalated-to M. Kulkarni</td><td>P. D'Souza</td><td><span class="btn small warn-outline">Refund</span></td></tr>
+          <tr><td>Rajesh Gupta · <span class="mono">MRN-004795</span></td><td class="mono">RCP/NPV/26-27/1067</td><td>Package deposit — plan changed</td><td>₹1,500</td><td>103 d</td><td><span class="chip red">OVERDUE</span> · owner P. D'Souza · escalated-to M. Kulkarni</td><td>P. D'Souza</td><td><span class="btn small warn-outline">Refund</span></td></tr>
         </table>
       </div>
       <div class="modal-wrap" style="margin:14px 0">
         <div class="modal">
           <h3>Refund unused advance — Mohammed Al-Rashid (MRN-004790)</h3>
           <dl class="kv" style="grid-template-columns:170px 1fr">
-            <dt>Advance</dt><dd class="mono">RCP/AND/26-27/1104 · ₹2,500 · UPI (UTR 512204883190)</dd>
+            <dt>Advance</dt><dd class="mono">RCP/NPV/26-27/1104 · ₹2,500 · UPI (UTR 512204883190)</dd>
             <dt>Reason</dt><dd>Appointment APPT-2026-50231 cancelled; no rebooking in 90 days; patient requested refund on 24 Jul (call logged)</dd>
             <dt>Refund route</dt><dd><span class="box on radio">✓</span> Back to source UPI VPA (preferred) &nbsp; <span class="box radio"></span> Bank transfer (needs cancelled-cheque proof)</dd>
             <dt>Refund voucher</dt><dd class="mono">RFV/AND/26-27/0031 (on approval) — no credit note; advance was never invoiced</dd>
@@ -2115,7 +2115,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#bl-15" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-15</a></span> Patient statement &amp; ledger</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S7 history → full patient ledger</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single financial view per patient: every invoice, receipt, advance, refund and credit note with a running balance and aging buckets. Cashiers and supervisors resolve "what do I owe?" questions here, flag disputed rows, and share a statement only over a consent-checked channel. Clinical content never appears — line descriptions are service names only.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">PD</span>P. D'Souza ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -2141,24 +2141,24 @@ tr.dim td{color:#94A3B8}
       <div class="kpi-row">
         <div class="kpi"><div class="n">₹31,700</div><div class="l">Billed FY-to-date</div><div class="s">6 invoices · all Exempt (healthcare service)</div></div>
         <div class="kpi"><div class="n">₹24,200</div><div class="l">Paid</div><div class="s">5 receipts · UPI ×3, card ×1, cash ×1</div></div>
-        <div class="kpi"><div class="n">₹6,500</div><div class="l">Advance held</div><div class="s">RCP/AND/26-27/1390 · unapplied</div></div>
+        <div class="kpi"><div class="n">₹6,500</div><div class="l">Advance held</div><div class="s">RCP/NPV/26-27/1390 · unapplied</div></div>
         <div class="kpi amber"><div class="n">₹1,000</div><div class="l">Balance due</div><div class="s">oldest item 12 days · owner P. D'Souza</div></div>
       </div>
       <div class="card">
         <div class="card-title">Full ledger <span class="right">newest last · running balance (Dr = patient owes)</span></div>
         <table>
           <tr><th>Date</th><th>Document</th><th>Type</th><th>Details</th><th>Debit</th><th>Credit</th><th>Running balance</th><th></th></tr>
-          <tr><td>08 Apr 26</td><td class="mono">INV/AND/26-27/0119</td><td><span class="chip grey">Invoice</span></td><td>X-Ray chest PA · SAC 999316 · Exempt (healthcare service)</td><td>₹800</td><td>—</td><td>₹800 Dr</td><td><span class="btn ghost small">Open</span></td></tr>
-          <tr><td>08 Apr 26</td><td class="mono">RCP/AND/26-27/0201</td><td><span class="chip green">Receipt</span></td><td>UPI · UTR 402218837745</td><td>—</td><td>₹800</td><td>₹0</td><td><span class="btn ghost small">Open</span></td></tr>
-          <tr><td>02 Jun 26</td><td class="mono">INV/AND/26-27/0544</td><td><span class="chip grey">Invoice</span></td><td>Cardiac screening package (ECG + Echo + lipids)</td><td>₹7,400</td><td>—</td><td>₹7,400 Dr</td><td><span class="btn ghost small">Open</span></td></tr>
-          <tr><td>02 Jun 26</td><td class="mono">RCP/AND/26-27/0817</td><td><span class="chip green">Receipt</span></td><td>Card ending 4412 · auth 067231</td><td>—</td><td>₹7,400</td><td>₹0</td><td><span class="btn ghost small">Open</span></td></tr>
-          <tr><td>06 Jul 26</td><td class="mono">RCP/AND/26-27/1390</td><td><span class="chip teal">Advance</span></td><td>Cardiac package part-pay · UPI UTR 559102446781 · unapplied</td><td>—</td><td>₹6,500</td><td>₹6,500 Cr</td><td><span class="btn ghost small">Open</span></td></tr>
-          <tr class="hl"><td>13 Jul 26</td><td class="mono">INV/AND/26-27/0790</td><td><span class="chip grey">Invoice</span></td><td>MRI knee (rt) · Exempt (healthcare service) <span class="chip outline-red">Disputed</span></td><td>₹8,200</td><td>—</td><td>₹1,700 Dr</td><td><span class="btn ghost small">Dispute ↗</span></td></tr>
-          <tr><td>13 Jul 26</td><td class="mono">RCP/AND/26-27/1311</td><td><span class="chip green">Receipt</span></td><td>Cash · counter 2 · P. D'Souza</td><td>—</td><td>₹7,200</td><td>₹1,000 Dr… (net of advance ₹6,500 Cr held separately)</td><td><span class="btn ghost small">Open</span></td></tr>
-          <tr><td>18 Jul 26</td><td class="mono">CRN/AND/26-27/0038</td><td><span class="chip amber">Credit note</span></td><td>Against INV/…/0602 — duplicate lipid panel · approved M. Kulkarni</td><td>—</td><td>₹450</td><td>₹550 Dr</td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td>08 Apr 26</td><td class="mono">INV/NPV/26-27/0119</td><td><span class="chip grey">Invoice</span></td><td>X-Ray chest PA · SAC 999316 · Exempt (healthcare service)</td><td>₹800</td><td>—</td><td>₹800 Dr</td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td>08 Apr 26</td><td class="mono">RCP/NPV/26-27/0201</td><td><span class="chip green">Receipt</span></td><td>UPI · UTR 402218837745</td><td>—</td><td>₹800</td><td>₹0</td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td>02 Jun 26</td><td class="mono">INV/NPV/26-27/0544</td><td><span class="chip grey">Invoice</span></td><td>Cardiac screening package (ECG + Echo + lipids)</td><td>₹7,400</td><td>—</td><td>₹7,400 Dr</td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td>02 Jun 26</td><td class="mono">RCP/NPV/26-27/0817</td><td><span class="chip green">Receipt</span></td><td>Card ending 4412 · auth 067231</td><td>—</td><td>₹7,400</td><td>₹0</td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td>06 Jul 26</td><td class="mono">RCP/NPV/26-27/1390</td><td><span class="chip teal">Advance</span></td><td>Cardiac package part-pay · UPI UTR 559102446781 · unapplied</td><td>—</td><td>₹6,500</td><td>₹6,500 Cr</td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr class="hl"><td>13 Jul 26</td><td class="mono">INV/NPV/26-27/0790</td><td><span class="chip grey">Invoice</span></td><td>MRI knee (rt) · Exempt (healthcare service) <span class="chip outline-red">Disputed</span></td><td>₹8,200</td><td>—</td><td>₹1,700 Dr</td><td><span class="btn ghost small">Dispute ↗</span></td></tr>
+          <tr><td>13 Jul 26</td><td class="mono">RCP/NPV/26-27/1311</td><td><span class="chip green">Receipt</span></td><td>Cash · counter 2 · P. D'Souza</td><td>—</td><td>₹7,200</td><td>₹1,000 Dr… (net of advance ₹6,500 Cr held separately)</td><td><span class="btn ghost small">Open</span></td></tr>
+          <tr><td>18 Jul 26</td><td class="mono">CRN/NPV/26-27/0038</td><td><span class="chip amber">Credit note</span></td><td>Against INV/…/0602 — duplicate lipid panel · approved M. Kulkarni</td><td>—</td><td>₹450</td><td>₹550 Dr</td><td><span class="btn ghost small">Open</span></td></tr>
           <tr><td>18 Jul 26</td><td class="mono">RFV/AND/26-27/0027</td><td><span class="chip red">Refund</span></td><td>CRN payout to source UPI · UTR 581220994102</td><td>₹450</td><td>—</td><td>₹1,000 Dr</td><td><span class="btn ghost small">Open</span></td></tr>
         </table>
-        <div class="small muted" style="margin-top:8px">Balance due <b>₹1,000</b> relates to disputed INV/AND/26-27/0790 (patient contests contrast charge). Advance of ₹6,500 is <i>not</i> auto-set-off against disputed amounts — supervisor may apply it with patient consent.</div>
+        <div class="small muted" style="margin-top:8px">Balance due <b>₹1,000</b> relates to disputed INV/NPV/26-27/0790 (patient contests contrast charge). Advance of ₹6,500 is <i>not</i> auto-set-off against disputed amounts — supervisor may apply it with patient consent.</div>
       </div>
       <p class="audit">Ledger for MRN-004821 viewed by P. D'Souza · financial data only, no clinical records accessed — recorded in the access log.</p>
     </div>
@@ -2168,7 +2168,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE B — AGED BALANCE (AMBER) WITH FOLLOW-UP OWNER</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -2181,7 +2181,7 @@ tr.dim td{color:#94A3B8}
       <div class="crumb">Billing › Patient statements › Rajesh Gupta › Aging</div>
       <div class="page-title">Ledger — Rajesh Gupta <span class="chip grey">MRN-004795</span> <span class="chip amber">Aged balance</span></div>
       <div class="page-sub">Balance due ₹5,600 · oldest unpaid item 47 days · follow-up owner P. D'Souza</div>
-      <div class="banner warn"><b>Aging alert — 31–60 bucket</b>₹4,100 has been outstanding 47 days (INV/AND/26-27/0468, USG abdomen + reports). SLA: <span class="chip amber">Follow-up due 27 Jul</span> · owner P. D'Souza · escalated-to M. Kulkarni at 60 days. Two payment reminders sent via consented SMS (12 Jul, 20 Jul).</div>
+      <div class="banner warn"><b>Aging alert — 31–60 bucket</b>₹4,100 has been outstanding 47 days (INV/NPV/26-27/0468, USG abdomen + reports). SLA: <span class="chip amber">Follow-up due 27 Jul</span> · owner P. D'Souza · escalated-to M. Kulkarni at 60 days. Two payment reminders sent via consented SMS (12 Jul, 20 Jul).</div>
       <div class="card">
         <div class="card-title">Aging buckets</div>
         <table>
@@ -2191,12 +2191,12 @@ tr.dim td{color:#94A3B8}
           <tr><td>61–90 days</td><td>₹0</td><td>—</td><td><div class="progress" style="max-width:180px"><i style="width:0%"></i></div></td><td>—</td></tr>
           <tr><td>&gt;90 days</td><td>₹0</td><td>—</td><td><div class="progress" style="max-width:180px"><i style="width:0%"></i></div></td><td>—</td></tr>
         </table>
-        <div class="small muted" style="margin-top:8px">Note: patient also holds unapplied advance ₹1,500 (RCP/AND/26-27/1067, purpose changed) — see <a href="#bl-14" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-14</a>; applying it needs patient consent because the purpose differs.</div>
+        <div class="small muted" style="margin-top:8px">Note: patient also holds unapplied advance ₹1,500 (RCP/NPV/26-27/1067, purpose changed) — see <a href="#bl-14" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-14</a>; applying it needs patient consent because the purpose differs.</div>
       </div>
       <div class="card">
         <div class="card-title">Collection timeline</div>
         <div class="timeline">
-          <div class="ev"><span class="t">08 Jun 10:12</span><span>INV/AND/26-27/0468 issued · ₹4,100 · part-paid ₹0 at counter (patient requested credit till month-end — approved by M. Kulkarni, dual-logged)</span></div>
+          <div class="ev"><span class="t">08 Jun 10:12</span><span>INV/NPV/26-27/0468 issued · ₹4,100 · part-paid ₹0 at counter (patient requested credit till month-end — approved by M. Kulkarni, dual-logged)</span></div>
           <div class="ev"><span class="t">12 Jul 09:30</span><span>Reminder 1 · SMS to consented number +91 98••• ••7xx · delivery confirmed</span></div>
           <div class="ev"><span class="t">20 Jul 09:30</span><span>Reminder 2 · SMS + UPI payment link (expires in 7 days) · link opened, not paid</span></div>
           <div class="ev"><span class="t">27 Jul (due)</span><span>Follow-up call · owner P. D'Souza · script: offer advance set-off with consent, or instalment via supervisor</span></div>
@@ -2214,8 +2214,8 @@ tr.dim td{color:#94A3B8}
     <h3>Statement of account — print preview</h3>
     <div class="card" style="margin-bottom:12px">
       <div style="text-align:center;border-bottom:1px solid #E2E8F0;padding-bottom:8px;margin-bottom:10px">
-        <div class="bold">Meridian Diagnostics Private Limited — Andheri West</div>
-        <div class="small muted">GSTIN 27AAACM1234K1Z5 · Statement of account (not a tax document) · Period 01 Apr – 25 Jul 2026</div>
+        <div class="bold">Magnus Diagnostics Private Limited — North Paravoor</div>
+        <div class="small muted">GSTIN 32AAACM1234K1Z7 · Statement of account (not a tax document) · Period 01 Apr – 25 Jul 2026</div>
         <div class="small muted">Patient: Aarav Sharma · MRN-004821 · Generated 25 Jul 2026, 14:22 IST</div>
       </div>
       <table>
@@ -2226,7 +2226,7 @@ tr.dim td{color:#94A3B8}
         <tr><td>13 Jul</td><td class="mono">RCP/…/1311</td><td>Payment — cash</td><td>—</td><td>₹7,200</td><td>₹1,000</td></tr>
         <tr><td>18 Jul</td><td class="mono">CRN/…/0038 + RFV/…/0027</td><td>Credit note ₹450 refunded to source UPI</td><td>₹450</td><td>₹450</td><td class="bold">₹1,000 due</td></tr>
       </table>
-      <div class="small muted" style="margin-top:8px">Advance held (not adjusted): ₹6,500 vide RCP/AND/26-27/1390. ◆ Disputed items are shown but marked; totals include them until resolution. Service descriptions only — no clinical findings appear on statements.</div>
+      <div class="small muted" style="margin-top:8px">Advance held (not adjusted): ₹6,500 vide RCP/NPV/26-27/1390. ◆ Disputed items are shown but marked; totals include them until resolution. Service descriptions only — no clinical findings appear on statements.</div>
     </div>
     <div class="field"><label>Share via (consent-checked channels only)</label>
       <div class="check"><span class="box on">✓</span> WhatsApp to +91 98••• ••7xx — <span class="chip green">consent on file · 03 Apr 2026</span></div>
@@ -2241,9 +2241,9 @@ tr.dim td{color:#94A3B8}
 </section>
 <section class="screen" id="bl-16">
 <div class="screen-head"><h1><span class="sid"><a href="#bl-16" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-16</a></span> Price estimate / quote</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · estimates/quotes</div></div></div>
-<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office and billing staff build a pre-booking price estimate (EST/AND/26-27 series) from the active rate card, or from the payer's contracted rates if the visit is on credit. The estimate is valid 14 days, can be shared with the patient only per recorded consent, and converts to an invoice at visit time — with an automatic diff highlight if any price changed since the estimate was issued.</div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office and billing staff build a pre-booking price estimate (EST/NPV/26-27 series) from the active rate card, or from the payer's contracted rates if the visit is on credit. The estimate is valid 14 days, can be shared with the patient only per recorded consent, and converts to an invoice at visit time — with an automatic diff highlight if any price changed since the estimate was issued.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Billing</div>
     <div class="nav-item">Invoices</div>
@@ -2260,8 +2260,8 @@ tr.dim td{color:#94A3B8}
   </div>
   <div class="main">
     <div class="crumb">Billing › Estimates &amp; quotes › New estimate</div>
-    <div class="page-title">New price estimate <span class="chip grey mono">EST/AND/26-27/0142</span> <span class="chip amber">DRAFT</span></div>
-    <div class="page-sub">Series from central number-series registry · Rate card: Andheri West v14 (effective 01 Jul 2026) · Valid 14 days from issue</div>
+    <div class="page-title">New price estimate <span class="chip grey mono">EST/NPV/26-27/0142</span> <span class="chip amber">DRAFT</span></div>
+    <div class="page-sub">Series from central number-series registry · Rate card: North Paravoor v14 (effective 01 Jul 2026) · Valid 14 days from issue</div>
     <div class="stepper">
       <div class="step done"><span class="dot">✓</span> Patient &amp; payer</div><span class="step-line"></span>
       <div class="step cur"><span class="dot">2</span> Services &amp; pricing</div><span class="step-line"></span>
@@ -2280,7 +2280,7 @@ tr.dim td{color:#94A3B8}
             <tr><td>4</td><td>CD / film copy of study<div class="small muted mono">MSC-MED-002</div></td><td class="mono">999316</td><td><span class="chip grey">Self-pay</span></td><td>Exempt (healthcare service)</td><td style="text-align:right">350.00</td><td style="text-align:right">1</td><td style="text-align:right">350.00</td></tr>
             <tr class="hl"><td colspan="7" style="text-align:right"><b>Estimated total</b></td><td style="text-align:right"><b>₹12,250.00</b></td></tr>
           </table>
-          <div class="small muted" style="margin-top:8px">All lines GST-exempt healthcare services — no CGST/SGST applicable. GSTIN 27AAACM1234K1Z5 will print on the issued estimate. Estimate is <b>not</b> a fiscal document; invoice is raised at visit.</div>
+          <div class="small muted" style="margin-top:8px">All lines GST-exempt healthcare services — no CGST/SGST applicable. GSTIN 32AAACM1234K1Z7 will print on the issued estimate. Estimate is <b>not</b> a fiscal document; invoice is raised at visit.</div>
           <div style="margin-top:10px;display:flex;gap:10px"><span class="btn small">+ Add service</span><span class="btn small">+ Add package</span><span class="btn small ghost">Apply concession (needs supervisor)</span></div>
         </div>
         <div class="banner info"><b>Payer rates auto-apply on credit visits</b>If the patient books this visit against a credit payer (e.g. Star Health TPA), contracted payer rates replace rate-card prices at conversion, and the estimate shows a payer-vs-estimate diff before invoicing.</div>
@@ -2317,8 +2317,8 @@ tr.dim td{color:#94A3B8}
 <div class="state-tag">STATE B — ESTIMATE ISSUED &amp; SHARED PER CONSENT</div>
 <div class="frame">
   <div class="body"><div class="main" style="padding:16px 18px">
-    <div class="page-title">Estimate <span class="mono">EST/AND/26-27/0142</span> <span class="chip green">ISSUED</span> <span class="chip teal">SHARED</span></div>
-    <div class="page-sub">Issued 25 Jul 2026, 10:41 IST by D. Nair · Valid until 08 Aug 2026 · GSTIN 27AAACM1234K1Z5</div>
+    <div class="page-title">Estimate <span class="mono">EST/NPV/26-27/0142</span> <span class="chip green">ISSUED</span> <span class="chip teal">SHARED</span></div>
+    <div class="page-sub">Issued 25 Jul 2026, 10:41 IST by D. Nair · Valid until 08 Aug 2026 · GSTIN 32AAACM1234K1Z7</div>
     <div class="banner success"><b>Shared with patient per consent</b>PDF link (view-only, OTP-protected, expires with estimate validity) sent to Sofia Rossi via WhatsApp at 10:41 IST under consent CNS-2026-8812. Delivery confirmed 10:42 IST. Referrer share <b>not</b> sent — referrer-share consent not on file.</div>
     <div class="row">
       <div class="grow card">
@@ -2348,8 +2348,8 @@ tr.dim td{color:#94A3B8}
 <div class="frame">
   <div class="body"><div class="main" style="padding:16px 18px">
     <div class="page-title">Convert estimate → invoice · visit <span class="mono">VIS-2026-33108</span></div>
-    <div class="page-sub">28 Jul 2026, 09:36 IST · Cashier: P. D'Souza · Estimate EST/AND/26-27/0142 (Rev 1, still valid)</div>
-    <div class="banner warn"><b>Price changed since estimate was issued</b>Rate card Andheri West v15 took effect 27 Jul 2026. 1 of 4 lines differs from the estimate. Review the diff below — the patient must be informed of the new total before the invoice is raised.</div>
+    <div class="page-sub">28 Jul 2026, 09:36 IST · Cashier: P. D'Souza · Estimate EST/NPV/26-27/0142 (Rev 1, still valid)</div>
+    <div class="banner warn"><b>Price changed since estimate was issued</b>Rate card North Paravoor v15 took effect 27 Jul 2026. 1 of 4 lines differs from the estimate. Review the diff below — the patient must be informed of the new total before the invoice is raised.</div>
     <div class="card">
       <div class="card-title">Estimate vs current price <span class="right">Diff highlighted</span></div>
       <table>
@@ -2363,13 +2363,13 @@ tr.dim td{color:#94A3B8}
     </div>
     <div class="modal-wrap"><div class="modal">
       <h3>Confirm conversion at revised total</h3>
-      <p class="small" style="margin-bottom:10px">Invoice will be raised as <b class="mono">INV/AND/26-27/0871</b> (next in series) for <b>₹12,500.00</b> — ₹250.00 above the shared estimate. Choose how to proceed:</p>
+      <p class="small" style="margin-bottom:10px">Invoice will be raised as <b class="mono">INV/NPV/26-27/0871</b> (next in series) for <b>₹12,500.00</b> — ₹250.00 above the shared estimate. Choose how to proceed:</p>
       <div class="check"><span class="box radio on"></span> Invoice at <b>current prices</b> (₹12,500.00) — patient informed verbally, acknowledgement noted</div>
       <div class="check"><span class="box radio"></span> Honour <b>estimated prices</b> (₹12,250.00) — books a ₹250.00 concession, requires billing supervisor M. Kulkarni approval</div>
       <div class="field" style="margin-top:10px"><label>Patient informed of difference <span class="req">*</span></label><div class="check"><span class="box on">✓</span> Yes — informed at counter, 09:36 IST, by P. D'Souza</div></div>
       <div class="modal-actions"><span class="btn">Back to estimate</span><span class="btn primary">Raise invoice ₹12,500.00</span></div>
     </div></div>
-    <div class="small muted">Estimate EST/AND/26-27/0142 will be marked <b>Converted</b> and linked to the invoice; the diff snapshot is stored with both documents.</div>
+    <div class="small muted">Estimate EST/NPV/26-27/0142 will be marked <b>Converted</b> and linked to the invoice; the diff snapshot is stored with both documents.</div>
   </div></div>
 </div>
 
@@ -2379,7 +2379,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#bl-17" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-17</a></span> Write-off &amp; bad debt</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · write-off & bad debt</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Billing staff raise a write-off request against an aged outstanding balance; the request requires a documented collection-attempts log and a reason code. Only the org admin can approve, with step-up identity confirmation, since a write-off moves money off the books. Approved write-offs land in the branch write-off register with a monthly summary, and are automatically reversed if the patient later pays.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Billing</div>
     <div class="nav-item">Invoices</div>
@@ -2404,10 +2404,10 @@ tr.dim td{color:#94A3B8}
           <div class="card-title">Balance being written off</div>
           <dl class="kv">
             <dt>Patient</dt><dd>Mohammed Al-Rashid <span class="mono small">MRN-004790</span></dd>
-            <dt>Invoice</dt><dd class="mono">INV/AND/26-27/0412 · 14 Apr 2026</dd>
+            <dt>Invoice</dt><dd class="mono">INV/NPV/26-27/0412 · 14 Apr 2026</dd>
             <dt>Visit</dt><dd class="mono">VIS-2026-30177 · CT Abdomen with contrast</dd>
             <dt>Invoice total</dt><dd>₹9,800.00 · Exempt (healthcare service) · SAC 999316</dd>
-            <dt>Paid to date</dt><dd>₹4,000.00 (RCP/AND/26-27/0388, UPI · UTR 415522873310)</dd>
+            <dt>Paid to date</dt><dd>₹4,000.00 (RCP/NPV/26-27/0388, UPI · UTR 415522873310)</dd>
             <dt>Outstanding</dt><dd><b style="color:#B91C1C">₹5,800.00</b> · <span class="chip red">102 days aged</span></dd>
             <dt>Ageing bucket</dt><dd>91–120 days · dunning ladder exhausted</dd>
             <dt>Reason code</dt><dd><b>BD-03 — Patient untraceable after repeated attempts</b></dd>
@@ -2454,7 +2454,7 @@ tr.dim td{color:#94A3B8}
 <div class="state-tag">STATE B — WRITE-OFF REGISTER &amp; MONTHLY SUMMARY</div>
 <div class="frame">
   <div class="body"><div class="main" style="padding:16px 18px">
-    <div class="page-title">Write-off register — Andheri West</div>
+    <div class="page-title">Write-off register — North Paravoor</div>
     <div class="page-sub">FY 26-27 · Filter: Apr–Jul 2026 · All amounts ₹ · Register is append-only; corrections happen via reversal entries</div>
     <div class="kpi-row">
       <div class="kpi"><div class="n">₹41,350</div><div class="l">Written off FY 26-27</div><div class="s">7 entries</div></div>
@@ -2466,13 +2466,13 @@ tr.dim td{color:#94A3B8}
       <div class="card-title">Register entries <span class="right">Append-only</span></div>
       <table>
         <tr><th>WO ref</th><th>Patient</th><th>Invoice</th><th style="text-align:right">Amount (₹)</th><th>Reason</th><th>Requested by</th><th>Approved by</th><th>Status</th></tr>
-        <tr><td class="mono">WO-AND-2026-0031</td><td>Mohammed Al-Rashid · MRN-004790</td><td class="mono">INV/AND/26-27/0412</td><td style="text-align:right">5,800.00</td><td>BD-03 untraceable</td><td>M. Kulkarni</td><td class="muted">—</td><td><span class="chip amber">PENDING</span></td></tr>
-        <tr><td class="mono">WO-AND-2026-0030</td><td>Rajesh Gupta · MRN-004795</td><td class="mono">INV/AND/26-27/0296</td><td style="text-align:right">1,150.00</td><td>BD-05 small balance &lt;₹2,000</td><td>M. Kulkarni</td><td>K. Verma · 18 Jul</td><td><span class="chip green">POSTED</span></td></tr>
-        <tr><td class="mono">WO-AND-2026-0028</td><td>Ananya Rao · MRN-004819</td><td class="mono">INV/AND/26-27/0233</td><td style="text-align:right">3,200.00</td><td>BD-03 untraceable</td><td>M. Kulkarni</td><td>K. Verma · 30 Jun</td><td><span class="chip blue">REVERSED 22 Jul</span></td></tr>
-        <tr><td class="mono">WO-AND-2026-0027</td><td>Payer: Star Health TPA</td><td class="mono">INV/AND/26-27/0198</td><td style="text-align:right">14,600.00</td><td>BD-07 claim denied, appeal exhausted</td><td>M. Kulkarni</td><td>K. Verma · 21 Jun</td><td><span class="chip green">POSTED</span></td></tr>
-        <tr><td class="mono">WO-AND-2026-0026</td><td>Priya Menon · MRN-004828</td><td class="mono">INV/AND/26-27/0154</td><td style="text-align:right">900.00</td><td>BD-05 small balance &lt;₹2,000</td><td>D. Nair</td><td>K. Verma · 09 Jun</td><td><span class="chip green">POSTED</span></td></tr>
-        <tr><td class="mono">WO-AND-2026-0024</td><td>Aarav Sharma · MRN-004821</td><td class="mono">INV/AND/26-27/0102</td><td style="text-align:right">2,400.00</td><td>BD-02 hardship, medical officer note</td><td>M. Kulkarni</td><td>K. Verma · 12 May</td><td><span class="chip green">POSTED</span></td></tr>
-        <tr><td class="mono">WO-AND-2026-0022</td><td>Sofia Rossi · MRN-004822</td><td class="mono">INV/AND/26-27/0067</td><td style="text-align:right">19,100.00</td><td>BD-07 claim denied, appeal exhausted</td><td>M. Kulkarni</td><td>K. Verma · 28 Apr</td><td><span class="chip green">POSTED</span></td></tr>
+        <tr><td class="mono">WO-AND-2026-0031</td><td>Mohammed Al-Rashid · MRN-004790</td><td class="mono">INV/NPV/26-27/0412</td><td style="text-align:right">5,800.00</td><td>BD-03 untraceable</td><td>M. Kulkarni</td><td class="muted">—</td><td><span class="chip amber">PENDING</span></td></tr>
+        <tr><td class="mono">WO-AND-2026-0030</td><td>Rajesh Gupta · MRN-004795</td><td class="mono">INV/NPV/26-27/0296</td><td style="text-align:right">1,150.00</td><td>BD-05 small balance &lt;₹2,000</td><td>M. Kulkarni</td><td>K. Verma · 18 Jul</td><td><span class="chip green">POSTED</span></td></tr>
+        <tr><td class="mono">WO-AND-2026-0028</td><td>Ananya Rao · MRN-004819</td><td class="mono">INV/NPV/26-27/0233</td><td style="text-align:right">3,200.00</td><td>BD-03 untraceable</td><td>M. Kulkarni</td><td>K. Verma · 30 Jun</td><td><span class="chip blue">REVERSED 22 Jul</span></td></tr>
+        <tr><td class="mono">WO-AND-2026-0027</td><td>Payer: Star Health TPA</td><td class="mono">INV/NPV/26-27/0198</td><td style="text-align:right">14,600.00</td><td>BD-07 claim denied, appeal exhausted</td><td>M. Kulkarni</td><td>K. Verma · 21 Jun</td><td><span class="chip green">POSTED</span></td></tr>
+        <tr><td class="mono">WO-AND-2026-0026</td><td>Priya Menon · MRN-004828</td><td class="mono">INV/NPV/26-27/0154</td><td style="text-align:right">900.00</td><td>BD-05 small balance &lt;₹2,000</td><td>D. Nair</td><td>K. Verma · 09 Jun</td><td><span class="chip green">POSTED</span></td></tr>
+        <tr><td class="mono">WO-AND-2026-0024</td><td>Aarav Sharma · MRN-004821</td><td class="mono">INV/NPV/26-27/0102</td><td style="text-align:right">2,400.00</td><td>BD-02 hardship, medical officer note</td><td>M. Kulkarni</td><td>K. Verma · 12 May</td><td><span class="chip green">POSTED</span></td></tr>
+        <tr><td class="mono">WO-AND-2026-0022</td><td>Sofia Rossi · MRN-004822</td><td class="mono">INV/NPV/26-27/0067</td><td style="text-align:right">19,100.00</td><td>BD-07 claim denied, appeal exhausted</td><td>M. Kulkarni</td><td>K. Verma · 28 Apr</td><td><span class="chip green">POSTED</span></td></tr>
       </table>
     </div>
     <div class="card">
@@ -2494,14 +2494,14 @@ tr.dim td{color:#94A3B8}
   <div class="body"><div class="main" style="padding:16px 18px">
     <div class="page-title">Write-off reversal · <span class="mono">WO-AND-2026-0028</span> <span class="chip blue">REVERSED</span></div>
     <div class="page-sub">Ananya Rao · MRN-004819 · Original write-off ₹3,200.00 approved 30 Jun 2026 by K. Verma</div>
-    <div class="banner success"><b>Payment received against written-off balance</b>On 22 Jul 2026, 12:04 IST, Ananya Rao paid ₹3,200.00 by UPI at the Andheri West counter (cashier P. D'Souza). Magnus matched the payment to invoice INV/AND/26-27/0233 and auto-created a reversal entry — the receivable is reinstated and immediately settled; bad-debt expense is credited back.</div>
+    <div class="banner success"><b>Payment received against written-off balance</b>On 22 Jul 2026, 12:04 IST, Ananya Rao paid ₹3,200.00 by UPI at the North Paravoor counter (cashier P. D'Souza). Magnus matched the payment to invoice INV/NPV/26-27/0233 and auto-created a reversal entry — the receivable is reinstated and immediately settled; bad-debt expense is credited back.</div>
     <div class="row">
       <div class="grow card">
         <div class="card-title">Reversal posting</div>
         <table>
           <tr><th>Entry</th><th>Document</th><th style="text-align:right">Amount (₹)</th><th>Effect</th></tr>
-          <tr><td>1</td><td>Write-off reversal WO-AND-2026-0028-R1</td><td style="text-align:right">3,200.00</td><td>Reinstates receivable on INV/AND/26-27/0233; reduces FY bad debt</td></tr>
-          <tr><td>2</td><td>Receipt <span class="mono">RCP/AND/26-27/0961</span> · UPI · UTR 519984022176</td><td style="text-align:right">3,200.00</td><td>Settles reinstated balance in full</td></tr>
+          <tr><td>1</td><td>Write-off reversal WO-AND-2026-0028-R1</td><td style="text-align:right">3,200.00</td><td>Reinstates receivable on INV/NPV/26-27/0233; reduces FY bad debt</td></tr>
+          <tr><td>2</td><td>Receipt <span class="mono">RCP/NPV/26-27/0961</span> · UPI · UTR 519984022176</td><td style="text-align:right">3,200.00</td><td>Settles reinstated balance in full</td></tr>
           <tr class="hl"><td colspan="2" style="text-align:right"><b>Invoice balance after reversal</b></td><td style="text-align:right"><b>0.00</b></td><td><span class="chip green">SETTLED</span></td></tr>
         </table>
         <div class="small muted" style="margin-top:6px">Original write-off entry is never deleted — the register keeps both the write-off and its reversal, cross-linked. Receipt issued from the central number-series registry.</div>
@@ -2512,7 +2512,7 @@ tr.dim td{color:#94A3B8}
           <div class="ev"><span class="t">22 Jul 12:04</span><span>UPI payment ₹3,200.00 captured · P. D'Souza</span></div>
           <div class="ev"><span class="t">22 Jul 12:04</span><span>System matched payment to written-off invoice — reversal drafted</span></div>
           <div class="ev"><span class="t">22 Jul 12:05</span><span>Reversal auto-posted (no approval needed — reversal restores value)</span></div>
-          <div class="ev"><span class="t">22 Jul 12:06</span><span>Receipt RCP/AND/26-27/0961 shared with patient per consent</span></div>
+          <div class="ev"><span class="t">22 Jul 12:06</span><span>Receipt RCP/NPV/26-27/0961 shared with patient per consent</span></div>
           <div class="ev"><span class="t">22 Jul 12:06</span><span>K. Verma and M. Kulkarni notified of recovery</span></div>
         </div>
       </div>
@@ -2526,7 +2526,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#bl-18" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-18</a></span> Day book &amp; collections report</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · day book & collections</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The day book is the branch's reconciliation view: collections for a date range broken down by payment mode, by user (cashier) and by service group, alongside refunds, voids and cash-drawer variance incidents. Every export (CSV/PDF) is logged with who exported and why, and every figure drills down to the underlying receipts.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Billing</div>
     <div class="nav-item">Invoices</div>
@@ -2590,11 +2590,11 @@ tr.dim td{color:#94A3B8}
           <div class="card-title">Refunds &amp; voids — 24 Jul</div>
           <table>
             <tr><th>Ref</th><th style="text-align:right">₹</th><th>Why</th></tr>
-            <tr><td class="mono small">RFD-2026-0218<div class="muted">→ RCP/AND/26-27/0912</div></td><td style="text-align:right">2,500.00</td><td class="small">Scan cancelled pre-contrast · UPI reversal UTR 512204981133</td></tr>
-            <tr><td class="mono small">RFD-2026-0219<div class="muted">→ RCP/AND/26-27/0918</div></td><td style="text-align:right">2,000.00</td><td class="small">Duplicate payment · card reversal</td></tr>
-            <tr><td class="mono small">RFD-2026-0220<div class="muted">→ RCP/AND/26-27/0925</div></td><td style="text-align:right">1,800.00</td><td class="small">Payer approved credit switch · cash</td></tr>
-            <tr><td class="mono small">VOID · RCP/AND/26-27/0907</td><td style="text-align:right" class="muted">—</td><td class="small">Wrong patient selected; re-issued as 0908 · approved M. Kulkarni</td></tr>
-            <tr><td class="mono small">VOID · INV/AND/26-27/0864</td><td style="text-align:right" class="muted">—</td><td class="small">Line entry error; credit note CRN/AND/26-27/0043 raised</td></tr>
+            <tr><td class="mono small">RFD-2026-0218<div class="muted">→ RCP/NPV/26-27/0912</div></td><td style="text-align:right">2,500.00</td><td class="small">Scan cancelled pre-contrast · UPI reversal UTR 512204981133</td></tr>
+            <tr><td class="mono small">RFD-2026-0219<div class="muted">→ RCP/NPV/26-27/0918</div></td><td style="text-align:right">2,000.00</td><td class="small">Duplicate payment · card reversal</td></tr>
+            <tr><td class="mono small">RFD-2026-0220<div class="muted">→ RCP/NPV/26-27/0925</div></td><td style="text-align:right">1,800.00</td><td class="small">Payer approved credit switch · cash</td></tr>
+            <tr><td class="mono small">VOID · RCP/NPV/26-27/0907</td><td style="text-align:right" class="muted">—</td><td class="small">Wrong patient selected; re-issued as 0908 · approved M. Kulkarni</td></tr>
+            <tr><td class="mono small">VOID · INV/NPV/26-27/0864</td><td style="text-align:right" class="muted">—</td><td class="small">Line entry error; credit note CRN/NPV/26-27/0043 raised</td></tr>
           </table>
           <div class="small muted" style="margin-top:6px">All refunds carried step-up identity confirmation by the approver before payout.</div>
         </div>
@@ -2616,7 +2616,7 @@ tr.dim td{color:#94A3B8}
 <div class="frame">
   <div class="body"><div class="main" style="padding:16px 18px">
     <div class="page-title">Collections summary — 01 Jul → 24 Jul 2026</div>
-    <div class="page-sub">Range mode · 24 trading days · Andheri West branch only (regional roll-up available to regional finance role)</div>
+    <div class="page-sub">Range mode · 24 trading days · North Paravoor only (regional roll-up available to regional finance role)</div>
     <div class="kpi-row">
       <div class="kpi"><div class="n">₹41.2L</div><div class="l">Gross collections</div><div class="s">2,214 receipts</div></div>
       <div class="kpi"><div class="n">₹1,71,700</div><div class="l">Daily average</div><div class="s">Peak Sat 18 Jul · ₹2,41,300</div></div>
@@ -2642,7 +2642,7 @@ tr.dim td{color:#94A3B8}
           <dt>Refunds count</dt><dd>41 · ₹87,400.00</dd>
           <dt>Top reason</dt><dd>Scan cancelled pre-procedure (19)</dd>
           <dt>Receipt voids</dt><dd>9 · all supervisor-approved</dd>
-          <dt>Invoice voids</dt><dd>4 · credit notes CRN/AND/26-27/0040–0043</dd>
+          <dt>Invoice voids</dt><dd>4 · credit notes CRN/NPV/26-27/0040–0043</dd>
           <dt>Same-day void %</dt><dd>100% · policy compliant</dd>
         </dl>
         <div style="margin-top:8px"><span class="btn small">Open refunds register</span></div>
@@ -2680,11 +2680,11 @@ tr.dim td{color:#94A3B8}
         <div class="card-title">Drill-down: cash receipts, 24 Jul <span class="right">From mode row</span></div>
         <table>
           <tr><th>Receipt</th><th>Patient</th><th style="text-align:right">₹</th></tr>
-          <tr><td class="mono small">RCP/AND/26-27/0902</td><td class="small">Aarav Sharma · MRN-004821</td><td style="text-align:right">1,500.00</td></tr>
-          <tr><td class="mono small">RCP/AND/26-27/0905</td><td class="small">Priya Menon · MRN-004828</td><td style="text-align:right">2,800.00</td></tr>
-          <tr><td class="mono small">RCP/AND/26-27/0911</td><td class="small">Rajesh Gupta · MRN-004795</td><td style="text-align:right">650.00</td></tr>
-          <tr><td class="mono small">RCP/AND/26-27/0916</td><td class="small">Sofia Rossi · MRN-004822</td><td style="text-align:right">4,200.00</td></tr>
-          <tr><td class="mono small">RCP/AND/26-27/0921</td><td class="small">Ananya Rao · MRN-004819</td><td style="text-align:right">1,150.00</td></tr>
+          <tr><td class="mono small">RCP/NPV/26-27/0902</td><td class="small">Aarav Sharma · MRN-004821</td><td style="text-align:right">1,500.00</td></tr>
+          <tr><td class="mono small">RCP/NPV/26-27/0905</td><td class="small">Priya Menon · MRN-004828</td><td style="text-align:right">2,800.00</td></tr>
+          <tr><td class="mono small">RCP/NPV/26-27/0911</td><td class="small">Rajesh Gupta · MRN-004795</td><td style="text-align:right">650.00</td></tr>
+          <tr><td class="mono small">RCP/NPV/26-27/0916</td><td class="small">Sofia Rossi · MRN-004822</td><td style="text-align:right">4,200.00</td></tr>
+          <tr><td class="mono small">RCP/NPV/26-27/0921</td><td class="small">Ananya Rao · MRN-004819</td><td style="text-align:right">1,150.00</td></tr>
           <tr><td class="small muted" colspan="2">…16 more cash receipts</td><td style="text-align:right" class="small muted">21,200.00</td></tr>
         </table>
         <div class="small muted" style="margin-top:6px">Opening a receipt from here is itself logged (report drill-down context recorded).</div>
@@ -2699,7 +2699,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#bl-19" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-19</a></span> GST summary export</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G9 Billing &amp; Payments — workspace 'Billing'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · C-5e GST summary export</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The billing supervisor selects a GST period and reviews the exempt-supplies summary (value by SAC), the small set of taxable exceptions with tax computed, and credit-note adjustments, before exporting a GSTR-1-ready CSV for the CA. Export locks the period against back-dated changes; re-opening a locked period requires org-admin approval with identity confirmation.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">MK</span>M. Kulkarni ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Billing</div>
     <div class="nav-item">Invoices</div>
@@ -2716,7 +2716,7 @@ tr.dim td{color:#94A3B8}
   <div class="main">
     <div class="crumb">Billing › Reports › GST summary</div>
     <div class="page-title">GST summary — June 2026 <span class="chip green">RECONCILED</span> <span class="actions-right"><span class="select" style="width:190px;display:inline-block">Period: Jun 2026 ▾</span></span></div>
-    <div class="page-sub">GSTIN 27AAACM1234K1Z5 · Meridian Diagnostics Pvt Ltd, Andheri West · Period 01–30 Jun 2026 · Status: open (not yet exported/locked)</div>
+    <div class="page-sub">GSTIN 32AAACM1234K1Z7 · Magnus Diagnostics Pvt Ltd, North Paravoor · Period 01–30 Jun 2026 · Status: open (not yet exported/locked)</div>
     <div class="banner reg"><b>e-Invoicing roadmap</b>IRP e-invoicing (IRN + QR) for B2B taxable supplies is planned for MVP-2 (target Oct 2026). Current taxable B2B volume is below the notification threshold; Magnus already stores buyer GSTINs so the cut-over needs no data backfill.</div>
     <div class="kpi-row">
       <div class="kpi"><div class="n">₹47,82,300</div><div class="l">Exempt supplies</div><div class="s">98.9% of turnover · healthcare services</div></div>
@@ -2752,19 +2752,19 @@ tr.dim td{color:#94A3B8}
           <div class="card-title">Credit-note adjustments in period</div>
           <table>
             <tr><th>Credit note</th><th>Against invoice</th><th style="text-align:right">Value (₹)</th><th>Category</th><th>Reason</th></tr>
-            <tr><td class="mono">CRN/AND/26-27/0038</td><td class="mono">INV/AND/26-27/0611</td><td style="text-align:right">−12,400.00</td><td>Exempt</td><td>Scan series not performed</td></tr>
-            <tr><td class="mono">CRN/AND/26-27/0039</td><td class="mono">INV/AND/26-27/0640</td><td style="text-align:right">−9,800.00</td><td>Exempt</td><td>Payer rate correction (Star Health TPA)</td></tr>
-            <tr><td class="mono">CRN/AND/26-27/0040</td><td class="mono">INV/AND/26-27/0655</td><td style="text-align:right">−8,200.00</td><td>Exempt</td><td>Duplicate billing</td></tr>
-            <tr><td class="mono">CRN/AND/26-27/0041</td><td class="mono">INV/AND/26-27/0668</td><td style="text-align:right">−6,300.00</td><td>Exempt</td><td>Concession applied post-invoice</td></tr>
-            <tr><td class="mono">CRN/AND/26-27/0042</td><td class="mono">INV/AND/26-27/0671</td><td style="text-align:right">−4,500.00</td><td>Exempt</td><td>Visit cancelled after invoicing</td></tr>
-            <tr><td class="mono">CRN/AND/26-27/0043</td><td class="mono">INV/AND/26-27/0864</td><td style="text-align:right">−700.00</td><td>Taxable (18%)</td><td>Media-copy line error · tax reversed ₹63 + ₹63</td></tr>
+            <tr><td class="mono">CRN/NPV/26-27/0038</td><td class="mono">INV/NPV/26-27/0611</td><td style="text-align:right">−12,400.00</td><td>Exempt</td><td>Scan series not performed</td></tr>
+            <tr><td class="mono">CRN/NPV/26-27/0039</td><td class="mono">INV/NPV/26-27/0640</td><td style="text-align:right">−9,800.00</td><td>Exempt</td><td>Payer rate correction (Star Health TPA)</td></tr>
+            <tr><td class="mono">CRN/NPV/26-27/0040</td><td class="mono">INV/NPV/26-27/0655</td><td style="text-align:right">−8,200.00</td><td>Exempt</td><td>Duplicate billing</td></tr>
+            <tr><td class="mono">CRN/NPV/26-27/0041</td><td class="mono">INV/NPV/26-27/0668</td><td style="text-align:right">−6,300.00</td><td>Exempt</td><td>Concession applied post-invoice</td></tr>
+            <tr><td class="mono">CRN/NPV/26-27/0042</td><td class="mono">INV/NPV/26-27/0671</td><td style="text-align:right">−4,500.00</td><td>Exempt</td><td>Visit cancelled after invoicing</td></tr>
+            <tr><td class="mono">CRN/NPV/26-27/0043</td><td class="mono">INV/NPV/26-27/0864</td><td style="text-align:right">−700.00</td><td>Taxable (18%)</td><td>Media-copy line error · tax reversed ₹63 + ₹63</td></tr>
           </table>
         </div>
       </div>
       <div style="width:300px;flex-shrink:0">
         <div class="card">
           <div class="card-title">Period checks</div>
-          <div class="check"><span class="box on">✓</span> Invoice series INV/AND/26-27/0601–0748 continuous, no gaps (central number-series registry)</div>
+          <div class="check"><span class="box on">✓</span> Invoice series INV/NPV/26-27/0601–0748 continuous, no gaps (central number-series registry)</div>
           <div class="check"><span class="box on">✓</span> All 31 taxable invoices carry SAC/HSN and rate</div>
           <div class="check"><span class="box on">✓</span> 6/6 credit notes linked to original invoices</div>
           <div class="check"><span class="box on">✓</span> Day book totals reconcile with invoice register</div>
@@ -2820,8 +2820,8 @@ tr.dim td{color:#94A3B8}
     <div class="modal-wrap"><div class="modal">
       <h3>Confirm export &amp; period lock</h3>
       <dl class="kv" style="grid-template-columns:170px 1fr;margin-bottom:10px">
-        <dt>GSTIN</dt><dd class="mono">27AAACM1234K1Z5</dd>
-        <dt>File</dt><dd class="mono">GSTR1_27AAACM1234K1Z5_JUN2026_AND.csv</dd>
+        <dt>GSTIN</dt><dd class="mono">32AAACM1234K1Z7</dd>
+        <dt>File</dt><dd class="mono">GSTR1_32AAACM1234K1Z7_JUN2026_AND.csv</dd>
         <dt>Sections included</dt><dd>B2B taxable (1 GSTIN buyer) · B2C small · Nil-rated/exempt · CDNR (credit notes) · Document series summary</dd>
         <dt>Rows</dt><dd>1,879 invoice rows · 6 CRN rows · 1 exempt summary row</dd>
         <dt>Control totals</dt><dd>Exempt ₹47,82,300.00 · Taxable ₹52,900.00 · Tax ₹9,522.00</dd>
@@ -2852,7 +2852,7 @@ tr.dim td{color:#94A3B8}
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Implements the expert-panel decision <b>Option C — organisation-configurable report release policy with authorised clinical override and full audit</b>. The screen separates two statuses that the legacy system conflated: <b>SIGNED</b> (the clinical act is complete and the report is immutable — <a href="Magnus_HMS_G07_Radiologist_Reading.html#rd-09" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">RD-09</a>) and <b>RELEASED</b> (delivery of the report to patient/referrer is permitted — feeds <a href="Magnus_HMS_G10_Notifications_Delivery.html#nt-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">NT-01</a> delivery). Policy is set once at organisation level (admin view, top); day-to-day the billing/front-office desk works the release queue (second frame). Reports flagged critical (<a href="Magnus_HMS_G07_Radiologist_Reading.html#rd-10" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">RD-10</a>) are never held for payment.</div>
 
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org admin) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org admin) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -2867,7 +2867,7 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Billing › Setup › Report release policy</div>
       <div class="page-title">Report release policy <span class="chip grey">ORG-LEVEL SETTING</span></div>
-      <div class="page-sub">Governs when a <b>SIGNED</b> report (<a href="Magnus_HMS_G07_Radiologist_Reading.html#rd-09" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">RD-09</a>) becomes <b>RELEASED</b> for delivery (<a href="Magnus_HMS_G10_Notifications_Delivery.html#nt-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">NT-01</a>). Effective-dated and recorded; applies to all branches of Meridian Diagnostics.</div>
+      <div class="page-sub">Governs when a <b>SIGNED</b> report (<a href="Magnus_HMS_G07_Radiologist_Reading.html#rd-09" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">RD-09</a>) becomes <b>RELEASED</b> for delivery (<a href="Magnus_HMS_G10_Notifications_Delivery.html#nt-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">NT-01</a>). Effective-dated and recorded; applies to all branches of Magnus Diagnostics.</div>
       <div class="split">
         <div>
           <div class="card">
@@ -2883,7 +2883,7 @@ tr.dim td{color:#94A3B8}
             <div class="card-title">Override permission</div>
             <p class="small" style="margin-bottom:8px"><span class="chip violet mono">release_without_payment</span></p>
             <table>
-              <tr><th>Granted to</th><th>Holder (Andheri West)</th></tr>
+              <tr><th>Granted to</th><th>Holder (North Paravoor)</th></tr>
               <tr><td>Branch medical lead</td><td>Dr. A. Rao</td></tr>
               <tr><td>Radiologist-in-charge</td><td>Dr. V. Shetty</td></tr>
             </table>
@@ -2909,7 +2909,7 @@ tr.dim td{color:#94A3B8}
 </div>
 
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front office) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front office) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -2964,7 +2964,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE C — RELEASED RECORD VIEW (AFTER OVERRIDE)</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front office) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>BILLING</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front office) ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Billing</div>
@@ -2974,7 +2974,7 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Billing › Release queue › ACC-2026-91247</div>
       <div class="page-title">MRI Brain (plain) — Sofia Rossi <span class="chip green">Signed 12:02 · Released 12:41 (override — Dr. A. Rao)</span></div>
-      <div class="page-sub">Patient Sofia Rossi · <span class="mono">MRN-004822</span> · F/34 · accession <span class="mono">ACC-2026-91247</span> · invoice <span class="mono">INV/AND/26-27/0415</span> <span class="chip amber">₹4,500.00 STILL DUE</span></div>
+      <div class="page-sub">Patient Sofia Rossi · <span class="mono">MRN-004822</span> · F/34 · accession <span class="mono">ACC-2026-91247</span> · invoice <span class="mono">INV/NPV/26-27/0415</span> <span class="chip amber">₹4,500.00 STILL DUE</span></div>
       <div class="banner danger"><b>Critical-result exception</b>Reports flagged critical (<a href="Magnus_HMS_G07_Radiologist_Reading.html#rd-10" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">RD-10</a>) bypass payment hold automatically — patient safety precedes dues. This report was NOT critical; it was released by authorised clinical override.</div>
       <div class="card" style="max-width:760px">
         <div class="card-title">Release record <span class="right">policy C · eff. 01 Jul 2026</span></div>
@@ -2985,7 +2985,7 @@ tr.dim td{color:#94A3B8}
           <div class="ev"><span class="t">12:41</span><span>Delivery started (<a href="Magnus_HMS_G10_Notifications_Delivery.html#nt-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">NT-01</a>): patient portal + WhatsApp to +91 98••• ••107; referrer copy to Dr. Meera Nair. <span class="chip blue">DELIVERY IN PROGRESS</span></span></div>
         </div>
         <dl class="kv" style="margin-top:10px">
-          <dt>Balance</dt><dd>₹4,500.00 open on <span class="mono">INV/AND/26-27/0415</span> — remains in Pending payments, normal dunning applies</dd>
+          <dt>Balance</dt><dd>₹4,500.00 open on <span class="mono">INV/NPV/26-27/0415</span> — remains in Pending payments, normal dunning applies</dd>
           <dt>Override audit</dt><dd><span class="mono">AUD-2026-77103</span> · reason, justification, approver, policy version recorded · Privacy Officer visibility</dd>
         </dl>
       </div>

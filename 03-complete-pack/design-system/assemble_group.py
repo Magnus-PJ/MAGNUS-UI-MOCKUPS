@@ -1,4 +1,5 @@
 import pathlib, sys, re, subprocess
+from normalize_identity import normalize
 
 BASE = pathlib.Path("/home/claude/allpack")
 CSS = (BASE/"base.css").read_text()
@@ -59,7 +60,7 @@ def build(key):
     for sid in ids:
         f = BASE/wave/f"{sid}.html"
         if not f.exists(): missing.append(sid); continue
-        frag = f.read_text()
+        frag = normalize(f.read_text())
         frags.append(linkify(frag, key))
         i,t = title_of(frag)
         toc.append(f'<tr><td class="mono bold"><a href="#{sid}" style="color:#0F766E;text-decoration:none">{i}</a></td><td><a href="#{sid}" style="color:inherit;text-decoration:none">{t}</a></td></tr>')

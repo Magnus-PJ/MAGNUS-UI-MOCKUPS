@@ -128,7 +128,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#nt-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">NT-01</a></span> Delivery ledger</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · NT-S1 delivery ledger</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The delivery ledger is the single source of truth for every outbound message tied to an accession — report-ready links, reminders, tokens and payment receipts. Staff filter by status, channel and date to answer "did the patient get it?" without opening the patient chart, and can drill into a per-accession timeline showing queued → sent → delivered → read/failed hops per recipient. Resends re-issue a fresh secure link (72-hour TTL, previous link revoked) and every view/resend/export is written to the access log.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>NOTIFICATIONS</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Delivery</div>
@@ -144,7 +144,7 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Notifications › Delivery ledger</div>
       <div class="page-title">Delivery ledger <span class="actions-right"><span class="btn small">⬇ Export CSV (governed)</span> <span class="btn small ghost">Refresh</span></span></div>
-      <div class="page-sub">All outbound patient &amp; referrer messages · Andheri West · secure report links expire 72&nbsp;h after issue</div>
+      <div class="page-sub">All outbound patient &amp; referrer messages · North Paravoor · secure report links expire 72&nbsp;h after issue</div>
       <div class="kpi-row">
         <div class="kpi"><div class="n">312</div><div class="l">Sent today</div><div class="s">across SMS / WhatsApp / email</div></div>
         <div class="kpi"><div class="n">287</div><div class="l">Delivered</div><div class="s">92.0% delivery rate</div></div>
@@ -168,7 +168,7 @@ tr.dim td{color:#94A3B8}
         <tr><td class="mono">25 Jul 14:31</td><td class="mono">ACC-2026-91236</td><td>Dr. Meera Nair <span class="chip teal" style="font-size:10px">REFERRER ✓</span><br><span class="small muted">📱 +91 98••• ••412 (verified)</span></td><td>Report ready · portal notify</td><td><span class="chip blue">WhatsApp</span></td><td><span class="chip green">DELIVERED</span></td><td class="mono small">14:32:05</td><td><span class="btn small ghost">Detail</span></td></tr>
         <tr><td class="mono">25 Jul 13:58</td><td class="mono">APPT-2026-53318</td><td>Priya Menon <span class="muted small">MRN-004828</span><br><span class="small muted">📱 +91 99••• ••871 (patient)</span></td><td>Appointment reminder T-24h</td><td><span class="chip grey">SMS</span></td><td><span class="chip green">DELIVERED</span></td><td class="mono small">13:58:44</td><td><span class="btn small ghost">Detail</span></td></tr>
         <tr><td class="mono">25 Jul 13:41</td><td class="mono">ACC-2026-91229</td><td>Mohammed Al-Rashid <span class="muted small">MRN-004790</span><br><span class="small muted">✉ m.alrashid••@••• (patient)</span></td><td>Report ready · secure link</td><td><span class="chip violet">Email</span></td><td><span class="chip amber">SENT · awaiting delivery receipt</span></td><td class="mono small">13:41:19</td><td><span class="btn small ghost">Detail</span></td></tr>
-        <tr><td class="mono">25 Jul 12:20</td><td class="mono">VIS-2026-33107</td><td>Rajesh Gupta <span class="muted small">MRN-004795</span><br><span class="small muted">📱 +91 90••• ••662 (patient)</span></td><td>Payment receipt RCP/AND/26-27/0912</td><td><span class="chip grey">SMS</span></td><td><span class="chip green">DELIVERED</span></td><td class="mono small">12:20:37</td><td><span class="btn small ghost">Detail</span></td></tr>
+        <tr><td class="mono">25 Jul 12:20</td><td class="mono">VIS-2026-33107</td><td>Rajesh Gupta <span class="muted small">MRN-004795</span><br><span class="small muted">📱 +91 90••• ••662 (patient)</span></td><td>Payment receipt RCP/NPV/26-27/0912</td><td><span class="chip grey">SMS</span></td><td><span class="chip green">DELIVERED</span></td><td class="mono small">12:20:37</td><td><span class="btn small ghost">Detail</span></td></tr>
         <tr class="dim"><td class="mono">25 Jul 11:05</td><td class="mono">ACC-2026-91214</td><td>Ananya Rao <span class="muted small">MRN-004819</span><br><span class="small muted">📱 +91 97••• ••530 (patient)</span></td><td>Report ready · secure link</td><td><span class="chip grey">SMS</span></td><td><span class="chip grey">SUPPRESSED · consent withdrawn</span></td><td class="mono small">—</td><td><span class="btn small ghost">Why?</span></td></tr>
         <tr><td class="mono">25 Jul 09:12</td><td class="mono">APPT-2026-53341</td><td>Sofia Rossi <span class="muted small">MRN-004822</span><br><span class="small muted">📱 +91 98••• ••318 (patient)</span></td><td>Queue token T-042</td><td><span class="chip blue">WhatsApp</span></td><td><span class="chip green">READ</span></td><td class="mono small">09:12:58</td><td><span class="btn small ghost">Detail</span></td></tr>
         <tr><td class="mono">24 Jul 18:47</td><td class="mono">ACC-2026-91188</td><td>Rajesh Gupta <span class="muted small">MRN-004795</span><br><span class="small muted">📱 +91 90••• ••662 (patient)</span></td><td>Report ready · secure link</td><td><span class="chip grey">SMS</span></td><td><span class="chip amber">LINK EXPIRED (72 h)</span></td><td class="mono small">21 Jul 18:47</td><td><span class="btn small">Resend</span></td></tr>
@@ -219,7 +219,7 @@ tr.dim td{color:#94A3B8}
           </div>
           <div class="card">
             <div class="card-title">Message content</div>
-            <div class="small" style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:8px 10px">Your report for order ending <b>1236</b> at Meridian Diagnostics is ready. View securely: &lt;link&gt;. Link valid 72 hrs. Do not share. — MERDIA</div>
+            <div class="small" style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:8px 10px">Your report for order ending <b>1236</b> at Magnus Diagnostics is ready. View securely: &lt;link&gt;. Link valid 72 hrs. Do not share. — MERDIA</div>
             <div class="small muted" style="margin-top:6px">Template contains no name, no test description, no result — PHI-free by lint rule NT-L1.</div>
           </div>
           <span class="btn primary" style="width:100%;margin-bottom:8px">Resend to patient…</span>
@@ -254,7 +254,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#nt-02" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">NT-02</a></span> Failures &amp; counter-pickup worklist</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · NT-S1 failures → NS-07 recovery worklist</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Every failed, suppressed or counter-routed delivery lands here so no patient silently misses a report. Front office works the Failed tab daily (fix contact via OTP-verified change link, switch channel, or move to counter pickup), and the counter queue enforces an ID-verify checklist with pickup code, collector details and signature before hand-over. Suppressed rows are read-only and link to the consent registry — they are never resent from this screen.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>NOTIFICATIONS</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Delivery</div>
@@ -270,7 +270,7 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Notifications › Failures &amp; counter pickup</div>
       <div class="page-title">Failures &amp; counter-pickup worklist</div>
-      <div class="page-sub">Daily review required · Andheri West · owner: front office (D. Nair)</div>
+      <div class="page-sub">Daily review required · North Paravoor · owner: front office (D. Nair)</div>
       <div class="banner warn"><b>Daily-review SLA: 6 failed items are unreviewed for &gt; 18 h.</b> Policy: every failed delivery must be actioned within 24 h of failure. <span class="chip amber">SLA 05:12 left</span> Owner: D. Nair · escalates to branch manager K. Verma at 26 Jul 10:00 IST if unactioned.</div>
       <div style="display:flex;gap:8px;margin-bottom:12px">
         <span class="btn small primary">Failed (9)</span><span class="btn small">Print-at-counter (4)</span><span class="btn small">Suppressed (3)</span><span class="btn small">Resolved · 7 days (41)</span>
@@ -358,7 +358,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#nt-03" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">NT-03</a></span> Template admin</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · NT-S2 templates & DLT</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Admins manage one template per notification event (report-ready, reminder, token, payment), with a variant per language, each carrying its own TRAI DLT template ID. A lint panel blocks publishing on PHI leakage, unknown variables or segment-length issues, and any DLT registered-text mismatch hard-blocks sending on SMS. Every version change requires an approver and is kept in history with test-renders per variant.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>NOTIFICATIONS</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Delivery</div>
@@ -404,7 +404,7 @@ tr.dim td{color:#94A3B8}
       <div class="split">
         <div class="card">
           <div class="card-title">Template body</div>
-          <div class="textarea mono small" style="min-height:110px">प्रिय {{patient_name}}, Meridian Diagnostics को ₹{{amount}} का भुगतान प्राप्त हुआ। रसीद {{receipt_no}} देखें: {{secure_link}}। लिंक 72 घंटे मान्य। धन्यवाद। — MERDIA</div>
+          <div class="textarea mono small" style="min-height:110px">प्रिय {{patient_name}}, Magnus Diagnostics को ₹{{amount}} का भुगतान प्राप्त हुआ। रसीद {{receipt_no}} देखें: {{secure_link}}। लिंक 72 घंटे मान्य। धन्यवाद। — MERDIA</div>
           <div class="row" style="margin-top:10px">
             <div class="field grow"><label>Allowed variables</label><div class="small mono">{{amount}} {{receipt_no}} {{secure_link}} {{order_last4}}</div></div>
             <div class="field" style="width:160px"><label>Language</label><div class="select">हिन्दी ▾</div></div>
@@ -445,12 +445,12 @@ tr.dim td{color:#94A3B8}
       <div class="row">
         <div class="card grow">
           <div class="card-title">Local text (v2 — unapproved edit)</div>
-          <div class="small mono" style="background:#FEF2F2;border:1px solid #FCA5A5;border-radius:8px;padding:8px 10px">तुमचा अहवाल तयार आहे. Meridian Diagnostics — ऑर्डर {{order_last4}}. सुरक्षित लिंक: {{secure_link}} <b style="background:#FEE2E2">(लिंक ७२ तास वैध. कृपया शेअर करू नका.)</b> — MERDIA</div>
+          <div class="small mono" style="background:#FEF2F2;border:1px solid #FCA5A5;border-radius:8px;padding:8px 10px">तुमचा अहवाल तयार आहे. Magnus Diagnostics — ऑर्डर {{order_last4}}. सुरक्षित लिंक: {{secure_link}} <b style="background:#FEE2E2">(लिंक ७२ तास वैध. कृपया शेअर करू नका.)</b> — MERDIA</div>
           <div class="small muted" style="margin-top:6px">Diff: trailing sentence added on 22 Jul by K. Verma — not present in DLT registration.</div>
         </div>
         <div class="card grow">
           <div class="card-title">DLT-registered text (11071722264204)</div>
-          <div class="small mono" style="background:#F0FDF4;border:1px solid #86EFAC;border-radius:8px;padding:8px 10px">तुमचा अहवाल तयार आहे. Meridian Diagnostics — ऑर्डर {{order_last4}}. सुरक्षित लिंक: {{secure_link}} — MERDIA</div>
+          <div class="small mono" style="background:#F0FDF4;border:1px solid #86EFAC;border-radius:8px;padding:8px 10px">तुमचा अहवाल तयार आहे. Magnus Diagnostics — ऑर्डर {{order_last4}}. सुरक्षित लिंक: {{secure_link}} — MERDIA</div>
           <div class="small muted" style="margin-top:6px">Registered 04 Jun 2026 · principal entity 1101584930000012345 · header MERDIA</div>
         </div>
       </div>
@@ -465,7 +465,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#nt-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">NT-04</a></span> Channels &amp; senders</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IN-S3 + NT-S3 channels & senders</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Admins manage the delivery channels behind every patient/referrer message: SMS via DLT-registered entity and header, WhatsApp via a BSP with credential-expiry countdown and auto-alerts, and transactional email with SPF/DKIM domain health. The screen sets failover order, offers a sandbox mode that routes messages to test numbers only, and runs connection tests with a result log so provider issues are caught before patients notice.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>NOTIFICATIONS</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Delivery</div>
@@ -486,7 +486,7 @@ tr.dim td{color:#94A3B8}
         <div class="card grow">
           <div class="card-title">SMS — RouteSMS (primary) <span class="chip green">HEALTHY</span></div>
           <dl class="kv" style="grid-template-columns:130px 1fr">
-            <dt>DLT entity</dt><dd class="mono">1101584930000012345 · Meridian Diagnostics Pvt Ltd</dd>
+            <dt>DLT entity</dt><dd class="mono">1101584930000012345 · Magnus Diagnostics Pvt Ltd</dd>
             <dt>Header</dt><dd class="mono">MERDIA <span class="chip green">ACTIVE</span></dd>
             <dt>Route</dt><dd>Transactional · India only</dd>
             <dt>Last test</dt><dd>25 Jul 06:02 IST · <span class="chip green">OK 412 ms</span></dd>
@@ -524,7 +524,7 @@ tr.dim td{color:#94A3B8}
             <tr><th>#</th><th>Channel</th><th>Primary</th><th>Failover</th><th>Trigger</th></tr>
             <tr><td>1</td><td>SMS</td><td>RouteSMS (DLT)</td><td>Kaleyra (DLT, same header MERDIA)</td><td>3 consecutive 5xx or &gt; 5 min queue age</td></tr>
             <tr><td>2</td><td>WhatsApp</td><td>Gupshup BSP</td><td>→ SMS (consented recipients only)</td><td>BSP timeout ×3 / template paused</td></tr>
-            <tr><td>3</td><td>Email</td><td>In-house SMTP (Mumbai DC)</td><td>→ SMS notification of pending email</td><td>SMTP unreachable 10 min</td></tr>
+            <tr><td>3</td><td>Email</td><td>In-house SMTP (Kochi DC)</td><td>→ SMS notification of pending email</td><td>SMTP unreachable 10 min</td></tr>
           </table>
           <div class="small muted" style="margin-top:6px">Failover never changes message content — the same approved template variant is used on the alternate provider.</div>
         </div>
@@ -602,7 +602,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#nt-05" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">NT-05</a></span> Suppression &amp; consent cross-view</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · NT-S1 suppressions → consent cross-view</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single view of every destination Magnus will NOT message, and exactly why — consent withdrawal (DPDP), opt-out, missing destination or hard bounce. Staff can see what would lift a suppression, but can never override it here: consent-driven suppressions are lifted only by a recorded consent update at the front desk. Every attempted send against a suppressed destination is blocked and logged.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front Office) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>NOTIFICATIONS</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front Office) ▾</div></div>
   <div class="body">
   <div class="sidebar">
     <div class="sec-label">Notifications</div>
@@ -698,7 +698,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#nt-06" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">NT-06</a></span> Patient message log</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · per-patient message log</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Per-patient history of every outbound message — event, channel, PHI-free template preview and delivery status — so front office can answer "did the patient get the link?" without opening the clinical record. Resends are governed by hard rules (max attempts + cooldown), and opening any patient's log requires a captured access reason.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front Office) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>NOTIFICATIONS</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front Office) ▾</div></div>
   <div class="body">
   <div class="sidebar">
     <div class="sec-label">Notifications</div>
@@ -728,13 +728,13 @@ tr.dim td{color:#94A3B8}
       <div class="card-title">Outbound history <span class="right">Newest first · IST</span></div>
       <table>
         <tr><th>Sent (IST)</th><th>Event</th><th>Channel · destination</th><th>Content preview (as sent · PHI-free)</th><th>Status</th><th></th></tr>
-        <tr class="hl"><td class="mono">25 Jul 10:42</td><td>Report ready<br><span class="mono small muted">ACC-2026-91247</span></td><td>SMS<br><span class="mono small">+91 98••• ••231</span></td><td class="small">"Meridian Diagnostics: your report is ready. View securely: mgns.in/r/•••••. Link needs DOB verification. Help: 022-4000-1100"</td><td><span class="chip green">DELIVERED 10:42</span></td><td><span class="btn small">Resend ▾</span></td></tr>
+        <tr class="hl"><td class="mono">25 Jul 10:42</td><td>Report ready<br><span class="mono small muted">ACC-2026-91247</span></td><td>SMS<br><span class="mono small">+91 98••• ••231</span></td><td class="small">"Magnus Diagnostics: your report is ready. View securely: mgns.in/r/•••••. Link needs DOB verification. Help: 022-4000-1100"</td><td><span class="chip green">DELIVERED 10:42</span></td><td><span class="btn small">Resend ▾</span></td></tr>
         <tr><td class="mono">25 Jul 10:12</td><td>Report ready<br><span class="mono small muted">ACC-2026-91247</span></td><td>SMS<br><span class="mono small">+91 98••• ••231</span></td><td class="small">same template · TPL-RPT-READY-v4 (en)</td><td><span class="chip amber">EXPIRED · no DLR in 25 min</span></td><td><span class="small muted">superseded</span></td></tr>
-        <tr><td class="mono">24 Jul 16:05</td><td>Payment receipt<br><span class="mono small muted">RCP/AND/26-27/0412</span></td><td>WhatsApp<br><span class="mono small">+91 98••• ••231</span></td><td class="small">"Payment of ₹3,540 received at Meridian Diagnostics, Andheri West. Receipt RCP/AND/26-27/0412: mgns.in/p/•••••"</td><td><span class="chip green">READ 16:11</span></td><td><span class="btn small">Resend ▾</span></td></tr>
-        <tr><td class="mono">24 Jul 09:31</td><td>Appointment reminder<br><span class="mono small muted">APPT-2026-51108</span></td><td>WhatsApp<br><span class="mono small">+91 98••• ••231</span></td><td class="small">"Reminder: your appointment at Meridian Diagnostics Andheri West is tomorrow 25 Jul, 10:00 AM. Reply 1 to confirm, 2 to reschedule."</td><td><span class="chip green">DELIVERED 09:31</span></td><td><span class="btn small">Resend ▾</span></td></tr>
+        <tr><td class="mono">24 Jul 16:05</td><td>Payment receipt<br><span class="mono small muted">RCP/NPV/26-27/0412</span></td><td>WhatsApp<br><span class="mono small">+91 98••• ••231</span></td><td class="small">"Payment of ₹3,540 received at Magnus Diagnostics, North Paravoor. Receipt RCP/NPV/26-27/0412: mgns.in/p/•••••"</td><td><span class="chip green">READ 16:11</span></td><td><span class="btn small">Resend ▾</span></td></tr>
+        <tr><td class="mono">24 Jul 09:31</td><td>Appointment reminder<br><span class="mono small muted">APPT-2026-51108</span></td><td>WhatsApp<br><span class="mono small">+91 98••• ••231</span></td><td class="small">"Reminder: your appointment at Magnus Diagnostics North Paravoor is tomorrow 25 Jul, 10:00 AM. Reply 1 to confirm, 2 to reschedule."</td><td><span class="chip green">DELIVERED 09:31</span></td><td><span class="btn small">Resend ▾</span></td></tr>
         <tr><td class="mono">22 Jul 14:18</td><td>Preparation instructions<br><span class="mono small muted">APPT-2026-51108</span></td><td>Email<br><span class="mono small">s•••a.r@gm•••.com</span></td><td class="small">"Preparation for your upcoming scan — fasting and arrival instructions (no report content in this email)."</td><td><span class="chip green">DELIVERED 14:19</span></td><td><span class="btn small">Resend ▾</span></td></tr>
-        <tr><td class="mono">22 Jul 14:02</td><td>Booking confirmation<br><span class="mono small muted">APPT-2026-51108</span></td><td>SMS<br><span class="mono small">+91 98••• ••231</span></td><td class="small">"Meridian Diagnostics: appointment confirmed for 25 Jul, 10:00 AM, Andheri West. Details: mgns.in/a/•••••"</td><td><span class="chip green">DELIVERED 14:02</span></td><td><span class="btn small">Resend ▾</span></td></tr>
-        <tr><td class="mono">18 Jul 11:47</td><td>Invoice issued<br><span class="mono small muted">INV/AND/26-27/0298</span></td><td>SMS<br><span class="mono small">+91 98••• ••231</span></td><td class="small">"Your invoice INV/AND/26-27/0298 from Meridian Diagnostics is available: mgns.in/i/•••••"</td><td><span class="chip red">FAILED · DND window</span> <span class="chip green">FALLBACK EMAIL ✓</span></td><td><span class="btn small ghost">Trace</span></td></tr>
+        <tr><td class="mono">22 Jul 14:02</td><td>Booking confirmation<br><span class="mono small muted">APPT-2026-51108</span></td><td>SMS<br><span class="mono small">+91 98••• ••231</span></td><td class="small">"Magnus Diagnostics: appointment confirmed for 25 Jul, 10:00 AM, North Paravoor. Details: mgns.in/a/•••••"</td><td><span class="chip green">DELIVERED 14:02</span></td><td><span class="btn small">Resend ▾</span></td></tr>
+        <tr><td class="mono">18 Jul 11:47</td><td>Invoice issued<br><span class="mono small muted">INV/NPV/26-27/0298</span></td><td>SMS<br><span class="mono small">+91 98••• ••231</span></td><td class="small">"Your invoice INV/NPV/26-27/0298 from Magnus Diagnostics is available: mgns.in/i/•••••"</td><td><span class="chip red">FAILED · DND window</span> <span class="chip green">FALLBACK EMAIL ✓</span></td><td><span class="btn small ghost">Trace</span></td></tr>
       </table>
     </div>
     <div class="row">
@@ -775,7 +775,7 @@ tr.dim td{color:#94A3B8}
 <div class="modal-wrap">
   <div class="modal" style="max-width:560px">
     <h3>Reason required — open message log for Priya Menon (MRN-004828)</h3>
-    <p class="small muted" style="margin-bottom:10px">You are not on this patient's active care/service team today. Under Meridian's DPDP access policy, a reason is required and will be visible to privacy audit and, on request, to the patient.</p>
+    <p class="small muted" style="margin-bottom:10px">You are not on this patient's active care/service team today. Under Magnus's DPDP access policy, a reason is required and will be visible to privacy audit and, on request, to the patient.</p>
     <div class="field"><label>Reason category <span class="req">*</span></label>
       <select class="select"><option>Patient phoned — delivery query</option><option>Billing follow-up</option><option>Complaint investigation</option><option>Other (describe)</option></select></div>
     <div class="field"><label>Details <span class="req">*</span></label>
@@ -791,7 +791,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#nt-07" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">NT-07</a></span> Quiet hours &amp; rate rules</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · quiet hours & TRAI rules</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Central policy screen for when and how often Magnus may message patients. Non-urgent messages queue overnight (21:00–08:00 IST) and release in the morning; clinical alerts (critical results, STAT) are always exempt and never queued. Per-channel throttles and a per-patient daily cap protect patients and sender reputation, with a full audit of every exemption used.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Admin) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>NOTIFICATIONS</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Admin) ▾</div></div>
   <div class="body">
   <div class="sidebar">
     <div class="sec-label">Notifications</div>
@@ -811,7 +811,7 @@ tr.dim td{color:#94A3B8}
     <div class="page-title">Quiet hours &amp; rate rules <span class="actions-right"><span class="btn small">Change history</span> <span class="btn small primary">Save policy (dual approval)</span></span></div>
     <div class="page-sub">Org-wide policy · applies to all branches · edits require Admin + Billing/Ops supervisor approval</div>
     <div class="banner danger" style="border-width:2px"><b>⚠ CLINICAL ALERTS ARE EXEMPT — NEVER QUEUED.</b> Critical-result notifications to referrers and STAT workflow alerts bypass quiet hours, throttles and daily caps at all times. This exemption cannot be disabled. Every exempt send is individually audited (see State C).</div>
-    <div class="banner reg"><b>TRAI classification note.</b> All Magnus patient messages are <b>transactional/service</b> communications (appointment, preparation, report-ready, billing) tied to a service the patient requested — none are promotional. Meridian sends no marketing from Magnus; DLT templates are registered in the service/transactional category. Quiet hours below are Meridian's own patient-courtesy policy, stricter than the regulatory minimum for transactional messages.</div>
+    <div class="banner reg"><b>TRAI classification note.</b> All Magnus patient messages are <b>transactional/service</b> communications (appointment, preparation, report-ready, billing) tied to a service the patient requested — none are promotional. Magnus sends no marketing from Magnus; DLT templates are registered in the service/transactional category. Quiet hours below are Magnus's own patient-courtesy policy, stricter than the regulatory minimum for transactional messages.</div>
     <div class="row">
       <div class="card grow">
         <div class="card-title">Quiet hours — non-urgent messages <span class="right">IST</span></div>
@@ -853,11 +853,11 @@ tr.dim td{color:#94A3B8}
   <table>
     <tr><th>Queued (IST)</th><th>Patient</th><th>Event</th><th>Channel</th><th>Decision</th><th>Released · outcome</th></tr>
     <tr><td class="mono">24 Jul 22:41</td><td>Aarav Sharma <span class="mono small muted">MRN-004821</span></td><td>Report ready · ACC-2026-91302</td><td>SMS</td><td><span class="chip grey">QUIET HOURS · queued</span></td><td class="mono small">08:00 → <span class="chip green">DELIVERED 08:01</span></td></tr>
-    <tr><td class="mono">24 Jul 23:15</td><td>Priya Menon <span class="mono small muted">MRN-004828</span></td><td>Invoice issued · INV/AND/26-27/0304</td><td>SMS</td><td><span class="chip grey">QUIET HOURS · queued</span></td><td class="mono small">08:02 → <span class="chip green">DELIVERED 08:02</span></td></tr>
+    <tr><td class="mono">24 Jul 23:15</td><td>Priya Menon <span class="mono small muted">MRN-004828</span></td><td>Invoice issued · INV/NPV/26-27/0304</td><td>SMS</td><td><span class="chip grey">QUIET HOURS · queued</span></td><td class="mono small">08:02 → <span class="chip green">DELIVERED 08:02</span></td></tr>
     <tr><td class="mono">25 Jul 06:30</td><td>Rajesh Gupta <span class="mono small muted">MRN-004795</span></td><td>Appointment reminder · APPT-2026-51190</td><td>WhatsApp</td><td><span class="chip grey">QUIET HOURS · queued</span></td><td class="mono small">08:03 → <span class="chip green">READ 08:22</span></td></tr>
     <tr class="hl"><td class="mono">24 Jul 23:58</td><td><span class="muted">Referrer: Dr. Meera Nair</span></td><td><b>Critical result</b> · ACC-2026-91318</td><td>SMS + call task</td><td><span class="chip red">EXEMPT · SENT IMMEDIATELY</span></td><td class="mono small">23:58 → <span class="chip green">DELIVERED 23:58</span> · ack 00:04</td></tr>
     <tr><td class="mono">25 Jul 07:12</td><td>Ananya Rao <span class="mono small muted">MRN-004819</span></td><td>Preparation instructions · APPT-2026-51204</td><td>Email</td><td><span class="chip grey">QUIET HOURS · queued</span></td><td class="mono small">08:04 → <span class="chip green">DELIVERED 08:05</span></td></tr>
-    <tr><td class="mono">24 Jul 21:36</td><td>Sofia Rossi <span class="mono small muted">MRN-004822</span></td><td>Receipt · RCP/AND/26-27/0415</td><td>WhatsApp</td><td><span class="chip grey">QUIET HOURS · queued</span></td><td class="mono small">08:05 → <span class="chip green">DELIVERED 08:05</span></td></tr>
+    <tr><td class="mono">24 Jul 21:36</td><td>Sofia Rossi <span class="mono small muted">MRN-004822</span></td><td>Receipt · RCP/NPV/26-27/0415</td><td>WhatsApp</td><td><span class="chip grey">QUIET HOURS · queued</span></td><td class="mono small">08:05 → <span class="chip green">DELIVERED 08:05</span></td></tr>
   </table>
   <div class="small muted" style="margin-top:8px">Queue decisions are deterministic and logged; patients never receive non-urgent messages between 21:00 and 08:00 IST.</div>
 </div>
@@ -884,7 +884,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#nt-08" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">NT-08</a></span> Send-test harness</h1><div class="meta"><span class="chip amber">CONDITIONAL</span><div class="cluster">G10 Notifications &amp; Delivery — workspace 'Notifications'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · NT-S2 preview → test harness (Conditional)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Safe sandbox for testing message templates before they go live. Staff pick a template, language and variables, see a rendered per-channel preview (SMS segment count, WhatsApp bubble, email), then send only to registered sandbox recipients — staff numbers flagged TEST and excluded from all reports. Promotion to live requires DLT registration, a clean lint and a named approver.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>NOTIFICATIONS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Admin) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>NOTIFICATIONS</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Admin) ▾</div></div>
   <div class="body">
   <div class="sidebar">
     <div class="sec-label">Notifications</div>
@@ -918,7 +918,7 @@ tr.dim td{color:#94A3B8}
         <div class="field"><label>Variables (synthetic only)</label>
           <div class="kv" style="grid-template-columns:110px 1fr;font-size:12px">
             <dt>{{link}}</dt><dd class="mono">mgns.in/r/TEST01</dd>
-            <dt>{{branch}}</dt><dd class="mono">Andheri West</dd>
+            <dt>{{branch}}</dt><dd class="mono">North Paravoor</dd>
             <dt>{{helpline}}</dt><dd class="mono">022-4000-1100</dd>
           </div>
           <div class="hint">Real patient data cannot be selected in the harness — variables come from the synthetic fixture set.</div></div>
@@ -930,9 +930,9 @@ tr.dim td{color:#94A3B8}
       <div class="card grow">
         <div class="card-title">Rendered preview <span class="right">TPL-RPT-READY-v5 · en</span></div>
         <div class="small bold" style="margin-bottom:4px">SMS <span class="chip grey">1 segment · 148/160 chars · GSM-7</span></div>
-        <div style="border:1px solid #E2E8F0;border-radius:8px;padding:10px 12px;background:#F8FAFC;font-size:12.5px;margin-bottom:12px" class="mono">Meridian Diagnostics: your report is ready. View securely: mgns.in/r/TEST01. Link needs DOB verification. Help: 022-4000-1100. No reply needed.</div>
+        <div style="border:1px solid #E2E8F0;border-radius:8px;padding:10px 12px;background:#F8FAFC;font-size:12.5px;margin-bottom:12px" class="mono">Magnus Diagnostics: your report is ready. View securely: mgns.in/r/TEST01. Link needs DOB verification. Help: 022-4000-1100. No reply needed.</div>
         <div class="small bold" style="margin-bottom:4px">WhatsApp bubble</div>
-        <div style="background:#DCFCE7;border:1px solid #86EFAC;border-radius:12px 12px 2px 12px;padding:10px 12px;max-width:340px;font-size:12.5px;margin-bottom:6px">🏥 <b>Meridian Diagnostics</b><br>Your report is ready to view.<br><br>🔒 The secure link asks for your date of birth before opening — your report is never attached to this chat.<br><br><span style="display:inline-block;background:#fff;border:1px solid #CBD5E1;border-radius:6px;padding:4px 12px;font-weight:700;color:#0F766E">View report ›</span><div class="small muted" style="text-align:right;margin-top:4px">18:12 ✓✓</div></div>
+        <div style="background:#DCFCE7;border:1px solid #86EFAC;border-radius:12px 12px 2px 12px;padding:10px 12px;max-width:340px;font-size:12.5px;margin-bottom:6px">🏥 <b>Magnus Diagnostics</b><br>Your report is ready to view.<br><br>🔒 The secure link asks for your date of birth before opening — your report is never attached to this chat.<br><br><span style="display:inline-block;background:#fff;border:1px solid #CBD5E1;border-radius:6px;padding:4px 12px;font-weight:700;color:#0F766E">View report ›</span><div class="small muted" style="text-align:right;margin-top:4px">18:12 ✓✓</div></div>
         <div class="small muted">Email: channel not selected · lint: <span class="chip green">CLEAN — no PHI variables, opt-out footer n/a (transactional), link domain allow-listed</span></div>
       </div>
     </div>

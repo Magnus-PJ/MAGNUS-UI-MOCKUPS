@@ -1,6 +1,7 @@
 """MagnusPRO Live Prototype generator — single navigable HTML from the frozen 232-screen baseline.
 Phases A+B: router, login flow, role-scoped nav, state tabs, wired primary actions, 8 guided journeys."""
 import pathlib, re, json, html as H
+from normalize_identity import normalize
 
 BASE = pathlib.Path("/home/claude/allpack")
 CSS = (BASE/"base.css").read_text()
@@ -13,8 +14,8 @@ for w in WAVES:
         src = f.read_text()
         sid = f.stem
         m = re.search(r'<span class="sid">([^<]+)</span>\s*([^<]+)</h1>', src)
-        title = m.group(2).strip().replace("&amp;","&")
-        inner = src[src.find(">", src.find("<section"))+1 : src.rfind("</section>")]
+        title = normalize(m.group(2).strip().replace("&amp;","&"))
+        inner = normalize(src[src.find(">", src.find("<section"))+1 : src.rfind("</section>")])
         names = ["DEFAULT"] + [re.sub(r"<[^>]+>","",x).strip() for x in re.findall(r'<div class="state-tag">(.*?)</div>', src, re.S)]
         screens[sid] = dict(title=title, inner=inner, names=names)
 
@@ -172,7 +173,7 @@ let role=null, journey=null, jstep=0, auditN=88214;
 const $=q=>document.querySelector(q), $$=q=>document.querySelectorAll(q);
 function toast(msg){const t=document.createElement('div');t.className='toastx';t.innerHTML='🔒 '+msg+' · <span class="mono">AUTH-'+(auditN++)+'</span>';document.body.appendChild(t);setTimeout(()=>t.remove(),3200);}
 function allowed(sid){if(!role)return false;if(role&&D.roles[role].groups.includes(sid.split('-')[0]))return true;return false;}
-function show(id){$$('.scr').forEach(e=>e.style.display='none');const el=document.getElementById(id);if(el){el.style.display='block';const sid=el.dataset&&el.dataset.sid;if(sid)hydrate(sid);}window.scrollTo(0,0);}
+function show(id){$$('.scr').forEach(e=>e.style.display='none');const el=document.getElementById(id);if(el){el.style.display='block';const sid=el.dataset&&el.dataset.sid;if(sid){hydrate(sid);simInject(sid);}}window.scrollTo(0,0);}
 const hydrated={};
 function hydrate(sid){if(hydrated[sid])return;const scr=document.getElementById('scr-'+sid);const kids=[...scr.children];
  const groups=[[]];const names=['Default'];
@@ -222,9 +223,55 @@ function jgo(){const st=journey.steps[jstep];role=journey.role; // role follows 
 function jnext(d){jstep=Math.min(Math.max(jstep+d,0),journey.steps.length-1);jgo();}
 function jexit(){journey=null;$('#jbar').style.display='none';toast('Journey ended — free roam');}
 function jumpTo(v){const sid=v.split(' ')[0].toLowerCase();if(D.titles[sid]){role=role||'__all';if(role==='__all'){/*explorer*/}location.hash='#/'+sid;}}
+
+/* ---------- Phase C: live data simulation ---------- */
+const SIM = {active:false, stage:0,
+ stages:[
+  {n:'Registered', view:'fo-02', act:'Register at front desk'},
+  {n:'Consent recorded (v3, en+ml)', view:'fo-06', act:'Capture consent'},
+  {n:'Order placed — XR Chest PA · ACC-2026-90900', view:'or-04', act:'Place the order'},
+  {n:'Invoice paid ₹800 — INV/NPV/26-27/0900', view:'bl-01', act:'Collect cash'},
+  {n:'Token X-012 issued · queue pos 2', view:'fo-01', act:'Check in & issue token'},
+  {n:'Study acquired & released to reading', view:'rd-01', act:'Perform & acquire'},
+  {n:'Report signed — Dr. V. Shetty', view:'rd-14', act:'Sign the report'},
+  {n:'Delivered — SMS secure link ✓', view:'nt-01', act:'Deliver'}]};
+const SIMROWS = {
+ 'fo-02':[1,'Asha Varma · MRN-004900 · 29y F · +91 98470 ••210 · EXACT MATCH — registered today 10:41, North Paravoor'],
+ 'fo-06':[1,'Asha Varma · MRN-004900 — record ACTIVE · consent v3 (en+ml) recorded'],
+ 'or-04':[3,'ACC-2026-90900 · Asha Varma · X-ray Chest PA · Routine · Dr. Meera Nair — LIVE STATUS follows the demo'],
+ 'bl-01':[4,'INV/NPV/26-27/0900 · Asha Varma · ₹800 · Exempt (healthcare) · PAID — cash, receipt RCP/NPV/26-27/0900'],
+ 'fo-01':[5,'Token X-012 · Asha Varma · X-ray · WAITING (2nd) — issued 10:58'],
+ 'tk-01':[5,'X-012 · Asha Varma · MRN-004900 · XR Chest PA · gates: screening n/a · consent ✓ · READY → Perform'],
+ 'rd-01':[6,'ACC-2026-90900 · Asha Varma · XR Chest PA · ROUTINE · SLA 24h — unreported, assigned Dr. V. Shetty'],
+ 'rd-14':[7,'ACC-2026-90900 · Asha Varma · XR Chest PA — SIGNED 12:02 by Dr. V. Shetty · hash stored'],
+ 'nt-01':[8,'ACC-2026-90900 → Asha Varma · SMS secure link · DELIVERED ✓ 12:05 IST · opened 12:11']};
+function simPaint(){const b=$('#simbody');if(!b)return;let h='';
+ if(!SIM.active){h='<p class="muted">Watch one record flow through the whole product: register → consent → order → pay → token → acquire → sign → deliver. Rows appear live in search, queues, worklists, billing and delivery.</p><span class="btn primary small" onclick="simStart()">▶ Start live demo</span>';}
+ else{SIM.stages.forEach((s,i)=>{const st=i<SIM.stage?'done':(i===SIM.stage?'cur':'');h+='<div class="sstage '+st+'"><span class="sdot">'+(i<SIM.stage?'✓':(i+1))+'</span><span>'+s.n+'</span></div>';});
+  h+='<div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">';
+  if(SIM.stage<SIM.stages.length)h+='<span class="btn primary small" onclick="simAdvance()">'+SIM.stages[SIM.stage].act+' ›</span>';
+  else h+='<span class="chip green">E2E complete — Asha delivered ✓</span>';
+  h+='<span class="btn small" onclick="simReset()">Reset</span></div>';}
+ b.innerHTML=h;}
+function simStart(){SIM.active=true;SIM.stage=0;toast('Live demo started — new patient Asha Varma');simAdvance();}
+function simAdvance(){if(SIM.stage>=SIM.stages.length)return;const s=SIM.stages[SIM.stage];SIM.stage++;toast('LIVE DEMO · '+s.n);
+ const pre=s.view.split('-')[0];for(const[k,v]of Object.entries(D.roles)){if(v.groups.includes(pre)){role=k;break;}}
+ if(('#/'+s.view)===location.hash){route();}else{location.hash='#/'+s.view;}
+ simPaint();}
+function simReset(){SIM.active=false;SIM.stage=0;$$('.simrow').forEach(e=>e.remove());simPaint();toast('Demo reset');}
+function simInject(sid){const scr=document.getElementById('scr-'+sid);if(!scr)return;
+ scr.querySelectorAll('.simrow').forEach(e=>e.remove());
+ if(!SIM.active)return;const conf=SIMROWS[sid];if(!conf||SIM.stage<conf[0])return;
+ const tables=[...scr.querySelectorAll('table')].filter(tb=>tb.offsetParent!==null||true);
+ const tb=tables.find(x=>x.querySelector('th'));if(!tb)return;
+ const tr=document.createElement('tr');tr.className='simrow';
+ tr.innerHTML='<td colspan="99">● LIVE DEMO — '+conf[1]+'</td>';
+ const body=tb.querySelector('tbody')||tb; const hd=tb.querySelector('tr');
+ hd&&hd.parentNode===body?body.insertBefore(tr,hd.nextSibling):body.insertBefore(tr,body.firstChild);}
+
 window.addEventListener('hashchange',route);
 window.addEventListener('load',()=>{const dl=$('#jumplist');dl.innerHTML=Object.keys(D.titles).sort().map(s=>'<option value="'+s.toUpperCase()+' — '+D.titles[s]+'">').join('');
- const jm=$('#jmenu');jm.innerHTML='<option value="">▶ Run a journey…</option>'+D.journeys.map(j=>'<option value="'+j.id+'">'+j.title+'</option>').join('');route();});
+ simPaint();const jm=$('#jmenu');jm.innerHTML='<option value="">▶ Run a journey…</option>'+D.journeys.map(j=>'<option value="'+j.id+'">'+j.title+'</option>').join('');route();});
 """
 
 SHELL_CSS = """
@@ -248,12 +295,50 @@ body{margin:0;padding-top:52px}
 #jbar .btn{background:#fff;color:#134E4A;border:none}
 .pcard{cursor:pointer;transition:box-shadow .15s}.pcard:hover{box-shadow:0 4px 16px rgba(15,118,110,.25)}
 .btn{cursor:pointer}
+/* ---------- responsive ---------- */
+#burger{display:none;background:#134E4A;color:#fff;border:none;border-radius:6px;padding:6px 10px;font-size:16px;cursor:pointer}
+@media (max-width:1024px){
+ #sidenav{width:190px}
+ .kpi-row{flex-wrap:wrap}.kpi{min-width:44%}
+ .split{grid-template-columns:1fr !important}
+ .row{flex-wrap:wrap}
+}
+@media (max-width:768px){
+ #burger{display:block}
+ #sidenav{position:fixed;left:0;top:52px;bottom:0;transform:translateX(-100%);transition:transform .2s;z-index:70;box-shadow:4px 0 20px rgba(0,0,0,.2)}
+ #sidenav.open{transform:none}
+ #stage{padding:10px}
+ .scr{padding:12px}
+ #jump,#hdr .muted{display:none}
+ #jmenu{max-width:130px}
+ .frame .sidebar{display:none}
+ .kpi{min-width:100%}
+ .kv{grid-template-columns:1fr !important}
+ table{display:block;overflow-x:auto;white-space:nowrap}
+ .screen-head{flex-direction:column;gap:6px}
+ .screen-head .meta{text-align:left}
+ body{font-size:13px}
+}
+@media (min-width:1700px){
+ #stage{max-width:1500px;margin:0 auto}
+ body{font-size:15px}
+}
+/* ---------- sim panel ---------- */
+#simpanel{position:fixed;right:14px;bottom:64px;width:280px;background:#fff;border:1.5px solid #0F766E;border-radius:12px;box-shadow:0 8px 30px rgba(15,23,42,.25);z-index:65;font-size:12px}
+#simpanel .sph{background:#0F766E;color:#fff;padding:8px 12px;border-radius:10px 10px 0 0;font-weight:800;display:flex;justify-content:space-between;cursor:pointer}
+#simpanel .spb{padding:10px 12px;max-height:44vh;overflow-y:auto}
+.sstage{display:flex;gap:8px;align-items:center;padding:3px 0}
+.sdot{width:14px;height:14px;border-radius:50%;background:#E2E8F0;color:#fff;font-size:9px;text-align:center;line-height:14px;font-weight:800;flex-shrink:0}
+.sstage.done .sdot{background:#15803D}.sstage.cur .sdot{background:#0F766E;box-shadow:0 0 0 3px #CCFBF1}
+.sstage.cur{font-weight:800}
+tr.simrow td{background:#CCFBF1 !important;border-left:4px solid #0F766E;font-weight:700}
+@media (max-width:768px){#simpanel{width:calc(100vw - 20px);right:10px;bottom:58px}}
 """
 
 html_out = f"""<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MagnusPRO — Live Prototype (232 screens, navigable E2E)</title>
 <style>{CSS}\n{SHELL_CSS}</style></head><body>
-<div id="hdr"><b>◎ MagnusPRO</b><span class="muted" style="color:#99F6E4">Live Prototype · v1.1 · synthetic data</span>
+<div id="hdr"><button id="burger" onclick="document.getElementById('sidenav').classList.toggle('open')">☰</button><b>◎ MagnusPRO</b><span class="muted" style="color:#99F6E4">Live Prototype · v1.1 · synthetic data</span>
 <span id="hdr-title" style="flex:1;text-align:center;font-weight:700"></span>
 <select id="jmenu" onchange="if(this.value)startJourney(this.value);this.selectedIndex=0"></select>
 <input list="jumplist" id="jump" placeholder="Jump to screen…" size="22" onchange="jumpTo(this.value);this.value=''"><datalist id="jumplist"></datalist>
@@ -264,6 +349,7 @@ html_out = f"""<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta 
 {CHOOSER}
 {DENIAL}
 </main></div>
+<div id="simpanel"><div class="sph" onclick="document.querySelector('#simpanel .spb').classList.toggle('hide');this.querySelector('i').textContent=document.querySelector('#simpanel .spb').classList.contains('hide')?'▲':'▼'"><span>● Live demo — Asha Varma</span><i style="font-style:normal">▼</i></div><div class="spb" id="simbody"></div></div>
 <div id="jbar"><span id="jinfo" style="flex:1"></span><span class="btn small" onclick="jnext(-1)">‹ Prev</span><span class="btn small primary" onclick="jnext(1)">Next step ›</span><span class="btn small" onclick="jexit()">Exit tour</span></div>
 <script>{JS.replace("__DATA__", DATA)}</script></body></html>"""
 

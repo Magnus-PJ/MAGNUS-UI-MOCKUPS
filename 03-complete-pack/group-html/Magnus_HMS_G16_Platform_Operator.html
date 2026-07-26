@@ -144,7 +144,7 @@ tr.dim td{color:#94A3B8}
   <div class="main">
     <div class="crumb">Platform console › Home</div>
     <div class="page-title">Platform overview <span class="chip green">ALL TENANTS HEALTHY</span> <span class="actions-right"><span class="btn warn-outline small">⚡ Quick-create incident</span></span></div>
-    <div class="page-sub">25 Jul 2026, 14:35 IST · Region: ap-south-1 (Mumbai) — data residency pinned India · Operator session expires in 42 m (re-auth with hardware key)</div>
+    <div class="page-sub">25 Jul 2026, 14:35 IST · Region: ap-south-1 (Kochi) — data residency pinned India · Operator session expires in 42 m (re-auth with hardware key)</div>
     <div class="banner reg"><b>All operator actions are dual-logged</b>Every read and write from this console is written to the platform evidence store <i>and</i> to the affected tenant's own audit trail, where it is visible to that tenant's org admins. Tenant-data access requires a break-glass request with tenant consent except during a declared SEV-1.</div>
 
     <div class="kpi-row">
@@ -158,7 +158,7 @@ tr.dim td{color:#94A3B8}
     <div class="card"><div class="card-title">Tenant health <span class="right">auto-refresh 60 s</span></div>
     <table>
       <tr><th>Tenant</th><th>Plan</th><th>Branches</th><th>Uptime 30d</th><th>Worst sync lag</th><th>API error rate 1h</th><th>Open incidents</th><th>Release channel</th><th></th></tr>
-      <tr><td><b>Meridian Diagnostics</b><div class="small muted">Mumbai · live since Mar 2026</div></td><td><span class="chip blue">Enterprise</span></td><td class="mono">4</td><td class="mono">99.98%</td><td class="mono">42 s <span class="chip green">OK</span></td><td class="mono">0.14%</td><td class="mono">0</td><td><span class="chip grey">stable r2026.7.2</span></td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr><td><b>Magnus Diagnostics</b><div class="small muted">Kochi · live since Mar 2026</div></td><td><span class="chip blue">Enterprise</span></td><td class="mono">4</td><td class="mono">99.98%</td><td class="mono">42 s <span class="chip green">OK</span></td><td class="mono">0.14%</td><td class="mono">0</td><td><span class="chip grey">stable r2026.7.2</span></td><td><span class="btn ghost small">Open</span></td></tr>
       <tr><td><b>Sunrise Imaging</b><div class="small muted">Pune · live since Jun 2026</div></td><td><span class="chip blue">Standard</span></td><td class="mono">2</td><td class="mono">99.95%</td><td class="mono">18 s <span class="chip green">OK</span></td><td class="mono">0.09%</td><td class="mono">0</td><td><span class="chip grey">stable r2026.7.2</span></td><td><span class="btn ghost small">Open</span></td></tr>
       <tr><td><b>CarePoint Labs</b><div class="small muted">Kochi · onboarding · sandbox tenant</div></td><td><span class="chip grey">Pilot</span></td><td class="mono">1</td><td class="mono">— <span class="chip grey">PRE-LIVE</span></td><td class="mono">n/a</td><td class="mono">0.00%</td><td class="mono">0</td><td><span class="chip grey">candidate r2026.8.0-rc1</span></td><td><span class="btn ghost small">Open</span></td></tr>
     </table></div>
@@ -169,11 +169,11 @@ tr.dim td{color:#94A3B8}
         <tr><th>Provider</th><th>Scope</th><th>Status</th><th>1h p95</th><th>Note</th></tr>
         <tr><td>DLT SMS (Jio route)</td><td>all tenants</td><td><span class="chip green">HEALTHY</span></td><td class="mono">2.1 s</td><td>template throughput normal</td></tr>
         <tr><td>WhatsApp BSP</td><td>all tenants</td><td><span class="chip green">HEALTHY</span></td><td class="mono">1.4 s</td><td>—</td></tr>
-        <tr><td>Payment gateway (UPI)</td><td>Meridian, Sunrise</td><td><span class="chip green">HEALTHY</span></td><td class="mono">3.0 s</td><td>settlement file T+1 on time</td></tr>
+        <tr><td>Payment gateway (UPI)</td><td>Magnus, Sunrise</td><td><span class="chip green">HEALTHY</span></td><td class="mono">3.0 s</td><td>settlement file T+1 on time</td></tr>
       </table></div>
       <div class="card" style="width:310px;flex-shrink:0"><div class="card-title">Four-eyes approval queue <span class="right">2 pending</span></div>
         <div class="timeline">
-          <div class="ev"><span class="t">13:58</span><span><b>Rate-limit raise</b> Meridian API gateway 120→180 rpm · requested by A. Menon · <span class="btn small">Review</span></span></div>
+          <div class="ev"><span class="t">13:58</span><span><b>Rate-limit raise</b> Magnus API gateway 120→180 rpm · requested by A. Menon · <span class="btn small">Review</span></span></div>
           <div class="ev"><span class="t">11:12</span><span><b>Release promote</b> r2026.8.0-rc1 → early channel · requested by R. Iyer (you — <i>cannot self-approve</i>)</span></div>
         </div>
         <p class="small muted">Destructive or tenant-affecting operator actions require a second operator's approval within 4 h.</p>
@@ -192,7 +192,7 @@ tr.dim td{color:#94A3B8}
   <div class="banner warn"><b>Sunrise Imaging — Hinjawadi branch sync lag breaching threshold</b>edge-hj-01 last synced 22 m ago (threshold 15 m); outbound queue 61 actions and growing. Probable cause: tenant-side ISP outage (BGP flap seen from Pune PoP). No platform fault detected. Owner: <b>R. Iyer</b> · <span class="chip amber">ACK SLA 15 m — acked 15:55</span> · Next: notify tenant org admin, open incident if lag &gt; 60 m.</div>
   <table>
     <tr><th>Tenant</th><th>Uptime 30d</th><th>Worst sync lag</th><th>API error rate 1h</th><th>Open incidents</th><th>State</th><th></th></tr>
-    <tr><td><b>Meridian Diagnostics</b></td><td class="mono">99.98%</td><td class="mono">38 s</td><td class="mono">0.12%</td><td class="mono">0</td><td><span class="chip green">HEALTHY</span></td><td><span class="btn ghost small">Open</span></td></tr>
+    <tr><td><b>Magnus Diagnostics</b></td><td class="mono">99.98%</td><td class="mono">38 s</td><td class="mono">0.12%</td><td class="mono">0</td><td><span class="chip green">HEALTHY</span></td><td><span class="btn ghost small">Open</span></td></tr>
     <tr class="hl"><td><b>Sunrise Imaging</b></td><td class="mono">99.95%</td><td class="mono">22 m 14 s</td><td class="mono">0.41%</td><td class="mono">0</td><td><span class="chip amber">DEGRADED — sync lag</span></td><td><span class="btn ghost small">Open</span> <span class="btn ghost small">Notify tenant admin</span></td></tr>
     <tr><td><b>CarePoint Labs</b></td><td class="mono">—</td><td class="mono">n/a</td><td class="mono">0.00%</td><td class="mono">0</td><td><span class="chip grey">PRE-LIVE</span></td><td><span class="btn ghost small">Open</span></td></tr>
   </table>
@@ -211,18 +211,18 @@ tr.dim td{color:#94A3B8}
 <div class="frame"><div class="body"><div class="main">
   <div class="crumb">Platform console › Home › Incidents › INC-2026-041</div>
   <div class="page-title">INC-2026-041 — UPI gateway callbacks delayed <span class="chip red">SEV-2 · OPEN</span> <span class="actions-right"><span class="btn small">Post update</span> <span class="btn primary small">Publish to tenant status</span></span></div>
-  <div class="page-sub">Opened 25 Jul 17:21 IST by R. Iyer · Commander: R. Iyer · Affected: Meridian, Sunrise (UPI reconciliation) · CarePoint not affected (pre-live)</div>
+  <div class="page-sub">Opened 25 Jul 17:21 IST by R. Iyer · Commander: R. Iyer · Affected: Magnus, Sunrise (UPI reconciliation) · CarePoint not affected (pre-live)</div>
   <div class="banner danger"><b>Impact</b>UPI payment <i>captures succeed</i> but gateway webhooks arriving 8–12 min late → receipts show "payment pending" at front desk; cashiers advised via tenant banner to use "Re-check payment status" instead of retrying charge. No double-charge detected. <span class="chip red">UPDATE SLA 30 m — next due 18:05 · owner R. Iyer</span></div>
   <div class="row">
     <div class="card grow"><div class="card-title">Incident log</div>
     <div class="timeline">
       <div class="ev"><span class="t">17:21:05</span><span>Quick-create from console home: severity SEV-2, provider "Payment gateway UPI", tenants auto-linked from dependency map</span></div>
-      <div class="ev"><span class="t">17:24:30</span><span>Tenant status banners published to Meridian + Sunrise admin consoles and cashier workstations (P. D'Souza's queue shows advisory)</span></div>
+      <div class="ev"><span class="t">17:24:30</span><span>Tenant status banners published to Magnus + Sunrise admin consoles and cashier workstations (P. D'Souza's queue shows advisory)</span></div>
       <div class="ev"><span class="t">17:35:12</span><span>Gateway TAM confirms degradation in their callback dispatcher; ETA 60–90 m · reconciliation job scheduled to re-poll pending intents every 5 m</span></div>
     </div></div>
     <div class="card" style="width:300px;flex-shrink:0"><div class="card-title">Quick-create incident <span class="right">form snapshot</span></div>
       <div class="field"><label>Severity <span class="req">*</span></label><span class="select">SEV-2 — partial degradation ▾</span></div>
-      <div class="field"><label>Affected scope <span class="req">*</span></label><span class="select">Provider: Payment gateway (UPI) ▾</span><div class="hint">Tenants auto-linked: Meridian, Sunrise</div></div>
+      <div class="field"><label>Affected scope <span class="req">*</span></label><span class="select">Provider: Payment gateway (UPI) ▾</span><div class="hint">Tenants auto-linked: Magnus, Sunrise</div></div>
       <div class="field"><label>Tenant-visible summary <span class="req">*</span></label><span class="textarea" style="display:block;color:#334155;font-size:12px">UPI confirmations delayed; payments are safe, do not retry charges. Use "Re-check payment status".</span></div>
       <div class="check"><span class="box on">✓</span><span class="small">Publish to affected tenants' status banners</span></div>
       <p class="small muted">SEV-1 declaration additionally requires a second operator's concurrence (four-eyes).</p>
@@ -251,12 +251,12 @@ tr.dim td{color:#94A3B8}
   <div class="main">
     <div class="crumb">Platform console › Organisations &amp; onboarding</div>
     <div class="page-title">Organisations <span class="actions-right"><span class="btn primary small">+ Provision new organisation</span></span></div>
-    <div class="page-sub">3 organisations · region ap-south-1 (Mumbai) — data residency pinned India for all tenants · Provisioning requires four-eyes at realm creation and go-live</div>
+    <div class="page-sub">3 organisations · region ap-south-1 (Kochi) — data residency pinned India for all tenants · Provisioning requires four-eyes at realm creation and go-live</div>
 
     <div class="card"><div class="card-title">Tenant list <span class="right">sorted by status</span></div>
     <table>
       <tr><th>Organisation</th><th>Region pin</th><th>Realms</th><th>Branches</th><th>Plan</th><th>Sandbox flag</th><th>Status</th><th>Onboarding</th><th></th></tr>
-      <tr><td><b>Meridian Diagnostics</b><div class="small muted">Meridian Healthcare Pvt Ltd · CIN U85110MH2019PTC322114</div></td><td class="mono">ap-south-1 🔒</td><td class="mono small">meridian-staff · meridian-patient-otp</td><td class="mono">4</td><td><span class="chip blue">Enterprise</span></td><td><span class="chip grey">NO — LIVE DATA</span></td><td><span class="chip green">LIVE</span></td><td>completed 02 Mar 2026</td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr><td><b>Magnus Diagnostics</b><div class="small muted">Magnus Healthcare Pvt Ltd · CIN U85110MH2019PTC322114</div></td><td class="mono">ap-south-1 🔒</td><td class="mono small">meridian-staff · meridian-patient-otp</td><td class="mono">4</td><td><span class="chip blue">Enterprise</span></td><td><span class="chip grey">NO — LIVE DATA</span></td><td><span class="chip green">LIVE</span></td><td>completed 02 Mar 2026</td><td><span class="btn ghost small">Open</span></td></tr>
       <tr><td><b>Sunrise Imaging</b><div class="small muted">Sunrise Imaging LLP, Pune · LLPIN AAX-1204</div></td><td class="mono">ap-south-1 🔒</td><td class="mono small">sunrise-staff · sunrise-patient-otp</td><td class="mono">2</td><td><span class="chip blue">Standard</span></td><td><span class="chip grey">NO — LIVE DATA</span></td><td><span class="chip green">LIVE</span></td><td>completed 08 Jun 2026</td><td><span class="btn ghost small">Open</span></td></tr>
       <tr class="hl"><td><b>CarePoint Labs</b><div class="small muted">CarePoint Diagnostics Pvt Ltd, Kochi · CIN U85195KL2021PTC07088</div></td><td class="mono">ap-south-1 🔒</td><td class="mono small">carepoint-staff · (patient-otp pending)</td><td class="mono">1 (pilot)</td><td><span class="chip grey">Pilot</span></td><td><span class="chip amber">SANDBOX — synthetic data only</span></td><td><span class="chip amber">ONBOARDING 5/7</span></td><td>started 06 Jul 2026 · owner R. Iyer</td><td><span class="btn ghost small">Resume</span></td></tr>
     </table>
@@ -455,7 +455,7 @@ tr.dim td{color:#94A3B8}
             <tr><td>PC-PNDT Form F register (IN-MH)</td><td class="mono">1,208</td><td class="mono">310 MB</td><td><span class="chip green">Done</span></td><td class="mono small">e77b…9a04 ✓</td></tr>
             <tr><td>Full audit trail (immutable, incl. this closure)</td><td class="mono">2.1 M events</td><td class="mono">18 GB</td><td><span class="chip grey">Queued — exported last</span></td><td class="mono small">—</td></tr>
           </table>
-          <div class="small muted" style="margin-top:6px">Escrow destination: tenant-nominated custodian <b>MedArchive Trust (Mumbai)</b>, DPDP data-processor agreement DPA-2026-117 on file. Encrypted per-dataset; tenant DPO holds the decryption key half — operators cannot read escrow contents.</div>
+          <div class="small muted" style="margin-top:6px">Escrow destination: tenant-nominated custodian <b>MedArchive Trust (Kochi)</b>, DPDP data-processor agreement DPA-2026-117 on file. Encrypted per-dataset; tenant DPO holds the decryption key half — operators cannot read escrow contents.</div>
         </div>
         <div class="card" style="width:320px;flex-shrink:0">
           <div class="card-title">Gate 2 → 3 approval</div>
@@ -547,7 +547,7 @@ tr.dim td{color:#94A3B8}
         <div class="card-title">Tenant assignments &amp; live overrides</div>
         <table>
           <tr><th>Tenant</th><th>Plan</th><th>Overrides in force</th><th>Pending change</th><th></th></tr>
-          <tr><td><b>Meridian Diagnostics</b> <span class="mono small">TEN-MERI-01</span></td><td><span class="chip teal">Diagnostics Pro</span></td><td>+ Advanced analytics (since 01-May-2026)</td><td><span class="chip amber">1 scheduled — Referral portal, eff. 01-Aug</span></td><td><span class="btn small ghost">Manage</span></td></tr>
+          <tr><td><b>Magnus Diagnostics</b> <span class="mono small">TEN-MERI-01</span></td><td><span class="chip teal">Diagnostics Pro</span></td><td>+ Advanced analytics (since 01-May-2026)</td><td><span class="chip amber">1 scheduled — Referral portal, eff. 01-Aug</span></td><td><span class="btn small ghost">Manage</span></td></tr>
           <tr><td><b>Sunrise Imaging (Pune)</b> <span class="mono small">TEN-SUNR-02</span></td><td><span class="chip teal">Diagnostics Pro</span></td><td>— none</td><td><span class="chip grey">Suspended — changes frozen</span></td><td><span class="btn small ghost">Manage</span></td></tr>
           <tr><td><b>CarePoint Labs (Kochi)</b> <span class="mono small">TEN-CARE-03</span></td><td><span class="chip blue">Clinic</span></td><td>+ WhatsApp BSP add-on · SMS quota raised to 3k/mo</td><td>—</td><td><span class="btn small ghost">Manage</span></td></tr>
         </table>
@@ -562,12 +562,12 @@ tr.dim td{color:#94A3B8}
 <div class="state-tag">STATE B — OVERRIDE IMPACT PREVIEW (ENABLE REFERRAL PORTAL FOR MERIDIAN)</div>
 <div class="modal-wrap">
   <div class="modal" style="max-width:640px">
-    <h3>Impact preview — enable "Referral doctor portal" · Meridian Diagnostics</h3>
-    <div class="banner info" style="margin-bottom:10px"><b>Nothing has changed yet</b>This preview is computed against Meridian's live configuration as of 25-Jul-2026 14:36 IST. The change applies only after approval and its effective date.</div>
+    <h3>Impact preview — enable "Referral doctor portal" · Magnus Diagnostics</h3>
+    <div class="banner info" style="margin-bottom:10px"><b>Nothing has changed yet</b>This preview is computed against Magnus's live configuration as of 25-Jul-2026 14:36 IST. The change applies only after approval and its effective date.</div>
     <div class="kv" style="margin-bottom:10px">
       <dt>Screens affected</dt><dd>4 unlock: RF-01 Referrer directory, RF-02 Referral intake, RF-03 Referrer results view, RF-04 Payout statements</dd>
       <dt>Users affected</dt><dd>7 staff gain access (roles: org admin ×1, front office ×4, billing ×2) · 0 users lose anything</dd>
-      <dt>In-flight items</dt><dd><span class="chip amber">3 pending referral invites</span> created during Meridian's trial in June will re-activate and send invitation SMS on effective date — flagged to tenant admin K. Verma for review</dd>
+      <dt>In-flight items</dt><dd><span class="chip amber">3 pending referral invites</span> created during Magnus's trial in June will re-activate and send invitation SMS on effective date — flagged to tenant admin K. Verma for review</dd>
       <dt>Billing impact</dt><dd>+ ₹4,500/mo add-on, pro-rated from effective date; appears on next invoice</dd>
       <dt>Data impact</dt><dd>None — enabling reveals existing data to entitled roles; no records created or deleted</dd>
       <dt>Reverse path</dt><dd>Disabling later runs this same preview; referral history is retained read-only, never deleted</dd>
@@ -586,20 +586,20 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Platform › Plans &amp; entitlements › Change ENT-2026-031</div>
       <div class="page-title">Entitlement change ENT-2026-031 <span class="chip amber">SCHEDULED</span></div>
-      <div class="page-sub">Enable Referral doctor portal (add-on) · Meridian Diagnostics · effective <b>01-Aug-2026 00:00 IST</b> · auto-applies, no human action at cutover</div>
+      <div class="page-sub">Enable Referral doctor portal (add-on) · Magnus Diagnostics · effective <b>01-Aug-2026 00:00 IST</b> · auto-applies, no human action at cutover</div>
       <div class="row">
         <div class="card grow">
           <div class="card-title">Approval trail</div>
           <div class="timeline">
             <div class="ev"><span class="t">25-Jul 14:36</span><div><b>Proposed</b> by R. Iyer (Platform Ops) — impact preview PRV-8841 attached · step-up TOTP verified</div></div>
             <div class="ev"><span class="t">25-Jul 15:10</span><div><b>Second approval</b> by A. Menon (Ops Lead) — reviewed impact preview, confirmed effective date · step-up passkey verified</div></div>
-            <div class="ev"><span class="t">25-Jul 15:11</span><div><b>Tenant notified</b> — K. Verma (Meridian org admin) sent change notice + impact summary; acknowledgement optional for non-compliance features</div></div>
+            <div class="ev"><span class="t">25-Jul 15:11</span><div><b>Tenant notified</b> — K. Verma (Magnus org admin) sent change notice + impact summary; acknowledgement optional for non-compliance features</div></div>
             <div class="ev"><span class="t">01-Aug 00:00</span><div class="muted"><b>Scheduled apply</b> — entitlement flips atomically; 3 pending referral invites release; billing pro-ration starts</div></div>
           </div>
           <div style="display:flex;gap:8px;margin-top:8px"><span class="btn small warn-outline">Cancel scheduled change (four-eyes)</span><span class="btn small ghost">Amend effective date</span></div>
         </div>
         <div class="card" style="width:330px;flex-shrink:0">
-          <div class="card-title">Entitlement audit log <span class="right">Meridian · last 5</span></div>
+          <div class="card-title">Entitlement audit log <span class="right">Magnus · last 5</span></div>
           <table>
             <tr><th>When</th><th>Change</th><th>By</th></tr>
             <tr class="hl"><td class="mono small">25-Jul</td><td>Referral portal → ON (sched. 01-Aug)</td><td class="small">Iyer + Menon</td></tr>
@@ -647,7 +647,7 @@ tr.dim td{color:#94A3B8}
         <div class="card-title">Rule packs <span class="right">3 regions · 1 rollout in progress</span></div>
         <table>
           <tr><th>Region pack</th><th>Active version</th><th>Key rules</th><th>Tenants bound</th><th>Status</th><th></th></tr>
-          <tr class="hl"><td><b>IN-MH</b> Maharashtra</td><td class="mono">v2026.07</td><td><span class="chip green">PC-PNDT ON</span> <span class="chip blue">GST profile GST-27</span> <span class="chip violet">DPDP consent v3</span> · radiology retention 10y</td><td>Meridian Diagnostics · Sunrise Imaging (Pune)</td><td><span class="chip amber">v2026.08 in ring rollout</span></td><td><span class="btn small ghost">Open</span></td></tr>
+          <tr class="hl"><td><b>IN-MH</b> Kerala</td><td class="mono">v2026.07</td><td><span class="chip green">PC-PNDT ON</span> <span class="chip blue">GST profile GST-27</span> <span class="chip violet">DPDP consent v3</span> · radiology retention 10y</td><td>Magnus Diagnostics · Sunrise Imaging (Pune)</td><td><span class="chip amber">v2026.08 in ring rollout</span></td><td><span class="btn small ghost">Open</span></td></tr>
           <tr><td><b>IN-KL</b> Kerala</td><td class="mono">v2026.06</td><td><span class="chip green">PC-PNDT ON</span> <span class="chip blue">GST profile GST-32</span> <span class="chip violet">DPDP consent v3</span> · radiology retention 10y</td><td>CarePoint Labs (Kochi)</td><td><span class="chip green">Stable</span></td><td><span class="btn small ghost">Open</span></td></tr>
           <tr class="dim"><td><b>IN-DL</b> Delhi NCR</td><td class="mono">v2026.05-draft</td><td>PC-PNDT ON · GST profile GST-07 (draft) · DPDP consent v3</td><td>— none yet (pre-sales)</td><td><span class="chip grey">Draft — sandbox only</span></td><td><span class="btn small ghost">Open</span></td></tr>
         </table>
@@ -657,7 +657,7 @@ tr.dim td{color:#94A3B8}
           <div class="card-title">IN-MH v2026.07 — active pack contents (summary)</div>
           <div class="kv">
             <dt>PC-PNDT</dt><dd>Module mandatory for all USG-capable tenants; Form F digital register; monthly submission reminder to district Appropriate Authority</dd>
-            <dt>GST profile</dt><dd>GST-27 (Maharashtra) — healthcare diagnostic services exempt; consumables &amp; contrast billed at 12%; e-invoice threshold ₹5 Cr</dd>
+            <dt>GST profile</dt><dd>GST-27 (Kerala) — healthcare diagnostic services exempt; consumables &amp; contrast billed at 12%; e-invoice threshold ₹5 Cr</dd>
             <dt>DPDP</dt><dd>Consent notice v3 (EN/HI/MR), purpose-bound; breach notification workflow 72h; patient erasure requests routed through retention check</dd>
             <dt>Retention</dt><dd>Radiology images &amp; reports 10y · billing 8y · audit trail 10y · consent register life-of-record + 3y</dd>
           </div>
@@ -734,7 +734,7 @@ tr.dim td{color:#94A3B8}
           <div class="card-title">Ring 2 preview — all IN-MH tenants</div>
           <table>
             <tr><th>Tenant</th><th>Will receive</th><th>Ack contacts</th></tr>
-            <tr><td>Meridian Diagnostics</td><td>v2026.08 on ring-2 go</td><td>K. Verma (org admin) + tenant DPO</td></tr>
+            <tr><td>Magnus Diagnostics</td><td>v2026.08 on ring-2 go</td><td>K. Verma (org admin) + tenant DPO</td></tr>
           </table>
         </div>
         <div class="card" style="width:320px;flex-shrink:0">
@@ -777,15 +777,15 @@ tr.dim td{color:#94A3B8}
     </div>
     <div class="main">
       <div class="crumb">Platform › Governance › Support access › New request</div>
-      <div class="page-title">Request support session — Meridian Diagnostics</div>
-      <div class="page-sub">Linked ticket <span class="mono">SUP-4821</span> — "UPI gateway settlement report mismatch, Andheri West" · requester R. Iyer (Platform Ops)</div>
+      <div class="page-title">Request support session — Magnus Diagnostics</div>
+      <div class="page-sub">Linked ticket <span class="mono">SUP-4821</span> — "UPI gateway settlement report mismatch, North Paravoor" · requester R. Iyer (Platform Ops)</div>
 
       <div class="banner reg"><b>Standing access is impossible by design</b>There is no operator role that can open tenant data without a tenant-approved, time-boxed session. Sessions are scoped, banner-visible to tenant staff, fully action-tagged, and revocable at any second by the tenant admin. This is enforced in the operator realm (Keycloak), not by convention.</div>
 
       <div class="row">
         <div class="card grow">
           <div class="card-title">Session request</div>
-          <div class="field"><label>Tenant <span class="req">*</span></label><span class="select" style="display:block">Meridian Diagnostics (TEN-MERI-01) ▾</span></div>
+          <div class="field"><label>Tenant <span class="req">*</span></label><span class="select" style="display:block">Magnus Diagnostics (TEN-MERI-01) ▾</span></div>
           <div class="field"><label>Scope — modules visible <span class="req">*</span></label>
             <div class="check"><span class="box on">✓</span> Billing &amp; payments (invoices, UPI gateway settlement view)</div>
             <div class="check"><span class="box on">✓</span> Payment provider configuration (read-only)</div>
@@ -805,15 +805,15 @@ tr.dim td{color:#94A3B8}
             <div class="card-title">Approval path</div>
             <div class="ladder">
               <div class="tier done"><b>Operator step-up</b><div class="small muted">R. Iyer — passkey verified 15:22 IST (valid 10 min)</div></div>
-              <div class="tier cur"><b>Tenant admin approval</b><div class="small muted">Goes to K. Verma (Meridian org admin); can narrow scope or shorten duration before approving</div></div>
+              <div class="tier cur"><b>Tenant admin approval</b><div class="small muted">Goes to K. Verma (Magnus org admin); can narrow scope or shorten duration before approving</div></div>
               <div class="tier"><b>Session starts</b><div class="small muted">Banner appears tenant-wide; timer starts on first access, not on approval</div></div>
             </div>
             <span class="btn small primary">Send request to tenant admin</span>
           </div>
           <div class="card">
-            <div class="card-title">What Meridian will see</div>
+            <div class="card-title">What Magnus will see</div>
             <div class="banner info" style="margin-bottom:6px"><b>ℹ NUMINACORE support session active</b>R. Iyer is viewing Billing &amp; payments (read-only) until 19:30 IST · ticket SUP-4821 · <u>Revoke now</u></div>
-            <div class="small muted">Shown to all Meridian staff in the affected modules for the entire session.</div>
+            <div class="small muted">Shown to all Magnus staff in the affected modules for the entire session.</div>
           </div>
         </div>
       </div>
@@ -828,7 +828,7 @@ tr.dim td{color:#94A3B8}
   <div class="body">
     <div class="main">
       <div class="crumb">Platform › Support access › Session SA-2026-097</div>
-      <div class="page-title">Active session — Meridian Diagnostics <span class="chip green">LIVE · 2h 41m remaining</span> <span class="actions-right"><span class="btn small danger">End session now</span></span></div>
+      <div class="page-title">Active session — Magnus Diagnostics <span class="chip green">LIVE · 2h 41m remaining</span> <span class="actions-right"><span class="btn small danger">End session now</span></span></div>
       <div class="page-sub">Session <span class="mono">SA-2026-097</span> · approved by K. Verma 25-Jul 15:31 IST (scope unchanged, duration trimmed 4h → 3h30m) · read-only · ticket SUP-4821</div>
       <div class="kpi-row">
         <div class="kpi"><div class="n">17</div><div class="l">Actions tagged</div><div class="s">all streamed to tenant log live</div></div>
@@ -840,7 +840,7 @@ tr.dim td{color:#94A3B8}
         <div class="card grow">
           <div class="card-title">Action stream <span class="right">tagged SA-2026-097 · immutable</span></div>
           <div class="timeline">
-            <div class="ev"><span class="t">15:34:02</span><div>Opened Billing › UPI settlement report 24-Jul-2026 (Andheri West) — <span class="chip grey">read</span></div></div>
+            <div class="ev"><span class="t">15:34:02</span><div>Opened Billing › UPI settlement report 24-Jul-2026 (North Paravoor) — <span class="chip grey">read</span></div></div>
             <div class="ev"><span class="t">15:36:47</span><div>Filtered day-book to gateway ref <span class="mono">UTR-511…</span> — <span class="chip grey">read</span></div></div>
             <div class="ev"><span class="t">15:41:10</span><div>Compared 3 unmatched transactions; exported reconciliation view (numbers only, no patient identifiers) — <span class="chip blue">export · shared into ticket SUP-4821, visible to tenant</span></div></div>
             <div class="ev"><span class="t">15:52:33</span><div>Viewed payment provider config (UPI gateway, read-only) — webhook retry setting noted — <span class="chip grey">read</span></div></div>
@@ -851,7 +851,7 @@ tr.dim td{color:#94A3B8}
           <div class="card-title">Revoke — tenant side (mirror)</div>
           <div class="banner danger" style="margin-bottom:8px"><b>Revoke support session?</b>Access for R. Iyer ends immediately — mid-page, mid-query. Nothing further is visible after revoke; the evidence bundle is generated as of this second.</div>
           <div style="display:flex;gap:8px"><span class="btn small danger">Revoke now</span><span class="btn small">Keep session</span></div>
-          <div class="small muted" style="margin-top:8px">Any Meridian org admin can revoke; no reason required, no operator veto. Revocation takes effect in &lt;1s (session token invalidated in Keycloak operator realm).</div>
+          <div class="small muted" style="margin-top:8px">Any Magnus org admin can revoke; no reason required, no operator veto. Revocation takes effect in &lt;1s (session token invalidated in Keycloak operator realm).</div>
         </div>
       </div>
     </div>
@@ -866,7 +866,7 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Platform › Support access › Session SA-2026-097 › Evidence</div>
       <div class="page-title">Evidence bundle — SA-2026-097 <span class="chip grey">SESSION ENDED 18:47 IST</span></div>
-      <div class="page-sub">Ended by: operator (work complete, 43 min early) · bundle auto-shared to K. Verma and Meridian compliance mailbox at 18:47:09 IST — sharing is automatic, not optional</div>
+      <div class="page-sub">Ended by: operator (work complete, 43 min early) · bundle auto-shared to K. Verma and Magnus compliance mailbox at 18:47:09 IST — sharing is automatic, not optional</div>
       <div class="row">
         <div class="card grow">
           <div class="card-title">Bundle contents <span class="right">EVB-2026-097 · SHA-256 c41d…8b6e</span></div>
@@ -883,7 +883,7 @@ tr.dim td{color:#94A3B8}
         <div class="card" style="width:320px;flex-shrink:0">
           <div class="card-title">Delivery receipts</div>
           <div class="timeline">
-            <div class="ev"><span class="t">18:47:09</span><div>Bundle sealed + shared to Meridian tenant console</div></div>
+            <div class="ev"><span class="t">18:47:09</span><div>Bundle sealed + shared to Magnus tenant console</div></div>
             <div class="ev"><span class="t">18:47:11</span><div>Email receipt → K. Verma (org admin) ✓ delivered</div></div>
             <div class="ev"><span class="t">18:52:40</span><div>Opened by K. Verma from tenant console ✓</div></div>
           </div>
@@ -921,7 +921,7 @@ tr.dim td{color:#94A3B8}
       <div class="page-title">Platform audit log <span class="actions-right"><span class="btn small">⬇ Export (governed)</span> <span class="btn small primary">Verify hash chain</span></span></div>
       <div class="page-sub">Operator-action stream · append-only · hash-chained hourly · retention 7 years · IST timestamps</div>
 
-      <div class="banner reg"><b>Tenant-visible mirror</b> Every entry that names a tenant is mirrored to that tenant's own audit log within 60 s. Tenant admins (e.g. K. Verma at Meridian Diagnostics) see operator actions on their org — there are no silent operator actions.</div>
+      <div class="banner reg"><b>Tenant-visible mirror</b> Every entry that names a tenant is mirrored to that tenant's own audit log within 60 s. Tenant admins (e.g. K. Verma at Magnus Diagnostics) see operator actions on their org — there are no silent operator actions.</div>
 
       <div class="kpi-row">
         <div class="kpi"><div class="n">1,482</div><div class="l">Entries · last 30 d</div><div class="s">All operator realms</div></div>
@@ -934,7 +934,7 @@ tr.dim td{color:#94A3B8}
         <div class="card-title">Filters <span class="right">Applied: last 7 days</span></div>
         <div class="row">
           <div class="field grow"><label>Actor</label><select class="select"><option>All operators</option><option>R. Iyer</option><option>S. Menon</option><option>A. Bhat</option><option>system (automation)</option></select></div>
-          <div class="field grow"><label>Tenant affected</label><select class="select"><option>All tenants</option><option>Meridian Diagnostics</option><option>Sunrise Imaging (Pune)</option><option>CarePoint Labs (Kochi)</option><option>— platform-wide —</option></select></div>
+          <div class="field grow"><label>Tenant affected</label><select class="select"><option>All tenants</option><option>Magnus Diagnostics</option><option>Sunrise Imaging (Pune)</option><option>CarePoint Labs (Kochi)</option><option>— platform-wide —</option></select></div>
           <div class="field grow"><label>Action class</label><select class="select"><option>All</option><option>Tenant lifecycle</option><option>Support access</option><option>Release / config</option><option>Backup / DR</option><option>Data export</option></select></div>
           <div class="field grow"><label>Date range (IST)</label><input class="input" value="18 Jul 2026 — 25 Jul 2026"></div>
           <div class="field" style="align-self:flex-end"><span class="btn primary">Apply</span></div>
@@ -946,13 +946,13 @@ tr.dim td{color:#94A3B8}
         <div class="card-title">Action stream <span class="right">312 entries · newest first</span></div>
         <table>
           <tr><th>Time (IST)</th><th>Actor</th><th>Tenant affected</th><th>Action</th><th>Dual-control ref</th><th>Mirror</th><th></th></tr>
-          <tr class="hl"><td class="mono">25 Jul 11:42</td><td>R. Iyer</td><td>Meridian Diagnostics</td><td>Extended support-access window on branch Andheri West by 2 h (ticket MER-4471)</td><td><span class="chip green">DC-2026-0193</span></td><td><span class="chip teal">MIRRORED</span></td><td><span class="btn small ghost">Detail</span></td></tr>
+          <tr class="hl"><td class="mono">25 Jul 11:42</td><td>R. Iyer</td><td>Magnus Diagnostics</td><td>Extended support-access window on branch North Paravoor by 2 h (ticket MER-4471)</td><td><span class="chip green">DC-2026-0193</span></td><td><span class="chip teal">MIRRORED</span></td><td><span class="btn small ghost">Detail</span></td></tr>
           <tr><td class="mono">25 Jul 10:58</td><td>S. Menon</td><td>Sunrise Imaging (Pune)</td><td>Rotated DLT SMS (Jio route) sender credentials</td><td><span class="chip grey">n/a — routine</span></td><td><span class="chip teal">MIRRORED</span></td><td><span class="btn small ghost">Detail</span></td></tr>
           <tr><td class="mono">25 Jul 09:31</td><td>system (automation)</td><td>— platform-wide —</td><td>Nightly hash-chain checkpoint sealed (block #48,221)</td><td><span class="chip grey">n/a</span></td><td><span class="chip grey">—</span></td><td><span class="btn small ghost">Detail</span></td></tr>
           <tr><td class="mono">24 Jul 18:07</td><td>A. Bhat</td><td>CarePoint Labs (Kochi)</td><td>Applied storage quota increase 2 TB → 4 TB (PACS tier)</td><td><span class="chip green">DC-2026-0191</span></td><td><span class="chip teal">MIRRORED</span></td><td><span class="btn small ghost">Detail</span></td></tr>
-          <tr><td class="mono">24 Jul 16:44</td><td>R. Iyer</td><td>Meridian Diagnostics</td><td>Read-only support session opened (approved by tenant admin K. Verma, 45 min, no PHI panels)</td><td><span class="chip green">DC-2026-0190</span></td><td><span class="chip teal">MIRRORED</span></td><td><span class="btn small ghost">Detail</span></td></tr>
+          <tr><td class="mono">24 Jul 16:44</td><td>R. Iyer</td><td>Magnus Diagnostics</td><td>Read-only support session opened (approved by tenant admin K. Verma, 45 min, no PHI panels)</td><td><span class="chip green">DC-2026-0190</span></td><td><span class="chip teal">MIRRORED</span></td><td><span class="btn small ghost">Detail</span></td></tr>
           <tr><td class="mono">24 Jul 12:19</td><td>S. Menon</td><td>Sunrise Imaging (Pune)</td><td>Edge agent v2.4.1 pushed to branch Kothrud (wave W-29)</td><td><span class="chip grey">n/a — ring policy</span></td><td><span class="chip teal">MIRRORED</span></td><td><span class="btn small ghost">Detail</span></td></tr>
-          <tr><td class="mono">23 Jul 21:03</td><td>system (automation)</td><td>Meridian Diagnostics</td><td>Backup snapshot verification passed (RPO 15 min met)</td><td><span class="chip grey">n/a</span></td><td><span class="chip teal">MIRRORED</span></td><td><span class="btn small ghost">Detail</span></td></tr>
+          <tr><td class="mono">23 Jul 21:03</td><td>system (automation)</td><td>Magnus Diagnostics</td><td>Backup snapshot verification passed (RPO 15 min met)</td><td><span class="chip grey">n/a</span></td><td><span class="chip teal">MIRRORED</span></td><td><span class="btn small ghost">Detail</span></td></tr>
           <tr class="dim"><td class="mono">23 Jul 15:38</td><td>A. Bhat</td><td>CarePoint Labs (Kochi)</td><td>Attempted config change rejected — dual-control approver unavailable, action expired</td><td><span class="chip red">DC-2026-0188 EXPIRED</span></td><td><span class="chip teal">MIRRORED</span></td><td><span class="btn small ghost">Detail</span></td></tr>
         </table>
         <p class="small muted" style="margin-top:8px">No entry can be edited or deleted. Corrections are appended as compensating entries referencing the original hash.</p>
@@ -987,12 +987,12 @@ tr.dim td{color:#94A3B8}
     <div class="kv">
       <dt>Recorded</dt><dd class="mono">25 Jul 2026 11:42:08 IST</dd>
       <dt>Actor</dt><dd>R. Iyer (Platform Ops) · operator realm · passkey step-up verified 11:41:52</dd>
-      <dt>Tenant affected</dt><dd>Meridian Diagnostics · Andheri West branch</dd>
+      <dt>Tenant affected</dt><dd>Magnus Diagnostics · North Paravoor</dd>
       <dt>Action</dt><dd>Extend read-only support-access window by 2 h (10:00 → 12:00 additional) for ticket <span class="mono">MER-4471</span>. Scope unchanged: no PHI panels, no report bodies.</dd>
       <dt>Dual-control ref</dt><dd><span class="chip green">DC-2026-0193</span> — requested by R. Iyer 11:36, approved by S. Menon (second operator) 11:40. Approver saw identical diff before approving.</dd>
       <dt>Tenant consent</dt><dd>Original session approved in-app by K. Verma (org admin) 24 Jul 16:41; extension notice pushed to tenant admin console.</dd>
       <dt>Entry hash</dt><dd class="mono">sha256:9f41c2…b8a0 · prev sha256:77d3e6…412c</dd>
-      <dt>Tenant mirror</dt><dd><span class="chip teal">MIRRORED</span> to Meridian audit log 11:42:31 IST (entry MER-AUD-88410)</dd>
+      <dt>Tenant mirror</dt><dd><span class="chip teal">MIRRORED</span> to Magnus audit log 11:42:31 IST (entry MER-AUD-88410)</dd>
     </div>
     <div class="modal-actions"><span class="btn">Copy proof segment</span><span class="btn">View tenant mirror entry</span><span class="btn primary">Close</span></div>
   </div>
@@ -1064,7 +1064,7 @@ tr.dim td{color:#94A3B8}
           <tr><th>Ring</th><th>Version</th><th>Tenants / scope</th><th>Since (IST)</th><th>Health (7 d)</th><th>Migrations pending</th><th></th></tr>
           <tr><td><span class="chip grey">SANDBOX</span></td><td class="mono">v3.11.0-dev.214</td><td>NUMINACORE internal sandbox tenant</td><td class="mono">24 Jul 09:10</td><td><span class="chip amber">2 known issues</span></td><td class="mono">M-311a, M-311b (draft)</td><td><span class="btn small ghost">Detail</span></td></tr>
           <tr class="hl"><td><span class="chip blue">PILOT</span></td><td class="mono">v3.10.0-rc2</td><td>Sunrise Imaging (Pune) — opted-in pilot</td><td class="mono">21 Jul 07:30</td><td><span class="chip green">Clean · 0 regressions</span></td><td class="mono">M-310 applied ✓</td><td><span class="btn small primary">Promote to GA…</span></td></tr>
-          <tr><td><span class="chip teal">GA</span></td><td class="mono">v3.9.0</td><td>Meridian Diagnostics · Sunrise Imaging · CarePoint Labs</td><td class="mono">14 Jul 06:00</td><td><span class="chip green">Stable</span></td><td class="mono">none</td><td><span class="btn small warn-outline">Rollback…</span></td></tr>
+          <tr><td><span class="chip teal">GA</span></td><td class="mono">v3.9.0</td><td>Magnus Diagnostics · Sunrise Imaging · CarePoint Labs</td><td class="mono">14 Jul 06:00</td><td><span class="chip green">Stable</span></td><td class="mono">none</td><td><span class="btn small warn-outline">Rollback…</span></td></tr>
         </table>
       </div>
 
@@ -1072,8 +1072,8 @@ tr.dim td{color:#94A3B8}
         <div class="card-title">Edge-agent versions per branch <span class="right">Target: v2.4.1</span></div>
         <table>
           <tr><th>Tenant</th><th>Branch</th><th>Edge agent</th><th>Devices bridged</th><th>Last seen (IST)</th><th>Upgrade state</th></tr>
-          <tr><td>Meridian Diagnostics</td><td>Andheri West</td><td class="mono">v2.4.1</td><td class="mono">CT-ROOM-1 (MERIDCT1) · US-UNIT-2 (MERIDUS2) · MRI-ROOM-2</td><td class="mono">25 Jul 11:58</td><td><span class="chip green">CURRENT</span></td></tr>
-          <tr><td>Meridian Diagnostics</td><td>Bandra</td><td class="mono">v2.4.1</td><td class="mono">2 modalities</td><td class="mono">25 Jul 11:57</td><td><span class="chip green">CURRENT</span></td></tr>
+          <tr><td>Magnus Diagnostics</td><td>North Paravoor</td><td class="mono">v2.4.1</td><td class="mono">CT-ROOM-1 (MERIDCT1) · US-UNIT-2 (MERIDUS2) · MRI-ROOM-2</td><td class="mono">25 Jul 11:58</td><td><span class="chip green">CURRENT</span></td></tr>
+          <tr><td>Magnus Diagnostics</td><td>Bandra</td><td class="mono">v2.4.1</td><td class="mono">2 modalities</td><td class="mono">25 Jul 11:57</td><td><span class="chip green">CURRENT</span></td></tr>
           <tr><td>Sunrise Imaging (Pune)</td><td>Kothrud</td><td class="mono">v2.4.1</td><td class="mono">3 modalities</td><td class="mono">25 Jul 11:55</td><td><span class="chip green">CURRENT · wave W-29</span></td></tr>
           <tr class="hl"><td>Sunrise Imaging (Pune)</td><td>Baner</td><td class="mono">v2.4.0</td><td class="mono">2 modalities</td><td class="mono">25 Jul 11:54</td><td><span class="chip amber">QUEUED · wave W-30</span></td></tr>
           <tr class="dim"><td>CarePoint Labs (Kochi)</td><td>Edappally</td><td class="mono">v2.3.7</td><td class="mono">2 modalities</td><td class="mono">24 Jul 22:12</td><td><span class="chip red">DEFERRED — branch offline</span></td></tr>
@@ -1090,7 +1090,7 @@ tr.dim td{color:#94A3B8}
 <div class="modal-wrap">
   <div class="modal" style="max-width:620px">
     <h3>Promote v3.10.0-rc2 · pilot → GA</h3>
-    <p class="small muted" style="margin-bottom:10px">Applies to all GA tenants (Meridian Diagnostics, Sunrise Imaging, CarePoint Labs) in the 26 Jul 02:00–04:00 IST maintenance window. Tenants were notified 22 Jul (≥ 72 h lead time).</p>
+    <p class="small muted" style="margin-bottom:10px">Applies to all GA tenants (Magnus Diagnostics, Sunrise Imaging, CarePoint Labs) in the 26 Jul 02:00–04:00 IST maintenance window. Tenants were notified 22 Jul (≥ 72 h lead time).</p>
     <div class="check"><span class="box on">✓</span><span><b>Migrations reviewed</b> — M-310 (adds report-addendum index) reviewed by A. Bhat, 20 Jul. Reversibility: <span class="chip green">REVERSIBLE</span> (down-migration tested on pilot clone).</span></div>
     <div class="check"><span class="box on">✓</span><span><b>Rollback tested</b> — v3.10.0-rc2 → v3.9.0 rehearsed on pilot clone 23 Jul, completed in 14 min, data verified.</span></div>
     <div class="check"><span class="box on">✓</span><span><b>Pilot soak ≥ 72 h</b> — 4 d 6 h on Sunrise Imaging, 0 SEV incidents, error budget intact.</span></div>
@@ -1125,7 +1125,7 @@ tr.dim td{color:#94A3B8}
       <table>
         <tr><th>Branch</th><th>Pre-checks</th><th>Queued DICOM forwards</th><th>Status</th><th>Owner</th></tr>
         <tr><td>Sunrise Imaging · Baner</td><td><span class="chip green">PASSED</span></td><td class="mono">0</td><td><span class="chip teal">SCHEDULED 01:10 IST</span></td><td>S. Menon</td></tr>
-        <tr><td>Meridian · Andheri West (re-verify only)</td><td><span class="chip green">PASSED</span></td><td class="mono">0</td><td><span class="chip green">ALREADY CURRENT</span></td><td>—</td></tr>
+        <tr><td>Magnus · North Paravoor (re-verify only)</td><td><span class="chip green">PASSED</span></td><td class="mono">0</td><td><span class="chip green">ALREADY CURRENT</span></td><td>—</td></tr>
         <tr class="dim"><td>CarePoint Labs · Edappally</td><td><span class="chip grey">SKIPPED</span></td><td class="mono">14 pending on-device</td><td><span class="chip red">DEFERRED — offline since 24 Jul 22:12</span></td><td>A. Bhat</td></tr>
       </table>
       <div class="banner info" style="margin-top:10px"><b>Offline-branch deferral rule</b> Edappally stays on v2.3.7 until its edge agent reconnects, flushes the 14 queued forwards, and passes pre-checks. It then auto-joins the next wave (W-31) — never mid-day upgrades. CarePoint's tenant admin is notified of the deferral.</div>
@@ -1179,7 +1179,7 @@ tr.dim td{color:#94A3B8}
         <div class="card-title">Per-tenant backup status <span class="right">Auto-refresh 60 s · 25 Jul 12:10 IST</span></div>
         <table>
           <tr><th>Tenant</th><th>Last snapshot (IST)</th><th>Age vs RPO 15 min</th><th>Offsite copy (Hyderabad)</th><th>PACS/object tier</th><th>Encryption</th><th></th></tr>
-          <tr><td>Meridian Diagnostics</td><td class="mono">25 Jul 12:03</td><td><span class="chip green">7 min · WITHIN RPO</span></td><td><span class="chip green">SYNCED · lag 2 min</span></td><td><span class="chip green">VERIFIED 05:15</span></td><td class="mono">AES-256 · tenant key</td><td><span class="btn small ghost">Timeline</span></td></tr>
+          <tr><td>Magnus Diagnostics</td><td class="mono">25 Jul 12:03</td><td><span class="chip green">7 min · WITHIN RPO</span></td><td><span class="chip green">SYNCED · lag 2 min</span></td><td><span class="chip green">VERIFIED 05:15</span></td><td class="mono">AES-256 · tenant key</td><td><span class="btn small ghost">Timeline</span></td></tr>
           <tr><td>Sunrise Imaging (Pune)</td><td class="mono">25 Jul 12:01</td><td><span class="chip green">9 min · WITHIN RPO</span></td><td><span class="chip green">SYNCED · lag 4 min</span></td><td><span class="chip green">VERIFIED 05:22</span></td><td class="mono">AES-256 · tenant key</td><td><span class="btn small ghost">Timeline</span></td></tr>
           <tr><td>CarePoint Labs (Kochi)</td><td class="mono">25 Jul 12:06</td><td><span class="chip green">4 min · WITHIN RPO</span></td><td><span class="chip green">SYNCED · lag 3 min</span></td><td><span class="chip green">VERIFIED 05:31</span></td><td class="mono">AES-256 · tenant key</td><td><span class="btn small ghost">Timeline</span></td></tr>
         </table>
@@ -1219,13 +1219,13 @@ tr.dim td{color:#94A3B8}
     <tr><th>Test ID</th><th>Tenant</th><th>Date (IST)</th><th>Scope</th><th>RTO achieved vs 4 h</th><th>Data verified</th><th>Evidence file</th><th>Run by / witnessed</th></tr>
     <tr><td class="mono">RT-2026-07-03</td><td>CarePoint Labs (Kochi)</td><td class="mono">18 Jul 09:00</td><td>Full DB + 48 h PACS sample → isolated enclave</td><td><span class="chip green">1 h 58 m · PASS</span></td><td><span class="chip green">Checksums + row counts ✓</span></td><td><span class="btn small ghost">RT-2026-07-03.pdf · sha256:41ab…</span></td><td>A. Bhat / S. Menon</td></tr>
     <tr><td class="mono">RT-2026-07-02</td><td>Sunrise Imaging (Pune)</td><td class="mono">11 Jul 09:00</td><td>Full DB + 48 h PACS sample → isolated enclave</td><td><span class="chip green">2 h 12 m · PASS</span></td><td><span class="chip green">Checksums + row counts ✓</span></td><td><span class="btn small ghost">RT-2026-07-02.pdf · sha256:c7f0…</span></td><td>S. Menon / R. Iyer</td></tr>
-    <tr class="hl"><td class="mono">RT-2026-07-01</td><td>Meridian Diagnostics</td><td class="mono">04 Jul 09:00</td><td>Full DB + 48 h PACS sample → isolated enclave</td><td><span class="chip green">2 h 26 m · PASS</span></td><td><span class="chip green">Checksums + row counts ✓</span></td><td><span class="btn small ghost">RT-2026-07-01.pdf · sha256:9d2e…</span></td><td>R. Iyer / A. Bhat</td></tr>
+    <tr class="hl"><td class="mono">RT-2026-07-01</td><td>Magnus Diagnostics</td><td class="mono">04 Jul 09:00</td><td>Full DB + 48 h PACS sample → isolated enclave</td><td><span class="chip green">2 h 26 m · PASS</span></td><td><span class="chip green">Checksums + row counts ✓</span></td><td><span class="btn small ghost">RT-2026-07-01.pdf · sha256:9d2e…</span></td><td>R. Iyer / A. Bhat</td></tr>
     <tr><td class="mono">RT-2026-06-03</td><td>CarePoint Labs (Kochi)</td><td class="mono">20 Jun 09:00</td><td>Full DB + 48 h PACS sample</td><td><span class="chip amber">3 h 51 m · PASS (near limit)</span></td><td><span class="chip green">✓</span></td><td><span class="btn small ghost">RT-2026-06-03.pdf</span></td><td>A. Bhat / R. Iyer</td></tr>
     <tr class="dim"><td class="mono">RT-2026-06-02</td><td>Sunrise Imaging (Pune)</td><td class="mono">13 Jun 09:00</td><td>Full DB + 48 h PACS sample</td><td><span class="chip green">2 h 33 m · PASS</span></td><td><span class="chip green">✓</span></td><td><span class="btn small ghost">RT-2026-06-02.pdf</span></td><td>S. Menon / A. Bhat</td></tr>
   </table>
   <div class="banner info" style="margin-top:10px"><b>Register rules</b> Restore tests run into an isolated enclave — never a production tenant. Each test needs a runner and a witness (four-eyes), a signed evidence PDF, and its hash goes into the platform audit log. RT-2026-06-03's near-limit RTO triggered a follow-up: PACS sample restore parallelised (done 28 Jun); July run improved to 1 h 58 m.</div>
   <div class="row" style="margin-top:6px">
-    <div class="grow"><div class="small muted">August window opens 01 Aug · Meridian slot proposed 01 Aug 09:00 IST</div></div>
+    <div class="grow"><div class="small muted">August window opens 01 Aug · Magnus slot proposed 01 Aug 09:00 IST</div></div>
     <div><span class="btn small">Export register (auditor pack)</span> <span class="btn small primary">Schedule August tests</span></div>
   </div>
 </div>
@@ -1253,7 +1253,7 @@ tr.dim td{color:#94A3B8}
     </div>
     <div class="field" style="margin-top:8px"><label>Step-up identity confirmation <span class="req">*</span></label><input class="input" placeholder="Passkey — approver identity, operator realm"></div>
     <div style="display:flex;gap:8px"><span class="btn small danger">Approve &amp; execute</span><span class="btn small">Decline with note</span></div>
-    <p class="small muted" style="margin-top:8px">Meridian and Sunrise snapshots remain green and unaffected; blast radius limited to one tenant's backup pipeline.</p>
+    <p class="small muted" style="margin-top:8px">Magnus and Sunrise snapshots remain green and unaffected; blast radius limited to one tenant's backup pipeline.</p>
   </div>
 </div>
 
@@ -1291,7 +1291,7 @@ tr.dim td{color:#94A3B8}
           <div class="card-title">Incident console <span class="right">1 active · 2 recent</span></div>
           <table>
             <tr><th>ID</th><th>Sev</th><th>Summary</th><th>Tenants affected</th><th>Status</th><th>Comms SLA</th></tr>
-            <tr class="hl"><td class="mono">PLT-INC-2026-030</td><td><span class="chip amber">SEV-2</span></td><td>WhatsApp BSP outbound delivery degraded (report-ready notices delayed; DLT SMS Jio fallback active)</td><td>Meridian Diagnostics · Sunrise Imaging</td><td><span class="chip amber">MONITORING</span></td><td><span class="chip teal">Next update 12:20 · R. Iyer</span></td></tr>
+            <tr class="hl"><td class="mono">PLT-INC-2026-030</td><td><span class="chip amber">SEV-2</span></td><td>WhatsApp BSP outbound delivery degraded (report-ready notices delayed; DLT SMS Jio fallback active)</td><td>Magnus Diagnostics · Sunrise Imaging</td><td><span class="chip amber">MONITORING</span></td><td><span class="chip teal">Next update 12:20 · R. Iyer</span></td></tr>
             <tr><td class="mono">PLT-INC-2026-029</td><td><span class="chip red">SEV-1</span></td><td>UPI payment gateway callbacks failing (resolved — provider-side cert expiry)</td><td>All 3 tenants</td><td><span class="chip blue">REVIEW GATE</span></td><td><span class="chip grey">Closed comms 21 Jul</span></td></tr>
             <tr class="dim"><td class="mono">PLT-INC-2026-028</td><td><span class="chip grey">SEV-3</span></td><td>Slow report PDF rendering, Pune region</td><td>Sunrise Imaging</td><td><span class="chip green">CLOSED · PIR done</span></td><td><span class="chip grey">—</span></td></tr>
           </table>
@@ -1361,7 +1361,7 @@ tr.dim td{color:#94A3B8}
     </div>
     <div class="field"><label>Impact statement (public) <span class="req">*</span></label><textarea class="textarea">Platform upgrade to v3.10.0. Booking, worklists and the patient portal remain available; a brief read-only period of up to 10 minutes may occur while databases switch over. Imaging devices continue local caching via edge agents.</textarea></div>
     <div class="field"><label>Tenants affected</label>
-      <div class="check"><span class="box on">✓</span>Meridian Diagnostics</div>
+      <div class="check"><span class="box on">✓</span>Magnus Diagnostics</div>
       <div class="check"><span class="box on">✓</span>Sunrise Imaging (Pune)</div>
       <div class="check"><span class="box on">✓</span>CarePoint Labs (Kochi)</div>
     </div>
@@ -1413,7 +1413,7 @@ tr.dim td{color:#94A3B8}
         <table>
           <tr><th>Tenant</th><th>Plan</th><th style="width:170px">Studies</th><th style="width:170px">Storage (GB)</th><th style="width:150px">SMS / WhatsApp</th><th style="width:130px">API calls</th><th>Seats</th><th>Status</th></tr>
           <tr>
-            <td><b>Meridian Diagnostics</b><div class="small muted mono">tn-meridian-01 · 4 branches</div></td>
+            <td><b>Magnus Diagnostics</b><div class="small muted mono">tn-meridian-01 · 4 branches</div></td>
             <td>Enterprise<div class="small muted">annual · renews 01 Apr 2027</div></td>
             <td>28,412 / 40,000<div class="progress"><i style="width:71%"></i></div><div class="small muted">71% of plan</div></td>
             <td>3,940 / 6,000<div class="progress"><i style="width:66%"></i></div><div class="small muted">66% · PACS tier hot</div></td>
@@ -1567,7 +1567,7 @@ tr.dim td{color:#94A3B8}
           <tr><th>Event</th><th>Tenant</th><th>Reason category</th><th>Requested by</th><th>Approved by</th><th>Window</th><th>Tenant notified</th><th>Review status</th></tr>
           <tr class="hl">
             <td class="mono"><b>BG-2026-004</b></td>
-            <td>Meridian Diagnostics</td>
+            <td>Magnus Diagnostics</td>
             <td><span class="chip red">DATA-LOSS RECOVERY</span><div class="small muted">corrupted study index, CT-ROOM-1 batch</div></td>
             <td>R. Iyer<div class="small muted">25 Jul 12:31 IST</div></td>
             <td>S. Menon<div class="small muted">25 Jul 12:42 IST</div></td>
@@ -1597,7 +1597,7 @@ tr.dim td{color:#94A3B8}
           </tr>
           <tr class="dim">
             <td class="mono">BG-2025-001</td>
-            <td>Meridian Diagnostics</td>
+            <td>Magnus Diagnostics</td>
             <td><span class="chip red">DATA-LOSS RECOVERY</span></td>
             <td>R. Iyer · 09 Nov 2025</td>
             <td>S. Menon</td>
@@ -1617,7 +1617,7 @@ tr.dim td{color:#94A3B8}
 <div class="state-tag">STATE B — NEW REQUEST · SECOND-OPERATOR APPROVAL REQUIRED</div>
 <div class="modal-wrap">
   <div class="modal danger">
-    <h3>Request break-glass access — Meridian Diagnostics</h3>
+    <h3>Request break-glass access — Magnus Diagnostics</h3>
     <div class="banner danger"><b>You are requesting emergency access to tenant clinical data</b>This action cannot proceed without approval from a second operator. The tenant's org admin is notified the moment access begins — not after.</div>
     <div class="field"><label>Reason category <span class="req">*</span></label>
       <select class="select"><option>DATA-LOSS RECOVERY — restore corrupted or lost tenant data</option></select>
@@ -1640,7 +1640,7 @@ tr.dim td{color:#94A3B8}
     <div class="field"><label>Step-up confirmation <span class="req">*</span></label>
       <input class="input" placeholder="TOTP code or passkey — confirm your operator identity"/>
     </div>
-    <div class="check"><span class="box on">✓</span><span>I understand the tenant (K. Verma, org admin, Meridian Diagnostics) is notified immediately when access starts, and that an evidence bundle of every action will be delivered to them within 24 hours.</span></div>
+    <div class="check"><span class="box on">✓</span><span>I understand the tenant (K. Verma, org admin, Magnus Diagnostics) is notified immediately when access starts, and that an evidence bundle of every action will be delivered to them within 24 hours.</span></div>
     <div class="modal-actions"><span class="btn">Cancel</span><span class="btn danger">Send for second-operator approval</span></div>
   </div>
 </div>
@@ -1653,7 +1653,7 @@ tr.dim td{color:#94A3B8}
   <div class="topbar" style="border-bottom-color:#B91C1C"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>Platform</span></span><span class="org">🛠 NUMINACORE Platform Console · operator realm</span></div><div class="userchip"><span class="av" style="background:#FEE2E2;color:#B91C1C">RI</span>R. Iyer (Platform Ops) ▾</div></div>
   <div class="body">
     <div class="main">
-      <div class="banner danger"><b>⏱ BREAK-GLASS ACTIVE — BG-2026-004 · Meridian Diagnostics · expires 16:42 IST (1h 54m remaining)</b>Scope: study index shard mds-07, CT-ROOM-1 studies 24–25 Jul only · approved by S. Menon 12:42 · tenant org admin K. Verma notified 12:42, acknowledged 12:47. Every query, view and export in this session is recorded verbatim into evidence bundle EB-1104. <span class="bold">Close session early as soon as work completes.</span></div>
+      <div class="banner danger"><b>⏱ BREAK-GLASS ACTIVE — BG-2026-004 · Magnus Diagnostics · expires 16:42 IST (1h 54m remaining)</b>Scope: study index shard mds-07, CT-ROOM-1 studies 24–25 Jul only · approved by S. Menon 12:42 · tenant org admin K. Verma notified 12:42, acknowledged 12:47. Every query, view and export in this session is recorded verbatim into evidence bundle EB-1104. <span class="bold">Close session early as soon as work completes.</span></div>
       <div class="row">
         <div class="card grow">
           <div class="card-title">Session activity (live) <span class="right">Recorded to EB-1104</span></div>
@@ -1730,10 +1730,10 @@ tr.dim td{color:#94A3B8}
 <div class="banner info"><b>Build rule</b>A bundle is refused at the edge unless: signature valid · version continuity (no skipped migrations) · rollback kit present · disk/backup preconditions met. Refusals are attested back with reasons.</div></div>
 <div class="card"><div class="card-title">Edge apply attestations</div>
 <table><tr><th>Edge</th><th>Current</th><th>Bundle</th><th>Applied</th><th>Attestation</th></tr>
-<tr><td class="mono">AW-EDGE-01 (Andheri West)</td><td class="mono">v1.4.2</td><td class="mono">UPD-2026.07.2</td><td class="mono">2026-07-24 23:30 IST</td><td><span class="chip green">Verified · hash + health checks ✓</span></td></tr>
+<tr><td class="mono">NPV-EDGE-01 (North Paravoor)</td><td class="mono">v1.4.2</td><td class="mono">UPD-2026.07.2</td><td class="mono">2026-07-24 23:30 IST</td><td><span class="chip green">Verified · hash + health checks ✓</span></td></tr>
 <tr class="hl"><td class="mono">PLR-EDGE-01 (Pullur)</td><td class="mono">v1.3.9</td><td>—</td><td>—</td><td><span class="chip amber">STALE 34 days — bundle queued for next media transfer (<a href="Magnus_HMS_G13_Integration_Devices.html#in-11" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">IN-11</a>)</span></td></tr></table></div></div></div>
 </div>
-<div class="divider-label">prototype: alternate states below</div><div class="state-tag">STATE B — ROLLBACK GUARD</div><div class="modal-wrap"><div class="modal danger"><h3>Rollback v1.4.2 → v1.4.1 on AW-EDGE-01?</h3>
+<div class="divider-label">prototype: alternate states below</div><div class="state-tag">STATE B — ROLLBACK GUARD</div><div class="modal-wrap"><div class="modal danger"><h3>Rollback v1.4.2 → v1.4.1 on NPV-EDGE-01?</h3>
 <p style="font-size:13px">Migration 0142 is reversible — rollback kit will restore schema and re-index. Clinical data is never touched by rollback.</p>
 <div class="banner warn"><b>Guard</b>If a migration were irreversible, rollback is blocked and the path is forward-fix only (<a href="#pl-08" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">PL-08</a> rule).</div>
 <div class="modal-actions"><span class="btn">Cancel</span><span class="btn danger">Roll back (dual control — second operator required)</span></div></div></div><div class="state-tag">STATE C — STALE EDGE ESCALATION</div><div class="banner warn"><b>Edge out of support window</b>PLR-EDGE-01 is 2 versions behind (34 days). Per policy: warning at 14 days, escalation to tenant org admin at 30, read-only sync guard at 60 (prevents schema drift). Bundle UPD-2026.07.2 added to the next Pullur media run.</div>

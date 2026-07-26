@@ -129,7 +129,7 @@ tr.dim td{color:#94A3B8}
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office and clinical staff create imaging/diagnostic orders against a registered patient from the procedure catalog. The form must guarantee a complete, safe order: clinical indication is mandatory, laterality is forced for paired-organ procedures, STAT priority requires justification, and the referrer is resolved from the directory (with registration number) or explicitly marked self-referred. Place-order is idempotent — a retry after a network/service failure reuses the same idempotency reference and can never create a duplicate accession.</div>
 
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>ORDERS</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Orders</div>
@@ -193,7 +193,7 @@ tr.dim td{color:#94A3B8}
                 <div class="input">Dr. Meera Nair — MBBS, MD (Med) · Reg no. <span class="mono">MMC-2009-18455</span> ▾</div>
                 <div class="hint">From referrer directory · or select <b>“Self-referred walk-in”</b> (recorded as such on the report)</div>
               </div></div>
-              <div style="width:230px"><div class="field"><label>Performing branch <span class="req">*</span></label><div class="select">Andheri West — CT available ▾</div><div class="hint">Only branches with modality CT listed</div></div></div>
+              <div style="width:230px"><div class="field"><label>Performing branch <span class="req">*</span></label><div class="select">North Paravoor — CT available ▾</div><div class="hint">Only branches with modality CT listed</div></div></div>
             </div>
           </div>
         </div>
@@ -247,7 +247,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE C — SUCCESS: ACCESSION ISSUED</div>
 <div class="frame"><div class="body"><div class="main">
-  <div class="banner success"><b>Order placed — accession ACC-2026-91847</b>CT Brain (Plain) for Sofia Rossi (MRN-004822) · Routine · idempotency ref <span class="mono">ord-idem-7f3a91c4</span> consumed. Next gate: <b>Scheduling</b> — slot must be booked <span class="chip teal">due in 4h</span> (owner: front office · Andheri West).</div>
+  <div class="banner success"><b>Order placed — accession ACC-2026-91847</b>CT Brain (Plain) for Sofia Rossi (MRN-004822) · Routine · idempotency ref <span class="mono">ord-idem-7f3a91c4</span> consumed. Next gate: <b>Scheduling</b> — slot must be booked <span class="chip teal">due in 4h</span> (owner: front office · North Paravoor).</div>
   <div class="card">
     <div class="card-title">What happens next</div>
     <div class="stepper">
@@ -283,7 +283,7 @@ tr.dim td{color:#94A3B8}
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Fires synchronously at place-order for any staff member. It must guarantee (1) no accidental repeat radiation — active same-procedure orders are surfaced with Open-existing / Link / Create-distinct-with-reason choices; (2) laterality can never be omitted on paired-organ procedures (hard block, not a warning); (3) a 3-question safety mini-check (pacemaker/implant, pregnancy possibility, prior contrast reaction) is answered before the accession is issued, setting flags that pre-populate technologist screening.</div>
 
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>ORDERS</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Orders</div>
@@ -298,14 +298,14 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Orders › New order › MRN-004821 › Place order</div>
       <div class="page-title">Placing: X-Ray Chest PA — Aarav Sharma <span class="mono">MRN-004821</span></div>
-      <div class="page-sub">Duplicate check runs against all <b>active</b> (not cancelled / not delivered) orders for the same patient + same procedure code across all Meridian branches.</div>
+      <div class="page-sub">Duplicate check runs against all <b>active</b> (not cancelled / not delivered) orders for the same patient + same procedure code across all Magnus branches.</div>
 
       <div class="modal-wrap"><div class="modal" style="max-width:640px">
         <h3>⚠ Possible duplicate — 2 active orders for X-Ray Chest PA</h3>
         <p class="small muted" style="margin-bottom:10px">Repeating an X-ray without clinical need exposes the patient to avoidable radiation. Review before continuing.</p>
         <table>
           <tr><th>Ref</th><th>Scheduled</th><th>Ordered by</th><th>Status</th><th></th></tr>
-          <tr class="hl"><td class="mono">ACC-2026-91802</td><td>26-Jul-2026 09:40 IST · Andheri West</td><td>Dr. S. Iyer (referrer)</td><td><span class="chip blue">Scheduled</span></td><td><span class="btn small">Open existing</span></td></tr>
+          <tr class="hl"><td class="mono">ACC-2026-91802</td><td>26-Jul-2026 09:40 IST · North Paravoor</td><td>Dr. S. Iyer (referrer)</td><td><span class="chip blue">Scheduled</span></td><td><span class="btn small">Open existing</span></td></tr>
           <tr><td class="mono">ACC-2026-91695</td><td>Not yet scheduled · Bandra</td><td>D. Nair (front office)</td><td><span class="chip amber">Awaiting scheduling</span></td><td><span class="btn small">Open existing</span></td></tr>
         </table>
         <div class="field" style="margin-top:12px"><label>If a new order is genuinely needed, select the reason <span class="req">*</span></label>
@@ -374,7 +374,7 @@ tr.dim td{color:#94A3B8}
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The single source of truth for one order, used by front office, technologists and radiologists throughout the visit. It must guarantee a complete picture: order facts (kv), the six-stage status stepper, every linked artifact (appointment, screening, consent, Form F where applicable, study, report, invoice), and a tamper-evident event trail with actor + timestamp for each transition. Terminal states (completed, cancelled) are immutable except for annotations.</div>
 
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>ORDERS</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Orders</div>
@@ -411,7 +411,7 @@ tr.dim td{color:#94A3B8}
               <dt>Clinical indication</dt><dd>Persistent right-sided headache × 3 weeks; rule out space-occupying lesion. No trauma.</dd>
               <dt>Ordered by</dt><dd>D. Nair (front office) on behalf of referrer</dd>
               <dt>Referring doctor</dt><dd>Dr. Meera Nair · Reg no. <span class="mono">MMC-2009-18455</span></dd>
-              <dt>Performing branch</dt><dd>Andheri West · CT-01 (Siemens go.Up)</dd>
+              <dt>Performing branch</dt><dd>North Paravoor · CT-01 (Siemens go.Up)</dd>
               <dt>Safety flags</dt><dd><span class="chip amber">Prior iodinated-contrast reaction on file</span> (no contrast in this order)</dd>
               <dt>Idempotency ref</dt><dd class="mono">ord-idem-7f3a91c4</dd>
             </div>
@@ -440,7 +440,7 @@ tr.dim td{color:#94A3B8}
               <tr><td>Form F (PC-PNDT)</td><td><span class="chip grey">n/a — not obstetric US</span></td></tr>
               <tr><td>Study</td><td class="mono">STU-2026-88410 <span class="chip green">stored</span></td></tr>
               <tr><td>Report</td><td><span class="chip amber">Drafting — Dr. V. Shetty</span></td></tr>
-              <tr><td>Invoice</td><td class="mono">INV/AND/26-27/0491 <span class="chip green">paid ₹3,200</span></td></tr>
+              <tr><td>Invoice</td><td class="mono">INV/NPV/26-27/0491 <span class="chip green">paid ₹3,200</span></td></tr>
             </table>
             <div class="hint" style="margin-top:6px">Artifact links open in their own workspaces subject to that workspace's role &amp; purpose checks.</div>
           </div>
@@ -480,7 +480,7 @@ tr.dim td{color:#94A3B8}
     <table>
       <tr><th>Effect</th><th>Result</th></tr>
       <tr><td>Scheduled slot</td><td>Not booked — nothing to release</td></tr>
-      <tr><td>Invoice</td><td class="mono">INV/AND/26-27/0463 — credit note CN/AND/26-27/0021 issued ₹450</td></tr>
+      <tr><td>Invoice</td><td class="mono">INV/NPV/26-27/0463 — credit note CN/AND/26-27/0021 issued ₹450</td></tr>
       <tr><td>Report</td><td>Not applicable — never reached reporting</td></tr>
       <tr><td>Duplicate link</td><td>Cross-referenced to <span class="mono">ACC-2026-91802</span> on both timelines</td></tr>
     </table>
@@ -495,7 +495,7 @@ tr.dim td{color:#94A3B8}
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Department-level operational queue used by front office and the branch coordinator through the day to keep every order moving. It must guarantee visibility of gate status (scheduling, screening, consent, payment) per order, honest aging on anything awaiting scheduling, and bulk printing of prep instructions for tomorrow's booked patients. Filters by status, modality, priority and date drive all triage.</div>
 
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>ORDERS</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Orders</div>
@@ -510,7 +510,7 @@ tr.dim td{color:#94A3B8}
     </div>
     <div class="main">
       <div class="crumb">Orders › Worklist › Today + open</div>
-      <div class="page-title">Orders worklist — Imaging, Andheri West <span class="actions-right"><span class="btn small primary">Bulk print prep (4 selected)</span> <span class="btn small">Export CSV</span></span></div>
+      <div class="page-title">Orders worklist — Imaging, North Paravoor <span class="actions-right"><span class="btn small primary">Bulk print prep (4 selected)</span> <span class="btn small">Export CSV</span></span></div>
       <div class="page-sub">Fri 25-Jul-2026 · refreshed 15:02 IST · showing open orders, all modalities</div>
 
       <div class="kpi-row">
@@ -568,7 +568,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE C — EMPTY (FILTERS MATCH NOTHING)</div>
 <div class="frame"><div class="body"><div class="main">
-  <div class="page-title">Orders worklist — Imaging, Andheri West</div>
+  <div class="page-title">Orders worklist — Imaging, North Paravoor</div>
   <div class="card" style="text-align:center;padding:38px 20px">
     <div style="font-size:30px;margin-bottom:8px">🗂️</div>
     <div class="bold" style="margin-bottom:4px">No orders match: Status = Cancelled · Modality = MRI · Date = 25-Jul-2026</div>
@@ -585,7 +585,7 @@ tr.dim td{color:#94A3B8}
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Controlled change surface for an existing order, used by front office and branch admins. It must guarantee that what can change depends strictly on order status (indication editable until acquired; a procedure change is always cancel + new linked order, never an in-place edit), that cancellation states its reason from a fixed taxonomy and lists every downstream effect, and that post-acquisition cancellation is guarded because radiation has already been delivered. Every change produces a new order version.</div>
 
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>ORDERS</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body">
     <div class="sidebar">
       <div class="sec-label">Orders</div>
@@ -649,7 +649,7 @@ tr.dim td{color:#94A3B8}
       <div class="card-title">Downstream effects — applied automatically on confirm</div>
       <table>
         <tr><td>Scheduled slot</td><td>APPT-2026-51188 (26-Jul 11:20, XR-02) — <b>released</b> back to availability</td></tr>
-        <tr><td>Invoice</td><td class="mono">INV/AND/26-27/0478</td></tr>
+        <tr><td>Invoice</td><td class="mono">INV/NPV/26-27/0478</td></tr>
         <tr><td></td><td>Paid ₹450 — <b>credit-note prompt</b> opens next (refund vs adjust against future visit)</td></tr>
         <tr><td>Report</td><td>Not applicable — order never reached reporting</td></tr>
         <tr><td>Patient notice</td><td>SMS in preferred language confirming cancellation; no clinical details in the message</td></tr>
@@ -684,7 +684,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#or-06" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">OR-06</a></span> Order sets &amp; prep protocols admin</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · prep protocols (scope item #61/#63)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Admin (K. Verma) and the chief radiologist maintain per-procedure prep protocols: fasting rules, multi-language patient prep instructions, contrast defaults, mandatory safety questionnaires, slot-template and price-list links. Every protocol is versioned with effective dates — a booked appointment always carries the version that was live at booking time. Branch overrides must never weaken a safety flag set at chain level.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Admin) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>ORDERS</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Admin) ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Orders</div>
     <div class="nav-item">Order worklist</div>
@@ -701,11 +701,11 @@ tr.dim td{color:#94A3B8}
   <div class="main">
     <div class="crumb">Catalogue admin › Prep protocols</div>
     <div class="page-title">Prep protocols &amp; order sets <span class="actions-right"><span class="btn small">Export catalogue</span> <span class="btn primary small">+ New protocol</span></span></div>
-    <div class="page-sub">42 active protocols · chain scope: Meridian Diagnostics (7 branches) · viewing branch overlay: Andheri West</div>
+    <div class="page-sub">42 active protocols · chain scope: Magnus Diagnostics (7 branches) · viewing branch overlay: North Paravoor</div>
     <div class="kpi-row">
       <div class="kpi"><div class="n">42</div><div class="l">Active protocols</div><div class="s">across 6 modalities</div></div>
       <div class="kpi"><div class="n">3</div><div class="l">Draft versions</div><div class="s">pending effective date</div></div>
-      <div class="kpi amber"><div class="n">2</div><div class="l">Branch overrides</div><div class="s">Andheri West only</div></div>
+      <div class="kpi amber"><div class="n">2</div><div class="l">Branch overrides</div><div class="s">North Paravoor only</div></div>
       <div class="kpi red"><div class="n">1</div><div class="l">Missing language</div><div class="s">Marathi text absent</div></div>
     </div>
     <div class="row" style="margin-bottom:12px">
@@ -728,7 +728,7 @@ tr.dim td{color:#94A3B8}
         <tr class="dim"><td><b>MRI Whole Spine screening</b><div class="small muted mono">MR-SPINE-WS</div></td><td>No fasting</td><td><span class="chip grey">None</span></td><td><span class="chip red"><a href="#cs-02" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">CS-02</a> MR safety</span></td><td>EN · HI · MR</td><td class="small">Slot: MR-60min · Price: GEN-26-27</td><td><span class="mono">v1</span> <span class="chip grey">Draft</span><div class="small muted">eff. 01-Aug-2026</div></td><td><span class="btn ghost small">Edit</span> <span class="btn ghost small">History</span></td></tr>
       </table>
     </div>
-    <div class="banner warn"><b>Branch override in effect — Andheri West</b>CT Abdomen + Pelvis (contrast): fasting extended to 8h for evening slots (chief radiologist memo 14-Jul-2026). Overrides may tighten but never relax chain-level safety flags — the override editor blocks any attempt to remove a required questionnaire.</div>
+    <div class="banner warn"><b>Branch override in effect — North Paravoor</b>CT Abdomen + Pelvis (contrast): fasting extended to 8h for evening slots (chief radiologist memo 14-Jul-2026). Overrides may tighten but never relax chain-level safety flags — the override editor blocks any attempt to remove a required questionnaire.</div>
   </div></div>
 </div>
 
@@ -787,7 +787,7 @@ tr.dim td{color:#94A3B8}
         <div class="card">
           <div class="card-title">Links</div>
           <dl class="kv" style="grid-template-columns:110px 1fr">
-            <dt>Slot template</dt><dd>CT-30min (Andheri West: 08:00–21:00)</dd>
+            <dt>Slot template</dt><dd>CT-30min (North Paravoor: 08:00–21:00)</dd>
             <dt>Price list</dt><dd>GEN-26-27 · ₹8,500 base · contrast ₹2,200</dd>
             <dt>Order set</dt><dd>Abdo pain panel (CT-ABD-PEL-C + US-ABD)</dd>
           </dl>
@@ -824,7 +824,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#or-07" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">OR-07</a></span> STAT &amp; priority governance</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · closes S-5 STAT-inflation governance</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The chief radiologist and admin review STAT usage weekly to keep the priority lane meaningful: who orders STAT, how often, and whether urgency was clinically justified. Flagged over-users get a documented review; the policy card defines who may mark STAT and the auto-downgrade rule, which always requires a radiologist's explicit confirmation before any priority is lowered.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>ORDERS</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Orders</div>
     <div class="nav-item">Order worklist <span class="nav-badge">37</span></div>
@@ -840,7 +840,7 @@ tr.dim td{color:#94A3B8}
   <div class="main">
     <div class="crumb">Orders › STAT &amp; priority governance</div>
     <div class="page-title">STAT usage report <span class="actions-right"><span class="btn small">Export CSV</span> <span class="btn small">Policy card</span></span></div>
-    <div class="page-sub">Period 01–24 Jul 2026 · Andheri West · all modalities · reviewed weekly by chief radiologist</div>
+    <div class="page-sub">Period 01–24 Jul 2026 · North Paravoor · all modalities · reviewed weekly by chief radiologist</div>
     <div class="kpi-row">
       <div class="kpi"><div class="n">118</div><div class="l">STAT orders</div><div class="s">of 2,340 total (5.0%)</div></div>
       <div class="kpi"><div class="n">76%</div><div class="l">True-urgency on review</div><div class="s">target ≥ 80%</div></div>
@@ -953,7 +953,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#or-08" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">OR-08</a></span> External / paper referral digitisation</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · paper referral digitisation</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Front office (D. Nair) digitises paper referral slips scanned at the counter (<a href="Magnus_HMS_G03_Front_Office_Reception.html#fo-18" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">FO-18</a>) into structured orders before or during patient registration. The screen guarantees the original scan stays attached to the order forever, unknown referrers enter the directory in a pending-verify state (no payouts, STAT capped), and every transcription names the transcriber.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>ORDERS</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front office) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>ORDERS</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front office) ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Front office</div>
     <div class="nav-item">Today's visits</div>
@@ -984,7 +984,7 @@ tr.dim td{color:#94A3B8}
         <tr class="hl"><td class="mono">SCN-2026-7742</td><td>10:51 · Counter 1</td><td>Md. Al-Rashid</td><td>Dr. Farida Khan · Khan Polyclinic</td><td><span class="chip amber">Partly legible</span></td><td><span class="chip green">Matched MRN-004790</span></td><td><span class="chip teal">due in 0h 16m</span></td><td><span class="btn primary small">Transcribe</span></td></tr>
         <tr><td class="mono">SCN-2026-7738</td><td>10:12 · WhatsApp intake</td><td>Ananya Rao</td><td><b>Dr. S. Iyer</b> — not in directory</td><td><span class="chip green">Good</span></td><td><span class="chip green">Matched MRN-004819</span></td><td><span class="chip red">OVERDUE 00:23</span><div class="small muted">Owner: D. Nair · Escalated to shift lead R. Pillai</div></td><td><span class="btn warn-outline small">Transcribe</span></td></tr>
         <tr><td class="mono">SCN-2026-7736</td><td>09:58 · Counter 2</td><td>Rajesh Gupta</td><td>Dr. S. Iyer · Iyer Clinic</td><td><span class="chip green">Good</span></td><td><span class="chip green">Matched MRN-004795</span></td><td><span class="chip teal">due in 0h 23m</span></td><td><span class="btn primary small">Transcribe</span></td></tr>
-        <tr><td class="mono">SCN-2026-7735</td><td>09:47 · Counter 3</td><td>"E. Novak" (new to Meridian)</td><td>Dr. Meera Nair</td><td><span class="chip green">Good</span></td><td><span class="chip amber">No match — register new</span></td><td><span class="chip teal">due in 0h 12m</span></td><td><span class="btn primary small">Transcribe</span></td></tr>
+        <tr><td class="mono">SCN-2026-7735</td><td>09:47 · Counter 3</td><td>"E. Novak" (new to Magnus)</td><td>Dr. Meera Nair</td><td><span class="chip green">Good</span></td><td><span class="chip amber">No match — register new</span></td><td><span class="chip teal">due in 0h 12m</span></td><td><span class="btn primary small">Transcribe</span></td></tr>
         <tr><td class="mono">SCN-2026-7729</td><td>09:20 · Courier batch</td><td>Priya Menon</td><td>Dr. Farida Khan</td><td><span class="chip red">Poor — request callback</span></td><td><span class="chip green">Matched MRN-004828</span></td><td><span class="chip teal">due in 1h 40m</span><div class="small muted">non-waiting batch</div></td><td><span class="btn ghost small">Open</span></td></tr>
         <tr class="dim"><td class="mono">SCN-2026-7712</td><td>Yesterday 18:44</td><td>Kwame Osei</td><td>Suvarna Nursing Home (stamp only)</td><td><span class="chip amber">Stamp unclear</span></td><td><span class="chip green">Matched MRN-004823</span></td><td><span class="chip grey">held — awaiting clinic callback</span></td><td><span class="btn ghost small">Open</span></td></tr>
       </table>
@@ -1090,7 +1090,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#cs-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">CS-01</a></span> Contrast &amp; general screening</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · CS-S1 contrast screening + R-01 eGFR pathway</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Technologist (T. Okafor) or nurse completes this screening with the patient before any contrast-enhanced study; the acquisition console will not start until a decision exists. It must guarantee: allergies and prior reactions surfaced, eGFR fresh (hard 90-day staleness rule) or an explicit no-result pathway (point-of-care creatinine OR named-physician risk acceptance), pregnancy/LMP and metformin captured, and the screener's role recorded on the decision.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>CLINICAL SAFETY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (Technologist) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>CLINICAL SAFETY</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (Technologist) ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Clinical safety</div>
     <div class="nav-item active">Contrast screening <span class="nav-badge">3</span></div>
@@ -1191,7 +1191,7 @@ tr.dim td{color:#94A3B8}
           <div class="check"><span class="box on">✓</span> Duty radiologist Dr. A. Rao notified 12:26 IST — reviewing alternative (CT calcium score plain ± stress echo referral back to Dr. S. Iyer)</div>
           <div class="check"><span class="box on">✓</span> Referrer notification queued to Dr. S. Iyer with reason "contrast contraindicated — prior severe reaction"</div>
           <div class="check"><span class="box">&nbsp;</span> Reaction history added to permanent safety flags on MRN-004795 (pending radiologist confirm)</div>
-          <div class="check"><span class="box">&nbsp;</span> Billing hold placed on contrast component of INV/AND/26-27/0231</div>
+          <div class="check"><span class="box">&nbsp;</span> Billing hold placed on contrast component of INV/NPV/26-27/0231</div>
         </div>
       </div>
       <div style="width:300px;flex-shrink:0">
@@ -1225,7 +1225,7 @@ tr.dim td{color:#94A3B8}
         <div class="card-title">Pathway A — Point-of-care creatinine <span class="chip teal">recommended</span></div>
         <dl class="kv" style="grid-template-columns:120px 1fr">
           <dt>Order</dt><dd>POC creatinine · analyser AND-POC-02 · result in ~10 min</dd>
-          <dt>Cost</dt><dd>₹250 · added to INV/AND/26-27/0244 (patient informed &amp; consented)</dd>
+          <dt>Cost</dt><dd>₹250 · added to INV/NPV/26-27/0244 (patient informed &amp; consented)</dd>
           <dt>Then</dt><dd>eGFR auto-computed (CKD-EPI) and this form resumes at step 2</dd>
         </dl>
         <div style="margin-top:10px"><span class="btn primary">Order POC creatinine now</span></div>
@@ -1283,7 +1283,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#cs-02" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">CS-02</a></span> MR safety screening</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Orders &amp; Clinical Safety</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · MR safety (closes DD-S2 deferred-safety gap)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Technologist (T. Okafor) screens every person entering Zone III/IV — patients and accompanying adults — before any MR study. It must guarantee: the implant/device checklist is answered item-by-item, device cards are captured with MR-conditional parameters, conditional devices get a radiologist countersign before scanning, and absolute contraindications produce a hard block with an alternative-modality suggestion routed back to the referrer.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>CLINICAL SAFETY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (Technologist) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>CLINICAL SAFETY</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (Technologist) ▾</div></div>
   <div class="body"><div class="sidebar">
     <div class="sec-label">Clinical safety</div>
     <div class="nav-item">Contrast screening</div>
@@ -1410,7 +1410,7 @@ tr.dim td{color:#94A3B8}
           <dl class="kv">
             <dt>Suggested</dt><dd><b>CT Orbits (plain, thin-slice)</b> — answers the clinical question "?left orbital mass vs FB granuloma" without magnetic risk · slot available today 13:00, CT-01</dd>
             <dt>Drafted by</dt><dd>Dr. A. Rao (duty radiologist) · sent to Dr. S. Iyer 11:31 IST via referrer portal + SMS</dd>
-            <dt>Referrer reply</dt><dd><span class="chip amber">Awaiting — due in 2h</span> · if approved, order converts to CT-ORBITS-P and MRI charge on INV/AND/26-27/0252 is reversed</dd>
+            <dt>Referrer reply</dt><dd><span class="chip amber">Awaiting — due in 2h</span> · if approved, order converts to CT-ORBITS-P and MRI charge on INV/NPV/26-27/0252 is reversed</dd>
             <dt>Patient safety flag</dt><dd>Permanent flag "retained orbital metallic FB — MR contraindicated" added to MRN-004823 (visible on all future MR orders chain-wide)</dd>
           </dl>
         </div>
@@ -1437,7 +1437,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#cs-03" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">CS-03</a></span> Procedure &amp; contrast consent</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Clinical Safety</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · CS-S2 consent + R-02 refusal/vernacular</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Technologists and front office capture informed consent for a procedure (and contrast, where applicable) immediately before the study, in the patient's chosen language. The screen must guarantee that consent text is rendered — not merely referenced — in the selected language, that risks, alternatives and the right to refuse are shown before signature, and that a refusal or pre-scan withdrawal hard-blocks the study, notifies the referrer, and preserves the record permanently. Guardians must state their relation; interpreters must attest.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>CLINICAL SAFETY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (Technologist) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>CLINICAL SAFETY</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (Technologist) ▾</div></div>
   <div class="body">
   <div class="sidebar">
     <div class="sec-label">Clinical Safety</div>
@@ -1557,7 +1557,7 @@ tr.dim td{color:#94A3B8}
       <dt>Witness</dt><dd>T. Okafor (Technologist) · D. Nair (Front Office)</dd>
       <dt>Study status</dt><dd><span class="chip red">BLOCKED — CONSENT REFUSED</span> cannot be reopened; a new order requires a new accession and fresh consent</dd>
       <dt>Referrer notified</dt><dd>Dr. Meera Nair — secure message + fax at 12:06 IST <span class="chip green">DELIVERED</span></dd>
-      <dt>Billing</dt><dd>INV/AND/26-27/0412 line voided; refund of ₹4,850.00 queued to original payment mode</dd>
+      <dt>Billing</dt><dd>INV/NPV/26-27/0412 line voided; refund of ₹4,850.00 queued to original payment mode</dd>
     </dl>
   </div>
   <div class="banner info"><b>No penalty rule.</b> Refusal must never affect the patient's future scheduling priority or pricing. This record is visible to Clinical Safety and the referrer only.</div>
@@ -1584,7 +1584,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#cs-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">CS-04</a></span> Physician override — blocked screening</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Clinical Safety</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · closes S-2 physician-only override (was CS-S1 self-override)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> When a safety screening (contrast, MRI, pregnancy) blocks a study, the technologist or desk can only <i>request</i> an override — they can never grant one. The request lands in a physician queue; the physician reviews the underlying screening data, must confirm their identity, give a clinical reason, and acknowledge the risk statement. A grant is time-boxed and stamped onto the study as a banner; every step is fully audited.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>CLINICAL SAFETY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (Technologist) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>CLINICAL SAFETY</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (Technologist) ▾</div></div>
   <div class="body">
   <div class="sidebar">
     <div class="sec-label">Clinical Safety</div>
@@ -1701,7 +1701,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#cs-05" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">CS-05</a></span> Adverse reaction record</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Clinical Safety</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · adverse reaction record (clinical safety)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Technologists and radiologists record any adverse reaction during or after a procedure — onset, severity, the exact agent and lot (pulled from <a href="Magnus_HMS_G06_Radiology_Technician.html#tk-06" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">TK-06</a> stock issue), interventions, outcome and reporter. The system must auto-alert the covering radiologist and branch medical lead, write a permanent allergy flag to the patient record with a propagation preview, and queue a pharmacovigilance export. Severe reactions surface an emergency checklist first, documentation second.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>CLINICAL SAFETY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (Technologist) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>CLINICAL SAFETY</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">TO</span>T. Okafor (Technologist) ▾</div></div>
   <div class="body">
   <div class="sidebar">
     <div class="sec-label">Clinical Safety</div>
@@ -1839,7 +1839,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#cs-06" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">CS-06</a></span> Form F — statutory (PC-PNDT)</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G5 Clinical Safety</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IR-S1 Form F + C-1 patient signature (NS-10)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Before any obstetric ultrasound, the front office and performing doctor complete the statutory PC-PNDT Form F: centre and machine registration (validated for <i>this</i> centre), full patient particulars with address and ID (type + last-4 only), obstetric history G/P/L/A, an approved indication, the doctor's declaration and the patient's signed undertaking rendered in her language. The scan is hard-blocked until Form F is complete, the record is tamper-evident, and it feeds the monthly district submission. Foetal sex is never determined or disclosed.</div>
 <div class="frame">
-  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>CLINICAL SAFETY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front Office) ▾</div></div>
+  <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>CLINICAL SAFETY</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">DN</span>D. Nair (Front Office) ▾</div></div>
   <div class="body">
   <div class="sidebar">
     <div class="sec-label">Clinical Safety</div>
@@ -1873,7 +1873,7 @@ tr.dim td{color:#94A3B8}
           <div class="card-title">1 · Centre &amp; machine registration <span class="right">validated for this centre</span></div>
           <dl class="kv">
             <dt>Centre reg. no.</dt><dd class="mono">MH/MUM/PNDT/2019/1187 <span class="chip green">VALID · renews 03/2027</span></dd>
-            <dt>Centre</dt><dd>Meridian Diagnostics, Andheri West, Mumbai 400058</dd>
+            <dt>Centre</dt><dd>Magnus Diagnostics, North Paravoor, Kochi 400058</dd>
             <dt>Machine</dt><dd>GE Voluson S8 · serial <span class="mono">VS8-22-88410</span> · registered at THIS centre <span class="chip green">MATCH</span></dd>
             <dt>Performing doctor</dt><dd>Dr. V. Shetty · RMC MH-44721 · PNDT-registered at this centre <span class="chip green">VERIFIED</span></dd>
           </dl>
@@ -1884,7 +1884,7 @@ tr.dim td{color:#94A3B8}
             <div class="grow field"><label>Full name <span class="req">*</span></label><input class="input" value="Priya Menon"></div>
             <div class="field" style="width:110px"><label>Age <span class="req">*</span></label><input class="input" value="29"></div>
           </div>
-          <div class="field"><label>Full postal address <span class="req">*</span></label><textarea class="textarea">B-704, Lotus Residency, J.P. Road, Andheri West, Mumbai 400058, Maharashtra</textarea></div>
+          <div class="field"><label>Full postal address <span class="req">*</span></label><textarea class="textarea">B-704, Lotus Residency, J.P. Road, North Paravoor, Kochi 400058, Kerala</textarea></div>
           <div class="row">
             <div class="grow field"><label>ID particulars — type <span class="req">*</span></label><select class="select"><option>Aadhaar (last-4 stored only)</option><option>Passport</option><option>Voter ID</option><option>Driving licence</option></select></div>
             <div class="grow field"><label>ID last-4 <span class="req">*</span></label><input class="input" value="•••• •••• 7314"><div class="hint">Full Aadhaar is never stored or printed; original sighted by D. Nair.</div></div>
@@ -1935,7 +1935,7 @@ tr.dim td{color:#94A3B8}
           <dl class="kv" style="grid-template-columns:120px 1fr">
             <dt>FF reference</dt><dd class="mono">FF/AND/2026/07-0412 <span class="chip grey">reserved</span></dd>
             <dt>Tamper evidence</dt><dd>Sealed PDF hash-chained to previous FF entry; edits create a superseding version, never overwrite</dd>
-            <dt>Monthly return</dt><dd>Auto-included in July 2026 submission to Appropriate Authority, Mumbai Suburban (due 5 Aug 2026)</dd>
+            <dt>Monthly return</dt><dd>Auto-included in July 2026 submission to Appropriate Authority, Kochi Suburban (due 5 Aug 2026)</dd>
           </dl>
           <span class="btn primary disabled" style="width:100%;margin-top:6px">Seal Form F &amp; release scan (signatures pending)</span>
         </div>
@@ -1977,7 +1977,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE C — BLOCKED · performing doctor not PNDT-registered at this centre</div>
 <div class="frame"><div class="body"><div class="main">
-  <div class="banner danger"><b>Form F cannot be completed — doctor not PNDT-registered at Andheri West</b> Elena Novak · MRN-004830 · Obstetric USG (dating scan) · APPT-2026-51131. Selected doctor <b>Dr. A. Rao</b> is PNDT-registered at the Bandra centre (MH/MUM/PNDT/2020/0763) but <u>not</u> on the Andheri West centre registration. The scan remains blocked; this cannot be overridden — not even via <a href="#cs-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">CS-04</a>.</div>
+  <div class="banner danger"><b>Form F cannot be completed — doctor not PNDT-registered at North Paravoor</b> Elena Novak · MRN-004830 · Obstetric USG (dating scan) · APPT-2026-51131. Selected doctor <b>Dr. A. Rao</b> is PNDT-registered at the Bandra centre (MH/MUM/PNDT/2020/0763) but <u>not</u> on the North Paravoor centre registration. The scan remains blocked; this cannot be overridden — not even via <a href="#cs-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">CS-04</a>.</div>
   <dl class="kv" style="max-width:680px">
     <dt>Why blocked</dt><dd>PC-PNDT registration is centre-specific: doctor, machine and centre must all match the local certificate</dd>
     <dt>Allowed actions</dt><dd>Reassign to Dr. V. Shetty (registered here) · reschedule at Bandra with Dr. A. Rao · or hold appointment <span class="chip amber">due in 1h · owner D. Nair</span></dd>
