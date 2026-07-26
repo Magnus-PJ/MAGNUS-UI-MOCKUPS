@@ -94,5 +94,14 @@
     <tr><td class="bold">Privacy in specimens</td><td>Patient identifiers in examples/errors stay masked: "A. K•••••ni · MRD-2026-018851".</td><td>Full patient names or phone numbers echoed into error cards, logs, or support IDs.</td></tr>
   </table>
 </div>
+<div class="state-tag">ADDITION — ZERO-SCROLL RULE · STICKY ACTIONS · ERROR BOUNDARY (UX-5/16/18)</div><div class="card"><div class="card-title">Zero-scroll decision rule (UX-5)</div><table><tr><th>Rule</th><th>Spec</th></tr>
+<tr><td>Above the fold @1366×768</td><td>Primary decision + primary action visible without scrolling on every operational screen</td></tr>
+<tr><td>Long content</td><td>In-page tabs / accordions / drawers — never a second scroll column</td></tr>
+<tr><td>Sticky action bar</td><td>Forms & steppers keep Save/Continue pinned at bottom; destructive never sticky-focused</td></tr>
+<tr><td>Density toggle</td><td>Compact/comfortable table density per user</td></tr></table></div>
+<div class="card"><div class="card-title">Maintenance banner &amp; error boundary (UX-16) · accessibility (UX-18)</div>
+<div class="banner warn"><b>Planned maintenance tonight 23:30–00:15 IST</b>Read-only from 23:25. Queued work resumes automatically (DS-04).</div>
+<div class="banner danger"><b>Something went wrong on this screen</b>The rest of MagnusPRO is unaffected. Your last action was saved (ref PLAT-BG-8841). [Reload section] [Report]</div>
+<p class="muted small">Skip-links: "Skip to content / to actions" as first tab stops · logical focus order = visual order · focus ring always visible · all interactive elements reachable by keyboard.</p></div>
 <p class="audit">Design-system pages are versioned artefacts (DS-05 v1.1, updated 21 Jul 2026 IST by K. Verma). Error-card render events carry the request ID into telemetry with patient identifiers masked, and cached-fallback views are recorded in the access log.</p>
 </section>

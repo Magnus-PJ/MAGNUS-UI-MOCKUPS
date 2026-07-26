@@ -2,7 +2,7 @@
 
 **MagnusPRO** (working name; final legal name confirmed before UAT) is a privacy-first, radiology-first, multi-tenant healthcare platform — the **foundation module** for a complete enterprise healthcare system (future: LIS, IPD, OT, ICU, ER, IVF, nuclear medicine, pharmacy, CRM, portals, ABDM, international, AI) built so the core is **never rebuilt**.
 
-**This repository is the single source of truth** for the MVP 1 design: **232 production-grade screens** across **17 groups**, **12 architecture documents**, the full decision log, and the vendor-baseline crosswalk — everything the development team (NUMINACORE, Java 21/Spring Boot 3 + React/TypeScript) needs to start Sprint 1 with zero ambiguity.
+**This repository is the single source of truth** for the MVP 1 design: **235 production-grade screens** across **18 groups**, **12 architecture documents**, the full decision log, and the vendor-baseline crosswalk — everything the development team (NUMINACORE, Java 21/Spring Boot 3 + React/TypeScript) needs to start Sprint 1 with zero ambiguity.
 
 ## Quick start
 
@@ -23,9 +23,9 @@
 01-review/                 Review of the vendor's original 106-screen walkthrough (.docx)
 02-gap-closure-pack/       First 16 gap-closure screens (NS-01…16) + 10 revisions (historical)
 03-complete-pack/
-  html-source/wave1..4/    ★ ONE SMALL FILE PER SCREEN (232 fragments) — edit one screen
+  html-source/wave1..4/    ★ ONE SMALL FILE PER SCREEN (235 fragments) — edit one screen
                              without touching anything else; IDs like fo-01.html, rd-09.html
-  group-html/              17 assembled group packs + the Combined Volume (232 screens, one file)
+  group-html/              17 assembled group packs + the Combined Volume (235 screens, one file)
   design-system/           base.css (shared design system) · assemble_group.py (rebuild packs)
                            · baseline_map.py (vendor crosswalk, regenerates DOC-08)
   group-pdfs/              DEPRECATED (D-35: PDFs dropped; HTML is the deliverable)
@@ -37,7 +37,7 @@
 docs/                      VISION · DECISIONS (D-01…D-37) · FUTURE_PLAN · HANDOFF
 ```
 
-## The 17 groups (232 screens)
+## The 17 groups (235 screens)
 
 | G | Group | IDs | # | G | Group | IDs | # |
 |---|---|---|---|---|---|---|---|
@@ -48,8 +48,8 @@ docs/                      VISION · DECISIONS (D-01…D-37) · FUTURE_PLAN · H
 | G5 | Orders & Clinical Safety | OR-01…08, CS-01…06 | 14 | G14 | Governance & Compliance | GV-01…18 | 18 |
 | G6 | Radiology Technician | TK-01…12 | 12 | G15 | Imaging Regulatory (PC-PNDT/AERB) | IR-01…06 | 6 |
 | G7 | Radiologist Reading & Reporting | RD-01…18 | 18 | G16 | Platform Operator | PL-01…13 | 13 |
-| G8 | Doctor Desk (referrers) | DD-01…11 | 11 | G17 | Design System & Patterns | DS-01…11 | 11 |
-| G9 | Billing & Payments | BL-01…20 | 20 | | | | |
+| G8 | Doctor Desk (referrers) | DD-01…11 | 11 | G17 | Design System & Patterns | DS-01…12 | 12 |
+| G9 | Billing & Payments | BL-01…20 | 20 | G18 | Global Search & Tasks | GS-01…02 | 2 |
 
 Every screen: scope chip (MVP1-CORE / Conditional) · **Baseline line** tracing it to the vendor deck or the finding that created it (140 extend / 92 net-new) · 2–4 states (error/blocked/empty/offline) · audit microcopy · synthetic data only (no PHI).
 
@@ -77,7 +77,7 @@ All **4 Magnus branches go live together** (North Paravoor, Irinjalakuda, Pullur
 - [x] Vendor-deck review (20 scenarios, C/S findings) · [x] Gap-closure pack (NS/R)
 - [x] Waves 1–4: all 17 groups built · [x] Vendor-baseline sync on every screen
 - [x] Architecture docs DOC-00…11 · [x] DOC-11 closures built (AU-19, IN-11, PL-13, GV-17, GV-18, AD-21 + 7 state additions)
-- [x] Combined Volume (232 screens, one HTML) · [x] MagnusPRO naming applied · [x] Verification: ALL CHECKS PASSED
+- [x] Combined Volume (235 screens, one HTML) · [x] MagnusPRO naming applied · [x] Verification: ALL CHECKS PASSED
 - [ ] Final legal product name (client, before UAT) · [ ] Branch-4 details (client) · [ ] UAT planning (deferred)
 
 *Prototype/reference — not committed product scope. All data synthetic. July 2026.*

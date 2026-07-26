@@ -285,6 +285,12 @@ tr.dim td{color:#94A3B8}
     </div>
   </div>
 </div>
+<div class="state-tag">ADDITION — COMPACT VIEW (UX-5 · zero-scroll)</div>
+<div class="card"><div class="card-title">Above-the-fold layout @1366×768 <span class="chip teal">DEFAULT IN BUILD</span></div>
+<div class="kv"><dt>Visible without scroll</dt><dd>Context header · the decision list (top 5–7 items) · primary action <b>“Call next / Register”</b></dd>
+<dt>Collapsed</dt><dd>Now-serving + next 5 tokens above fold; charts collapse to 'Analytics' tab</dd>
+<dt>Sticky</dt><dd>Bottom action bar (primary + escape) per <a href="Magnus_HMS_G17_Design_System_Patterns.html#ds-05" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">DS-05</a> rule; quick-filter (UX-6) pinned in table header</dd></div>
+<p class="muted small">The full layout above remains the reference for content; this state defines what the build shows first — nothing removed, only re-layered.</p></div>
 <p class="audit">Token calls, arrival marks, no-show flags and dashboard views of patient identifiers are recorded in the access log with operator ID, terminal, branch and timestamp; offline-queued actions retain their original capture time when synced — all recorded in the access log.</p>
 </section>
 <section class="screen" id="fo-02">
@@ -1142,6 +1148,9 @@ tr.dim td{color:#94A3B8}
   </div>
 </div></div></div>
 
+<div class="state-tag">ADDITION — QUICK SEARCH (UX-6 · find-as-you-type)</div>
+<div class="card" style="max-width:560px"><div class="field"><input class="input" placeholder="🔍 Filter this list… (name · MRN · token · phone)"></div>
+<p class="muted small">Instant filter over loaded rows · ⏎ escalates to governed server search (purpose-logged where patient-level) · matches highlighted · “6 of 41”. Also reachable globally via Ctrl/⌘-K (<a href="Magnus_HMS_G18_Global_Search_Tasks.html#gs-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GS-01</a>).</p></div>
 <p class="audit">Queue views, lock acquisitions, lock breaks and every open of a compare view are recorded in the access log with reviewer ID and pair reference. Grievance-sourced pairs are additionally visible to the DPO dashboard until resolved.</p>
 </section>
 <section class="screen" id="fo-09">
@@ -1633,6 +1642,9 @@ tr.dim td{color:#94A3B8}
   <p class="audit">Bulk reconcile writes one audit entry per appointment with outcome, reason and operator (D. Nair) — recorded in the access log.</p>
 </div></div></div>
 
+<div class="state-tag">ADDITION — QUICK SEARCH (UX-6 · find-as-you-type)</div>
+<div class="card" style="max-width:560px"><div class="field"><input class="input" placeholder="🔍 Filter this list… (name · MRN · token · phone)"></div>
+<p class="muted small">Instant filter over loaded rows · ⏎ escalates to governed server search (purpose-logged where patient-level) · matches highlighted · “6 of 41”. Also reachable globally via Ctrl/⌘-K (<a href="Magnus_HMS_G18_Global_Search_Tasks.html#gs-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GS-01</a>).</p></div>
 <p class="audit">Day-list views expose only the minimum demographics needed for reception; opening a patient's full record requires a purpose and is recorded in the access log.</p>
 </section>
 <section class="screen" id="fo-13">

@@ -191,5 +191,14 @@
   </table>
 </div>
 <div class="state-tag">STATE E — COMPOSITION RULES</div><div class="card"><div class="card-title">Composition rules</div><table><tr><th>Rule</th><th>Why</th></tr><tr><td>One primary button per view</td><td>Decision clarity under clinical stress</td></tr><tr><td>Destructive modal: red bar + typed confirm, never default-focused</td><td>Prevents muscle-memory errors</td></tr><tr><td>Tables over cards for &gt;5 records</td><td>Scanability at clinic pace</td></tr><tr><td>Every countdown → DS-03; every denial → DS-07 masking</td><td>One behaviour everywhere</td></tr></table></div>
+<div class="state-tag">ADDITION — TABLE QUICK-FILTER · KEYBOARD MAP · NOTIFICATIONS · COACH MARKS (UX-6/9/11/17)</div><div class="card"><div class="card-title">Find-as-you-type table filter (UX-6) — standard on every list</div>
+<div class="field" style="max-width:340px"><input class="input" placeholder="🔍 Filter this list… (name, MRN, ACC, token)"></div>
+<table><tr><th>Rule</th><th>Spec</th></tr><tr><td>Scope</td><td>Instant client filter of loaded rows; ⏎ escalates to governed server search (purpose-logged)</td></tr><tr><td>Everywhere</td><td>No table >5 rows ships without it</td></tr><tr><td>Highlight</td><td>Matched substring highlighted; count "8 of 41"</td></tr></table></div>
+<div class="card"><div class="card-title">Keyboard map (UX-9) — press ? anywhere</div><table><tr><th>Key</th><th>Action</th></tr>
+<tr><td class="mono">Ctrl/⌘ K</td><td>Omni-search &amp; commands (GS-01)</td></tr><tr><td class="mono">?</td><td>This overlay</td></tr>
+<tr><td class="mono">G then W</td><td>Go to my worklist</td></tr><tr><td class="mono">N</td><td>New (context: patient/order/invoice)</td></tr>
+<tr><td class="mono">J / K</td><td>Next / previous row</td></tr><tr><td class="mono">Enter</td><td>Open row</td></tr><tr><td class="mono">S</td><td>Sign/submit (with step-up when required)</td></tr></table></div>
+<div class="card"><div class="card-title">Notification bell (UX-11) &amp; coach marks (UX-17)</div>
+<p style="font-size:12.5px">🔔 Bell aggregates: my SLA warnings, approvals awaiting me, critical-loop items, delivery failures — each row deep-links; never a dead toast. First-run coach marks: 5 anchored tips per role (dismiss-forever), re-run from Help.</p></div>
 <p class="audit">Design-review outcomes referencing these specimens (pass/fail per screen) are versioned with the pack; component deviations approved by exception are recorded in the access log.</p>
 </section>

@@ -78,5 +78,8 @@
 <div class="check"><span class="box on">✓</span><span>Autofocus only on the first field of single-purpose forms (e.g. OTP entry) — never on dense registration forms.</span></div>
 </div>
 </div>
+<div class="state-tag">ADDITION — BARCODE / SCAN INPUT (UX-12)</div><div class="card"><div class="card-title">Scan-ready input (UX-12)</div>
+<div class="field" style="max-width:340px"><label>MRN / Accession / Token <span class="chip teal">SCAN READY</span></label><input class="input mono" placeholder="Scan barcode or type…"></div>
+<table><tr><th>Rule</th><th>Spec</th></tr><tr><td>Wedge input</td><td>Accepts scanner keyboard-wedge; auto-submit on scan terminator</td></tr><tr><td>Formats</td><td>MRN, ACC, token, invoice, media seal (IN-11)</td></tr><tr><td>Fallback</td><td>Manual typing always available; checksum-validated</td></tr></table></div>
 <p class="audit">Validation rule changes ship as versioned releases of @magnus/fields-in; the version active at save time is stamped on each record and recorded in the access log.</p>
 </section>

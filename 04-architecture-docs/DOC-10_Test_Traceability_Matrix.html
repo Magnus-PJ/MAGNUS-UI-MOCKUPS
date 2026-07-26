@@ -453,5 +453,17 @@ tr.dim td{color:#94A3B8}
 </table>
 </div>
 
-<p class="audit">Synthetic data only. DOC-10 v1.0 · July 2026 · derives from DOC-01 (scenarios), DOC-08 (screen inventory) and the signed scope checklist — regenerate after any screen addition.</p>
+<div class="card"><div class="card-title">CLICK-BUDGET ANNEX (UX-8) — measured at UAT</div>
+<table><tr><th>Task</th><th>Budget</th><th>Path</th></tr>
+<tr><td>Find patient → open record</td><td>≤3 (≤2 via Ctrl-K)</td><td>GS-01 → record</td></tr>
+<tr><td>Walk-in register → token</td><td>≤12</td><td>FO-15</td></tr>
+<tr><td>Sign routine report</td><td>≤5</td><td>RD-01→03→07→08(fast)→09</td></tr>
+<tr><td>Collect cash + receipt</td><td>≤6</td><td>BL-03</td></tr>
+<tr><td>Acknowledge critical (referrer)</td><td>≤3</td><td>GS-02/DD-02</td></tr>
+<tr><td>Issue duplicate receipt</td><td>≤3</td><td>recents → BL-05</td></tr>
+<tr><td>Book appointment (known patient)</td><td>≤7</td><td>Ctrl-K action → FO-10</td></tr>
+<tr><td>Front-office EOD close</td><td>≤8</td><td>FO-17</td></tr>
+<tr><td>Approve pending discount</td><td>≤4</td><td>GS-02 → BL-08</td></tr>
+<tr><td>Open my next task</td><td>≤2</td><td>GS-02 top row</td></tr></table>
+<p class="muted small">Rule: any release that pushes a budgeted task over budget is a UX regression — treated like a failed test.</p></div><p class="audit">Synthetic data only. DOC-10 v1.0 · July 2026 · derives from DOC-01 (scenarios), DOC-08 (screen inventory) and the signed scope checklist — regenerate after any screen addition.</p>
 </div></body></html>

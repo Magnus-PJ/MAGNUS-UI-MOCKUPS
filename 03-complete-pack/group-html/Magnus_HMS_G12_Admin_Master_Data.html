@@ -276,6 +276,12 @@ tr.dim td{color:#94A3B8}
     <tr><td class="mono">19-Jun-2026 11:47</td><td>Dr. V. Shetty</td><td>Prior-study comparison, MRN-004790</td><td>1 CT study</td><td><span class="chip green">Care-team basis</span></td></tr>
   </table></div>
 </div></div></div>
+<div class="state-tag">ADDITION — COMPACT VIEW (UX-5 · zero-scroll)</div>
+<div class="card"><div class="card-title">Above-the-fold layout @1366×768 <span class="chip teal">DEFAULT IN BUILD</span></div>
+<div class="kv"><dt>Visible without scroll</dt><dd>Context header · the decision list (top 5–7 items) · primary action <b>“Open branch”</b></dd>
+<dt>Collapsed</dt><dd>4 branch cards above fold; tree & lifecycle tabbed</dd>
+<dt>Sticky</dt><dd>Bottom action bar (primary + escape) per <a href="Magnus_HMS_G17_Design_System_Patterns.html#ds-05" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">DS-05</a> rule; quick-filter (UX-6) pinned in table header</dd></div>
+<p class="muted small">The full layout above remains the reference for content; this state defines what the build shows first — nothing removed, only re-layered.</p></div>
 <p class="audit">Every branch-structure change (create, edit, lifecycle transition) is versioned with actor, approver, timestamp (IST) and reason, and recorded in the access log.</p>
 </section>
 <section class="screen" id="ad-02">
@@ -541,6 +547,9 @@ tr.dim td{color:#94A3B8}
     </div></div>
   </div>
 </div></div></div>
+<div class="state-tag">ADDITION — QUICK SEARCH (UX-6 · find-as-you-type)</div>
+<div class="card" style="max-width:560px"><div class="field"><input class="input" placeholder="🔍 Filter this list… (name · role · reg no.)"></div>
+<p class="muted small">Instant filter over loaded rows · ⏎ escalates to governed server search (purpose-logged where patient-level) · matches highlighted · “6 of 41”. Also reachable globally via Ctrl/⌘-K (<a href="Magnus_HMS_G18_Global_Search_Tasks.html#gs-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GS-01</a>).</p></div>
 <p class="audit">Invite, activation, suspension, transfer and deactivation events — including dependency-check results and leaving-checklist state — are recorded in the access log.</p>
 </section>
 <section class="screen" id="ad-04">
@@ -931,6 +940,9 @@ tr.dim td{color:#94A3B8}
     </div>
   </div></div>
 </div>
+<div class="state-tag">ADDITION — QUICK SEARCH (UX-6 · find-as-you-type)</div>
+<div class="card" style="max-width:560px"><div class="field"><input class="input" placeholder="🔍 Filter this list… (name · role · reg no.)"></div>
+<p class="muted small">Instant filter over loaded rows · ⏎ escalates to governed server search (purpose-logged where patient-level) · matches highlighted · “6 of 41”. Also reachable globally via Ctrl/⌘-K (<a href="Magnus_HMS_G18_Global_Search_Tasks.html#gs-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GS-01</a>).</p></div>
 <p class="audit">All registration edits, verifications, suspensions, restore events and override attempts are recorded in the access log with actor, timestamp (IST) and before/after values; registration certificates are retained per statutory schedule (radiology records 10y).</p>
 </section>
 <section class="screen" id="ad-07">
@@ -1049,6 +1061,9 @@ tr.dim td{color:#94A3B8}
   <div class="field"><label>Second approver (four-eyes) <span class="req">*</span></label><select class="select"><option>Request approval: D. Nair — Front office lead</option></select><div class="hint">Merge executes only after the second approver confirms. Approver cannot be the initiator.</div></div>
   <div class="modal-actions"><span class="btn">Cancel</span><span class="btn danger">Request merge approval</span></div>
 </div></div>
+<div class="state-tag">ADDITION — QUICK SEARCH (UX-6 · find-as-you-type)</div>
+<div class="card" style="max-width:560px"><div class="field"><input class="input" placeholder="🔍 Filter this list… (name · role · reg no.)"></div>
+<p class="muted small">Instant filter over loaded rows · ⏎ escalates to governed server search (purpose-logged where patient-level) · matches highlighted · “6 of 41”. Also reachable globally via Ctrl/⌘-K (<a href="Magnus_HMS_G18_Global_Search_Tasks.html#gs-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GS-01</a>).</p></div>
 <p class="audit">Referrer creation, verification (with evidence hash), delivery-preference changes, pending-queue resolutions and merges (initiator + second approver) are recorded in the access log.</p>
 </section>
 <section class="screen" id="ad-08">

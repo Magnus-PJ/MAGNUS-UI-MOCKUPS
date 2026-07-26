@@ -160,5 +160,14 @@
   </table>
 </div></div></div>
 
+<div class="state-tag">ADDITION — COMPACT VIEW (UX-5 · zero-scroll)</div>
+<div class="card"><div class="card-title">Above-the-fold layout @1366×768 <span class="chip teal">DEFAULT IN BUILD</span></div>
+<div class="kv"><dt>Visible without scroll</dt><dd>Context header · the decision list (top 5–7 items) · primary action <b>“Perform (gates green)”</b></dd>
+<dt>Collapsed</dt><dd>Ready-now rows above fold; blocked & later behind tabs</dd>
+<dt>Sticky</dt><dd>Bottom action bar (primary + escape) per DS-05 rule; quick-filter (UX-6) pinned in table header</dd></div>
+<p class="muted small">The full layout above remains the reference for content; this state defines what the build shows first — nothing removed, only re-layered.</p></div>
+<div class="state-tag">ADDITION — QUICK SEARCH (UX-6 · find-as-you-type)</div>
+<div class="card" style="max-width:560px"><div class="field"><input class="input" placeholder="🔍 Filter this list… (patient · ACC · token)"></div>
+<p class="muted small">Instant filter over loaded rows · ⏎ escalates to governed server search (purpose-logged where patient-level) · matches highlighted · “6 of 41”. Also reachable globally via Ctrl/⌘-K (GS-01).</p></div>
 <p class="audit">Every worklist view, gate re-check, Perform click, override request and STAT acknowledgement is recorded in the access log with user, terminal (CT-1 console), and timestamp. Patient identifiers are shown because T. Okafor has an active care-purpose assignment for these rooms; rows outside the assignment are masked and access to them is recorded in the access log.</p>
 </section>

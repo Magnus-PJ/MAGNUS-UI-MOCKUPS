@@ -165,5 +165,8 @@
   </table>
 </div>
 <div class="state-tag">STATE E — CONTRAST ANTI-PATTERNS</div><div class="card"><div class="card-title">Contrast failures — never ship</div><table><tr><th>Pairing</th><th>Ratio</th><th>Verdict</th></tr><tr><td>#F59E0B amber text on white</td><td>2.1:1</td><td><span class="chip red">FAIL — use #92400E on #FEF3C7</span></td></tr><tr><td>#0F766E teal on white</td><td>5.9:1</td><td><span class="chip green">AA pass</span></td></tr><tr><td>#94A3B8 grey body text</td><td>2.9:1</td><td><span class="chip red">FAIL for body — #64748B minimum</span></td></tr></table></div>
+<div class="state-tag">ADDITION — DARK MODE TOKENS (UX-14)</div><div class="card"><div class="card-title">Dark theme tokens (night reading &amp; public displays)</div>
+<table><tr><th>Token</th><th>Light</th><th>Dark</th></tr><tr><td>surface</td><td class="mono">#FFFFFF</td><td class="mono">#0B1220</td></tr><tr><td>text</td><td class="mono">#1E293B</td><td class="mono">#E2E8F0</td></tr><tr><td>accent</td><td class="mono">#0F766E</td><td class="mono">#5EEAD4</td></tr><tr><td>danger</td><td class="mono">#B91C1C</td><td class="mono">#FCA5A5</td></tr></table>
+<p class="muted small">Scope: viewer &amp; reading workspace, kiosk/token displays, optional user preference elsewhere. AA contrast re-validated per pair.</p></div>
 <p class="audit">Token changes are versioned; any tenant brand-colour override and its contrast-check result are recorded in the access log.</p>
 </section>

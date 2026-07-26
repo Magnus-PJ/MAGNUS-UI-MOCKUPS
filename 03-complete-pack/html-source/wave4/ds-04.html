@@ -91,5 +91,8 @@
   <div class="small muted" style="margin-top:10px">Legend: <span class="chip green">FULL</span> queue-and-sync · <span class="chip amber">DRAFT-ONLY / READ-CACHE</span> partial with explicit limits · <span class="chip red">NEVER</span> hard-blocked with level-3 banner. Any new module must declare its row here before build; "we'll decide offline behaviour later" fails design review.</div>
   <div class="banner info" style="margin-top:10px;margin-bottom:0"><b>Implementation note</b>Frontend: global <span class="mono">ConnectionStatusProvider</span> (React); offline actions queue in IndexedDB with client-generated correlation IDs and replay on reconnect. Backend edge service exposes IDEMPOTENT sync endpoints (correlation-ID dedupe). Offline registrations use temporary local UUIDs; the canonical MRN is assigned at sync; collisions route to the merge queue (FO-08).</div>
 </div>
+<div class="state-tag">ADDITION — SESSION & CONNECTION STATUS CHIP (UX-15)</div><div class="card"><div class="card-title">Status chip — top-right, every workspace</div>
+<p><span class="chip green">● Online · synced 10:41</span> <span class="chip amber">● Offline · 3 queued</span> <span class="chip grey">Session locks in 4:59</span></p>
+<table><tr><th>Rule</th><th>Spec</th></tr><tr><td>One component</td><td>Connection + sync age + session countdown in one chip; click = detail popover (IN-10 link)</td></tr><tr><td>Never silent</td><td>State changes announce via toast + aria-live</td></tr></table></div>
 <p class="audit">Design-system pages are versioned artefacts (DS-04 v1.2, updated 21 Jul 2026 IST by K. Verma). Offline queue replays, conflict resolutions and capability-matrix changes are written to the immutable audit trail and recorded in the access log.</p>
 </section>

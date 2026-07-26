@@ -137,6 +137,9 @@ M = {
  "pl-11":("NET-NEW","usage metering (scope item #123 minimal)"), "pl-12":("EXTENDS","PL-S5 → operator break-glass dual control"),
  "pl-13":("NET-NEW","DOC-11 AG-3: offline signed update bundles"),
  # G17 Design system
+ "gs-01":("NET-NEW","DOC-14 UX-1: global omni-search & command palette (D-42)"),
+ "gs-02":("NET-NEW","DOC-14 UX-4: unified task inbox (D-42)"),
+ "ds-12":("NET-NEW","DOC-14 UX-3: pinned patient-context bar pattern (D-42)"),
  "ds-01":("NET-NEW","codifies the vendor deck's implicit design system — tokens"), "ds-02":("NET-NEW","component gallery & rules"),
  "ds-03":("NET-NEW","NS-16 SLA/escalation pattern (product-wide)"), "ds-04":("NET-NEW","offline/degraded/sync pattern (checklist #13/#14)"),
  "ds-05":("NET-NEW","empty/loading/error pattern (review §5 gap)"), "ds-06":("NET-NEW","audit & step-up pattern"),

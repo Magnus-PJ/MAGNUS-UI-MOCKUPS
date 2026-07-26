@@ -1,0 +1,23 @@
+<section class="screen" id="gs-01">
+<div class="screen-head"><h1><span class="sid">GS-01</span> Global omni-search & command palette</h1><div class="meta"><span class="chip teal">MVP1-CORE · ADDITION</span><div class="cluster">G18 Global Search — every workspace, Ctrl/⌘ K</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · DOC-14 UX-1 (closes the 8-of-232 search gap)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> One box, opened with Ctrl/⌘ K from anywhere, that finds everything the signed-in role is allowed to touch — patients (masked until a purpose is picked), orders/accessions, invoices/receipts, reports, screens and ACTIONS — and executes commands ("collect payment", "issue token") in ≤2 keystroke-steps. Every query and reveal is purpose-logged. This is the single biggest click-saver in the product.</div>
+<div class="frame"><div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>Front Office</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+<div class="modal-wrap" style="background:#0F172A66;padding:40px"><div class="modal" style="max-width:640px">
+<div class="field"><input class="input" style="font-size:15px;padding:11px 14px" placeholder="🔍 Search patients, orders, invoices, reports, screens… or type an action"></div>
+<div class="muted small" style="margin:-4px 0 8px">Scope: <span class="chip teal">Front Office role</span> <span class="chip grey">North Paravoor</span> · purpose for patient reveals: <span class="chip blue">Booking / care</span></div>
+<div class="card" style="margin-bottom:8px"><div class="card-title">Results for “asha”</div>
+<table><tr><td><span class="chip teal">PATIENT</span></td><td><b>Asha Varma</b> · MRN-••••00 <span class="chip grey">reveal w/ purpose</span></td><td class="mono">↵ open record</td></tr>
+<tr><td><span class="chip blue">ACTION</span></td><td>Book appointment for “Asha Varma”</td><td class="mono">Ctrl ↵</td></tr>
+<tr><td><span class="chip amber">INVOICE</span></td><td>INV/NPV/26-27/0900 · ₹800 · Paid</td><td class="mono">↵</td></tr>
+<tr><td><span class="chip violet">SCREEN</span></td><td>FO-13 Check-in &amp; token issuance</td><td class="mono">↵</td></tr></table></div>
+<div class="card"><div class="card-title">Empty query — recents &amp; favourites (UX-7)</div>
+<table><tr><td>🕑 Sofia Rossi · MRN-004822 (2 min ago)</td><td>🕑 INV/NPV/26-27/0421</td></tr><tr><td>★ FO-01 Reception dashboard</td><td>★ Today's no-shows</td></tr></table></div>
+<p class="muted small">↑↓ navigate · ↵ open · Ctrl ↵ run action · Esc close · results limited to role + branch scope; cross-branch needs purpose; bulk enumeration is rate-limited (DLP, GV-15)</p></div></div></div>
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE B — ACTION EXECUTION</div>
+<div class="card" style="max-width:560px"><div class="card-title">“collect ₹ from asha”</div><p style="font-size:13px">Palette resolves → <b>Collect payment · Asha Varma · balance ₹250</b> → Enter opens BL-03 pre-filled. Two keystroke-steps from anywhere. Recorded: query, resolution, action.</p></div>
+<div class="state-tag">STATE C — ROLE SCOPE (CASHIER)</div>
+<div class="card" style="max-width:560px"><p style="font-size:13px">Same query as cashier: invoices &amp; receipts rank first; clinical results NEVER appear (no purpose); patient rows masked with billing-only reveal. Scope is enforced by the authz service, not the UI.</p></div>
+<div class="state-tag">STATE D — NLQ (ROADMAP CHIP)</div>
+<div class="card" style="max-width:560px"><p style="font-size:13px">“asha's last chest x-ray report” → semantic answer with citation into RD-13. <span class="chip grey">AI-ready · roadmap (DOC-14 §4) · behind AI governance + DPIA trigger (GV-12)</span></p></div>
+<p class="audit">Queries, reveals (with purpose), and palette-executed actions are recorded; patient-row enumeration is rate-limited and DLP-monitored.</p></section>

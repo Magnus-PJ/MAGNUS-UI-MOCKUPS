@@ -36,20 +36,20 @@ def linkify(html_text):
 # ---------------- role model (from DOC-03) ----------------
 ROLES = {
  "frontoffice": dict(label="Front Office (D. Nair)", home="fo-01",
-   groups=["fo","or","cs","nt","gr","sc","pt"], note="Reception & scheduling"),
- "technologist": dict(label="Technologist (T. Okafor)", home="tk-01", groups=["tk","or","cs","in"], note="Acquisition & safety"),
- "radiologist": dict(label="Radiologist (Dr. V. Shetty)", home="rd-01", groups=["rd","tk","cs"], note="Reading & reporting"),
+   groups=["fo","or","cs","nt","gr","sc","pt","gs"], note="Reception & scheduling"),
+ "technologist": dict(label="Technologist (T. Okafor)", home="tk-01", groups=["tk","or","cs","in","gs"], note="Acquisition & safety"),
+ "radiologist": dict(label="Radiologist (Dr. V. Shetty)", home="rd-01", groups=["rd","tk","cs","gs"], note="Reading & reporting"),
  "referrer": dict(label="Referring Doctor (Dr. Meera Nair)", home="dd-01", groups=["dd"], note="Partner realm — assigned patients only"),
  "cashier": dict(label="Cashier (P. D'Souza)", home="bl-01", groups=["bl"], note="Billing & payments"),
- "branchadmin": dict(label="Branch Admin (K. Verma)", home="ad-13", groups=["ad","sc","in","au","nt","gr"], note="Branch operations"),
- "orgadmin": dict(label="Org Admin (K. Verma)", home="ad-01", groups=["ad","au","sc","in","bl","nt","gr","ir"], note="Organisation-wide"),
- "privacy": dict(label="Privacy Officer (Dr. A. Rao)", home="gv-01", groups=["gv","gr","ir","ad"], note="Governance & compliance"),
- "operator": dict(label="Platform Operator (R. Iyer)", home="pl-01", groups=["pl","in","ds"], note="NUMINACORE console"),
+ "branchadmin": dict(label="Branch Admin (K. Verma)", home="ad-13", groups=["ad","sc","in","au","nt","gr","gs"], note="Branch operations"),
+ "orgadmin": dict(label="Org Admin (K. Verma)", home="ad-01", groups=["ad","au","sc","in","bl","nt","gr","ir","gs"], note="Organisation-wide"),
+ "privacy": dict(label="Privacy Officer (Dr. A. Rao)", home="gv-01", groups=["gv","gr","ir","ad","gs"], note="Governance & compliance"),
+ "operator": dict(label="Platform Operator (R. Iyer)", home="pl-01", groups=["pl","in","ds","gs"], note="NUMINACORE console"),
  "patient": dict(label="Patient (secure link)", home="pt-01", groups=["pt"], note="No account — OTP link"),
 }
 GROUP_NAMES = {"au":"Identity","pt":"Patient links","fo":"Front Office","sc":"Scheduling","or":"Orders","cs":"Clinical Safety",
  "tk":"Technician","rd":"Reading","dd":"Doctor Desk","bl":"Billing","nt":"Notifications","gr":"Grievance","ad":"Admin",
- "in":"Integration","gv":"Governance","ir":"Regulatory","pl":"Platform","ds":"Design System"}
+ "in":"Integration","gv":"Governance","ir":"Regulatory","pl":"Platform","ds":"Design System","gs":"Search & Tasks"}
 
 # ---------------- wired primary actions ----------------
 # sid -> [ [label_regex, target_route, toast], ... ]  target "#/sid" or "#/sid@statehint"
@@ -203,7 +203,7 @@ function route(){let h=location.hash||'#/login';h=h.slice(2);
  if(!role&&!preauth.includes(sid)){location.hash='#/login';return;}
  if(!role&&preauth.includes(sid)){show('scr-'+sid);const _si0=stateByHint(sid,hint);const _s0=document.getElementById('scr-'+sid);setState(sid,_si0<0?(_s0._first||0):_si0);paintChrome(sid.toUpperCase()+' · '+D.titles[sid]);return;}
  if(!allowed(sid)&&role!=='__all'){show('scr-denied');paintChrome('Access denied');return;}
- show('scr-'+sid);const _si=stateByHint(sid,hint);const _scr=document.getElementById('scr-'+sid);setState(sid,_si<0?(_scr._first||0):_si);paintChrome(sid.toUpperCase()+' · '+D.titles[sid]);paintNav(sid);}
+ show('scr-'+sid);trackRecent(sid);const _si=stateByHint(sid,hint);const _scr=document.getElementById('scr-'+sid);setState(sid,_si<0?(_scr._first||0):_si);paintChrome(sid.toUpperCase()+' · '+D.titles[sid]);paintNav(sid);}
 function paintChrome(t){$('#hdr-title').textContent=t;$('#hdr-role').textContent=role?D.roles[role].label:'not signed in';}
 function paintNav(cur){const nav=$('#sidenav');if(!role){nav.innerHTML='';return;}
  let html='';const gs=D.roles[role].groups;gs.forEach(g=>{const items=Object.keys(D.titles).filter(s=>s.split('-')[0]===g).sort();if(!items.length)return;
@@ -269,6 +269,42 @@ function simInject(sid){const scr=document.getElementById('scr-'+sid);if(!scr)re
  const body=tb.querySelector('tbody')||tb; const hd=tb.querySelector('tr');
  hd&&hd.parentNode===body?body.insertBefore(tr,hd.nextSibling):body.insertBefore(tr,body.firstChild);}
 
+
+/* ---------- UX-1/7/9: palette, recents, help ---------- */
+let recents=[]; let palIdx=0; let palItems=[];
+function trackRecent(sid){recents=[sid,...recents.filter(x=>x!==sid)].slice(0,5);}
+function palOpen(){$('#pal').style.display='block';$('#palin').value='';palQuery('');$('#palin').focus();}
+function palClose(){$('#pal').style.display='none';}
+function palQuery(q){q=q.toLowerCase();const out=[];
+ if(!q){recents.forEach(s=>out.push({t:'RECENT',l:s.toUpperCase()+' · '+D.titles[s],go:()=>{location.hash='#/'+s;}}));}
+ if(SIM.active&&('asha varma mrn-004900'.includes(q)||q.length<2)){out.push({t:'PATIENT',l:'Asha Varma · MRN-004900 · live demo record',go:()=>{location.hash='#/fo-06';}});}
+ for(const [sid,title] of Object.entries(D.titles)){
+  if(out.length>14)break;
+  if(!q||sid.includes(q)||title.toLowerCase().includes(q)){
+   if(role&&!allowed(sid))continue;
+   out.push({t:'SCREEN',l:sid.toUpperCase()+' · '+title,go:((s)=>()=>{location.hash='#/'+s;})(sid)});}}
+ for(const [sid,rules] of Object.entries(D.actions)){
+  if(out.length>18)break;
+  for(const [pat,target,msg] of rules){
+   if(q&&(msg.toLowerCase().includes(q)||pat.split('|')[0].includes(q))){
+    if(role&&!allowed(sid))continue;
+    out.push({t:'ACTION',l:msg+' — on '+sid.toUpperCase(),go:((s,tg,m)=>()=>{toast(m);location.hash='#/'+tg.slice(2).split('@')[0];})(sid,target,msg)});break;}}}
+ palItems=out;palIdx=0;
+ $('#palres').innerHTML=out.map((o,i)=>'<div class="prow'+(i===0?' sel':'')+'" onclick="palGo('+i+')"><span class="chip '+(o.t==='ACTION'?'blue':o.t==='PATIENT'?'teal':o.t==='RECENT'?'grey':'violet')+'">'+o.t+'</span><span>'+o.l+'</span></div>').join('')||'<div class="prow muted">No matches in your role scope — this miss is logged, not shown as partial data</div>';}
+function palGo(i){const o=palItems[i];if(o){palClose();o.go();toast('Palette: '+o.t.toLowerCase()+' opened · purpose-logged');}}
+document.addEventListener('keydown',e=>{
+ if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();palOpen();return;}
+ if(e.key==='?'&&!/input|textarea/i.test(document.activeElement.tagName)){$('#help').style.display='block';return;}
+ if($('#pal').style.display==='block'){
+  if(e.key==='Escape')palClose();
+  if(e.key==='ArrowDown'){palIdx=Math.min(palIdx+1,palItems.length-1);}
+  if(e.key==='ArrowUp'){palIdx=Math.max(palIdx-1,0);}
+  if(e.key==='Enter'){palGo(palIdx);return;}
+  if(['ArrowDown','ArrowUp'].includes(e.key)){$$('#pal .prow').forEach((r,i)=>r.classList.toggle('sel',i===palIdx));e.preventDefault();}
+ }});
+$('#palin')&&0;
+document.addEventListener('input',e=>{if(e.target.id==='palin')palQuery(e.target.value);});
+
 window.addEventListener('hashchange',route);
 window.addEventListener('load',()=>{const dl=$('#jumplist');dl.innerHTML=Object.keys(D.titles).sort().map(s=>'<option value="'+s.toUpperCase()+' — '+D.titles[s]+'">').join('');
  simPaint();const jm=$('#jmenu');jm.innerHTML='<option value="">▶ Run a journey…</option>'+D.journeys.map(j=>'<option value="'+j.id+'">'+j.title+'</option>').join('');route();});
@@ -295,6 +331,14 @@ body{margin:0;padding-top:52px}
 #jbar .btn{background:#fff;color:#134E4A;border:none}
 .pcard{cursor:pointer;transition:box-shadow .15s}.pcard:hover{box-shadow:0 4px 16px rgba(15,118,110,.25)}
 .btn{cursor:pointer}
+#pal{position:fixed;inset:0;background:#0F172A99;z-index:120;display:none;padding-top:10vh}
+#pal .pbox{max-width:620px;margin:0 auto;background:#fff;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.4);overflow:hidden}
+#pal input{width:100%;border:none;padding:14px 18px;font-size:15px;outline:none;border-bottom:2px solid #0F766E}
+#pal .pres{max-height:50vh;overflow-y:auto}
+#pal .prow{display:flex;gap:10px;align-items:center;padding:9px 16px;font-size:13px;cursor:pointer;border-bottom:1px solid #F1F5F9}
+#pal .prow.sel{background:#F0FDFA}
+#help{position:fixed;inset:0;background:#0F172A99;z-index:120;display:none;padding-top:12vh}
+#help .hbox{max-width:480px;margin:0 auto;background:#fff;border-radius:12px;padding:18px 22px}
 /* ---------- responsive ---------- */
 #burger{display:none;background:#134E4A;color:#fff;border:none;border-radius:6px;padding:6px 10px;font-size:16px;cursor:pointer}
 @media (max-width:1024px){
@@ -340,7 +384,7 @@ html_out = f"""<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta 
 <style>{CSS}\n{SHELL_CSS}</style></head><body>
 <div id="hdr"><button id="burger" onclick="document.getElementById('sidenav').classList.toggle('open')">☰</button><b>◎ MagnusPRO</b><span class="muted" style="color:#99F6E4">Live Prototype · v1.1 · synthetic data</span>
 <span id="hdr-title" style="flex:1;text-align:center;font-weight:700"></span>
-<select id="jmenu" onchange="if(this.value)startJourney(this.value);this.selectedIndex=0"></select>
+<span class="btn small" style="background:#fff" onclick="palOpen()">⌘K Search</span><select id="jmenu" onchange="if(this.value)startJourney(this.value);this.selectedIndex=0"></select>
 <input list="jumplist" id="jump" placeholder="Jump to screen…" size="22" onchange="jumpTo(this.value);this.value=''"><datalist id="jumplist"></datalist>
 <span class="rolechip" id="hdr-role"></span>
 <a class="btn small" style="background:#fff" href="#/choose">Switch user</a></div>
@@ -350,6 +394,8 @@ html_out = f"""<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta 
 {DENIAL}
 </main></div>
 <div id="simpanel"><div class="sph" onclick="document.querySelector('#simpanel .spb').classList.toggle('hide');this.querySelector('i').textContent=document.querySelector('#simpanel .spb').classList.contains('hide')?'▲':'▼'"><span>● Live demo — Asha Varma</span><i style="font-style:normal">▼</i></div><div class="spb" id="simbody"></div></div>
+<div id="pal" onclick="if(event.target.id==='pal')palClose()"><div class="pbox"><input id="palin" placeholder="Search screens, actions, patients… (role-scoped, purpose-logged)"><div class="pres" id="palres"></div></div></div>
+<div id="help" onclick="this.style.display='none'"><div class="hbox"><h3 style="margin-bottom:8px">Keyboard map</h3><table><tr><td class="mono">Ctrl/⌘ K</td><td>Omni-search & commands</td></tr><tr><td class="mono">?</td><td>This overlay</td></tr><tr><td class="mono">↑↓ ↵</td><td>Navigate palette</td></tr><tr><td class="mono">Esc</td><td>Close</td></tr></table><p class="muted small" style="margin-top:8px">Full product map: DS-02 keyboard section (UX-9).</p></div></div>
 <div id="jbar"><span id="jinfo" style="flex:1"></span><span class="btn small" onclick="jnext(-1)">‹ Prev</span><span class="btn small primary" onclick="jnext(1)">Next step ›</span><span class="btn small" onclick="jexit()">Exit tour</span></div>
 <script>{JS.replace("__DATA__", DATA)}</script></body></html>"""
 

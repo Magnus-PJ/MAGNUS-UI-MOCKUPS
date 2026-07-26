@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>MagnusPRO — G18 · Global Search & Tasks</title><style>/* Magnus HMS — NS design pack shared design system */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#E9EDF1;color:#1E293B;font-size:14px;line-height:1.45}
+.mono{font-family:"SF Mono",Consolas,"Courier New",monospace;font-size:.93em}
+.muted{color:#64748B}.small{font-size:12px}.bold{font-weight:700}
+/* ---------- page / screen frame ---------- */
+.screen{page-break-after:always;padding:28px 34px;background:#fff;min-height:1000px}
+.screen-head{display:flex;justify-content:space-between;align-items:flex-start;border-left:5px solid #0F766E;padding:6px 0 6px 14px;margin-bottom:6px}
+.screen-head h1{font-size:22px;font-weight:800}
+.screen-head .sid{color:#0F766E;margin-right:10px}
+.screen-head .meta{text-align:right}
+.screen-head .meta .cluster{color:#64748B;font-size:12px;margin-top:3px}
+.gap-note{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:8px 12px;margin:10px 0 16px;font-size:12.5px;color:#7C2D12}
+.gap-note b{color:#9A3412}
+/* ---------- app chrome ---------- */
+.frame{border:1px solid #CBD5E1;border-radius:10px;overflow:hidden;background:#F4F6F8;box-shadow:0 1px 4px rgba(15,23,42,.08);margin-bottom:22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:2px solid #0F766E;padding:9px 16px}
+.brand{font-weight:800;color:#0F766E}.brand span{color:#1E293B}
+.org{font-size:12.5px;color:#334155;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px}
+.userchip{font-size:12.5px;color:#334155}
+.userchip .av{display:inline-block;background:#CCFBF1;color:#0F766E;font-weight:700;border-radius:5px;padding:2px 6px;margin-right:6px;font-size:11px}
+.body{display:flex;min-height:520px}
+.sidebar{width:196px;background:#fff;border-right:1px solid #E2E8F0;padding:12px 0;flex-shrink:0}
+.sec-label{font-size:10.5px;letter-spacing:.08em;color:#94A3B8;font-weight:700;padding:8px 16px 4px;text-transform:uppercase}
+.nav-item{padding:7px 16px;font-size:13px;color:#334155;display:flex;justify-content:space-between;align-items:center}
+.nav-item.active{background:#F0FDFA;color:#0F766E;font-weight:700;border-left:3px solid #0F766E;padding-left:13px}
+.nav-badge{background:#0F766E;color:#fff;border-radius:9px;font-size:10.5px;padding:1px 7px;font-weight:700}
+.nav-badge.red{background:#B91C1C}
+.main{flex:1;padding:16px 18px;min-width:0}
+.crumb{font-size:12px;color:#64748B;margin-bottom:8px}
+.page-title{font-size:19px;font-weight:800;margin-bottom:2px}
+.page-sub{font-size:12.5px;color:#64748B;margin-bottom:14px}
+.actions-right{float:right}
+/* ---------- components ---------- */
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card-title{font-weight:800;font-size:14.5px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.card-title .right{font-size:10.5px;letter-spacing:.07em;color:#94A3B8;font-weight:700;text-transform:uppercase}
+.row{display:flex;gap:14px}.row>*{min-width:0}.grow{flex:1}
+.btn{display:inline-block;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:700;border:1px solid #CBD5E1;background:#fff;color:#334155;text-align:center;white-space:nowrap}
+.btn.primary{background:#0F766E;border-color:#0F766E;color:#fff}
+.btn.danger{background:#B91C1C;border-color:#B91C1C;color:#fff}
+.btn.warn-outline{border-color:#F59E0B;color:#92400E;background:#FFFBEB}
+.btn.ghost{border:none;background:none;color:#0F766E;padding:7px 6px}
+.btn.small{padding:4px 10px;font-size:12px}
+.btn.disabled{opacity:.45}
+.chip{display:inline-block;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip.teal{background:#CCFBF1;color:#0F766E}
+.chip.green{background:#DCFCE7;color:#15803D}
+.chip.amber{background:#FEF3C7;color:#92400E}
+.chip.red{background:#FEE2E2;color:#B91C1C}
+.chip.grey{background:#F1F5F9;color:#475569}
+.chip.blue{background:#E0F2FE;color:#0369A1}
+.chip.violet{background:#EDE9FE;color:#6D28D9}
+.chip.outline-red{background:#fff;border:1.5px solid #B91C1C;color:#B91C1C}
+.banner{border-radius:8px;padding:10px 13px;font-size:12.5px;margin-bottom:12px;border:1px solid}
+.banner b{display:block;margin-bottom:2px;font-size:13px}
+.banner.info{background:#E0F2FE;border-color:#7DD3FC;color:#075985}
+.banner.warn{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+.banner.danger{background:#FEE2E2;border-color:#FCA5A5;color:#991B1B}
+.banner.success{background:#DCFCE7;border-color:#86EFAC;color:#166534}
+.banner.reg{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding:7px 9px;border-bottom:2px solid #E2E8F0;background:#F8FAFC}
+td{padding:8px 9px;border-bottom:1px solid #EEF2F6;vertical-align:top}
+tr.hl td{background:#F0FDFA}
+tr.dim td{color:#94A3B8}
+.kv{display:grid;grid-template-columns:150px 1fr;row-gap:6px;column-gap:12px;font-size:12.5px}
+.kv dt{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700;padding-top:2px}
+.kv dd{margin:0}
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+.field label .req{color:#B91C1C}
+.field .hint{font-size:11px;color:#64748B;margin-top:3px}
+.input,.select,.textarea{width:100%;border:1px solid #CBD5E1;border-radius:7px;padding:7px 10px;font-size:13px;background:#fff;color:#1E293B}
+.input.err{border-color:#B91C1C;background:#FEF2F2}
+.textarea{min-height:64px}
+.check{font-size:12.5px;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.box{display:inline-block;width:14px;height:14px;border:1.6px solid #64748B;border-radius:3px;flex-shrink:0;margin-top:1px;text-align:center;line-height:12px;font-size:11px;font-weight:800}
+.box.on{background:#0F766E;border-color:#0F766E;color:#fff}
+.radio{border-radius:50%}
+.radio.on{background:#fff;border-color:#0F766E;box-shadow:inset 0 0 0 3.5px #0F766E;color:transparent}
+/* modal */
+.modal-wrap{background:#64748B22;border:1px dashed #94A3B8;border-radius:12px;padding:26px 40px;margin:14px 0}
+.modal{background:#fff;border-radius:12px;border-top:5px solid #0F766E;box-shadow:0 8px 30px rgba(15,23,42,.25);max-width:560px;margin:0 auto;padding:18px 20px}
+.modal.danger{border-top-color:#B91C1C}
+.modal h3{font-size:16px;margin-bottom:8px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+/* misc */
+.divider-label{text-align:center;color:#94A3B8;font-size:11.5px;margin:20px 0 14px;position:relative}
+.divider-label:before,.divider-label:after{content:"";display:inline-block;width:24%;border-top:1px dashed #CBD5E1;vertical-align:middle;margin:0 10px}
+.audit{font-size:11px;color:#8A6D1D;margin-top:10px}
+.audit:before{content:"🔒 "}
+.state-tag{font-size:10px;letter-spacing:.08em;font-weight:800;text-transform:uppercase;color:#94A3B8;text-align:right;margin-bottom:4px}
+.kpi-row{display:flex;gap:12px;margin-bottom:14px}
+.kpi{flex:1;background:#fff;border:1px solid #E2E8F0;border-left:4px solid #0F766E;border-radius:9px;padding:10px 13px}
+.kpi.amber{border-left-color:#F59E0B}.kpi.red{border-left-color:#B91C1C}
+.kpi .n{font-size:23px;font-weight:800}.kpi .l{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700}
+.kpi .s{font-size:11px;color:#64748B;margin-top:2px}
+.stepper{display:flex;gap:6px;align-items:center;font-size:12px;color:#64748B;margin-bottom:14px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:6px}
+.step .dot{width:20px;height:20px;border-radius:50%;background:#E2E8F0;color:#475569;font-size:11px;font-weight:800;text-align:center;line-height:20px}
+.step.done .dot{background:#15803D;color:#fff}.step.cur .dot{background:#0F766E;color:#fff}
+.step.cur{color:#0F766E;font-weight:700}
+.step-line{width:26px;border-top:2px solid #CBD5E1}
+.sig-box{border:1.5px dashed #94A3B8;border-radius:8px;min-height:64px;background:#F8FAFC;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:12px;font-style:italic}
+.sig-box.signed{border-style:solid;border-color:#15803D;color:#166534;background:#F0FDF4;font-family:'Segoe Script','Comic Sans MS',cursive;font-size:17px;font-style:normal}
+.ladder{border-left:3px solid #E2E8F0;margin-left:8px;padding-left:16px}
+.ladder .tier{margin-bottom:12px;position:relative}
+.ladder .tier:before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:#CBD5E1}
+.ladder .tier.done:before{background:#15803D}.ladder .tier.cur:before{background:#0F766E;box-shadow:0 0 0 3px #CCFBF1}
+.ladder .tier.fail:before{background:#B91C1C}
+.progress{height:7px;border-radius:4px;background:#E2E8F0;overflow:hidden;margin-top:4px}
+.progress i{display:block;height:100%;background:#0F766E}
+.progress.amber i{background:#F59E0B}.progress.red i{background:#B91C1C}
+.split{display:grid;grid-template-columns:1fr 300px;gap:14px}
+.timeline{font-size:12.5px}
+.timeline .ev{display:flex;gap:10px;margin-bottom:9px}
+.timeline .t{color:#64748B;white-space:nowrap;font-family:Consolas,monospace;font-size:11.5px;padding-top:1px}
+
+@page{size:A4;margin:0}@media print{body{background:#fff}}</style></head><body><section class="screen" id="cover">
+<div style="padding-top:120px"><div style="border-left:6px solid #0F766E;padding-left:22px">
+<div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">MagnusPRO · MVP 1 Complete Design Pack</div>
+<h1 style="font-size:36px;font-weight:800">G18 · Global Search & Tasks</h1>
+<p style="font-size:14px;color:#64748B;margin-top:10px">2 screens · every screen with alternate states · shared design system · synthetic data only (no PHI)</p></div>
+<div class="card" style="max-width:700px;margin-top:26px"><div class="card-title">Screens in this group</div>
+<table><tr><th style="width:70px">ID</th><th>Screen</th></tr><tr><td class="mono bold"><a href="#gs-01" style="color:#0F766E;text-decoration:none">GS-01</a></td><td><a href="#gs-01" style="color:inherit;text-decoration:none">Global omni-search & command palette</a></td></tr><tr><td class="mono bold"><a href="#gs-02" style="color:#0F766E;text-decoration:none">GS-02</a></td><td><a href="#gs-02" style="color:inherit;text-decoration:none">My tasks — unified inbox</a></td></tr></table></div>
+<p class="muted small" style="margin-top:14px">Magnus Diagnostics → NUMINACORE · July 2026 · Prototype/reference — not committed product scope.</p></div></section><section class="screen" id="gs-01">
+<div class="screen-head"><h1><span class="sid"><a href="#gs-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GS-01</a></span> Global omni-search & command palette</h1><div class="meta"><span class="chip teal">MVP1-CORE · ADDITION</span><div class="cluster">G18 Global Search — every workspace, Ctrl/⌘ K</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · DOC-14 UX-1 (closes the 8-of-232 search gap)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> One box, opened with Ctrl/⌘ K from anywhere, that finds everything the signed-in role is allowed to touch — patients (masked until a purpose is picked), orders/accessions, invoices/receipts, reports, screens and ACTIONS — and executes commands ("collect payment", "issue token") in ≤2 keystroke-steps. Every query and reveal is purpose-logged. This is the single biggest click-saver in the product.</div>
+<div class="frame"><div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>Front Office</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
+<div class="modal-wrap" style="background:#0F172A66;padding:40px"><div class="modal" style="max-width:640px">
+<div class="field"><input class="input" style="font-size:15px;padding:11px 14px" placeholder="🔍 Search patients, orders, invoices, reports, screens… or type an action"></div>
+<div class="muted small" style="margin:-4px 0 8px">Scope: <span class="chip teal">Front Office role</span> <span class="chip grey">North Paravoor</span> · purpose for patient reveals: <span class="chip blue">Booking / care</span></div>
+<div class="card" style="margin-bottom:8px"><div class="card-title">Results for “asha”</div>
+<table><tr><td><span class="chip teal">PATIENT</span></td><td><b>Asha Varma</b> · MRN-••••00 <span class="chip grey">reveal w/ purpose</span></td><td class="mono">↵ open record</td></tr>
+<tr><td><span class="chip blue">ACTION</span></td><td>Book appointment for “Asha Varma”</td><td class="mono">Ctrl ↵</td></tr>
+<tr><td><span class="chip amber">INVOICE</span></td><td>INV/NPV/26-27/0900 · ₹800 · Paid</td><td class="mono">↵</td></tr>
+<tr><td><span class="chip violet">SCREEN</span></td><td><a href="Magnus_HMS_G03_Front_Office_Reception.html#fo-13" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">FO-13</a> Check-in &amp; token issuance</td><td class="mono">↵</td></tr></table></div>
+<div class="card"><div class="card-title">Empty query — recents &amp; favourites (UX-7)</div>
+<table><tr><td>🕑 Sofia Rossi · MRN-004822 (2 min ago)</td><td>🕑 INV/NPV/26-27/0421</td></tr><tr><td>★ <a href="Magnus_HMS_G03_Front_Office_Reception.html#fo-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">FO-01</a> Reception dashboard</td><td>★ Today's no-shows</td></tr></table></div>
+<p class="muted small">↑↓ navigate · ↵ open · Ctrl ↵ run action · Esc close · results limited to role + branch scope; cross-branch needs purpose; bulk enumeration is rate-limited (DLP, <a href="Magnus_HMS_G14_Governance_Compliance.html#gv-15" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GV-15</a>)</p></div></div></div>
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE B — ACTION EXECUTION</div>
+<div class="card" style="max-width:560px"><div class="card-title">“collect ₹ from asha”</div><p style="font-size:13px">Palette resolves → <b>Collect payment · Asha Varma · balance ₹250</b> → Enter opens <a href="Magnus_HMS_G09_Billing_Payments.html#bl-03" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-03</a> pre-filled. Two keystroke-steps from anywhere. Recorded: query, resolution, action.</p></div>
+<div class="state-tag">STATE C — ROLE SCOPE (CASHIER)</div>
+<div class="card" style="max-width:560px"><p style="font-size:13px">Same query as cashier: invoices &amp; receipts rank first; clinical results NEVER appear (no purpose); patient rows masked with billing-only reveal. Scope is enforced by the authz service, not the UI.</p></div>
+<div class="state-tag">STATE D — NLQ (ROADMAP CHIP)</div>
+<div class="card" style="max-width:560px"><p style="font-size:13px">“asha's last chest x-ray report” → semantic answer with citation into <a href="Magnus_HMS_G07_Radiologist_Reading.html#rd-13" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">RD-13</a>. <span class="chip grey">AI-ready · roadmap (DOC-14 §4) · behind AI governance + DPIA trigger (<a href="Magnus_HMS_G14_Governance_Compliance.html#gv-12" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GV-12</a>)</span></p></div>
+<p class="audit">Queries, reveals (with purpose), and palette-executed actions are recorded; patient-row enumeration is rate-limited and DLP-monitored.</p></section><section class="screen" id="gs-02">
+<div class="screen-head"><h1><span class="sid"><a href="#gs-02" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GS-02</a></span> My tasks — unified inbox</h1><div class="meta"><span class="chip teal">MVP1-CORE · ADDITION</span><div class="cluster">G18 Global Search & Tasks — one template, role-parameterised</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · DOC-14 UX-4 (athenaOne-class task-first navigation)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> One place that answers “what needs ME right now” — every queue that pages this user, aggregated with counts, SLA chips and deep links. Role-parameterised: a radiologist sees criticals awaiting send/ack, overdue reads, consults; a cashier sees approvals, pending confirmations, EOD tasks. Home screens keep their dashboards; this is the action feed.</div>
+<div class="frame"><div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>RIS · Reading</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">VS</span>Dr. V. Shetty ▾</div></div>
+<div class="body"><div class="sidebar"><div class="sec-label">Reading</div><div class="nav-item active">My tasks</div><div class="nav-item">Worklist</div><div class="nav-item">Critical results</div></div>
+<div class="main"><div class="page-title">My tasks — Dr. V. Shetty</div><div class="page-sub">Everything that pages you, in priority order · auto-refresh 30s</div>
+<div class="kpi-row"><div class="kpi red"><div class="n">1</div><div class="l">Critical awaiting my action</div></div><div class="kpi amber"><div class="n">2</div><div class="l">SLA warnings</div></div><div class="kpi"><div class="n">13</div><div class="l">Reads pending</div></div><div class="kpi"><div class="n">1</div><div class="l">Consult request</div></div></div>
+<table><tr><th>Priority</th><th>Task</th><th>SLA</th><th></th></tr>
+<tr class="hl"><td><span class="chip red">RED</span></td><td>Critical result UNNOTIFIED — Priya Menon · CT head (<a href="Magnus_HMS_G07_Radiologist_Reading.html#rd-11" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">RD-11</a>)</td><td><span class="chip red">OVERDUE 00:06 · owner: you</span></td><td><span class="btn small primary">Send now</span></td></tr>
+<tr><td><span class="chip amber">STAT</span></td><td>HRCT Chest · Mohammed Al-Rashid — read due (<a href="Magnus_HMS_G07_Radiologist_Reading.html#rd-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">RD-01</a>)</td><td><span class="chip amber">due in 0:41</span></td><td><span class="btn small">Open</span></td></tr>
+<tr><td><span class="chip blue">Consult</span></td><td>Second opinion requested by Dr. Farida Khan (<a href="Magnus_HMS_G07_Radiologist_Reading.html#rd-16" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">RD-16</a>)</td><td><span class="chip teal">due today</span></td><td><span class="btn small">Review</span></td></tr>
+<tr><td><span class="chip grey">Admin</span></td><td>Security &amp; phishing re-attestation (<a href="Magnus_HMS_G14_Governance_Compliance.html#gv-18" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GV-18</a>)</td><td><span class="chip teal">12 days</span></td><td><span class="btn small">Start</span></td></tr></table>
+<p class="muted small">🔒 Task views are recorded; completing a task routes to the owning screen — this inbox never duplicates workflows, it aggregates them.</p></div></div></div>
+<div class="divider-label">prototype: alternate states below</div>
+<div class="state-tag">STATE B — CASHIER VARIANT (SAME TEMPLATE)</div>
+<div class="card"><table><tr><th>Priority</th><th>Task</th><th>SLA</th></tr>
+<tr><td><span class="chip amber">Approval</span></td><td>Discount ₹1,500 awaiting supervisor (<a href="Magnus_HMS_G09_Billing_Payments.html#bl-08" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-08</a>)</td><td><span class="chip amber">3:12 of 4h</span></td></tr>
+<tr><td><span class="chip amber">Pending</span></td><td>UPI unconfirmed ×2 (<a href="Magnus_HMS_G09_Billing_Payments.html#bl-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-04</a>)</td><td><span class="chip teal">aging 22m</span></td></tr>
+<tr><td><span class="chip grey">EOD</span></td><td>Cash session close due 20:00 (<a href="Magnus_HMS_G09_Billing_Payments.html#bl-09" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">BL-09</a>)</td><td>—</td></tr></table></div>
+<div class="state-tag">STATE C — INBOX ZERO</div>
+<div class="card" style="text-align:center;padding:28px"><b>Nothing needs you right now ✓</b><p class="muted small" style="margin-top:6px">Next scheduled item: EOD close 20:00. Enjoy the quiet — it's audited too.</p></div>
+<p class="audit">Aggregation is read-only over source queues; acting always happens on the owning screen with its own controls and audit.</p></section></body></html>
