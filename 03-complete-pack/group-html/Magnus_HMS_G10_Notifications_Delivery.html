@@ -509,9 +509,9 @@ tr.dim td{color:#94A3B8}
           <div style="display:flex;gap:8px;margin-top:10px"><span class="btn small">Test connection</span><span class="btn small ghost">Renew credential…</span></div>
         </div>
         <div class="card grow">
-          <div class="card-title">Email — mail.meridiandiagnostics.in <span class="chip green">HEALTHY</span></div>
+          <div class="card-title">Email — mail.magnusdiagnostics.in <span class="chip green">HEALTHY</span></div>
           <dl class="kv" style="grid-template-columns:130px 1fr">
-            <dt>From</dt><dd class="mono">no-reply@meridiandiagnostics.in</dd>
+            <dt>From</dt><dd class="mono">no-reply@magnusdiagnostics.in</dd>
             <dt>SPF</dt><dd><span class="chip green">PASS ✓</span> aligned</dd>
             <dt>DKIM</dt><dd><span class="chip green">PASS ✓</span> selector <span class="mono">mg2026</span></dd>
             <dt>DMARC</dt><dd><span class="chip green">p=quarantine</span></dd>
@@ -591,7 +591,7 @@ tr.dim td{color:#94A3B8}
         <tr><td class="mono">15:05:11</td><td>RouteSMS (SMS primary)</td><td>Auth + template handshake</td><td><span class="chip amber">DEGRADED</span></td><td class="mono">2,914 ms</td><td class="small">Auth OK · submit queue depth high at operator; DLT scrub OK</td></tr>
         <tr><td class="mono">15:05:14</td><td>Kaleyra (SMS failover)</td><td>Auth + test submit (sandbox number)</td><td><span class="chip green">PASS</span></td><td class="mono">389 ms</td><td class="small">Header MERDIA accepted · DLT entity matched</td></tr>
         <tr><td class="mono">15:05:18</td><td>Gupshup (WhatsApp)</td><td>Token validity + template list fetch</td><td><span class="chip green">PASS</span></td><td class="mono">702 ms</td><td class="small">Token valid to 31 Jul · 6 approved templates returned</td></tr>
-        <tr><td class="mono">15:05:23</td><td>SMTP mail.meridiandiagnostics.in</td><td>TLS + SPF/DKIM probe to seed inbox</td><td><span class="chip green">PASS</span></td><td class="mono">1,188 ms</td><td class="small">TLS 1.3 · DKIM signature verified at seed</td></tr>
+        <tr><td class="mono">15:05:23</td><td>SMTP mail.magnusdiagnostics.in</td><td>TLS + SPF/DKIM probe to seed inbox</td><td><span class="chip green">PASS</span></td><td class="mono">1,188 ms</td><td class="small">TLS 1.3 · DKIM signature verified at seed</td></tr>
         <tr class="dim"><td class="mono">06:02:40</td><td>RouteSMS (scheduled)</td><td>Auth + template handshake</td><td><span class="chip green">PASS</span></td><td class="mono">412 ms</td><td class="small">Daily 06:00 run</td></tr>
         <tr class="dim"><td class="mono">06:02:44</td><td>Gupshup (scheduled)</td><td>Token validity</td><td><span class="chip green">PASS</span></td><td class="mono">688 ms</td><td class="small">Daily 06:00 run</td></tr>
       </table>
@@ -841,7 +841,7 @@ tr.dim td{color:#94A3B8}
         <tr><th>Channel</th><th>Provider route</th><th>Throttle</th><th>Burst</th><th>Current load (last hr)</th><th>Status</th></tr>
         <tr><td><b>SMS</b></td><td class="mono">DLT · MERDIA (transactional)</td><td>120 / min</td><td>300 / 5 min</td><td>64 / min peak<div class="progress"><i style="width:53%"></i></div></td><td><span class="chip green">HEALTHY</span></td></tr>
         <tr><td><b>WhatsApp</b></td><td class="mono">BSP tier-2 (10k/day)</td><td>60 / min</td><td>150 / 5 min</td><td>41 / min peak<div class="progress"><i style="width:68%"></i></div></td><td><span class="chip green">HEALTHY</span></td></tr>
-        <tr class="hl"><td><b>Email</b></td><td class="mono">smtp.meridian.in (in-country)</td><td>200 / min</td><td>600 / 5 min</td><td>187 / min peak<div class="progress amber"><i style="width:94%"></i></div></td><td><span class="chip amber">NEAR LIMIT · owner: K. Verma · SLA <span class="mono">review 4h</span></span></td></tr>
+        <tr class="hl"><td><b>Email</b></td><td class="mono">smtp.magnus.in (in-country)</td><td>200 / min</td><td>600 / 5 min</td><td>187 / min peak<div class="progress amber"><i style="width:94%"></i></div></td><td><span class="chip amber">NEAR LIMIT · owner: K. Verma · SLA <span class="mono">review 4h</span></span></td></tr>
         <tr><td><b>Clinical alert lane</b></td><td class="mono">dedicated · all channels</td><td class="mono">unthrottled</td><td class="mono">—</td><td>3 sends</td><td><span class="chip red">EXEMPT LANE</span></td></tr>
       </table>
       <div class="small muted" style="margin-top:8px">Throttled messages queue in priority order (clinical &gt; operational &gt; billing); nothing is dropped. Queue depth alerts fire at 500 items.</div>
@@ -946,7 +946,7 @@ tr.dim td{color:#94A3B8}
         <tr><td>K. Verma</td><td>Admin</td><td class="mono">+91 99••• ••870</td><td><span class="chip violet">TEST</span></td><td><span class="chip green">YES</span></td><td>21 Jul 2026</td></tr>
         <tr><td>M. Kulkarni</td><td>Billing supervisor</td><td class="mono">+91 98••• ••334</td><td><span class="chip violet">TEST</span></td><td><span class="chip green">YES</span></td><td>21 Jul 2026</td></tr>
         <tr><td>D. Nair</td><td>Front office</td><td class="mono">+91 97••• ••512</td><td><span class="chip violet">TEST</span></td><td><span class="chip green">YES</span></td><td>14 Jul 2026</td></tr>
-        <tr><td>QA shared inbox</td><td>QA</td><td class="mono">qa-notify@meridian.in</td><td><span class="chip violet">TEST</span></td><td><span class="chip green">YES</span></td><td>08 Jul 2026</td></tr>
+        <tr><td>QA shared inbox</td><td>QA</td><td class="mono">qa-notify@magnus.in</td><td><span class="chip violet">TEST</span></td><td><span class="chip green">YES</span></td><td>08 Jul 2026</td></tr>
         <tr class="dim"><td>P. D'Souza</td><td>Cashier</td><td class="mono">+91 96••• ••091</td><td><span class="chip grey">EXPIRED</span></td><td><span class="chip green">YES</span></td><td>re-verify to use</td></tr>
       </table>
       <div class="small muted" style="margin-top:8px">Adding a sandbox recipient requires OTP proof of ownership; patient numbers are rejected against the patient registry.</div>

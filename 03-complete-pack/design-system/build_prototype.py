@@ -16,7 +16,7 @@ for w in WAVES:
         m = re.search(r'<span class="sid">([^<]+)</span>\s*([^<]+)</h1>', src)
         title = normalize(m.group(2).strip().replace("&amp;","&"))
         inner = normalize(src[src.find(">", src.find("<section"))+1 : src.rfind("</section>")])
-        names = ["DEFAULT"] + [re.sub(r"<[^>]+>","",x).strip() for x in re.findall(r'<div class="state-tag">(.*?)</div>', src, re.S)]
+        names = ["DEFAULT"] + [normalize(re.sub(r"<[^>]+>","",x).strip()) for x in re.findall(r'<div class="state-tag">(.*?)</div>', src, re.S)]
         screens[sid] = dict(title=title, inner=inner, names=names)
 
 VALID = set(screens)
@@ -76,13 +76,13 @@ ACTIONS = {
  "rd-10": [["send now|create notification","#/rd-11","Critical notification dispatched · RED tier"]],
  "rd-11": [["record acknowledgement","#/dd-02","Awaiting referrer acknowledgement"]],
  "rd-12": [["sign addendum","#/rd-13","Addendum signed · recipients re-notified"]],
- "bl-02": [["issue","#/bl-03","Invoice issued · INV/AND/26-27/0421"]],
+ "bl-02": [["issue","#/bl-03","Invoice issued · INV/NPV/26-27/0421"]],
  "bl-03": [["confirm|collect|received","#/bl-05","Payment received · receipt issued"],["upi|qr","#/bl-04","UPI initiated — awaiting confirmation"]],
  "bl-04": [["mark as received|evidence","#/bl-08","Evidence submitted — approval requested"],["check with provider","#/bl-04","Provider re-query: still pending"]],
  "bl-05": [["reprint","#/bl-05","DUPLICATE COPY printed — logged"]],
  "bl-06": [["submit|process refund","#/bl-08","Refund sent for approval"]],
  "bl-08": [["approve","#/bl-05","Approved — requester notified"]],
- "bl-09": [["sign & close|close day","#/bl-18","Day closed · CSH-AND-2026-0713"]],
+ "bl-09": [["sign & close|close day","#/bl-18","Day closed · CSH-NPV-2026-0713"]],
  "bl-20": [["release","#/rd-13","Report released to patient channels"]],
  "nt-02": [["fix contact|resend","#/fo-07","Contact update flow (OTP-verified)"],["mark collected","#/gv-17","Pickup recorded — disclosure logged"]],
  "fo-07": [["save contact|resend","#/nt-01","Contact verified · link re-issued"]],

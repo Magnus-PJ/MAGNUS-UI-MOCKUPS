@@ -145,7 +145,7 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Setup › Scheduling › Working hours &amp; breaks</div>
       <div class="page-title">Working hours — North Paravoor <span class="actions-right"><span class="btn small">Copy to branch…</span> <span class="btn small">View change history</span> <span class="btn small primary">Edit week</span></span></div>
-      <div class="page-sub">Branch <span class="mono">BR-AND-01</span> · timezone Asia/Kolkata (IST) · current version <span class="mono">v7</span> effective since 01-Apr-2026 · read by slot generation nightly at 01:30 IST</div>
+      <div class="page-sub">Branch <span class="mono">BR-NPV-01</span> · timezone Asia/Kolkata (IST) · current version <span class="mono">v7</span> effective since 01-Apr-2026 · read by slot generation nightly at 01:30 IST</div>
 
       <div class="banner info"><b>Used by slot generation</b>Slots are materialised 45 days ahead from this grid, minus closures (<a href="#sc-02" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-02</a>), minus equipment maintenance windows (<a href="#sc-05" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-05</a>). Next generation run: 26-Jul-2026 01:30 IST. Editing here never deletes already-booked appointments — conflicts become reschedule tasks.</div>
 
@@ -250,7 +250,7 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Setup › Scheduling › Holidays &amp; closures</div>
       <div class="page-title">Holidays &amp; closures — North Paravoor <span class="actions-right"><span class="btn small">Import national list 2026</span> <span class="btn small primary">+ Add closure</span></span></div>
-      <div class="page-sub">Branch <span class="mono">BR-AND-01</span> · 11 entries in calendar year 2026 · closures override working hours in slot generation · past closures are read-only</div>
+      <div class="page-sub">Branch <span class="mono">BR-NPV-01</span> · 11 entries in calendar year 2026 · closures override working hours in slot generation · past closures are read-only</div>
 
       <div class="kpi-row">
         <div class="kpi"><div class="n">3</div><div class="l">Upcoming (30 days)</div><div class="s">next: 15-Aug Independence Day</div></div>
@@ -363,8 +363,8 @@ tr.dim td{color:#94A3B8}
           <div class="card-title">Which calendars use TPL-US-G <span class="right">selected row</span></div>
           <table>
             <tr><th>Calendar</th><th>Unit / AE</th><th>Days applied</th><th>Future slots generated</th></tr>
-            <tr><td>USG — Room A</td><td class="mono">US-UNIT-2 · MERIDUS2</td><td>Mon–Sat</td><td class="mono">1,842 (to 08-Sep)</td></tr>
-            <tr><td>USG — Room B (locum)</td><td class="mono">US-UNIT-3 · MERIDUS3</td><td>Mon, Wed, Fri</td><td class="mono">612 (to 08-Sep)</td></tr>
+            <tr><td>USG — Room A</td><td class="mono">US-UNIT-2 · MAGUS2</td><td>Mon–Sat</td><td class="mono">1,842 (to 08-Sep)</td></tr>
+            <tr><td>USG — Room B (locum)</td><td class="mono">US-UNIT-3 · MAGUS3</td><td>Mon, Wed, Fri</td><td class="mono">612 (to 08-Sep)</td></tr>
           </table>
         </div>
         <div class="card grow">
@@ -571,11 +571,11 @@ tr.dim td{color:#94A3B8}
         <div class="card-title">Unit availability — week of 27 Jul – 02 Aug 2026 <span class="right">■ bookable · ▦ maintenance · ✕ down</span></div>
         <table>
           <tr><th>Unit / AE title</th><th>Mon 27</th><th>Tue 28</th><th>Wed 29</th><th>Thu 30</th><th>Fri 31</th><th>Sat 01</th><th>Sun 02</th></tr>
-          <tr><td><b>CT-ROOM-1</b> <span class="mono">MERIDCT1</span><br><span class="small muted">Siemens go.Up · 32-slice</span></td>
+          <tr><td><b>CT-ROOM-1</b> <span class="mono">MAGCT1</span><br><span class="small muted">Siemens go.Up · 32-slice</span></td>
             <td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 07:30–21:00</span><br><span class="chip grey">QA 17:00–17:20</span></td><td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 08:00–18:00</span></td><td><span class="chip grey">closed</span></td></tr>
-          <tr class="hl"><td><b>US-UNIT-2</b> <span class="mono">MERIDUS2</span><br><span class="small muted">GE Logiq · Room A</span></td>
+          <tr class="hl"><td><b>US-UNIT-2</b> <span class="mono">MAGUS2</span><br><span class="small muted">GE Logiq · Room A</span></td>
             <td colspan="6"><span class="chip red">✕ DOWN since 25-Jul 14:05 — probe connector fault · auto-blocked from <a href="Magnus_HMS_G06_Radiology_Technician.html#tk-07" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">TK-07</a> · restore ETA 26-Jul 12:00</span></td><td><span class="chip grey">closed</span></td></tr>
-          <tr><td><b>MRI-ROOM-2</b> <span class="mono">MERIDMR2</span><br><span class="small muted">1.5T · head/spine coils</span></td>
+          <tr><td><b>MRI-ROOM-2</b> <span class="mono">MAGMR2</span><br><span class="small muted">1.5T · head/spine coils</span></td>
             <td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 08:00–18:00</span></td><td><span class="chip amber">▦ coil service 09:00–15:00</span></td></tr>
         </table>
         <div class="hint" style="margin-top:6px;font-size:11px;color:#64748B"><a href="Magnus_HMS_G06_Radiology_Technician.html#tk-07" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">TK-07</a> auto-block: when the device board marks a unit down, all its unbooked future slots are withdrawn within 60 seconds and booked slots open a conflict task — no manual step needed. Manual unblock requires the device to report back in service.</div>
@@ -598,7 +598,7 @@ tr.dim td{color:#94A3B8}
 <div class="state-tag">STATE B — PLAN MAINTENANCE WITH IMPACT PREVIEW</div>
 <div class="modal-wrap">
   <div class="modal">
-    <h3>Plan maintenance — CT-ROOM-1 <span class="mono small">MERIDCT1</span></h3>
+    <h3>Plan maintenance — CT-ROOM-1 <span class="mono small">MAGCT1</span></h3>
     <div class="row">
       <div class="field grow"><label>Date <span class="req">*</span></label><span class="input mono" style="display:block">14-Sep-2026 (Mon)</span></div>
       <div class="field grow"><label>From <span class="req">*</span></label><span class="input mono" style="display:block">07:30</span></div>
@@ -657,7 +657,7 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Setup › Scheduling › Modality calendar</div>
       <div class="actions-right"><span class="btn small">↻ Regenerate draft</span> <span class="btn primary small">Publish draft…</span></div>
-      <div class="page-title">Modality calendar — CT-ROOM-1 (AE MERIDCT1)</div>
+      <div class="page-title">Modality calendar — CT-ROOM-1 (AE MAGCT1)</div>
       <div class="page-sub">Published version <b class="mono">v2026.07.18-03</b> · draft <b class="mono">v2026.07.25-01 (unpublished)</b> · generated from Working hours v14 + Template "CT weekday 15-min" v6 + device availability feed</div>
 
       <div class="kpi-row">
@@ -677,10 +677,10 @@ tr.dim td{color:#94A3B8}
         <table>
           <tr><th>Slot (IST)</th><th>Source rule</th><th>Duration</th><th>Diff</th><th>Booking</th><th>Guard</th></tr>
           <tr><td class="mono">08:00–08:15</td><td>Template "CT weekday 15-min" v6</td><td>15 min</td><td><span class="chip grey">unchanged</span></td><td class="muted">—</td><td class="muted">—</td></tr>
-          <tr><td class="mono">08:15–08:30</td><td>Template "CT weekday 15-min" v6</td><td>15 min</td><td><span class="chip grey">unchanged</span></td><td>MRD-26-04412 · 08:15 booked</td><td><span class="chip green">retained</span></td></tr>
+          <tr><td class="mono">08:15–08:30</td><td>Template "CT weekday 15-min" v6</td><td>15 min</td><td><span class="chip grey">unchanged</span></td><td>MAG-26-04412 · 08:15 booked</td><td><span class="chip green">retained</span></td></tr>
           <tr class="hl"><td class="mono">13:00–13:15</td><td>Working hours v14 — Tue PM window closed (engineer PM visit, CT-ROOM-1)</td><td>15 min</td><td><span class="chip red">removed</span></td><td class="muted">— (unbooked)</td><td><span class="chip green">safe to drop</span></td></tr>
           <tr class="hl"><td class="mono">13:15–13:30</td><td>Working hours v14 — Tue PM window closed</td><td>15 min</td><td><span class="chip red">removed</span></td><td class="muted">— (unbooked)</td><td><span class="chip green">safe to drop</span></td></tr>
-          <tr><td class="mono">15:00–15:15</td><td>Template "CT weekday 15-min" v6</td><td>15 min</td><td><span class="chip grey">unchanged</span></td><td>MRD-26-04437 · contrast CT</td><td><span class="chip green">retained</span></td></tr>
+          <tr><td class="mono">15:00–15:15</td><td>Template "CT weekday 15-min" v6</td><td>15 min</td><td><span class="chip grey">unchanged</span></td><td>MAG-26-04437 · contrast CT</td><td><span class="chip green">retained</span></td></tr>
           <tr><td class="mono">18:30–18:45 <span class="chip amber">STAT reserve</span></td><td>Overbooking rules <a href="#sc-07" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-07</a> — 2 STAT holds/day</td><td>15 min</td><td><span class="chip grey">unchanged</span></td><td class="muted">held for STAT</td><td class="muted">—</td></tr>
         </table>
         <div class="hint muted small" style="margin-top:8px">Preview shows patient references as booking IDs only — no names on setup screens. Full booking detail requires the Front-office workspace with its own access-log entry.</div>
@@ -733,9 +733,9 @@ tr.dim td{color:#94A3B8}
     <div class="banner danger"><b>Booked slots are never silently dropped.</b>Rolling back to <span class="mono">v2026.07.18-03</span> would remove the Saturday 01 Aug evening slots that already hold confirmed bookings. Resolve each booking first, or keep the current version.</div>
     <table>
       <tr><th>Slot (IST)</th><th>Booking ref</th><th>Status</th><th>Resolution</th></tr>
-      <tr><td class="mono">Sat 01 Aug 17:15</td><td class="mono">MRD-26-04502</td><td><span class="chip teal">confirmed</span></td><td><span class="btn ghost small">Reschedule…</span></td></tr>
-      <tr><td class="mono">Sat 01 Aug 17:45</td><td class="mono">MRD-26-04508</td><td><span class="chip teal">confirmed</span></td><td><span class="btn ghost small">Reschedule…</span></td></tr>
-      <tr><td class="mono">Sat 01 Aug 18:30</td><td class="mono">MRD-26-04511</td><td><span class="chip amber">payment pending</span></td><td><span class="btn ghost small">Reschedule…</span></td></tr>
+      <tr><td class="mono">Sat 01 Aug 17:15</td><td class="mono">MAG-26-04502</td><td><span class="chip teal">confirmed</span></td><td><span class="btn ghost small">Reschedule…</span></td></tr>
+      <tr><td class="mono">Sat 01 Aug 17:45</td><td class="mono">MAG-26-04508</td><td><span class="chip teal">confirmed</span></td><td><span class="btn ghost small">Reschedule…</span></td></tr>
+      <tr><td class="mono">Sat 01 Aug 18:30</td><td class="mono">MAG-26-04511</td><td><span class="chip amber">payment pending</span></td><td><span class="btn ghost small">Reschedule…</span></td></tr>
     </table>
     <div class="banner warn" style="margin-top:10px"><b>Dual control (four-eyes) on rollback</b>Even after bookings are resolved, rollback requires a second approver with the <b>Scheduling Admin</b> role. Requested approver: <b>D. Nair (Front office lead)</b> — approval pending.</div>
     <div class="modal-actions"><span class="btn">Close</span><span class="btn danger disabled">Rollback to v2026.07.18-03 (blocked)</span></div>
@@ -776,8 +776,8 @@ tr.dim td{color:#94A3B8}
         <div class="card-title">Per-modality rules (draft v9) <span class="right">Walk-in ratio · overbook ceiling · STAT reserve</span></div>
         <table>
           <tr><th>Modality / device</th><th>Walk-in ratio %</th><th>Overbook max / day</th><th>Overbook approval role</th><th>STAT reserve slots / day</th><th>Changed</th></tr>
-          <tr><td><b>CT-ROOM-1</b> <span class="small muted mono">AE MERIDCT1</span></td><td><input class="input mono" style="width:70px" value="10%"></td><td><input class="input mono" style="width:60px" value="3"></td><td><select class="select" style="width:180px"><option>Branch head only</option></select></td><td><input class="input mono" style="width:60px" value="2"> <span class="small muted">18:30, 18:45</span></td><td><span class="chip amber">edited</span></td></tr>
-          <tr><td><b>US-UNIT-2</b> <span class="small muted mono">AE MERIDUS2</span></td><td><input class="input mono" style="width:70px" value="25%"></td><td><input class="input mono" style="width:60px" value="6"></td><td><select class="select" style="width:180px"><option>Front office lead+</option></select></td><td><input class="input mono" style="width:60px" value="1"></td><td class="muted">—</td></tr>
+          <tr><td><b>CT-ROOM-1</b> <span class="small muted mono">AE MAGCT1</span></td><td><input class="input mono" style="width:70px" value="10%"></td><td><input class="input mono" style="width:60px" value="3"></td><td><select class="select" style="width:180px"><option>Branch head only</option></select></td><td><input class="input mono" style="width:60px" value="2"> <span class="small muted">18:30, 18:45</span></td><td><span class="chip amber">edited</span></td></tr>
+          <tr><td><b>US-UNIT-2</b> <span class="small muted mono">AE MAGUS2</span></td><td><input class="input mono" style="width:70px" value="25%"></td><td><input class="input mono" style="width:60px" value="6"></td><td><select class="select" style="width:180px"><option>Front office lead+</option></select></td><td><input class="input mono" style="width:60px" value="1"></td><td class="muted">—</td></tr>
           <tr><td><b>MRI-ROOM-2</b></td><td><input class="input mono" style="width:70px" value="0%"></td><td><input class="input mono" style="width:60px" value="1"></td><td><select class="select" style="width:180px"><option>Branch head only</option></select></td><td><input class="input mono" style="width:60px" value="1"></td><td><span class="chip amber">edited</span></td></tr>
           <tr><td><b>X-RAY-1</b></td><td><input class="input mono" style="width:70px" value="60%"></td><td><input class="input mono" style="width:60px" value="10"></td><td><select class="select" style="width:180px"><option>Any front office</option></select></td><td><input class="input mono" style="width:60px" value="0"></td><td class="muted">—</td></tr>
         </table>
@@ -900,7 +900,7 @@ tr.dim td{color:#94A3B8}
           <div class="field"><label>Modality allocation <span class="req">*</span></label>
             <table>
               <tr><th>Modality</th><th>Slots carved out</th><th>% of day's capacity</th><th>Services</th></tr>
-              <tr><td>US-UNIT-2 (AE MERIDUS2)</td><td class="mono">36 × 10-min</td><td class="mono">50%</td><td>USG abdomen screening</td></tr>
+              <tr><td>US-UNIT-2 (AE MAGUS2)</td><td class="mono">36 × 10-min</td><td class="mono">50%</td><td>USG abdomen screening</td></tr>
               <tr><td>X-RAY-1</td><td class="mono">48 × 5-min</td><td class="mono">40%</td><td>Chest X-ray PA</td></tr>
               <tr><td>CT-ROOM-1</td><td class="mono">0</td><td class="mono">0%</td><td class="muted">not offered at camp rates</td></tr>
             </table>
@@ -931,7 +931,7 @@ tr.dim td{color:#94A3B8}
   <table>
     <tr><th>Window (IST)</th><th>Modality</th><th>Public slots today</th><th>Carved for camp</th><th>Remains public</th><th>Conflicts</th></tr>
     <tr><td class="mono">08:00–10:00</td><td>US-UNIT-2</td><td class="mono">12</td><td class="mono">12</td><td class="mono">0</td><td class="muted">none</td></tr>
-    <tr class="hl"><td class="mono">10:00–12:00</td><td>US-UNIT-2</td><td class="mono">12</td><td class="mono">10</td><td class="mono">2</td><td>2 booked (MRD-26-04519, MRD-26-04521) — <span class="chip green">kept, not carved</span></td></tr>
+    <tr class="hl"><td class="mono">10:00–12:00</td><td>US-UNIT-2</td><td class="mono">12</td><td class="mono">10</td><td class="mono">2</td><td>2 booked (MAG-26-04519, MAG-26-04521) — <span class="chip green">kept, not carved</span></td></tr>
     <tr><td class="mono">12:00–14:00</td><td>US-UNIT-2</td><td class="mono">14</td><td class="mono">14</td><td class="mono">0</td><td class="muted">none</td></tr>
     <tr><td class="mono">08:00–14:00</td><td>X-RAY-1</td><td class="mono">54</td><td class="mono">48</td><td class="mono">5</td><td>1 booked — <span class="chip green">kept</span></td></tr>
   </table>
@@ -996,8 +996,8 @@ tr.dim td{color:#94A3B8}
           <tr><th>Service point</th><th>Prefix</th><th>Number length</th><th>Reset schedule</th><th>Count-per policy</th><th>Status</th></tr>
           <tr><td><b>Registration desk</b></td><td><input class="input mono" style="width:56px" value="R"></td><td><select class="select" style="width:80px"><option>3 (001)</option></select></td><td><select class="select" style="width:150px"><option>Daily 00:00 IST</option></select></td><td><select class="select" style="width:170px"><option>Per visit</option></select></td><td><span class="chip green">active</span></td></tr>
           <tr><td><b>Cash counter</b> <span class="small muted">(P. D'Souza)</span></td><td><input class="input mono" style="width:56px" value="C"></td><td><select class="select" style="width:80px"><option>3 (001)</option></select></td><td><select class="select" style="width:150px"><option>Daily 00:00 IST</option></select></td><td><select class="select" style="width:170px"><option>Per transaction</option></select></td><td><span class="chip green">active</span></td></tr>
-          <tr class="hl"><td><b>CT-ROOM-1</b> <span class="small muted mono">AE MERIDCT1</span></td><td><input class="input mono" style="width:56px" value="CT"></td><td><select class="select" style="width:80px"><option>3 (001)</option></select></td><td><select class="select" style="width:150px"><option>Daily 07:00 IST</option></select></td><td><select class="select" style="width:170px"><option>Per procedure</option></select></td><td><span class="chip amber">edited in draft</span></td></tr>
-          <tr><td><b>US-UNIT-2</b> <span class="small muted mono">AE MERIDUS2</span></td><td><input class="input mono" style="width:56px" value="US"></td><td><select class="select" style="width:80px"><option>3 (001)</option></select></td><td><select class="select" style="width:150px"><option>Daily 07:00 IST</option></select></td><td><select class="select" style="width:170px"><option>Per procedure</option></select></td><td><span class="chip green">active</span></td></tr>
+          <tr class="hl"><td><b>CT-ROOM-1</b> <span class="small muted mono">AE MAGCT1</span></td><td><input class="input mono" style="width:56px" value="CT"></td><td><select class="select" style="width:80px"><option>3 (001)</option></select></td><td><select class="select" style="width:150px"><option>Daily 07:00 IST</option></select></td><td><select class="select" style="width:170px"><option>Per procedure</option></select></td><td><span class="chip amber">edited in draft</span></td></tr>
+          <tr><td><b>US-UNIT-2</b> <span class="small muted mono">AE MAGUS2</span></td><td><input class="input mono" style="width:56px" value="US"></td><td><select class="select" style="width:80px"><option>3 (001)</option></select></td><td><select class="select" style="width:150px"><option>Daily 07:00 IST</option></select></td><td><select class="select" style="width:170px"><option>Per procedure</option></select></td><td><span class="chip green">active</span></td></tr>
           <tr><td><b>MRI-ROOM-2</b></td><td><input class="input mono" style="width:56px" value="MR"></td><td><select class="select" style="width:80px"><option>2 (01)</option></select></td><td><select class="select" style="width:150px"><option>Daily 07:00 IST</option></select></td><td><select class="select" style="width:170px"><option>Per procedure</option></select></td><td><span class="chip green">active</span></td></tr>
         </table>
         <div class="hint muted small" style="margin-top:8px">Count-per policy: "per visit" issues one token covering all same-day services; "per procedure" issues a fresh token at each modality queue. Prefix collisions across service points are blocked at save.</div>

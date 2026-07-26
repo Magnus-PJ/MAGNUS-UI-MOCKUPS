@@ -9,7 +9,7 @@
 | You are… | Start here |
 |---|---|
 | **Anyone** | `04-architecture-docs/DOC-00_Master_Index.html` — the linked index of everything |
-| **Leadership / client** | `docs/VISION.md` → `docs/DECISIONS.md` (D-01…D-37) |
+| **Leadership / client** | `docs/VISION.md` → `docs/DECISIONS.md` (D-01…D-43) |
 | **The dev team** | `DOC-09` build blueprint → `DOC-11` gap analysis → `DOC-08` crosswalk → group packs |
 | **Anyone wanting to FEEL the product** | `03-complete-pack/MagnusPRO_Live_Prototype.html` — open, sign in, click through everything |
 | **Designers** | `03-complete-pack/group-html/` (one browser-ready pack per group) + `DS` group (design system) |
@@ -34,7 +34,7 @@
                            · 06 Billing E2E · 07 Auth & MFA · 08 Vendor Crosswalk
                            · 09 Build & Deployment Blueprint · 10 Test Traceability
                            · 11 Zero-Trust/Air-Gap/GDPR/HIPAA Gap Analysis (closures BUILT)
-docs/                      VISION · DECISIONS (D-01…D-37) · FUTURE_PLAN · HANDOFF
+docs/                      VISION · DECISIONS (D-01…D-43) · FUTURE_PLAN · HANDOFF
 ```
 
 ## The 17 groups (235 screens)
@@ -78,6 +78,7 @@ All **4 Magnus branches go live together** (North Paravoor, Irinjalakuda, Pullur
 - [x] Waves 1–4: all 17 groups built · [x] Vendor-baseline sync on every screen
 - [x] Architecture docs DOC-00…11 · [x] DOC-11 closures built (AU-19, IN-11, PL-13, GV-17, GV-18, AD-21 + 7 state additions)
 - [x] Combined Volume (235 screens, one HTML) · [x] MagnusPRO naming applied · [x] Verification: ALL CHECKS PASSED
+- [x] Full page-by-page audit v1.3.1 (**DOC-15**): 20 dimensions × 235 screens · 9 defects fixed, 0 open · identity sweep 0 leftovers · Playwright smoke 19/19
 - [ ] Final legal product name (client, before UAT) · [ ] Branch-4 details (client) · [ ] UAT planning (deferred)
 
 *Prototype/reference — not committed product scope. All data synthetic. July 2026.*

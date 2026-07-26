@@ -256,7 +256,7 @@ tr.dim td{color:#94A3B8}
     <div class="card"><div class="card-title">Tenant list <span class="right">sorted by status</span></div>
     <table>
       <tr><th>Organisation</th><th>Region pin</th><th>Realms</th><th>Branches</th><th>Plan</th><th>Sandbox flag</th><th>Status</th><th>Onboarding</th><th></th></tr>
-      <tr><td><b>Magnus Diagnostics</b><div class="small muted">Magnus Healthcare Pvt Ltd · CIN U85110MH2019PTC322114</div></td><td class="mono">ap-south-1 🔒</td><td class="mono small">meridian-staff · meridian-patient-otp</td><td class="mono">4</td><td><span class="chip blue">Enterprise</span></td><td><span class="chip grey">NO — LIVE DATA</span></td><td><span class="chip green">LIVE</span></td><td>completed 02 Mar 2026</td><td><span class="btn ghost small">Open</span></td></tr>
+      <tr><td><b>Magnus Diagnostics</b><div class="small muted">Magnus Healthcare Pvt Ltd · CIN U85110MH2019PTC322114</div></td><td class="mono">ap-south-1 🔒</td><td class="mono small">magnus-staff · magnus-patient-otp</td><td class="mono">4</td><td><span class="chip blue">Enterprise</span></td><td><span class="chip grey">NO — LIVE DATA</span></td><td><span class="chip green">LIVE</span></td><td>completed 02 Mar 2026</td><td><span class="btn ghost small">Open</span></td></tr>
       <tr><td><b>Sunrise Imaging</b><div class="small muted">Sunrise Imaging LLP, Pune · LLPIN AAX-1204</div></td><td class="mono">ap-south-1 🔒</td><td class="mono small">sunrise-staff · sunrise-patient-otp</td><td class="mono">2</td><td><span class="chip blue">Standard</span></td><td><span class="chip grey">NO — LIVE DATA</span></td><td><span class="chip green">LIVE</span></td><td>completed 08 Jun 2026</td><td><span class="btn ghost small">Open</span></td></tr>
       <tr class="hl"><td><b>CarePoint Labs</b><div class="small muted">CarePoint Diagnostics Pvt Ltd, Kochi · CIN U85195KL2021PTC07088</div></td><td class="mono">ap-south-1 🔒</td><td class="mono small">carepoint-staff · (patient-otp pending)</td><td class="mono">1 (pilot)</td><td><span class="chip grey">Pilot</span></td><td><span class="chip amber">SANDBOX — synthetic data only</span></td><td><span class="chip amber">ONBOARDING 5/7</span></td><td>started 06 Jul 2026 · owner R. Iyer</td><td><span class="btn ghost small">Resume</span></td></tr>
     </table>
@@ -559,7 +559,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="divider-label">prototype: alternate states below</div>
 
-<div class="state-tag">STATE B — OVERRIDE IMPACT PREVIEW (ENABLE REFERRAL PORTAL FOR MERIDIAN)</div>
+<div class="state-tag">STATE B — OVERRIDE IMPACT PREVIEW (ENABLE REFERRAL PORTAL FOR MAGNUS)</div>
 <div class="modal-wrap">
   <div class="modal" style="max-width:640px">
     <h3>Impact preview — enable "Referral doctor portal" · Magnus Diagnostics</h3>
@@ -1075,7 +1075,7 @@ tr.dim td{color:#94A3B8}
         <div class="card-title">Edge-agent versions per branch <span class="right">Target: v2.4.1</span></div>
         <table>
           <tr><th>Tenant</th><th>Branch</th><th>Edge agent</th><th>Devices bridged</th><th>Last seen (IST)</th><th>Upgrade state</th></tr>
-          <tr><td>Magnus Diagnostics</td><td>North Paravoor</td><td class="mono">v2.4.1</td><td class="mono">CT-ROOM-1 (MERIDCT1) · US-UNIT-2 (MERIDUS2) · MRI-ROOM-2</td><td class="mono">25 Jul 11:58</td><td><span class="chip green">CURRENT</span></td></tr>
+          <tr><td>Magnus Diagnostics</td><td>North Paravoor</td><td class="mono">v2.4.1</td><td class="mono">CT-ROOM-1 (MAGCT1) · US-UNIT-2 (MAGUS2) · MRI-ROOM-2</td><td class="mono">25 Jul 11:58</td><td><span class="chip green">CURRENT</span></td></tr>
           <tr><td>Magnus Diagnostics</td><td>Bandra</td><td class="mono">v2.4.1</td><td class="mono">2 modalities</td><td class="mono">25 Jul 11:57</td><td><span class="chip green">CURRENT</span></td></tr>
           <tr><td>Sunrise Imaging (Pune)</td><td>Kothrud</td><td class="mono">v2.4.1</td><td class="mono">3 modalities</td><td class="mono">25 Jul 11:55</td><td><span class="chip green">CURRENT · wave W-29</span></td></tr>
           <tr class="hl"><td>Sunrise Imaging (Pune)</td><td>Baner</td><td class="mono">v2.4.0</td><td class="mono">2 modalities</td><td class="mono">25 Jul 11:54</td><td><span class="chip amber">QUEUED · wave W-30</span></td></tr>
@@ -1416,7 +1416,7 @@ tr.dim td{color:#94A3B8}
         <table>
           <tr><th>Tenant</th><th>Plan</th><th style="width:170px">Studies</th><th style="width:170px">Storage (GB)</th><th style="width:150px">SMS / WhatsApp</th><th style="width:130px">API calls</th><th>Seats</th><th>Status</th></tr>
           <tr>
-            <td><b>Magnus Diagnostics</b><div class="small muted mono">tn-meridian-01 · 4 branches</div></td>
+            <td><b>Magnus Diagnostics</b><div class="small muted mono">tn-magnus-01 · 4 branches</div></td>
             <td>Enterprise<div class="small muted">annual · renews 01 Apr 2027</div></td>
             <td>28,412 / 40,000<div class="progress"><i style="width:71%"></i></div><div class="small muted">71% of plan</div></td>
             <td>3,940 / 6,000<div class="progress"><i style="width:66%"></i></div><div class="small muted">66% · PACS tier hot</div></td>
@@ -1627,7 +1627,7 @@ tr.dim td{color:#94A3B8}
       <div class="hint">Other categories: CRITICAL INCIDENT · LEGAL / COURT ORDER · TENANT-AUTHORISED SUPPORT (written consent ref required)</div>
     </div>
     <div class="field"><label>Scope of access <span class="req">*</span></label>
-      <input class="input" value="Study index shard mds-07 · CT-ROOM-1 (AE MERIDCT1) studies 24–25 Jul 2026 only"/>
+      <input class="input" value="Study index shard mds-07 · CT-ROOM-1 (AE MAGCT1) studies 24–25 Jul 2026 only"/>
       <div class="hint">Access is technically enforced to this scope. Patient demographics outside the named studies remain masked.</div>
     </div>
     <div class="field"><label>Justification (visible to tenant) <span class="req">*</span></label>

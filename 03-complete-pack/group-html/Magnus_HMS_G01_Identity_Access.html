@@ -128,7 +128,7 @@ tr.dim td{color:#94A3B8}
 <div class="screen-head"><h1><span class="sid"><a href="#au-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">AU-01</a></span> Unified staff sign-in</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G1 IDENTITY &amp; ACCESS — AUTH ENTRY</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · AU-S7…S13 entry doors → one templated sign-in</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single sign-in entry for all staff roles across a tenant's Keycloak staff realm. The workspace-realm context chip makes the tenant explicit before credentials are typed; white-label branding is applied per tenant. On success the user proceeds to two-factor verification (<a href="#au-03" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">AU-03</a>) or to enrolment (<a href="#au-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">AU-04</a>) if their role mandates a factor they have not registered.</div>
 
-<div class="state-tag">STATE A — DEFAULT (MERIDIAN BRANDING)</div>
+<div class="state-tag">STATE A — DEFAULT (MAGNUS BRANDING)</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>WORKSPACE</span></span><span class="org">🏥 Magnus Diagnostics · staff sign-in</span></div><div class="userchip"><span class="chip grey">Not signed in</span></div></div>
   <div style="padding:34px 0 26px;background:#F4F6F8">
@@ -136,21 +136,21 @@ tr.dim td{color:#94A3B8}
       <div style="text-align:center;margin-bottom:14px">
         <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
         <div class="small muted">Hospital Management System · white-label by NUMINACORE</div>
-        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip grey">Region: IN (Kochi)</span></div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.magnus</span> <span class="chip grey">Region: IN (Kochi)</span></div>
       </div>
-      <div class="field"><label>Email or username <span class="req">*</span></label><input class="input" value="d.nair@meridiandx.in" readonly><div class="hint">Use your Magnus staff account. Patient portal sign-in is separate (OTP realm).</div></div>
+      <div class="field"><label>Email or username <span class="req">*</span></label><input class="input" value="d.nair@magnusdx.in" readonly><div class="hint">Use your Magnus staff account. Patient portal sign-in is separate (OTP realm).</div></div>
       <div class="field"><label>Password <span class="req">*</span></label><input class="input" value="••••••••••••" readonly><div class="hint" style="display:flex;justify-content:space-between"><span>Minimum 12 characters per org policy</span><span style="color:#0F766E;font-weight:700">Show</span></div></div>
       <div class="check"><span class="box on">✓</span><span>Remember this device for 30 days <span class="muted">— skips 2FA on this browser only. Disabled on shared kiosk profiles per Magnus device policy AUTH-POL-07.</span></span></div>
       <a class="btn primary" style="width:100%;margin-top:6px">Sign in →</a>
       <div style="text-align:center;margin:12px 0 4px" class="small muted">— or —</div>
       <a class="btn" style="width:100%">🔑 Continue with Magnus SSO (Azure AD)</a>
-      <div class="hint" style="margin-top:6px;text-align:center">SSO is enabled for meridiandx.in accounts. Federated via Keycloak identity brokering.</div>
+      <div class="hint" style="margin-top:6px;text-align:center">SSO is enabled for magnusdx.in accounts. Federated via Keycloak identity brokering.</div>
       <div style="display:flex;justify-content:space-between;margin-top:14px;font-size:12.5px">
         <span style="color:#0F766E;font-weight:700">Forgot password?</span>
         <span style="color:#0F766E;font-weight:700">Activate new account</span>
       </div>
     </div>
-    <div style="max-width:420px;margin:12px auto 0;text-align:center" class="small muted">MagnusPRO v4.2 · © 2026 NUMINACORE · <span class="mono">staff.meridian</span> realm · Terms · Privacy (DPDP Act 2023) · Sign-in attempts are logged with IP and device fingerprint.</div>
+    <div style="max-width:420px;margin:12px auto 0;text-align:center" class="small muted">MagnusPRO v4.2 · © 2026 NUMINACORE · <span class="mono">staff.magnus</span> realm · Terms · Privacy (DPDP Act 2023) · Sign-in attempts are logged with IP and device fingerprint.</div>
   </div>
 </div>
 
@@ -166,9 +166,9 @@ tr.dim td{color:#94A3B8}
     <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
       <div style="text-align:center;margin-bottom:14px">
         <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
-        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip amber">Maintenance scheduled</span></div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.magnus</span> <span class="chip amber">Maintenance scheduled</span></div>
       </div>
-      <div class="field"><label>Email or username <span class="req">*</span></label><input class="input" placeholder="name@meridiandx.in" readonly></div>
+      <div class="field"><label>Email or username <span class="req">*</span></label><input class="input" placeholder="name@magnusdx.in" readonly></div>
       <div class="field"><label>Password <span class="req">*</span></label><input class="input" placeholder="Password" readonly></div>
       <div class="check"><span class="box"></span><span>Remember this device for 30 days</span></div>
       <a class="btn primary" style="width:100%;margin-top:6px">Sign in →</a>
@@ -221,10 +221,10 @@ tr.dim td{color:#94A3B8}
     <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
       <div style="text-align:center;margin-bottom:14px">
         <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
-        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span></div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.magnus</span></div>
       </div>
       <div class="banner danger"><b>Incorrect email or password</b>Check your credentials and try again. <b style="display:inline;font-size:12.5px">2 attempts remaining</b> before this sign-in is temporarily throttled. If you recently changed your password, older saved passwords in this browser may auto-fill.</div>
-      <div class="field"><label>Email or username <span class="req">*</span></label><input class="input" value="p.dsouza@meridiandx.in" readonly></div>
+      <div class="field"><label>Email or username <span class="req">*</span></label><input class="input" value="p.dsouza@magnusdx.in" readonly></div>
       <div class="field"><label>Password <span class="req">*</span></label><input class="input err" value="••••••••" readonly><div class="hint" style="color:#B91C1C">The password entered does not match. Caps Lock appears to be ON.</div></div>
       <a class="btn primary" style="width:100%;margin-top:6px">Try again</a>
       <div style="display:flex;justify-content:space-between;margin-top:14px;font-size:12.5px">
@@ -232,7 +232,7 @@ tr.dim td{color:#94A3B8}
         <span style="color:#0F766E;font-weight:700">Activate new account</span>
       </div>
     </div>
-    <div style="max-width:420px;margin:12px auto 0;text-align:center" class="small muted">For your security the same message is shown whether or not this email exists in the <span class="mono">staff.meridian</span> realm.</div>
+    <div style="max-width:420px;margin:12px auto 0;text-align:center" class="small muted">For your security the same message is shown whether or not this email exists in the <span class="mono">staff.magnus</span> realm.</div>
   </div>
 </div>
 
@@ -245,7 +245,7 @@ tr.dim td{color:#94A3B8}
     <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
       <div style="text-align:center;margin-bottom:14px">
         <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
-        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip amber">Throttled</span></div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.magnus</span> <span class="chip amber">Throttled</span></div>
       </div>
       <div class="banner warn"><b>Too many attempts — please wait 30 seconds</b>5 failed attempts detected from this device. Throttling doubles after each further failure (30 s → 60 s → 120 s). This protects your account from password-guessing; waiting does not affect your account status.</div>
       <div style="text-align:center;margin:14px 0">
@@ -253,7 +253,7 @@ tr.dim td{color:#94A3B8}
         <div class="small muted">You can try again when the timer ends</div>
         <div class="progress amber" style="max-width:260px;margin:8px auto 0"><i style="width:76%"></i></div>
       </div>
-      <div class="field"><label>Email or username</label><input class="input" value="p.dsouza@meridiandx.in" disabled style="opacity:.55" readonly></div>
+      <div class="field"><label>Email or username</label><input class="input" value="p.dsouza@magnusdx.in" disabled style="opacity:.55" readonly></div>
       <div class="field"><label>Password</label><input class="input" placeholder="Locked during cooldown" disabled style="opacity:.55" readonly></div>
       <a class="btn disabled" style="width:100%;margin-top:6px">Try again (waiting…)</a>
       <div style="display:flex;justify-content:space-between;margin-top:14px;font-size:12.5px">
@@ -271,7 +271,7 @@ tr.dim td{color:#94A3B8}
     <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px;border-top:4px solid #B91C1C">
       <div style="text-align:center;margin-bottom:14px">
         <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
-        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip red">Account locked</span></div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.magnus</span> <span class="chip red">Account locked</span></div>
       </div>
       <div class="banner danger"><b>This account is locked</b>8 consecutive failed sign-ins reached the Magnus lockout threshold (policy <span class="mono">AUTH-POL-03</span>) at 10:42 IST, 25 Jul 2026. The account owner has been notified by SMS (DLT · Jio route) and email.</div>
       <div class="card" style="background:#F8FAFC;margin-bottom:10px">
@@ -293,7 +293,7 @@ tr.dim td{color:#94A3B8}
     <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px;border-top:4px solid #64748B">
       <div style="text-align:center;margin-bottom:14px">
         <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
-        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip grey">Access suspended</span></div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.magnus</span> <span class="chip grey">Access suspended</span></div>
       </div>
       <div class="banner info"><b>Your access to this workspace is currently suspended</b>Your credentials were verified, but an administrator has suspended this account (e.g. role change, leave of absence, or pending review). No further detail is shown here by design.</div>
       <div class="kv" style="margin-bottom:12px">
@@ -320,14 +320,14 @@ tr.dim td{color:#94A3B8}
     <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
       <div style="text-align:center;margin-bottom:14px">
         <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
-        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip blue">Step 2 of 2 · TOTP</span></div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.magnus</span> <span class="chip blue">Step 2 of 2 · TOTP</span></div>
       </div>
       <div class="page-title" style="font-size:16px;text-align:center">Enter your authenticator code</div>
-      <div class="page-sub" style="text-align:center">Signing in as <b>d.nair@meridiandx.in</b> · <span style="color:#0F766E;font-weight:700">Not you?</span></div>
+      <div class="page-sub" style="text-align:center">Signing in as <b>d.nair@magnusdx.in</b> · <span style="color:#0F766E;font-weight:700">Not you?</span></div>
       <div style="display:flex;gap:8px;justify-content:center;margin:14px 0">
         <input class="input mono" style="width:42px;text-align:center;font-size:18px" value="4" readonly><input class="input mono" style="width:42px;text-align:center;font-size:18px" value="8" readonly><input class="input mono" style="width:42px;text-align:center;font-size:18px" value="1" readonly><input class="input mono" style="width:42px;text-align:center;font-size:18px" value="9" readonly><input class="input mono" style="width:42px;text-align:center;font-size:18px" placeholder="•" readonly><input class="input mono" style="width:42px;text-align:center;font-size:18px" placeholder="•" readonly>
       </div>
-      <div class="hint" style="text-align:center;margin-bottom:10px">Open your authenticator app (Google Authenticator, Aegis, 1Password…) and enter the 6-digit code for “Magnus — staff.meridian”. Codes rotate every 30 s.</div>
+      <div class="hint" style="text-align:center;margin-bottom:10px">Open your authenticator app (Google Authenticator, Aegis, 1Password…) and enter the 6-digit code for “Magnus — staff.magnus”. Codes rotate every 30 s.</div>
       <div class="check" style="justify-content:center"><span class="box on">✓</span><span>Remember this device for 30 days <span class="muted">(org policy AUTH-POL-07; not offered on shared kiosks)</span></span></div>
       <a class="btn primary" style="width:100%;margin-top:6px">Verify &amp; continue →</a>
       <div style="display:flex;justify-content:space-between;margin-top:14px;font-size:12.5px">
@@ -347,10 +347,10 @@ tr.dim td{color:#94A3B8}
     <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
       <div style="text-align:center;margin-bottom:14px">
         <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
-        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip green">Step 2 of 2 · Passkey</span></div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.magnus</span> <span class="chip green">Step 2 of 2 · Passkey</span></div>
       </div>
       <div class="page-title" style="font-size:16px;text-align:center">Confirm with your passkey</div>
-      <div class="page-sub" style="text-align:center">Signing in as <b>v.shetty@meridiandx.in</b></div>
+      <div class="page-sub" style="text-align:center">Signing in as <b>v.shetty@magnusdx.in</b></div>
       <div class="card" style="background:#F8FAFC;text-align:center;padding:18px">
         <div style="font-size:30px">🔐</div>
         <div class="bold" style="margin:6px 0 2px">Waiting for Windows Hello…</div>
@@ -375,12 +375,12 @@ tr.dim td{color:#94A3B8}
     <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
       <div style="text-align:center;margin-bottom:14px">
         <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
-        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip amber">Step 2 of 2 · Backup code</span></div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.magnus</span> <span class="chip amber">Step 2 of 2 · Backup code</span></div>
       </div>
       <div class="page-title" style="font-size:16px;text-align:center">Enter a backup code</div>
-      <div class="page-sub" style="text-align:center">Signing in as <b>t.okafor@meridiandx.in</b></div>
+      <div class="page-sub" style="text-align:center">Signing in as <b>t.okafor@magnusdx.in</b></div>
       <div class="banner warn" style="font-size:12px"><b>Each backup code works once</b>You have <b style="display:inline;font-size:12px">6 of 10</b> unused codes remaining. After this sign-in, consider re-enrolling your authenticator from Profile → Security.</div>
-      <div class="field"><label>Backup code <span class="req">*</span></label><input class="input mono" value="QK7F-3MRD-92XT" readonly><div class="hint">Format: XXXX-XXXX-XXXX. Codes were issued at enrolment (<a href="#au-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">AU-04</a>) — printed sheet or downloaded file.</div></div>
+      <div class="field"><label>Backup code <span class="req">*</span></label><input class="input mono" value="QK7F-3MAG-92XT" readonly><div class="hint">Format: XXXX-XXXX-XXXX. Codes were issued at enrolment (<a href="#au-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">AU-04</a>) — printed sheet or downloaded file.</div></div>
       <a class="btn primary" style="width:100%;margin-top:6px">Verify &amp; continue →</a>
       <a class="btn ghost" style="width:100%">← Back to authenticator code</a>
       <div style="text-align:center;margin-top:8px;font-size:12.5px"><span style="color:#0F766E;font-weight:700">Lost codes and authenticator? Start recovery → <a href="#au-05" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">AU-05</a></span></div>
@@ -396,7 +396,7 @@ tr.dim td{color:#94A3B8}
     <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
       <div style="text-align:center;margin-bottom:14px">
         <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
-        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip red">Code rejected</span></div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.magnus</span> <span class="chip red">Code rejected</span></div>
       </div>
       <div class="banner danger"><b>That code didn't work (attempt 2 of 5)</b>The code may have expired — TOTP codes rotate every 30 seconds. After 5 wrong codes this challenge locks and you must sign in again from <a href="#au-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">AU-01</a>.</div>
       <div style="display:flex;gap:8px;justify-content:center;margin:14px 0">
@@ -425,7 +425,7 @@ tr.dim td{color:#94A3B8}
     <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
       <div style="text-align:center;margin-bottom:12px">
         <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
-        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span></div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.magnus</span></div>
       </div>
       <div class="stepper" style="justify-content:center"><span class="step cur"><span class="dot">1</span>Choose</span><span class="step-line"></span><span class="step"><span class="dot">2</span>Verify</span><span class="step-line"></span><span class="step"><span class="dot">3</span>Backup codes</span></div>
       <div class="banner reg" style="font-size:12px"><b>Two-factor is mandatory for your role</b>Technologist accounts operate modalities (CT-ROOM-1, US-UNIT-2) and access patient studies — Magnus policy AUTH-POL-05 requires a second factor before first workspace entry. You cannot skip this step.</div>
@@ -453,12 +453,12 @@ tr.dim td{color:#94A3B8}
     <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
       <div style="text-align:center;margin-bottom:12px">
         <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
-        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip blue">TOTP setup</span></div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.magnus</span> <span class="chip blue">TOTP setup</span></div>
       </div>
       <div class="stepper" style="justify-content:center"><span class="step done"><span class="dot">✓</span>Choose</span><span class="step-line"></span><span class="step cur"><span class="dot">2</span>Verify</span><span class="step-line"></span><span class="step"><span class="dot">3</span>Backup codes</span></div>
       <div style="text-align:center;margin-bottom:10px">
         <div style="width:150px;height:150px;margin:0 auto;border:1.5px solid #CBD5E1;border-radius:8px;background:repeating-conic-gradient(#1E293B 0% 25%, #fff 0% 50%) 0 0/16px 16px;display:flex;align-items:center;justify-content:center"><span style="background:#fff;padding:2px 6px;font-size:10px;font-weight:800;border:1px solid #CBD5E1;border-radius:4px">QR CODE</span></div>
-        <div class="small muted" style="margin-top:6px">Scan with your authenticator app · account label <span class="mono">Magnus (staff.meridian) — t.okafor</span></div>
+        <div class="small muted" style="margin-top:6px">Scan with your authenticator app · account label <span class="mono">Magnus (staff.magnus) — t.okafor</span></div>
       </div>
       <div class="card" style="background:#F8FAFC;padding:10px 12px;margin-bottom:10px">
         <div class="small bold" style="margin-bottom:4px">Can't scan? Enter the secret manually</div>
@@ -484,13 +484,13 @@ tr.dim td{color:#94A3B8}
     <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
       <div style="text-align:center;margin-bottom:12px">
         <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
-        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip green">TOTP enabled ✓</span></div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.magnus</span> <span class="chip green">TOTP enabled ✓</span></div>
       </div>
       <div class="stepper" style="justify-content:center"><span class="step done"><span class="dot">✓</span>Choose</span><span class="step-line"></span><span class="step done"><span class="dot">✓</span>Verify</span><span class="step-line"></span><span class="step cur"><span class="dot">3</span>Backup codes</span></div>
       <div class="banner warn" style="font-size:12px"><b>Save these 10 backup codes now — shown only once</b>Each code signs you in once if you lose your authenticator. Store them offline (printed, sealed). They will never be displayed again; regenerating invalidates this set.</div>
       <div class="card" style="background:#F8FAFC;padding:12px 14px;margin-bottom:10px">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 18px" class="mono small">
-          <span>QK7F-3MRD-92XT</span><span>HN2P-8VWL-04QA</span>
+          <span>QK7F-3MAG-92XT</span><span>HN2P-8VWL-04QA</span>
           <span>ZD5R-1KMB-77JE</span><span>XT9C-4PLN-38UF</span>
           <span>MB6W-2QRD-51KO</span><span>PV3J-9XTF-66HD</span>
           <span>RL8A-5NCE-20WS</span><span>GY4K-7BMH-93VP</span>
@@ -522,7 +522,7 @@ tr.dim td{color:#94A3B8}
     <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
       <div style="text-align:center;margin-bottom:12px">
         <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
-        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip amber">Recovery in progress</span></div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.magnus</span> <span class="chip amber">Recovery in progress</span></div>
       </div>
       <div class="stepper" style="justify-content:center"><span class="step done"><span class="dot">✓</span>Password</span><span class="step-line"></span><span class="step cur"><span class="dot">2</span>Approval</span><span class="step-line"></span><span class="step"><span class="dot">3</span>Cooling</span><span class="step-line"></span><span class="step"><span class="dot">4</span>Re-enrol</span></div>
       <div class="banner success" style="font-size:12px"><b>Request RCV-2026-0342 submitted · 25 Jul 2026 09:56 IST</b>Your password was verified. Because your authenticator and all backup codes are unavailable, an administrator must now approve identity re-proofing (four-eyes rule — you cannot approve your own request).</div>
@@ -548,7 +548,7 @@ tr.dim td{color:#94A3B8}
     <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px">
       <div style="text-align:center;margin-bottom:12px">
         <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
-        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip amber">Awaiting admin approval</span></div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.magnus</span> <span class="chip amber">Awaiting admin approval</span></div>
       </div>
       <div class="page-title" style="font-size:16px;text-align:center">Recovery RCV-2026-0342 — status</div>
       <div class="page-sub" style="text-align:center">Checked 25 Jul 2026 13:20 IST · refreshes automatically</div>
@@ -573,7 +573,7 @@ tr.dim td{color:#94A3B8}
     <div class="card" style="max-width:420px;margin:0 auto;padding:22px 24px;border-top:4px solid #15803D">
       <div style="text-align:center;margin-bottom:12px">
         <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
-        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.meridian</span> <span class="chip green">Recovery approved</span></div>
+        <div style="margin-top:8px"><span class="chip teal">Workspace realm: staff.magnus</span> <span class="chip green">Recovery approved</span></div>
       </div>
       <div class="stepper" style="justify-content:center"><span class="step done"><span class="dot">✓</span>Password</span><span class="step-line"></span><span class="step done"><span class="dot">✓</span>Approval</span><span class="step-line"></span><span class="step done"><span class="dot">✓</span>Cooling</span><span class="step-line"></span><span class="step cur"><span class="dot">4</span>Re-enrol</span></div>
       <div class="banner success" style="font-size:12px"><b>Approved by K. Verma (org admin) · 25 Jul 2026 13:41 IST</b>ID check method recorded: staff ID card verified in person at North Paravoor admin desk. Cooling period ended 15:41 IST.</div>
@@ -605,11 +605,11 @@ tr.dim td{color:#94A3B8}
       <div style="text-align:center;margin-bottom:12px">
         <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
         <div class="small muted">Staff sign-in · Magnus Diagnostics</div>
-        <div style="margin-top:6px"><span class="chip teal">STAFF REALM</span> <span class="chip grey">meridian.magnus-hms.in</span></div>
+        <div style="margin-top:6px"><span class="chip teal">STAFF REALM</span> <span class="chip grey">magnus.magnus-hms.in</span></div>
       </div>
       <div class="page-title" style="font-size:16px">Reset your password</div>
       <div class="page-sub">Enter the work email registered with your Magnus staff account.</div>
-      <div class="field"><label>Work email <span class="req">*</span></label><input class="input" value="d.nair@meridiandiag.in"><div class="hint">Patient portal users sign in with OTP — this reset is for staff accounts only.</div></div>
+      <div class="field"><label>Work email <span class="req">*</span></label><input class="input" value="d.nair@magnusdiag.in"><div class="hint">Patient portal users sign in with OTP — this reset is for staff accounts only.</div></div>
       <a class="btn primary" style="width:100%">Send reset instructions</a>
       <div class="banner info" style="margin-top:12px"><b>If this email is registered, instructions have been sent.</b>This message is shown for every request — we never confirm whether an account exists. The link expires in 15 minutes and works once.</div>
       <div style="display:flex;justify-content:space-between;font-size:12px"><a class="btn ghost small">← Back to sign-in</a><a class="btn ghost small">Contact branch admin</a></div>
@@ -617,7 +617,7 @@ tr.dim td{color:#94A3B8}
     </div>
   </div>
 </div>
-<p class="audit">Reset request for d.nair@meridiandiag.in (masked in UI logs) at 25 Jul 2026 09:41 IST from 103.27.xx.xx — request, delivery channel and outcome recorded in the access log.</p>
+<p class="audit">Reset request for d.nair@magnusdiag.in (masked in UI logs) at 25 Jul 2026 09:41 IST from 103.27.xx.xx — request, delivery channel and outcome recorded in the access log.</p>
 
 <div class="divider-label">prototype: alternate states below</div>
 
@@ -633,7 +633,7 @@ tr.dim td{color:#94A3B8}
         <div style="margin-top:6px"><span class="chip teal">STAFF REALM</span> <span class="chip green">Email link valid · 11:24 left</span></div>
       </div>
       <div class="page-title" style="font-size:16px">Choose a new password</div>
-      <div class="page-sub">Account: <span class="mono">d.nair@meridiandiag.in</span> · D. Nair (Front office)</div>
+      <div class="page-sub">Account: <span class="mono">d.nair@magnusdiag.in</span> · D. Nair (Front office)</div>
       <div class="field"><label>OTP from reset email <span class="req">*</span></label><input class="input mono" value="4 8 2  9 1 7" style="letter-spacing:4px;text-align:center"><div class="hint">The email link alone is not enough — enter the 6-digit code from the same email.</div></div>
       <div class="field"><label>New password <span class="req">*</span></label><input class="input mono" type="password" value="••••••••••••••••">
         <div class="progress" style="margin-top:6px"><i style="width:82%"></i></div>
@@ -696,7 +696,7 @@ tr.dim td{color:#94A3B8}
         <div style="font-size:20px;font-weight:800;color:#0F766E">◎ Magnus</div>
         <div style="margin-top:6px"><span class="chip teal">STAFF REALM</span> <span class="chip green">Password updated</span></div>
       </div>
-      <div class="banner success"><b>Password changed — you're signed in on this device.</b>Changed 25 Jul 2026, 09:47 IST for d.nair@meridiandiag.in.</div>
+      <div class="banner success"><b>Password changed — you're signed in on this device.</b>Changed 25 Jul 2026, 09:47 IST for d.nair@magnusdiag.in.</div>
       <div class="card" style="background:#F8FAFC;padding:10px 12px">
         <div class="small bold" style="margin-bottom:6px">Sessions revoked (3)</div>
         <table>
@@ -738,7 +738,7 @@ tr.dim td{color:#94A3B8}
       <div class="card" style="background:#F8FAFC;padding:10px 12px;margin-bottom:12px">
         <div class="kv">
           <dt>Invited as</dt><dd>T. Okafor <span class="chip grey">confirmed step 1</span></dd>
-          <dt>Work email</dt><dd class="mono">t.okafor@meridiandiag.in</dd>
+          <dt>Work email</dt><dd class="mono">t.okafor@magnusdiag.in</dd>
           <dt>Role</dt><dd><span class="chip blue">Technologist</span></dd>
           <dt>Branch</dt><dd>North Paravoor · modalities CT-ROOM-1, US-UNIT-2</dd>
           <dt>Invited by</dt><dd>K. Verma (Org admin) · 24 Jul 2026, 17:05 IST</dd>
@@ -806,7 +806,7 @@ tr.dim td{color:#94A3B8}
           <dt>Role</dt><dd><span class="chip blue">Technologist</span></dd>
           <dt>Branch</dt><dd>North Paravoor (default)</dd>
           <dt>Workspaces</dt><dd>RIS Technician · Device worklists</dd>
-          <dt>Devices</dt><dd class="mono">CT-ROOM-1 (MERIDCT1) · US-UNIT-2 (MERIDUS2)</dd>
+          <dt>Devices</dt><dd class="mono">CT-ROOM-1 (MAGCT1) · US-UNIT-2 (MAGUS2)</dd>
           <dt>Policies signed</dt><dd>AUP v3.2 · Privacy notice v2.1</dd>
         </div>
         <div class="small muted" style="margin-top:6px">Wrong access? Contact K. Verma — role changes need admin approval and are audited.</div>
@@ -935,7 +935,7 @@ tr.dim td{color:#94A3B8}
     <div class="modal-wrap">
       <div class="modal">
         <h3>🔐 Confirm it's you — <span style="color:#0F766E">Passkey</span></h3>
-        <div class="banner info" style="margin-bottom:10px"><b>Action being confirmed</b>Sign final report · CT Brain plain · Acc <span class="mono">ACC-2607-0148</span> · patient R. Malhotra (MRN <span class="mono">MRD-88231</span>)</div>
+        <div class="banner info" style="margin-bottom:10px"><b>Action being confirmed</b>Sign final report · CT Brain plain · Acc <span class="mono">ACC-2607-0148</span> · patient R. Malhotra (MRN <span class="mono">MAG-88231</span>)</div>
         <div class="kv" style="margin-bottom:10px">
           <dt>Signed in as</dt><dd>Dr. V. Shetty (Radiologist) · session started 08:02 IST</dd>
           <dt>Mechanism</dt><dd><span class="chip teal">Passkey</span> — required by Magnus policy for <b>report signing</b></dd>
@@ -968,7 +968,7 @@ tr.dim td{color:#94A3B8}
           <dt>Mechanism</dt><dd><span class="chip amber">Password</span> — org policy for <b>refund approval ≥ limit</b> (passkey not enrolled for this user)</dd>
           <dt>Second control</dt><dd><span class="chip red">Dual-control</span> After your confirmation, K. Verma (Org admin) must counter-approve — four-eyes rule.</dd>
         </div>
-        <div class="field"><label>Account password for p.dsouza@meridiandiag.in <span class="req">*</span></label><input class="input err mono" type="password" value="••••••••••"></div>
+        <div class="field"><label>Account password for p.dsouza@magnusdiag.in <span class="req">*</span></label><input class="input err mono" type="password" value="••••••••••"></div>
         <div class="modal-actions"><a class="btn">Cancel — no refund initiated</a><a class="btn danger">Retry confirmation</a></div>
       </div>
     </div>
@@ -1111,7 +1111,7 @@ tr.dim td{color:#94A3B8}
       <div class="banner warn"><b>Your account is active, but no workspace has been assigned yet.</b>You signed in successfully as A. Ghosh — there's nothing wrong with your credentials. An admin needs to grant you a role before you can enter a workspace.</div>
       <div class="card" style="background:#F8FAFC;padding:10px 12px;margin-bottom:12px">
         <div class="kv">
-          <dt>Account</dt><dd class="mono">a.ghosh@meridiandiag.in</dd>
+          <dt>Account</dt><dd class="mono">a.ghosh@magnusdiag.in</dd>
           <dt>Activated</dt><dd>25 Jul 2026, 07:52 IST · 2FA enrolled</dd>
           <dt>Roles held</dt><dd><span class="chip grey">none</span></dd>
           <dt>Branch admin</dt><dd>K. Verma · North Paravoor</dd>
@@ -1147,7 +1147,7 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Home › My account › Profile &amp; security</div>
       <div class="page-title">My profile &amp; security <span class="actions-right"><span class="chip green">Account in good standing</span></span></div>
-      <div class="page-sub">Staff realm (Keycloak · meridian-staff) · employee ID MD-AW-0412 · last policy acceptance AUP v3.2 on 04 Jul 2026</div>
+      <div class="page-sub">Staff realm (Keycloak · magnus-staff) · employee ID MD-NPV-0412 · last policy acceptance AUP v3.2 on 04 Jul 2026</div>
 
       <div class="row">
         <div class="grow" style="flex:1.4">
@@ -1181,8 +1181,8 @@ tr.dim td{color:#94A3B8}
               <dt>Full name</dt><dd>Deepa Nair</dd>
               <dt>Role</dt><dd>Front Office Executive</dd>
               <dt>Branch</dt><dd>North Paravoor</dd>
-              <dt>Employee ID</dt><dd class="mono">MD-AW-0412</dd>
-              <dt>Work email</dt><dd class="mono">d.nair@meridiandx.in</dd>
+              <dt>Employee ID</dt><dd class="mono">MD-NPV-0412</dd>
+              <dt>Work email</dt><dd class="mono">d.nair@magnusdx.in</dd>
               <dt>Work mobile</dt><dd class="mono">+91 98••• ••412</dd>
               <dt>Reporting manager</dt><dd>K. Verma (Org Admin)</dd>
             </dl>
@@ -1261,7 +1261,7 @@ tr.dim td{color:#94A3B8}
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>WORKSPACE</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">TO</span>T. Okafor ▾</div></div>
   <div style="padding:26px 16px 34px;background:#F4F6F8">
     <div class="card" style="max-width:620px;margin:0 auto">
-      <div style="text-align:center;margin-bottom:10px"><span class="chip grey">Staff realm · meridian-staff · signed in as T. Okafor (Technologist)</span></div>
+      <div style="text-align:center;margin-bottom:10px"><span class="chip grey">Staff realm · magnus-staff · signed in as T. Okafor (Technologist)</span></div>
       <div class="page-title" style="text-align:center">Updated policies need your acceptance</div>
       <div class="page-sub" style="text-align:center">You're signed in, but access to the workspace is paused until you review and accept the updated policies below.</div>
       <div class="banner info"><b>What changed since you last accepted</b>
@@ -1312,7 +1312,7 @@ tr.dim td{color:#94A3B8}
         <tr><th style="width:90px">Clause</th><th>Change</th><th>v3.2 (previous)</th><th>v3.3 (new)</th></tr>
         <tr><td class="mono">§7.1</td><td><span class="chip green">Added</span></td><td class="muted">—</td><td>Personal mobile devices must not be used to photograph, screen-record or mirror any display showing patient data, including modality consoles and viewer workstations.</td></tr>
         <tr><td class="mono">§7.2</td><td><span class="chip green">Added</span></td><td class="muted">—</td><td>Suspected breaches of §7.1 must be reported to the branch admin within 4 hours.</td></tr>
-        <tr><td class="mono">§5.4</td><td><span class="chip blue">Amended</span></td><td>Removable USB media are discouraged on clinical workstations.</td><td>Removable USB media are <b>prohibited</b> on modality consoles (AE MERIDCT1, MERIDUS2 and all others); read-only exceptions require a logged admin ticket.</td></tr>
+        <tr><td class="mono">§5.4</td><td><span class="chip blue">Amended</span></td><td>Removable USB media are discouraged on clinical workstations.</td><td>Removable USB media are <b>prohibited</b> on modality consoles (AE MAGCT1, MAGUS2 and all others); read-only exceptions require a logged admin ticket.</td></tr>
         <tr><td class="mono">§9.2</td><td><span class="chip grey">Removed</span></td><td>Legacy CD burning workflow for outside films.</td><td class="muted">— (replaced by patient portal share links)</td></tr>
       </table>
       <div class="card-title" style="margin-top:12px">Staff privacy notice — changes from v2.0 → v2.1</div>
@@ -1341,7 +1341,7 @@ tr.dim td{color:#94A3B8}
       <div class="banner success"><b>Policies accepted — workspace unlocked.</b> Redirecting you to your worklist. A copy of this record is available any time under My account › Policy acceptances.</div>
       <div class="card-title">Acceptance record <span class="right">Per policy version</span></div>
       <dl class="kv">
-        <dt>Accepted by</dt><dd>T. Okafor · Technologist · employee ID MD-AW-0533</dd>
+        <dt>Accepted by</dt><dd>T. Okafor · Technologist · employee ID MD-NPV-0533</dd>
         <dt>Identity confirmed</dt><dd>Passkey (platform authenticator, Chrome on Windows) · step-up at 25 Jul 2026, 08:47:19 IST</dd>
         <dt>AUP</dt><dd><span class="mono">v3.3</span> · document hash <span class="mono">sha256:41c9…8ae2</span> · read-scroll completed 100%</dd>
         <dt>Privacy notice</dt><dd><span class="mono">v2.1</span> · document hash <span class="mono">sha256:9b04…d711</span> · read-scroll completed 100%</dd>
@@ -1361,14 +1361,14 @@ tr.dim td{color:#94A3B8}
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>WORKSPACE</span></span><span class="org">🏥 Magnus Diagnostics · North Paravoor</span></div><div class="userchip"><span class="av">?</span>Not signed in</div></div>
   <div style="padding:30px 16px 40px;background:#F4F6F8">
-    <div class="banner danger" style="max-width:560px;margin:0 auto 16px"><b>Identity service unreachable — degraded mode active since 09:12 IST.</b> Sign-in via the staff realm (Keycloak · meridian-staff) is temporarily unavailable. Clinical operations continue under the degraded-access policy below. Incident ref <span class="mono">INC-2026-0725-04</span> · status page updated every 5 min.</div>
+    <div class="banner danger" style="max-width:560px;margin:0 auto 16px"><b>Identity service unreachable — degraded mode active since 09:12 IST.</b> Sign-in via the staff realm (Keycloak · magnus-staff) is temporarily unavailable. Clinical operations continue under the degraded-access policy below. Incident ref <span class="mono">INC-2026-0725-04</span> · status page updated every 5 min.</div>
     <div class="card" style="max-width:420px;margin:0 auto">
       <div style="text-align:center;margin-bottom:12px">
         <div class="brand" style="font-size:18px">◎ MagnusPRO <span>WORKSPACE</span></div>
         <div class="small muted">by NUMINACORE</div>
-        <div style="margin-top:8px"><span class="chip grey">Staff realm · meridian-staff</span> <span class="chip red">DEGRADED</span></div>
+        <div style="margin-top:8px"><span class="chip grey">Staff realm · magnus-staff</span> <span class="chip red">DEGRADED</span></div>
       </div>
-      <div class="field"><label>Work email or employee ID</label><input class="input" value="d.nair@meridiandx.in"></div>
+      <div class="field"><label>Work email or employee ID</label><input class="input" value="d.nair@magnusdx.in"></div>
       <div class="banner warn" style="margin-bottom:10px"><b>New sign-ins are queued.</b> Your sign-in will start automatically when the identity service responds. Position in queue: <b>3</b> · next retry in <b>22 s</b>.<div class="progress amber" style="margin-top:6px"><i style="width:64%"></i></div></div>
       <div style="display:flex;gap:10px"><span class="btn primary grow" style="flex:1">Keep trying automatically</span><span class="btn">Cancel</span></div>
       <div class="small muted" style="margin-top:10px"><b>Already signed in on another device?</b> Sessions authenticated in the last 8 hours continue in <b>read-limited mode</b> (view worklists, view reports; no report sign-off, no refunds, no admin changes) until identity is restored.</div>
@@ -1390,9 +1390,9 @@ tr.dim td{color:#94A3B8}
     <div class="card" style="max-width:420px;margin:0 auto">
       <div style="text-align:center;margin-bottom:12px">
         <div class="brand" style="font-size:18px">◎ MagnusPRO <span>WORKSPACE</span></div>
-        <div style="margin-top:8px"><span class="chip grey">Staff realm · meridian-staff</span> <span class="chip red">DEGRADED</span></div>
+        <div style="margin-top:8px"><span class="chip grey">Staff realm · magnus-staff</span> <span class="chip red">DEGRADED</span></div>
       </div>
-      <div class="banner danger"><b>Sign-in blocked while identity is unavailable.</b> Locum account <span class="mono">dr.a.menon@locum.meridiandx.in</span> has no recent authentication on this branch, so degraded-mode policy does not permit a new session. Retries continued for 15 min without success.</div>
+      <div class="banner danger"><b>Sign-in blocked while identity is unavailable.</b> Locum account <span class="mono">dr.a.menon@locum.magnusdx.in</span> has no recent authentication on this branch, so degraded-mode policy does not permit a new session. Retries continued for 15 min without success.</div>
       <div class="ladder" style="margin:12px 0 4px">
         <div class="tier done"><b>09:31</b> — sign-in queued (position 6)</div>
         <div class="tier done"><b>09:31–09:46</b> — 9 automatic retries, identity service not responding</div>
@@ -1416,9 +1416,9 @@ tr.dim td{color:#94A3B8}
     <div class="card" style="max-width:420px;margin:0 auto">
       <div style="text-align:center;margin-bottom:12px">
         <div class="brand" style="font-size:18px">◎ MagnusPRO <span>WORKSPACE</span></div>
-        <div style="margin-top:8px"><span class="chip grey">Staff realm · meridian-staff</span> <span class="chip green">RESTORED</span></div>
+        <div style="margin-top:8px"><span class="chip grey">Staff realm · magnus-staff</span> <span class="chip green">RESTORED</span></div>
       </div>
-      <div class="field"><label>Work email or employee ID</label><input class="input" value="d.nair@meridiandx.in"></div>
+      <div class="field"><label>Work email or employee ID</label><input class="input" value="d.nair@magnusdx.in"></div>
       <div class="field"><label>Continue with</label>
         <div style="display:flex;gap:10px"><span class="btn primary grow" style="flex:1">Passkey</span><span class="btn grow" style="flex:1">Password + TOTP</span></div>
         <div class="hint">Your queued sign-in from 09:58 IST was carried over — one confirmation and you're in.</div>
@@ -1462,10 +1462,10 @@ tr.dim td{color:#94A3B8}
         <div class="card-title">Queue <span class="right">Sorted by SLA</span></div>
         <table>
           <tr><th>Request</th><th>Account</th><th>Type</th><th>Received (IST)</th><th>SLA · owner</th><th>Verification</th><th></th></tr>
-          <tr><td class="mono">REQ-4187</td><td class="bold">P. D'Souza · Cashier · MD-AW-0287<div class="small muted">North Paravoor</div></td><td><span class="chip red">Suspicious-sign-in hold</span><div class="small muted">3 failed TOTP from Nagpur, 23 Jul 02:17</div></td><td class="mono">23 Jul 08:05</td><td><span class="chip red">OVERDUE 26h</span><div class="small">K. Verma</div></td><td><span class="chip amber">Checklist 1/4</span></td><td><span class="btn small primary">Review</span></td></tr>
-          <tr class="hl"><td class="mono">REQ-4192</td><td class="bold">D. Nair · Front Office · MD-AW-0412<div class="small muted">North Paravoor</div></td><td><span class="chip amber">Lockout — 5 wrong passwords</span><div class="small muted">workstation FD-05, 25 Jul 09:02</div></td><td class="mono">25 Jul 09:04</td><td><span class="chip amber">Due in 24 min</span><div class="small">K. Verma</div></td><td><span class="chip grey">Not started</span></td><td><span class="btn small primary">Review</span></td></tr>
-          <tr><td class="mono">REQ-4193</td><td class="bold">Dr. V. Shetty · Radiologist · MD-AW-0109<div class="small muted">North Paravoor · reporting desk</div></td><td><span class="chip blue">Lost authenticator (phone) — TOTP reset + new passkey</span></td><td class="mono">25 Jul 08:40</td><td><span class="chip teal">Due in 3h 12m</span><div class="small">K. Verma</div></td><td><span class="chip amber">Checklist 2/4</span></td><td><span class="btn small primary">Review</span></td></tr>
-          <tr><td class="mono">REQ-4194</td><td class="bold">T. Okafor · Technologist · MD-AW-0533<div class="small muted">CT-ROOM-1 duty</div></td><td><span class="chip amber">Lockout — expired session loop on console</span></td><td class="mono">25 Jul 09:21</td><td><span class="chip teal">Due in 41 min</span><div class="small">Unassigned · <span class="btn ghost small">Claim</span></div></td><td><span class="chip grey">Not started</span></td><td><span class="btn small">Open</span></td></tr>
+          <tr><td class="mono">REQ-4187</td><td class="bold">P. D'Souza · Cashier · MD-NPV-0287<div class="small muted">North Paravoor</div></td><td><span class="chip red">Suspicious-sign-in hold</span><div class="small muted">3 failed TOTP from Nagpur, 23 Jul 02:17</div></td><td class="mono">23 Jul 08:05</td><td><span class="chip red">OVERDUE 26h</span><div class="small">K. Verma</div></td><td><span class="chip amber">Checklist 1/4</span></td><td><span class="btn small primary">Review</span></td></tr>
+          <tr class="hl"><td class="mono">REQ-4192</td><td class="bold">D. Nair · Front Office · MD-NPV-0412<div class="small muted">North Paravoor</div></td><td><span class="chip amber">Lockout — 5 wrong passwords</span><div class="small muted">workstation FD-05, 25 Jul 09:02</div></td><td class="mono">25 Jul 09:04</td><td><span class="chip amber">Due in 24 min</span><div class="small">K. Verma</div></td><td><span class="chip grey">Not started</span></td><td><span class="btn small primary">Review</span></td></tr>
+          <tr><td class="mono">REQ-4193</td><td class="bold">Dr. V. Shetty · Radiologist · MD-NPV-0109<div class="small muted">North Paravoor · reporting desk</div></td><td><span class="chip blue">Lost authenticator (phone) — TOTP reset + new passkey</span></td><td class="mono">25 Jul 08:40</td><td><span class="chip teal">Due in 3h 12m</span><div class="small">K. Verma</div></td><td><span class="chip amber">Checklist 2/4</span></td><td><span class="btn small primary">Review</span></td></tr>
+          <tr><td class="mono">REQ-4194</td><td class="bold">T. Okafor · Technologist · MD-NPV-0533<div class="small muted">CT-ROOM-1 duty</div></td><td><span class="chip amber">Lockout — expired session loop on console</span></td><td class="mono">25 Jul 09:21</td><td><span class="chip teal">Due in 41 min</span><div class="small">Unassigned · <span class="btn ghost small">Claim</span></div></td><td><span class="chip grey">Not started</span></td><td><span class="btn small">Open</span></td></tr>
         </table>
         <div class="small muted" style="margin-top:8px">Requests auto-escalate to the org admin group at 100% SLA. A user on suspicious-sign-in hold keeps read access from verified devices only; unlock without completed verification is not possible in the UI or API.</div>
       </div>
@@ -1548,7 +1548,7 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Administration › Identity &amp; access › Password &amp; MFA policy</div>
       <div class="page-title">Password &amp; MFA policy <span class="actions-right"><span class="btn small ghost">View change log</span> <span class="btn small">Discard draft</span> <span class="btn small primary">Preview impact →</span></span></div>
-      <div class="page-sub">Applies to staff realm (Keycloak <span class="mono">meridian-staff</span>). Patient OTP realm and operator realm are governed separately. Policy version <span class="mono">v14</span> · effective since 02 Jun 2026.</div>
+      <div class="page-sub">Applies to staff realm (Keycloak <span class="mono">magnus-staff</span>). Patient OTP realm and operator realm are governed separately. Policy version <span class="mono">v14</span> · effective since 02 Jun 2026.</div>
 
       <div class="banner info"><b>Draft in progress — not yet applied</b>You have 3 unsaved changes (highlighted below). Changes must pass impact preview and are applied on a staged effective date, never immediately mid-shift.</div>
 
@@ -1566,7 +1566,7 @@ tr.dim td{color:#94A3B8}
                 <div class="field"><label>Complexity</label>
                   <div class="check"><span class="box on">✓</span> Require mixed case + digit</div>
                   <div class="check"><span class="box on">✓</span> Block breached-password list (k-anonymity check, hash-prefix only leaves tenant)</div>
-                  <div class="check"><span class="box on">✓</span> Block name / employee ID / "meridian" substrings</div>
+                  <div class="check"><span class="box on">✓</span> Block name / employee ID / "magnus" substrings</div>
                   <div class="check"><span class="box">&nbsp;</span> Require special character <span class="muted small">(off — length preferred per policy note IA-07)</span></div>
                 </div>
               </div>
@@ -1708,10 +1708,10 @@ tr.dim td{color:#94A3B8}
       <div class="row">
         <div class="grow">
           <div class="card" style="border-left:4px solid #0F766E">
-            <div class="card-title">Staff realm <span class="right">Keycloak · meridian-staff</span></div>
+            <div class="card-title">Staff realm <span class="right">Keycloak · magnus-staff</span></div>
             <div class="kv">
               <dt>Status</dt><dd><span class="chip green">HEALTHY</span> · 214 active users · last key rotation 01 Jul 2026</dd>
-              <dt>Issuer</dt><dd><span class="mono">https://id.magnus.numinacore.in/realms/meridian-staff</span></dd>
+              <dt>Issuer</dt><dd><span class="mono">https://id.magnus.numinacore.in/realms/magnus-staff</span></dd>
               <dt>Sign-in methods</dt><dd>Password + TOTP/passkey · tenant SSO (SAML) <span class="chip teal">ENABLED</span></dd>
               <dt>Session policy</dt><dd>SSO idle 30 min · absolute 10 h · offline tokens <span class="chip grey">DISABLED</span></dd>
             </div>
@@ -1788,8 +1788,8 @@ tr.dim td{color:#94A3B8}
     <tr><td>Metadata fetch &amp; signature</td><td><span class="chip green">PASS</span></td><td>Cert CN=login.microsoftonline.com, valid to 14 Feb 2027</td></tr>
     <tr><td>SSO redirect &amp; assertion</td><td><span class="chip green">PASS</span></td><td>Round-trip 640 ms · signed + encrypted assertion</td></tr>
     <tr><td>Clock skew</td><td><span class="chip green">PASS</span></td><td>IdP−SP skew 1.2 s (tolerance 90 s)</td></tr>
-    <tr><td>Attribute mapping</td><td><span class="chip green">PASS</span></td><td><span class="mono">email=k.verma@meridiandx.in</span> → matched pre-created user</td></tr>
-    <tr><td>Unmatched-user handling</td><td><span class="chip green">PASS</span></td><td>Synthetic <span class="mono">ghost@meridiandx.in</span> correctly rejected (JIT off), rejection logged</td></tr>
+    <tr><td>Attribute mapping</td><td><span class="chip green">PASS</span></td><td><span class="mono">email=k.verma@magnusdx.in</span> → matched pre-created user</td></tr>
+    <tr><td>Unmatched-user handling</td><td><span class="chip green">PASS</span></td><td>Synthetic <span class="mono">ghost@magnusdx.in</span> correctly rejected (JIT off), rejection logged</td></tr>
   </table>
   <div class="banner success" style="margin-top:10px"><b>All 5 checks passed</b>You can enable SSO enforcement for pilot group "North Paravoor — admin staff (9 users)" before org-wide rollout.</div>
   <div class="modal-actions"><span class="btn">Close</span><span class="btn primary">Enable for pilot group</span></div>
@@ -1882,10 +1882,10 @@ tr.dim td{color:#94A3B8}
         <div class="card-title">Kiosk &amp; display device bindings <span class="right">device-bound service tokens</span></div>
         <table>
           <tr><th>Device</th><th>Type</th><th>Branch / location</th><th>Bound identity</th><th>Token age</th><th>Last heartbeat</th><th></th></tr>
-          <tr><td class="mono bold">KIOSK-AW-01</td><td>Self check-in kiosk</td><td>North Paravoor · lobby</td><td class="mono">svc-kiosk@meridian</td><td>6 h (rotates 24 h)</td><td><span class="chip green">38 s ago</span></td><td><span class="btn small ghost">Re-pair</span> <span class="btn small ghost">Unbind</span></td></tr>
-          <tr><td class="mono bold">DISPLAY-AW-02</td><td>Queue display board</td><td>North Paravoor · waiting area</td><td class="mono">svc-display@meridian</td><td>11 h</td><td><span class="chip green">12 s ago</span></td><td><span class="btn small ghost">Re-pair</span> <span class="btn small ghost">Unbind</span></td></tr>
-          <tr><td class="mono bold">KIOSK-BND-01</td><td>Self check-in kiosk</td><td>Bandra · lobby</td><td class="mono">svc-kiosk@meridian</td><td>22 h</td><td><span class="chip amber">14 min ago — check network</span></td><td><span class="btn small">Re-pair</span> <span class="btn small ghost">Unbind</span></td></tr>
-          <tr><td class="mono bold">DISPLAY-PWI-01</td><td>Queue display board</td><td>Aluva · waiting area</td><td class="mono">svc-display@meridian</td><td>—</td><td><span class="chip red">OFFLINE 3 d — binding expired</span></td><td><span class="btn small primary">Re-pair (QR + admin PIN)</span></td></tr>
+          <tr><td class="mono bold">KIOSK-NPV-01</td><td>Self check-in kiosk</td><td>North Paravoor · lobby</td><td class="mono">svc-kiosk@magnus</td><td>6 h (rotates 24 h)</td><td><span class="chip green">38 s ago</span></td><td><span class="btn small ghost">Re-pair</span> <span class="btn small ghost">Unbind</span></td></tr>
+          <tr><td class="mono bold">DISPLAY-NPV-02</td><td>Queue display board</td><td>North Paravoor · waiting area</td><td class="mono">svc-display@magnus</td><td>11 h</td><td><span class="chip green">12 s ago</span></td><td><span class="btn small ghost">Re-pair</span> <span class="btn small ghost">Unbind</span></td></tr>
+          <tr><td class="mono bold">KIOSK-BND-01</td><td>Self check-in kiosk</td><td>Bandra · lobby</td><td class="mono">svc-kiosk@magnus</td><td>22 h</td><td><span class="chip amber">14 min ago — check network</span></td><td><span class="btn small">Re-pair</span> <span class="btn small ghost">Unbind</span></td></tr>
+          <tr><td class="mono bold">DISPLAY-PWI-01</td><td>Queue display board</td><td>Aluva · waiting area</td><td class="mono">svc-display@magnus</td><td>—</td><td><span class="chip red">OFFLINE 3 d — binding expired</span></td><td><span class="btn small primary">Re-pair (QR + admin PIN)</span></td></tr>
         </table>
         <div class="hint" style="font-size:11px;color:#64748B;margin-top:6px">Re-pairing shows a one-time QR on this console, scanned at the device within 5 minutes; the old token is revoked at the moment of re-pair. Display boards render token numbers only — never patient names or study details.</div>
       </div>
@@ -1981,25 +1981,25 @@ tr.dim td{color:#94A3B8}
         <table>
           <tr><th>Account</th><th>Purpose</th><th>Scopes (least privilege)</th><th>Keys</th><th>Status</th><th></th></tr>
           <tr>
-            <td class="bold mono">svc-integration@meridian</td><td>Integration engine — HL7/DICOM bridge (CT-ROOM-1 AE MERIDCT1, US-UNIT-2 AE MERIDUS2, MRI-ROOM-2)</td>
+            <td class="bold mono">svc-integration@magnus</td><td>Integration engine — HL7/DICOM bridge (CT-ROOM-1 AE MAGCT1, US-UNIT-2 AE MAGUS2, MRI-ROOM-2)</td>
             <td><span class="chip teal">orders:read</span> <span class="chip teal">orders:status</span> <span class="chip teal">studies:link</span> <span class="chip teal">worklist:write</span></td>
             <td>2 active <span class="chip amber">rotation overlap</span></td><td><span class="chip green">ACTIVE</span></td>
             <td><span class="btn small ghost">Manage</span></td>
           </tr>
           <tr>
-            <td class="bold mono">svc-kiosk@meridian</td><td>Lobby check-in kiosks (KIOSK-AW-01, KIOSK-BND-01)</td>
+            <td class="bold mono">svc-kiosk@magnus</td><td>Lobby check-in kiosks (KIOSK-NPV-01, KIOSK-BND-01)</td>
             <td><span class="chip teal">appointments:checkin</span> <span class="chip teal">queue:token-issue</span></td>
             <td>1 active <span class="chip amber">expires 03 Aug</span></td><td><span class="chip green">ACTIVE</span></td>
             <td><span class="btn small">Rotate now</span></td>
           </tr>
           <tr>
-            <td class="bold mono">svc-display@meridian</td><td>Waiting-area queue display boards (token numbers only, no PHI)</td>
+            <td class="bold mono">svc-display@magnus</td><td>Waiting-area queue display boards (token numbers only, no PHI)</td>
             <td><span class="chip teal">queue:read-tokens</span></td>
             <td>1 active</td><td><span class="chip green">ACTIVE</span></td>
             <td><span class="btn small ghost">Manage</span></td>
           </tr>
           <tr class="dim">
-            <td class="bold mono">svc-portal@meridian</td><td>Future patient portal (MVP-2) — pre-provisioned, disabled</td>
+            <td class="bold mono">svc-portal@magnus</td><td>Future patient portal (MVP-2) — pre-provisioned, disabled</td>
             <td><span class="chip grey">reports:release (dormant)</span> <span class="chip grey">payments:status (dormant)</span></td>
             <td>0</td><td><span class="chip grey">DISABLED</span></td>
             <td><span class="btn small ghost">Manage</span></td>
@@ -2013,8 +2013,8 @@ tr.dim td{color:#94A3B8}
           <tr><th>Key</th><th>Account</th><th>Created</th><th>Last used</th><th>Expiry</th><th>Status</th><th></th></tr>
           <tr><td class="mono">mk_live_int…c21</td><td class="mono">svc-integration</td><td>18 Jul 2026 · K. Verma</td><td>2 min ago · 172.20.4.11</td><td>18 Jul 2027</td><td><span class="chip green">ACTIVE (new)</span></td><td><span class="btn small ghost">Usage</span> <span class="btn small warn-outline">Revoke</span></td></tr>
           <tr><td class="mono">mk_live_int…7ab</td><td class="mono">svc-integration</td><td>19 Jan 2026 · K. Verma</td><td>4 h ago · 172.20.4.11</td><td><span class="chip amber">auto-revokes 31 Jul (overlap end)</span></td><td><span class="chip amber">RETIRING</span></td><td><span class="btn small ghost">Usage</span> <span class="btn small warn-outline">Revoke now</span></td></tr>
-          <tr><td class="mono">mk_live_kio…9f4</td><td class="mono">svc-kiosk</td><td>04 Aug 2025 · (prev admin)</td><td>38 s ago · KIOSK-AW-01</td><td><span class="chip red">03 Aug 2026 — 9 days</span></td><td><span class="chip green">ACTIVE</span></td><td><span class="btn small">Rotate</span> <span class="btn small warn-outline">Revoke</span></td></tr>
-          <tr><td class="mono">mk_live_dsp…e02</td><td class="mono">svc-display</td><td>12 Mar 2026 · K. Verma</td><td>12 s ago · DISPLAY-AW-02</td><td>12 Mar 2027</td><td><span class="chip green">ACTIVE</span></td><td><span class="btn small ghost">Usage</span> <span class="btn small warn-outline">Revoke</span></td></tr>
+          <tr><td class="mono">mk_live_kio…9f4</td><td class="mono">svc-kiosk</td><td>04 Aug 2025 · (prev admin)</td><td>38 s ago · KIOSK-NPV-01</td><td><span class="chip red">03 Aug 2026 — 9 days</span></td><td><span class="chip green">ACTIVE</span></td><td><span class="btn small">Rotate</span> <span class="btn small warn-outline">Revoke</span></td></tr>
+          <tr><td class="mono">mk_live_dsp…e02</td><td class="mono">svc-display</td><td>12 Mar 2026 · K. Verma</td><td>12 s ago · DISPLAY-NPV-02</td><td>12 Mar 2027</td><td><span class="chip green">ACTIVE</span></td><td><span class="btn small ghost">Usage</span> <span class="btn small warn-outline">Revoke</span></td></tr>
           <tr class="dim"><td class="mono">mk_live_int…d90</td><td class="mono">svc-integration</td><td>02 Sep 2025</td><td>19 Jan 2026</td><td>—</td><td><span class="chip red">REVOKED 19 Jan</span></td><td><span class="btn small ghost">Usage</span></td></tr>
         </table>
         <div class="hint" style="font-size:11px;color:#64748B;margin-top:6px">Keys are stored as salted hashes — the full secret is displayed once at creation and cannot be recovered, only rotated. "Last used" shows source IP or bound device; a never-used key older than 30 days is flagged for revocation in the quarterly access review.</div>
@@ -2028,7 +2028,7 @@ tr.dim td{color:#94A3B8}
 <div class="state-tag">STATE B — CREATE SERVICE ACCOUNT WITH SCOPES (SECRET SHOWN ONCE)</div>
 <div class="modal-wrap"><div class="modal" style="max-width:640px">
   <h3>New service account</h3>
-  <div class="field"><label>Account ID <span class="req">*</span></label><input class="input mono" value="svc-labfeed@meridian"><div class="hint">Non-human identity; cannot sign in interactively, no password, key-auth only.</div></div>
+  <div class="field"><label>Account ID <span class="req">*</span></label><input class="input mono" value="svc-labfeed@magnus"><div class="hint">Non-human identity; cannot sign in interactively, no password, key-auth only.</div></div>
   <div class="field"><label>Purpose <span class="req">*</span></label><input class="input" value="Outbound lab analyser results feed — Bandra biochemistry"></div>
   <div class="field"><label>Scopes — least privilege <span class="req">*</span></label>
     <div class="check"><span class="box on">✓</span> <span class="chip teal">lab-results:write</span> <span class="muted small">push analyser results to pending orders</span></div>
@@ -2046,7 +2046,7 @@ tr.dim td{color:#94A3B8}
 
 <div class="state-tag">STATE C — ROTATION WITH DUAL-KEY OVERLAP WINDOW</div>
 <div class="frame"><div class="body"><div class="main">
-  <div class="page-title">Rotate key — svc-integration@meridian</div>
+  <div class="page-title">Rotate key — svc-integration@magnus</div>
   <div class="page-sub">Zero-downtime rotation: both keys work during the overlap window, then the old key auto-revokes. Overlap 7 days by default (max 14).</div>
   <div class="stepper">
     <span class="step done"><span class="dot">✓</span> Issue new key</span><span class="step-line"></span>
@@ -2064,7 +2064,7 @@ tr.dim td{color:#94A3B8}
     <div class="small muted" style="margin-top:4px">87% of traffic migrated. Finish MRI-ROOM-2 bridge config before 31 Jul or extend the overlap (max once, +7 days, logged).</div>
     <div style="display:flex;gap:8px;margin-top:10px"><span class="btn small">Extend overlap +7 d</span><span class="btn small warn-outline">Revoke old key now</span><span class="btn small ghost">View per-caller usage</span></div>
   </div>
-  <div class="banner info"><b>Why overlap?</b>Immediate cutover would break the HL7/DICOM bridge mid-shift for CT-ROOM-1 (AE MERIDCT1) and US-UNIT-2 (AE MERIDUS2). Overlap lets each caller migrate independently while every call is attributed to a specific key in the usage log.</div>
+  <div class="banner info"><b>Why overlap?</b>Immediate cutover would break the HL7/DICOM bridge mid-shift for CT-ROOM-1 (AE MAGCT1) and US-UNIT-2 (AE MAGUS2). Overlap lets each caller migrate independently while every call is attributed to a specific key in the usage log.</div>
 </div></div></div>
 
 <div class="state-tag">STATE D — KEY REVOKED (IMMEDIATE, STEP-UP + REASON)</div>
@@ -2074,7 +2074,7 @@ tr.dim td{color:#94A3B8}
     <div class="card-title">Post-revocation checklist</div>
     <table>
       <tr><th>Item</th><th>Status</th><th>Owner</th></tr>
-      <tr><td>KIOSK-AW-01 offline (shared the key) — issue replacement key &amp; re-pair</td><td><span class="chip red">OVERDUE 22:20 IST</span></td><td>K. Verma</td></tr>
+      <tr><td>KIOSK-NPV-01 offline (shared the key) — issue replacement key &amp; re-pair</td><td><span class="chip red">OVERDUE 22:20 IST</span></td><td>K. Verma</td></tr>
       <tr><td>Device binding for KIOSK-BND-01 unbound</td><td><span class="chip green">DONE 22:06</span></td><td>system</td></tr>
       <tr><td>Usage log review — last 72 h of revoked key</td><td><span class="chip amber">IN PROGRESS · SLA 23:00</span></td><td>K. Verma</td></tr>
       <tr><td>Incident note filed with branch manager (Bandra)</td><td><span class="chip amber">PENDING</span></td><td>D. Nair</td></tr>
@@ -2097,7 +2097,7 @@ tr.dim td{color:#94A3B8}
 <tr><td class="mono">WS-READ-03</td><td>Reading workstation</td><td>Radiology · North Paravoor</td><td><span class="chip green">Managed</span></td><td>✓ encrypted · ✓ screen-lock · OS current</td><td class="mono">10:41 IST</td><td><span class="chip green">Trusted</span></td></tr>
 <tr><td class="mono">CNT-DESK-01</td><td>Shared counter</td><td>Front office (badge/PIN)</td><td><span class="chip green">Managed</span></td><td>✓ all checks</td><td class="mono">10:44 IST</td><td><span class="chip green">Trusted</span></td></tr>
 <tr class="hl"><td class="mono">LAP-KV-PERS</td><td>Personal laptop</td><td>K. Verma</td><td><span class="chip grey">Unmanaged</span></td><td>⚠ disk encryption unverified</td><td class="mono">09:12 IST</td><td><span class="chip amber">Limited — read-only, no export</span></td></tr>
-<tr><td class="mono">KIOSK-AW-1</td><td>Check-in kiosk</td><td>Device account (<a href="#au-18" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">AU-18</a>)</td><td><span class="chip green">Managed</span></td><td>✓ kiosk profile</td><td class="mono">10:45 IST</td><td><span class="chip green">Trusted · kiosk scope</span></td></tr>
+<tr><td class="mono">KIOSK-NPV-1</td><td>Check-in kiosk</td><td>Device account (<a href="#au-18" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">AU-18</a>)</td><td><span class="chip green">Managed</span></td><td>✓ kiosk profile</td><td class="mono">10:45 IST</td><td><span class="chip green">Trusted · kiosk scope</span></td></tr>
 <tr><td class="mono">PH-UNKNOWN-7</td><td>Unknown mobile</td><td>sign-in attempt · Dr. V. Shetty</td><td>—</td><td>new device</td><td class="mono">08:02 IST</td><td><span class="chip red">Blocked — approval pending (<a href="#au-14" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">AU-14</a>)</span></td></tr></table></div>
 <div class="card"><div class="card-title">Conditional access policies <span class="right">evaluated in order · changes need approval (<a href="Magnus_HMS_G12_Admin_Master_Data.html#ad-05" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">AD-05</a>)</span></div>
 <table><tr><th>#</th><th>Condition</th><th>Decision</th><th>Applies to</th></tr>

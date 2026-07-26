@@ -208,7 +208,7 @@ tr.dim td{color:#94A3B8}
     <tr><td class="mono">type.page-title</td><td class="mono">19px / 800</td><td><span style="font-size:19px;font-weight:800">Usage metering — July 2026</span></td><td>Page title inside .main (one per page)</td></tr>
     <tr><td class="mono">type.card-title</td><td class="mono">14.5px / 800</td><td><span style="font-size:14.5px;font-weight:800">Per-tenant consumption</span></td><td>Card headers</td></tr>
     <tr><td class="mono">type.body</td><td class="mono">14px / 400 · lh 1.45</td><td>Report verified by Dr. V. Shetty at 14:02 IST.</td><td>Default body copy</td></tr>
-    <tr><td class="mono">type.table</td><td class="mono">12.5px / 400</td><td><span style="font-size:12.5px">CT-ROOM-1 · AE MERIDCT1 · 212 studies</span></td><td>Table cells, kv values, banners</td></tr>
+    <tr><td class="mono">type.table</td><td class="mono">12.5px / 400</td><td><span style="font-size:12.5px">CT-ROOM-1 · AE MAGCT1 · 212 studies</span></td><td>Table cells, kv values, banners</td></tr>
     <tr><td class="mono">type.label</td><td class="mono">10.5px / 700 · caps · +.06em</td><td><span style="font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#64748B;font-weight:700">Studies metered</span></td><td>Table headers, kv keys, KPI labels, sec-labels</td></tr>
     <tr><td class="mono">type.micro</td><td class="mono">11px / 400</td><td><span style="font-size:11px;color:#8A6D1D">🔒 Recorded in the access log.</span></td><td>Audit lines, hints. <b>Absolute floor — nothing smaller ships.</b></td></tr>
     <tr><td class="mono">type.mono</td><td class="mono">SF Mono / Consolas ·.93em</td><td><span class="mono">MRN-2044-8812 · sha256 7bd3…91af</span></td><td>IDs, AE titles, hashes, timestamps in timelines</td></tr>
@@ -569,7 +569,7 @@ tr.dim td{color:#94A3B8}
 <div class="card">
   <div class="card-title">Escalation ladder — reference rendering <span class="right">component: .ladder</span></div>
   <div class="ladder">
-    <div class="tier done"><b>Tier 0 · 14:00 IST — SLA started.</b> <span class="small muted">Trigger: CT study MRD-2026-018834 QC-complete on CT-ROOM-1 (AE MERIDCT1), flagged STAT.</span></div>
+    <div class="tier done"><b>Tier 0 · 14:00 IST — SLA started.</b> <span class="small muted">Trigger: CT study MAG-2026-018834 QC-complete on CT-ROOM-1 (AE MAGCT1), flagged STAT.</span></div>
     <div class="tier done"><b>Tier 1 · 14:22 IST — warning (75%).</b> <span class="small muted">Owner assigned: Dr. V. Shetty. In-app nudge only.</span></div>
     <div class="tier cur"><b>Tier 2 · 14:45 IST — breach +15m.</b> <span class="small muted">Radiology lead K. Verma notified: in-app + DLT SMS (Jio route). Quiet hours ignored (clinical class).</span></div>
     <div class="tier"><b>Tier 3 · 15:15 IST — breach +45m (scheduled).</b> <span class="small muted">Branch manager + org-admin dashboard flag; incident record auto-opened.</span></div>
@@ -585,7 +585,7 @@ tr.dim td{color:#94A3B8}
     <tr><th>SLA</th><th>Class</th><th>Window</th><th>Warn %</th><th>Breach owner role</th><th>Tier-2 delay</th><th>Quiet hours</th><th>Example chip at breach</th></tr>
     <tr class="hl"><td class="bold">STAT read turnaround</td><td><span class="chip red">clinical</span></td><td>60 min from QC-complete</td><td>50%</td><td class="mono">rad.lead</td><td>15 min</td><td class="mono">NONE</td><td><span class="chip red">OVERDUE +18m · STAT read</span></td></tr>
     <tr class="hl"><td class="bold">Critical result acknowledgement</td><td><span class="chip red">clinical</span></td><td>30 min from result flagged critical</td><td>50%</td><td class="mono">referring.contact-desk</td><td>10 min</td><td class="mono">NONE</td><td><span class="chip red">OVERDUE +6m · critical ack</span></td></tr>
-    <tr><td class="bold">Unmatched study reconciliation</td><td><span class="chip amber">operational</span></td><td>4 h from receipt (e.g. from US-UNIT-2 / AE MERIDUS2)</td><td>75%</td><td class="mono">tech.supervisor</td><td>30 min</td><td>SMS defers to 07:00 IST</td><td><span class="chip red">OVERDUE +41m · unmatched study</span></td></tr>
+    <tr><td class="bold">Unmatched study reconciliation</td><td><span class="chip amber">operational</span></td><td>4 h from receipt (e.g. from US-UNIT-2 / AE MAGUS2)</td><td>75%</td><td class="mono">tech.supervisor</td><td>30 min</td><td>SMS defers to 07:00 IST</td><td><span class="chip red">OVERDUE +41m · unmatched study</span></td></tr>
     <tr><td class="bold">Patient complaint first response</td><td><span class="chip amber">operational</span></td><td>48 h from lodgement</td><td>75%</td><td class="mono">branch.manager</td><td>4 h</td><td>SMS defers to 07:00 IST</td><td><span class="chip red">OVERDUE +3h · complaint</span></td></tr>
     <tr><td class="bold">DSR fulfilment (DPDP)</td><td><span class="chip violet">regulatory</span></td><td>30 days; warning fixed at day 28</td><td>day-28 (fixed)</td><td class="mono">dpo (org)</td><td>24 h</td><td>SMS defers to 07:00 IST</td><td><span class="chip red">OVERDUE +2d · DSR MDS-DSR-0142</span></td></tr>
     <tr><td class="bold">Approval requests (rate cards, refunds, access grants)</td><td><span class="chip amber">operational</span></td><td>4 h business time</td><td>75%</td><td class="mono">org.admin</td><td>60 min</td><td>SMS defers to 07:00 IST</td><td><span class="chip red">OVERDUE +55m · approval</span></td></tr>
@@ -611,7 +611,7 @@ tr.dim td{color:#94A3B8}
 </div>
 <div class="card">
   <div class="card-title">Level 2 · Degraded (amber) <span class="right">banner.warn</span></div>
-  <div class="banner warn"><b>⚠ Degraded — some functions paused.</b> PACS link to CT-ROOM-1 (AE MERIDCT1) is intermittent since 12:03 IST. Worklists show the read-cache as of 12:03 IST and are marked "cached". New study arrivals may be delayed; billing runs in draft-only mode. Owner: T. Okafor (technologist on duty) · auto-retry every 60s.</div>
+  <div class="banner warn"><b>⚠ Degraded — some functions paused.</b> PACS link to CT-ROOM-1 (AE MAGCT1) is intermittent since 12:03 IST. Worklists show the read-cache as of 12:03 IST and are marked "cached". New study arrivals may be delayed; billing runs in draft-only mode. Owner: T. Okafor (technologist on duty) · auto-retry every 60s.</div>
   <table>
     <tr><th style="width:30%">Rule</th><th>Specification</th></tr>
     <tr><td class="bold">When shown</td><td>Partial failure: one upstream (PACS, payment gateway UPI, DLT SMS, WhatsApp BSP) is down or flapping while the app itself is reachable.</td></tr>
@@ -621,7 +621,7 @@ tr.dim td{color:#94A3B8}
 </div>
 <div class="card">
   <div class="card-title">Level 3 · Blocked (red) <span class="right">banner.danger</span></div>
-  <div class="banner danger"><b>⛔ Report signing is unavailable offline.</b> Signing requires a live server-side identity check and hash-chain write; it cannot be queued. Your draft for study MRD-2026-018834 is saved locally and intact. Signing re-enables automatically when the connection returns — nothing to redo. Why: a queued signature could be replayed against a report edited after you last saw it.</div>
+  <div class="banner danger"><b>⛔ Report signing is unavailable offline.</b> Signing requires a live server-side identity check and hash-chain write; it cannot be queued. Your draft for study MAG-2026-018834 is saved locally and intact. Signing re-enables automatically when the connection returns — nothing to redo. Why: a queued signature could be replayed against a report edited after you last saw it.</div>
   <table>
     <tr><th style="width:30%">Rule</th><th>Specification</th></tr>
     <tr><td class="bold">When shown</td><td>User attempts an action marked <b>never-offline</b> in the capability matrix. Rendered at the point of action (replaces the primary button area), plus the pinned level-1/2 banner stays.</td></tr>
@@ -639,8 +639,8 @@ tr.dim td{color:#94A3B8}
     <tr><th>#</th><th>Queued (device, IST)</th><th>Actor</th><th>Action</th><th>Subject</th><th>Replay order</th><th>Status</th></tr>
     <tr><td class="mono">1</td><td class="mono">12:04:11</td><td>D. Nair</td><td>Register walk-in patient</td><td>A. Kulkarni (masked: A. K•••••ni)</td><td class="mono">1 of 6</td><td><span class="chip green">Synced 12:31 IST</span></td></tr>
     <tr><td class="mono">2</td><td class="mono">12:06:47</td><td>D. Nair</td><td>Book USG appointment · US-UNIT-2</td><td>A. K•••••ni</td><td class="mono">2 of 6</td><td><span class="chip green">Synced 12:31 IST</span></td></tr>
-    <tr class="hl"><td class="mono">3</td><td class="mono">12:09:02</td><td>P. D'Souza</td><td>Draft invoice ₹2,850 (UPI pending)</td><td>Enc MRD-2026-018851</td><td class="mono">3 of 6</td><td><span class="chip amber">⚑ Conflict — needs review</span></td></tr>
-    <tr><td class="mono">4</td><td class="mono">12:12:38</td><td>T. Okafor</td><td>Mark patient arrived</td><td>Enc MRD-2026-018852</td><td class="mono">4 of 6</td><td><span class="chip grey">Held (after conflict)</span></td></tr>
+    <tr class="hl"><td class="mono">3</td><td class="mono">12:09:02</td><td>P. D'Souza</td><td>Draft invoice ₹2,850 (UPI pending)</td><td>Enc MAG-2026-018851</td><td class="mono">3 of 6</td><td><span class="chip amber">⚑ Conflict — needs review</span></td></tr>
+    <tr><td class="mono">4</td><td class="mono">12:12:38</td><td>T. Okafor</td><td>Mark patient arrived</td><td>Enc MAG-2026-018852</td><td class="mono">4 of 6</td><td><span class="chip grey">Held (after conflict)</span></td></tr>
   </table>
   <table style="margin-top:12px">
     <tr><th style="width:30%">Contract clause</th><th>Specification</th></tr>
@@ -654,7 +654,7 @@ tr.dim td{color:#94A3B8}
   <div class="card-title">Sync-conflict resolution modal — reference spec <span class="right">component: .modal</span></div>
   <div class="modal-wrap">
     <div class="modal" style="max-width:640px">
-      <h3>⚑ Sync conflict — Invoice draft, Enc MRD-2026-018851</h3>
+      <h3>⚑ Sync conflict — Invoice draft, Enc MAG-2026-018851</h3>
       <p class="small muted" style="margin-bottom:10px">Queued offline by P. D'Souza at 12:09 IST; the server record was changed by K. Verma at 12:14 IST while this branch was offline. Only the differing fields are shown.</p>
       <table>
         <tr><th>Field</th><th>Your offline value (12:09)</th><th>Server value (12:14)</th><th>Keep</th></tr>
@@ -785,7 +785,7 @@ tr.dim td{color:#94A3B8}
     <tr><td class="bold">Time is always absolute IST</td><td>"cached as of 09:02 IST", "since 09:41 IST".</td><td>"a few minutes ago", "recently" — relative time on stale clinical data is unsafe.</td></tr>
     <tr><td class="bold">One next step</td><td>Exactly one primary action per specimen (Create / Clear filters / Retry).</td><td>Three equal-weight buttons; "Contact your administrator" as the only option when a retry would work.</td></tr>
     <tr><td class="bold">Empty ≠ error, ever</td><td>Verified-empty says what exists ("142 studies exist today"); errors say what failed.</td><td>Rendering an empty state when the fetch failed — the single most dangerous copy bug in this product.</td></tr>
-    <tr><td class="bold">Privacy in specimens</td><td>Patient identifiers in examples/errors stay masked: "A. K•••••ni · MRD-2026-018851".</td><td>Full patient names or phone numbers echoed into error cards, logs, or support IDs.</td></tr>
+    <tr><td class="bold">Privacy in specimens</td><td>Patient identifiers in examples/errors stay masked: "A. K•••••ni · MAG-2026-018851".</td><td>Full patient names or phone numbers echoed into error cards, logs, or support IDs.</td></tr>
   </table>
 </div>
 <div class="state-tag">ADDITION — ZERO-SCROLL RULE · STICKY ACTIONS · ERROR BOUNDARY (UX-5/16/18)</div><div class="card"><div class="card-title">Zero-scroll decision rule (UX-5)</div><table><tr><th>Rule</th><th>Spec</th></tr>
@@ -808,7 +808,7 @@ tr.dim td{color:#94A3B8}
   <div class="card-title">The footer line — one per screen, bottom of content, class <span class="mono">.audit</span> <span class="right">specimens</span></div>
   <table>
     <tr><th style="width:16%">Action class</th><th style="width:47%">Exact footer specimen</th><th>Phrasing rule</th></tr>
-    <tr><td class="bold">View (PHI read)</td><td><span class="audit" style="margin:0;display:block">Viewing this record (A. K•••••ni · MRD-2026-018851) is itself an access event — your identity, purpose "treatment", and the fields displayed are recorded in the access log.</span></td><td>Present tense, "is itself an access event". Names the masked subject and the purpose basis. Users must know reads are logged, not only writes.</td></tr>
+    <tr><td class="bold">View (PHI read)</td><td><span class="audit" style="margin:0;display:block">Viewing this record (A. K•••••ni · MAG-2026-018851) is itself an access event — your identity, purpose "treatment", and the fields displayed are recorded in the access log.</span></td><td>Present tense, "is itself an access event". Names the masked subject and the purpose basis. Users must know reads are logged, not only writes.</td></tr>
     <tr><td class="bold">Create / edit</td><td><span class="audit" style="margin:0;display:block">Saving writes a before/after snapshot with your identity and reason; the change is visible to the patient in their DPDP access report and recorded in the access log.</span></td><td>Mentions before/after snapshot and patient visibility — edits to a person's data are disclosable to that person.</td></tr>
     <tr><td class="bold">Sensitive reveal (unmask)</td><td><span class="audit" style="margin:0;display:block">Revealing the full mobile number requires a stated purpose and is individually logged with a 30-day review flag — recorded in the access log.</span></td><td>Reveal events log per-field, not per-screen, and always carry a purpose picked from a closed list (never free-text only).</td></tr>
     <tr><td class="bold">Destructive / irreversible</td><td><span class="audit" style="margin:0;display:block">Cancellation is irreversible and requires step-up confirmation and a second approver; the full request, both identities and the reason are chained into the tamper-evident audit record and recorded in the access log.</span></td><td>Says "irreversible" plainly, names both controls (step-up + four-eyes) before the user commits.</td></tr>
@@ -827,7 +827,7 @@ tr.dim td{color:#94A3B8}
     <tr><th style="width:150px">Field</th><th style="width:210px">Example value</th><th>Rules</th></tr>
     <tr><td class="mono">event_id / ts</td><td class="mono">evt_01J9M2… · 2026-07-21T14:42:09+05:30</td><td>Server-assigned, monotonic per branch; IST offset stored explicitly.</td></tr>
     <tr><td class="mono">actor</td><td class="mono">usr_kverma · K. Verma · role org-admin · staff realm (Keycloak) · session sess_88c1 · step-up: passkey@14:41</td><td>Real identity + realm + session + the step-up method/time if one gated this event. Service actions carry the service principal AND the human who triggered them where one exists.</td></tr>
-    <tr><td class="mono">subject (masked)</td><td class="mono">pat_5521 · "A. K•••••ni" · MRD-2026-018851</td><td>Subject is stored as an opaque ID; the display name inside the audit UI itself stays masked — reading the audit log must not become a PHI side-channel. Unmasking within the log is itself a logged reveal event.</td></tr>
+    <tr><td class="mono">subject (masked)</td><td class="mono">pat_5521 · "A. K•••••ni" · MAG-2026-018851</td><td>Subject is stored as an opaque ID; the display name inside the audit UI itself stays masked — reading the audit log must not become a PHI side-channel. Unmasking within the log is itself a logged reveal event.</td></tr>
     <tr><td class="mono">action / purpose</td><td class="mono">record.update · purpose: billing-correction</td><td>Action from the closed verb registry; purpose from the closed purpose list (treatment, billing, quality, legal, support), optional free-text amplification.</td></tr>
     <tr><td class="mono">basis</td><td class="mono">DPDP consent cns_2210 v3 / legitimate-use §7(b)</td><td>The lawful basis pointer — consent record + version, or the statutory clause. No basis, no write: the API rejects basis-less PHI events.</td></tr>
     <tr><td class="mono">before / after</td><td class="mono">{discount_pct: 0 → 10}</td><td>Field-level diff for writes; reads store the field <i>set</i> displayed. PHI values inside diffs are encrypted at rest separately from the event envelope.</td></tr>
@@ -859,7 +859,7 @@ tr.dim td{color:#94A3B8}
   <div class="card-title">Step-up identity confirmation modal — reference spec <span class="right">component: .modal</span></div>
   <div class="modal-wrap">
     <div class="modal">
-      <h3>Confirm it's you — signing report MRD-2026-018834</h3>
+      <h3>Confirm it's you — signing report MAG-2026-018834</h3>
       <p class="small muted" style="margin-bottom:10px">You are about to <b>sign</b> the CT Brain (plain) report for A. K•••••ni as Dr. V. Shetty. Signing is legally attributable to you and cannot be undone (amendments create a new versioned record).</p>
       <div class="field"><label>Passkey <span class="chip teal" style="margin-left:6px">preferred</span></label><span class="btn primary small">Use passkey on this device</span></div>
       <div class="field"><label>Or authenticator code (TOTP)</label><div class="input mono" style="max-width:180px;color:#94A3B8">6-digit code</div><div class="hint">Backup codes work here; using one voids it and notifies you by SMS. Staff realm (Keycloak) · session sess_74d2.</div></div>
@@ -869,7 +869,7 @@ tr.dim td{color:#94A3B8}
   </div>
   <table>
     <tr><th style="width:30%">Modal rule</th><th>Specification</th></tr>
-    <tr><td class="bold">Names the exact action</td><td>Title and body restate the specific action + masked subject ("signing report MRD-2026-018834"), never generic "Confirm your identity". What is confirmed is what executes — the payload is bound to the challenge.</td></tr>
+    <tr><td class="bold">Names the exact action</td><td>Title and body restate the specific action + masked subject ("signing report MAG-2026-018834"), never generic "Confirm your identity". What is confirmed is what executes — the payload is bound to the challenge.</td></tr>
     <tr><td class="bold">Factor rules</td><td>Passkey preferred, TOTP fallback, backup codes accepted-and-voided. Password re-entry alone is never a valid step-up. Patient OTP realm factors can never satisfy a staff-realm step-up.</td></tr>
     <tr><td class="bold">Freshness window</td><td>Grade A actions: fresh challenge every time. Grade B: a step-up ≤10 min old may be reused, shown as "verified 14:41 IST · reuse". Window is org-configurable 5–15 min, never longer.</td></tr>
     <tr><td class="bold">Failure / cancel</td><td>3 failed attempts locks step-up 5 min and notifies the user's other channel; cancel = no action, no partial state, logged as declined challenge.</td></tr>
@@ -909,7 +909,7 @@ tr.dim td{color:#94A3B8}
 <tr><td><b>Staff worklist (default)</b><br><span class="muted small">purpose = Treatment</span></td><td><span class="chip amber">PARTIAL</span> name + masked MRN</td><td>Ananya S. · <span class="mono">#MRN-••••30</span> · F/34</td><td>Surname initialised. Phone masked to <span class="mono">+91 98••• ••412</span>. Full MRN needs reveal-with-reason.</td></tr>
 <tr><td><b>Clinical read context</b><br><span class="muted small">assigned radiologist, open study</span></td><td><span class="chip green">FULL</span> within assignment</td><td>Ananya Subramanian · <span class="mono">MRN-2026-004530</span></td><td>Full identity auto-unmasked only while Dr. V. Shetty holds the active read assignment; collapses back to PARTIAL on release.</td></tr>
 <tr><td><b>Logs &amp; audit exports</b><br><span class="muted small">system + operator surfaces</span></td><td><span class="chip blue">PSEUDONYMISED</span></td><td><span class="mono">subj:pt_9f3a1c · actor:usr_dnair</span></td><td>Logs store stable pseudonyms, never names/phones. Re-identification only via privacy officer console with dual control (four-eyes).</td></tr>
-<tr><td><b>Platform operator (NUMINACORE)</b></td><td><span class="chip red">TOKEN ONLY</span> — always</td><td><span class="mono">tenant:meridian · pt_9f3a1c</span></td><td>Operators never see tenant PHI. No reveal path exists in the operator realm.</td></tr>
+<tr><td><b>Platform operator (NUMINACORE)</b></td><td><span class="chip red">TOKEN ONLY</span> — always</td><td><span class="mono">tenant:magnus · pt_9f3a1c</span></td><td>Operators never see tenant PHI. No reveal path exists in the operator realm.</td></tr>
 </table>
 <p class="small muted" style="margin-top:8px">Token format: <span class="mono">#MRN-••••NN</span> — last two digits retained for verbal disambiguation at the desk; all other digits suppressed. Never show first digits (they encode registration year/branch).</p>
 </div>
@@ -962,8 +962,8 @@ tr.dim td{color:#94A3B8}
 <div class="banner danger" style="margin-bottom:10px"><b>Hard rule</b>Outbound SMS/WhatsApp never contains diagnosis, test name, report content, or full MRN. Links are short-lived tokenised URLs behind patient OTP (separate patient realm).</div>
 <table>
 <tr><th style="width:70px">Verdict</th><th>Template</th></tr>
-<tr><td><span class="chip green">PASS</span></td><td class="mono">Magnus Diagnostics: Your report for visit V-0412 is ready. View securely: mgns.in/r/8kq2 (OTP to this number). Helpdesk 022-4000 1100 — MERIDN</td></tr>
-<tr><td><span class="chip green">PASS</span></td><td class="mono">Magnus Diagnostics: Appointment confirmed 28 Jul 2026, 10:30 AM, North Paravoor. Token Q-047. Reschedule: mgns.in/a/3fp9 — MERIDN</td></tr>
+<tr><td><span class="chip green">PASS</span></td><td class="mono">Magnus Diagnostics: Your report for visit V-0412 is ready. View securely: mgns.in/r/8kq2 (OTP to this number). Helpdesk 022-4000 1100 — MAGN</td></tr>
+<tr><td><span class="chip green">PASS</span></td><td class="mono">Magnus Diagnostics: Appointment confirmed 28 Jul 2026, 10:30 AM, North Paravoor. Token Q-047. Reschedule: mgns.in/a/3fp9 — MAGN</td></tr>
 <tr><td><span class="chip red">FAIL</span></td><td class="mono"><s>Your CT Brain report shows no abnormality. MRN-2026-004530…</s> <span class="small" style="color:#B91C1C">✕ test name + finding + full MRN in transit</span></td></tr>
 <tr><td><span class="chip red">FAIL</span></td><td class="mono"><s>Dear Ananya Subramanian, your HIV screening result is available…</s> <span class="small" style="color:#B91C1C">✕ full name + sensitive test category</span></td></tr>
 </table>
@@ -1077,11 +1077,11 @@ tr.dim td{color:#94A3B8}
 <table>
 <tr><th style="width:60px">Zone</th><th style="width:180px">Name</th><th style="width:150px">Position / size</th><th>Required content</th><th style="width:210px">Rules</th></tr>
 <tr><td class="mono">Z1</td><td><b>Org identity</b></td><td>Header · 28 mm</td><td>Tenant logo, legal name “Magnus Diagnostics Pvt Ltd”, branch address, phone, NABL/NABH accreditation marks where held</td><td>Logo max 22 mm high; monochrome fallback auto-generated for thermal. Branch line pulled from branch master — never hand-typed in templates.</td></tr>
-<tr><td class="mono">Z2</td><td><b>Document band</b></td><td>Below header · 12 mm</td><td>Document type (RADIOLOGY REPORT / TAX INVOICE / RECEIPT), document no., issue date-time IST, page x of y</td><td>Document numbers are branch-prefixed and gapless per statutory series (INV-AW-2026-07-01184).</td></tr>
+<tr><td class="mono">Z2</td><td><b>Document band</b></td><td>Below header · 12 mm</td><td>Document type (RADIOLOGY REPORT / TAX INVOICE / RECEIPT), document no., issue date-time IST, page x of y</td><td>Document numbers are branch-prefixed and gapless per statutory series (INV-NPV-2026-07-01184).</td></tr>
 <tr><td class="mono">Z3</td><td><b>Subject block</b></td><td>Left column · flexible</td><td>Patient name, MRN, age/sex, referrer, visit ID; QR code linking to verification URL (token, no PHI in QR payload)</td><td>Identity fields obey <a href="#ds-07" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">DS-07</a> masking for duplicate copies requested by third parties.</td></tr>
 <tr><td class="mono">Z4</td><td><b>Body</b></td><td>Main flow</td><td>Report narrative / line items / consent text</td><td>Body styles locked to template typography set; no per-user fonts. Tables must not split a line item across pages.</td></tr>
 <tr><td class="mono">Z5</td><td><b>Signature block</b></td><td>Above footer · 30 mm</td><td>See signature spec (State B)</td><td>Never orphaned: if &lt; 40 mm remains, whole block moves to next page with “continued” marker.</td></tr>
-<tr><td class="mono">Z6</td><td><b>Statutory footer</b></td><td>Footer · 16 mm, every page</td><td>GSTIN 27AABCM4520K1Z7 · CIN U85110MH2011PTC214563 · grievance officer name + email (grievance@meridiandx.in) + phone 022-4000 1190 · “This document is electronically generated” line</td><td>Footer content comes from org statutory profile (<a href="Magnus_HMS_G05_Orders_Clinical_Safety.html#or-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">OR-04</a>); templates cannot edit or remove it. Invoice footers additionally carry SAC code + place of supply.</td></tr>
+<tr><td class="mono">Z6</td><td><b>Statutory footer</b></td><td>Footer · 16 mm, every page</td><td>GSTIN 27AABCM4520K1Z7 · CIN U85110MH2011PTC214563 · grievance officer name + email (grievance@magnusdx.in) + phone 022-4000 1190 · “This document is electronically generated” line</td><td>Footer content comes from org statutory profile (<a href="Magnus_HMS_G05_Orders_Clinical_Safety.html#or-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">OR-04</a>); templates cannot edit or remove it. Invoice footers additionally carry SAC code + place of supply.</td></tr>
 </table>
 </div>
 
@@ -1094,7 +1094,7 @@ tr.dim td{color:#94A3B8}
 <div class="banner reg" style="margin-bottom:10px"><b>A document renders forever exactly as first issued</b>Each issued document pins: letterhead version, statutory footer version, terminology/code-set version, template version and locale pack version. Later rebrands or template edits never alter an already-issued document — reprints re-render from the pinned versions.</div>
 <table>
 <tr><th>Event</th><th>Effect on issued documents</th></tr>
-<tr><td>Tenant uploads new logo (letterhead v8 → v9)</td><td>None. Report RPT-AW-2026-07-0921 issued under v8 reprints with v8 logo, plus DUPLICATE COPY watermark.</td></tr>
+<tr><td>Tenant uploads new logo (letterhead v8 → v9)</td><td>None. Report RPT-NPV-2026-07-0921 issued under v8 reprints with v8 logo, plus DUPLICATE COPY watermark.</td></tr>
 <tr><td>GSTIN or grievance officer changes</td><td>New documents use new footer version; old ones keep the footer that was legally in force at issue.</td></tr>
 <tr><td>Report addendum signed</td><td>New document version v2 issued; v1 remains retrievable, watermarked <span class="mono">SUPERSEDED — SEE ADDENDUM</span>.</td></tr>
 <tr><td>Template deleted by admin</td><td>Soft-retire only; render engine keeps all historical versions. Hard delete does not exist.</td></tr>
@@ -1113,7 +1113,7 @@ tr.dim td{color:#94A3B8}
 <div style="border:1px solid #E2E8F0;border-radius:8px;padding:10px 12px">
 <div class="sig-box signed" style="min-height:44px">Dr. V. Shetty</div>
 <div class="small" style="margin-top:6px"><b>Dr. Vikram Shetty</b>, MD (Radiodiagnosis)<br>Reg. no. MMC-2009-44182 · Consultant Radiologist</div>
-<div class="small mono muted" style="margin-top:4px">Digitally signed 25 Jul 2026 13:47 IST · cert SN 4F:2A:…:9C · verify at mgns.in/v/RPT-AW-2026-07-0921</div>
+<div class="small mono muted" style="margin-top:4px">Digitally signed 25 Jul 2026 13:47 IST · cert SN 4F:2A:…:9C · verify at mgns.in/v/RPT-NPV-2026-07-0921</div>
 </div>
 <p class="small muted" style="margin-top:6px">Order: signature image/script line → printed name → registration no. → role → digital-signature line. Wet-signature templates keep an empty rule line of 60 mm in place of the script line. Co-signed reports stack blocks, senior last.</p>
 </div>
@@ -1164,7 +1164,7 @@ tr.dim td{color:#94A3B8}
 <tr><td><b>Consent forms &amp; privacy notices</b></td><td><span class="chip green">YES</span></td><td>Legal-reviewed translations, versioned</td><td>Translations are legal texts, not string files. Each locale rendition carries its own reviewer sign-off and is bound to the notice version (State C). Patient signs the rendition they were shown.</td></tr>
 <tr><td><b>Clinical reports</b> (radiologist narrative)</td><td><span class="chip red">NO</span></td><td>Authored language only (English in MVP-1)</td><td><b>Never auto-translated.</b> Machine translation of clinical findings is a patient-safety risk (negation, laterality, hedging nuance) and creates an unowned legal document — no clinician has signed the translated text. Portal shows a hi/mr help note explaining how to get findings explained, but the report body stays as signed.</td></tr>
 <tr><td><b>Master data</b> (test names, modality names)</td><td><span class="chip amber">PARTIAL</span></td><td>Patient-facing aliases only</td><td>Internal catalogue stays English/coded (CT BRAIN PLAIN). Patient-facing alias per locale (“सीटी स्कैन — मस्तिष्क”) used on slips and portal only; invoices always print the English catalogue name + code beside any alias.</td></tr>
-<tr><td><b>Audit logs, IDs, device names</b></td><td><span class="chip red">NO</span></td><td>—</td><td>Log events, AE titles (MERIDCT1), document numbers are locale-invariant; only rendered timestamps localise.</td></tr>
+<tr><td><b>Audit logs, IDs, device names</b></td><td><span class="chip red">NO</span></td><td>—</td><td>Log events, AE titles (MAGCT1), document numbers are locale-invariant; only rendered timestamps localise.</td></tr>
 </table>
 <div class="banner info" style="margin-top:10px;margin-bottom:0"><b>Implementation note</b>react-i18next integrated from Sprint 1 even while only English strings ship — retrofitting i18n into components is the expensive path.</div>
 </div>
@@ -1249,7 +1249,7 @@ tr.dim td{color:#94A3B8}
 <tr><td>G11</td><td>Referrer Portal</td><td class="mono">RF</td><td>6</td><td class="mono">RF-01…RF-06</td><td>Referrer worklist, report access (scoped to own referrals), bulk status</td></tr>
 <tr><td>G12</td><td>Org &amp; Branch Administration</td><td class="mono">OA</td><td>11</td><td class="mono">OA-01…OA-11</td><td>Branch master, staff &amp; roles, catalogue &amp; price lists, statutory profile, printer profiles</td></tr>
 <tr><td>G13</td><td>Privacy, Consent &amp; Audit</td><td class="mono">PV</td><td>9</td><td class="mono">PV-01…PV-09</td><td>Access log explorer, reveal-reason review, consent registry, retention jobs, DSR requests</td></tr>
-<tr><td>G14</td><td>Devices &amp; DICOM Integration</td><td class="mono">DV</td><td>7</td><td class="mono">DV-01…DV-07</td><td>AE registry (MERIDCT1, MERIDUS2), MWL health, storage commit, MRI-ROOM-2 onboarding</td></tr>
+<tr><td>G14</td><td>Devices &amp; DICOM Integration</td><td class="mono">DV</td><td>7</td><td class="mono">DV-01…DV-07</td><td>AE registry (MAGCT1, MAGUS2), MWL health, storage commit, MRI-ROOM-2 onboarding</td></tr>
 <tr><td>G15</td><td>Analytics &amp; MIS</td><td class="mono">AN</td><td>6</td><td class="mono">AN-01…AN-06</td><td>TAT dashboards, revenue day-book, referrer volumes, SLA breach drill-down</td></tr>
 <tr><td>G16</td><td>Platform Operator Console</td><td class="mono">PL</td><td>10</td><td class="mono"><a href="Magnus_HMS_G16_Platform_Operator.html#pl-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">PL-01</a>…<a href="Magnus_HMS_G16_Platform_Operator.html#pl-10" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">PL-10</a></td><td>NUMINACORE operator realm: tenant lifecycle, plans, provider routes, release channels — zero tenant PHI</td></tr>
 <tr><td>G17</td><td>Design System &amp; Patterns</td><td class="mono">DS</td><td>11</td><td class="mono"><a href="#ds-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">DS-01</a>…<a href="#ds-11" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">DS-11</a></td><td>Documentation pages (this group) — not shipped in product navigation</td></tr>
@@ -1298,7 +1298,7 @@ tr.dim td{color:#94A3B8}
 <div class="card-title">Deep-link &amp; breadcrumb rules</div>
 <table>
 <tr><th style="width:120px">Rule</th><th>Spec</th></tr>
-<tr><td>URL shape</td><td class="mono">/w/&lt;workspace&gt;/&lt;group&gt;/&lt;screen&gt;/&lt;entity-id&gt;<br><span class="muted" style="font-family:inherit">e.g. /w/andheri-west/rd/worklist/V-260725-0412</span></td></tr>
+<tr><td>URL shape</td><td class="mono">/w/&lt;workspace&gt;/&lt;group&gt;/&lt;screen&gt;/&lt;entity-id&gt;<br><span class="muted" style="font-family:inherit">e.g. /w/north-paravoor/rd/worklist/V-260725-0412</span></td></tr>
 <tr><td>No PHI in URLs</td><td>Entity IDs only (visit, order, token) — never name, phone or MRN fragments; URLs land in browser history and proxy logs (<a href="#ds-07" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">DS-07</a>).</td></tr>
 <tr><td>Breadcrumb depth</td><td>Max 3 levels: <span class="mono">Workspace › Group › Screen</span>. Entity context renders in the page title, not a 4th crumb. Crumbs are the route truth — no “fake” crumbs from arrival path.</td></tr>
 <tr><td>Auth on deep link</td><td>Unauthenticated hit → <a href="Magnus_HMS_G01_Identity_Access.html#au-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">AU-01</a> with realm inferred from workspace, then return to the exact link. Step-up-gated screens (PV-*, refunds) re-challenge even inside a live session.</td></tr>
