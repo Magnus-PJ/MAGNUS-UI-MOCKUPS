@@ -26,6 +26,27 @@ GROUPS = {
  "G17_Design_System_Patterns": ("G17 · Design System & Patterns", "wave4", ["ds-%02d"%i for i in range(1,12)]),
 }
 
+
+PREFIX2KEY = {}
+for _k,(_t,_w,_ids) in GROUPS.items():
+    for _s in _ids: PREFIX2KEY[_s.split("-")[0].upper()] = _k
+
+def linkify(frag, current_key, same_doc=False):
+    import re as _re
+    # protect the screen-head sid spans
+    frag = frag.replace('<span class="sid">', '<span class="sid" data-nolink>')
+    def sub(m):
+        pre, num = m.group(1), m.group(2)
+        sid = f"{pre}-{num}"; key = PREFIX2KEY.get(pre)
+        if not key: return sid
+        href = f"#{sid.lower()}" if (same_doc or key==current_key) else f"Magnus_HMS_{key}.html#{sid.lower()}"
+        return f'<a href="{href}" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">{sid}</a>'
+    out=[]
+    for i,part in enumerate(_re.split(r'(<[^>]+>)', frag)):
+        out.append(part if part.startswith("<") else _re.sub(r'\b([A-Z]{2})-(\d{2})\b', sub, part))
+    frag = "".join(out)
+    return frag.replace('<span class="sid" data-nolink>', '<span class="sid">')
+
 def title_of(frag):
     m = re.search(r'<h1><span class="sid">([^<]+)</span>\s*([^<]+)</h1>', frag)
     return (m.group(1), m.group(2).strip()) if m else ("?","?")
@@ -39,9 +60,9 @@ def build(key):
         f = BASE/wave/f"{sid}.html"
         if not f.exists(): missing.append(sid); continue
         frag = f.read_text()
-        frags.append(frag)
+        frags.append(linkify(frag, key))
         i,t = title_of(frag)
-        toc.append(f'<tr><td class="mono bold" style="color:#0F766E">{i}</td><td>{t}</td></tr>')
+        toc.append(f'<tr><td class="mono bold"><a href="#{sid}" style="color:#0F766E;text-decoration:none">{i}</a></td><td><a href="#{sid}" style="color:inherit;text-decoration:none">{t}</a></td></tr>')
     cover = f'''<section class="screen" id="cover">
 <div style="padding-top:120px"><div style="border-left:6px solid #0F766E;padding-left:22px">
 <div style="font-size:12px;letter-spacing:.14em;font-weight:800;color:#0F766E;text-transform:uppercase;margin-bottom:10px">MagnusPRO · MVP 1 Complete Design Pack</div>

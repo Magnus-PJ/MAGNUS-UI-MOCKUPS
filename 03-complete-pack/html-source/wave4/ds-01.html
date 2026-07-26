@@ -164,5 +164,6 @@
     <tr><td>Typography &amp; spacing</td><td><span class="chip green">SHIPPED</span></td><td><span class="chip green">THEME-INDEPENDENT</span></td><td><span class="chip red">LOCKED</span></td><td>Scale identical across themes and tenants.</td></tr>
   </table>
 </div>
+<div class="state-tag">STATE E — CONTRAST ANTI-PATTERNS</div><div class="card"><div class="card-title">Contrast failures — never ship</div><table><tr><th>Pairing</th><th>Ratio</th><th>Verdict</th></tr><tr><td>#F59E0B amber text on white</td><td>2.1:1</td><td><span class="chip red">FAIL — use #92400E on #FEF3C7</span></td></tr><tr><td>#0F766E teal on white</td><td>5.9:1</td><td><span class="chip green">AA pass</span></td></tr><tr><td>#94A3B8 grey body text</td><td>2.9:1</td><td><span class="chip red">FAIL for body — #64748B minimum</span></td></tr></table></div>
 <p class="audit">Token changes are versioned; any tenant brand-colour override and its contrast-check result are recorded in the access log.</p>
 </section>

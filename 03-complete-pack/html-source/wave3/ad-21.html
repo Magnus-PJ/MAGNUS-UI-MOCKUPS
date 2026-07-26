@@ -40,5 +40,6 @@
 <div class="modal-wrap"><div class="modal"><h3>Replace SMS provider — Provider A → Provider D</h3>
 <div class="kv"><dt>Scope</dt><dd>All 4 centres · sms-adapter config + DLT template re-registration (NT-03)</dd><dt>Blast radius</dt><dd>Reminders, report links, OTP — queued during cutover window, zero data-model change</dd><dt>Approvals</dt><dd>Org admin + platform operator · rollback = re-point adapter</dd></div>
 <div class="modal-actions"><span class="btn">Cancel</span><span class="btn primary">Create change request</span></div></div></div>
+<div class="state-tag">STATE D — VENDOR CONTACT ESCALATION IN AN OUTAGE</div><div class="card"><div class="card-title">Live outage card — CT-NPV-1 down (linked TK-07)</div><div class="kv"><dt>Detected</dt><dd class="mono">10:12 IST · echo fail ×3</dd><dt>AMC SLA</dt><dd>8 h onsite — clock chip <span class="chip amber">02:40 elapsed</span></dd><dt>Vendor ticket</dt><dd class="mono">VC-ALPHA-77812 · logged from this page</dd><dt>Patient impact</dt><dd>6 CT appointments → bulk reschedule task created (FO-11)</dd></div></div>
 <p class="audit">Centre-detail views, vendor changes and contact edits are recorded; vendor swaps are change-controlled with blast-radius preview (AD-17 pattern).</p>
 </section>

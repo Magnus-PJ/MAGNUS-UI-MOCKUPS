@@ -123,10 +123,10 @@ tr.dim td{color:#94A3B8}
 <h1 style="font-size:36px;font-weight:800">G4 · Scheduling & Resource Setup</h1>
 <p style="font-size:14px;color:#64748B;margin-top:10px">10 screens · every screen with alternate states · shared design system · synthetic data only (no PHI)</p></div>
 <div class="card" style="max-width:700px;margin-top:26px"><div class="card-title">Screens in this group</div>
-<table><tr><th style="width:70px">ID</th><th>Screen</th></tr><tr><td class="mono bold" style="color:#0F766E">SC-01</td><td>Working hours &amp; breaks</td></tr><tr><td class="mono bold" style="color:#0F766E">SC-02</td><td>Holidays &amp; closures</td></tr><tr><td class="mono bold" style="color:#0F766E">SC-03</td><td>Slot templates</td></tr><tr><td class="mono bold" style="color:#0F766E">SC-04</td><td>Doctor availability &amp; time off</td></tr><tr><td class="mono bold" style="color:#0F766E">SC-05</td><td>Equipment availability &amp; maintenance</td></tr><tr><td class="mono bold" style="color:#0F766E">SC-06</td><td>Modality calendar admin &amp; publishing</td></tr><tr><td class="mono bold" style="color:#0F766E">SC-07</td><td>Overbooking &amp; walk-in rules</td></tr><tr><td class="mono bold" style="color:#0F766E">SC-08</td><td>Block booking &amp; camps</td></tr><tr><td class="mono bold" style="color:#0F766E">SC-09</td><td>Token &amp; queue rules</td></tr><tr><td class="mono bold" style="color:#0F766E">SC-10</td><td>Public display settings</td></tr></table></div>
+<table><tr><th style="width:70px">ID</th><th>Screen</th></tr><tr><td class="mono bold"><a href="#sc-01" style="color:#0F766E;text-decoration:none">SC-01</a></td><td><a href="#sc-01" style="color:inherit;text-decoration:none">Working hours &amp; breaks</a></td></tr><tr><td class="mono bold"><a href="#sc-02" style="color:#0F766E;text-decoration:none">SC-02</a></td><td><a href="#sc-02" style="color:inherit;text-decoration:none">Holidays &amp; closures</a></td></tr><tr><td class="mono bold"><a href="#sc-03" style="color:#0F766E;text-decoration:none">SC-03</a></td><td><a href="#sc-03" style="color:inherit;text-decoration:none">Slot templates</a></td></tr><tr><td class="mono bold"><a href="#sc-04" style="color:#0F766E;text-decoration:none">SC-04</a></td><td><a href="#sc-04" style="color:inherit;text-decoration:none">Doctor availability &amp; time off</a></td></tr><tr><td class="mono bold"><a href="#sc-05" style="color:#0F766E;text-decoration:none">SC-05</a></td><td><a href="#sc-05" style="color:inherit;text-decoration:none">Equipment availability &amp; maintenance</a></td></tr><tr><td class="mono bold"><a href="#sc-06" style="color:#0F766E;text-decoration:none">SC-06</a></td><td><a href="#sc-06" style="color:inherit;text-decoration:none">Modality calendar admin &amp; publishing</a></td></tr><tr><td class="mono bold"><a href="#sc-07" style="color:#0F766E;text-decoration:none">SC-07</a></td><td><a href="#sc-07" style="color:inherit;text-decoration:none">Overbooking &amp; walk-in rules</a></td></tr><tr><td class="mono bold"><a href="#sc-08" style="color:#0F766E;text-decoration:none">SC-08</a></td><td><a href="#sc-08" style="color:inherit;text-decoration:none">Block booking &amp; camps</a></td></tr><tr><td class="mono bold"><a href="#sc-09" style="color:#0F766E;text-decoration:none">SC-09</a></td><td><a href="#sc-09" style="color:inherit;text-decoration:none">Token &amp; queue rules</a></td></tr><tr><td class="mono bold"><a href="#sc-10" style="color:#0F766E;text-decoration:none">SC-10</a></td><td><a href="#sc-10" style="color:inherit;text-decoration:none">Public display settings</a></td></tr></table></div>
 <p class="muted small" style="margin-top:14px">Magnus Diagnostics → NUMINACORE · July 2026 · Prototype/reference — not committed product scope.</p></div></section><section class="screen" id="sc-01">
-<div class="screen-head"><h1><span class="sid">SC-01</span> Working hours &amp; breaks</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling &amp; Resource Setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 working hours</div></div></div>
-<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The org admin defines the weekly open/close and break windows per branch; the slot-generation engine reads this grid nightly to materialise bookable slots 45 days ahead. Changes never rewrite the past — every edit is effective-dated, previewed against existing bookings, and can be copied to other branches with a diff review. Exceptions (holidays, closures from SC-02) always override this grid.</div>
+<div class="screen-head"><h1><span class="sid"><a href="#sc-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-01</a></span> Working hours &amp; breaks</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling &amp; Resource Setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 working hours</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The org admin defines the weekly open/close and break windows per branch; the slot-generation engine reads this grid nightly to materialise bookable slots 45 days ahead. Changes never rewrite the past — every edit is effective-dated, previewed against existing bookings, and can be copied to other branches with a diff review. Exceptions (holidays, closures from <a href="#sc-02" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-02</a>) always override this grid.</div>
 
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
@@ -147,7 +147,7 @@ tr.dim td{color:#94A3B8}
       <div class="page-title">Working hours — Andheri West <span class="actions-right"><span class="btn small">Copy to branch…</span> <span class="btn small">View change history</span> <span class="btn small primary">Edit week</span></span></div>
       <div class="page-sub">Branch <span class="mono">BR-AND-01</span> · timezone Asia/Kolkata (IST) · current version <span class="mono">v7</span> effective since 01-Apr-2026 · read by slot generation nightly at 01:30 IST</div>
 
-      <div class="banner info"><b>Used by slot generation</b>Slots are materialised 45 days ahead from this grid, minus closures (SC-02), minus equipment maintenance windows (SC-05). Next generation run: 26-Jul-2026 01:30 IST. Editing here never deletes already-booked appointments — conflicts become reschedule tasks.</div>
+      <div class="banner info"><b>Used by slot generation</b>Slots are materialised 45 days ahead from this grid, minus closures (<a href="#sc-02" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-02</a>), minus equipment maintenance windows (<a href="#sc-05" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-05</a>). Next generation run: 26-Jul-2026 01:30 IST. Editing here never deletes already-booked appointments — conflicts become reschedule tasks.</div>
 
       <div class="card">
         <div class="card-title">Weekly grid <span class="right">version v7 · effective 01-Apr-2026 → open-ended</span></div>
@@ -161,12 +161,12 @@ tr.dim td{color:#94A3B8}
           <tr><td><b>Saturday</b></td><td><span class="chip green">Open</span></td><td class="mono">08:00</td><td class="mono">18:00</td><td class="mono">13:30–14:00 (lunch)</td><td>9h 30m</td><td><span class="btn small ghost">Edit</span></td></tr>
           <tr class="dim"><td><b>Sunday</b></td><td><span class="chip grey">Closed</span></td><td class="mono">—</td><td class="mono">—</td><td class="mono">—</td><td>0h</td><td><span class="btn small ghost">Edit</span></td></tr>
         </table>
-        <div class="hint" style="margin-top:6px;font-size:11px;color:#64748B">Breaks block all modalities at this branch. Modality-specific pauses (e.g. weekly CT QA) can instead be set as recurring equipment windows in SC-05 if only one unit is affected.</div>
+        <div class="hint" style="margin-top:6px;font-size:11px;color:#64748B">Breaks block all modalities at this branch. Modality-specific pauses (e.g. weekly CT QA) can instead be set as recurring equipment windows in <a href="#sc-05" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-05</a> if only one unit is affected.</div>
       </div>
 
       <div class="row">
         <div class="card grow">
-          <div class="card-title">Exceptions preview — next 30 days <span class="right">from Holidays &amp; closures (SC-02)</span></div>
+          <div class="card-title">Exceptions preview — next 30 days <span class="right">from Holidays &amp; closures (<a href="#sc-02" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-02</a>)</span></div>
           <table>
             <tr><th>Date</th><th>Exception</th><th>Scope</th><th>Effect on this grid</th></tr>
             <tr><td class="mono">15-Aug-2026 (Sat)</td><td>Independence Day</td><td><span class="chip grey">Whole branch</span></td><td>Overrides Saturday hours — 0 slots generated</td></tr>
@@ -230,8 +230,8 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Every view of this grid, each version save (before/after values, actor, step-up method, effective date, reason) and every copy-to-branch send is recorded in the access log.</p>
 </section>
 <section class="screen" id="sc-02">
-<div class="screen-head"><h1><span class="sid">SC-02</span> Holidays &amp; closures</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling &amp; Resource Setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 holidays & closures</div></div></div>
-<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The org admin maintains the closure calendar per branch: public holidays that repeat yearly and one-off closures, either whole-branch or limited to a modality. Before any closure is saved the system previews existing bookings on that date; if there are conflicts, saving spawns a bulk-reschedule task so no patient is silently dropped. Closures override working hours (SC-01) in slot generation.</div>
+<div class="screen-head"><h1><span class="sid"><a href="#sc-02" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-02</a></span> Holidays &amp; closures</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling &amp; Resource Setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 holidays & closures</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The org admin maintains the closure calendar per branch: public holidays that repeat yearly and one-off closures, either whole-branch or limited to a modality. Before any closure is saved the system previews existing bookings on that date; if there are conflicts, saving spawns a bulk-reschedule task so no patient is silently dropped. Closures override working hours (<a href="#sc-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-01</a>) in slot generation.</div>
 
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
@@ -265,7 +265,7 @@ tr.dim td{color:#94A3B8}
           <tr><td class="mono">15-Aug-2026 Sat</td><td><b>Independence Day</b></td><td><span class="chip grey">Whole branch</span></td><td><span class="chip blue">Yearly</span></td><td>0 — date was blocked before booking opened</td><td><span class="chip green">Clean</span></td><td><span class="btn small ghost">Open</span></td></tr>
           <tr class="hl"><td class="mono">16-Aug-2026 Sun</td><td><b>Janmashtami (observed)</b></td><td><span class="chip grey">Whole branch</span></td><td><span class="chip grey">One-off</span></td><td>0 — branch closed Sundays anyway</td><td><span class="chip green">Clean</span></td><td><span class="btn small ghost">Open</span></td></tr>
           <tr><td class="mono">27-Aug-2026 Thu</td><td><b>Ganesh Chaturthi</b></td><td><span class="chip grey">Whole branch</span></td><td><span class="chip blue">Yearly</span></td><td><span class="chip amber">6 booked</span> → TASK-2026-3324</td><td><span class="chip amber">Reschedule open</span> <span class="chip amber">SLA 20-Aug</span> owner: D. Nair</td><td><span class="btn small ghost">Open</span></td></tr>
-          <tr><td class="mono">14-Sep-2026 Mon</td><td><b>CT-ROOM-1 tube replacement</b> (from SC-05)</td><td><span class="chip blue">Modality: CT</span></td><td><span class="chip grey">One-off</span></td><td>0 — maintenance window pre-cleared</td><td><span class="chip green">Clean</span></td><td><span class="btn small ghost">Open</span></td></tr>
+          <tr><td class="mono">14-Sep-2026 Mon</td><td><b>CT-ROOM-1 tube replacement</b> (from <a href="#sc-05" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-05</a>)</td><td><span class="chip blue">Modality: CT</span></td><td><span class="chip grey">One-off</span></td><td>0 — maintenance window pre-cleared</td><td><span class="chip green">Clean</span></td><td><span class="btn small ghost">Open</span></td></tr>
           <tr class="dim"><td class="mono">01-May-2026 Fri</td><td><b>Maharashtra Day</b></td><td><span class="chip grey">Whole branch</span></td><td><span class="chip blue">Yearly</span></td><td>past</td><td><span class="chip grey">Elapsed</span></td><td><span class="btn small ghost">Open</span></td></tr>
           <tr class="dim"><td class="mono">14-Apr-2026 Tue</td><td><b>Ambedkar Jayanti</b></td><td><span class="chip grey">Whole branch</span></td><td><span class="chip blue">Yearly</span></td><td>past</td><td><span class="chip grey">Elapsed</span></td><td><span class="btn small ghost">Open</span></td></tr>
         </table>
@@ -322,7 +322,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Closure creation and deletion (actor, step-up method, scope, impact count), each reschedule task item transition, and all patient-contact events are recorded in the access log.</p>
 </section>
 <section class="screen" id="sc-03">
-<div class="screen-head"><h1><span class="sid">SC-03</span> Slot templates</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling &amp; Resource Setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 slot templates</div></div></div>
+<div class="screen-head"><h1><span class="sid"><a href="#sc-03" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-03</a></span> Slot templates</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling &amp; Resource Setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 slot templates</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Slot templates define how bookable time is cut per modality: slot length, patients per slot, prep gap between slots, and whether walk-ins or overbooking are allowed. Each template is versioned; the calendars that consume it are listed so an admin can see the blast radius before editing. Templates that are in use by future generated slots cannot be deleted — they are retired with an effective date instead.</div>
 
 <div class="frame">
@@ -342,7 +342,7 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Setup › Scheduling › Slot templates</div>
       <div class="page-title">Slot templates <span class="actions-right"><span class="btn small">Compare versions</span> <span class="btn small primary">+ New template</span></span></div>
-      <div class="page-sub">6 active templates · consumed by slot generation together with working hours (SC-01) and closures (SC-02) · edits apply from a chosen effective date, never retroactively</div>
+      <div class="page-sub">6 active templates · consumed by slot generation together with working hours (<a href="#sc-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-01</a>) and closures (<a href="#sc-02" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-02</a>) · edits apply from a chosen effective date, never retroactively</div>
 
       <div class="card">
         <div class="card-title">Active templates <span class="right">branch: Andheri West ▾</span></div>
@@ -423,7 +423,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Template creates, edits (field-level before/after), retirements and blocked delete attempts are recorded in the access log with actor, step-up method and effective date.</p>
 </section>
 <section class="screen" id="sc-04">
-<div class="screen-head"><h1><span class="sid">SC-04</span> Doctor availability &amp; time off</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling &amp; Resource Setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 doctor availability</div></div></div>
+<div class="screen-head"><h1><span class="sid"><a href="#sc-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-04</a></span> Doctor availability &amp; time off</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling &amp; Resource Setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 doctor availability</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Per-practitioner weekly duty grids control which blocks a doctor is bookable for performing (e.g. USG) and which are reserved for reading. Time-off requests run a coverage check against already-booked slots; conflicts become explicit reassign/reschedule tasks before approval can complete. For radiologists the reading-vs-performing split matters: reading blocks keep report SLAs alive without consuming bookable calendar slots.</div>
 
 <div class="frame">
@@ -476,7 +476,7 @@ tr.dim td{color:#94A3B8}
             <td><span class="chip grey">Off</span></td>
             <td><span class="chip grey">Off</span></td></tr>
         </table>
-        <div class="hint" style="margin-top:6px;font-size:11px;color:#64748B">Grid edits are effective-dated like SC-01. Removing a performing block that already has bookings triggers the same conflict flow as time off below.</div>
+        <div class="hint" style="margin-top:6px;font-size:11px;color:#64748B">Grid edits are effective-dated like <a href="#sc-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-01</a>. Removing a performing block that already has bookings triggers the same conflict flow as time off below.</div>
       </div>
 
       <div class="row">
@@ -539,8 +539,8 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Duty-grid versions, time-off requests, coverage-check results, each conflict resolution and the final approval (actor, step-up method) are recorded in the access log.</p>
 </section>
 <section class="screen" id="sc-05">
-<div class="screen-head"><h1><span class="sid">SC-05</span> Equipment availability &amp; maintenance</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling &amp; Resource Setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 equipment availability + maintenance</div></div></div>
-<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Each imaging unit has its own availability calendar. Planned maintenance windows are entered here — they create a modality-scoped closure (visible in SC-02) plus reschedule tasks for any bookings caught inside the window. Unplanned downtime syncs in from the device board (TK-07): when a unit goes down, its future slots are auto-blocked and front office gets an immediate conflict task. Everything lands in an append-only history log per unit.</div>
+<div class="screen-head"><h1><span class="sid"><a href="#sc-05" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-05</a></span> Equipment availability &amp; maintenance</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling &amp; Resource Setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 equipment availability + maintenance</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Each imaging unit has its own availability calendar. Planned maintenance windows are entered here — they create a modality-scoped closure (visible in <a href="#sc-02" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-02</a>) plus reschedule tasks for any bookings caught inside the window. Unplanned downtime syncs in from the device board (<a href="Magnus_HMS_G06_Radiology_Technician.html#tk-07" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">TK-07</a>): when a unit goes down, its future slots are auto-blocked and front office gets an immediate conflict task. Everything lands in an append-only history log per unit.</div>
 
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
@@ -559,7 +559,7 @@ tr.dim td{color:#94A3B8}
     <div class="main">
       <div class="crumb">Setup › Scheduling › Equipment availability</div>
       <div class="page-title">Equipment availability — Andheri West <span class="actions-right"><span class="btn small">History log</span> <span class="btn small primary">+ Plan maintenance</span></span></div>
-      <div class="page-sub">3 units · availability feeds slot generation per calendar · unplanned downtime auto-synced from device board (TK-07)</div>
+      <div class="page-sub">3 units · availability feeds slot generation per calendar · unplanned downtime auto-synced from device board (<a href="Magnus_HMS_G06_Radiology_Technician.html#tk-07" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">TK-07</a>)</div>
 
       <div class="kpi-row">
         <div class="kpi"><div class="n">2</div><div class="l">Units in service</div><div class="s">CT-ROOM-1 · MRI-ROOM-2</div></div>
@@ -574,17 +574,17 @@ tr.dim td{color:#94A3B8}
           <tr><td><b>CT-ROOM-1</b> <span class="mono">MERIDCT1</span><br><span class="small muted">Siemens go.Up · 32-slice</span></td>
             <td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 07:30–21:00</span><br><span class="chip grey">QA 17:00–17:20</span></td><td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 08:00–18:00</span></td><td><span class="chip grey">closed</span></td></tr>
           <tr class="hl"><td><b>US-UNIT-2</b> <span class="mono">MERIDUS2</span><br><span class="small muted">GE Logiq · Room A</span></td>
-            <td colspan="6"><span class="chip red">✕ DOWN since 25-Jul 14:05 — probe connector fault · auto-blocked from TK-07 · restore ETA 26-Jul 12:00</span></td><td><span class="chip grey">closed</span></td></tr>
+            <td colspan="6"><span class="chip red">✕ DOWN since 25-Jul 14:05 — probe connector fault · auto-blocked from <a href="Magnus_HMS_G06_Radiology_Technician.html#tk-07" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">TK-07</a> · restore ETA 26-Jul 12:00</span></td><td><span class="chip grey">closed</span></td></tr>
           <tr><td><b>MRI-ROOM-2</b> <span class="mono">MERIDMR2</span><br><span class="small muted">1.5T · head/spine coils</span></td>
             <td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 07:30–21:00</span></td><td><span class="chip green">■ 08:00–18:00</span></td><td><span class="chip amber">▦ coil service 09:00–15:00</span></td></tr>
         </table>
-        <div class="hint" style="margin-top:6px;font-size:11px;color:#64748B">TK-07 auto-block: when the device board marks a unit down, all its unbooked future slots are withdrawn within 60 seconds and booked slots open a conflict task — no manual step needed. Manual unblock requires the device to report back in service.</div>
+        <div class="hint" style="margin-top:6px;font-size:11px;color:#64748B"><a href="Magnus_HMS_G06_Radiology_Technician.html#tk-07" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">TK-07</a> auto-block: when the device board marks a unit down, all its unbooked future slots are withdrawn within 60 seconds and booked slots open a conflict task — no manual step needed. Manual unblock requires the device to report back in service.</div>
       </div>
 
       <div class="card">
         <div class="card-title">History log — all units <span class="right">append-only · filter: 30 days ▾</span></div>
         <div class="timeline">
-          <div class="ev"><span class="t">25-Jul 14:05</span><span><b>US-UNIT-2 down (unplanned)</b> — synced from device board TK-07 · fault: probe connector · 11 future bookings auto-flagged → TASK-2026-3352</span></div>
+          <div class="ev"><span class="t">25-Jul 14:05</span><span><b>US-UNIT-2 down (unplanned)</b> — synced from device board <a href="Magnus_HMS_G06_Radiology_Technician.html#tk-07" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">TK-07</a> · fault: probe connector · 11 future bookings auto-flagged → TASK-2026-3352</span></div>
           <div class="ev"><span class="t">18-Jul 10:12</span><span><b>MRI-ROOM-2 planned window created</b> — coil service 02-Aug 09:00–15:00 · by K. Verma · 0 booking conflicts (Sunday, branch closed)</span></div>
           <div class="ev"><span class="t">09-Jul 16:44</span><span><b>CT-ROOM-1 back in service</b> — after tube warm-up fault · downtime 1h 38m · 3 delayed patients accommodated same day</span></div>
         </div>
@@ -605,7 +605,7 @@ tr.dim td{color:#94A3B8}
       <div class="field grow"><label>To <span class="req">*</span></label><span class="input mono" style="display:block">21:00</span></div>
     </div>
     <div class="field"><label>Work description <span class="req">*</span></label><span class="input" style="display:block">X-ray tube replacement — vendor engineer (Siemens SR #IN-88412)</span></div>
-    <div class="banner warn"><b>Impact preview</b>Creates a modality-scoped closure "CT — maintenance" on 14-Sep (listed in SC-02). 7 CT bookings already exist inside the window (earliest 08:15). Saving spawns bulk-reschedule task for those 7; USG, MRI and X-Ray remain fully bookable. Slot generation withdraws unbooked CT slots on tonight's run.</div>
+    <div class="banner warn"><b>Impact preview</b>Creates a modality-scoped closure "CT — maintenance" on 14-Sep (listed in <a href="#sc-02" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-02</a>). 7 CT bookings already exist inside the window (earliest 08:15). Saving spawns bulk-reschedule task for those 7; USG, MRI and X-Ray remain fully bookable. Slot generation withdraws unbooked CT slots on tonight's run.</div>
     <div class="check"><span class="box on">✓</span> Notify referrers of affected orders via their preferred channel after rebooking</div>
     <div class="check"><span class="box"></span> Also block 15-Sep morning for post-service QA calibration</div>
     <div class="banner reg"><b>Dual control</b>Full-day blocks of a primary unit require a second approver. Sent to: <b>T. Okafor (lead technologist)</b> — window stays "proposed" and slots keep generating until they countersign.</div>
@@ -613,10 +613,10 @@ tr.dim td{color:#94A3B8}
   </div>
 </div>
 
-<div class="state-tag">STATE C — UNPLANNED DOWNTIME ACTIVE (SYNCED FROM TK-07)</div>
+<div class="state-tag">STATE C — UNPLANNED DOWNTIME ACTIVE (SYNCED FROM <a href="Magnus_HMS_G06_Radiology_Technician.html#tk-07" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">TK-07</a>)</div>
 <div class="frame"><div class="body"><div class="main">
   <div class="page-title">US-UNIT-2 — unplanned downtime <span class="chip red">DOWN 4h 32m</span></div>
-  <div class="banner danger"><b>Auto-block active since 25-Jul-2026 14:05 IST (device board TK-07)</b>Fault: probe connector; vendor ticket <span class="mono">GE-SVC-77120</span>, engineer ETA 26-Jul 10:00, restore ETA 12:00. 46 unbooked slots withdrawn automatically; 11 booked appointments moved into conflict task <span class="mono">TASK-2026-3352</span> · <span class="chip red">SLA: OVERDUE — 4 patients arriving today</span> owner: D. Nair. This block cannot be lifted manually — it clears when the device board reports the unit back in service.</div>
+  <div class="banner danger"><b>Auto-block active since 25-Jul-2026 14:05 IST (device board <a href="Magnus_HMS_G06_Radiology_Technician.html#tk-07" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">TK-07</a>)</b>Fault: probe connector; vendor ticket <span class="mono">GE-SVC-77120</span>, engineer ETA 26-Jul 10:00, restore ETA 12:00. 46 unbooked slots withdrawn automatically; 11 booked appointments moved into conflict task <span class="mono">TASK-2026-3352</span> · <span class="chip red">SLA: OVERDUE — 4 patients arriving today</span> owner: D. Nair. This block cannot be lifted manually — it clears when the device board reports the unit back in service.</div>
   <div class="card">
     <div class="card-title">TASK-2026-3352 — 11 affected bookings <span class="right">7 resolved · 4 open</span></div>
     <div class="progress amber"><i style="width:64%"></i></div>
@@ -630,10 +630,10 @@ tr.dim td{color:#94A3B8}
   </div>
 </div></div></div>
 
-<p class="audit">Planned windows (proposer, approver, step-up method), TK-07 auto-block and restore events, slot withdrawals and every conflict-task transition are recorded in the access log.</p>
+<p class="audit">Planned windows (proposer, approver, step-up method), <a href="Magnus_HMS_G06_Radiology_Technician.html#tk-07" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">TK-07</a> auto-block and restore events, slot withdrawals and every conflict-task transition are recorded in the access log.</p>
 </section>
 <section class="screen" id="sc-06">
-<div class="screen-head"><h1><span class="sid">SC-06</span> Modality calendar admin &amp; publishing</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · calendar publish/versioning</div></div></div>
+<div class="screen-head"><h1><span class="sid"><a href="#sc-06" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-06</a></span> Modality calendar admin &amp; publishing</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · calendar publish/versioning</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Admin generates the bookable slot calendar per modality from working hours + slot templates + device availability, previews the diff against the currently published version, then publishes with an effective date and version tag. Booked slots are never silently dropped — a regenerate that would remove a slot with an active booking is blocked until the booking is moved. Rollback restores a prior version under the same guard, with dual-control sign-off.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org Admin) ▾</div></div>
@@ -681,7 +681,7 @@ tr.dim td{color:#94A3B8}
           <tr class="hl"><td class="mono">13:00–13:15</td><td>Working hours v14 — Tue PM window closed (engineer PM visit, CT-ROOM-1)</td><td>15 min</td><td><span class="chip red">removed</span></td><td class="muted">— (unbooked)</td><td><span class="chip green">safe to drop</span></td></tr>
           <tr class="hl"><td class="mono">13:15–13:30</td><td>Working hours v14 — Tue PM window closed</td><td>15 min</td><td><span class="chip red">removed</span></td><td class="muted">— (unbooked)</td><td><span class="chip green">safe to drop</span></td></tr>
           <tr><td class="mono">15:00–15:15</td><td>Template "CT weekday 15-min" v6</td><td>15 min</td><td><span class="chip grey">unchanged</span></td><td>MRD-26-04437 · contrast CT</td><td><span class="chip green">retained</span></td></tr>
-          <tr><td class="mono">18:30–18:45 <span class="chip amber">STAT reserve</span></td><td>Overbooking rules SC-07 — 2 STAT holds/day</td><td>15 min</td><td><span class="chip grey">unchanged</span></td><td class="muted">held for STAT</td><td class="muted">—</td></tr>
+          <tr><td class="mono">18:30–18:45 <span class="chip amber">STAT reserve</span></td><td>Overbooking rules <a href="#sc-07" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-07</a> — 2 STAT holds/day</td><td>15 min</td><td><span class="chip grey">unchanged</span></td><td class="muted">held for STAT</td><td class="muted">—</td></tr>
         </table>
         <div class="hint muted small" style="margin-top:8px">Preview shows patient references as booking IDs only — no names on setup screens. Full booking detail requires the Front-office workspace with its own access-log entry.</div>
       </div>
@@ -745,7 +745,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Calendar regeneration, diff preview, publish (with TOTP step-up result), rollback attempts and the booked-slot guard outcome are versioned and recorded in the access log. Viewing booking references from this setup screen is also recorded in the access log.</p>
 </section>
 <section class="screen" id="sc-07">
-<div class="screen-head"><h1><span class="sid">SC-07</span> Overbooking &amp; walk-in rules</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 template flags → overbook/walk-in rules</div></div></div>
+<div class="screen-head"><h1><span class="sid"><a href="#sc-07" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-07</a></span> Overbooking &amp; walk-in rules</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S8 template flags → overbook/walk-in rules</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Per-modality rules governing how much walk-in demand the branch absorbs on top of booked slots: walk-in ratio, daily overbook ceiling with the role allowed to approve each overbook, and STAT reserve slots held back per day. A simulation replays yesterday's demand against the draft rules before saving, and a usage report exposes who approved overbooks so the ceiling cannot be quietly abused.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org Admin) ▾</div></div>
@@ -850,7 +850,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Rule edits, simulation runs, every overbook approval/denial with approver identity and reason code, and abuse-guard escalations are recorded in the access log.</p>
 </section>
 <section class="screen" id="sc-08">
-<div class="screen-head"><h1><span class="sid">SC-08</span> Block booking &amp; camps</h1><div class="meta"><span class="chip amber">CONDITIONAL</span><div class="cluster">G4 Scheduling setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · block booking & camps (Conditional)</div></div></div>
+<div class="screen-head"><h1><span class="sid"><a href="#sc-08" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-08</a></span> Block booking &amp; camps</h1><div class="meta"><span class="chip amber">CONDITIONAL</span><div class="cluster">G4 Scheduling setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · block booking & camps (Conditional)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Create a camp or corporate block booking: date range, modality capacity allocation, expected volume, a camp price-list link and the camp-variant consent notice. A carve-out preview shows exactly which public slots the camp will absorb (booked slots are never carved out), a roster can be imported ahead of camp day, and a close-out report reconciles attended vs no-show and releases unused carve-outs.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org Admin) ▾</div></div>
@@ -963,7 +963,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Camp creation, carve-out approvals (both four-eyes identities), roster imports and purges, releases of unused slots, and sponsor-summary dispatch are recorded in the access log.</p>
 </section>
 <section class="screen" id="sc-09">
-<div class="screen-head"><h1><span class="sid">SC-09</span> Token &amp; queue rules</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S9 tokens & queue rules</div></div></div>
+<div class="screen-head"><h1><span class="sid"><a href="#sc-09" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-09</a></span> Token &amp; queue rules</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S9 tokens & queue rules</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Configure token issuance per service point — prefix, number length, reset schedule and what a token counts against — plus lane rules (walk-in vs booked kept in separate lanes, urgent-first toggle) and which public display each queue maps to. A live preview shows the exact next token each lane would issue under the draft, and every change lands in an immutable change log.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org Admin) ▾</div></div>
@@ -1020,7 +1020,7 @@ tr.dim td{color:#94A3B8}
             <tr><td class="mono">CT-*** / MR-***</td><td>IMG-DISP-2 (imaging corridor)</td></tr>
             <tr><td class="mono">US-***</td><td>IMG-DISP-2</td></tr>
           </table>
-          <div class="hint muted small">Display content &amp; privacy mode are governed by Public display settings (SC-10). Token-only is the default; names never appear without privacy approval.</div>
+          <div class="hint muted small">Display content &amp; privacy mode are governed by Public display settings (<a href="#sc-10" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-10</a>). Token-only is the default; names never appear without privacy approval.</div>
         </div>
       </div>
     </div>
@@ -1061,7 +1061,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Token configuration edits, activation boundaries, preview runs and rejected proposals are recorded in the access log with the actor's step-up verification result.</p>
 </section>
 <section class="screen" id="sc-10">
-<div class="screen-head"><h1><span class="sid">SC-10</span> Public display settings</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S9 public display settings</div></div></div>
+<div class="screen-head"><h1><span class="sid"><a href="#sc-10" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">SC-10</a></span> Public display settings</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G4 Scheduling setup — workspace 'Setup'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · FO-S9 public display settings</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Governs what waiting-area displays show. Token-only is the privacy default; switching any display to token+first-name is a privacy-relevant change that must pass an approval workflow (privacy officer sign-off). Admin also sets chime, language rotation, per-display room layout, and can push a test broadcast to verify a physical screen before go-live.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>SETUP</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West branch</span></div><div class="userchip"><span class="av">KV</span>K. Verma (Org Admin) ▾</div></div>

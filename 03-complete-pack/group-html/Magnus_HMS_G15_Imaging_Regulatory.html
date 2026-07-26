@@ -123,10 +123,10 @@ tr.dim td{color:#94A3B8}
 <h1 style="font-size:36px;font-weight:800">G15 · Imaging Regulatory (PC-PNDT / AERB)</h1>
 <p style="font-size:14px;color:#64748B;margin-top:10px">6 screens · every screen with alternate states · shared design system · synthetic data only (no PHI)</p></div>
 <div class="card" style="max-width:700px;margin-top:26px"><div class="card-title">Screens in this group</div>
-<table><tr><th style="width:70px">ID</th><th>Screen</th></tr><tr><td class="mono bold" style="color:#0F766E">IR-01</td><td>Form F register</td></tr><tr><td class="mono bold" style="color:#0F766E">IR-02</td><td>Monthly submission prep</td></tr><tr><td class="mono bold" style="color:#0F766E">IR-03</td><td>Submission &amp; acknowledgement</td></tr><tr><td class="mono bold" style="color:#0F766E">IR-04</td><td>Corrections &amp; resubmission</td></tr><tr><td class="mono bold" style="color:#0F766E">IR-05</td><td>AERB Compliance Register</td></tr><tr><td class="mono bold" style="color:#0F766E">IR-06</td><td>Regulatory Calendar &amp; Obligations</td></tr></table></div>
+<table><tr><th style="width:70px">ID</th><th>Screen</th></tr><tr><td class="mono bold"><a href="#ir-01" style="color:#0F766E;text-decoration:none">IR-01</a></td><td><a href="#ir-01" style="color:inherit;text-decoration:none">Form F register</a></td></tr><tr><td class="mono bold"><a href="#ir-02" style="color:#0F766E;text-decoration:none">IR-02</a></td><td><a href="#ir-02" style="color:inherit;text-decoration:none">Monthly submission prep</a></td></tr><tr><td class="mono bold"><a href="#ir-03" style="color:#0F766E;text-decoration:none">IR-03</a></td><td><a href="#ir-03" style="color:inherit;text-decoration:none">Submission &amp; acknowledgement</a></td></tr><tr><td class="mono bold"><a href="#ir-04" style="color:#0F766E;text-decoration:none">IR-04</a></td><td><a href="#ir-04" style="color:inherit;text-decoration:none">Corrections &amp; resubmission</a></td></tr><tr><td class="mono bold"><a href="#ir-05" style="color:#0F766E;text-decoration:none">IR-05</a></td><td><a href="#ir-05" style="color:inherit;text-decoration:none">AERB Compliance Register</a></td></tr><tr><td class="mono bold"><a href="#ir-06" style="color:#0F766E;text-decoration:none">IR-06</a></td><td><a href="#ir-06" style="color:inherit;text-decoration:none">Regulatory Calendar &amp; Obligations</a></td></tr></table></div>
 <p class="muted small" style="margin-top:14px">Magnus Diagnostics → NUMINACORE · July 2026 · Prototype/reference — not committed product scope.</p></div></section><section class="screen" id="ir-01">
-<div class="screen-head"><h1><span class="sid">IR-01</span> Form F register</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IR-S1 → Form F register</div></div></div>
-<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The Form F register is the single source of truth for every PC-PNDT Form F generated at a centre — one record per prenatal ultrasound procedure, tamper-evident from the moment of capture. Compliance staff filter by month, resolve needs-attention items inline (missing signature, missing indication) before the monthly filing cutoff, and bulk-open records for review. Records feed IR-02 monthly submission prep; the filing month is determined by <b>scan date</b>, not entry date.</div>
+<div class="screen-head"><h1><span class="sid"><a href="#ir-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">IR-01</a></span> Form F register</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IR-S1 → Form F register</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> The Form F register is the single source of truth for every PC-PNDT Form F generated at a centre — one record per prenatal ultrasound procedure, tamper-evident from the moment of capture. Compliance staff filter by month, resolve needs-attention items inline (missing signature, missing indication) before the monthly filing cutoff, and bulk-open records for review. Records feed <a href="#ir-02" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">IR-02</a> monthly submission prep; the filing month is determined by <b>scan date</b>, not entry date.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West (PNDT Regn MH/AND/PNDT/0142)</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body"><div class="sidebar">
@@ -144,7 +144,7 @@ tr.dim td{color:#94A3B8}
   </div>
   <div class="main"><div class="crumb">Regulatory › PC-PNDT › Form F register</div>
   <div class="page-title">Form F register — July 2026 <span class="actions-right"><span class="btn small">Bulk-open selected (2)</span> <span class="btn small">Export register (PDF)</span> <span class="btn primary small">+ New Form F</span></span></div>
-  <div class="page-sub">Filing month is derived from <b>scan date (IST)</b>. Records lock on submission; changes after ack require a correction record (IR-04). Patient names masked per DPDP purpose limitation — full identity visible only inside the record with a logged reason.</div>
+  <div class="page-sub">Filing month is derived from <b>scan date (IST)</b>. Records lock on submission; changes after ack require a correction record (<a href="#ir-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">IR-04</a>). Patient names masked per DPDP purpose limitation — full identity visible only inside the record with a logged reason.</div>
   <div class="banner warn"><b>Monthly filing due Wed 05 Aug 2026 — 11 days remaining.</b> 3 records need attention before July can be marked submission-ready. SLA owner: K. Verma · Escalates to Dr. A. Rao (Privacy Officer) if open on 03 Aug.</div>
   <div class="kpi-row">
     <div class="kpi"><div class="n">42</div><div class="l">Form F — July 2026</div><div class="s">scan-date basis, this centre</div></div>
@@ -221,7 +221,7 @@ tr.dim td{color:#94A3B8}
   <div class="body"><div class="main">
   <div class="crumb">Regulatory › PC-PNDT › Form F register › June 2026</div>
   <div class="page-title">Form F register — June 2026 <span class="chip blue" style="vertical-align:middle">MONTH SUBMITTED</span></div>
-  <div class="banner success"><b>June 2026 filed on time.</b> 39 records submitted 03-Jul-2026 by K. Verma (identity confirmed) · Acknowledgement MH/AA/2026/0713 dated 04-Jul-2026 captured in IR-03. Register for this month is immutable; discrepancies must go through a correction record (IR-04).</div>
+  <div class="banner success"><b>June 2026 filed on time.</b> 39 records submitted 03-Jul-2026 by K. Verma (identity confirmed) · Acknowledgement MH/AA/2026/0713 dated 04-Jul-2026 captured in <a href="#ir-03" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">IR-03</a>. Register for this month is immutable; discrepancies must go through a correction record (<a href="#ir-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">IR-04</a>).</div>
   <div class="kpi-row">
     <div class="kpi"><div class="n">39</div><div class="l">Records filed</div><div class="s">scan dates 01–30 Jun</div></div>
     <div class="kpi"><div class="n">0</div><div class="l">Open issues</div><div class="s">all validations passed pre-filing</div></div>
@@ -232,7 +232,7 @@ tr.dim td{color:#94A3B8}
       <tr><th>FF Ref</th><th>Patient (masked)</th><th>Procedure</th><th>Scan date</th><th>PNDT doctor</th><th>Status</th><th>Integrity</th></tr>
       <tr class="dim"><td class="mono">FF-2026-01795</td><td>S••••a J••••i · MRN-004597</td><td>USG Obstetric — NT/NB</td><td class="mono">30-Jun</td><td>Dr. S. Iyer</td><td><span class="chip blue">SUBMITTED</span></td><td><span class="chip teal">🔏 LOCKED</span></td></tr>
       <tr class="dim"><td class="mono">FF-2026-01788</td><td>M••••a K••••i · MRN-004573</td><td>USG Obstetric — anomaly</td><td class="mono">27-Jun</td><td>Dr. S. Iyer</td><td><span class="chip blue">SUBMITTED</span></td><td><span class="chip teal">🔏 LOCKED</span></td></tr>
-      <tr><td class="mono">FF-2026-01722</td><td>R••••i T••••e · MRN-004489</td><td>USG Obstetric — dating</td><td class="mono">09-Jun</td><td>Dr. V. Shetty</td><td><span class="chip violet">CORRECTION PENDING</span><div class="small muted">gestational age typo · IR-04 ref COR-2026-0031</div></td><td><span class="chip teal">🔏 LOCKED</span></td></tr>
+      <tr><td class="mono">FF-2026-01722</td><td>R••••i T••••e · MRN-004489</td><td>USG Obstetric — dating</td><td class="mono">09-Jun</td><td>Dr. V. Shetty</td><td><span class="chip violet">CORRECTION PENDING</span><div class="small muted">gestational age typo · <a href="#ir-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">IR-04</a> ref COR-2026-0031</div></td><td><span class="chip teal">🔏 LOCKED</span></td></tr>
       <tr class="dim"><td class="mono">FF-2026-01718</td><td>P••••a S••••e · MRN-004462</td><td>USG Obstetric — growth</td><td class="mono">07-Jun</td><td>Dr. S. Iyer</td><td><span class="chip blue">SUBMITTED</span></td><td><span class="chip teal">🔏 LOCKED</span></td></tr>
       <tr class="dim"><td class="mono">FF-2026-01709</td><td>A••••a M••••n · MRN-004430</td><td>USG Obstetric — NT/NB</td><td class="mono">03-Jun</td><td>Dr. S. Iyer</td><td><span class="chip blue">SUBMITTED</span></td><td><span class="chip teal">🔏 LOCKED</span></td></tr>
     </table>
@@ -244,7 +244,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Every register view, filter, bulk-open, record open and amendment upload is written to the immutable audit trail with actor, branch, purpose and record hash; unmasking a patient name inside a Form F requires a logged reason and is recorded in the access log.</p>
 </section>
 <section class="screen" id="ir-02">
-<div class="screen-head"><h1><span class="sid">IR-02</span> Monthly submission prep</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IR-S2 + C-2 validation & cutoff</div></div></div>
+<div class="screen-head"><h1><span class="sid"><a href="#ir-02" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">IR-02</a></span> Monthly submission prep</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IR-S2 + C-2 validation & cutoff</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Prepares the centre's PC-PNDT Form F monthly filing: counts records by readiness, runs the full validation suite (patient signature, doctor PNDT validity, machine registration), and turns every failure into an owned fix-list item. The month cutoff is <b>scan date</b> — anything scanned in July files in the July batch regardless of when it was entered. A due-by-5th countdown drives escalation to the org admin and Privacy Officer if the batch risks going overdue.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West (PNDT Regn MH/AND/PNDT/0142)</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
@@ -262,7 +262,7 @@ tr.dim td{color:#94A3B8}
     <div class="nav-item">Audit trail</div>
   </div>
   <div class="main"><div class="crumb">Regulatory › PC-PNDT › Monthly submission › July 2026</div>
-  <div class="page-title">July 2026 submission prep <span class="actions-right"><span class="btn small">Re-run validation</span> <span class="btn primary small disabled">Proceed to generate (IR-03)</span></span></div>
+  <div class="page-title">July 2026 submission prep <span class="actions-right"><span class="btn small">Re-run validation</span> <span class="btn primary small disabled">Proceed to generate (<a href="#ir-03" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">IR-03</a>)</span></span></div>
   <div class="page-sub">Month-cutoff rule: batch includes every Form F with <b>scan date 01–31 Jul 2026 (IST)</b>. Entry date, billing date and report sign-off date do not affect batch membership. Due to Appropriate Authority by <b>Tue 05 Aug 2026</b>.</div>
   <div class="stepper">
     <div class="step done"><span class="dot">1</span> Records captured</div><span class="step-line"></span>
@@ -300,7 +300,7 @@ tr.dim td{color:#94A3B8}
         <dl class="kv" style="grid-template-columns:110px 1fr">
           <dt>Basis</dt><dd><b>Scan date</b> (IST)</dd>
           <dt>Window</dt><dd>01-Jul 00:00 → 31-Jul 23:59</dd>
-          <dt>Late entries</dt><dd>A July scan entered in August still files in the July batch; if July is already acknowledged, it becomes a correction (IR-04)</dd>
+          <dt>Late entries</dt><dd>A July scan entered in August still files in the July batch; if July is already acknowledged, it becomes a correction (<a href="#ir-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">IR-04</a>)</dd>
           <dt>Centre</dt><dd>Per-registration — Andheri West files separately from Powai (MH/POW/PNDT/0201)</dd>
         </dl>
       </div>
@@ -332,7 +332,7 @@ tr.dim td{color:#94A3B8}
 <div class="frame">
   <div class="body"><div class="main">
   <div class="crumb">Regulatory › PC-PNDT › Monthly submission › July 2026</div>
-  <div class="page-title">July 2026 submission prep <span class="actions-right"><span class="btn primary small">Proceed to generate (IR-03)</span></span></div>
+  <div class="page-title">July 2026 submission prep <span class="actions-right"><span class="btn primary small">Proceed to generate (<a href="#ir-03" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">IR-03</a>)</span></span></div>
   <div class="banner success"><b>All 44 records ready — July 2026 batch may be generated.</b> Every validation passed at 02-Aug 08:30 IST. Two late-signed drafts joined the batch (scan-date basis). Generation will freeze this validation snapshot into the submission record.</div>
   <div class="kpi-row">
     <div class="kpi"><div class="n">44</div><div class="l">In July batch</div><div class="s">2 late report sign-offs included</div></div>
@@ -350,7 +350,7 @@ tr.dim td{color:#94A3B8}
       <tr><td>Medical indication · referrer details · report finalised</td><td><span class="chip green">44 / 44 ✓</span></td></tr>
       <tr><td>Tamper-evidence chain</td><td><span class="chip green">CHAIN OK</span></td></tr>
     </table>
-    <div style="margin-top:10px"><span class="btn primary">Proceed to generate submission file →</span> <span class="small muted">Requires identity confirmation at submission step (IR-03).</span></div>
+    <div style="margin-top:10px"><span class="btn primary">Proceed to generate submission file →</span> <span class="small muted">Requires identity confirmation at submission step (<a href="#ir-03" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">IR-03</a>).</span></div>
   </div>
   </div></div>
 </div>
@@ -392,8 +392,8 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Validation runs, snapshot versions, countdown state changes, escalation notifications and compliance-exception lifecycle events are all recorded in the access log.</p>
 </section>
 <section class="screen" id="ir-03">
-<div class="screen-head"><h1><span class="sid">IR-03</span> Submission &amp; acknowledgement</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IR-S2 + C-2 receipts & immutability</div></div></div>
-<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Generates the monthly Form F submission file in the format required by the Appropriate Authority, records the act of submission (portal or physical, submitted-by with step-up identity confirmation, date), then captures the authority's receipt/acknowledgement (upload, reference number, date). Once the ack is captured, the month's submission record and its register become immutable — later fixes flow only through corrections (IR-04).</div>
+<div class="screen-head"><h1><span class="sid"><a href="#ir-03" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">IR-03</a></span> Submission &amp; acknowledgement</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · IR-S2 + C-2 receipts & immutability</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Generates the monthly Form F submission file in the format required by the Appropriate Authority, records the act of submission (portal or physical, submitted-by with step-up identity confirmation, date), then captures the authority's receipt/acknowledgement (upload, reference number, date). Once the ack is captured, the month's submission record and its register become immutable — later fixes flow only through corrections (<a href="#ir-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">IR-04</a>).</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West (PNDT Regn MH/AND/PNDT/0142)</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body"><div class="sidebar">
@@ -504,7 +504,7 @@ tr.dim td{color:#94A3B8}
   <div class="body"><div class="main">
   <div class="crumb">Regulatory › PC-PNDT › Submissions &amp; acks</div>
   <div class="page-title">Submission history — Andheri West <span class="actions-right"><span class="btn small">Export history (PDF)</span></span></div>
-  <div class="banner success"><b>July 2026 acknowledgement captured.</b> Ack ref MH/AA/2026/0798 dated 06-Aug-2026, receipt uploaded (SHA-256 41be…77d0), captured by K. Verma 06-Aug 15:02 IST with identity confirmation. SUB-2026-07-AND is now <b>immutable</b>; discrepancies route to corrections (IR-04).</div>
+  <div class="banner success"><b>July 2026 acknowledgement captured.</b> Ack ref MH/AA/2026/0798 dated 06-Aug-2026, receipt uploaded (SHA-256 41be…77d0), captured by K. Verma 06-Aug 15:02 IST with identity confirmation. SUB-2026-07-AND is now <b>immutable</b>; discrepancies route to corrections (<a href="#ir-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">IR-04</a>).</div>
   <div class="card">
     <div class="card-title">History <span class="right">Retention: submission records + acks 10 years</span></div>
     <table>
@@ -525,7 +525,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">File generation, identity confirmations, submission recording, ack capture and every download of a submission build are recorded in the access log.</p>
 </section>
 <section class="screen" id="ir-04">
-<div class="screen-head"><h1><span class="sid">IR-04</span> Corrections &amp; resubmission</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · C-2 corrections/resubmission</div></div></div>
+<div class="screen-head"><h1><span class="sid"><a href="#ir-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">IR-04</a></span> Corrections &amp; resubmission</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · C-2 corrections/resubmission</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Once a month is acknowledged its Form F records are immutable, so any error is remedied through a correction record: it links the original FF, classifies the error against a reason taxonomy, and queues the correction for inclusion in the next monthly submission. The system generates a correction letter for the Appropriate Authority and maintains a register of corrections with authority responses. Creating a correction requires step-up identity confirmation plus a second approver (four-eyes: Dr. A. Rao, Privacy Officer).</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West (PNDT Regn MH/AND/PNDT/0142)</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
@@ -609,7 +609,7 @@ tr.dim td{color:#94A3B8}
   <div class="body"><div class="main">
   <div class="crumb">Regulatory › PC-PNDT › Corrections › Queue</div>
   <div class="page-title">Included-in-next-submission queue <span class="actions-right"><span class="btn primary small">Generate correction letters (2)</span></span></div>
-  <div class="banner info"><b>2 approved corrections will ride with the August 2026 batch (due 05-Sep-2026).</b> Each carries a correction letter on Meridian letterhead citing the original submission's ack reference. The queue freezes when the August build is generated in IR-03.</div>
+  <div class="banner info"><b>2 approved corrections will ride with the August 2026 batch (due 05-Sep-2026).</b> Each carries a correction letter on Meridian letterhead citing the original submission's ack reference. The queue freezes when the August build is generated in <a href="#ir-03" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">IR-03</a>.</div>
   <div class="card">
     <div class="card-title">Queue — next submission: Aug 2026 · SUB-2026-08-AND (not yet built)</div>
     <table>
@@ -665,8 +665,8 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Correction creation, taxonomy selection, evidence uploads, four-eyes approvals/rejections, letter generation and authority-response capture are all recorded in the access log.</p>
 </section>
 <section class="screen" id="ir-05">
-<div class="screen-head"><h1><span class="sid">IR-05</span> AERB Compliance Register</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · AD-S11 → AERB compliance register</div></div></div>
-<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single register for every radiation-generating unit across Meridian branches: AERB/eLORA licences and validity, RSO designation, dose-event (DRL exceedance) log with physicist review, and inspection findings with corrective actions. Renewal reminders auto-create obligations in the Regulatory Calendar (IR-06) at T-90/T-60/T-30. Licence records are legal evidence — edits require step-up identity confirmation and are never hard-deleted.</div>
+<div class="screen-head"><h1><span class="sid"><a href="#ir-05" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">IR-05</a></span> AERB Compliance Register</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · AD-S11 → AERB compliance register</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single register for every radiation-generating unit across Meridian branches: AERB/eLORA licences and validity, RSO designation, dose-event (DRL exceedance) log with physicist review, and inspection findings with corrective actions. Renewal reminders auto-create obligations in the Regulatory Calendar (<a href="#ir-06" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">IR-06</a>) at T-90/T-60/T-30. Licence records are legal evidence — edits require step-up identity confirmation and are never hard-deleted.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body"><div class="sidebar">
@@ -801,7 +801,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">All licence edits, dose-event sign-offs and inspection-record changes are step-up verified (re-authentication) and recorded in the access log. AERB records retained 10 years; nothing on this register is hard-deleted.</p>
 </section>
 <section class="screen" id="ir-06">
-<div class="screen-head"><h1><span class="sid">IR-06</span> Regulatory Calendar &amp; Obligations</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · regulatory calendar</div></div></div>
+<div class="screen-head"><h1><span class="sid"><a href="#ir-06" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">IR-06</a></span> Regulatory Calendar &amp; Obligations</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G15 Imaging Regulatory — workspace 'Regulatory'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · regulatory calendar</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> One unified list of every recurring statutory obligation — PC-PNDT Form F monthly filing (by the 5th), AERB licence renewals and RSO reviews, DPDP attestations and rights-SLA checks — each with an owner, due date, evidence links and status. The system auto-creates tasks at configurable lead times and escalates overdue items up the ownership chain. A year heat-strip (rendered as an accessible table) shows load and misses per month.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>REGULATORY</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>

@@ -123,9 +123,9 @@ tr.dim td{color:#94A3B8}
 <h1 style="font-size:36px;font-weight:800">G11 · Grievance & Support</h1>
 <p style="font-size:14px;color:#64748B;margin-top:10px">6 screens · every screen with alternate states · shared design system · synthetic data only (no PHI)</p></div>
 <div class="card" style="max-width:700px;margin-top:26px"><div class="card-title">Screens in this group</div>
-<table><tr><th style="width:70px">ID</th><th>Screen</th></tr><tr><td class="mono bold" style="color:#0F766E">GR-01</td><td>Grievance Queue</td></tr><tr><td class="mono bold" style="color:#0F766E">GR-02</td><td>Log a Concern Wizard</td></tr><tr><td class="mono bold" style="color:#0F766E">GR-03</td><td>Case detail &amp; resolution</td></tr><tr><td class="mono bold" style="color:#0F766E">GR-04</td><td>Privacy handoff queue</td></tr><tr><td class="mono bold" style="color:#0F766E">GR-05</td><td>Patient tracking view</td></tr><tr><td class="mono bold" style="color:#0F766E">GR-06</td><td>Root-cause &amp; outcomes analytics</td></tr></table></div>
+<table><tr><th style="width:70px">ID</th><th>Screen</th></tr><tr><td class="mono bold"><a href="#gr-01" style="color:#0F766E;text-decoration:none">GR-01</a></td><td><a href="#gr-01" style="color:inherit;text-decoration:none">Grievance Queue</a></td></tr><tr><td class="mono bold"><a href="#gr-02" style="color:#0F766E;text-decoration:none">GR-02</a></td><td><a href="#gr-02" style="color:inherit;text-decoration:none">Log a Concern Wizard</a></td></tr><tr><td class="mono bold"><a href="#gr-03" style="color:#0F766E;text-decoration:none">GR-03</a></td><td><a href="#gr-03" style="color:inherit;text-decoration:none">Case detail &amp; resolution</a></td></tr><tr><td class="mono bold"><a href="#gr-04" style="color:#0F766E;text-decoration:none">GR-04</a></td><td><a href="#gr-04" style="color:inherit;text-decoration:none">Privacy handoff queue</a></td></tr><tr><td class="mono bold"><a href="#gr-05" style="color:#0F766E;text-decoration:none">GR-05</a></td><td><a href="#gr-05" style="color:inherit;text-decoration:none">Patient tracking view</a></td></tr><tr><td class="mono bold"><a href="#gr-06" style="color:#0F766E;text-decoration:none">GR-06</a></td><td><a href="#gr-06" style="color:inherit;text-decoration:none">Root-cause &amp; outcomes analytics</a></td></tr></table></div>
 <p class="muted small" style="margin-top:14px">Magnus Diagnostics → NUMINACORE · July 2026 · Prototype/reference — not committed product scope.</p></div></section><section class="screen" id="gr-01">
-<div class="screen-head"><h1><span class="sid">GR-01</span> Grievance Queue</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G14 + G11 — workspaces 'Governance' / 'Grievance'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · GR-S1 queue + care-safety dual escalation</div></div></div>
+<div class="screen-head"><h1><span class="sid"><a href="#gr-01" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GR-01</a></span> Grievance Queue</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G14 + G11 — workspaces 'Governance' / 'Grievance'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · GR-S1 queue + care-safety dual escalation</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Central worklist of all patient complaints (GRV refs) across channels, with severity-driven SLA chips — Critical 2h, High 8h, Medium 2 days, Low 5 days. Rows flagged CARE-SAFETY also page the clinical lead in parallel (dual escalation), privacy-category items hand off to Governance, and every overdue item shows owner + escalated-to in the standard pattern.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>GRIEVANCE</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
@@ -211,7 +211,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Queue views, filter usage on patient-identifying columns, and every case open from this list are recorded in the access log.</p>
 </section>
 <section class="screen" id="gr-02">
-<div class="screen-head"><h1><span class="sid">GR-02</span> Log a Concern Wizard</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G14 + G11 — workspaces 'Governance' / 'Grievance'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · GR-S2 wizard + anonymous channel</div></div></div>
+<div class="screen-head"><h1><span class="sid"><a href="#gr-02" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GR-02</a></span> Log a Concern Wizard</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G14 + G11 — workspaces 'Governance' / 'Grievance'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · GR-S2 wizard + anonymous channel</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Channel-agnostic intake for complaints: front desk logs on a patient's behalf, patients use their own link, or anyone can file anonymously (with a clear note on what anonymity limits). The category picker drives routing — privacy items auto-hand off to Governance, clinical concerns raise the care-safety flag — and the wizard nudges reporters not to paste unnecessary PHI. Every submission gets a GRV reference and a tracking explanation.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>GRIEVANCE</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
@@ -304,8 +304,8 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Intake channel, category routing, care-safety paging, the issued GRV reference and the acknowledgement SMS (DLT template ID) are recorded in the access log.</p>
 </section>
 <section class="screen" id="gr-03">
-<div class="screen-head"><h1><span class="sid">GR-03</span> Case detail &amp; resolution</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G11 Grievance &amp; Support — workspace 'Grievance'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · GR-S3 resolution + reopen state</div></div></div>
-<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single working surface for a grievance case: intake facts, investigation tasks, every patient communication, and linked artifacts (invoice, report-delivery event, access-log entries). Resolution requires an outcome category and an explicit patient-notified confirmation; the patient can reopen within 30 days, which auto-escalates to the branch manager. Privacy-classified cases carry a handoff chip to the Privacy Officer queue (GR-04).</div>
+<div class="screen-head"><h1><span class="sid"><a href="#gr-03" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GR-03</a></span> Case detail &amp; resolution</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G11 Grievance &amp; Support — workspace 'Grievance'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · GR-S3 resolution + reopen state</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Single working surface for a grievance case: intake facts, investigation tasks, every patient communication, and linked artifacts (invoice, report-delivery event, access-log entries). Resolution requires an outcome category and an explicit patient-notified confirmation; the patient can reopen within 30 days, which auto-escalates to the branch manager. Privacy-classified cases carry a handoff chip to the Privacy Officer queue (<a href="#gr-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GR-04</a>).</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>GRIEVANCE</span></span><span class="org">🏥 Meridian Diagnostics · Andheri West</span></div><div class="userchip"><span class="av">DN</span>D. Nair ▾</div></div>
   <div class="body">
@@ -353,7 +353,7 @@ tr.dim td{color:#94A3B8}
             <tr><th>#</th><th>Task</th><th>Owner</th><th>Due</th><th>Status</th></tr>
             <tr><td class="mono">T-1</td><td>Check report sign-off &amp; delivery events for ORD-88213</td><td>T. Okafor</td><td>19 Jul</td><td><span class="chip green">DONE</span></td></tr>
             <tr class="hl"><td class="mono">T-2</td><td>Confirm patient received re-sent report link; capture acknowledgement</td><td>D. Nair</td><td>21 Jul</td><td><span class="chip amber">IN PROGRESS</span></td></tr>
-            <tr><td class="mono">T-3</td><td>Raise notifications backlog item for repeated DLT error 202 (link GR-06 theme)</td><td>K. Verma</td><td>24 Jul</td><td><span class="chip grey">OPEN</span></td></tr>
+            <tr><td class="mono">T-3</td><td>Raise notifications backlog item for repeated DLT error 202 (link <a href="#gr-06" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GR-06</a> theme)</td><td>K. Verma</td><td>24 Jul</td><td><span class="chip grey">OPEN</span></td></tr>
           </table>
         </div>
 
@@ -398,7 +398,7 @@ tr.dim td{color:#94A3B8}
         </div>
         <div class="card">
           <div class="card-title">Related case example <span class="right">Privacy-linked</span></div>
-          <div class="small"><span class="mono">GRV-2026-0139</span> · Unwanted marketing SMS · <span class="chip violet">PRIVACY HANDOFF → Dr. A. Rao</span><div class="muted" style="margin-top:4px">Handled in Privacy handoff queue (GR-04); grievance team retains read-only view. DPDP 30-day clock shown there.</div></div>
+          <div class="small"><span class="mono">GRV-2026-0139</span> · Unwanted marketing SMS · <span class="chip violet">PRIVACY HANDOFF → Dr. A. Rao</span><div class="muted" style="margin-top:4px">Handled in Privacy handoff queue (<a href="#gr-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GR-04</a>); grievance team retains read-only view. DPDP 30-day clock shown there.</div></div>
         </div>
       </div>
     </div>
@@ -413,7 +413,7 @@ tr.dim td{color:#94A3B8}
     <h3>Resolve GRV-2026-0142</h3>
     <div class="field"><label>Outcome category <span class="req">*</span></label>
       <div class="select">Process lapse — report delivery failure (notification) ▾</div>
-      <div class="hint">Feeds root-cause analytics (GR-06). Choose the primary cause, not the symptom.</div>
+      <div class="hint">Feeds root-cause analytics (<a href="#gr-06" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GR-06</a>). Choose the primary cause, not the symptom.</div>
     </div>
     <div class="field"><label>What we did (shared with patient, plain language) <span class="req">*</span></label>
       <div class="textarea">Your CT report was ready on 17 July but our SMS to you failed twice due to a telecom error. We re-sent it to your verified email on 19 July and you confirmed receipt on 21 July. We have raised a fix so failed SMS deliveries now retry by email automatically.</div>
@@ -448,7 +448,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">All case views, artifact opens, resolution signatures, reopen events and escalation acknowledgements are recorded in the access log.</p>
 </section>
 <section class="screen" id="gr-04">
-<div class="screen-head"><h1><span class="sid">GR-04</span> Privacy handoff queue</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G11 Grievance &amp; Support — workspace 'Grievance'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · privacy handoff queue (GR↔GV bridge)</div></div></div>
+<div class="screen-head"><h1><span class="sid"><a href="#gr-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GR-04</a></span> Privacy handoff queue</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G11 Grievance &amp; Support — workspace 'Grievance'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · privacy handoff queue (GR↔GV bridge)</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Grievances classified as privacy/DPDP (consent disputes, unwanted messages, access complaints) auto-route here to the Privacy Officer with a combined SLA view — the grievance SLA and the DPDP 30-day statutory clock run in parallel and the tighter one drives colour. Disposition is one of: resolve as grievance, convert to a DPDP rights request (DPDP-CR), or convert to a security/privacy incident (INC). Cross-references are written both ways so neither trail goes dark.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>GRIEVANCE</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">AR</span>Dr. A. Rao (Privacy Officer) ▾</div></div>
@@ -490,14 +490,14 @@ tr.dim td{color:#94A3B8}
         <tr><td class="mono">GRV-2026-0153</td><td>Sofia Rossi<br><span class="mono small muted">MRN-004822</span></td><td><span class="chip violet">ACCESS COMPLAINT</span><div class="small muted">Wants list of who accessed her records</div></td><td class="mono">22 Jul</td><td><span class="chip teal">6d left · 31 Jul</span></td><td><span class="chip amber">9d left*</span><div class="small muted">*treated as access-rights request from receipt</div></td><td>Dr. A. Rao<br><span class="small muted">esc: —</span></td><td><span class="btn small primary">Dispose…</span></td></tr>
         <tr class="dim"><td class="mono">GRV-2026-0131</td><td>Withheld (aggregate view)</td><td><span class="chip violet">UNWANTED MESSAGES</span></td><td class="mono">04 Jul</td><td><span class="chip green">RESOLVED</span></td><td><span class="chip green">CLOSED 18 Jul</span></td><td>Dr. A. Rao</td><td><span class="chip grey">RESOLVED AS GRIEVANCE</span></td></tr>
       </table>
-      <div class="small muted" style="margin-top:6px">Handoff chip appears on the source case (GR-03) and grievance staff keep read-only visibility. Clinical artifacts open only with a stated reason.</div>
+      <div class="small muted" style="margin-top:6px">Handoff chip appears on the source case (<a href="#gr-03" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GR-03</a>) and grievance staff keep read-only visibility. Clinical artifacts open only with a stated reason.</div>
     </div>
 
     <div class="card">
       <div class="card-title">Disposition options</div>
       <table>
         <tr><th>Disposition</th><th>Creates</th><th>Clock effect</th><th>Controls</th></tr>
-        <tr><td><b>Resolve as grievance</b></td><td>—</td><td>Stops both clocks on patient-notified resolution</td><td>Outcome category + patient-notified confirmation (as GR-03)</td></tr>
+        <tr><td><b>Resolve as grievance</b></td><td>—</td><td>Stops both clocks on patient-notified resolution</td><td>Outcome category + patient-notified confirmation (as <a href="#gr-03" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GR-03</a>)</td></tr>
         <tr><td><b>Convert → rights request</b></td><td class="mono">DPDP-CR-xxxxx</td><td>DPDP 30-day clock continues from original receipt date</td><td>Step-up identity confirmation; cross-refs written both ways</td></tr>
         <tr><td><b>Convert → incident</b></td><td class="mono">INC-2026-xxxx</td><td>Starts incident clocks incl. CERT-In 6h assessment</td><td>Step-up + four-eyes (DPO Priya Sharma must co-approve)</td></tr>
       </table>
@@ -555,7 +555,7 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Handoff routing, queue views, disposition choices, step-up verifications, co-approvals and both cross-reference writes are recorded in the access log.</p>
 </section>
 <section class="screen" id="gr-05">
-<div class="screen-head"><h1><span class="sid">GR-05</span> Patient tracking view</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G11 Grievance &amp; Support — workspace 'Grievance'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · GR-S3 → patient tracking page</div></div></div>
+<div class="screen-head"><h1><span class="sid"><a href="#gr-05" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GR-05</a></span> Patient tracking view</h1><div class="meta"><span class="chip teal">MVP1-CORE</span><div class="cluster">G11 Grievance &amp; Support — workspace 'Grievance'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#0F766E">Baseline: EXTENDS · GR-S3 → patient tracking page</div></div></div>
 <div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Public, patient-facing status page reached from the acknowledgement SMS: the patient enters the GRV reference and an OTP sent to their registered mobile. It shows an honest dated timeline (received → assigned → in progress → resolved), a plain-language "what we did" summary, an escalate option (branch manager first, Privacy Officer for privacy matters), and a reopen button that stays live for 30 days after resolution. No staff chrome, no clinical data — only the grievance itself.</div>
 
 <div class="frame">
@@ -632,8 +632,8 @@ tr.dim td{color:#94A3B8}
 <p class="audit">Patient OTP verifications, page views, escalation clicks and reopen actions are recorded in the access log; the patient page itself never displays clinical content or staff personal data beyond role and first initial where required — and every staff view of this case is likewise recorded in the access log.</p>
 </section>
 <section class="screen" id="gr-06">
-<div class="screen-head"><h1><span class="sid">GR-06</span> Root-cause &amp; outcomes analytics</h1><div class="meta"><span class="chip amber">CONDITIONAL</span><div class="cluster">G11 Grievance &amp; Support — workspace 'Grievance'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · root-cause analytics (Conditional)</div></div></div>
-<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Monthly management view of grievance outcomes: volume, resolution time, SLA hit rate and reopen rate by category, computed from the outcome categories captured at resolution (GR-03). Recurring-theme detection flags patterns (e.g. delivery failures rising → links to the notifications backlog) and feeds a corrective-actions register with owners and due dates. All figures are aggregate-only; no patient-identifying drill-down exists on this screen.</div>
+<div class="screen-head"><h1><span class="sid"><a href="#gr-06" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GR-06</a></span> Root-cause &amp; outcomes analytics</h1><div class="meta"><span class="chip amber">CONDITIONAL</span><div class="cluster">G11 Grievance &amp; Support — workspace 'Grievance'</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · root-cause analytics (Conditional)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Monthly management view of grievance outcomes: volume, resolution time, SLA hit rate and reopen rate by category, computed from the outcome categories captured at resolution (<a href="#gr-03" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GR-03</a>). Recurring-theme detection flags patterns (e.g. delivery failures rising → links to the notifications backlog) and feeds a corrective-actions register with owners and due dates. All figures are aggregate-only; no patient-identifying drill-down exists on this screen.</div>
 <div class="frame">
   <div class="topbar"><div style="display:flex;gap:12px;align-items:center"><span class="brand">◎ MagnusPRO <span>GRIEVANCE</span></span><span class="org">🏥 Meridian Diagnostics · All branches</span></div><div class="userchip"><span class="av">KV</span>K. Verma ▾</div></div>
   <div class="body">
@@ -672,7 +672,7 @@ tr.dim td{color:#94A3B8}
         <tr><td>Billing / refund dispute</td><td>12</td><td><span class="chip grey">▬ 0</span></td><td>2.6d</td><td>92% <div class="progress" style="width:90px"><i style="width:92%"></i></div></td><td>8.3%</td><td>—</td></tr>
         <tr><td>Waiting time / scheduling</td><td>11</td><td><span class="chip green">▼ −3</span></td><td>1.9d</td><td>100% <div class="progress" style="width:90px"><i style="width:100%"></i></div></td><td>0%</td><td>—</td></tr>
         <tr><td>Staff conduct</td><td>8</td><td><span class="chip grey">▲ +1</span></td><td>3.1d</td><td>88% <div class="progress amber" style="width:90px"><i style="width:88%"></i></div></td><td>12.5%</td><td>—</td></tr>
-        <tr><td>Privacy / DPDP (handed off, GR-04)</td><td>6</td><td><span class="chip grey">▲ +1</span></td><td>9.2d*</td><td>83% <div class="progress amber" style="width:90px"><i style="width:83%"></i></div></td><td>0%</td><td><span class="chip violet">DUAL SLA</span></td></tr>
+        <tr><td>Privacy / DPDP (handed off, <a href="#gr-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GR-04</a>)</td><td>6</td><td><span class="chip grey">▲ +1</span></td><td>9.2d*</td><td>83% <div class="progress amber" style="width:90px"><i style="width:83%"></i></div></td><td>0%</td><td><span class="chip violet">DUAL SLA</span></td></tr>
         <tr><td>Facility / cleanliness</td><td>5</td><td><span class="chip grey">▼ −1</span></td><td>1.4d</td><td>100% <div class="progress" style="width:90px"><i style="width:100%"></i></div></td><td>0%</td><td>—</td></tr>
         <tr class="dim"><td>Clinical query routed to radiologist</td><td>&lt;5</td><td>—</td><td>suppressed</td><td>suppressed</td><td>suppressed</td><td>—</td></tr>
       </table>
@@ -703,7 +703,7 @@ tr.dim td{color:#94A3B8}
         <div class="small" style="margin-top:6px">Jun <div class="progress amber" style="width:100%"><i style="width:44%"></i></div> 11 cases</div>
         <div class="small" style="margin-top:6px">Jul <div class="progress red" style="width:100%"><i style="width:72%"></i></div> 18 cases</div>
       </div>
-      <div class="banner reg" style="margin-bottom:0"><b>Aggregate-only view</b> Drill stops at counts and system refs. Case-level access requires opening the case in GR-03 with a stated reason — every such open is recorded in the access log.</div>
+      <div class="banner reg" style="margin-bottom:0"><b>Aggregate-only view</b> Drill stops at counts and system refs. Case-level access requires opening the case in <a href="#gr-03" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GR-03</a> with a stated reason — every such open is recorded in the access log.</div>
     </div>
   </div>
 </div>
@@ -719,7 +719,7 @@ tr.dim td{color:#94A3B8}
     <tr><td class="mono">CA-2026-016</td><td>Extend secure-link validity 72h → 7d with re-OTP on each open</td><td>Report delivery</td><td>K. Verma</td><td>15 Aug</td><td><span class="chip grey">PLANNED</span></td></tr>
     <tr><td class="mono">CA-2026-014</td><td>Contact-number verification prompt at every check-in (front office script)</td><td>Wrong contact on file</td><td>D. Nair</td><td>08 Aug</td><td><span class="chip amber">IN PROGRESS</span></td></tr>
     <tr><td class="mono">CA-2026-012</td><td>Refund turnaround: cashier dual-check at ₹5,000+ to cut billing disputes</td><td>Billing / refund</td><td>P. D'Souza</td><td>22 Jul</td><td><span class="chip red">OVERDUE 3d · escalated to R. Menon (Branch Manager)</span></td></tr>
-    <tr><td class="mono">CA-2026-011</td><td>Re-verify marketing consent flags after opt-out sync gap (with Privacy Officer)</td><td>Unwanted messages (GR-04)</td><td>Dr. A. Rao</td><td>30 Jul</td><td><span class="chip amber">IN PROGRESS · DPO co-review</span></td></tr>
+    <tr><td class="mono">CA-2026-011</td><td>Re-verify marketing consent flags after opt-out sync gap (with Privacy Officer)</td><td>Unwanted messages (<a href="#gr-04" style="color:#0F766E;text-decoration:none;border-bottom:1px dotted #99F6E4">GR-04</a>)</td><td>Dr. A. Rao</td><td>30 Jul</td><td><span class="chip amber">IN PROGRESS · DPO co-review</span></td></tr>
     <tr class="dim"><td class="mono">CA-2026-009</td><td>Queue-display boards at Powai to address waiting-time complaints</td><td>Waiting time</td><td>R. Menon</td><td>30 Jun</td><td><span class="chip green">DONE · verified 05 Jul</span></td></tr>
   </table>
   <div class="banner warn" style="margin-top:10px"><b>Closure control</b> Marking a corrective action DONE requires evidence attachment and verification by a second person (not the owner) — four-eyes on closure. Actions arising from privacy themes additionally require sign-off by Privacy Officer Dr. A. Rao.</div>
