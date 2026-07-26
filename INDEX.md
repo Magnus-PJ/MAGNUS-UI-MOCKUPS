@@ -36,6 +36,7 @@
 | `html-source/wave3/` | AD-01…21 · GV-01…18 · GR-01…06 · IR-01…06 (51 fragments) |
 | `html-source/wave4/` | AU-01…19 · SC-01…10 · IN-01…11 · PL-01…13 · DS-01…11 (64 fragments) |
 | `group-html/` | 17 browser-ready group packs + **Combined Volume (232 screens)** |
+| **`MagnusPRO_Live_Prototype.html`** | **★ The app-like prototype: login → role → click through everything + 8 guided E2E journeys** |
 | `design-system/` | `base.css` · `assemble_group.py` · `baseline_map.py` · `render_fixed.py` (PDF, deprecated) |
 | `group-pdfs/` | DEPRECATED (D-35) — kept for history only |
 

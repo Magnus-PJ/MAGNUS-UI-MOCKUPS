@@ -11,6 +11,7 @@
 | **Anyone** | `04-architecture-docs/DOC-00_Master_Index.html` — the linked index of everything |
 | **Leadership / client** | `docs/VISION.md` → `docs/DECISIONS.md` (D-01…D-37) |
 | **The dev team** | `DOC-09` build blueprint → `DOC-11` gap analysis → `DOC-08` crosswalk → group packs |
+| **Anyone wanting to FEEL the product** | `03-complete-pack/MagnusPRO_Live_Prototype.html` — open, sign in, click through everything |
 | **Designers** | `03-complete-pack/group-html/` (one browser-ready pack per group) + `DS` group (design system) |
 | **QA / UAT** | `DOC-10` test traceability + safety-gate suite SG-01…SG-12 · `DOC-01` 25 scenarios |
 | **New joiner / another AI session** | `docs/HANDOFF.md` |
