@@ -44,3 +44,9 @@
 |---|---|
 | `01-review/` | Review of the vendor's original 106-screen walkthrough (.docx) — findings C-x/S-x, SLAs, foundation asks |
 | `02-gap-closure-pack/` | First-round gap screens NS-01…16 + revisions R-01…10 (superseded by the complete pack, kept for traceability) |
+
+## E · Test-readiness research (`05-test-readiness/`) — DRAFT
+| File | What it is |
+|---|---|
+| [05-test-readiness/MagnusPRO_Test_Readiness_Research.md](05-test-readiness/MagnusPRO_Test_Readiness_Research.md) | 18 demand dimensions w/ verdicts · scenarios S26–S40 · gap list N-1…N-7 (pending client decision) |
+| [05-test-readiness/MagnusPRO_Screen_Inventory_232.md](05-test-readiness/MagnusPRO_Screen_Inventory_232.md) | Full organized inventory of all 232 screens |
