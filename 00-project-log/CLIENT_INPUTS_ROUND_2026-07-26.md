@@ -1,7 +1,6 @@
 # Client inputs — new round (26 Jul 2026) — HOLD, more to come
 
-Status: **PARKED — do not act yet.** Paul is sending additional information and discussion in parts.
-This file collects each part verbatim-in-substance as it arrives. Work starts only after Paul says the set is complete.
+Status: **ACTIONED (27 Jul 2026, v1.4 round, D-44).** Paul said "proceed and make the MVP the best" — all four Input-1 items are now designed: DS-14 (printing everywhere), DS-13 + DOC-02 Flow 17 (concurrent same-patient operators; walk-in + booked convergence), FO-06 State D + DS-12 "Priors ▸" (fast prior-history pull, ≤2 s, all branches). Further inputs, if any, start a new round in this file.
 
 ## Input 1 (received 26 Jul 2026)
 

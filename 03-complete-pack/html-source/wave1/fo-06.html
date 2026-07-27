@@ -147,5 +147,32 @@
   </table></div>
 </div></div></div>
 
+<div class="state-tag">STATE D — PRIOR HISTORY QUICK-PULL (ONE KEYSTROKE, ALL BRANCHES, ≤2 s)</div>
+<div class="frame"><div class="body"><div class="main">
+  <div class="crumb">Front Office › Patients › MRN-004795 › Priors</div>
+  <div class="page-title">Prior history — Rajesh Gupta <span class="chip teal">pulled in 1.3 s</span></div>
+  <div class="page-sub">Opened with <span class="mono">P</span> from any screen where this patient is in context (also on the DS-12 bar and in Ctrl+K). One list: every prior booking, visit, result and document across all Magnus branches — no tab-hunting.</div>
+  <div style="display:flex;gap:8px;align-items:center;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:6px 12px;margin:8px 0">
+    <span class="chip grey">● P. D'Souza · Billing — same patient open</span><span class="small muted">presence (DS-13) — advisory, nothing locked</span>
+  </div>
+  <div class="card"><div class="card-title">Timeline — newest first, filter as you type <span class="right"><input class="input" placeholder="filter: modality, branch, year…" style="width:220px"></span></div>
+  <table>
+    <tr><th>When (IST)</th><th>What</th><th>Branch</th><th>Ref</th><th>Outcome</th><th>Open</th></tr>
+    <tr><td class="mono">19 Jul 2026</td><td>CT KUB — signed report</td><td>North Paravoor</td><td class="mono">ACC-2026-90934</td><td><span class="chip green">Final · Dr. A. Rao</span></td><td><span class="btn small primary">Report</span> <span class="btn small ghost">Images</span></td></tr>
+    <tr><td class="mono">09 Jul 2026</td><td>Visit + invoice</td><td>North Paravoor</td><td class="mono">VIS-2026-38240</td><td><span class="chip amber">Balance ₹2,340</span></td><td><span class="btn small ghost">Visit</span></td></tr>
+    <tr><td class="mono">03 Dec 2025</td><td>USG KUB — signed report</td><td>Irinjalakuda</td><td class="mono">ACC-2026-88102</td><td><span class="chip green">Final</span></td><td><span class="btn small primary">Report</span></td></tr>
+    <tr><td class="mono">28 Nov 2025</td><td>Booking (kept)</td><td>Irinjalakuda</td><td class="mono">APT-2025-61120</td><td><span class="chip green">Attended</span></td><td><span class="btn small ghost">Details</span></td></tr>
+    <tr><td class="mono">17 Sep 2025</td><td>Registration (walk-in)</td><td>North Paravoor</td><td class="mono">MRN-004795</td><td><span class="chip grey">Origin record</span></td><td>—</td></tr>
+  </table></div>
+  <div class="card"><div class="card-title">Contract</div>
+  <table>
+    <tr><th style="width:30%">Rule</th><th>Specification</th></tr>
+    <tr><td class="bold">Speed budget</td><td>First paint ≤2 s on branch broadband, ≤4 s on degraded link (then DS-04 cached chip). The list streams — newest rows render first while older pages load.</td></tr>
+    <tr><td class="bold">Same-org, all branches</td><td>Cross-branch priors load without a request wall — allow-and-audit for treatment purpose (D-14). The access log records which priors were opened, from where, by whom.</td></tr>
+    <tr><td class="bold">Role scope</td><td>Front office sees existence + status + billing docs, never report bodies (role contract, DOC-03); radiologists get the same timeline with full clinical open (RD-05 prior launch).</td></tr>
+    <tr><td class="bold">Everywhere</td><td>The identical panel opens from the DS-12 bar ("Priors ▸"), Ctrl+K ("priors" verb), FO-06, RD reading, DD referrer view and BL billing — one component, one behaviour (DS-13 live-refresh rules apply).</td></tr>
+  </table></div>
+</div></div></div>
+
 <p class="audit">Every open of a patient record by front-office staff is recorded in the access log with operator ID, timestamp, and stated purpose (e.g. "delivery fix", "billing"). Clinical report bodies are not rendered for this role; Aadhaar is displayed last-4 only. Alert actions (waive hold, re-send link) require reason capture and are recorded in the access log.</p>
 </section>

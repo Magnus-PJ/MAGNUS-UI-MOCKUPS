@@ -25,7 +25,7 @@ GROUPS = {
  "G13_Integration_Devices":    ("G13 · Integration & Devices", "wave4", ["in-%02d"%i for i in range(1,12)]),
  "G16_Platform_Operator":      ("G16 · Platform Operator", "wave4", ["pl-%02d"%i for i in range(1,14)]),
  "G18_Global_Search_Tasks":   ("G18 · Global Search & Tasks", "wave4", ["gs-01","gs-02"]),
- "G17_Design_System_Patterns": ("G17 · Design System & Patterns", "wave4", ["ds-%02d"%i for i in range(1,13)]),
+ "G17_Design_System_Patterns": ("G17 · Design System & Patterns", "wave4", ["ds-%02d"%i for i in range(1,15)]),
 }
 
 

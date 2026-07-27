@@ -6,12 +6,13 @@
 <b>Asha Varma</b><span class="mono">MRN-004900</span><span>29y · F</span>
 <span class="chip red" style="background:#FEE2E2">⚠ Contrast allergy</span><span class="chip amber">Balance ₹250</span>
 <span class="chip teal" style="background:#CCFBF1">Visit VIS-2026-30991 · North Paravoor</span>
-<span style="flex:1"></span><span class="btn small" style="background:#fff;color:#134E4A">Patient 360 ▸</span></div>
+<span style="flex:1"></span><span class="btn small" style="background:#fff;color:#134E4A">Priors ▸</span><span class="btn small" style="background:#fff;color:#134E4A">Patient 360 ▸</span></div>
 <table style="margin-top:10px"><tr><th>Rule</th><th>Spec</th></tr>
 <tr><td>When shown</td><td>Any screen operating on a specific patient/visit; hidden on setup/admin/global screens</td></tr>
 <tr><td>Always contains</td><td>Name · MRN · age/sex · safety alerts (allergy/implant/pregnancy) · balance · active visit · branch</td></tr>
 <tr><td>Masking</td><td>Respects DS-07 — roles without demographics purpose see token form</td></tr>
-<tr><td>Actions</td><td>Click → Patient-360 drawer (UX-2); long-press/kebab → recents pin (UX-7)</td></tr>
+<tr><td>Actions</td><td>Click → Patient-360 drawer (UX-2); "Priors ▸" → prior-history quick-pull panel (FO-06 State D, ≤2 s, all branches, keyboard <span class="mono">P</span>); long-press/kebab → recents pin (UX-7)</td></tr>
+<tr><td>Presence</td><td>When other operators have the same patient open, up to 3 presence dots render at the bar's right edge (DS-13); hover names them. Advisory only.</td></tr>
 <tr><td>Small screens</td><td>Collapses to name+MRN+alert icon; tap expands</td></tr></table></div>
 <div class="divider-label">prototype: alternate states below</div>
 <div class="state-tag">STATE B — MASKED (NO-PURPOSE ROLE)</div>

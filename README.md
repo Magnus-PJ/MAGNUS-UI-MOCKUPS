@@ -2,14 +2,14 @@
 
 **MagnusPRO** (working name; final legal name confirmed before UAT) is a privacy-first, radiology-first, multi-tenant healthcare platform — the **foundation module** for a complete enterprise healthcare system (future: LIS, IPD, OT, ICU, ER, IVF, nuclear medicine, pharmacy, CRM, portals, ABDM, international, AI) built so the core is **never rebuilt**.
 
-**This repository is the single source of truth** for the MVP 1 design: **235 production-grade screens** across **18 groups**, **12 architecture documents**, the full decision log, and the vendor-baseline crosswalk — everything the development team (NUMINACORE, Java 21/Spring Boot 3 + React/TypeScript) needs to start Sprint 1 with zero ambiguity.
+**This repository is the single source of truth** for the MVP 1 design: **237 production-grade screens** across **18 groups**, **15 architecture documents**, the full decision log, and the vendor-baseline crosswalk — everything the development team (NUMINACORE, Java 21/Spring Boot 3 + React/TypeScript) needs to start Sprint 1 with zero ambiguity.
 
 ## Quick start
 
 | You are… | Start here |
 |---|---|
 | **Anyone** | `04-architecture-docs/DOC-00_Master_Index.html` — the linked index of everything |
-| **Leadership / client** | `docs/VISION.md` → `docs/DECISIONS.md` (D-01…D-43) |
+| **Leadership / client** | `docs/VISION.md` → `docs/DECISIONS.md` (D-01…D-44) |
 | **The dev team** | `DOC-09` build blueprint → `DOC-11` gap analysis → `DOC-08` crosswalk → group packs |
 | **Anyone wanting to FEEL the product** | `03-complete-pack/MagnusPRO_Live_Prototype.html` — open, sign in, click through everything |
 | **Designers** | `03-complete-pack/group-html/` (one browser-ready pack per group) + `DS` group (design system) |
@@ -23,9 +23,9 @@
 01-review/                 Review of the vendor's original 106-screen walkthrough (.docx)
 02-gap-closure-pack/       First 16 gap-closure screens (NS-01…16) + 10 revisions (historical)
 03-complete-pack/
-  html-source/wave1..4/    ★ ONE SMALL FILE PER SCREEN (235 fragments) — edit one screen
+  html-source/wave1..4/    ★ ONE SMALL FILE PER SCREEN (237 fragments) — edit one screen
                              without touching anything else; IDs like fo-01.html, rd-09.html
-  group-html/              17 assembled group packs + the Combined Volume (235 screens, one file)
+  group-html/              18 assembled group packs + the Combined Volume (237 screens, one file)
   design-system/           base.css (shared design system) · assemble_group.py (rebuild packs)
                            · baseline_map.py (vendor crosswalk, regenerates DOC-08)
   group-pdfs/              DEPRECATED (D-35: PDFs dropped; HTML is the deliverable)
@@ -34,10 +34,10 @@
                            · 06 Billing E2E · 07 Auth & MFA · 08 Vendor Crosswalk
                            · 09 Build & Deployment Blueprint · 10 Test Traceability
                            · 11 Zero-Trust/Air-Gap/GDPR/HIPAA Gap Analysis (closures BUILT)
-docs/                      VISION · DECISIONS (D-01…D-43) · FUTURE_PLAN · HANDOFF
+docs/                      VISION · DECISIONS (D-01…D-44) · FUTURE_PLAN · HANDOFF
 ```
 
-## The 17 groups (235 screens)
+## The 18 groups (237 screens)
 
 | G | Group | IDs | # | G | Group | IDs | # |
 |---|---|---|---|---|---|---|---|
@@ -48,10 +48,10 @@ docs/                      VISION · DECISIONS (D-01…D-43) · FUTURE_PLAN · H
 | G5 | Orders & Clinical Safety | OR-01…08, CS-01…06 | 14 | G14 | Governance & Compliance | GV-01…18 | 18 |
 | G6 | Radiology Technician | TK-01…12 | 12 | G15 | Imaging Regulatory (PC-PNDT/AERB) | IR-01…06 | 6 |
 | G7 | Radiologist Reading & Reporting | RD-01…18 | 18 | G16 | Platform Operator | PL-01…13 | 13 |
-| G8 | Doctor Desk (referrers) | DD-01…11 | 11 | G17 | Design System & Patterns | DS-01…12 | 12 |
+| G8 | Doctor Desk (referrers) | DD-01…11 | 11 | G17 | Design System & Patterns | DS-01…14 | 14 |
 | G9 | Billing & Payments | BL-01…20 | 20 | G18 | Global Search & Tasks | GS-01…02 | 2 |
 
-Every screen: scope chip (MVP1-CORE / Conditional) · **Baseline line** tracing it to the vendor deck or the finding that created it (140 extend / 92 net-new) · 2–4 states (error/blocked/empty/offline) · audit microcopy · synthetic data only (no PHI).
+Every screen: scope chip (MVP1-CORE / Conditional) · **Baseline line** tracing it to the vendor deck or the finding that created it (140 extend / 97 net-new) · 2–4 states (error/blocked/empty/offline) · audit microcopy · synthetic data only (no PHI).
 
 ## Enterprise bars (all designed-in, DOC-11)
 
@@ -75,9 +75,10 @@ All **4 Magnus branches go live together** (North Paravoor, Irinjalakuda, Pullur
 ## Status
 
 - [x] Vendor-deck review (20 scenarios, C/S findings) · [x] Gap-closure pack (NS/R)
-- [x] Waves 1–4: all 17 groups built · [x] Vendor-baseline sync on every screen
+- [x] Waves 1–4: all 18 groups built · [x] Vendor-baseline sync on every screen
 - [x] Architecture docs DOC-00…11 · [x] DOC-11 closures built (AU-19, IN-11, PL-13, GV-17, GV-18, AD-21 + 7 state additions)
-- [x] Combined Volume (235 screens, one HTML) · [x] MagnusPRO naming applied · [x] Verification: ALL CHECKS PASSED
+- [x] Combined Volume (237 screens, one HTML) · [x] MagnusPRO naming applied · [x] Verification: ALL CHECKS PASSED
+- [x] v1.4 Concurrency & Speed round (**D-44**): DS-13 concurrency/presence pattern · DS-14 printing-everywhere · Flow 17 · FO-06 prior quick-pull (≤2 s) — pack = 237
 - [x] Full page-by-page audit v1.3.1 (**DOC-15**): 20 dimensions × 235 screens · 9 defects fixed, 0 open · identity sweep 0 leftovers · Playwright smoke 19/19
 - [ ] Final legal product name (client, before UAT) · [ ] Branch-4 details (client) · [ ] UAT planning (deferred)
 

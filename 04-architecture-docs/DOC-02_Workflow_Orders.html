@@ -553,6 +553,30 @@ h3{font-size:14px;margin:14px 0 6px}
   </table>
 </div>
 
+<!-- ================================================== FLOW 17 -->
+<h2 id="f17">Flow 17 — Simultaneous same-patient operations (concurrency spine)</h2>
+<p class="small muted" style="margin:4px 0 10px">Client input 26-Jul-2026: multiple operators work the system at the same time, often on the SAME patient — while walk-ins (Flow 3) and booked arrivals (Flow 2) converge on one queue, priors must pull instantly, and every counter can print. This flow shows one busy mid-morning minute for one patient, all lanes live at once. Normative pattern: DS-13 (presence, section locks, concurrency matrix, live refresh) · DS-14 (print points) · FO-06 State D (prior quick-pull).</p>
+<div class="card">
+  <div class="flow">
+    <div class="fstep"><span class="fid">FO-02</span>Counter 1: contact correction (section: contact)</div><span class="farr">∥</span>
+    <div class="fstep"><span class="fid">BL-04</span>Counter 2: cashier collects balance (payment intent lock, 90 s)</div><span class="farr">∥</span>
+    <div class="fstep"><span class="fid">TK-03</span>CT room: technologist opens the visit (state ARRIVED)</div><span class="farr">∥</span>
+    <div class="fstep"><span class="fid">FO-06·D</span>Any screen: priors pulled ≤2 s, all branches (key P / DS-12 bar)</div><span class="farr">∥</span>
+    <div class="fstep alt"><span class="fid">RD-05</span>Radiologist (remote branch) views priors — allow-and-audit (D-14)</div>
+  </div>
+  <table>
+    <tr><th>Concurrency event</th><th>System behaviour</th><th>Screen(s)</th><th>Guarantee</th></tr>
+    <tr><td>All five operators on one patient</td><td>Presence strip names each operator + activity on every patient-scoped screen; nothing locked by presence alone</td><td class="mono">DS-13 A</td><td>Awareness ≤10 s heartbeat</td></tr>
+    <tr><td>Two edits in the same section</td><td>409 → side-by-side conflict dialog; clinical/financial fields never last-write-wins</td><td class="mono">DS-13 B</td><td>Zero silent overwrites</td></tr>
+    <tr><td>Second cashier opens the same invoice</td><td>Sees live "collection in progress" panel, not an error; intent expires in 90 s if abandoned</td><td class="mono">BL-04 · DS-13 C</td><td>No double charge</td></tr>
+    <tr><td>Walk-in registered while booked patient checks in (two counters)</td><td>Both feed ONE visit queue; token issue is serialised server-side; boards update in place (2 s push)</td><td class="mono">FO-05 · DS-13 D</td><td>No duplicate token/slot</td></tr>
+    <tr><td>Demographic fix lands mid-billing</td><td>Invoice keeps its creation-time snapshot; open panes show "Updated by … — refresh" chip; safety fields hard-refresh</td><td class="mono">DS-13 D</td><td>Documents immutable, screens truthful</td></tr>
+    <tr><td>Prints fired from three counters at once</td><td>Each counter prints silently to its own default device (AD-16); failures reroute or queue — the patient queue never waits on paper</td><td class="mono">DS-14 B/C</td><td>Workflow never blocks on a printer (statutory Form F excepted)</td></tr>
+    <tr><td>Duplicate-merge attempted during all this</td><td>The one whole-record lock: 60 s exclusive window, countdown banner for everyone, queued actions replay against surviving MRN</td><td class="mono">FO-04 · DS-13 C</td><td>Merge atomicity</td></tr>
+  </table>
+  <p class="small muted" style="margin-top:8px">SLA hooks: prior-pull first paint ≤2 s (FO-06 D) · presence staleness ≤30 s · payment-intent expiry 90 s · queue-board push cadence 2 s. Audit: every lane is separately attributable end-to-end (DOC-05); "who changed this while I watched" is answerable from GV-01 in one lookup.</p>
+</div>
+
 <div class="card" style="border-left:5px solid #0F766E">
   <div class="card-title">Document control <span class="right">DOC-02</span></div>
   <div class="kv">

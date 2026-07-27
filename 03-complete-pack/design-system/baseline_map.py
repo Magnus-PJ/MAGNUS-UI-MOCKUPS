@@ -146,6 +146,8 @@ M = {
  "ds-07":("NET-NEW","masked identity & privacy pattern (C-7)"), "ds-08":("NET-NEW","form validation & Indian formats"),
  "ds-09":("NET-NEW","print/document template pattern"), "ds-10":("NET-NEW","i18n & localisation pattern"),
  "ds-11":("NET-NEW","navigation & IA map of the full product"),
+ "ds-13":("NET-NEW","client input 26-Jul: concurrency/presence/same-patient pattern (D-44)"),
+ "ds-14":("NET-NEW","client input 26-Jul: printing-everywhere pattern (D-44)"),
 }
 
 WAVES = {"wave1":["fo","or","cs","tk","rd"],"wave2":["bl","nt","pt","dd"],"wave3":["ad","gv","gr","ir"],"wave4":["au","sc","in","pl","ds"]}

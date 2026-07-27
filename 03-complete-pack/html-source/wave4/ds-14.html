@@ -1,0 +1,64 @@
+<section class="screen" id="ds-14">
+<div class="screen-head"><h1><span class="sid">DS-14</span> Printing-Everywhere Pattern — Print Points, Behaviour &amp; Failure</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM</span><div class="cluster">G17 Design System &amp; Patterns — documentation pages</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · client input 26-Jul (printer access available at every location/counter)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> Every Magnus counter and room has printer access (client-confirmed), so printing is a first-class output everywhere — not an afterthought behind a browser dialog. This page defines the product-wide print contract: the registry of every printable artifact, the one print behaviour (default device per counter, silent where it should be silent, audited where it must be audited), the failure states, and the statutory print rules for invoices, Form F and reports. Paper is part of the workflow in Kerala diagnostics; the design treats it that way. Division of labour: DS-09 owns what documents LOOK like (templates, layout, letterheads); this page owns where, how and what-happens-when-it-fails.</div>
+
+<div class="state-tag">STATE A — PRINT-POINT REGISTRY (EVERY PRINTABLE ARTIFACT)</div>
+<div class="card">
+  <div class="card-title">Normative registry — screen → artifact → paper → copies → reprint rule</div>
+  <table>
+    <tr><th>Artifact</th><th>Printed from</th><th>Paper</th><th>Copies</th><th>Reprint</th></tr>
+    <tr><td class="bold">Registration slip + token</td><td>FO-02/FO-05 · auto after register</td><td>Thermal 80 mm</td><td>1</td><td>Free · silent</td></tr>
+    <tr><td class="bold">Appointment confirmation</td><td>FO-08 / SC board</td><td>Thermal 80 mm</td><td>1</td><td>Free · silent</td></tr>
+    <tr><td class="bold">Invoice / receipt (GST)</td><td>BL-03/BL-05 · auto after payment</td><td>A5 or thermal (branch setting)</td><td>1 patient</td><td>Marked <span class="chip grey">DUPLICATE</span> · audited</td></tr>
+    <tr><td class="bold">Credit note / refund voucher</td><td>BL-08/BL-09</td><td>A5</td><td>2 (patient + cash file)</td><td>Audited + reason</td></tr>
+    <tr><td class="bold">Consent form (signed copy)</td><td>CS-03 / kiosk</td><td>A4</td><td>1</td><td>Audited</td></tr>
+    <tr><td class="bold">PC-PNDT Form F</td><td>IR-02 · before USG</td><td>A4 statutory layout</td><td>1 + monthly bundle</td><td>Audited + reason · never editable</td></tr>
+    <tr><td class="bold">Signed report (with images ref)</td><td>RD-14 / NT-02 counter pickup / FO desk</td><td>A4</td><td>1</td><td>Free (identity-verified) · audited · watermark</td></tr>
+    <tr><td class="bold">Counter-pickup slip</td><td>NT-02</td><td>Thermal 80 mm</td><td>1</td><td>Free</td></tr>
+    <tr><td class="bold">EOD cash summary</td><td>BL-14 close</td><td>A4</td><td>1 per session</td><td>Audited</td></tr>
+    <tr><td class="bold">Grievance acknowledgement</td><td>GR-02</td><td>A5</td><td>1</td><td>Free</td></tr>
+  </table>
+  <p class="small muted" style="margin-top:8px">Anything printable is in this registry with its rule; a screen may not invent an ad-hoc print. New artifacts add a row here first (same contract discipline as the DS-13 matrix).</p>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — ONE PRINT BEHAVIOUR, PRODUCT-WIDE</div>
+<div class="card">
+  <div class="card-title">Behaviour contract <span class="right">normative</span></div>
+  <table>
+    <tr><th style="width:30%">Rule</th><th>Specification</th></tr>
+    <tr><td class="bold">Default device per counter</td><td>Each workstation profile (AD-16 device registry) declares its default printer + paper. Routine prints (tokens, slips, receipts) go there <b>silently</b> — zero dialogs in the happy path. The footer shows a quiet confirmation: <span class="chip grey">🖨 Printed · FO-COUNTER-2 · 11:42</span>.</td></tr>
+    <tr><td class="bold">Explicit picker, when it matters</td><td>A4 clinical/statutory artifacts (report, Form F, consent) show a one-line confirm with printer name and a change link — because wrong-tray statutory prints waste controlled forms. Preview only on request, never forced.</td></tr>
+    <tr><td class="bold">Duplicates &amp; reprints</td><td>Financial and statutory reprints render with a <b>DUPLICATE</b> diagonal band and reprint ordinal ("Reprint #2 of INV/NPV/26-27/0430") — the document number NEVER changes on reprint (D-16 series integrity). Reprint reasons are one tap (torn / not collected / patient request / printer failure).</td></tr>
+    <tr><td class="bold">Audit</td><td>Every print of PHI or a financial document is an audit event (<span class="mono">doc_printed</span>: who, what doc id, which device, which counter). Token/queue slips are exempt (no PHI beyond token number).</td></tr>
+    <tr><td class="bold">Patient-facing bilingual</td><td>Patient-held artifacts (token, receipt footer, pickup slip, consent) print English + Malayalam per D-27; clinical report body remains English.</td></tr>
+  </table>
+</div>
+
+<div class="state-tag">STATE C — FAILURE: PRINTER DOWN AT A BUSY COUNTER</div>
+<div class="card">
+  <div class="card-title">Failure states — degrade like DS-04, never block the queue</div>
+  <div class="banner warn"><b>⚠ FO-COUNTER-2 printer not responding since 11:44 IST.</b> Tokens auto-reroute to FO-COUNTER-1 (6 m away); patients are being called by name from the board meanwhile. Receipts queue here and release on recovery. Owner: D. Nair · auto-retry every 30 s.</div>
+  <table>
+    <tr><th style="width:30%">Rule</th><th>Specification</th></tr>
+    <tr><td class="bold">Reroute first</td><td>If another registered printer exists at the branch, routine prints reroute automatically (banner states where). The workflow — registration, payment, token issue — <b>never waits on paper</b>.</td></tr>
+    <tr><td class="bold">Queue if no fallback</td><td>Prints queue per device with live count; recovery releases FIFO. Queued financial docs remain valid — the number was allocated at the business event, not at the printer.</td></tr>
+    <tr><td class="bold">Statutory exception</td><td>Form F cannot be "printed later": if no printer is reachable for it, the USG cannot proceed (IR-02 blocking state) — same severity as consent refusal. This is the one artifact allowed to stop a workflow, by law.</td></tr>
+    <tr><td class="bold">Idempotent recovery</td><td>Releasing the queue reprints exactly the rendered artifact (stored render hash) — a recovered print is never a re-generated document. Failed-then-recovered prints do not create DUPLICATE bands.</td></tr>
+  </table>
+</div>
+
+<div class="state-tag">STATE D — STATUTORY PRINT RULES (INVOICE · FORM F · REPORT)</div>
+<div class="card">
+  <div class="card-title">What each regulated artifact must carry on paper</div>
+  <table>
+    <tr><th>Artifact</th><th>Mandatory print elements</th></tr>
+    <tr><td class="bold">GST invoice / receipt</td><td>GSTIN 32AAACM1234K1Z7 · series number (BL-16 registry) · "GST-Exempt (healthcare service)" wording on exempt lines (D-16) · branch address · payment mode + UTR for UPI · Malayalam thank-you footer.</td></tr>
+    <tr><td class="bold">PC-PNDT Form F</td><td>Statutory layout locked (D-15) · patient signed undertaking section · declaration never pre-ticked on the printed form · centre PNDT registration KL/PNDT/EKM/2019/4471 · sonologist name + registration · no foetal-sex field anywhere.</td></tr>
+    <tr><td class="bold">Printed report</td><td>Header: patient (MRN, age/sex), accession, modality, performing branch · signing radiologist + reg no + sign timestamp (D-26) · footer watermark: "Printed copy — verify authenticity online" + QR to the PT-03 secure view (72 h link, D-12) · CRITICAL flag band if applicable (D-13) · addendum pages clearly bannered.</td></tr>
+    <tr><td class="bold">All patient-held prints</td><td>Branch helpline + grievance line (GR) · privacy line: "This document contains personal data — handle per DPDP" · no Aadhaar beyond last-4, ever, on paper (D-20).</td></tr>
+  </table>
+  <p class="small muted" style="margin-top:8px">Cross-refs: AD-16 device/printer registry · BL-16 number series · IR-02 Form F chain · NT-02 counter pickup · DS-04 degraded mode · DOC-02 Flow 17 print points. Hardware stays vendor-neutral (D-37): the app talks to a print service abstraction, printers live in the per-centre registry (AD-21).</p>
+</div>
+</section>

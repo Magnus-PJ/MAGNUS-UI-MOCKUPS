@@ -1,0 +1,81 @@
+<section class="screen" id="ds-13">
+<div class="screen-head"><h1><span class="sid">DS-13</span> Concurrency, Presence &amp; Same-Patient Collaboration Pattern</h1><div class="meta"><span class="chip violet">DESIGN SYSTEM</span><div class="cluster">G17 Design System &amp; Patterns — documentation pages</div><div class="cluster" style="margin-top:3px;font-weight:700;color:#B45309">Baseline: NET-NEW · client input 26-Jul (multiple operators on the same patient at the same time)</div></div></div>
+<div class="gap-note" style="background:#F0FDFA;border-color:#99F6E4;color:#134E4A"><b>Purpose &amp; workflow:</b> In every Magnus branch the same patient is touched by several operators at once — front office corrects a phone number while the cashier collects payment while the technologist opens the visit at the modality and a radiologist pulls priors. This page is the product-wide contract for that reality: presence awareness, section-scoped edits with optimistic locking, a normative concurrency matrix (what may run in parallel, what serialises, what blocks), and the live-refresh rules that keep every open screen truthful without anyone pressing reload. Nothing in Magnus ever silently overwrites another operator's work.</div>
+
+<div class="state-tag">STATE A — PRESENCE: WHO ELSE IS ON THIS RECORD, LIVE</div>
+<div class="card">
+  <div class="card-title">Presence strip — appears on every patient/visit-scoped screen <span class="right">component: .presence</span></div>
+  <div style="display:flex;gap:8px;align-items:center;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:8px 12px;margin-bottom:10px">
+    <span class="chip teal">● You · Front Office</span>
+    <span class="chip grey">● P. D'Souza · Billing — collecting invoice INV/NPV/26-27/0430</span>
+    <span class="chip grey">● T. Okafor · CT console — visit open (acquiring)</span>
+    <span class="chip violet">● Dr. S. Menon · Reading — viewing priors (Irinjalakuda)</span>
+  </div>
+  <table>
+    <tr><th style="width:30%">Rule</th><th>Specification</th></tr>
+    <tr><td class="bold">Where shown</td><td>Any screen scoped to a patient or visit (FO-06 patient 360, BL billing, TK worklists, RD reading, DD referrer view). Renders under the pinned patient-context bar (DS-12). Empty when you are alone — the strip collapses to nothing, never a "0 others" message.</td></tr>
+    <tr><td class="bold">What it states</td><td>Operator display name · role · what they are doing (the screen's declared activity verb) · branch if different from yours. Identity is a name + role, never a photo; patient-facing displays (queue boards) NEVER show presence.</td></tr>
+    <tr><td class="bold">Freshness</td><td>Heartbeat every 10 s; an entry older than 30 s greys out; older than 2 min it is removed. Presence is advisory — it never locks anything by itself.</td></tr>
+    <tr><td class="bold">Audit</td><td>Presence is telemetry, not an access event. Opening the record is the audited event (per DOC-05); the strip just makes it visible to peers in real time.</td></tr>
+  </table>
+</div>
+
+<div class="divider-label">prototype: alternate states below</div>
+
+<div class="state-tag">STATE B — SECTION-SCOPED EDITS + CONFLICT DIALOG (ONLINE TWIN OF DS-04)</div>
+<div class="card">
+  <div class="card-title">Optimistic locking, per section — not per record <span class="right">normative</span></div>
+  <table>
+    <tr><th style="width:30%">Contract clause</th><th>Specification</th></tr>
+    <tr><td class="bold">Edit unit = section</td><td>A patient record is edited in independent sections (demographics · contact · insurance/TPA · consent · billing lines · clinical). Each carries its own <span class="mono">version</span>. Two operators editing different sections of the same patient <b>never</b> conflict.</td></tr>
+    <tr><td class="bold">Same-section collision</td><td>Save sends the section version it was loaded with. Stale version → HTTP 409 → the conflict dialog below. No last-write-wins, ever, for clinical or financial fields.</td></tr>
+    <tr><td class="bold">Soft edit signal</td><td>The moment an operator focuses a field in a section someone else has open, both see an amber hint on that section header: <span class="chip amber">✎ Also being edited by D. Nair</span>. Advisory only — typing is never blocked.</td></tr>
+    <tr><td class="bold">No-op merges</td><td>Identical values arriving twice auto-merge silently and are logged (<span class="mono">concurrent_edit_noop</span>), same as DS-04 queue rule.</td></tr>
+  </table>
+</div>
+<div class="card">
+  <div class="card-title">Concurrent-edit conflict dialog — reference spec <span class="right">component: .modal</span></div>
+  <div class="modal-wrap"><div class="modal" style="max-width:640px">
+    <div class="modal-title">This section changed while you were editing</div>
+    <p class="small" style="margin:6px 0 10px">D. Nair (Front Office · North Paravoor) saved <b>Contact details</b> for this patient at 11:42:18 IST, after you opened it. Your unsaved changes are shown side by side — nothing has been lost.</p>
+    <table>
+      <tr><th>Field</th><th>Their saved value (11:42)</th><th>Your unsaved value</th><th>Keep</th></tr>
+      <tr><td class="bold">Mobile</td><td class="mono">98470 22•••</td><td class="mono">98470 31•••</td><td><span class="chip teal">choose</span></td></tr>
+      <tr><td class="bold">Address line 2</td><td>Market Road, North Paravoor</td><td>Market Road, North Paravoor</td><td><span class="chip grey">identical — auto</span></td></tr>
+    </table>
+    <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px"><span class="btn small">Discard mine</span><span class="btn small">Keep mine (overwrites theirs)</span><span class="btn small primary">Merge field-by-field</span></div>
+    <p class="small muted" style="margin-top:8px">Audit: <span class="mono">concurrent_edit_resolved</span> records both versions, the chooser, and the outcome. "Keep mine" requires the field-level diff to have been displayed — the API rejects blind overwrites.</p>
+  </div></div>
+</div>
+
+<div class="state-tag">STATE C — THE CONCURRENCY MATRIX (NORMATIVE — WHAT RUNS IN PARALLEL)</div>
+<div class="card">
+  <div class="card-title">Same patient, same time — allowed combinations</div>
+  <table>
+    <tr><th>Operation A ∥ Operation B (same patient)</th><th>Verdict</th><th>Mechanism</th></tr>
+    <tr><td>Demographics edit ∥ Billing collection</td><td><span class="chip green">PARALLEL</span></td><td>Different sections; invoice snapshots demographics at creation.</td></tr>
+    <tr><td>Registration desk ∥ Technologist opens visit at modality</td><td><span class="chip green">PARALLEL</span></td><td>Visit state machine; acquisition needs <span class="mono">ARRIVED</span>, later demographic edits do not touch the study.</td></tr>
+    <tr><td>Cashier collects ∥ Radiologist reads priors</td><td><span class="chip green">PARALLEL</span></td><td>Read never locks; release-policy check (BL-20 / D-21) evaluates at sign-out, not during payment.</td></tr>
+    <tr><td>Two cashiers ∥ same open invoice</td><td><span class="chip amber">SERIALISED</span></td><td>Payment capture takes a 90 s exclusive intent on the invoice; second cashier sees "P. D'Souza is collecting — ₹2,850 UPI in progress" with live status, not an error.</td></tr>
+    <tr><td>Consent capture ∥ Order creation needing that consent</td><td><span class="chip amber">SERIALISED</span></td><td>Order screen shows consent status live; the Create button enables the moment consent lands — no refresh.</td></tr>
+    <tr><td>Report editing ∥ Report signing</td><td><span class="chip red">BLOCKED</span></td><td>Sign takes an exclusive lock on the report version (D-26 hash binding); editor sees "signing in progress" and their draft becomes an addendum path if sign completes first.</td></tr>
+    <tr><td>Same operator, two counters/devices</td><td><span class="chip amber">SERIALISED</span></td><td>Second device sign-in shows AU-19 device-trust prompt; write actions bind to one active device at a time per role session.</td></tr>
+    <tr><td>Merge (FO-04 duplicate-merge) ∥ anything else</td><td><span class="chip red">BLOCKED</span></td><td>Merge is the only whole-record lock in the product: 60-second exclusive window, everyone else sees a countdown banner; queued actions replay against the surviving MRN.</td></tr>
+  </table>
+  <p class="small muted" style="margin-top:8px">Anything not listed defaults to PARALLEL with section locking. New modules must add their rows to this matrix before build — the matrix is a contract, not documentation.</p>
+</div>
+
+<div class="state-tag">STATE D — LIVE REFRESH: SCREENS STAY TRUE WITHOUT RELOAD</div>
+<div class="card">
+  <div class="card-title">Live-update contract for lists, queues and detail panes</div>
+  <table>
+    <tr><th style="width:30%">Rule</th><th>Specification</th></tr>
+    <tr><td class="bold">In-place row updates</td><td>Worklists, queues, billing lists and the token board update rows in place (2 s server push cadence). A changed row pulses once (<span class="mono">.simrow</span>-style highlight, 1.2 s) — no full-table reflow, no scroll jump, no unread-badge games.</td></tr>
+    <tr><td class="bold">Sort stability</td><td>A row whose sort position changes moves only on the next natural repaint (filter change, pagination, manual refresh) — rows never jump out from under a hovering cursor. New rows enter at their sorted position dimmed for 1.2 s.</td></tr>
+    <tr><td class="bold">Detail-pane staleness</td><td>An open detail pane whose record changed elsewhere shows a slim header chip <span class="chip amber">Updated by P. D'Souza 11:42 — refresh</span>. Clinical-safety fields (allergy, pregnancy, eGFR) hard-refresh immediately with a one-line notice; everything else waits for the user.</td></tr>
+    <tr><td class="bold">Action guards</td><td>Every state-changing button re-validates server-side against current state, not screen state (DOC-13 contract). The stale-click answer is a precise message ("This invoice was settled by P. D'Souza at 11:42"), never a generic failure.</td></tr>
+    <tr><td class="bold">Walk-in ∥ booked convergence</td><td>Both intake paths (Flow 2 booked · Flow 3 walk-in) feed one visit queue; the token board and technologist worklist show the merged stream live, so simultaneous registrations at two counters never double-issue a slot or token.</td></tr>
+  </table>
+  <p class="small muted" style="margin-top:8px">Audit: every live push carries the origin action id — support can answer "why did this row change on my screen" from GV-01 in one lookup. Cross-refs: DS-04 (offline twin) · DS-12 (context bar) · FO-04 (merge lock) · BL-04 (payment intent) · RD-09 (sign lock) · DOC-02 Flow 17.</p>
+</div>
+</section>
